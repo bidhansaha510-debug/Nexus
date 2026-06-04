@@ -1,0 +1,24 @@
+{
+  "cycle_count": 10,
+  "cycle_interval": 5.0,
+  "exploration_rate": 0.1,
+  "stats": {
+    "total_cycles": 10,
+    "total_actions": 3,
+    "successful_actions": 3,
+    "failed_actions": 0,
+    "exploration_actions": 0,
+    "avg_decision_time": 26.43503564977646,
+    "action_distribution": {
+      "pursue_goal": 2,
+      "satisfy_desire": 1
+    },
+    "source_distribution": {
+      "goal": 2,
+      "desire": 1
+    },
+    "prediction_accuracy": 0.0
+  },
+  "action_biases": {},
+  "last_updated": "2026-06-04T03:35:32.891427"
+}

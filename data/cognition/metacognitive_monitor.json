@@ -1,0 +1,14 @@
+{
+  "assessments": [],
+  "bias_history": [],
+  "calibrations": [],
+  "knowledge_boundaries": {},
+  "stats": {
+    "total_assessments": 0,
+    "total_biases_detected": 0,
+    "total_calibrations": 0,
+    "avg_reasoning_quality": 0.0,
+    "avg_confidence_calibration": 0.0,
+    "most_common_bias": null
+  }
+}

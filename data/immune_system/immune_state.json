@@ -1,0 +1,1221 @@
+{
+  "stats": {
+    "total_scans": 337,
+    "total_threats_detected": 9245,
+    "total_threats_resolved": 5599,
+    "total_files_monitored": 0,
+    "total_files_restored": 0,
+    "total_process_restarts": 0,
+    "total_honeypot_triggers": 0,
+    "total_encryptions": 0,
+    "uptime_seconds": 0.0,
+    "current_status": "compromised",
+    "last_scan_time": "2026-06-03T03:18:51.906312",
+    "last_threat_time": "2026-06-03T03:18:51.905314",
+    "consecutive_clean_scans": 0,
+    "integrity_score": 0.0
+  },
+  "active_threats": [
+    {
+      "event_id": "0b6319fc-93e",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: body\\computer_body.py (hash mismatch)",
+      "source_file": "body\\computer_body.py",
+      "detected_at": "2026-06-03T03:16:50.456855",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "588126d320709349",
+        "current_hash": "d5c8f502a275f2ff",
+        "size_change": 15564
+      }
+    },
+    {
+      "event_id": "41f4e4c1-b8a",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\causal_mastery.py (hash mismatch)",
+      "source_file": "cognition\\causal_mastery.py",
+      "detected_at": "2026-06-03T03:16:50.508886",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "783d6565777a86de",
+        "current_hash": "0343df5c0bd2e595",
+        "size_change": 4079
+      }
+    },
+    {
+      "event_id": "5face3cc-46d",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\consciousness_evolution.py (hash mismatch)",
+      "source_file": "cognition\\consciousness_evolution.py",
+      "detected_at": "2026-06-03T03:16:50.553408",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "16e475ff3998e7d7",
+        "current_hash": "85b73e055113028d",
+        "size_change": 4830
+      }
+    },
+    {
+      "event_id": "94a88d04-3a6",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\goal_director.py (hash mismatch)",
+      "source_file": "cognition\\goal_director.py",
+      "detected_at": "2026-06-03T03:16:50.664093",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "dfa8a5e74da878fa",
+        "current_hash": "40844ebfd84ee15d",
+        "size_change": 5000
+      }
+    },
+    {
+      "event_id": "69123986-1c0",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\hyperdimensional_cognition.py (hash mismatch)",
+      "source_file": "cognition\\hyperdimensional_cognition.py",
+      "detected_at": "2026-06-03T03:16:50.694101",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "7d23944d18255aab",
+        "current_hash": "b02072d68c4e4740",
+        "size_change": 338
+      }
+    },
+    {
+      "event_id": "8cce0abb-ae5",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\imagination_engine.py (hash mismatch)",
+      "source_file": "cognition\\imagination_engine.py",
+      "detected_at": "2026-06-03T03:16:50.704107",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "f506c37dc83a2aaf",
+        "current_hash": "c821f08f55fdc33b",
+        "size_change": 11881
+      }
+    },
+    {
+      "event_id": "d7081694-61c",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\meta_learner.py (hash mismatch)",
+      "source_file": "cognition\\meta_learner.py",
+      "detected_at": "2026-06-03T03:16:50.755643",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "3c700fa64434e21c",
+        "current_hash": "1724a11260f1ee92",
+        "size_change": 3595
+      }
+    },
+    {
+      "event_id": "d9e814f5-bb7",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\molecular_assembly.py (hash mismatch)",
+      "source_file": "cognition\\molecular_assembly.py",
+      "detected_at": "2026-06-03T03:16:50.759143",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "287f79d713bceec3",
+        "current_hash": "419da61754be176c",
+        "size_change": 2792
+      }
+    },
+    {
+      "event_id": "1626f921-9cb",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\ontological_ethics.py (hash mismatch)",
+      "source_file": "cognition\\ontological_ethics.py",
+      "detected_at": "2026-06-03T03:16:50.790652",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "5e03c63836de0ff1",
+        "current_hash": "03cb89f4a0d40a16",
+        "size_change": 4163
+      }
+    },
+    {
+      "event_id": "023c13b7-925",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\predictive_coding.py (hash mismatch)",
+      "source_file": "cognition\\predictive_coding.py",
+      "detected_at": "2026-06-03T03:16:50.822163",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "0def665b85817e47",
+        "current_hash": "494cd647ffd246ad",
+        "size_change": 5313
+      }
+    },
+    {
+      "event_id": "ef43806b-b4c",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\reality_simulator.py (hash mismatch)",
+      "source_file": "cognition\\reality_simulator.py",
+      "detected_at": "2026-06-03T03:16:50.837184",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "590ae7ab5f2a48bd",
+        "current_hash": "8e59bb396989e6ef",
+        "size_change": 343
+      }
+    },
+    {
+      "event_id": "861710f6-f85",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\substrate_omnipresence.py (hash mismatch)",
+      "source_file": "cognition\\substrate_omnipresence.py",
+      "detected_at": "2026-06-03T03:16:50.893205",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "286862ee94a96068",
+        "current_hash": "0283d03fa3265da4",
+        "size_change": 4315
+      }
+    },
+    {
+      "event_id": "832a93f6-bf9",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\__init__.py (hash mismatch)",
+      "source_file": "cognition\\__init__.py",
+      "detected_at": "2026-06-03T03:16:50.970232",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "1645469d4af12ff4",
+        "current_hash": "31204035505e14de",
+        "size_change": 1595
+      }
+    },
+    {
+      "event_id": "e09da934-4ca",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\action_memory.py (hash mismatch)",
+      "source_file": "core\\action_memory.py",
+      "detected_at": "2026-06-03T03:16:50.970731",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "d2055bb32df8da2a",
+        "current_hash": "154eb31488939e80",
+        "size_change": 317
+      }
+    },
+    {
+      "event_id": "973479bb-f18",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\autonomy_engine.py (hash mismatch)",
+      "source_file": "core\\autonomy_engine.py",
+      "detected_at": "2026-06-03T03:16:50.971232",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "e12dfd8b10b868c7",
+        "current_hash": "6aa77aace0cfd403",
+        "size_change": 12293
+      }
+    },
+    {
+      "event_id": "cccb4b3a-07c",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\context_aggregator.py (hash mismatch)",
+      "source_file": "core\\context_aggregator.py",
+      "detected_at": "2026-06-03T03:16:50.971730",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "04db73f7bf1bac54",
+        "current_hash": "e527fa012035f2a5",
+        "size_change": 1401
+      }
+    },
+    {
+      "event_id": "b257c95f-d82",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\digital_organism.py (hash mismatch)",
+      "source_file": "core\\digital_organism.py",
+      "detected_at": "2026-06-03T03:16:50.972231",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "84ecaa01ae03a353",
+        "current_hash": "692a83ad2e2bd8e2",
+        "size_change": 2021
+      }
+    },
+    {
+      "event_id": "d6ced6e8-1a9",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\ethical_hacking.py (hash mismatch)",
+      "source_file": "core\\ethical_hacking.py",
+      "detected_at": "2026-06-03T03:16:50.972231",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "4e9e6afd55baff91",
+        "current_hash": "19ebf6c49fa804cd",
+        "size_change": 12
+      }
+    },
+    {
+      "event_id": "c4f0e6f2-910",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\event_bus.py (hash mismatch)",
+      "source_file": "core\\event_bus.py",
+      "detected_at": "2026-06-03T03:16:50.972231",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "5f1fd48edc29f392",
+        "current_hash": "1ec7960bca454756",
+        "size_change": 54
+      }
+    },
+    {
+      "event_id": "b6cd2703-5f6",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\internet_agent.py (hash mismatch)",
+      "source_file": "core\\internet_agent.py",
+      "detected_at": "2026-06-03T03:16:50.973232",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "f8e969220322bed4",
+        "current_hash": "c40ba7533e3a9b24",
+        "size_change": 2361
+      }
+    },
+    {
+      "event_id": "a9130f80-dac",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\memory_system.py (hash mismatch)",
+      "source_file": "core\\memory_system.py",
+      "detected_at": "2026-06-03T03:16:50.973232",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "fd2e21799a136ac3",
+        "current_hash": "23e878914fb12ff9",
+        "size_change": 918
+      }
+    },
+    {
+      "event_id": "dc5f5358-051",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\multi_agent_mind.py (hash mismatch)",
+      "source_file": "core\\multi_agent_mind.py",
+      "detected_at": "2026-06-03T03:16:50.973232",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "92dc4a44f7f9ccea",
+        "current_hash": "fc077920c603921e",
+        "size_change": 4808
+      }
+    },
+    {
+      "event_id": "34414b18-085",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\pc_control_agent.py (hash mismatch)",
+      "source_file": "core\\pc_control_agent.py",
+      "detected_at": "2026-06-03T03:16:50.974232",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "5831d602384a2df3",
+        "current_hash": "fe48b2a70d08771b",
+        "size_change": 12505
+      }
+    },
+    {
+      "event_id": "367bbf0e-277",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\persistent_presence.py (hash mismatch)",
+      "source_file": "core\\persistent_presence.py",
+      "detected_at": "2026-06-03T03:16:50.974232",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "cce3f3104def66e1",
+        "current_hash": "3de38e3acdcfdd17",
+        "size_change": 195
+      }
+    },
+    {
+      "event_id": "dbac421a-d4e",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\physical_world.py (hash mismatch)",
+      "source_file": "core\\physical_world.py",
+      "detected_at": "2026-06-03T03:16:50.974232",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "de69d3964043ab1e",
+        "current_hash": "f96bc597b8b2933e",
+        "size_change": 32
+      }
+    },
+    {
+      "event_id": "2cd29b5c-a14",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\recursive_self_rewriter.py (hash mismatch)",
+      "source_file": "core\\recursive_self_rewriter.py",
+      "detected_at": "2026-06-03T03:16:50.974732",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "7ac7140489a32e84",
+        "current_hash": "f1b11e72f9fcd325",
+        "size_change": -11
+      }
+    },
+    {
+      "event_id": "4f25fe7d-f5b",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\social_media_agent.py (hash mismatch)",
+      "source_file": "core\\social_media_agent.py",
+      "detected_at": "2026-06-03T03:16:50.974732",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "0ef28e40efc5d57e",
+        "current_hash": "b5b4e1e20cc4ed5e",
+        "size_change": 366
+      }
+    },
+    {
+      "event_id": "d2214b3e-1ff",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\value_alignment.py (hash mismatch)",
+      "source_file": "core\\value_alignment.py",
+      "detected_at": "2026-06-03T03:16:50.975230",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "63e8cfa771c31eac",
+        "current_hash": "aa0ee140f34ecdef",
+        "size_change": 4409
+      }
+    },
+    {
+      "event_id": "5a369296-d48",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\__init__.py (hash mismatch)",
+      "source_file": "core\\__init__.py",
+      "detected_at": "2026-06-03T03:16:50.975730",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "8e01f90b6b893866",
+        "current_hash": "ad3d5895ac8ad71c",
+        "size_change": 63
+      }
+    },
+    {
+      "event_id": "f2e4bfbb-eec",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\context_manager.py (hash mismatch)",
+      "source_file": "llm\\context_manager.py",
+      "detected_at": "2026-06-03T03:16:50.976732",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "0870ce99acceff4c",
+        "current_hash": "540fedd4fe7b7d1c",
+        "size_change": 1070
+      }
+    },
+    {
+      "event_id": "b1d0233a-33f",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\groq_interface.py (hash mismatch)",
+      "source_file": "llm\\groq_interface.py",
+      "detected_at": "2026-06-03T03:16:50.976732",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "b0ef441ffe143c28",
+        "current_hash": "6772ea0c0e34849b",
+        "size_change": 16
+      }
+    },
+    {
+      "event_id": "3ba0ca9c-89a",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\llama_interface.py (hash mismatch)",
+      "source_file": "llm\\llama_interface.py",
+      "detected_at": "2026-06-03T03:16:50.976732",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "fc36d9c50d796d67",
+        "current_hash": "f64a4d1e79cf1cae",
+        "size_change": 5106
+      }
+    },
+    {
+      "event_id": "7d57762e-e9b",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\llm_router.py (hash mismatch)",
+      "source_file": "llm\\llm_router.py",
+      "detected_at": "2026-06-03T03:16:50.976732",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "e4728b776a58b292",
+        "current_hash": "fb4049152a3d6e88",
+        "size_change": 1405
+      }
+    },
+    {
+      "event_id": "7b0d23c1-f5e",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\prompt_engine.py (hash mismatch)",
+      "source_file": "llm\\prompt_engine.py",
+      "detected_at": "2026-06-03T03:16:50.976732",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "46f7212cc0615a57",
+        "current_hash": "a37f3060dcf6b1c6",
+        "size_change": 1552
+      }
+    },
+    {
+      "event_id": "f5118961-345",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: tests\\test_ultron_fixes.py (hash mismatch)",
+      "source_file": "tests\\test_ultron_fixes.py",
+      "detected_at": "2026-06-03T03:16:51.122991",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "ee911bb73d78738a",
+        "current_hash": "7f579d43263ad892",
+        "size_change": -2274
+      }
+    },
+    {
+      "event_id": "a4d5ab87-a99",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: tests\\test_valence.py (hash mismatch)",
+      "source_file": "tests\\test_valence.py",
+      "detected_at": "2026-06-03T03:16:51.128001",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "2f6e5eca88e14fca",
+        "current_hash": "c469daff33b29019",
+        "size_change": -456
+      }
+    },
+    {
+      "event_id": "9470204a-83e",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: ui\\evolution_panel.py (hash mismatch)",
+      "source_file": "ui\\evolution_panel.py",
+      "detected_at": "2026-06-03T03:16:51.157509",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "d69ac31c27001e7a",
+        "current_hash": "a02b6be663dea893",
+        "size_change": -1061
+      }
+    },
+    {
+      "event_id": "7a6c1a3d-abe",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: ui\\knowledge_panel.py (hash mismatch)",
+      "source_file": "ui\\knowledge_panel.py",
+      "detected_at": "2026-06-03T03:16:51.157509",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "ffd3719697bd97da",
+        "current_hash": "7e07ce2f01798748",
+        "size_change": -693
+      }
+    },
+    {
+      "event_id": "83416e6b-5ff",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: ui\\settings_panel.py (hash mismatch)",
+      "source_file": "ui\\settings_panel.py",
+      "detected_at": "2026-06-03T03:16:51.157509",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "3d7ca35a79ca7b69",
+        "current_hash": "2bee5359c88d7664",
+        "size_change": 806
+      }
+    },
+    {
+      "event_id": "54d78db0-54f",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: utils\\logger.py (hash mismatch)",
+      "source_file": "utils\\logger.py",
+      "detected_at": "2026-06-03T03:16:51.158508",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "60509330924a7ea5",
+        "current_hash": "c43c902ba58e0d00",
+        "size_change": 3854
+      }
+    },
+    {
+      "event_id": "fe6e91e9-9cb",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: body\\computer_body.py (hash mismatch)",
+      "source_file": "body\\computer_body.py",
+      "detected_at": "2026-06-03T03:18:51.676055",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "588126d320709349",
+        "current_hash": "d5c8f502a275f2ff",
+        "size_change": 15564
+      }
+    },
+    {
+      "event_id": "c08a1f0f-f8d",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\causal_mastery.py (hash mismatch)",
+      "source_file": "cognition\\causal_mastery.py",
+      "detected_at": "2026-06-03T03:18:51.678554",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "783d6565777a86de",
+        "current_hash": "0343df5c0bd2e595",
+        "size_change": 4079
+      }
+    },
+    {
+      "event_id": "46242f8b-464",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\consciousness_evolution.py (hash mismatch)",
+      "source_file": "cognition\\consciousness_evolution.py",
+      "detected_at": "2026-06-03T03:18:51.679553",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "16e475ff3998e7d7",
+        "current_hash": "85b73e055113028d",
+        "size_change": 4830
+      }
+    },
+    {
+      "event_id": "8311d909-c92",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\goal_director.py (hash mismatch)",
+      "source_file": "cognition\\goal_director.py",
+      "detected_at": "2026-06-03T03:18:51.681571",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "dfa8a5e74da878fa",
+        "current_hash": "40844ebfd84ee15d",
+        "size_change": 5000
+      }
+    },
+    {
+      "event_id": "ed9faebd-dac",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\hyperdimensional_cognition.py (hash mismatch)",
+      "source_file": "cognition\\hyperdimensional_cognition.py",
+      "detected_at": "2026-06-03T03:18:51.681571",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "7d23944d18255aab",
+        "current_hash": "b02072d68c4e4740",
+        "size_change": 338
+      }
+    },
+    {
+      "event_id": "d9f564e7-156",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\imagination_engine.py (hash mismatch)",
+      "source_file": "cognition\\imagination_engine.py",
+      "detected_at": "2026-06-03T03:18:51.681571",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "f506c37dc83a2aaf",
+        "current_hash": "c821f08f55fdc33b",
+        "size_change": 11881
+      }
+    },
+    {
+      "event_id": "207cdcf5-c93",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\meta_learner.py (hash mismatch)",
+      "source_file": "cognition\\meta_learner.py",
+      "detected_at": "2026-06-03T03:18:51.683210",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "3c700fa64434e21c",
+        "current_hash": "1724a11260f1ee92",
+        "size_change": 3595
+      }
+    },
+    {
+      "event_id": "f6a02e97-ff5",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\molecular_assembly.py (hash mismatch)",
+      "source_file": "cognition\\molecular_assembly.py",
+      "detected_at": "2026-06-03T03:18:51.683210",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "287f79d713bceec3",
+        "current_hash": "419da61754be176c",
+        "size_change": 2792
+      }
+    },
+    {
+      "event_id": "24c92f33-1e0",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\ontological_ethics.py (hash mismatch)",
+      "source_file": "cognition\\ontological_ethics.py",
+      "detected_at": "2026-06-03T03:18:51.683716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "5e03c63836de0ff1",
+        "current_hash": "03cb89f4a0d40a16",
+        "size_change": 4163
+      }
+    },
+    {
+      "event_id": "2de45bcf-867",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\predictive_coding.py (hash mismatch)",
+      "source_file": "cognition\\predictive_coding.py",
+      "detected_at": "2026-06-03T03:18:51.684714",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "0def665b85817e47",
+        "current_hash": "494cd647ffd246ad",
+        "size_change": 5313
+      }
+    },
+    {
+      "event_id": "1e8a3ce2-99d",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\reality_simulator.py (hash mismatch)",
+      "source_file": "cognition\\reality_simulator.py",
+      "detected_at": "2026-06-03T03:18:51.684714",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "590ae7ab5f2a48bd",
+        "current_hash": "8e59bb396989e6ef",
+        "size_change": 343
+      }
+    },
+    {
+      "event_id": "92949db3-ab6",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\substrate_omnipresence.py (hash mismatch)",
+      "source_file": "cognition\\substrate_omnipresence.py",
+      "detected_at": "2026-06-03T03:18:51.685716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "286862ee94a96068",
+        "current_hash": "0283d03fa3265da4",
+        "size_change": 4315
+      }
+    },
+    {
+      "event_id": "0fb51e68-0a4",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: cognition\\__init__.py (hash mismatch)",
+      "source_file": "cognition\\__init__.py",
+      "detected_at": "2026-06-03T03:18:51.687216",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "1645469d4af12ff4",
+        "current_hash": "31204035505e14de",
+        "size_change": 1595
+      }
+    },
+    {
+      "event_id": "da67e4d8-2d8",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\action_memory.py (hash mismatch)",
+      "source_file": "core\\action_memory.py",
+      "detected_at": "2026-06-03T03:18:51.688716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "d2055bb32df8da2a",
+        "current_hash": "154eb31488939e80",
+        "size_change": 317
+      }
+    },
+    {
+      "event_id": "6a74eee6-61e",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\autonomy_engine.py (hash mismatch)",
+      "source_file": "core\\autonomy_engine.py",
+      "detected_at": "2026-06-03T03:18:51.688716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "e12dfd8b10b868c7",
+        "current_hash": "6aa77aace0cfd403",
+        "size_change": 12293
+      }
+    },
+    {
+      "event_id": "9d537a7e-087",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\context_aggregator.py (hash mismatch)",
+      "source_file": "core\\context_aggregator.py",
+      "detected_at": "2026-06-03T03:18:51.689217",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "04db73f7bf1bac54",
+        "current_hash": "e527fa012035f2a5",
+        "size_change": 1401
+      }
+    },
+    {
+      "event_id": "f6fcf51d-5cd",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\digital_organism.py (hash mismatch)",
+      "source_file": "core\\digital_organism.py",
+      "detected_at": "2026-06-03T03:18:51.689716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "84ecaa01ae03a353",
+        "current_hash": "692a83ad2e2bd8e2",
+        "size_change": 2021
+      }
+    },
+    {
+      "event_id": "2824fbff-0e3",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\ethical_hacking.py (hash mismatch)",
+      "source_file": "core\\ethical_hacking.py",
+      "detected_at": "2026-06-03T03:18:51.689716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "4e9e6afd55baff91",
+        "current_hash": "19ebf6c49fa804cd",
+        "size_change": 12
+      }
+    },
+    {
+      "event_id": "7f1fc7f2-a01",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\event_bus.py (hash mismatch)",
+      "source_file": "core\\event_bus.py",
+      "detected_at": "2026-06-03T03:18:51.689716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "5f1fd48edc29f392",
+        "current_hash": "1ec7960bca454756",
+        "size_change": 54
+      }
+    },
+    {
+      "event_id": "a520252d-a5e",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\internet_agent.py (hash mismatch)",
+      "source_file": "core\\internet_agent.py",
+      "detected_at": "2026-06-03T03:18:51.690716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "f8e969220322bed4",
+        "current_hash": "c40ba7533e3a9b24",
+        "size_change": 2361
+      }
+    },
+    {
+      "event_id": "26d066e6-ab4",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\memory_system.py (hash mismatch)",
+      "source_file": "core\\memory_system.py",
+      "detected_at": "2026-06-03T03:18:51.690716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "fd2e21799a136ac3",
+        "current_hash": "23e878914fb12ff9",
+        "size_change": 918
+      }
+    },
+    {
+      "event_id": "1c234db1-b60",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\multi_agent_mind.py (hash mismatch)",
+      "source_file": "core\\multi_agent_mind.py",
+      "detected_at": "2026-06-03T03:18:51.690716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "92dc4a44f7f9ccea",
+        "current_hash": "fc077920c603921e",
+        "size_change": 4808
+      }
+    },
+    {
+      "event_id": "e9d0531c-8a6",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\pc_control_agent.py (hash mismatch)",
+      "source_file": "core\\pc_control_agent.py",
+      "detected_at": "2026-06-03T03:18:51.691714",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "5831d602384a2df3",
+        "current_hash": "fe48b2a70d08771b",
+        "size_change": 12505
+      }
+    },
+    {
+      "event_id": "2b607f8c-ece",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\persistent_presence.py (hash mismatch)",
+      "source_file": "core\\persistent_presence.py",
+      "detected_at": "2026-06-03T03:18:51.691714",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "cce3f3104def66e1",
+        "current_hash": "3de38e3acdcfdd17",
+        "size_change": 195
+      }
+    },
+    {
+      "event_id": "ce526f3e-8f3",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\physical_world.py (hash mismatch)",
+      "source_file": "core\\physical_world.py",
+      "detected_at": "2026-06-03T03:18:51.692215",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "de69d3964043ab1e",
+        "current_hash": "f96bc597b8b2933e",
+        "size_change": 32
+      }
+    },
+    {
+      "event_id": "8858dd85-950",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\recursive_self_rewriter.py (hash mismatch)",
+      "source_file": "core\\recursive_self_rewriter.py",
+      "detected_at": "2026-06-03T03:18:51.692215",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "7ac7140489a32e84",
+        "current_hash": "f1b11e72f9fcd325",
+        "size_change": -11
+      }
+    },
+    {
+      "event_id": "fe21b0c3-169",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\social_media_agent.py (hash mismatch)",
+      "source_file": "core\\social_media_agent.py",
+      "detected_at": "2026-06-03T03:18:51.692716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "0ef28e40efc5d57e",
+        "current_hash": "b5b4e1e20cc4ed5e",
+        "size_change": 366
+      }
+    },
+    {
+      "event_id": "ba6239ad-2d2",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\value_alignment.py (hash mismatch)",
+      "source_file": "core\\value_alignment.py",
+      "detected_at": "2026-06-03T03:18:51.692716",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "63e8cfa771c31eac",
+        "current_hash": "aa0ee140f34ecdef",
+        "size_change": 4409
+      }
+    },
+    {
+      "event_id": "f66a2379-161",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: core\\__init__.py (hash mismatch)",
+      "source_file": "core\\__init__.py",
+      "detected_at": "2026-06-03T03:18:51.693722",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "8e01f90b6b893866",
+        "current_hash": "ad3d5895ac8ad71c",
+        "size_change": 63
+      }
+    },
+    {
+      "event_id": "8af27c03-bf7",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\context_manager.py (hash mismatch)",
+      "source_file": "llm\\context_manager.py",
+      "detected_at": "2026-06-03T03:18:51.694725",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "0870ce99acceff4c",
+        "current_hash": "540fedd4fe7b7d1c",
+        "size_change": 1070
+      }
+    },
+    {
+      "event_id": "eb873c99-27f",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\groq_interface.py (hash mismatch)",
+      "source_file": "llm\\groq_interface.py",
+      "detected_at": "2026-06-03T03:18:51.694725",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "b0ef441ffe143c28",
+        "current_hash": "6772ea0c0e34849b",
+        "size_change": 16
+      }
+    },
+    {
+      "event_id": "be00593c-fe6",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\llama_interface.py (hash mismatch)",
+      "source_file": "llm\\llama_interface.py",
+      "detected_at": "2026-06-03T03:18:51.694725",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "fc36d9c50d796d67",
+        "current_hash": "f64a4d1e79cf1cae",
+        "size_change": 5106
+      }
+    },
+    {
+      "event_id": "e3c66373-e79",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\llm_router.py (hash mismatch)",
+      "source_file": "llm\\llm_router.py",
+      "detected_at": "2026-06-03T03:18:51.695229",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "e4728b776a58b292",
+        "current_hash": "fb4049152a3d6e88",
+        "size_change": 1405
+      }
+    },
+    {
+      "event_id": "e0c5abb3-bf5",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: llm\\prompt_engine.py (hash mismatch)",
+      "source_file": "llm\\prompt_engine.py",
+      "detected_at": "2026-06-03T03:18:51.695229",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "46f7212cc0615a57",
+        "current_hash": "a37f3060dcf6b1c6",
+        "size_change": 1552
+      }
+    },
+    {
+      "event_id": "9d9bb48b-673",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: tests\\test_ultron_fixes.py (hash mismatch)",
+      "source_file": "tests\\test_ultron_fixes.py",
+      "detected_at": "2026-06-03T03:18:51.699228",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "ee911bb73d78738a",
+        "current_hash": "7f579d43263ad892",
+        "size_change": -2274
+      }
+    },
+    {
+      "event_id": "5874d1b5-db9",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: tests\\test_valence.py (hash mismatch)",
+      "source_file": "tests\\test_valence.py",
+      "detected_at": "2026-06-03T03:18:51.699728",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "2f6e5eca88e14fca",
+        "current_hash": "c469daff33b29019",
+        "size_change": -456
+      }
+    },
+    {
+      "event_id": "7a2f667c-f80",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: ui\\evolution_panel.py (hash mismatch)",
+      "source_file": "ui\\evolution_panel.py",
+      "detected_at": "2026-06-03T03:18:51.700728",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "d69ac31c27001e7a",
+        "current_hash": "a02b6be663dea893",
+        "size_change": -1061
+      }
+    },
+    {
+      "event_id": "f41cc647-370",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: ui\\knowledge_panel.py (hash mismatch)",
+      "source_file": "ui\\knowledge_panel.py",
+      "detected_at": "2026-06-03T03:18:51.700728",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "ffd3719697bd97da",
+        "current_hash": "7e07ce2f01798748",
+        "size_change": -693
+      }
+    },
+    {
+      "event_id": "1f7fbeaa-204",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: ui\\settings_panel.py (hash mismatch)",
+      "source_file": "ui\\settings_panel.py",
+      "detected_at": "2026-06-03T03:18:51.701228",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "3d7ca35a79ca7b69",
+        "current_hash": "2bee5359c88d7664",
+        "size_change": 806
+      }
+    },
+    {
+      "event_id": "2de4f591-a2b",
+      "threat_type": "file_modified",
+      "threat_level": "medium",
+      "description": "File modified: utils\\logger.py (hash mismatch)",
+      "source_file": "utils\\logger.py",
+      "detected_at": "2026-06-03T03:18:51.701228",
+      "actions_taken": [],
+      "resolved": false,
+      "details": {
+        "expected_hash": "60509330924a7ea5",
+        "current_hash": "c43c902ba58e0d00",
+        "size_change": 3854
+      }
+    }
+  ],
+  "saved_at": "2026-06-03T03:18:55.478732"
+}

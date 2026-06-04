@@ -1,0 +1,21 @@
+{
+  "errors": [
+    {
+      "error_id": "c65bdb10",
+      "content": "This is a test response from the mock LLM",
+      "error_type": "logical",
+      "severity": "minor",
+      "description": "what the error is",
+      "location": "where in the text",
+      "suggestion": "how to fix it",
+      "confidence": 0.0,
+      "created_at": "2026-06-04T03:25:29.780565"
+    }
+  ],
+  "stats": {
+    "total_checks": 29,
+    "total_errors_found": 40,
+    "total_fact_checks": 0,
+    "total_consistency_checks": 0
+  }
+}

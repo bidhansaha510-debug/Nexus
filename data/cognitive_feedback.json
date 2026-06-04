@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "saved_at": "2026-06-04T03:26:41.027833",
+  "total_evaluations": 1,
+  "avg_quality": 0.6998214285714285,
+  "strategy_records": {
+    "question:deliberation": {
+      "strategy": "deliberation",
+      "query_type": "question",
+      "scores": [
+        0.6998214285714285
+      ],
+      "avg_score": 0.6998214285714285,
+      "sample_count": 1,
+      "last_used": "2026-03-11T11:06:13.097270"
+    }
+  }
+}

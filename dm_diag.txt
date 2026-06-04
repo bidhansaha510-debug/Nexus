@@ -1,0 +1,38 @@
+﻿
+============================================================
+INSTAGRAM DM DIAGNOSIS
+============================================================
+Instagram username: nexus_agi
+Instagram password set: yes
+Attempting login...
+Login error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[name="username"]"}
+  (Session info: chrome=145.0.7632.160); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0xb97dd3
+	0xb97e14
+	0x9a1db0
+	0x9ec20a
+	0x9ec4ab
+	0xa2de32
+	0xa0ea84
+	0xa2b621
+	0xa0e7d6
+	0x9e0049
+	0x9e0e04
+	0xdf6924
+	0xdf1bf7
+	0xe0f5a0
+	0xbb0f58
+	0xbb891d
+	0xba0648
+	0xba0812
+	0xb8a21a
+	0x75325d49
+	0x77a1d83b
+	0x77a1d7c1
+
+
+============================================================
+DIAGNOSIS COMPLETE
+============================================================

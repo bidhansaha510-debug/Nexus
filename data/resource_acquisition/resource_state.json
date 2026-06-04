@@ -1,0 +1,24 @@
+{
+  "stats": {
+    "total_providers_registered": 0,
+    "total_api_keys_managed": 0,
+    "total_compute_instances": 0,
+    "total_storage_resources": 0,
+    "total_free_tier_services": 12,
+    "total_api_calls_made": 0,
+    "total_cost_saved": 0.0,
+    "active_resources": 0,
+    "exhausted_resources": 0,
+    "last_scan_time": "2026-06-03T03:17:05.638261",
+    "resource_health": 1.0
+  },
+  "budget": {
+    "monthly_budget": 0.0,
+    "monthly_spent": 0.0,
+    "daily_budget": 0.0,
+    "daily_spent": 0.0,
+    "free_tier_savings": 0.0,
+    "alerts_threshold": 0.8
+  },
+  "saved_at": "2026-06-03T03:19:41.277505"
+}

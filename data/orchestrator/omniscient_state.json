@@ -1,0 +1,694 @@
+{
+  "global_state": {
+    "state_id": "2349b716-a",
+    "domains": {
+      "system_health": {
+        "domain": "system_health",
+        "status": "unknown",
+        "health": 0.5,
+        "metrics": {},
+        "anomalies": [],
+        "last_updated": "2026-06-04T03:33:41.168052"
+      },
+      "cognitive_load": {
+        "domain": "cognitive_load",
+        "status": "nominal",
+        "health": 0.9,
+        "metrics": {
+          "system_running": true
+        },
+        "anomalies": [],
+        "last_updated": "2026-06-04T03:33:41.168052"
+      },
+      "self_improvement": {
+        "domain": "self_improvement",
+        "status": "running",
+        "health": 0.9,
+        "metrics": {
+          "errors_detected": 0,
+          "errors_fixed": 0,
+          "features_proposed": 0,
+          "features_implemented": 0
+        },
+        "anomalies": [],
+        "last_updated": "2026-06-04T03:33:41.168887"
+      },
+      "goal_progress": {
+        "domain": "goal_progress",
+        "status": "nominal",
+        "health": 0.85,
+        "metrics": {
+          "total_goals": 43,
+          "by_status": {
+            "active": 10,
+            "paused": 32,
+            "completed": 1
+          },
+          "by_source": {
+            "will": 1,
+            "curiosity": 1,
+            "reflection": 1,
+            "autonomous": 40
+          },
+          "active_goals": 10
+        },
+        "anomalies": [],
+        "last_updated": "2026-06-04T03:33:41.168887"
+      }
+    },
+    "overall_health": 0.7875,
+    "active_anomalies": [],
+    "active_tasks": [],
+    "resource_allocation": {
+      "cognition": 0.7,
+      "self_improvement": 0.3,
+      "monitoring": 0.2,
+      "creativity": 0.4,
+      "empathy": 0.1
+    },
+    "predictions": [
+      {
+        "event": "System health might degrade due to unknown status",
+        "probability": 0.6,
+        "recommended_action": "Run system diagnostic and prioritize self-improvement"
+      },
+      {
+        "event": "Cognitive load might increase due to high goal progress",
+        "probability": 0.4,
+        "recommended_action": "Adjust task prioritization and allocate more cognition resources"
+      }
+    ],
+    "created_at": "2026-06-04T03:32:04.480930"
+  },
+  "anomalies": [],
+  "tasks": {},
+  "history": [
+    {
+      "timestamp": "2026-04-02T17:47:17.190826",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-02T17:49:23.127584",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-02T17:51:28.145387",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-02T18:24:32.151065",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-02T18:26:41.208105",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-02T18:47:05.017556",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-02T19:26:08.348539",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-04T16:38:04.444229",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-04T16:41:03.868610",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-04T17:49:07.988212",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-04T17:52:00.693611",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-04T18:20:40.812486",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-04T18:24:31.519403",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-04T18:26:31.606969",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-05T16:22:30.356185",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-05T16:24:53.301985",
+      "health": 0.7125,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-05T16:29:10.326004",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-06T10:05:28.606379",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-06T10:07:53.556443",
+      "health": 0.7125,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-06T10:13:58.491494",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T04:46:40.900498",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T05:15:07.662845",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T05:29:55.871607",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T05:37:18.188217",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T05:41:10.655651",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T05:43:59.156856",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T05:46:07.779099",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T14:13:05.743277",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T14:38:35.229258",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T14:40:51.966273",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T14:42:58.883271",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T14:44:58.886198",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T14:57:08.348661",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-12T14:59:37.832634",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T06:28:30.385664",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T06:47:46.363499",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T07:02:40.592070",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T07:07:10.641103",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T07:09:37.175121",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T07:11:57.576228",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T07:14:07.842425",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T07:16:15.757458",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T12:32:32.980644",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T12:35:11.409365",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T12:37:44.142623",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T12:47:49.706625",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T12:50:14.207883",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T12:52:18.265487",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T12:54:28.797533",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T17:26:27.999833",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T23:26:42.420244",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T23:29:05.125298",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T23:37:39.010564",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T23:40:06.378525",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T23:42:48.014508",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T23:44:58.636850",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-13T23:48:14.160344",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-14T22:01:38.510452",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-14T22:04:31.724397",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-14T22:06:38.402587",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-14T22:08:44.828986",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-14T22:10:57.604596",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-17T13:25:37.090384",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-17T13:28:03.864048",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-17T13:30:28.255628",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-17T13:32:35.420139",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-17T13:34:45.056812",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T19:46:53.335213",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T19:49:11.845244",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T19:51:51.334748",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T19:53:58.360535",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T19:56:13.443920",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T19:59:05.225657",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T20:03:16.280173",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T20:05:44.164420",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T20:08:56.189885",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-22T20:11:49.867827",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-27T10:30:45.158377",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-27T10:33:09.468726",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-27T10:35:24.055590",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-29T02:59:43.136336",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-29T03:02:12.662803",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-29T03:04:28.276373",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-29T03:06:37.742230",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-29T03:08:59.267732",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-29T03:11:25.656578",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-29T03:13:58.386324",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-04-29T11:56:27.528702",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-05-12T01:01:28.867480",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-05-12T01:03:53.495340",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-05-12T01:06:17.480011",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-05-12T01:08:30.742293",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-06-02T04:57:28.368783",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-06-02T05:12:53.572122",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-06-02T06:24:13.039239",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-06-02T06:27:17.324708",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-06-03T03:17:11.336663",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-06-03T03:19:15.057754",
+      "health": 0.7125,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-06-04T03:25:15.628362",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    },
+    {
+      "timestamp": "2026-06-04T03:33:51.033653",
+      "health": 0.7875,
+      "anomalies": 0,
+      "tasks": 0
+    }
+  ],
+  "stats": {
+    "synthesis_cycles": 134,
+    "anomalies_detected": 0,
+    "anomalies_resolved": 0,
+    "tasks_managed": 0,
+    "predictions_made": 121
+  }
+}

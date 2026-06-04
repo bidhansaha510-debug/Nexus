@@ -1,0 +1,44 @@
+{
+  "local_instance": {
+    "instance_id": "f84d87df-dce",
+    "hostname": "DESKTOP-SHAYAK",
+    "ip_address": "192.168.1.5",
+    "port": 9876,
+    "role": "primary",
+    "state": "shutting_down",
+    "capabilities": [
+      "cognition",
+      "hacking",
+      "research",
+      "monitoring",
+      "evolution"
+    ],
+    "joined_at": "2026-06-03T03:14:28.585178",
+    "last_heartbeat": "2026-06-03T03:19:15.521802",
+    "uptime_seconds": 286.936624,
+    "tasks_completed": 0,
+    "tasks_failed": 0,
+    "cpu_load": 0.114,
+    "memory_usage_pct": 0.413,
+    "version": "1.0.0",
+    "is_leader": false,
+    "metadata": {}
+  },
+  "stats": {
+    "total_instances": 1,
+    "online_instances": 1,
+    "total_messages_sent": 94,
+    "total_messages_received": 0,
+    "total_tasks_delegated": 0,
+    "total_tasks_completed": 0,
+    "total_votes_conducted": 0,
+    "total_syncs": 0,
+    "leader_elections": 4,
+    "network_partitions_detected": 0,
+    "uptime_seconds": 0.0,
+    "shared_memory_entries": 0,
+    "last_heartbeat_time": "2026-06-03T03:19:15.521802"
+  },
+  "shared_memory": {},
+  "saved_at": "2026-06-03T03:19:16.091823"
+}

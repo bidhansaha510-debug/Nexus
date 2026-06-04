@@ -1,0 +1,19 @@
+{
+  "stats": {
+    "total_vulns_discovered": 0,
+    "critical_vulns": 0,
+    "high_vulns": 0,
+    "medium_vulns": 0,
+    "low_vulns": 0,
+    "total_fuzzing_campaigns": 0,
+    "total_iterations": 0,
+    "total_crashes": 0,
+    "unique_crashes": 0,
+    "exploit_chains_built": 0,
+    "payloads_generated": 0,
+    "cves_matched": 0,
+    "avg_time_to_crash_sec": 0.0
+  },
+  "vulnerabilities": [],
+  "saved_at": "2026-06-03T03:19:24.868587"
+}

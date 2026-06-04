@@ -1,0 +1,17 @@
+{
+  "stats": {
+    "total_personas": 0,
+    "active_personas": 0,
+    "total_campaigns": 0,
+    "active_campaigns": 0,
+    "total_messages": 0,
+    "total_engagement": 0,
+    "total_reach": 0,
+    "narratives_tracked": 0,
+    "sentiment_shifts": 0,
+    "phishing_success_rate": 0.0,
+    "social_graph_nodes": 0,
+    "avg_persona_credibility": 0.5
+  },
+  "saved_at": "2026-06-03T03:19:19.454092"
+}

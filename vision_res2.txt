@@ -1,0 +1,12 @@
+
+--- Model: meta-llama/llama-4-scout-17b-16e-instruct ---
+Error: {"error":{"message":"invalid image data","type":"invalid_request_error"}}
+
+
+--- Model: qwen/qwen3-32b ---
+Error: {"error":{"message":"messages[0].content must be a string","type":"invalid_request_error","param":"messages[0].content"}}
+
+
+--- Model: llama-3.3-70b-versatile ---
+Error: {"error":{"message":"messages[0].content must be a string","type":"invalid_request_error","param":"messages[0].content"}}
+

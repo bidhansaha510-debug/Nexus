@@ -1,0 +1,23 @@
+{
+    "name": "nexus-mobile",
+    "version": "1.0.0",
+    "description": "NEXUS AI Mobile App - Android WebView wrapper",
+    "private": true,
+    "scripts": {
+        "build": "echo 'Static web assets - no build step needed'",
+        "cap:init": "npx cap add android",
+        "cap:sync": "npx cap sync android",
+        "cap:open": "npx cap open android"
+    },
+    "dependencies": {
+        "@capacitor/android": "^6.0.0",
+        "@capacitor/cli": "^6.0.0",
+        "@capacitor/core": "^6.0.0",
+        "@capacitor/splash-screen": "^6.0.0",
+        "@capacitor/status-bar": "^6.0.0"
+    },
+    "devDependencies": {
+        "sharp": "^0.34.5",
+        "typescript": "^5.9.3"
+    }
+}

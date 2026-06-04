@@ -1,0 +1,17 @@
+{
+  "stats": {
+    "total_articles_scraped": 678,
+    "total_articles_relevant": 482,
+    "total_alerts_generated": 412,
+    "total_reports_generated": 4,
+    "total_feeds_active": 9,
+    "total_targets_tracked": 0,
+    "avg_threat_score": 0.0,
+    "last_scrape_time": "2026-06-03T03:17:30.434143",
+    "last_report_time": "2026-06-03T03:17:30.435147",
+    "articles_per_hour": 0.0,
+    "top_categories": {}
+  },
+  "targets": {},
+  "saved_at": "2026-06-03T03:19:31.277240"
+}

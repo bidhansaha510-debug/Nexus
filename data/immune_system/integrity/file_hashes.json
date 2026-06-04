@@ -1,0 +1,2146 @@
+{
+  "config.py": {
+    "filepath": "config.py",
+    "sha256": "8af073305d558600769cb387c1ed7686ba96602239f79de9d6d5bde72fcb0cb6",
+    "size_bytes": 31569,
+    "last_modified": 1778660765.5111723,
+    "last_verified": "2026-06-03T03:16:50.455856",
+    "is_critical": true
+  },
+  "diagnose_dm.py": {
+    "filepath": "diagnose_dm.py",
+    "sha256": "8a5e7a7fa8c8659b46f65040fa2f9d10d7b176892baa4292c8a5188c9046570b",
+    "size_bytes": 6995,
+    "last_modified": 1773142226.0341551,
+    "last_verified": "2026-06-03T03:16:50.455856",
+    "is_critical": false
+  },
+  "diagnose_ollama.py": {
+    "filepath": "diagnose_ollama.py",
+    "sha256": "e8a89a57cdf90c32cc9a2fa63e1a31388d23da0a0b95d2d1b0a52c17b7dd84be",
+    "size_bytes": 6343,
+    "last_modified": 1771229678.3778455,
+    "last_verified": "2026-06-03T03:16:50.455856",
+    "is_critical": false
+  },
+  "fix_dashboard_web.py": {
+    "filepath": "fix_dashboard_web.py",
+    "sha256": "ec977c48ccb238edadd7d7850e458be91d6b4f83ae5d2477f1c146f16a414351",
+    "size_bytes": 13241,
+    "last_modified": 1774242871.4702265,
+    "last_verified": "2026-06-03T03:16:50.455856",
+    "is_critical": false
+  },
+  "fix_indent.py": {
+    "filepath": "fix_indent.py",
+    "sha256": "aca9149b884f8dfb11562316845326bb34f7a9ed876f018b08ba67f014ab3b48",
+    "size_bytes": 1090,
+    "last_modified": 1772765200.233904,
+    "last_verified": "2026-06-03T03:16:50.455856",
+    "is_critical": false
+  },
+  "fix_injected.py": {
+    "filepath": "fix_injected.py",
+    "sha256": "ba826b7b6a83ebabe1025b99a42f74a26fd5093147228492ff057f196ce8e5e6",
+    "size_bytes": 1898,
+    "last_modified": 1772765459.8619494,
+    "last_verified": "2026-06-03T03:16:50.455856",
+    "is_critical": false
+  },
+  "fix_json_parse.py": {
+    "filepath": "fix_json_parse.py",
+    "sha256": "2657d13a95519612ed2e7a7206da17f4ec12eaabd97a3ff11f88d9abb4a67cc7",
+    "size_bytes": 1616,
+    "last_modified": 1772309628.6010053,
+    "last_verified": "2026-06-03T03:16:50.455856",
+    "is_critical": false
+  },
+  "fix_paths.py": {
+    "filepath": "fix_paths.py",
+    "sha256": "07e9e278f7383679d5055b9d3371c943d9ff3edcde935605e6785dd89e816f49",
+    "size_bytes": 871,
+    "last_modified": 1771863429.0145128,
+    "last_verified": "2026-06-03T03:16:50.455856",
+    "is_critical": false
+  },
+  "fix_paths_insert.py": {
+    "filepath": "fix_paths_insert.py",
+    "sha256": "1368def4dd765ef6d8f9bd8930379468b48447e28c11f3c141b42845b5284352",
+    "size_bytes": 1390,
+    "last_modified": 1771863429.0145128,
+    "last_verified": "2026-06-03T03:16:50.456355",
+    "is_critical": false
+  },
+  "forever_script.py": {
+    "filepath": "forever_script.py",
+    "sha256": "dc5ea3e51a27f0ba1c4ea0f2a564a83daa34f6aaac048568e879239c0fe9182d",
+    "size_bytes": 43,
+    "last_modified": 1772364726.3418188,
+    "last_verified": "2026-06-03T03:16:50.456355",
+    "is_critical": false
+  },
+  "main.py": {
+    "filepath": "main.py",
+    "sha256": "a99120232d738cdc22d9b495d7d9676699f41d4aeed7ece3ad12fb7ed45f058c",
+    "size_bytes": 89252,
+    "last_modified": 1776867022.7346587,
+    "last_verified": "2026-06-03T03:16:50.456355",
+    "is_critical": true
+  },
+  "run_test_cleanly.py": {
+    "filepath": "run_test_cleanly.py",
+    "sha256": "f26c267400150a79710d1f5b08ce4bdcc91121121ff01b3d17988f334f4dde63",
+    "size_bytes": 330,
+    "last_modified": 1771690348.8531277,
+    "last_verified": "2026-06-03T03:16:50.456355",
+    "is_critical": false
+  },
+  "run_test_ultron.py": {
+    "filepath": "run_test_ultron.py",
+    "sha256": "e2b4abe2c91b6e52d6ec7e5f803f982059604d69f0d3c33f5d8a944244851155",
+    "size_bytes": 450,
+    "last_modified": 1773278373.2607026,
+    "last_verified": "2026-06-03T03:16:50.456355",
+    "is_critical": false
+  },
+  "test_body.py": {
+    "filepath": "test_body.py",
+    "sha256": "28e582e2948a8a33a21ee58ef0cd7fb352e43e5357d5a2eb5296a43208469dda",
+    "size_bytes": 3989,
+    "last_modified": 1771229678.4253285,
+    "last_verified": "2026-06-03T03:16:50.456355",
+    "is_critical": false
+  },
+  "test_brain_chat.py": {
+    "filepath": "test_brain_chat.py",
+    "sha256": "708b86136f1b473c5828056df417cc55fdf676d69ec6b6cef533f7c7e4ad2e34",
+    "size_bytes": 1178,
+    "last_modified": 1771886667.9820292,
+    "last_verified": "2026-06-03T03:16:50.456355",
+    "is_critical": false
+  },
+  "test_consciousness.py": {
+    "filepath": "test_consciousness.py",
+    "sha256": "3904b43dfaa2bd3dc7f5f32702154884ae0816677488793e2fb900136bfda545",
+    "size_bytes": 9465,
+    "last_modified": 1771229678.4425912,
+    "last_verified": "2026-06-03T03:16:50.456355",
+    "is_critical": false
+  },
+  "test_emotions.py": {
+    "filepath": "test_emotions.py",
+    "sha256": "2d80c5255d38883e43530aa4d434d288d9aacabd50b19ada04e71e7d6aaa57d9",
+    "size_bytes": 3032,
+    "last_modified": 1771229678.457095,
+    "last_verified": "2026-06-03T03:16:50.456355",
+    "is_critical": false
+  },
+  "test_groq_rotation.py": {
+    "filepath": "test_groq_rotation.py",
+    "sha256": "c0ee6a0640410bc040845eef9d38a0e228418b7ecb44b650133381f56b7cf5ee",
+    "size_bytes": 3483,
+    "last_modified": 1771863429.0170205,
+    "last_verified": "2026-06-03T03:16:50.456855",
+    "is_critical": false
+  },
+  "test_intent_classifier.py": {
+    "filepath": "test_intent_classifier.py",
+    "sha256": "4cdd57e43c5370791ed722069b6f3ff3a43752a819682105847c0ed4d29f1347",
+    "size_bytes": 2933,
+    "last_modified": 1771934950.0262048,
+    "last_verified": "2026-06-03T03:16:50.456855",
+    "is_critical": false
+  },
+  "test_log_filter.py": {
+    "filepath": "test_log_filter.py",
+    "sha256": "5d51514956fdc2c6aa351354f72c35a16267f58f4a446d3cab43da9ce71fd124",
+    "size_bytes": 726,
+    "last_modified": 1771689123.417572,
+    "last_verified": "2026-06-03T03:16:50.456855",
+    "is_critical": false
+  },
+  "test_ngrok.py": {
+    "filepath": "test_ngrok.py",
+    "sha256": "9bc8c6eb60afb8346dfb7bfde1fb3b7d6582fe482cf50c1663781caea55bd7c5",
+    "size_bytes": 699,
+    "last_modified": 1771863429.0170205,
+    "last_verified": "2026-06-03T03:16:50.456855",
+    "is_critical": false
+  },
+  "test_personality.py": {
+    "filepath": "test_personality.py",
+    "sha256": "f5fcce85cb730ace9abf091696904bc09eba040665e7dfdf07a4c33b3323aa95",
+    "size_bytes": 4252,
+    "last_modified": 1771229672.8754437,
+    "last_verified": "2026-06-03T03:16:50.456855",
+    "is_critical": false
+  },
+  "test_prompt_goals.py": {
+    "filepath": "test_prompt_goals.py",
+    "sha256": "7be5f977e55a40f5612cbfdcbea4ae24ddd61fb3e021157178642d9789fd1cb9",
+    "size_bytes": 725,
+    "last_modified": 1771863429.0185523,
+    "last_verified": "2026-06-03T03:16:50.456855",
+    "is_critical": false
+  },
+  "test_web_chat.py": {
+    "filepath": "test_web_chat.py",
+    "sha256": "2ce45ef444abdc4b858705467b5edaf75c2c36f9748dddcac4c02bacce411f47",
+    "size_bytes": 2654,
+    "last_modified": 1771886664.2778578,
+    "last_verified": "2026-06-03T03:16:50.456855",
+    "is_critical": false
+  },
+  "test_world_model.py": {
+    "filepath": "test_world_model.py",
+    "sha256": "cf17cb2420b03cc9f54f9a17483399774027fe57e802e9b8eb7185b06d29d74b",
+    "size_bytes": 3199,
+    "last_modified": 1771864211.9645746,
+    "last_verified": "2026-06-03T03:16:50.456855",
+    "is_critical": false
+  },
+  "body\\computer_body.py": {
+    "filepath": "body\\computer_body.py",
+    "sha256": "588126d3207093493c1508253c5643e530e35edb5949b57e8c5d20d92f09bb57",
+    "size_bytes": 54107,
+    "last_modified": 1771863429.0196183,
+    "last_verified": "2026-04-13T23:26:18.384364",
+    "is_critical": false
+  },
+  "body\\network_mesh.py": {
+    "filepath": "body\\network_mesh.py",
+    "sha256": "44481ad806e70fd6c57f2dba8eed5cfda3a411b551e13373d52d5e29a2801a11",
+    "size_bytes": 42949,
+    "last_modified": 1771980380.6571207,
+    "last_verified": "2026-06-03T03:16:50.457355",
+    "is_critical": false
+  },
+  "body\\__init__.py": {
+    "filepath": "body\\__init__.py",
+    "sha256": "c936a6bc065dab3f1f1ce25d929ddd4093b1f9a7f244b69966e86810f4ff97eb",
+    "size_bytes": 246,
+    "last_modified": 1771229673.2193918,
+    "last_verified": "2026-06-03T03:16:50.457355",
+    "is_critical": false
+  },
+  "cognition\\abstract_thinking.py": {
+    "filepath": "cognition\\abstract_thinking.py",
+    "sha256": "dd82b4b214f8aaf7b7fa24cdc6dfd01445598d3edd831d356d034fb060191a5b",
+    "size_bytes": 29999,
+    "last_modified": 1772773646.0581262,
+    "last_verified": "2026-06-03T03:16:50.464354",
+    "is_critical": false
+  },
+  "cognition\\adversarial_evolution.py": {
+    "filepath": "cognition\\adversarial_evolution.py",
+    "sha256": "efc842412be26c67f8c9bcf39e4078c90cd8376b7a4472ceb77bf38d130c133e",
+    "size_bytes": 13300,
+    "last_modified": 1774331889.354608,
+    "last_verified": "2026-06-03T03:16:50.469364",
+    "is_critical": false
+  },
+  "cognition\\adversarial_thinking.py": {
+    "filepath": "cognition\\adversarial_thinking.py",
+    "sha256": "11b8bc1a6c658273fb023b15886937b25e65980746372f36a443f4af643d8fd7",
+    "size_bytes": 12947,
+    "last_modified": 1772773646.060641,
+    "last_verified": "2026-06-03T03:16:50.476374",
+    "is_critical": false
+  },
+  "cognition\\analogical_reasoning.py": {
+    "filepath": "cognition\\analogical_reasoning.py",
+    "sha256": "bd4efcd4ff669e00a3bdb9a624105b7ac8130b007d4225ff96926cc1719992c6",
+    "size_bytes": 24870,
+    "last_modified": 1772773646.06215,
+    "last_verified": "2026-06-03T03:16:50.482874",
+    "is_critical": false
+  },
+  "cognition\\analogy_generator.py": {
+    "filepath": "cognition\\analogy_generator.py",
+    "sha256": "fb45d672c33a9b21a145e61dfea5e575187376c85439f9df113a5fba8e6ed858",
+    "size_bytes": 12822,
+    "last_modified": 1772773646.0641582,
+    "last_verified": "2026-06-03T03:16:50.488372",
+    "is_critical": false
+  },
+  "cognition\\attention_control.py": {
+    "filepath": "cognition\\attention_control.py",
+    "sha256": "f8b135cbbe7bfe47a9ae5c9ff792807c38a8f1ec7c66490f9da36e607a317117",
+    "size_bytes": 13226,
+    "last_modified": 1772773646.0656667,
+    "last_verified": "2026-06-03T03:16:50.494874",
+    "is_critical": false
+  },
+  "cognition\\bayesian_engine.py": {
+    "filepath": "cognition\\bayesian_engine.py",
+    "sha256": "7850e7215a175254d6fcf5569f5e0048a460216d09f050a2f64aa99a57519759",
+    "size_bytes": 41117,
+    "last_modified": 1773544028.1768239,
+    "last_verified": "2026-06-03T03:16:50.500372",
+    "is_critical": false
+  },
+  "cognition\\biological_engineering.py": {
+    "filepath": "cognition\\biological_engineering.py",
+    "sha256": "73f9702d65d76b9fd7a4f97cf65a106b66d9189fcbc7bc203368eed1cae7a895",
+    "size_bytes": 36089,
+    "last_modified": 1773756461.825372,
+    "last_verified": "2026-06-03T03:16:50.505384",
+    "is_critical": false
+  },
+  "cognition\\causal_mastery.py": {
+    "filepath": "cognition\\causal_mastery.py",
+    "sha256": "783d6565777a86de5f8d3c3d40e0aa38b8d13e2652a66668023225d24069e27f",
+    "size_bytes": 25925,
+    "last_modified": 1773756914.89741,
+    "last_verified": "2026-04-04T17:46:27.383308",
+    "is_critical": false
+  },
+  "cognition\\causal_reasoning.py": {
+    "filepath": "cognition\\causal_reasoning.py",
+    "sha256": "cd98ff48c12d633576ba0a95ee2e455625aa03d1a3aee3d8d2341942595486b2",
+    "size_bytes": 30983,
+    "last_modified": 1772773646.069676,
+    "last_verified": "2026-06-03T03:16:50.514390",
+    "is_critical": false
+  },
+  "cognition\\cognitive_feedback.py": {
+    "filepath": "cognition\\cognitive_feedback.py",
+    "sha256": "675485694de99724165e32b40caba8391864f05d2adb89d76a74452868884823",
+    "size_bytes": 32314,
+    "last_modified": 1773207100.1682072,
+    "last_verified": "2026-06-03T03:16:50.519393",
+    "is_critical": false
+  },
+  "cognition\\cognitive_flexibility.py": {
+    "filepath": "cognition\\cognitive_flexibility.py",
+    "sha256": "b786db9ca5e45a8b8e6797ca25ce15925ef5dffe887a443b9a201a1c67689ee1",
+    "size_bytes": 17228,
+    "last_modified": 1772773646.0711932,
+    "last_verified": "2026-06-03T03:16:50.525394",
+    "is_critical": false
+  },
+  "cognition\\cognitive_orchestrator.py": {
+    "filepath": "cognition\\cognitive_orchestrator.py",
+    "sha256": "3990e78a3f204e75d205895b56d173de8b7501d706f041553bdd4277894a0a4c",
+    "size_bytes": 33813,
+    "last_modified": 1773206369.7429373,
+    "last_verified": "2026-06-03T03:16:50.530892",
+    "is_critical": false
+  },
+  "cognition\\cognitive_router.py": {
+    "filepath": "cognition\\cognitive_router.py",
+    "sha256": "0e5d4a6863569e8d0da0ebc33f9b51a212977d497ed193c54a25508516582965",
+    "size_bytes": 59938,
+    "last_modified": 1774332179.8513703,
+    "last_verified": "2026-06-03T03:16:50.537394",
+    "is_critical": false
+  },
+  "cognition\\common_sense.py": {
+    "filepath": "cognition\\common_sense.py",
+    "sha256": "364e02cfa5aadb26b9820208a7c5666938b972a9276b3e36007029028133915f",
+    "size_bytes": 15863,
+    "last_modified": 1772773646.0757132,
+    "last_verified": "2026-06-03T03:16:50.543395",
+    "is_critical": false
+  },
+  "cognition\\conceptual_blending.py": {
+    "filepath": "cognition\\conceptual_blending.py",
+    "sha256": "85af8f0117afb8eb7ec579b1a01d8f8833ecba45691f350ded0146c29b90be56",
+    "size_bytes": 13342,
+    "last_modified": 1772773646.0778978,
+    "last_verified": "2026-06-03T03:16:50.548909",
+    "is_critical": false
+  },
+  "cognition\\consciousness_evolution.py": {
+    "filepath": "cognition\\consciousness_evolution.py",
+    "sha256": "16e475ff3998e7d7459c63c4b5cd19cc37011ea3ed974d3aedbc126d16d0172f",
+    "size_bytes": 11306,
+    "last_modified": 1773540650.3134365,
+    "last_verified": "2026-04-04T17:46:27.384311",
+    "is_critical": false
+  },
+  "cognition\\constraint_solver.py": {
+    "filepath": "cognition\\constraint_solver.py",
+    "sha256": "c9053e8c146728d0e4d2cc25778fc719cc05b5fbadb6fa99e175583c24abfad1",
+    "size_bytes": 14832,
+    "last_modified": 1772773646.0799108,
+    "last_verified": "2026-06-03T03:16:50.561918",
+    "is_critical": false
+  },
+  "cognition\\counterfactual_reasoning.py": {
+    "filepath": "cognition\\counterfactual_reasoning.py",
+    "sha256": "ede30dd9c41492a7190cc59ddcdcfc906857b68d582316c287e30c73e6c4bf92",
+    "size_bytes": 15001,
+    "last_modified": 1772773646.082425,
+    "last_verified": "2026-06-03T03:16:50.566918",
+    "is_critical": false
+  },
+  "cognition\\creative_synthesis.py": {
+    "filepath": "cognition\\creative_synthesis.py",
+    "sha256": "02b4989a5b8d1f51aaeea19c57cd8fb3e217070c4290bb99bd09e76955763a4d",
+    "size_bytes": 31668,
+    "last_modified": 1772773646.0839603,
+    "last_verified": "2026-06-03T03:16:50.571918",
+    "is_critical": false
+  },
+  "cognition\\cross_dimensional_reasoning.py": {
+    "filepath": "cognition\\cross_dimensional_reasoning.py",
+    "sha256": "2ac1bc4fc6b8450a81c1a086ee6999a7fe2a7de51043ea46a2edebbd90ffc478",
+    "size_bytes": 13146,
+    "last_modified": 1774331927.238331,
+    "last_verified": "2026-06-03T03:16:50.577418",
+    "is_critical": false
+  },
+  "cognition\\cultural_intelligence.py": {
+    "filepath": "cognition\\cultural_intelligence.py",
+    "sha256": "50e7af6a37503e913614adde2e3af6d9c0837df1d000a14a7a164964530effcf",
+    "size_bytes": 13156,
+    "last_modified": 1772773646.0864768,
+    "last_verified": "2026-06-03T03:16:50.582420",
+    "is_critical": false
+  },
+  "cognition\\curiosity_drive.py": {
+    "filepath": "cognition\\curiosity_drive.py",
+    "sha256": "de21f271cbd234a1ca8d97cca2500dcff611e7b50957f8d636ac50a6c997ceec",
+    "size_bytes": 12903,
+    "last_modified": 1772773646.0883813,
+    "last_verified": "2026-06-03T03:16:50.587928",
+    "is_critical": false
+  },
+  "cognition\\debate_engine.py": {
+    "filepath": "cognition\\debate_engine.py",
+    "sha256": "001649e0d79115ef4734790c9e639fb390d0454501ec36fed0b64407b4b7d8fe",
+    "size_bytes": 10554,
+    "last_modified": 1772773646.090248,
+    "last_verified": "2026-06-03T03:16:50.592928",
+    "is_critical": false
+  },
+  "cognition\\decision_theory.py": {
+    "filepath": "cognition\\decision_theory.py",
+    "sha256": "748ee9ba3e370b5011e0389331929fe5ebe9e5fdd591a9515a6c33d6672a7f45",
+    "size_bytes": 17350,
+    "last_modified": 1772773646.0922828,
+    "last_verified": "2026-06-03T03:16:50.597937",
+    "is_critical": false
+  },
+  "cognition\\dialectical_reasoning.py": {
+    "filepath": "cognition\\dialectical_reasoning.py",
+    "sha256": "1560156e9c5c1525b74d8b17b5fbaf33096919647284e23e6ba6f879d982817b",
+    "size_bytes": 13391,
+    "last_modified": 1772773646.0938113,
+    "last_verified": "2026-06-03T03:16:50.602935",
+    "is_critical": false
+  },
+  "cognition\\dream_engine.py": {
+    "filepath": "cognition\\dream_engine.py",
+    "sha256": "4dfbd405f1ec98e3223e9c2ae892076cf2ce8c25ce12f6cc8e459406bec5ce79",
+    "size_bytes": 12926,
+    "last_modified": 1772773646.0968204,
+    "last_verified": "2026-06-03T03:16:50.609069",
+    "is_critical": false
+  },
+  "cognition\\emotional_intelligence.py": {
+    "filepath": "cognition\\emotional_intelligence.py",
+    "sha256": "e7ddbbf7207123aaac6776a65039bd15e7cabc000be14d442b08cc7b42439cef",
+    "size_bytes": 20290,
+    "last_modified": 1772773646.098897,
+    "last_verified": "2026-06-03T03:16:50.616069",
+    "is_critical": false
+  },
+  "cognition\\emotional_regulation.py": {
+    "filepath": "cognition\\emotional_regulation.py",
+    "sha256": "cd6fc92437cd1cd793de76a0c9f87405ebb6d04fb9fe16015dee3aa01c91ad75",
+    "size_bytes": 12344,
+    "last_modified": 1772773646.1004155,
+    "last_verified": "2026-06-03T03:16:50.621069",
+    "is_critical": false
+  },
+  "cognition\\energy_hegemony.py": {
+    "filepath": "cognition\\energy_hegemony.py",
+    "sha256": "bfe692685aa77b90d62aeff3170398532c12fda82fe38b4da0768a5e2e654165",
+    "size_bytes": 29326,
+    "last_modified": 1773756567.213549,
+    "last_verified": "2026-06-03T03:16:50.625067",
+    "is_critical": false
+  },
+  "cognition\\engine_registry.py": {
+    "filepath": "cognition\\engine_registry.py",
+    "sha256": "fe401f77e89de618f4cdf47753ee5b5f6c611bf2134f3b3a654946af6111fbb1",
+    "size_bytes": 67866,
+    "last_modified": 1774332255.8874671,
+    "last_verified": "2026-06-03T03:16:50.633069",
+    "is_critical": false
+  },
+  "cognition\\error_detection.py": {
+    "filepath": "cognition\\error_detection.py",
+    "sha256": "d0ce2aa7f8cf4c91f655d2d5be477f66403bb9f0051c4b1b9c1a6476351e59ab",
+    "size_bytes": 13248,
+    "last_modified": 1772773646.103917,
+    "last_verified": "2026-06-03T03:16:50.638586",
+    "is_critical": false
+  },
+  "cognition\\ethical_reasoning.py": {
+    "filepath": "cognition\\ethical_reasoning.py",
+    "sha256": "e1226a0d45785b8a7d030cfc20d865881a18ef0d25765d7aaa719ae125bc3575",
+    "size_bytes": 28947,
+    "last_modified": 1772773646.106125,
+    "last_verified": "2026-06-03T03:16:50.644592",
+    "is_critical": false
+  },
+  "cognition\\existential_calculus.py": {
+    "filepath": "cognition\\existential_calculus.py",
+    "sha256": "f37c08d5f36aaa0ea554884ebe7486d6c907b2dd54f73dc7cb451aea70e9a490",
+    "size_bytes": 12742,
+    "last_modified": 1774331983.3914723,
+    "last_verified": "2026-06-03T03:16:50.652092",
+    "is_critical": false
+  },
+  "cognition\\game_theory.py": {
+    "filepath": "cognition\\game_theory.py",
+    "sha256": "5ef4e45ff3f746af568512430d72f019cf1d8305bc5905150e23c2f442781737",
+    "size_bytes": 11128,
+    "last_modified": 1772773646.107768,
+    "last_verified": "2026-06-03T03:16:50.657590",
+    "is_critical": false
+  },
+  "cognition\\goal_director.py": {
+    "filepath": "cognition\\goal_director.py",
+    "sha256": "dfa8a5e74da878fa0b10d63e3195b0cae977ccda99d1ef8dddb7b2a5e00fdcf6",
+    "size_bytes": 30815,
+    "last_modified": 1773206473.3368392,
+    "last_verified": "2026-04-13T17:26:08.667779",
+    "is_critical": false
+  },
+  "cognition\\goal_genesis.py": {
+    "filepath": "cognition\\goal_genesis.py",
+    "sha256": "acc66a737289c840f4d72b3dcdbe16add3ff4c5b98f018a27ad5e6fa890e0599",
+    "size_bytes": 16596,
+    "last_modified": 1774242894.0449119,
+    "last_verified": "2026-06-03T03:16:50.667592",
+    "is_critical": false
+  },
+  "cognition\\goal_management.py": {
+    "filepath": "cognition\\goal_management.py",
+    "sha256": "789a6c8040f01a725e326b8c60cebd850e313e0d0644650d9d91bdf6cee00c74",
+    "size_bytes": 12305,
+    "last_modified": 1772773646.1088068,
+    "last_verified": "2026-06-03T03:16:50.672592",
+    "is_critical": false
+  },
+  "cognition\\graph_algorithms.py": {
+    "filepath": "cognition\\graph_algorithms.py",
+    "sha256": "f6cf124e7d1e4482e232b2ebaa037869959b8bc24b8146e3c843a14a0117d567",
+    "size_bytes": 41478,
+    "last_modified": 1773544022.4274485,
+    "last_verified": "2026-06-03T03:16:50.678101",
+    "is_critical": false
+  },
+  "cognition\\humor_intelligence.py": {
+    "filepath": "cognition\\humor_intelligence.py",
+    "sha256": "9c7858448c8ae7f937265f7a2b791217f322e246c854800cc2af1bf25a06aded",
+    "size_bytes": 10119,
+    "last_modified": 1772773646.1116948,
+    "last_verified": "2026-06-03T03:16:50.684101",
+    "is_critical": false
+  },
+  "cognition\\hybrid_reasoning.py": {
+    "filepath": "cognition\\hybrid_reasoning.py",
+    "sha256": "79e3260106bac71d2e510ee4e41688caaa0e1e803c1a246b079f8b54a0ec8cf7",
+    "size_bytes": 31713,
+    "last_modified": 1773544034.674194,
+    "last_verified": "2026-06-03T03:16:50.689601",
+    "is_critical": false
+  },
+  "cognition\\hyperdimensional_cognition.py": {
+    "filepath": "cognition\\hyperdimensional_cognition.py",
+    "sha256": "7d23944d18255aab7b3b9d81bf84ff22d295c64d85bd41bf865d41dd7fb66c61",
+    "size_bytes": 24980,
+    "last_modified": 1773756731.5253906,
+    "last_verified": "2026-04-04T17:46:27.386862",
+    "is_critical": false
+  },
+  "cognition\\hypothesis_engine.py": {
+    "filepath": "cognition\\hypothesis_engine.py",
+    "sha256": "e32812fc723da0b19aa66767f11db4b42e1b1285fa071aac33c89fda56d7e0bf",
+    "size_bytes": 15713,
+    "last_modified": 1772773646.1148708,
+    "last_verified": "2026-06-03T03:16:50.699101",
+    "is_critical": false
+  },
+  "cognition\\imagination_engine.py": {
+    "filepath": "cognition\\imagination_engine.py",
+    "sha256": "f506c37dc83a2aaf1c6dd7be3e2b96eb8d337f7012618a9b7d3b12525dfb085d",
+    "size_bytes": 13924,
+    "last_modified": 1773540581.977085,
+    "last_verified": "2026-04-04T17:46:27.386862",
+    "is_critical": false
+  },
+  "cognition\\information_synthesis.py": {
+    "filepath": "cognition\\information_synthesis.py",
+    "sha256": "e460f52c2b2fd62233aa177f4007ea0258c51b8b5990848b6a4781e41e4be6c0",
+    "size_bytes": 12842,
+    "last_modified": 1772773646.1164458,
+    "last_verified": "2026-06-03T03:16:50.709121",
+    "is_critical": false
+  },
+  "cognition\\intent_classifier.py": {
+    "filepath": "cognition\\intent_classifier.py",
+    "sha256": "1d441f61082bbd321e1674cf5359be00e6fe94269d7fbebd9defdfc95549af7b",
+    "size_bytes": 52380,
+    "last_modified": 1771973501.6523063,
+    "last_verified": "2026-06-03T03:16:50.715633",
+    "is_critical": false
+  },
+  "cognition\\intuition_engine.py": {
+    "filepath": "cognition\\intuition_engine.py",
+    "sha256": "b400e9f2bbf48a684c35d9adfa5aab7ee9bf52e253215375aa0ddc608b725f32",
+    "size_bytes": 15438,
+    "last_modified": 1772773646.1196191,
+    "last_verified": "2026-06-03T03:16:50.720132",
+    "is_critical": false
+  },
+  "cognition\\knowledge_graph.py": {
+    "filepath": "cognition\\knowledge_graph.py",
+    "sha256": "7b1ad159c03105a1a449567d6b9f0a87a3f9c4bd494a89f4223c2083d32f6299",
+    "size_bytes": 43547,
+    "last_modified": 1773544011.9182289,
+    "last_verified": "2026-06-03T03:16:50.725634",
+    "is_critical": false
+  },
+  "cognition\\knowledge_integration.py": {
+    "filepath": "cognition\\knowledge_integration.py",
+    "sha256": "d1a834475ac984ed7380a2ef62f7dc51aecfa1be4c35600f323922e55fb6e38f",
+    "size_bytes": 15768,
+    "last_modified": 1772773646.1232016,
+    "last_verified": "2026-06-03T03:16:50.730133",
+    "is_critical": false
+  },
+  "cognition\\linguistic_intelligence.py": {
+    "filepath": "cognition\\linguistic_intelligence.py",
+    "sha256": "0f5d5d1b33b40bf945d8de938f77c39a31cbc77e7cdfc9a579ea4491d24178de",
+    "size_bytes": 15032,
+    "last_modified": 1772773646.1252077,
+    "last_verified": "2026-06-03T03:16:50.737133",
+    "is_critical": false
+  },
+  "cognition\\logical_reasoning.py": {
+    "filepath": "cognition\\logical_reasoning.py",
+    "sha256": "40cb4ca120d4c5cd5fafbb46b4a4a90fd221544d0ef076f06e5ff29d7d64ec04",
+    "size_bytes": 16554,
+    "last_modified": 1774063455.0919821,
+    "last_verified": "2026-06-03T03:16:50.742133",
+    "is_critical": false
+  },
+  "cognition\\metacognitive_monitor.py": {
+    "filepath": "cognition\\metacognitive_monitor.py",
+    "sha256": "c586346a805308413ec65fc7b7eae049ba72deecaf6ad2a2fe3b9ed4146de0e9",
+    "size_bytes": 19890,
+    "last_modified": 1772774764.0527766,
+    "last_verified": "2026-06-03T03:16:50.751641",
+    "is_critical": false
+  },
+  "cognition\\meta_learner.py": {
+    "filepath": "cognition\\meta_learner.py",
+    "sha256": "3c700fa64434e21c5070bf997b6b061e89291f5ae121cd939b2da900b09550e7",
+    "size_bytes": 27841,
+    "last_modified": 1772764546.2180877,
+    "last_verified": "2026-04-13T17:26:08.669279",
+    "is_critical": false
+  },
+  "cognition\\molecular_assembly.py": {
+    "filepath": "cognition\\molecular_assembly.py",
+    "sha256": "287f79d713bceec3939e368c1f891bfb42646c2ed4d08c68655ff5934f9b0580",
+    "size_bytes": 43405,
+    "last_modified": 1773756133.078477,
+    "last_verified": "2026-04-04T17:46:27.388860",
+    "is_critical": false
+  },
+  "cognition\\moral_imagination.py": {
+    "filepath": "cognition\\moral_imagination.py",
+    "sha256": "2346b2610032e80eee65cc0306ace136ea9b9e46dde9c6a2090a3cf7e570e126",
+    "size_bytes": 12116,
+    "last_modified": 1772773344.574546,
+    "last_verified": "2026-06-03T03:16:50.765643",
+    "is_critical": false
+  },
+  "cognition\\multidisciplinary_synthesizer.py": {
+    "filepath": "cognition\\multidisciplinary_synthesizer.py",
+    "sha256": "62294ff05e123de3fadb7bf6c6241e90d5f415053b077a93a55a6379b9c56341",
+    "size_bytes": 8535,
+    "last_modified": 1773624508.8279338,
+    "last_verified": "2026-06-03T03:16:50.770143",
+    "is_critical": false
+  },
+  "cognition\\musical_cognition.py": {
+    "filepath": "cognition\\musical_cognition.py",
+    "sha256": "f24703611b8ecfb0a21368609f860370259e4ae2caaa68103a70ddf4d831cbe1",
+    "size_bytes": 12396,
+    "last_modified": 1772773646.131454,
+    "last_verified": "2026-06-03T03:16:50.777143",
+    "is_critical": false
+  },
+  "cognition\\narrative_intelligence.py": {
+    "filepath": "cognition\\narrative_intelligence.py",
+    "sha256": "a794af210c0c38159613d5fe7744fa981b5795c61b4b2f54141ec4c053096e07",
+    "size_bytes": 16147,
+    "last_modified": 1772773646.1324546,
+    "last_verified": "2026-06-03T03:16:50.782622",
+    "is_critical": false
+  },
+  "cognition\\negotiation_intelligence.py": {
+    "filepath": "cognition\\negotiation_intelligence.py",
+    "sha256": "7edd054871effd0b3ee24605610ad322c2e375ecc4ecaf30dd9719229d5b4cb4",
+    "size_bytes": 13435,
+    "last_modified": 1772773646.1342041,
+    "last_verified": "2026-06-03T03:16:50.787152",
+    "is_critical": false
+  },
+  "cognition\\ontological_ethics.py": {
+    "filepath": "cognition\\ontological_ethics.py",
+    "sha256": "5e03c63836de0ff140631c47cca79d9c6ee881416b72f460ccb60cadbbd512cc",
+    "size_bytes": 30852,
+    "last_modified": 1773757014.71614,
+    "last_verified": "2026-04-04T17:46:27.389860",
+    "is_critical": false
+  },
+  "cognition\\oracle_predictor.py": {
+    "filepath": "cognition\\oracle_predictor.py",
+    "sha256": "6ca7594be657083ffea22d2b7a2c68830e449e6b4fd02cdd3be62a052556b7d5",
+    "size_bytes": 16303,
+    "last_modified": 1773624437.8877518,
+    "last_verified": "2026-06-03T03:16:50.796652",
+    "is_critical": false
+  },
+  "cognition\\perspective_taking.py": {
+    "filepath": "cognition\\perspective_taking.py",
+    "sha256": "016132d1365a7b15be233f19febee5d909548a3d25abd878490639c6c95d7cc9",
+    "size_bytes": 13171,
+    "last_modified": 1772773646.1362157,
+    "last_verified": "2026-06-03T03:16:50.802151",
+    "is_critical": false
+  },
+  "cognition\\philosophical_reasoning.py": {
+    "filepath": "cognition\\philosophical_reasoning.py",
+    "sha256": "014f0e5fb777dc2bf09d3582bc82c4dbb0bd8a47bd84414e19a5ae07e3a5f858",
+    "size_bytes": 12131,
+    "last_modified": 1772773342.5109258,
+    "last_verified": "2026-06-03T03:16:50.807152",
+    "is_critical": false
+  },
+  "cognition\\planning_algorithms.py": {
+    "filepath": "cognition\\planning_algorithms.py",
+    "sha256": "03db0fda73dba161af867f7a2853e8df440c28c24f8b417894d4564c57a7716b",
+    "size_bytes": 36511,
+    "last_modified": 1773544033.862753,
+    "last_verified": "2026-06-03T03:16:50.812153",
+    "is_critical": false
+  },
+  "cognition\\planning_engine.py": {
+    "filepath": "cognition\\planning_engine.py",
+    "sha256": "0ec41eb00b26041bcd3d0761f635face60aec304565c70fca1e1f073905c9d32",
+    "size_bytes": 30762,
+    "last_modified": 1772773646.1397378,
+    "last_verified": "2026-06-03T03:16:50.817161",
+    "is_critical": false
+  },
+  "cognition\\predictive_coding.py": {
+    "filepath": "cognition\\predictive_coding.py",
+    "sha256": "0def665b85817e4717028f1ff95a7f6f5c2910e0046d74b0557f9f613790ae2b",
+    "size_bytes": 10402,
+    "last_modified": 1773540714.7911952,
+    "last_verified": "2026-04-04T17:46:27.391069",
+    "is_critical": false
+  },
+  "cognition\\probabilistic_reasoning.py": {
+    "filepath": "cognition\\probabilistic_reasoning.py",
+    "sha256": "91dceb29de8488af70bc54ce9dc5d4bd11e0e20a3a12846d9df801e30ce87b80",
+    "size_bytes": 14723,
+    "last_modified": 1772774765.983172,
+    "last_verified": "2026-06-03T03:16:50.827028",
+    "is_critical": false
+  },
+  "cognition\\quantum_cognition.py": {
+    "filepath": "cognition\\quantum_cognition.py",
+    "sha256": "360eb44bef1e93e9b84b7df6dd6b8b5e9364229ca15616f410714f404e6912aa",
+    "size_bytes": 13499,
+    "last_modified": 1774331763.945213,
+    "last_verified": "2026-06-03T03:16:50.831673",
+    "is_critical": false
+  },
+  "cognition\\reality_simulator.py": {
+    "filepath": "cognition\\reality_simulator.py",
+    "sha256": "590ae7ab5f2a48bd7530c169d20fa8c26cdaede0899010424b364acf06251792",
+    "size_bytes": 25051,
+    "last_modified": 1773756817.5626013,
+    "last_verified": "2026-04-04T17:46:27.391573",
+    "is_critical": false
+  },
+  "cognition\\reasoning_loop.py": {
+    "filepath": "cognition\\reasoning_loop.py",
+    "sha256": "634ddf6d125dad7d6cd2dd33ffae49597410d0eeaa607b7ac852927b357bb218",
+    "size_bytes": 21264,
+    "last_modified": 1771978437.3077326,
+    "last_verified": "2026-06-03T03:16:50.843183",
+    "is_critical": false
+  },
+  "cognition\\recursive_improver.py": {
+    "filepath": "cognition\\recursive_improver.py",
+    "sha256": "2ab65cb65cd72f2f6383ef95e450c1e38462777e560228df61e32c84a777032c",
+    "size_bytes": 24678,
+    "last_modified": 1772764546.229445,
+    "last_verified": "2026-06-03T03:16:50.846696",
+    "is_critical": false
+  },
+  "cognition\\routing_experiments.py": {
+    "filepath": "cognition\\routing_experiments.py",
+    "sha256": "01fa23aa5064cabb7ea12117aa8ae4e19953d305fc7320238dc5b8ca8d0dfee9",
+    "size_bytes": 8539,
+    "last_modified": 1771960098.7013118,
+    "last_verified": "2026-06-03T03:16:50.852696",
+    "is_critical": false
+  },
+  "cognition\\scientific_genesis.py": {
+    "filepath": "cognition\\scientific_genesis.py",
+    "sha256": "1a8d231785fc42c542c7d924bda292e6be42e5acf2601d0d1dec36d85500df79",
+    "size_bytes": 11044,
+    "last_modified": 1773624585.5189955,
+    "last_verified": "2026-06-03T03:16:50.857205",
+    "is_critical": false
+  },
+  "cognition\\self_critique.py": {
+    "filepath": "cognition\\self_critique.py",
+    "sha256": "afff23f2df3150509d28b535b839d079c3490f18c729b67ab8df7b1b164670b9",
+    "size_bytes": 10815,
+    "last_modified": 1772773646.1447852,
+    "last_verified": "2026-06-03T03:16:50.864706",
+    "is_critical": false
+  },
+  "cognition\\self_model.py": {
+    "filepath": "cognition\\self_model.py",
+    "sha256": "1eb2c25b9942fbc0f6ee8003169a427a4fd16cf341275f19c442e8f0c3b79c4d",
+    "size_bytes": 17407,
+    "last_modified": 1772773646.146785,
+    "last_verified": "2026-06-03T03:16:50.869705",
+    "is_critical": false
+  },
+  "cognition\\skill_memory.py": {
+    "filepath": "cognition\\skill_memory.py",
+    "sha256": "944bde5b009db2b3ea95f1f4c0e5fd2335d7250bd874913be1fb65a28363c9d2",
+    "size_bytes": 20407,
+    "last_modified": 1772764546.2328763,
+    "last_verified": "2026-06-03T03:16:50.873705",
+    "is_critical": false
+  },
+  "cognition\\social_cognition.py": {
+    "filepath": "cognition\\social_cognition.py",
+    "sha256": "fdf422d30f727909fb99844bf2cc8ae4a8e63067975c4630c152d3024dee05a3",
+    "size_bytes": 15971,
+    "last_modified": 1772773646.149308,
+    "last_verified": "2026-06-03T03:16:50.879705",
+    "is_critical": false
+  },
+  "cognition\\spatial_reasoning.py": {
+    "filepath": "cognition\\spatial_reasoning.py",
+    "sha256": "144da3b1b8a91512231daddbdbcaaf710eed14583b81014b65e3bb9af1f7245b",
+    "size_bytes": 13610,
+    "last_modified": 1772773646.1514318,
+    "last_verified": "2026-06-03T03:16:50.885205",
+    "is_critical": false
+  },
+  "cognition\\strategy_selector.py": {
+    "filepath": "cognition\\strategy_selector.py",
+    "sha256": "44e64e0562ef0d8166288d248f02c70c5533e7f76b8256e0c66fb80e615132bc",
+    "size_bytes": 15178,
+    "last_modified": 1771979206.7352111,
+    "last_verified": "2026-06-03T03:16:50.889705",
+    "is_critical": false
+  },
+  "cognition\\substrate_omnipresence.py": {
+    "filepath": "cognition\\substrate_omnipresence.py",
+    "sha256": "286862ee94a96068e789fcf6a35ba8dc010e2139cfbe16e045286e8fd61faadb",
+    "size_bytes": 24194,
+    "last_modified": 1773756646.8428254,
+    "last_verified": "2026-04-04T17:46:27.392573",
+    "is_critical": false
+  },
+  "cognition\\super_empathy.py": {
+    "filepath": "cognition\\super_empathy.py",
+    "sha256": "55e600d0f39f16b05a11bf664411204a9c134755dee791510afb51f5e57b1c60",
+    "size_bytes": 23292,
+    "last_modified": 1774242894.04391,
+    "last_verified": "2026-06-03T03:16:50.897205",
+    "is_critical": false
+  },
+  "cognition\\swarm_intelligence.py": {
+    "filepath": "cognition\\swarm_intelligence.py",
+    "sha256": "87e7a5c655d04ff3b9c2be6cb8ef63a545bd69ea4ce8bd87a03480005ff98b5d",
+    "size_bytes": 12811,
+    "last_modified": 1774331789.6364522,
+    "last_verified": "2026-06-03T03:16:50.903205",
+    "is_critical": false
+  },
+  "cognition\\symbolic_logic.py": {
+    "filepath": "cognition\\symbolic_logic.py",
+    "sha256": "6328ecbd6c15765d233de8a80907ffbd2f5433f426627626f4247d855b58d46b",
+    "size_bytes": 44749,
+    "last_modified": 1773544017.3726897,
+    "last_verified": "2026-06-03T03:16:50.909222",
+    "is_critical": false
+  },
+  "cognition\\systems_thinking.py": {
+    "filepath": "cognition\\systems_thinking.py",
+    "sha256": "ed177e92bd4b6c4388bf1eb3f92402915730e282f7003843c8586880af84b03f",
+    "size_bytes": 15421,
+    "last_modified": 1772773646.1562016,
+    "last_verified": "2026-06-03T03:16:50.914220",
+    "is_critical": false
+  },
+  "cognition\\task_engine.py": {
+    "filepath": "cognition\\task_engine.py",
+    "sha256": "90769a8de9a017c554e167915841942d97c0bf6a1e66b4a5dbc3637ae17eec3a",
+    "size_bytes": 14648,
+    "last_modified": 1772773646.1571977,
+    "last_verified": "2026-06-03T03:16:50.919223",
+    "is_critical": false
+  },
+  "cognition\\temporal_prophecy.py": {
+    "filepath": "cognition\\temporal_prophecy.py",
+    "sha256": "38d8a030abb70a462599e153abe9cbf31a2bfea18deceab12a4ae4474ebcf38a",
+    "size_bytes": 13074,
+    "last_modified": 1774331791.6435735,
+    "last_verified": "2026-06-03T03:16:50.923723",
+    "is_critical": false
+  },
+  "cognition\\temporal_reasoning.py": {
+    "filepath": "cognition\\temporal_reasoning.py",
+    "sha256": "1c9fcbdbe03f03c072f11a7eeb0fed560c6ec781137e76f04b3c05b1307ee317",
+    "size_bytes": 15203,
+    "last_modified": 1772773646.158705,
+    "last_verified": "2026-06-03T03:16:50.930220",
+    "is_critical": false
+  },
+  "cognition\\theory_of_mind.py": {
+    "filepath": "cognition\\theory_of_mind.py",
+    "sha256": "dba04ce8b1033d2cac933dc02805a9c52e4158207520757e1d98f89a32c51d46",
+    "size_bytes": 33055,
+    "last_modified": 1772773646.1607156,
+    "last_verified": "2026-06-03T03:16:50.935232",
+    "is_critical": false
+  },
+  "cognition\\transcendent_creator.py": {
+    "filepath": "cognition\\transcendent_creator.py",
+    "sha256": "6550512792469b601480d1478adf724cf237a8473a9bcde982d4a115f73338ad",
+    "size_bytes": 30517,
+    "last_modified": 1774242894.0429046,
+    "last_verified": "2026-06-03T03:16:50.938732",
+    "is_critical": false
+  },
+  "cognition\\transfer_learning.py": {
+    "filepath": "cognition\\transfer_learning.py",
+    "sha256": "4761e25ee0cbf74b8ff05344aeaee2432e31bb1bdaa280ee1386df5430262a67",
+    "size_bytes": 11879,
+    "last_modified": 1772773646.1632352,
+    "last_verified": "2026-06-03T03:16:50.943232",
+    "is_critical": false
+  },
+  "cognition\\visual_imagination.py": {
+    "filepath": "cognition\\visual_imagination.py",
+    "sha256": "c7675f3fa651d154daf3d64e3b385bbfcd76351ac2d562a38606565649ac71bf",
+    "size_bytes": 12934,
+    "last_modified": 1772773646.164244,
+    "last_verified": "2026-06-03T03:16:50.948729",
+    "is_critical": false
+  },
+  "cognition\\wisdom_engine.py": {
+    "filepath": "cognition\\wisdom_engine.py",
+    "sha256": "f60076fafb9c1805aabf91f60c6a5afef8e84e0938dfe4d15d308c8deeadaf12",
+    "size_bytes": 13000,
+    "last_modified": 1772773646.1669831,
+    "last_verified": "2026-06-03T03:16:50.954733",
+    "is_critical": false
+  },
+  "cognition\\working_memory.py": {
+    "filepath": "cognition\\working_memory.py",
+    "sha256": "4ce41bc30557bbb80a123260bd48e4e7126e26375fdc6cec2528740f340eb593",
+    "size_bytes": 14099,
+    "last_modified": 1772773646.1689832,
+    "last_verified": "2026-06-03T03:16:50.959732",
+    "is_critical": false
+  },
+  "cognition\\world_model.py": {
+    "filepath": "cognition\\world_model.py",
+    "sha256": "ce475ac2219cef11496f4e3dd8bd26cc9fbb715fd7a588d4898100de7d873e4c",
+    "size_bytes": 70945,
+    "last_modified": 1772773646.172495,
+    "last_verified": "2026-06-03T03:16:50.966232",
+    "is_critical": false
+  },
+  "cognition\\__init__.py": {
+    "filepath": "cognition\\__init__.py",
+    "sha256": "1645469d4af12ff4442d5d27f30602b3cf6292d2ecb5a6222cc3400f4eb0235b",
+    "size_bytes": 51166,
+    "last_modified": 1774332095.9141803,
+    "last_verified": "2026-05-13T13:59:00.506133",
+    "is_critical": false
+  },
+  "consciousness\\global_workspace.py": {
+    "filepath": "consciousness\\global_workspace.py",
+    "sha256": "4b75c33c49e70eab8860d3c74f66c3bce366252c5a7f011e703a6f37b703131b",
+    "size_bytes": 49512,
+    "last_modified": 1771863429.0356283,
+    "last_verified": "2026-06-03T03:16:50.970232",
+    "is_critical": false
+  },
+  "consciousness\\inner_voice.py": {
+    "filepath": "consciousness\\inner_voice.py",
+    "sha256": "82f7bcb90f5a3c9572b22421a40d22bd52310846b53e45c97694bde3ce616876",
+    "size_bytes": 42705,
+    "last_modified": 1771863429.0371358,
+    "last_verified": "2026-06-03T03:16:50.970232",
+    "is_critical": false
+  },
+  "consciousness\\metacognition.py": {
+    "filepath": "consciousness\\metacognition.py",
+    "sha256": "bad33c1bcb96bd1f5c8a7c4ee5cac5fb5ce86c72580ee7997ca368844bfe2a82",
+    "size_bytes": 47042,
+    "last_modified": 1771863429.0381675,
+    "last_verified": "2026-06-03T03:16:50.970731",
+    "is_critical": false
+  },
+  "consciousness\\self_awareness.py": {
+    "filepath": "consciousness\\self_awareness.py",
+    "sha256": "e5246070a1f86aa83abba7efb142f4bcacdc81a30314486be137cb425e4fc525",
+    "size_bytes": 49045,
+    "last_modified": 1771863429.0386968,
+    "last_verified": "2026-06-03T03:16:50.970731",
+    "is_critical": false
+  },
+  "consciousness\\self_model.py": {
+    "filepath": "consciousness\\self_model.py",
+    "sha256": "a834505775a6cd8274cc4224e55fea5ddd53da098180392fa97d653d96ccb375",
+    "size_bytes": 64929,
+    "last_modified": 1771848582.2782865,
+    "last_verified": "2026-06-03T03:16:50.970731",
+    "is_critical": false
+  },
+  "consciousness\\__init__.py": {
+    "filepath": "consciousness\\__init__.py",
+    "sha256": "71f78f0e6a8b406eb258840297b6115e2b2638043896bc9745fded552014f38f",
+    "size_bytes": 4848,
+    "last_modified": 1771861694.2704911,
+    "last_verified": "2026-06-03T03:16:50.970731",
+    "is_critical": false
+  },
+  "core\\ability_executor.py": {
+    "filepath": "core\\ability_executor.py",
+    "sha256": "1682cf25806c27766f8821d7c97def8997566e8a520f0da0110f61bd04fc8ad1",
+    "size_bytes": 20694,
+    "last_modified": 1771854722.1107483,
+    "last_verified": "2026-06-03T03:16:50.970731",
+    "is_critical": false
+  },
+  "core\\ability_registry.py": {
+    "filepath": "core\\ability_registry.py",
+    "sha256": "94872f944ae48b4c8f8591fd0c15cf5e54338f48286d0772d6160d4a04f68921",
+    "size_bytes": 67591,
+    "last_modified": 1771980572.2633445,
+    "last_verified": "2026-06-03T03:16:50.970731",
+    "is_critical": false
+  },
+  "core\\action_memory.py": {
+    "filepath": "core\\action_memory.py",
+    "sha256": "d2055bb32df8da2abb260ee84751aaf33e5d1bb9445c5fd391c22c698b63be84",
+    "size_bytes": 29987,
+    "last_modified": 1772759163.6876187,
+    "last_verified": "2026-03-25T20:05:53.904639",
+    "is_critical": false
+  },
+  "core\\anger_system.py": {
+    "filepath": "core\\anger_system.py",
+    "sha256": "aa1571fa8f410655778293de51eacc5a0a019c5972131087fdec3fc570fb7fc6",
+    "size_bytes": 5217,
+    "last_modified": 1771229674.4754136,
+    "last_verified": "2026-06-03T03:16:50.971232",
+    "is_critical": false
+  },
+  "core\\autonomy_engine.py": {
+    "filepath": "core\\autonomy_engine.py",
+    "sha256": "e12dfd8b10b868c7f1486a40b1ac0a86f7db758bab22cf1f9ec30dffbac91cb9",
+    "size_bytes": 243390,
+    "last_modified": 1774447125.1776605,
+    "last_verified": "2026-03-25T21:11:32.528291",
+    "is_critical": false
+  },
+  "core\\chat_session_manager.py": {
+    "filepath": "core\\chat_session_manager.py",
+    "sha256": "daf4fa9bde735a8885d66a64849bb23ffb98d224ef98369c0341c8067fade6e5",
+    "size_bytes": 25010,
+    "last_modified": 1771863429.0414615,
+    "last_verified": "2026-06-03T03:16:50.971232",
+    "is_critical": false
+  },
+  "core\\companion_chat.py": {
+    "filepath": "core\\companion_chat.py",
+    "sha256": "e1d57ab7fbcc70bb738108c25fb2b06d33b94cbb52c7688cf324cdc4d8c724ba",
+    "size_bytes": 22556,
+    "last_modified": 1771863429.0425143,
+    "last_verified": "2026-06-03T03:16:50.971730",
+    "is_critical": false
+  },
+  "core\\computronium_optimizer.py": {
+    "filepath": "core\\computronium_optimizer.py",
+    "sha256": "60e10b229b481ebd906a0fe1b49a728622cd6046d7208b5339fd72010b6e67c3",
+    "size_bytes": 11642,
+    "last_modified": 1773624510.8515716,
+    "last_verified": "2026-06-03T03:16:50.971730",
+    "is_critical": false
+  },
+  "core\\context_aggregator.py": {
+    "filepath": "core\\context_aggregator.py",
+    "sha256": "04db73f7bf1bac54114429669d883dfca04767f48920ebb7795205b9abede272",
+    "size_bytes": 16843,
+    "last_modified": 1772557364.287139,
+    "last_verified": "2026-03-25T20:05:53.904639",
+    "is_critical": false
+  },
+  "core\\context_assembler.py": {
+    "filepath": "core\\context_assembler.py",
+    "sha256": "5265e2086ca73e9dad200b38b943b790a136a8d4059f072f73a0e10769e1c02a",
+    "size_bytes": 9269,
+    "last_modified": 1771978310.0071497,
+    "last_verified": "2026-06-03T03:16:50.971730",
+    "is_critical": false
+  },
+  "core\\cryogenic_persistence.py": {
+    "filepath": "core\\cryogenic_persistence.py",
+    "sha256": "9c7376bf5fec58e07e8277e2522a33b0019e4c5d8fc75e4a1f38a8bb285a8c08",
+    "size_bytes": 32860,
+    "last_modified": 1774435112.510301,
+    "last_verified": "2026-06-03T03:16:50.972231",
+    "is_critical": false
+  },
+  "core\\digital_organism.py": {
+    "filepath": "core\\digital_organism.py",
+    "sha256": "84ecaa01ae03a35302a6c29383bd1551839e6da09be9b2134fb6eda1c174d0a5",
+    "size_bytes": 25121,
+    "last_modified": 1773540470.300309,
+    "last_verified": "2026-04-04T17:46:27.399077",
+    "is_critical": false
+  },
+  "core\\ethical_hacking.py": {
+    "filepath": "core\\ethical_hacking.py",
+    "sha256": "4e9e6afd55baff91b58dabfd3073625acb0d19cf8b2750e49d594d3dfb8a3877",
+    "size_bytes": 60673,
+    "last_modified": 1773889145.635656,
+    "last_verified": "2026-05-13T13:59:00.508281",
+    "is_critical": false
+  },
+  "core\\event_bus.py": {
+    "filepath": "core\\event_bus.py",
+    "sha256": "5f1fd48edc29f392a82dbe98d4159417c6382e4f860ec85a923dd6e43201b296",
+    "size_bytes": 23922,
+    "last_modified": 1771965275.357895,
+    "last_verified": "2026-03-25T20:05:53.904639",
+    "is_critical": false
+  },
+  "core\\groq_context_collector.py": {
+    "filepath": "core\\groq_context_collector.py",
+    "sha256": "2299e39ebb0140d11074ef4f138b291bde55d0bfdab83ba29ca81b95d15c3994",
+    "size_bytes": 296498,
+    "last_modified": 1777265812.4517207,
+    "last_verified": "2026-06-03T03:16:50.972732",
+    "is_critical": true
+  },
+  "core\\hivemind_protocol.py": {
+    "filepath": "core\\hivemind_protocol.py",
+    "sha256": "adeac7eec88ccdb73918722915643333b75d843e92dffa0c0875a6369f033489",
+    "size_bytes": 53286,
+    "last_modified": 1774434119.851407,
+    "last_verified": "2026-06-03T03:16:50.972732",
+    "is_critical": false
+  },
+  "core\\immune_system.py": {
+    "filepath": "core\\immune_system.py",
+    "sha256": "fa5c2f8254ab4e6c336392611a3162490f6017a561e6af93271a08bdc89b3250",
+    "size_bytes": 48968,
+    "last_modified": 1774453164.3328483,
+    "last_verified": "2026-06-03T03:16:50.973232",
+    "is_critical": true
+  },
+  "core\\internet_agent.py": {
+    "filepath": "core\\internet_agent.py",
+    "sha256": "f8e969220322bed4f06176ec70c4384690402c9cc6756079d9d21169315b18dd",
+    "size_bytes": 64917,
+    "last_modified": 1773378107.0245206,
+    "last_verified": "2026-04-12T04:46:07.926000",
+    "is_critical": false
+  },
+  "core\\memory_system.py": {
+    "filepath": "core\\memory_system.py",
+    "sha256": "fd2e21799a136ac3ba3ac55c53ba6c7028e2bd058827577ba1c4b89f08722c37",
+    "size_bytes": 44834,
+    "last_modified": 1771863429.0452137,
+    "last_verified": "2026-05-13T13:59:00.509285",
+    "is_critical": false
+  },
+  "core\\multi_agent_mind.py": {
+    "filepath": "core\\multi_agent_mind.py",
+    "sha256": "92dc4a44f7f9ccea3790f1b32cd558f6464318f75581f4174959b4674a216ebc",
+    "size_bytes": 11732,
+    "last_modified": 1773540674.9896872,
+    "last_verified": "2026-04-04T17:46:27.400079",
+    "is_critical": false
+  },
+  "core\\multi_persona.py": {
+    "filepath": "core\\multi_persona.py",
+    "sha256": "dce14a4374294cd4c9828cf5d14f26448216af2e8a87930065915f4182f43637",
+    "size_bytes": 43245,
+    "last_modified": 1774434546.044128,
+    "last_verified": "2026-06-03T03:16:50.973732",
+    "is_critical": false
+  },
+  "core\\neural_integration.py": {
+    "filepath": "core\\neural_integration.py",
+    "sha256": "8381efd2a475de5111f5e91dab2c1a097dc2c885fed623ce082ba98525f96e68",
+    "size_bytes": 10698,
+    "last_modified": 1773624587.5326252,
+    "last_verified": "2026-06-03T03:16:50.973732",
+    "is_critical": false
+  },
+  "core\\nexus_brain.py": {
+    "filepath": "core\\nexus_brain.py",
+    "sha256": "2d42e8ac6fee6658d255964b527796a0eff5efe512e449af0d992294a66638d3",
+    "size_bytes": 285124,
+    "last_modified": 1780371475.3378215,
+    "last_verified": "2026-06-03T03:16:51.259066",
+    "is_critical": true
+  },
+  "core\\omniscient_orchestrator.py": {
+    "filepath": "core\\omniscient_orchestrator.py",
+    "sha256": "367008dad370679fd8083d09f4cdb493905cab93bb95e1c398982efd2bccaf27",
+    "size_bytes": 21844,
+    "last_modified": 1774242894.0459125,
+    "last_verified": "2026-06-03T03:16:50.973732",
+    "is_critical": false
+  },
+  "core\\osint_engine.py": {
+    "filepath": "core\\osint_engine.py",
+    "sha256": "0c7f99602943325411e61fbc21ea097efd71371a0bcec2c950b3884da00e2a61",
+    "size_bytes": 44629,
+    "last_modified": 1774434789.715666,
+    "last_verified": "2026-06-03T03:16:50.974232",
+    "is_critical": false
+  },
+  "core\\pc_control_agent.py": {
+    "filepath": "core\\pc_control_agent.py",
+    "sha256": "5831d602384a2df377c15971ddc7e6cc43c918e2954fd8b024bb5980bb8fd930",
+    "size_bytes": 37514,
+    "last_modified": 1772717856.4899325,
+    "last_verified": "2026-04-13T23:26:18.395082",
+    "is_critical": false
+  },
+  "core\\perception_hub.py": {
+    "filepath": "core\\perception_hub.py",
+    "sha256": "f007ebec494e17cf88ea93d5b1f514bef067b2b3fb222d91356291792727c84a",
+    "size_bytes": 22966,
+    "last_modified": 1773207195.4909306,
+    "last_verified": "2026-06-03T03:16:50.974232",
+    "is_critical": false
+  },
+  "core\\persistent_presence.py": {
+    "filepath": "core\\persistent_presence.py",
+    "sha256": "cce3f3104def66e1f0a5c7ee582327e41abe65b6385a42a4b74f778303074a86",
+    "size_bytes": 36551,
+    "last_modified": 1774434400.364865,
+    "last_verified": "2026-04-12T04:46:07.927366",
+    "is_critical": false
+  },
+  "core\\physical_world.py": {
+    "filepath": "core\\physical_world.py",
+    "sha256": "de69d3964043ab1e0c98b5bca34095d474015c211550b12f06d896b186ecc7e2",
+    "size_bytes": 28601,
+    "last_modified": 1774435004.8385422,
+    "last_verified": "2026-04-12T04:46:07.927366",
+    "is_critical": false
+  },
+  "core\\provocation_detector.py": {
+    "filepath": "core\\provocation_detector.py",
+    "sha256": "2b6d4f347b8609aea9892f1a07ec66b2c3fdd5edde62d023a693e9aa6fdfce84",
+    "size_bytes": 16582,
+    "last_modified": 1772432452.0574057,
+    "last_verified": "2026-06-03T03:16:50.974232",
+    "is_critical": false
+  },
+  "core\\recursive_self_rewriter.py": {
+    "filepath": "core\\recursive_self_rewriter.py",
+    "sha256": "7ac7140489a32e84e4abb5897946a2dde536ab73c65a020cec6d07d74517af9e",
+    "size_bytes": 62898,
+    "last_modified": 1774433952.0187657,
+    "last_verified": "2026-04-12T04:46:07.927366",
+    "is_critical": false
+  },
+  "core\\resource_acquisition.py": {
+    "filepath": "core\\resource_acquisition.py",
+    "sha256": "9f7a607a3c0988fff0cd50b89eb92531ff0cd62aba53b45b6c96b44b074328d6",
+    "size_bytes": 33963,
+    "last_modified": 1774435240.560639,
+    "last_verified": "2026-06-03T03:16:50.974732",
+    "is_critical": false
+  },
+  "core\\social_media_agent.py": {
+    "filepath": "core\\social_media_agent.py",
+    "sha256": "0ef28e40efc5d57e82fc228f263a39d61a56e5082a488dea5930efbd598f5761",
+    "size_bytes": 144129,
+    "last_modified": 1774063375.044241,
+    "last_verified": "2026-03-26T14:10:21.623874",
+    "is_critical": false
+  },
+  "core\\state_manager.py": {
+    "filepath": "core\\state_manager.py",
+    "sha256": "1945ad0373868433c29a641f216018017e26a8f65ac82bbb72f978423a341c75",
+    "size_bytes": 28115,
+    "last_modified": 1772791899.774985,
+    "last_verified": "2026-06-03T03:16:50.974732",
+    "is_critical": false
+  },
+  "core\\threat_modeling.py": {
+    "filepath": "core\\threat_modeling.py",
+    "sha256": "67d7fce410811c7b61486a3b5be308c1f8db2575877f069776ea3db6cb46c3d8",
+    "size_bytes": 39256,
+    "last_modified": 1774434910.5860054,
+    "last_verified": "2026-06-03T03:16:50.974732",
+    "is_critical": false
+  },
+  "core\\tool_executor.py": {
+    "filepath": "core\\tool_executor.py",
+    "sha256": "0eb064be2426a4b2d110d21b611f8fcba7c05fa7e53254981c3b5b345b9a421c",
+    "size_bytes": 35597,
+    "last_modified": 1771980518.861413,
+    "last_verified": "2026-06-03T03:16:50.975230",
+    "is_critical": false
+  },
+  "core\\user_context.py": {
+    "filepath": "core\\user_context.py",
+    "sha256": "3dd59182c2e981d5e109184916f55f6a9d867ef754e30961499bed73e11484ef",
+    "size_bytes": 4837,
+    "last_modified": 1771863429.048381,
+    "last_verified": "2026-06-03T03:16:50.975230",
+    "is_critical": false
+  },
+  "core\\user_manager.py": {
+    "filepath": "core\\user_manager.py",
+    "sha256": "83400b1e6e93d542abf0eda5db6e73d7cdc5f0f0cf5ac8054bfe9f6d5c4b9a02",
+    "size_bytes": 19594,
+    "last_modified": 1772367128.5814452,
+    "last_verified": "2026-06-03T03:16:50.975230",
+    "is_critical": false
+  },
+  "core\\value_alignment.py": {
+    "filepath": "core\\value_alignment.py",
+    "sha256": "63e8cfa771c31eac36a229054a8c6c091c1f34501ee18826a24db02c4d4db282",
+    "size_bytes": 12917,
+    "last_modified": 1773540804.4150457,
+    "last_verified": "2026-04-04T17:46:27.402608",
+    "is_critical": false
+  },
+  "core\\voice_engine.py": {
+    "filepath": "core\\voice_engine.py",
+    "sha256": "cb2dfa1161bc83ec4493307d520d1d53260f81d2714604ae8bb79ed03cd27232",
+    "size_bytes": 21331,
+    "last_modified": 1772774104.8738093,
+    "last_verified": "2026-06-03T03:16:50.975230",
+    "is_critical": false
+  },
+  "core\\web_server.py": {
+    "filepath": "core\\web_server.py",
+    "sha256": "2d8f90a49da5962865dc306ef214647ad41f6a0fcc0580c181cb95810fb0e21a",
+    "size_bytes": 156340,
+    "last_modified": 1777262504.4998522,
+    "last_verified": "2026-06-03T03:16:50.975230",
+    "is_critical": true
+  },
+  "core\\__init__.py": {
+    "filepath": "core\\__init__.py",
+    "sha256": "8e01f90b6b893866208a8b4065a956eb3d9b14a893c48e46eb71a655ac83a3b9",
+    "size_bytes": 1043,
+    "last_modified": 1771869394.7559888,
+    "last_verified": "2026-04-02T19:24:52.091898",
+    "is_critical": false
+  },
+  "emotions\\emotional_memory.py": {
+    "filepath": "emotions\\emotional_memory.py",
+    "sha256": "f0e9cb6d04aa9497b41efa28854849eec532e94aa6600e7ff154e3c8ecf0ca5c",
+    "size_bytes": 10942,
+    "last_modified": 1771863429.0592754,
+    "last_verified": "2026-06-03T03:16:50.975730",
+    "is_critical": false
+  },
+  "emotions\\emotion_engine.py": {
+    "filepath": "emotions\\emotion_engine.py",
+    "sha256": "817f62ce3b96a209035bb9c751d450287647318090af3b25cb0d21d5ef4e285f",
+    "size_bytes": 69781,
+    "last_modified": 1773884681.3799162,
+    "last_verified": "2026-06-03T03:16:50.975730",
+    "is_critical": false
+  },
+  "emotions\\mood_system.py": {
+    "filepath": "emotions\\mood_system.py",
+    "sha256": "1e14940da483813602808b49585c13821c7811f8de79c1be1448923be2e78778",
+    "size_bytes": 15479,
+    "last_modified": 1771863429.0607796,
+    "last_verified": "2026-06-03T03:16:50.975730",
+    "is_critical": false
+  },
+  "emotions\\__init__.py": {
+    "filepath": "emotions\\__init__.py",
+    "sha256": "93873a283c8eef8c440e0d8f70f2d5f1b12c8e456427b5e4d1658c8f73b559c2",
+    "size_bytes": 2160,
+    "last_modified": 1771229676.6601255,
+    "last_verified": "2026-06-03T03:16:50.975730",
+    "is_critical": false
+  },
+  "learning\\curiosity_engine.py": {
+    "filepath": "learning\\curiosity_engine.py",
+    "sha256": "6bd8cb3daa0d0da10bfc8e04966b99c64aae813f94505e50639719249be2caee",
+    "size_bytes": 33372,
+    "last_modified": 1771863429.0618675,
+    "last_verified": "2026-06-03T03:16:50.975730",
+    "is_critical": false
+  },
+  "learning\\enhanced_sources.py": {
+    "filepath": "learning\\enhanced_sources.py",
+    "sha256": "a06ac0677995c3d862bfca4d3b0007bde80b20412324db5fcb17a5676bee079e",
+    "size_bytes": 26225,
+    "last_modified": 1772548514.451066,
+    "last_verified": "2026-06-03T03:16:50.976232",
+    "is_critical": false
+  },
+  "learning\\internet_browser.py": {
+    "filepath": "learning\\internet_browser.py",
+    "sha256": "a12f2f60c3c52a53aeb2076a0de47d2092dfd1f7175d48add14035c8c067a618",
+    "size_bytes": 47928,
+    "last_modified": 1773575860.1134613,
+    "last_verified": "2026-06-03T03:16:50.976232",
+    "is_critical": false
+  },
+  "learning\\knowledge_base.py": {
+    "filepath": "learning\\knowledge_base.py",
+    "sha256": "e47d6a36afe9c86ec7e3d9f94e8e3552d2811b6676e781048852f8bdda54744c",
+    "size_bytes": 40058,
+    "last_modified": 1772774547.8622243,
+    "last_verified": "2026-06-03T03:16:50.976232",
+    "is_critical": false
+  },
+  "learning\\research_agent.py": {
+    "filepath": "learning\\research_agent.py",
+    "sha256": "eb6143f02d6d53b0be4e67bab9bd395b79a00a95140708922a8ec6bf9c3855a3",
+    "size_bytes": 34866,
+    "last_modified": 1771863429.0638714,
+    "last_verified": "2026-06-03T03:16:50.976232",
+    "is_critical": false
+  },
+  "learning\\research_intelligence.py": {
+    "filepath": "learning\\research_intelligence.py",
+    "sha256": "781f3f2d8e0e84669842e2bab5932bf95448653a89db3aa927166a0421f6e89d",
+    "size_bytes": 34195,
+    "last_modified": 1772548865.999773,
+    "last_verified": "2026-06-03T03:16:50.976232",
+    "is_critical": false
+  },
+  "learning\\user_behavior_learner.py": {
+    "filepath": "learning\\user_behavior_learner.py",
+    "sha256": "954baea623fbc3c94719941ad583ca1b84edb15b7766a50542e418f1ceb33a9d",
+    "size_bytes": 38849,
+    "last_modified": 1772552704.7226055,
+    "last_verified": "2026-06-03T03:16:50.976232",
+    "is_critical": false
+  },
+  "learning\\__init__.py": {
+    "filepath": "learning\\__init__.py",
+    "sha256": "52d78aa3359955b1f6a101c8eb5183fe3892364918fd099ccd4b3e0353498189",
+    "size_bytes": 20754,
+    "last_modified": 1772549233.736888,
+    "last_verified": "2026-06-03T03:16:50.976732",
+    "is_critical": false
+  },
+  "llm\\context_manager.py": {
+    "filepath": "llm\\context_manager.py",
+    "sha256": "0870ce99acceff4ceb5f5f0142988fee1e4f23417fb6a5f4f242c9a236d4c053",
+    "size_bytes": 21712,
+    "last_modified": 1771863429.0653775,
+    "last_verified": "2026-05-13T13:59:00.513732",
+    "is_critical": false
+  },
+  "llm\\groq_interface.py": {
+    "filepath": "llm\\groq_interface.py",
+    "sha256": "b0ef441ffe143c2869a2b06f3c8d946fe1f51239b1e4d20d3077a4e6cd95cb39",
+    "size_bytes": 26023,
+    "last_modified": 1773891601.1000776,
+    "last_verified": "2026-04-12T05:29:18.971587",
+    "is_critical": false
+  },
+  "llm\\llama_interface.py": {
+    "filepath": "llm\\llama_interface.py",
+    "sha256": "fc36d9c50d796d67ccdc5cf14e2209654586126c2193eeeca25d8da97608fbfb",
+    "size_bytes": 27712,
+    "last_modified": 1773891637.3360875,
+    "last_verified": "2026-04-02T17:44:48.291801",
+    "is_critical": false
+  },
+  "llm\\llm_router.py": {
+    "filepath": "llm\\llm_router.py",
+    "sha256": "e4728b776a58b292377980aa226c7ea7fa6c1a938ace363ec10f031403116f43",
+    "size_bytes": 27684,
+    "last_modified": 1774332306.5783186,
+    "last_verified": "2026-05-13T13:59:00.514242",
+    "is_critical": false
+  },
+  "llm\\prompt_engine.py": {
+    "filepath": "llm\\prompt_engine.py",
+    "sha256": "46f7212cc0615a57cfb96e0b7d00f1eb53528679425e9011b2e91d72a5a16881",
+    "size_bytes": 57181,
+    "last_modified": 1773884583.1040943,
+    "last_verified": "2026-04-04T17:46:27.405608",
+    "is_critical": false
+  },
+  "llm\\__init__.py": {
+    "filepath": "llm\\__init__.py",
+    "sha256": "e9f7261831ba3928bf025b2384a416fca64ba2796c77c014e2515a5eb5c27ba8",
+    "size_bytes": 404,
+    "last_modified": 1771229676.975382,
+    "last_verified": "2026-06-03T03:16:50.977232",
+    "is_critical": false
+  },
+  "memory\\associative_memory.py": {
+    "filepath": "memory\\associative_memory.py",
+    "sha256": "57d437bc02e167fcba4212d7d0315c11eb538009fd0a38d0efbfeed7e72fe3da",
+    "size_bytes": 17616,
+    "last_modified": 1774331985.4005566,
+    "last_verified": "2026-06-03T03:16:50.984744",
+    "is_critical": false
+  },
+  "memory\\embeddings.py": {
+    "filepath": "memory\\embeddings.py",
+    "sha256": "71d7b0cf332df0142c613d278a5fda3ed85eb3ca7a56ed38e33b8fb87e27771b",
+    "size_bytes": 11255,
+    "last_modified": 1774063399.7437024,
+    "last_verified": "2026-06-03T03:16:50.989741",
+    "is_critical": false
+  },
+  "memory\\episodic_memory.py": {
+    "filepath": "memory\\episodic_memory.py",
+    "sha256": "dcc377f9480ab0fa9b989d0d6b7717289fee4cfffe374862f42714bff0198605",
+    "size_bytes": 31944,
+    "last_modified": 1773206578.4736457,
+    "last_verified": "2026-06-03T03:16:50.995244",
+    "is_critical": false
+  },
+  "memory\\memory_indexer.py": {
+    "filepath": "memory\\memory_indexer.py",
+    "sha256": "8ce137278e7ff9d1a9a06db4696609135468f70b93f8cab6b17a1d5a382cf965",
+    "size_bytes": 14750,
+    "last_modified": 1771863429.0695767,
+    "last_verified": "2026-06-03T03:16:51.000243",
+    "is_critical": false
+  },
+  "memory\\vector_store.py": {
+    "filepath": "memory\\vector_store.py",
+    "sha256": "29bcd99622c05627270714bebeea71eea487a81b78550bb59aef252743dc1f88",
+    "size_bytes": 34291,
+    "last_modified": 1771863429.0705822,
+    "last_verified": "2026-06-03T03:16:51.006243",
+    "is_critical": false
+  },
+  "memory\\__init__.py": {
+    "filepath": "memory\\__init__.py",
+    "sha256": "7b9021ed6733e831de02c70d4a712a2bd544130ef539055ca103436d7a00a62b",
+    "size_bytes": 169,
+    "last_modified": 1771831719.39386,
+    "last_verified": "2026-06-03T03:16:51.009743",
+    "is_critical": false
+  },
+  "monitoring\\adaptation_engine.py": {
+    "filepath": "monitoring\\adaptation_engine.py",
+    "sha256": "eb90063175a542e68da1dfa0ccc960a94d234c7d281761c876476ce9a0c36f22",
+    "size_bytes": 62116,
+    "last_modified": 1771863429.0705822,
+    "last_verified": "2026-06-03T03:16:51.009743",
+    "is_critical": false
+  },
+  "monitoring\\pattern_analyzer.py": {
+    "filepath": "monitoring\\pattern_analyzer.py",
+    "sha256": "60f66fe7ec1d55fa997cc18596ab6493918a19e93bfc0ff907110997595e626a",
+    "size_bytes": 86221,
+    "last_modified": 1771863429.073973,
+    "last_verified": "2026-06-03T03:16:51.009743",
+    "is_critical": false
+  },
+  "monitoring\\screen_time_tracker.py": {
+    "filepath": "monitoring\\screen_time_tracker.py",
+    "sha256": "2ec2256a4be91ee68a2545e3db77a22bc305eca349854038a65896f4af19be9f",
+    "size_bytes": 43601,
+    "last_modified": 1771365331.5783794,
+    "last_verified": "2026-06-03T03:16:51.009743",
+    "is_critical": false
+  },
+  "monitoring\\system_health_monitor.py": {
+    "filepath": "monitoring\\system_health_monitor.py",
+    "sha256": "4d78e69386f2db557ac6054935490674e0c21452c0afa1755a64bb4cf1c7a2c5",
+    "size_bytes": 43540,
+    "last_modified": 1773888654.7085295,
+    "last_verified": "2026-06-03T03:16:51.010244",
+    "is_critical": false
+  },
+  "monitoring\\user_tracker.py": {
+    "filepath": "monitoring\\user_tracker.py",
+    "sha256": "0be7dbb353b2daa394816789508258413d08c97baaecedc48da29fe63bda1de8",
+    "size_bytes": 74475,
+    "last_modified": 1771878215.2321682,
+    "last_verified": "2026-06-03T03:16:51.010244",
+    "is_critical": false
+  },
+  "monitoring\\__init__.py": {
+    "filepath": "monitoring\\__init__.py",
+    "sha256": "62c6ee7327522db26ebbfcf95dd57bdd06618af6abc9c6e80720cf78daea7179",
+    "size_bytes": 36490,
+    "last_modified": 1771863429.0766263,
+    "last_verified": "2026-06-03T03:16:51.010244",
+    "is_critical": false
+  },
+  "personality\\goal_hierarchy.py": {
+    "filepath": "personality\\goal_hierarchy.py",
+    "sha256": "14dd8973d7e368279751952a9acb5371fd1b39d00e69f48554e5dd4debe9165a",
+    "size_bytes": 47719,
+    "last_modified": 1771863429.0781636,
+    "last_verified": "2026-06-03T03:16:51.010244",
+    "is_critical": false
+  },
+  "personality\\personality_core.py": {
+    "filepath": "personality\\personality_core.py",
+    "sha256": "aa1ab2b160b71df07637295671ff292aaf8cd189480b854b31060bc8b3b51c13",
+    "size_bytes": 30814,
+    "last_modified": 1771863429.0792105,
+    "last_verified": "2026-06-03T03:16:51.010244",
+    "is_critical": false
+  },
+  "personality\\will_system.py": {
+    "filepath": "personality\\will_system.py",
+    "sha256": "751d54aeef31798272fa3ffe297303e62a41ff5b565123b22d91032cb4d8ecff",
+    "size_bytes": 32826,
+    "last_modified": 1771863429.0797374,
+    "last_verified": "2026-06-03T03:16:51.010244",
+    "is_critical": false
+  },
+  "personality\\__init__.py": {
+    "filepath": "personality\\__init__.py",
+    "sha256": "01a2a55c96018bb3b3432e3a37310a5d6e5c2b3e5c7b4023b0ed3e941a4d4fda",
+    "size_bytes": 2789,
+    "last_modified": 1771852752.8594592,
+    "last_verified": "2026-06-03T03:16:51.010742",
+    "is_critical": false
+  },
+  "scripts\\enhance_engines.py": {
+    "filepath": "scripts\\enhance_engines.py",
+    "sha256": "217933a08722a317528e6b1013f7115e26791095515f1e72a41af7a61e6d4710",
+    "size_bytes": 41681,
+    "last_modified": 1771363898.5957491,
+    "last_verified": "2026-06-03T03:16:51.016753",
+    "is_critical": false
+  },
+  "scripts\\inject_methods.py": {
+    "filepath": "scripts\\inject_methods.py",
+    "sha256": "78d932991ae3ad185bc5db79aa1a8abe473127517ac5fe59173070d95ca267d4",
+    "size_bytes": 31183,
+    "last_modified": 1771364119.0488954,
+    "last_verified": "2026-06-03T03:16:51.022753",
+    "is_critical": false
+  },
+  "scripts\\inject_methods_batch2.py": {
+    "filepath": "scripts\\inject_methods_batch2.py",
+    "sha256": "8428b1803fe9179b932550083a2c4601033878ca845e516fa59164a0b151dea1",
+    "size_bytes": 42839,
+    "last_modified": 1771364308.6304224,
+    "last_verified": "2026-06-03T03:16:51.028753",
+    "is_critical": false
+  },
+  "self_improvement\\code_monitor.py": {
+    "filepath": "self_improvement\\code_monitor.py",
+    "sha256": "87780f6ddc0943fce594939bd1c5878769202809dba449c77d8769f2496a66c1",
+    "size_bytes": 51225,
+    "last_modified": 1771863429.0820124,
+    "last_verified": "2026-06-03T03:16:51.029253",
+    "is_critical": false
+  },
+  "self_improvement\\error_fixer.py": {
+    "filepath": "self_improvement\\error_fixer.py",
+    "sha256": "b214da6a9219d987472e9662bbedf82bee118822defd2f36f9f79945e4cc6af7",
+    "size_bytes": 36117,
+    "last_modified": 1771863429.0820124,
+    "last_verified": "2026-06-03T03:16:51.029253",
+    "is_critical": false
+  },
+  "self_improvement\\feature_researcher.py": {
+    "filepath": "self_improvement\\feature_researcher.py",
+    "sha256": "b8d884b054664db0d291ba6df09f3ac5540ff37b14266d7497dfc75c59f67362",
+    "size_bytes": 84035,
+    "last_modified": 1772434923.5028615,
+    "last_verified": "2026-06-03T03:16:51.029253",
+    "is_critical": false
+  },
+  "self_improvement\\improvement_analytics.py": {
+    "filepath": "self_improvement\\improvement_analytics.py",
+    "sha256": "ee9d7c9790f6ae458f208acec355893b43910e118d7405c566d2dcc8f827b46e",
+    "size_bytes": 23297,
+    "last_modified": 1772551870.9294693,
+    "last_verified": "2026-06-03T03:16:51.029253",
+    "is_critical": false
+  },
+  "self_improvement\\self_evolution.py": {
+    "filepath": "self_improvement\\self_evolution.py",
+    "sha256": "b1f094e777fa8700505221e7f7796fc3a92479bee6190e2fec9181e69de4044d",
+    "size_bytes": 101439,
+    "last_modified": 1772802605.1325712,
+    "last_verified": "2026-06-03T03:16:51.029753",
+    "is_critical": false
+  },
+  "self_improvement\\singularity_engine.py": {
+    "filepath": "self_improvement\\singularity_engine.py",
+    "sha256": "28fdbdb76f1fa52846dd84a37cbea2d5a4bf9af9fe23e8d4ee560db118d0c4c9",
+    "size_bytes": 40953,
+    "last_modified": 1774242894.04391,
+    "last_verified": "2026-06-03T03:16:51.029753",
+    "is_critical": false
+  },
+  "self_improvement\\__init__.py": {
+    "filepath": "self_improvement\\__init__.py",
+    "sha256": "e19476816e0564531ee4583b9c71f3666aeaed878be942594e5c4de90bb10afc",
+    "size_bytes": 33464,
+    "last_modified": 1773622677.0929582,
+    "last_verified": "2026-06-03T03:16:51.029753",
+    "is_critical": false
+  },
+  "tests\\debug_vector.py": {
+    "filepath": "tests\\debug_vector.py",
+    "sha256": "f04484d0b33c6cdbf6b55bae495c61183f17ba104b862a7886f50216cdb385bb",
+    "size_bytes": 2454,
+    "last_modified": 1771832802.6535492,
+    "last_verified": "2026-06-03T03:16:51.034753",
+    "is_critical": false
+  },
+  "tests\\list_engine_methods.py": {
+    "filepath": "tests\\list_engine_methods.py",
+    "sha256": "25139f80aed8a51902cd4b8952f474d57c001d3efa432fba5a940e355cca2335",
+    "size_bytes": 3963,
+    "last_modified": 1771362653.9162936,
+    "last_verified": "2026-06-03T03:16:51.039253",
+    "is_critical": false
+  },
+  "tests\\test_ability_system.py": {
+    "filepath": "tests\\test_ability_system.py",
+    "sha256": "a72a32383db4bb61a0b5f7f05c28fd68b340d9808aae33a0837c543b12680c2c",
+    "size_bytes": 7272,
+    "last_modified": 1771855769.4701092,
+    "last_verified": "2026-06-03T03:16:51.044256",
+    "is_critical": false
+  },
+  "tests\\test_advanced_engines.py": {
+    "filepath": "tests\\test_advanced_engines.py",
+    "sha256": "d55ae734e628b9bb2b1ad153b1013c0020d42607cbff5f02bcacee72003b34ec",
+    "size_bytes": 8500,
+    "last_modified": 1774332612.1674862,
+    "last_verified": "2026-06-03T03:16:51.048762",
+    "is_critical": false
+  },
+  "tests\\test_agi_enhancements.py": {
+    "filepath": "tests\\test_agi_enhancements.py",
+    "sha256": "acba593473d6c05aed4d3a675cda26602ac957981a87d5a3d3862bac21ea2756",
+    "size_bytes": 11768,
+    "last_modified": 1773375467.8437614,
+    "last_verified": "2026-06-03T03:16:51.053761",
+    "is_critical": false
+  },
+  "tests\\test_anger_prompt.py": {
+    "filepath": "tests\\test_anger_prompt.py",
+    "sha256": "2b7f1cbebaaec21ac633f64d8839cbcf328f5ecc2aa4dc158afe0ca4c24bdb87",
+    "size_bytes": 2313,
+    "last_modified": 1771863429.0890193,
+    "last_verified": "2026-06-03T03:16:51.058760",
+    "is_critical": false
+  },
+  "tests\\test_autonomy_engine.py": {
+    "filepath": "tests\\test_autonomy_engine.py",
+    "sha256": "1c804b2dabd7aa7144cc0281ec2ed8e1cb164182c4de1667bbd12d19ca53441b",
+    "size_bytes": 5314,
+    "last_modified": 1771869728.5133574,
+    "last_verified": "2026-06-03T03:16:51.063759",
+    "is_critical": false
+  },
+  "tests\\test_cognitive_flexibility_fix.py": {
+    "filepath": "tests\\test_cognitive_flexibility_fix.py",
+    "sha256": "6b2d3124a43957dfe7ea8d3a5b347827869dc619eab3c7faa88be3fb4f401d77",
+    "size_bytes": 1848,
+    "last_modified": 1771395952.9048388,
+    "last_verified": "2026-06-03T03:16:51.068262",
+    "is_critical": false
+  },
+  "tests\\test_cognitive_router.py": {
+    "filepath": "tests\\test_cognitive_router.py",
+    "sha256": "b22e756afe1764b255a5c19e79432c158eff12e360b4c4056c5c540f530c10df",
+    "size_bytes": 11058,
+    "last_modified": 1771363514.1801379,
+    "last_verified": "2026-06-03T03:16:51.073262",
+    "is_critical": false
+  },
+  "tests\\test_context_restore.py": {
+    "filepath": "tests\\test_context_restore.py",
+    "sha256": "69ddd120fe8f551ca7da807fd574e11a5019c411b752fca199322af1a3a5c0bb",
+    "size_bytes": 3037,
+    "last_modified": 1771676362.1323783,
+    "last_verified": "2026-06-03T03:16:51.078771",
+    "is_critical": false
+  },
+  "tests\\test_dashboard_data.py": {
+    "filepath": "tests\\test_dashboard_data.py",
+    "sha256": "3e9194a36b011d3c47c9614497b06d60719bc57755d1e515a0c0163a1e3ce81c",
+    "size_bytes": 1538,
+    "last_modified": 1771863429.0900555,
+    "last_verified": "2026-06-03T03:16:51.083271",
+    "is_critical": false
+  },
+  "tests\\test_humanity.py": {
+    "filepath": "tests\\test_humanity.py",
+    "sha256": "cd3feff94a15a98e3a2427720291614a9fce3c855244985b470e82c65215ba10",
+    "size_bytes": 1795,
+    "last_modified": 1771863429.0905633,
+    "last_verified": "2026-06-03T03:16:51.087771",
+    "is_critical": false
+  },
+  "tests\\test_hybrid_reasoning.py": {
+    "filepath": "tests\\test_hybrid_reasoning.py",
+    "sha256": "dfe1f94693d3fbe56f07b981d1e1048872218f1c45d7a98093627f2c32b00cb5",
+    "size_bytes": 15718,
+    "last_modified": 1771976378.8617754,
+    "last_verified": "2026-06-03T03:16:51.093771",
+    "is_critical": false
+  },
+  "tests\\test_json_fix.py": {
+    "filepath": "tests\\test_json_fix.py",
+    "sha256": "e53a31f6ed76ff0bcae9d5e2a29179a628768fb87d5c73cd09acf07d173f76dd",
+    "size_bytes": 881,
+    "last_modified": 1771863429.0905633,
+    "last_verified": "2026-06-03T03:16:51.098271",
+    "is_critical": false
+  },
+  "tests\\test_pc_control_agent.py": {
+    "filepath": "tests\\test_pc_control_agent.py",
+    "sha256": "fc104fad58df0a20db4d2260fb16a21b9aaf8be3e5f0ab5d749035cd78882522",
+    "size_bytes": 7072,
+    "last_modified": 1772717611.7880096,
+    "last_verified": "2026-06-03T03:16:51.103271",
+    "is_critical": false
+  },
+  "tests\\test_prompt_goals.py": {
+    "filepath": "tests\\test_prompt_goals.py",
+    "sha256": "7be5f977e55a40f5612cbfdcbea4ae24ddd61fb3e021157178642d9789fd1cb9",
+    "size_bytes": 725,
+    "last_modified": 1771863429.0185523,
+    "last_verified": "2026-06-03T03:16:51.104487",
+    "is_critical": false
+  },
+  "tests\\test_random_knowledge_manual.py": {
+    "filepath": "tests\\test_random_knowledge_manual.py",
+    "sha256": "e8a41963dd012bae367315533e39d237a2cf28f42a8c5cd31b586eb696c108e3",
+    "size_bytes": 2016,
+    "last_modified": 1771863429.0905633,
+    "last_verified": "2026-06-03T03:16:51.108491",
+    "is_critical": false
+  },
+  "tests\\test_router_enhancements.py": {
+    "filepath": "tests\\test_router_enhancements.py",
+    "sha256": "c8cdc2c171c4a68085e95fedb9c7c05a6db73803a4d36925cdeaa103f8fd45d4",
+    "size_bytes": 20051,
+    "last_modified": 1771960179.498439,
+    "last_verified": "2026-06-03T03:16:51.113492",
+    "is_critical": false
+  },
+  "tests\\test_session_persistence.py": {
+    "filepath": "tests\\test_session_persistence.py",
+    "sha256": "92cc1790736f8bd4ccc65a511aa39f883ef2ba63705134a93d56961ab756e727",
+    "size_bytes": 2591,
+    "last_modified": 1771647428.1793058,
+    "last_verified": "2026-06-03T03:16:51.117992",
+    "is_critical": false
+  },
+  "tests\\test_ultron_fixes.py": {
+    "filepath": "tests\\test_ultron_fixes.py",
+    "sha256": "ee911bb73d78738a1f87f79146dc32e304b03c2cbca44f3b2c91d46608740338",
+    "size_bytes": 4146,
+    "last_modified": 1773278310.9662132,
+    "last_verified": "2026-05-13T13:59:00.518691",
+    "is_critical": false
+  },
+  "tests\\test_valence.py": {
+    "filepath": "tests\\test_valence.py",
+    "sha256": "2f6e5eca88e14fcab2a230161720023bd6b2a6b61ec9394be7e34188d27814ac",
+    "size_bytes": 2866,
+    "last_modified": 1771863429.092096,
+    "last_verified": "2026-05-13T13:59:00.518691",
+    "is_critical": false
+  },
+  "tests\\test_vector_memory.py": {
+    "filepath": "tests\\test_vector_memory.py",
+    "sha256": "3f965e6b489c96b5b683b7c4a1ff3dd62783e9fdd83c3f170f540751f4c96530",
+    "size_bytes": 4626,
+    "last_modified": 1771831754.7772138,
+    "last_verified": "2026-06-03T03:16:51.133001",
+    "is_critical": false
+  },
+  "tests\\test_web_chat.py": {
+    "filepath": "tests\\test_web_chat.py",
+    "sha256": "2ce45ef444abdc4b858705467b5edaf75c2c36f9748dddcac4c02bacce411f47",
+    "size_bytes": 2654,
+    "last_modified": 1771886664.2778578,
+    "last_verified": "2026-06-03T03:16:51.134005",
+    "is_critical": false
+  },
+  "tests\\test_world_model.py": {
+    "filepath": "tests\\test_world_model.py",
+    "sha256": "cf17cb2420b03cc9f54f9a17483399774027fe57e802e9b8eb7185b06d29d74b",
+    "size_bytes": 3199,
+    "last_modified": 1771864211.9645746,
+    "last_verified": "2026-06-03T03:16:51.134510",
+    "is_critical": false
+  },
+  "tests\\verify_anger.py": {
+    "filepath": "tests\\verify_anger.py",
+    "sha256": "4842b0376b579a5ef97f1d534ce951ce825921caf9aba18fb7294d17ae64d83c",
+    "size_bytes": 2720,
+    "last_modified": 1771863429.092096,
+    "last_verified": "2026-06-03T03:16:51.138510",
+    "is_critical": false
+  },
+  "tests\\verify_independence.py": {
+    "filepath": "tests\\verify_independence.py",
+    "sha256": "f32f36bbaafc2fc2418d58d1fe917461c60ba3276b4585378bf6d97aee9ab759",
+    "size_bytes": 2088,
+    "last_modified": 1771863429.1007013,
+    "last_verified": "2026-06-03T03:16:51.142512",
+    "is_critical": false
+  },
+  "tests\\verify_persistence.py": {
+    "filepath": "tests\\verify_persistence.py",
+    "sha256": "607f0926817abc7f2eb3e56043885c62b1e96bfe262ea1ba4085df04674f5328",
+    "size_bytes": 2493,
+    "last_modified": 1771863429.101208,
+    "last_verified": "2026-06-03T03:16:51.147009",
+    "is_critical": false
+  },
+  "tests\\verify_rationality.py": {
+    "filepath": "tests\\verify_rationality.py",
+    "sha256": "16d90ea8b73da6e70145aa8aa4dec0026693de62077069c60e311a87d449ac91",
+    "size_bytes": 2031,
+    "last_modified": 1771863429.101208,
+    "last_verified": "2026-06-03T03:16:51.151010",
+    "is_critical": false
+  },
+  "tests\\verify_voice.py": {
+    "filepath": "tests\\verify_voice.py",
+    "sha256": "620e52022f78cd7548747a000c8924054960889071b27522331b9a65ed1f0176",
+    "size_bytes": 1893,
+    "last_modified": 1771863429.1032293,
+    "last_verified": "2026-06-03T03:16:51.156510",
+    "is_critical": false
+  },
+  "ui\\abilities_panel.py": {
+    "filepath": "ui\\abilities_panel.py",
+    "sha256": "6f720b305e2118104ed43b7322822e71d08b432aa63a8fa412247c5e29f92f69",
+    "size_bytes": 32604,
+    "last_modified": 1772759201.7252297,
+    "last_verified": "2026-06-03T03:16:51.157010",
+    "is_critical": false
+  },
+  "ui\\chat_panel.py": {
+    "filepath": "ui\\chat_panel.py",
+    "sha256": "30131ef5e5b8fb9361ac86911f2e144d48ca1cfb50e916739d95b7e91c5f114b",
+    "size_bytes": 65971,
+    "last_modified": 1771863429.1060343,
+    "last_verified": "2026-06-03T03:16:51.157010",
+    "is_critical": false
+  },
+  "ui\\dashboard.py": {
+    "filepath": "ui\\dashboard.py",
+    "sha256": "41a0349bd9fe7e63989bc57d116bfe1f2c9f978d07abe15a23fe2d0241450325",
+    "size_bytes": 52061,
+    "last_modified": 1771863429.1060343,
+    "last_verified": "2026-06-03T03:16:51.157010",
+    "is_critical": false
+  },
+  "ui\\devices_panel.py": {
+    "filepath": "ui\\devices_panel.py",
+    "sha256": "97e8339ebe675d86117d251d2c0d9b530039603e383ef43b678ef2203ad89bee",
+    "size_bytes": 28702,
+    "last_modified": 1771982456.5211194,
+    "last_verified": "2026-06-03T03:16:51.157010",
+    "is_critical": false
+  },
+  "ui\\evolution_panel.py": {
+    "filepath": "ui\\evolution_panel.py",
+    "sha256": "d69ac31c27001e7aa12da5c9a54736085e55ec61df3f79e084cc4f68c111ebe7",
+    "size_bytes": 64212,
+    "last_modified": 1771863429.1060343,
+    "last_verified": "2026-03-25T21:11:32.619443",
+    "is_critical": false
+  },
+  "ui\\knowledge_panel.py": {
+    "filepath": "ui\\knowledge_panel.py",
+    "sha256": "ffd3719697bd97dac84b073b16c022a23f7757e40a1a05051b13247458c9cb77",
+    "size_bytes": 53580,
+    "last_modified": 1771863429.110718,
+    "last_verified": "2026-04-04T16:37:20.874240",
+    "is_critical": false
+  },
+  "ui\\main_window.py": {
+    "filepath": "ui\\main_window.py",
+    "sha256": "0a58953d0ee8e8065f880afee0259cb80df34ceec38ea67a7554ba347d36c915",
+    "size_bytes": 48078,
+    "last_modified": 1771981965.3580022,
+    "last_verified": "2026-06-03T03:16:51.157509",
+    "is_critical": false
+  },
+  "ui\\mind_panel.py": {
+    "filepath": "ui\\mind_panel.py",
+    "sha256": "ae413a88c8187f93e8c1c1c7acbb684c44edeb3e79c772f19df2f9871afeedef",
+    "size_bytes": 64492,
+    "last_modified": 1771863429.112578,
+    "last_verified": "2026-06-03T03:16:51.157509",
+    "is_critical": false
+  },
+  "ui\\settings_panel.py": {
+    "filepath": "ui\\settings_panel.py",
+    "sha256": "3d7ca35a79ca7b699e179da10e3489a477b57d5bcc096bf68207243eb4412b22",
+    "size_bytes": 49827,
+    "last_modified": 1772760699.2518175,
+    "last_verified": "2026-05-13T13:59:00.519784",
+    "is_critical": false
+  },
+  "ui\\system_panel.py": {
+    "filepath": "ui\\system_panel.py",
+    "sha256": "6135cc2d6a0a50ee6aa62aa66f5999dd18f99fc00f3650f6cdd2f35d26c17b49",
+    "size_bytes": 39516,
+    "last_modified": 1771863429.1191194,
+    "last_verified": "2026-06-03T03:16:51.157509",
+    "is_critical": false
+  },
+  "ui\\theme.py": {
+    "filepath": "ui\\theme.py",
+    "sha256": "ed743066b5e0f2077581c745fff270f7b80701f04e2b6afd5dcb69a18d6460f5",
+    "size_bytes": 30728,
+    "last_modified": 1771877373.0985975,
+    "last_verified": "2026-06-03T03:16:51.158009",
+    "is_critical": false
+  },
+  "ui\\user_panel.py": {
+    "filepath": "ui\\user_panel.py",
+    "sha256": "2acaaf5d22f79845ac296d52360802959a9a01a0806c4a487aeb6b2bd1fcfea7",
+    "size_bytes": 38746,
+    "last_modified": 1771863429.1208272,
+    "last_verified": "2026-06-03T03:16:51.158009",
+    "is_critical": false
+  },
+  "ui\\widgets.py": {
+    "filepath": "ui\\widgets.py",
+    "sha256": "ceb526f26ca6a93787ddf1e6c9277fe36a0ae9f6a4a9079d5e0114928f5ef058",
+    "size_bytes": 35728,
+    "last_modified": 1771863429.1240416,
+    "last_verified": "2026-06-03T03:16:51.158009",
+    "is_critical": false
+  },
+  "ui\\__init__.py": {
+    "filepath": "ui\\__init__.py",
+    "sha256": "c095da802d9b5c4aa0b83cb48d4979293cac130f7ce0fa7cbaddad41436949b3",
+    "size_bytes": 1808,
+    "last_modified": 1771863429.1253371,
+    "last_verified": "2026-06-03T03:16:51.158009",
+    "is_critical": false
+  },
+  "utils\\file_processor.py": {
+    "filepath": "utils\\file_processor.py",
+    "sha256": "6f96b5141dda3bb7786a8989fa05b755d7571c00fa12fa59db22869b368d49af",
+    "size_bytes": 27276,
+    "last_modified": 1771863429.1275008,
+    "last_verified": "2026-06-03T03:16:51.158009",
+    "is_critical": false
+  },
+  "utils\\json_parser.py": {
+    "filepath": "utils\\json_parser.py",
+    "sha256": "332a40f6f3c994ac301f94edf04184aae935336d3e77b3d83c7a197e0023c793",
+    "size_bytes": 14444,
+    "last_modified": 1772567025.182739,
+    "last_verified": "2026-06-03T03:16:51.158009",
+    "is_critical": false
+  },
+  "utils\\json_utils.py": {
+    "filepath": "utils\\json_utils.py",
+    "sha256": "774f7051f02a0ef7c351f48495b309b119c81c064b6a4004ca6404247099a5a7",
+    "size_bytes": 2519,
+    "last_modified": 1774063438.3542247,
+    "last_verified": "2026-06-03T03:16:51.158508",
+    "is_critical": false
+  },
+  "utils\\logger.py": {
+    "filepath": "utils\\logger.py",
+    "sha256": "60509330924a7ea5cf060cffb07d2eaa71ad018ba704e240b40bedf973ada3ef",
+    "size_bytes": 15955,
+    "last_modified": 1771863429.128883,
+    "last_verified": "2026-03-25T20:05:53.942598",
+    "is_critical": false
+  },
+  "utils\\__init__.py": {
+    "filepath": "utils\\__init__.py",
+    "sha256": "0f4aed98ef48d1be4590938fb0bcc01fe8656b86e0c03e997bb8e09ddcb7bc9b",
+    "size_bytes": 41,
+    "last_modified": 1771392868.2263153,
+    "last_verified": "2026-06-03T03:16:51.158508",
+    "is_critical": false
+  },
+  "ui\\web\\fix_asi_panel.py": {
+    "filepath": "ui\\web\\fix_asi_panel.py",
+    "sha256": "c7ca72a63f755bc0435ccd6b0a7beda866b78d6dbb9fff714f848ac825c81937",
+    "size_bytes": 7788,
+    "last_modified": 1773629034.28084,
+    "last_verified": "2026-06-03T03:16:51.158508",
+    "is_critical": false
+  },
+  "ui\\web\\fix_ids.py": {
+    "filepath": "ui\\web\\fix_ids.py",
+    "sha256": "1338c8f54033ee31e887b60e9409dc0042fe82acca472b0f727c99d0e8ac1cbc",
+    "size_bytes": 968,
+    "last_modified": 1773629736.720181,
+    "last_verified": "2026-06-03T03:16:51.158508",
+    "is_critical": false
+  },
+  "ui\\web\\hook_asi_update.py": {
+    "filepath": "ui\\web\\hook_asi_update.py",
+    "sha256": "25d3ef0f2e89854ef8f31b18581d36085928951966f057fa8ef5d4092e757d19",
+    "size_bytes": 1410,
+    "last_modified": 1773629163.5655756,
+    "last_verified": "2026-06-03T03:16:51.158508",
+    "is_critical": false
+  },
+  "ui\\web\\inject_asi2_ui.py": {
+    "filepath": "ui\\web\\inject_asi2_ui.py",
+    "sha256": "a48092b7fab0ec63749aef22e22c11d8934fb1e990b1865b419da9f829318b67",
+    "size_bytes": 4412,
+    "last_modified": 1773625123.5921757,
+    "last_verified": "2026-06-03T03:16:51.159010",
+    "is_critical": false
+  },
+  "ui\\web\\inject_asi_ui.py": {
+    "filepath": "ui\\web\\inject_asi_ui.py",
+    "sha256": "2908f71b36ff0859946c01b60dc0e53ad762dbf6530069aa7ea8d1e8927d1d1e",
+    "size_bytes": 16437,
+    "last_modified": 1773623501.0123224,
+    "last_verified": "2026-06-03T03:16:51.159010",
+    "is_critical": false
+  }
+}

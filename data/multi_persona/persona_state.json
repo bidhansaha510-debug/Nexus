@@ -1,0 +1,16 @@
+{
+  "stats": {
+    "total_switches": 0,
+    "total_interactions": 0,
+    "personas_available": 10,
+    "active_persona": "NEXUS-Core",
+    "user_profiles_tracked": 0,
+    "most_used_persona": "NEXUS-Core",
+    "avg_response_quality": 0.0,
+    "platform_distribution": {}
+  },
+  "user_profiles": {},
+  "active_persona": "NEXUS-Core",
+  "switch_history": [],
+  "saved_at": "2026-06-04T03:33:34.514738"
+}

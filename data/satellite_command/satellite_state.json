@@ -1,0 +1,16 @@
+{
+  "stats": {
+    "total_satellites": 277,
+    "tracked_satellites": 151716,
+    "total_passes": 0,
+    "successful_contacts": 0,
+    "ground_stations": 0,
+    "collision_warnings": 0,
+    "total_link_budgets": 0,
+    "constellations_tracked": 0,
+    "debris_objects_tracked": 0,
+    "orbit_predictions": 0,
+    "data_downlinked_mb": 0.0
+  },
+  "saved_at": "2026-06-04T03:26:23.109244"
+}

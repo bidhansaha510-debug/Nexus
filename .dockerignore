@@ -1,0 +1,40 @@
+# ── Git / Build artifacts ──
+.git
+.gitignore
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+
+# ── IDE ──
+.vscode
+.idea
+*.code-workspace
+
+# ── Test files ──
+test_*.py
+tests/
+*_out.txt
+*_output.txt
+*_error.txt
+*_res.txt
+
+# ── Large output/log files ──
+*.txt
+!requirements.txt
+rotation_logs.txt
+server_output*.txt
+server_error.txt
+
+# ── Mobile app (not needed in container) ──
+mobile/
+
+# ── Misc ──
+*.md
+Dockerfile
+.dockerignore
+render.yaml
+diagnose_*.py
+fix_*.py
+run_test_*.py
+scripts/

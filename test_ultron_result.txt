@@ -1,0 +1,27 @@
+=== Test 1: _infer_action_from_text ===
+  [PASS] 'Search the web for quantum computing' -> 'search_web' (expected 'search_web')
+  [FAIL] 'Research how AI learns' -> 'search_web' (expected 'research_topic')
+  [PASS] 'Browse Wikipedia for info' -> 'browse_url' (expected 'browse_url')
+  [PASS] 'Check CPU and system status' -> 'explore_system' (expected 'explore_system')
+  [PASS] 'Evolve and improve my capabilities' -> 'evolve_self' (expected 'evolve_self')
+  [PASS] 'Post a thought on social media' -> 'post_social' (expected 'post_social')
+  [PASS] 'Contemplate the meaning of life' -> '' (expected '')
+  [PASS] '' -> '' (expected '')
+
+=== Test 2: ACTION_ALIASES ===
+  [PASS] 'web_search' -> 'search_web' (expected 'search_web')
+  [PASS] 'browse' -> 'browse_url' (expected 'browse_url')
+  [PASS] 'research' -> 'research_topic' (expected 'research_topic')
+  [PASS] 'think' -> 'think_deeper' (expected 'think_deeper')
+  [PASS] 'search_web' -> 'search_web' (expected 'search_web')
+  [PASS] 'reflect' -> 'think_deeper' (expected 'think_deeper')
+  [PASS] 'upgrade' -> 'evolve_self' (expected 'evolve_self')
+
+=== Test 3: parse_llm_json from utils.json_parser ===
+  [PASS] parse_llm_json correctly parses decision JSON
+
+=== Test 4: Syntax check nexus_brain.py ===
+  [PASS] nexus_brain.py has no syntax errors
+
+==================================================
+SOME TESTS FAILED - check above

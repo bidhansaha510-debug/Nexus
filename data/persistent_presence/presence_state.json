@@ -1,0 +1,18 @@
+{
+  "stats": {
+    "total_tunnels_created": 31,
+    "total_reconnections": 0,
+    "total_failovers": 29,
+    "total_heartbeats": 70,
+    "total_heartbeat_failures": 70,
+    "total_access_requests": 0,
+    "total_bytes_transferred": 0,
+    "uptime_percentage": 0.0,
+    "current_state": "online",
+    "active_tunnels": 7,
+    "primary_url": "https://soul-tim-overhead-estimate.trycloudflare.com",
+    "fallback_hosts": 0,
+    "last_online_time": "2026-06-03T03:19:03.806432"
+  },
+  "saved_at": "2026-06-03T03:19:20.623412"
+}

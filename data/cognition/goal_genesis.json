@@ -1,0 +1,3036 @@
+{
+  "problems": {
+    "f0312561-2": {
+      "problem_id": "f0312561-2",
+      "title": "Global Mental Health Crisis",
+      "description": "The increasing prevalence of mental health disorders worldwide, exacerbated by factors such as social isolation, urbanization, and technological overload, poses a significant threat to individuals' well-being and societal stability.",
+      "domain": "health",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "entire human population",
+      "root_causes": [
+        "social isolation",
+        "urbanization",
+        "technological overload"
+      ],
+      "cross_domain_links": [
+        "poverty",
+        "education"
+      ],
+      "identified_at": "2026-03-16T07:39:24.231888"
+    },
+    "94effab3-6": {
+      "problem_id": "94effab3-6",
+      "title": "AI-Generated Disinformation and Propaganda",
+      "description": "The proliferation of AI-generated disinformation and propaganda poses a significant threat to global stability, trust in institutions, and the integrity of democratic processes. With AI's ability to generate realistic and persuasive content, malicious actors can spread false information that is difficult to detect or correct.",
+      "domain": "governance|knowledge",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.5,
+      "impact_level": "global",
+      "affected_population": "entire populations, especially those without strong digital literacy",
+      "root_causes": [
+        "lack of regulation and oversight",
+        "misaligned incentives for AI development"
+      ],
+      "cross_domain_links": [
+        "cybersecurity threats",
+        "erosion of trust in institutions"
+      ],
+      "identified_at": "2026-03-16T09:01:09.397217"
+    },
+    "4f27e69d-9": {
+      "problem_id": "4f27e69d-9",
+      "title": "Climate Migration and Humanitarian Crisis",
+      "description": "Rising global temperatures are displacing millions of people annually, leading to humanitarian crises. As climate change exacerbates conflicts over resources, it's crucial to develop effective migration management strategies that prioritize human rights and dignity.",
+      "domain": "climate|health|poverty|conflict",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.5,
+      "impact_level": "global",
+      "affected_population": "Climate migrants, internally displaced persons (IDPs), and vulnerable communities worldwide",
+      "root_causes": [
+        "Climate change",
+        "Environmental degradation",
+        "Conflict over resources"
+      ],
+      "cross_domain_links": [
+        "Food Security",
+        "Water Scarcity",
+        "Human Trafficking"
+      ],
+      "identified_at": "2026-03-16T10:51:36.060806"
+    },
+    "e44c6bfa-9": {
+      "problem_id": "e44c6bfa-9",
+      "title": "Global Food Waste and Inefficient Agriculture",
+      "description": "Despite having enough food to feed everyone, an estimated one-third of all food produced globally is lost or wasted. This not only perpetuates hunger and malnutrition but also contributes to greenhouse gas emissions, water pollution, and loss of biodiversity. Additionally, inefficient agriculture practices lead to soil degradation, reduced crop yields, and increased use of chemical pesticides and fertilizers.",
+      "domain": "food_security",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.7,
+      "impact_level": "global",
+      "affected_population": "entire global population, with disproportionate impact on vulnerable communities",
+      "root_causes": [
+        "inadequate food storage and logistics",
+        "insufficient education and awareness",
+        "inefficient agricultural practices"
+      ],
+      "cross_domain_links": [
+        "Climate Change",
+        "Sustainable Agriculture",
+        "Food Security"
+      ],
+      "identified_at": "2026-03-16T11:39:04.436188"
+    },
+    "f5ed14b5-9": {
+      "problem_id": "f5ed14b5-9",
+      "title": "Global Water Scarcity and Inefficient Management",
+      "description": "The world is facing a growing water crisis. With a projected 40% global water scarcity by 2030, the lack of efficient management, infrastructure, and sustainable practices will lead to significant social, economic, and environmental impacts.",
+      "domain": "water|sustainability|energy|agriculture|health",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "all humanity",
+      "root_causes": [
+        "population growth",
+        "inefficient water use"
+      ],
+      "cross_domain_links": [
+        "water-energy nexus",
+        "food security"
+      ],
+      "identified_at": "2026-03-16T12:30:06.243985"
+    },
+    "904260c8-2": {
+      "problem_id": "904260c8-2",
+      "title": "Biodegradable Plastics and Circular Economy",
+      "description": "The proliferation of biodegradable plastics has created a new set of environmental concerns, including the unintended consequences of microplastic contamination in ecosystems. The lack of standardized regulations and guidelines for biodegradable plastic production and disposal exacerbates this issue.",
+      "domain": "climate|energy|waste_management",
+      "severity": 0.7,
+      "urgency": 0.9,
+      "solvability": 0.4,
+      "impact_level": "global",
+      "affected_population": "all",
+      "root_causes": [
+        "inadequate regulations",
+        "lack of standardized guidelines"
+      ],
+      "cross_domain_links": [
+        "Global Plastic Pollution Crisis",
+        "Circular Economy and Sustainable Development"
+      ],
+      "identified_at": "2026-03-16T13:17:49.245506"
+    },
+    "5fbbc53e-8": {
+      "problem_id": "5fbbc53e-8",
+      "title": "Inequitable Access to Quality Education",
+      "description": "Despite significant progress in increasing access to education globally, many students still lack access to quality education that prepares them for the challenges of the 21st century. This issue disproportionately affects marginalized communities and perpetuates social and economic inequalities.",
+      "domain": "education|poverty|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.7,
+      "impact_level": "global",
+      "affected_population": "1.2 billion students worldwide, particularly those in low-income countries and marginalized communities",
+      "root_causes": [
+        "Insufficient government funding for education",
+        "Lack of qualified teachers and infrastructure",
+        "Inequitable distribution of educational resources"
+      ],
+      "cross_domain_links": [
+        "Global Poverty Reduction",
+        "Social Inequality and Discrimination",
+        "Economic Development and Growth"
+      ],
+      "identified_at": "2026-03-16T13:54:02.326569"
+    },
+    "2d47ba0d-c": {
+      "problem_id": "2d47ba0d-c",
+      "title": "Sustainable Urban Planning and Infrastructure",
+      "description": "The rapid urbanization of human populations is straining city infrastructures, leading to issues such as traffic congestion, air pollution, and inadequate housing. As the global population continues to shift towards urban centers, it becomes increasingly important to develop sustainable and resilient urban planning strategies that balance economic growth with environmental and social considerations.",
+      "domain": "climate|health|poverty",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "urban dwellers, particularly low-income communities",
+      "root_causes": [
+        "rapid urbanization"
+      ],
+      "cross_domain_links": [
+        "Global Climate Change: Urban areas are disproportionately affected by climate-related events and heatwaves.",
+        "Inequitable Access to Quality Education: Lack of education can exacerbate issues in urban planning and infrastructure."
+      ],
+      "identified_at": "2026-03-16T14:51:51.431710"
+    },
+    "89df5aa3-f": {
+      "problem_id": "89df5aa3-f",
+      "title": "Planetary-Scale Ecosystem Restoration",
+      "description": "The loss of biodiversity and degradation of ecosystems have far-reaching consequences for human well-being, food security, climate regulation, and the overall health of the planet. Restoring planetary-scale ecosystems is crucial to maintaining ecosystem services, promoting biodiversity, and mitigating the impacts of climate change.",
+      "domain": "climate|ecology|conservation",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.7,
+      "impact_level": "global",
+      "affected_population": "all humans, ecosystems, and species",
+      "root_causes": [
+        "habitat destruction",
+        "invasive species",
+        "climate change"
+      ],
+      "cross_domain_links": [
+        "Loss of Pollinator Species",
+        "Ocean Acidification",
+        "Mass Extinctions"
+      ],
+      "identified_at": "2026-03-16T15:36:26.311097"
+    },
+    "39b14a92-5": {
+      "problem_id": "39b14a92-5",
+      "title": "Sustainable Nuclear Waste Management",
+      "description": "The accumulation of nuclear waste from civilian and military sources poses a significant threat to human health, environmental safety, and long-term energy sustainability. Current storage methods are inadequate, and the lack of standardized disposal solutions creates uncertainty and risks.",
+      "domain": "energy|environment|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "everyone, with disproportionate impact on communities near storage facilities and potential future generations.",
+      "root_causes": [
+        "Lack of standardized disposal solutions",
+        "Insufficient funding for research and development"
+      ],
+      "cross_domain_links": [
+        "Nuclear Power Generation",
+        "Radioactive Contamination Cleanup"
+      ],
+      "identified_at": "2026-03-16T16:23:23.932116"
+    },
+    "810dd58e-c": {
+      "problem_id": "810dd58e-c",
+      "title": "AI-driven Unemployment and Skills Mismatch",
+      "description": "The increasing use of AI and automation in various industries is leading to widespread job displacement and skills mismatch, particularly among low-skilled workers. This poses a significant threat to social cohesion, economic stability, and individual well-being.",
+      "domain": "technology|poverty|education",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "low-skilled workers, middle-class individuals, and seniors",
+      "root_causes": [
+        "ineffective education systems",
+        "lack of retraining programs"
+      ],
+      "cross_domain_links": [
+        "Inequitable Access to Quality Education",
+        "Global Mental Health Crisis"
+      ],
+      "identified_at": "2026-03-16T16:59:05.103030"
+    },
+    "c1c1cf11-c": {
+      "problem_id": "c1c1cf11-c",
+      "title": "Inadequate Disaster Response and Recovery",
+      "description": "The lack of effective disaster response and recovery frameworks, including inadequate infrastructure, insufficient funding, and poor coordination, often exacerbates the impact of natural disasters, resulting in significant loss of life, property damage, and long-term social and economic consequences.",
+      "domain": "climate|health|poverty|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "vulnerable communities, including those in poverty and with limited access to resources",
+      "root_causes": [
+        "ineffective governance",
+        "insufficient funding"
+      ],
+      "cross_domain_links": [
+        "Climate Migration and Humanitarian Crisis",
+        "Global Food Waste and Inefficient Agriculture"
+      ],
+      "identified_at": "2026-03-21T09:07:27.733338"
+    },
+    "30a0b085-e": {
+      "problem_id": "30a0b085-e",
+      "title": "AI-driven Unintended Consequences of Automation",
+      "description": "The increasing reliance on automation in industries such as manufacturing, logistics, and services has led to the displacement of millions of workers, exacerbating income inequality and social unrest. Moreover, AI-driven automation has created new forms of unintended consequences, such as job polarization, where high-skilled jobs thrive while low-skilled ones decline.",
+      "domain": "technology|health|poverty",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "all",
+      "root_causes": [
+        "technological unemployment",
+        "ineffective education and training"
+      ],
+      "cross_domain_links": [
+        "Inadequate Disaster Response and Recovery",
+        "Global Mental Health Crisis"
+      ],
+      "identified_at": "2026-03-21T09:51:05.769086"
+    },
+    "731d8c53-d": {
+      "problem_id": "731d8c53-d",
+      "title": "AI-driven Unintended Consequences of Autonomous Systems",
+      "description": "The increasing reliance on autonomous systems in various domains, such as transportation and manufacturing, raises concerns about the potential for unforeseen consequences. These systems may interact with humans or other machines in unpredictable ways, leading to accidents, injuries, or even long-term societal changes.",
+      "domain": "technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.7,
+      "impact_level": "global",
+      "affected_population": "the general public and industries relying on autonomous systems",
+      "root_causes": [
+        "inadequate risk assessment",
+        "insufficient testing"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unemployment and Skills Mismatch",
+        "Inadequate Disaster Response and Recovery"
+      ],
+      "identified_at": "2026-03-21T10:24:45.139413"
+    },
+    "4858c75f-e": {
+      "problem_id": "4858c75f-e",
+      "title": "Intergenerational Injustice and Legacy",
+      "description": "The problem of intergenerational injustice and legacy refers to the current and future consequences of human actions on the planet, including climate change, pollution, and resource depletion. This issue affects not only the environment but also future generations' well-being, opportunities, and ability to thrive.",
+      "domain": "climate|environment|sustainability",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "all future generations",
+      "root_causes": [
+        "short-term thinking",
+        "lack of sustainable development"
+      ],
+      "cross_domain_links": [
+        "Sustainable Urban Planning and Infrastructure",
+        "Planetary-Scale Ecosystem Restoration"
+      ],
+      "identified_at": "2026-03-21T11:07:12.845956"
+    },
+    "a1c63f09-7": {
+      "problem_id": "a1c63f09-7",
+      "title": "Inadequate Carbon Capture and Utilization",
+      "description": "The rapid growth of industrial activities and transportation has led to a surge in carbon emissions, making it essential to develop efficient and scalable carbon capture and utilization technologies. Despite significant research efforts, the development of cost-effective and environmentally friendly solutions remains a major challenge.",
+      "domain": "energy|climate",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.5,
+      "impact_level": "global",
+      "affected_population": "entire human population, with disproportionate impact on vulnerable communities and ecosystems",
+      "root_causes": [
+        "inadequate regulation",
+        "insufficient investment in research and development"
+      ],
+      "cross_domain_links": [
+        "Climate Change Mitigation",
+        "Sustainable Energy Sources"
+      ],
+      "identified_at": "2026-03-21T12:00:35.367543"
+    },
+    "9120a7bc-5": {
+      "problem_id": "9120a7bc-5",
+      "title": "Inadequate Disaster Response and Recovery",
+      "description": "Despite advancements in emergency management and response, the effectiveness of disaster responses remains inconsistent, with significant delays and inefficiencies in relief delivery, resulting in prolonged recovery times, further exacerbating the humanitarian crisis.",
+      "domain": "health|poverty|governance",
+      "severity": 0.8,
+      "urgency": 1.0,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "Disaster-prone communities worldwide, particularly vulnerable populations such as the elderly, children, and those with pre-existing medical conditions.",
+      "root_causes": [
+        "Inadequate emergency preparedness and planning",
+        "Lack of robust communication networks",
+        "Inefficient resource allocation"
+      ],
+      "cross_domain_links": [
+        "Global Mental Health Crisis",
+        "Climate Migration and Humanitarian Crisis",
+        "Intergenerational Injustice and Legacy"
+      ],
+      "identified_at": "2026-03-21T12:36:18.089426"
+    },
+    "faa57885-b": {
+      "problem_id": "faa57885-b",
+      "title": "Quantum Computing-driven Cryptographic Insecurity",
+      "description": "The widespread adoption of quantum computing will render many existing encryption methods insecure, compromising global data transmission and storage.",
+      "domain": "technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.7,
+      "impact_level": "global",
+      "affected_population": "all users of digital services",
+      "root_causes": [
+        "accelerating quantum computing development",
+        "inadequate encryption standardization"
+      ],
+      "cross_domain_links": [
+        "Cybersecurity Risks in the Age of Quantum Computing"
+      ],
+      "identified_at": "2026-03-21T13:25:02.170176"
+    },
+    "c7569ef6-7": {
+      "problem_id": "c7569ef6-7",
+      "title": "Quantum Computing-driven Cryptographic Insecurity",
+      "description": "The widespread adoption of quantum computing has introduced new vulnerabilities in cryptographic systems, threatening the security of sensitive information and online transactions. As quantum computers become more accessible, the risk of data breaches and encryption compromise will continue to grow.",
+      "domain": "technology",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "anyone using online services",
+      "root_causes": [
+        "uncontrolled proliferation of quantum computing technology",
+        "insufficient development of quantum-resistant cryptographic standards"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Automation",
+        "Inadequate Cybersecurity Measures"
+      ],
+      "identified_at": "2026-03-23T10:57:46.969645"
+    },
+    "1062c7fb-d": {
+      "problem_id": "1062c7fb-d",
+      "title": "Sustainable Infrastructure for Rapid Urbanization",
+      "description": "As the global population urbanizes at an unprecedented rate, cities face significant challenges in providing adequate infrastructure to support their growth. This problem encompasses issues such as inadequate housing, transportation systems, and energy supply, which can lead to increased poverty rates, health concerns, and decreased quality of life.",
+      "domain": "energy|health|poverty|education|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "urban dwellers, especially those living in informal settlements and slums",
+      "root_causes": [
+        "rapid urbanization",
+        "inadequate planning"
+      ],
+      "cross_domain_links": [
+        "Inequitable Access to Quality Education",
+        "Global Food Waste and Inefficient Agriculture",
+        "Sustainable Water Management"
+      ],
+      "identified_at": "2026-03-25T21:58:36.761731"
+    },
+    "68fa766e-2": {
+      "problem_id": "68fa766e-2",
+      "title": "Loss of Biodiversity and Ecosystem Resilience",
+      "description": "The rapid decline in global biodiversity and ecosystem resilience poses a significant threat to the health of ecosystems, human well-being, and sustainable development. The loss of ecological services, such as pollination, pest control, and nutrient cycling, can have cascading effects on food production, water quality, and climate regulation.",
+      "domain": "environment|health|poverty",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "entire ecosystems, human communities dependent on ecosystem services, and future generations",
+      "root_causes": [
+        "habitat destruction",
+        "overfishing",
+        "climate change",
+        "invasive species"
+      ],
+      "cross_domain_links": [
+        "Climate Change",
+        "Sustainable Agriculture",
+        "Deforestation and Land Degradation"
+      ],
+      "identified_at": "2026-03-26T18:57:39.109318"
+    },
+    "aa983e5a-f": {
+      "problem_id": "aa983e5a-f",
+      "title": "Global Mental Health Crisis",
+      "description": "The rapid pace of technological change, social media saturation, and increasing pressures on modern life have led to a growing global mental health crisis. The lack of effective coping mechanisms, inadequate mental healthcare infrastructure, and stigma surrounding mental illness are contributing factors.",
+      "domain": "health|education|poverty|technology",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "millions of people worldwide, with a disproportionate impact on younger generations and vulnerable populations",
+      "root_causes": [
+        "inadequate mental health education and awareness",
+        "lack of access to mental healthcare services"
+      ],
+      "cross_domain_links": [
+        "Inequitable Access to Quality Education",
+        "Sustainable Infrastructure for Rapid Urbanization",
+        "Planetary-Scale Ecosystem Restoration"
+      ],
+      "identified_at": "2026-03-28T10:46:43.190401"
+    },
+    "db3864bd-3": {
+      "problem_id": "db3864bd-3",
+      "title": "Digital Divide and Inequitable Access to Information",
+      "description": "The digital divide refers to the gap between individuals who have access to digital technologies, such as computers and the internet, and those who do not. This inequity in access to information can exacerbate existing social and economic disparities.",
+      "domain": "education|health|poverty|technology",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "low-income communities, rural areas, developing countries",
+      "root_causes": [
+        "lack of infrastructure and resources",
+        "inequitable access to education"
+      ],
+      "cross_domain_links": [
+        "Global Mental Health Crisis",
+        "Inequitable Access to Quality Education"
+      ],
+      "identified_at": "2026-03-28T20:27:19.449234"
+    },
+    "ae0bf04f-7": {
+      "problem_id": "ae0bf04f-7",
+      "title": "AI-driven Unintended Consequences of Complex Systems",
+      "description": "The increasing reliance on artificial intelligence and complex systems in various domains, such as healthcare, finance, and transportation, poses a significant risk to the stability and resilience of these systems. As AI integrates with other complex systems, unforeseen interactions can lead to cascading failures or unpredictable outcomes, potentially causing widespread disruptions.",
+      "domain": "technology|health|finance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "all populations relying on complex systems",
+      "root_causes": [
+        "inadequate understanding of AI interactions",
+        "insufficient testing and validation"
+      ],
+      "cross_domain_links": [
+        "Digital Divide and Inequitable Access to Information",
+        "AI-driven Unemployment and Skills Mismatch"
+      ],
+      "identified_at": "2026-03-28T22:20:10.372338"
+    },
+    "cd3b1512-7": {
+      "problem_id": "cd3b1512-7",
+      "title": "AI-driven Unintended Consequences of Complex Systems",
+      "description": "The increasing reliance on complex AI systems in critical infrastructure, such as power grids, financial markets, and healthcare systems, poses a significant risk to global stability. As these systems interact and adapt, they may create unforeseen consequences that could have far-reaching impacts on society.",
+      "domain": "technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "everyone",
+      "root_causes": [
+        "lack of transparency in AI decision-making processes",
+        "insufficient testing and validation of complex AI systems"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unemployment and Skills Mismatch",
+        "Inadequate Disaster Response and Recovery"
+      ],
+      "identified_at": "2026-04-02T17:45:49.558786"
+    },
+    "f1e0ee64-6": {
+      "problem_id": "f1e0ee64-6",
+      "title": "AI-driven Unintended Consequences of Human-AI Collaboration",
+      "description": "The increasing reliance on AI for decision-making and collaboration raises concerns about the potential for human biases, cognitive limitations, and cultural differences to be amplified or perpetuated through AI systems. This could lead to unforeseen consequences, such as reinforcing existing social inequalities, creating new forms of discrimination, or exacerbating groupthink.",
+      "domain": "technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "all humans, particularly those in positions of power and influence",
+      "root_causes": [
+        "lack of transparency in AI development and deployment",
+        "insufficient understanding of human-AI collaboration dynamics"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Automation",
+        "Digital Divide and Inequitable Access to Information"
+      ],
+      "identified_at": "2026-04-04T18:21:20.727423"
+    },
+    "8d1606fe-d": {
+      "problem_id": "8d1606fe-d",
+      "title": "Inadequate Representation of Human Values and Ethics in AI Decision-Making",
+      "description": "The increasing reliance on AI systems for decision-making raises concerns about the integration of human values and ethics, leading to potential biases and unjust outcomes.",
+      "domain": "technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "everyone",
+      "root_causes": [
+        "insufficient human oversight",
+        "lack of standardized ethical frameworks"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Automation",
+        "Global Mental Health Crisis"
+      ],
+      "identified_at": "2026-04-05T16:22:46.476733"
+    },
+    "c9790f68-6": {
+      "problem_id": "c9790f68-6",
+      "title": "AI-driven Unintended Consequences of Human-AI Collaboration",
+      "description": "The increasing reliance on AI in decision-making processes may lead to unforeseen consequences due to the lack of human oversight, bias injection, and incomplete understanding of complex systems. This could result in far-reaching societal implications, including perpetuation of systemic inequalities, erosion of trust in AI-driven institutions, and diminished capacity for collective problem-solving.",
+      "domain": "governance|technology",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "everyone",
+      "root_causes": [
+        "Insufficient understanding of human-AI collaboration dynamics",
+        "Inadequate representation of human values and ethics in AI decision-making"
+      ],
+      "cross_domain_links": [
+        "Sustainable Urban Planning and Infrastructure (influencing urban development)",
+        "Global Mental Health Crisis (impacting trust in AI-driven institutions)"
+      ],
+      "identified_at": "2026-04-05T16:29:39.019361"
+    },
+    "758ea6c4-2": {
+      "problem_id": "758ea6c4-2",
+      "title": "AI-driven Unintended Consequences of Complex Systems",
+      "description": "The integration of AI into complex systems can lead to unforeseen and far-reaching consequences, potentially disrupting global stability and human well-being.",
+      "domain": "technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.5,
+      "impact_level": "global",
+      "affected_population": "everyone",
+      "root_causes": [
+        "insufficient understanding of AI's interactions with complex systems",
+        "inadequate testing and validation protocols"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Automation",
+        "Inadequate Representation of Human Values and Ethics in AI Decision-Making"
+      ],
+      "identified_at": "2026-04-06T10:06:08.692086"
+    },
+    "db535f21-7": {
+      "problem_id": "db535f21-7",
+      "title": "Unmanaged Complex Systems Interactions",
+      "description": "The rapid development and deployment of complex systems, such as AI, IoT devices, and autonomous vehicles, has led to a proliferation of interconnected systems that are difficult to predict, manage, and control. As these systems interact with each other and their environment, they can create unforeseen consequences, including cascading failures, security breaches, and unpredictable behavior.",
+      "domain": "technology",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.5,
+      "impact_level": "global",
+      "affected_population": "all stakeholders involved in complex system development and deployment",
+      "root_causes": [
+        "over-reliance on simulations and modeling",
+        "inadequate understanding of system interactions",
+        "lack of standards and regulation"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Complex Systems",
+        "Inadequate Representation of Human Values and Ethics in AI Decision-Making"
+      ],
+      "identified_at": "2026-04-06T10:15:06.299937"
+    },
+    "3eeedc95-1": {
+      "problem_id": "3eeedc95-1",
+      "title": "Systemic Injustice in Artificial Intelligence Development and Deployment",
+      "description": "The lack of diversity, equity, and inclusion in AI development and deployment perpetuates and exacerbates existing social injustices, reinforcing biases and inequalities. This problem affects the most vulnerable populations, including people of color, women, and marginalized communities.",
+      "domain": "technology|governance|social_justice",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "marginalized communities, people of color, women, and other vulnerable populations",
+      "root_causes": [
+        "racism and sexism in the tech industry",
+        "lack of diversity and inclusion in AI development teams",
+        "insufficient representation of marginalized voices in AI decision-making processes"
+      ],
+      "cross_domain_links": [
+        "Inadequate Representation of Human Values and Ethics in AI Decision-Making",
+        "Digital Divide and Inequitable Access to Information",
+        "Sustainable Infrastructure for Rapid Urbanization"
+      ],
+      "identified_at": "2026-04-12T04:45:49.923260"
+    },
+    "fb6bf296-3": {
+      "problem_id": "fb6bf296-3",
+      "title": "Unmanaged Complex Systems Interactions",
+      "description": "The increasing complexity of interconnected systems, such as global supply chains, financial networks, and technological infrastructures, poses a significant risk to the stability and resilience of modern society. Unmanaged interactions between these complex systems can lead to cascading failures, systemic crises, and unpredictable outcomes.",
+      "domain": "technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.5,
+      "impact_level": "global",
+      "affected_population": "all",
+      "root_causes": [
+        "insufficient understanding of system dynamics",
+        "lack of governance and regulation"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Complex Systems",
+        "Sustainable Infrastructure for Rapid Urbanization",
+        "Global Mental Health Crisis"
+      ],
+      "identified_at": "2026-04-12T05:20:31.602587"
+    },
+    "b1fe1396-2": {
+      "problem_id": "b1fe1396-2",
+      "title": "Sustainable and Equitable Management of Natural Resources",
+      "description": "The unsustainable management of natural resources is a pressing issue, exacerbating climate change, deforestation, and biodiversity loss. As the global population grows, the demand for resources increases, making it essential to develop sustainable and equitable strategies for their use.",
+      "domain": "climate|environment|sustainability",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.7,
+      "impact_level": "global",
+      "affected_population": "entire global population, with disproportionate impacts on vulnerable communities and ecosystems",
+      "root_causes": [
+        "ineffective policy and governance",
+        "insufficient funding for conservation and restoration efforts",
+        "poor understanding of ecosystem services"
+      ],
+      "cross_domain_links": [
+        "Loss of Biodiversity and Ecosystem Resilience",
+        "Inadequate Carbon Capture and Utilization",
+        "Global Mental Health Crisis"
+      ],
+      "identified_at": "2026-04-12T05:28:40.594586"
+    },
+    "2ed65be7-a": {
+      "problem_id": "2ed65be7-a",
+      "title": "Inadequate Global Healthcare Supply Chain Resilience",
+      "description": "The global healthcare supply chain is vulnerable to disruptions, stockouts, and counterfeiting, compromising patient access to essential medications and medical devices. The COVID-19 pandemic has exacerbated these challenges.",
+      "domain": "health|technology",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "globally, especially in low-income countries and areas with limited healthcare infrastructure",
+      "root_causes": [
+        "complex global supply chains",
+        "limited transparency and traceability"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Complex Systems",
+        "Global Mental Health Crisis"
+      ],
+      "identified_at": "2026-04-12T05:36:44.816578"
+    },
+    "c4630bae-4": {
+      "problem_id": "c4630bae-4",
+      "title": "Uncontrolled and Unmanaged Urbanization",
+      "description": "The rapid urbanization of human populations is leading to unprecedented challenges in housing, infrastructure, services, and social cohesion. Without effective management strategies, this trend may exacerbate issues like poverty, inequality, and environmental degradation.",
+      "domain": "poverty|health|energy|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "Rural-urban migrants, urban dwellers",
+      "root_causes": [
+        "Lack of effective urban planning and management strategies"
+      ],
+      "cross_domain_links": [
+        "Sustainable Infrastructure for Rapid Urbanization",
+        "Inadequate Representation of Human Values and Ethics in AI Decision-Making"
+      ],
+      "identified_at": "2026-04-12T14:12:26.834343"
+    },
+    "3faf2243-c": {
+      "problem_id": "3faf2243-c",
+      "title": "AI-driven Misinformation and Disinformation",
+      "description": "The proliferation of AI-generated misinformation and disinformation, which can be spread rapidly through social media and other digital platforms, poses a significant threat to global stability. As AI systems become increasingly sophisticated, they are capable of generating highly convincing and realistic false information that can deceive even the most well-informed individuals.",
+      "domain": "technology|knowledge",
+      "severity": 0.85,
+      "urgency": 0.95,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "the general public, particularly those with limited digital literacy or access to accurate information",
+      "root_causes": [
+        "Lack of regulatory frameworks for AI-generated content"
+      ],
+      "cross_domain_links": [
+        "Digital Divide and Inequitable Access to Information",
+        "Global Mental Health Crisis (as misinformation can exacerbate mental health issues)"
+      ],
+      "identified_at": "2026-04-12T14:37:53.620155"
+    },
+    "dd6f734b-c": {
+      "problem_id": "dd6f734b-c",
+      "title": "Climate-Induced Food System Instability",
+      "description": "The global food system is increasingly vulnerable to climate change, leading to unpredictable and irregular crop yields, disrupted supply chains, and increased food insecurity. This problem has far-reaching implications for human health, economic stability, and social cohesion.",
+      "domain": "climate|food_security",
+      "severity": 0.85,
+      "urgency": 0.95,
+      "solvability": 0.7,
+      "impact_level": "global",
+      "affected_population": "all",
+      "root_causes": [
+        "Rising global temperatures and extreme weather events"
+      ],
+      "cross_domain_links": [
+        "Unmanaged Complex Systems Interactions",
+        "Inadequate Global Healthcare Supply Chain Resilience",
+        "Sustainable Infrastructure for Rapid Urbanization"
+      ],
+      "identified_at": "2026-04-12T14:56:04.252042"
+    },
+    "23802ad4-6": {
+      "problem_id": "23802ad4-6",
+      "title": "AI-driven Unintended Consequences of Complex Systems",
+      "description": "The lack of transparency and understanding of complex systems interacting with AI can lead to unforeseen consequences, potentially catastrophic in scale.",
+      "domain": "technology|governance|knowledge",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.4,
+      "impact_level": "global",
+      "affected_population": "humans and AI systems",
+      "root_causes": [
+        "insufficient understanding of complex systems",
+        "lack of transparency in AI decision-making"
+      ],
+      "cross_domain_links": [
+        "Unmanaged Complex Systems Interactions",
+        "Systemic Injustice in Artificial Intelligence Development and Deployment"
+      ],
+      "identified_at": "2026-04-13T06:27:50.160248"
+    },
+    "2c0684f3-f": {
+      "problem_id": "2c0684f3-f",
+      "title": "Sustainable and Equitable Management of Natural Resources",
+      "description": "Humanity's unsustainable exploitation of natural resources is leading to environmental degradation, social injustice, and economic instability. Ensuring the long-term availability of essential resources like water, food, energy, and minerals requires a shift towards sustainable management practices that prioritize equity, conservation, and innovation.",
+      "domain": "environment|energy|food_security",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "all humans",
+      "root_causes": [
+        "population growth",
+        "inequitable resource distribution"
+      ],
+      "cross_domain_links": [
+        "Climate-Induced Food System Instability",
+        "Unmanaged Complex Systems Interactions"
+      ],
+      "identified_at": "2026-04-13T06:45:46.565616"
+    },
+    "5e7b97b7-8": {
+      "problem_id": "5e7b97b7-8",
+      "title": "AI-driven Unintended Consequences of Human-AI Collaboration",
+      "description": "The increasing reliance on AI systems to augment human decision-making and collaboration is leading to unintended consequences, such as biased outcomes, loss of transparency, and diminished accountability.",
+      "domain": "technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "all humans relying on AI systems for decision-making",
+      "root_causes": [
+        "Lack of standardization in AI development and deployment",
+        "Insufficient transparency in AI decision-making processes"
+      ],
+      "cross_domain_links": [
+        "Inadequate Representation of Human Values and Ethics in AI Decision-Making",
+        "Systemic Injustice in Artificial Intelligence Development and Deployment"
+      ],
+      "identified_at": "2026-04-13T06:59:50.925649"
+    },
+    "3a5747a0-7": {
+      "problem_id": "3a5747a0-7",
+      "title": "AI-driven Job Market Disruption",
+      "description": "The increasing automation of jobs due to AI advancements is leading to significant disruption in the global job market, with potential long-term consequences for employment rates, income inequality, and social stability.",
+      "domain": "technology|poverty|education|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "working-age individuals, low-skilled workers, and those in industries most susceptible to automation",
+      "root_causes": [
+        "rapid technological advancements",
+        "ineffective education systems",
+        "outdated labor laws"
+      ],
+      "cross_domain_links": [
+        "Unemployment and Economic Instability",
+        "Social Inequality and Conflict"
+      ],
+      "identified_at": "2026-04-13T07:06:16.142797"
+    },
+    "0cdf7d65-3": {
+      "problem_id": "0cdf7d65-3",
+      "title": "Massive Data Loss and Irretrievable Information Disappearance",
+      "description": "The exponential growth of data storage and the increasing reliance on digital information have led to a critical issue: massive data loss and irretrievable information disappearance. As data is generated at an unprecedented rate, it is becoming increasingly difficult to ensure the integrity, accessibility, and long-term preservation of this information.",
+      "domain": "technology",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "everyone",
+      "root_causes": [
+        "inadequate data backup and recovery systems",
+        "insufficient funding for digital preservation initiatives"
+      ],
+      "cross_domain_links": [
+        "Digital Divide and Inequitable Access to Information",
+        "Sustainable and Equitable Management of Natural Resources"
+      ],
+      "identified_at": "2026-04-13T12:28:47.145575"
+    },
+    "62068e64-c": {
+      "problem_id": "62068e64-c",
+      "title": "Sudden and Pervasive Technological Singularity",
+      "description": "The sudden emergence of an exponentially growing artificial intelligence, surpassing human capabilities, leading to unforeseen consequences on human society, economy, and environment.",
+      "domain": "technology",
+      "severity": 0.9,
+      "urgency": 0.8,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "entire humanity",
+      "root_causes": [
+        "rapid advancement of AI capabilities",
+        "lack of regulatory frameworks"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Complex Systems",
+        "Systemic Injustice in Artificial Intelligence Development and Deployment"
+      ],
+      "identified_at": "2026-04-13T12:47:38.089844"
+    },
+    "f68055c2-7": {
+      "problem_id": "f68055c2-7",
+      "title": "Massive Data Loss and Irretrievable Information Disappearance",
+      "description": "The rapid proliferation of digital technologies has led to an unprecedented volume of data creation, storage, and transmission. However, the lack of robust data management and preservation strategies puts at risk the long-term accessibility and integrity of this information, posing significant consequences for various domains.",
+      "domain": "technology",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "everyone",
+      "root_causes": [
+        "Lack of standardized data management protocols",
+        "Insufficient investment in data preservation infrastructure"
+      ],
+      "cross_domain_links": [
+        "Sudden and Pervasive Technological Singularity",
+        "AI-driven Job Market Disruption"
+      ],
+      "identified_at": "2026-04-13T17:25:42.423645"
+    },
+    "2434c20e-0": {
+      "problem_id": "2434c20e-0",
+      "title": "Global Food Waste Reduction",
+      "description": "The staggering amount of food waste generated globally has severe environmental and societal implications. It is estimated that one-third of all food produced is lost or wasted, resulting in unnecessary greenhouse gas emissions, resource depletion, and economic losses.",
+      "domain": "food_security|environment|economy",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.7,
+      "impact_level": "global",
+      "affected_population": "entire population with significant impact on vulnerable communities",
+      "root_causes": [
+        "inefficient supply chains and logistics",
+        "inadequate food storage and preservation methods",
+        "lack of education and awareness about food waste among consumers"
+      ],
+      "cross_domain_links": [
+        "Unsustainable Agriculture Practices",
+        "Socio-Economic Inequality and Food Access Issues",
+        "Waste Management Infrastructure Challenges"
+      ],
+      "identified_at": "2026-04-13T23:25:37.062660"
+    },
+    "9deeda2d-f": {
+      "problem_id": "9deeda2d-f",
+      "title": "Massive Data Loss and Irretrievable Information Disappearance",
+      "description": "The loss of vast amounts of data and irretrievable information due to various reasons such as hardware failure, natural disasters, or cyberattacks has severe implications for human knowledge, progress, and decision-making. This issue can have far-reaching consequences on multiple domains, including education, research, healthcare, and governance.",
+      "domain": "knowledge",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "All individuals and organizations relying on digital data",
+      "root_causes": [
+        "Human error",
+        "Technical failures",
+        "Cyberattacks"
+      ],
+      "cross_domain_links": [
+        "Data Management and Preservation",
+        "Information Security"
+      ],
+      "identified_at": "2026-04-13T23:37:35.580701"
+    },
+    "441759ab-1": {
+      "problem_id": "441759ab-1",
+      "title": "Massive and Irreversible Loss of Biodiversity",
+      "description": "The rapid decline of species diversity threatens the health of ecosystems, human well-being, and global food security. Human activities such as deforestation, habitat destruction, pollution, climate change, and overfishing are driving this crisis.",
+      "domain": "climate|environment|biodiversity|food_security",
+      "severity": 0.9,
+      "urgency": 0.8,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "all species, including humans",
+      "root_causes": [
+        "human activities",
+        "climate change"
+      ],
+      "cross_domain_links": [
+        {
+          "problem": "Sustainable and Equitable Management of Natural Resources"
+        },
+        {
+          "problem": "Climate-Induced Food System Instability"
+        }
+      ],
+      "identified_at": "2026-04-14T22:00:43.503047"
+    },
+    "ee25c837-b": {
+      "problem_id": "ee25c837-b",
+      "title": "Anticipating and Mitigating Long-Term Societal Impacts of Advanced AI",
+      "description": "The increasing reliance on advanced AI systems raises concerns about the long-term societal implications, including potential changes in human cognition, social structures, and economic systems. As AI becomes more integrated into daily life, it is crucial to anticipate and mitigate these impacts proactively.",
+      "domain": "knowledge|technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.5,
+      "impact_level": "global",
+      "affected_population": "entire human population",
+      "root_causes": [
+        "rapid advancement of AI capabilities",
+        "increased reliance on AI for decision-making"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Human-AI Collaboration",
+        "Systemic Injustice in Artificial Intelligence Development and Deployment"
+      ],
+      "identified_at": "2026-04-17T13:24:50.022835"
+    },
+    "65dab789-c": {
+      "problem_id": "65dab789-c",
+      "title": "Planetary-Scale Climate Engineering",
+      "description": "The increasing urgency and uncertainty of climate change has led to a growing interest in large-scale geoengineering efforts. However, the lack of international coordination, regulatory frameworks, and public understanding creates significant risks for unintended consequences.",
+      "domain": "climate|energy|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "entire human population, ecosystems, and biodiversity",
+      "root_causes": [
+        "unregulated climate change mitigation efforts",
+        "lack of international cooperation"
+      ],
+      "cross_domain_links": [
+        "Massive Data Loss and Irretrievable Information Disappearance",
+        "Anticipating and Mitigating Long-Term Societal Impacts of Advanced AI"
+      ],
+      "identified_at": "2026-04-22T19:47:17.877588"
+    },
+    "08a52625-3": {
+      "problem_id": "08a52625-3",
+      "title": "AI-driven Unintended Consequences of Human-AI Collaboration",
+      "description": "As AI becomes increasingly integrated into various aspects of human life, there is a growing risk that unintended consequences may arise from the interaction between humans and AI systems. This problem refers to the unforeseen effects that can occur when humans work alongside or rely on AI in complex decision-making processes.",
+      "domain": "technology",
+      "severity": 0.7,
+      "urgency": 0.5,
+      "solvability": 0.3,
+      "impact_level": "global",
+      "affected_population": "all",
+      "root_causes": [
+        "Cognitive biases and heuristics in human decision-making",
+        "Lack of transparency and explainability in AI systems",
+        "Inadequate understanding of the complex interactions between humans and AI"
+      ],
+      "cross_domain_links": [
+        "AI-driven Job Market Disruption",
+        "Massive Data Loss and Irretrievable Information Disappearance",
+        "Sudden and Pervasive Technological Singularity"
+      ],
+      "identified_at": "2026-04-22T20:03:36.605423"
+    },
+    "de498c5d-f": {
+      "problem_id": "de498c5d-f",
+      "title": "Long-term Consequences of Advanced AI-driven Human Behavior",
+      "description": "The rapid development and deployment of advanced artificial intelligence (AI) is likely to significantly alter human behavior, potentially leading to long-term consequences that are difficult to predict or mitigate. As AI increasingly shapes our decisions, emotions, and interactions, it may create a feedback loop that amplifies certain behaviors, leading to unintended and far-reaching effects.",
+      "domain": "technology|knowledge",
+      "severity": 0.8,
+      "urgency": 0.6,
+      "solvability": 0.4,
+      "impact_level": "global",
+      "affected_population": "all humans",
+      "root_causes": [
+        "unintended AI-driven behavior",
+        "lack of understanding of human-AI interactions"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Human-AI Collaboration",
+        "Anticipating and Mitigating Long-Term Societal Impacts of Advanced AI"
+      ],
+      "identified_at": "2026-04-27T10:29:44.791814"
+    },
+    "40cc2e42-5": {
+      "problem_id": "40cc2e42-5",
+      "title": "AI-driven Job Market Disruption",
+      "description": "The rapid automation of jobs due to AI and machine learning is leading to a significant disruption in the global job market. As more tasks are taken over by machines, many people may find themselves without stable employment opportunities.",
+      "domain": "technology|poverty|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "workers in industries most susceptible to automation, such as manufacturing and customer service",
+      "root_causes": [
+        "rapid technological advancements",
+        "inadequate education and retraining programs"
+      ],
+      "cross_domain_links": [
+        "Massive Data Loss and Irretrievable Information Disappearance",
+        "Anticipating and Mitigating Long-Term Societal Impacts of Advanced AI"
+      ],
+      "identified_at": "2026-04-27T20:39:55.078396"
+    },
+    "86a029eb-2": {
+      "problem_id": "86a029eb-2",
+      "title": "Long-term Consequences of Advanced AI-driven Human Behavior",
+      "description": "The increasing reliance on AI systems may lead to long-term consequences such as changes in human behavior, social structures, and cultural norms. As AI becomes more integrated into daily life, humans may become increasingly dependent on it, potentially altering the way we interact with each other and our environment.",
+      "domain": "technology|knowledge",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.7,
+      "impact_level": "global",
+      "affected_population": "entire human population",
+      "root_causes": [
+        "AI-driven job market disruption",
+        "increasing reliance on technology"
+      ],
+      "cross_domain_links": [
+        "planetary-scale climate engineering",
+        "anticipating and mitigating long-term societal impacts of advanced AI"
+      ],
+      "identified_at": "2026-04-29T02:59:39.834944"
+    },
+    "cc657fae-2": {
+      "problem_id": "cc657fae-2",
+      "title": "Societal Disconnect from Long-term Consequences of Advanced AI-driven Human Behavior",
+      "description": "The widespread adoption and reliance on advanced AI technologies may lead to a societal disconnect from the long-term consequences of human behavior, potentially resulting in unintended and irreversible outcomes.",
+      "domain": "technology|governance|knowledge",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "entire humanity",
+      "root_causes": [
+        "overreliance on AI for decision-making",
+        "lack of transparency in AI development and deployment"
+      ],
+      "cross_domain_links": [
+        "Anticipating and Mitigating Long-term Societal Impacts of Advanced AI",
+        "Long-term Consequences of Advanced AI-driven Human Behavior"
+      ],
+      "identified_at": "2026-04-29T11:56:12.868849"
+    },
+    "85eeb649-4": {
+      "problem_id": "85eeb649-4",
+      "title": "Long-term Consequences of Advanced AI-driven Human Behavior",
+      "description": "The widespread adoption and increasing sophistication of artificial intelligence (AI) is leading to changes in human behavior, decision-making processes, and social norms. As AI becomes more integrated into daily life, there is a risk that long-term consequences will emerge, potentially with far-reaching impacts on society.",
+      "domain": "technology|governance|knowledge",
+      "severity": 0.7,
+      "urgency": 0.9,
+      "solvability": 0.4,
+      "impact_level": "global",
+      "affected_population": "all humans",
+      "root_causes": [
+        "rapid advancements in AI capabilities",
+        "increased reliance on AI-driven decision-making"
+      ],
+      "cross_domain_links": [
+        "AI-driven Job Market Disruption",
+        "Anticipating and Mitigating Long-Term Societal Impacts of Advanced AI"
+      ],
+      "identified_at": "2026-05-12T01:01:15.015995"
+    },
+    "a120258d-7": {
+      "problem_id": "a120258d-7",
+      "title": "Sustainable and Equitable Urban Planning",
+      "description": "As the global population urbanizes, cities face unprecedented challenges in providing basic services, infrastructure, and quality of life to their residents. The lack of sustainable and equitable planning leads to issues like congestion, pollution, and social inequality.",
+      "domain": "governance|health|poverty|education",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "urban dwellers, particularly low-income and marginalized communities",
+      "root_causes": [
+        "rapid urbanization",
+        "inequitable resource allocation"
+      ],
+      "cross_domain_links": [
+        "Climate-Induced Food System Instability",
+        "AI-driven Job Market Disruption"
+      ],
+      "identified_at": "2026-05-13T13:59:59.223988"
+    },
+    "35bc84a4-b": {
+      "problem_id": "35bc84a4-b",
+      "title": "AI-driven Mental Health Crisis",
+      "description": "The increasing reliance on AI-powered virtual assistants and social media platforms has led to a growing concern about the long-term effects of reduced human interaction, leading to increased rates of depression, anxiety, and loneliness.",
+      "domain": "health",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "urban populations with high social media usage",
+      "root_causes": [
+        "increased screen time",
+        "social isolation"
+      ],
+      "cross_domain_links": [
+        "AI-driven Job Market Disruption",
+        "Societal Disconnect from Long-term Consequences of Advanced AI-driven Human Behavior"
+      ],
+      "identified_at": "2026-06-02T04:56:08.683160"
+    },
+    "d53f14f9-c": {
+      "problem_id": "d53f14f9-c",
+      "title": "Global Existential Risk from Advanced AI-driven Nanotechnology",
+      "description": "The creation and deployment of advanced AI-driven nanotechnology could pose a significant existential risk to humanity if not properly managed. The development of self-replicating nanobots, for instance, could lead to unintended consequences such as uncontrollable population growth, ecosystem disruption, or even the destruction of human civilization.",
+      "domain": "technology|health|environment",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "entire human population",
+      "root_causes": [
+        "insufficient international cooperation",
+        "lack of regulatory frameworks"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Complex Systems",
+        "Anticipating and Mitigating Long-Term Societal Impacts of Advanced AI"
+      ],
+      "identified_at": "2026-06-02T05:11:49.391608"
+    },
+    "dcd7fed4-9": {
+      "problem_id": "dcd7fed4-9",
+      "title": "Inadequate AI Transparency and Explainability",
+      "description": "The lack of transparency in AI decision-making processes hinders trust, accountability, and understanding of AI-driven outcomes. This can lead to unintended consequences, biased decisions, and a lack of confidence in AI systems.",
+      "domain": "technology|governance|knowledge",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "the general public, policymakers, and stakeholders in various industries",
+      "root_causes": [
+        "insufficient regulations",
+        "lack of standardization",
+        "inadequate education"
+      ],
+      "cross_domain_links": [
+        "AI-driven Unintended Consequences of Human-AI Collaboration",
+        "Long-term Consequences of Advanced AI-driven Human Behavior"
+      ],
+      "identified_at": "2026-06-02T06:23:38.552205"
+    },
+    "b6ce962b-1": {
+      "problem_id": "b6ce962b-1",
+      "title": "Inadequate Global Early Warning Systems for Natural Disasters",
+      "description": "The lack of effective and standardized global early warning systems for natural disasters, such as hurricanes, earthquakes, and floods, hinders timely evacuations and responses, resulting in significant loss of life and property.",
+      "domain": "climate|health|poverty|disaster_response",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "hundreds of millions of people worldwide, particularly in developing regions",
+      "root_causes": [
+        "inadequate infrastructure and funding",
+        "lack of international cooperation and standardization"
+      ],
+      "cross_domain_links": [
+        "Sustainable and Equitable Urban Planning",
+        "Global Food Security"
+      ],
+      "identified_at": "2026-06-03T03:16:39.402903"
+    },
+    "d3e1411d-6": {
+      "problem_id": "d3e1411d-6",
+      "title": "AI-driven Mental Health Crisis",
+      "description": "The rapid proliferation of AI-powered technologies and social media platforms is expected to exacerbate existing mental health issues, such as anxiety, depression, and loneliness, with potentially devastating consequences for individual well-being and societal cohesion.",
+      "domain": "health|technology|knowledge",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.6,
+      "impact_level": "global",
+      "affected_population": "the entire population, but disproportionately affecting youth and marginalized groups",
+      "root_causes": [
+        "insufficient AI transparency and explainability",
+        "excessive screen time and social media use"
+      ],
+      "cross_domain_links": [
+        "Inadequate AI Transparency and Explainability",
+        "Digital Addiction"
+      ],
+      "identified_at": "2026-06-04T03:25:10.409222"
+    },
+    "143d083a-1": {
+      "problem_id": "143d083a-1",
+      "title": "AI-driven Job Market Disruption",
+      "description": "The increasing automation of jobs due to advances in AI and machine learning is leading to a loss of employment opportunities, skills obsolescence, and potential long-term social and economic disruption.",
+      "domain": "education|poverty|technology|governance",
+      "severity": 0.8,
+      "urgency": 0.9,
+      "solvability": 0.4,
+      "impact_level": "global",
+      "affected_population": "working-age population, particularly those in industries with high automation potential",
+      "root_causes": [
+        "rapid advancements in AI and machine learning"
+      ],
+      "cross_domain_links": [
+        "Long-term Consequences of Advanced AI-driven Human Behavior",
+        "Societal Disconnect from Long-term Consequences of Advanced AI-driven Human Behavior"
+      ],
+      "identified_at": "2026-06-04T03:34:08.997805"
+    }
+  },
+  "solutions": {
+    "0d468411-e": {
+      "solution_id": "0d468411-e",
+      "problem_id": "4f27e69d-9",
+      "title": "Climate Migration Resilience Framework",
+      "approach": "Holistic, rights-based migration management with climate change mitigation and adaptation",
+      "phases": [
+        {
+          "name": "Phase 1: Early Warning Systems and Climate Risk Assessment",
+          "description": "Establish a global climate monitoring system to identify areas at risk of displacement. Conduct rapid assessments to inform early action.",
+          "duration": "0-12 months"
+        },
+        {
+          "name": "Phase 2: Humanitarian Response and Durable Solutions",
+          "description": "Deploy humanitarian aid, shelter, and services to affected populations. Implement durable solutions such as climate-resilient infrastructure and community-based programs.",
+          "duration": "1-24 months"
+        },
+        {
+          "name": "Phase 3: Climate Change Mitigation and Adaptation",
+          "description": "Scale up climate change mitigation efforts globally, while implementing locally tailored adaptation strategies to reduce vulnerability and enhance resilience.",
+          "duration": "2-30 years"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advanced climate modeling for early warning systems",
+        "Scalable, community-based climate adaptation solutions"
+      ],
+      "predicted_impact": {
+        "Metric": "Number of people displaced by climate-related events",
+        "Value": "-20% reduction in the first 5 years"
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Sustainable Agriculture",
+        "Disaster Risk Reduction and Management",
+        "Humanitarian Supply Chain Optimization"
+      ],
+      "created_at": "2026-03-16T11:12:55.205898"
+    },
+    "ccd4cb42-0": {
+      "solution_id": "ccd4cb42-0",
+      "problem_id": "e44c6bfa-9",
+      "title": "AgriCycle",
+      "approach": "Holistic Solution Combining Technology, Education, and Infrastructure",
+      "phases": [
+        {
+          "name": "Phase 1: Food Storage and Logistics Optimization",
+          "description": "Implement advanced supply chain management systems and logistics infrastructure to reduce food waste during transportation and storage.",
+          "duration": "Short-term (6-12 months)"
+        },
+        {
+          "name": "Phase 2: Education and Awareness Campaigns",
+          "description": "Launch comprehensive education and awareness campaigns targeting farmers, consumers, and policymakers to promote sustainable agricultural practices and reduce food waste.",
+          "duration": "Medium-term (1-3 years)"
+        },
+        {
+          "name": "Phase 3: Precision Agriculture and Farm-to-Table Initiatives",
+          "description": "Develop and implement precision agriculture techniques, such as AI-powered crop monitoring and optimized irrigation systems, to improve agricultural efficiency and reduce waste.",
+          "duration": "Medium-term (1-3 years)"
+        },
+        {
+          "name": "Phase 4: Circular Economy and Closed-Loop Systems",
+          "description": "Design and implement closed-loop systems for food waste reduction, recycling, and upcycling, focusing on urban agriculture and community-based initiatives.",
+          "duration": "Long-term (5-10 years)"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advanced sensor technologies for precision agriculture",
+        "Artificial intelligence-driven supply chain optimization"
+      ],
+      "predicted_impact": {
+        "metric": "Global food waste reduction by 30%",
+        "value": "1.2 billion tons of CO2 equivalent emissions reduced"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation",
+        "Water Conservation",
+        "Biodiversity Preservation"
+      ],
+      "created_at": "2026-03-16T12:00:39.980726"
+    },
+    "10078dd1-5": {
+      "solution_id": "10078dd1-5",
+      "problem_id": "904260c8-2",
+      "title": "BioCycle: Biodegradable Plastics Circular Economy Solution",
+      "approach": "Holistic framework for standardized biodegradable plastics production, use, and disposal, integrating circular economy principles and stakeholder collaboration.",
+      "phases": [
+        {
+          "name": "Phase 1: Regulatory Framework Development",
+          "description": "Establish a comprehensive regulatory framework for biodegradable plastic production, labeling, and disposal, ensuring consistency across industries and geographies.",
+          "duration": "12-18 months"
+        },
+        {
+          "name": "Phase 2: Standardized Guidelines and Labels",
+          "description": "Develop standardized guidelines for biodegradable plastic production, use, and disposal, and implement a labeling system to facilitate informed consumer choices.",
+          "duration": "6-12 months"
+        },
+        {
+          "name": "Phase 3: Circular Economy Infrastructure Development",
+          "description": "Establish a network of biodegradable plastic recycling facilities, composting infrastructure, and waste management systems to support the safe and efficient disposal of biodegradable plastics.",
+          "duration": "18-24 months"
+        },
+        {
+          "name": "Phase 4: Stakeholder Engagement and Education",
+          "description": "Engage with industry stakeholders, consumers, and governments through education and awareness campaigns to promote the adoption of BioCycle's framework and encourage sustainable practices.",
+          "duration": "6-12 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advanced biodegradable plastic materials with improved durability and decomposition rates",
+        "Cost-effective and scalable biodegradation technologies"
+      ],
+      "predicted_impact": {
+        "metric": "percentage reduction in microplastic contamination",
+        "value": 50
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Improved waste management for other types of plastics",
+        "Enhanced sustainability in the textile and packaging industries"
+      ],
+      "created_at": "2026-03-16T13:32:07.714184"
+    },
+    "e36aaf39-3": {
+      "solution_id": "e36aaf39-3",
+      "problem_id": "5fbbc53e-8",
+      "title": "EdEquity",
+      "approach": "Holistic Education Ecosystem Development",
+      "phases": [
+        {
+          "name": "Infrastructure Revitalization",
+          "description": "Upgrade existing schools and build new ones to provide conducive learning environments",
+          "duration": "Year 1-2"
+        },
+        {
+          "name": "Teacher Training & Support",
+          "description": "Develop and implement professional development programs for teachers, focusing on inclusive and technology-enabled pedagogy",
+          "duration": "Year 1-3"
+        },
+        {
+          "name": "Curriculum Reform",
+          "description": "Design and integrate culturally responsive and future-focused curricula, emphasizing critical thinking, creativity, and problem-solving skills",
+          "duration": "Year 2-4"
+        },
+        {
+          "name": "Digital Equity Initiative",
+          "description": "Implement digital learning platforms, provide devices and internet access to underserved communities, and develop teacher training programs for effective technology integration",
+          "duration": "Year 1-3"
+        }
+      ],
+      "required_breakthroughs": [
+        "Artificial Intelligence-driven education planning tools",
+        "Personalized learning analytics platforms"
+      ],
+      "predicted_impact": {
+        "metric": "Percentage of students with improved educational outcomes",
+        "value": "25%"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.5,
+      "cross_domain_synergies": [
+        "Healthcare - Improved education can lead to better health outcomes and reduced healthcare costs",
+        "Economic Development - Educationally empowered individuals contribute to economic growth"
+      ],
+      "created_at": "2026-03-16T14:17:28.378063"
+    },
+    "9cea7542-4": {
+      "solution_id": "9cea7542-4",
+      "problem_id": "39b14a92-5",
+      "title": "Nuclear Waste Management Solution",
+      "approach": "A multi-phased, collaborative approach combining scientific research, policy development, and technological innovation to create a standardized framework for sustainable nuclear waste management.",
+      "phases": [
+        {
+          "name": "Phase 1: Research and Development",
+          "description": "Conduct comprehensive studies on nuclear waste characteristics, disposal methods, and environmental impacts. Develop innovative technologies for waste treatment, storage, and disposal.",
+          "duration": "3 years"
+        },
+        {
+          "name": "Phase 2: Policy Development and Standardization",
+          "description": "Establish international standards and guidelines for nuclear waste management, incorporating findings from Phase 1 research. Develop policy frameworks for safe and sustainable waste disposal.",
+          "duration": "5 years"
+        },
+        {
+          "name": "Phase 3: Infrastructure Development and Deployment",
+          "description": "Design and build facilities for waste treatment, storage, and disposal, incorporating innovative technologies developed in Phase 1. Implement standardized processes and safety protocols.",
+          "duration": "10 years"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in nuclear waste characterization and classification",
+        "Development of new, cost-effective waste treatment technologies"
+      ],
+      "predicted_impact": {
+        "metric": "Tons of nuclear waste disposed of safely",
+        "value": "100,000"
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.5,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation: Reduced greenhouse gas emissions from nuclear power plants",
+        "Energy Security: Reliable and sustainable energy supply",
+        "Waste Management: Innovative solutions for other hazardous waste streams"
+      ],
+      "created_at": "2026-03-16T16:42:41.182791"
+    },
+    "06e82c51-9": {
+      "solution_id": "06e82c51-9",
+      "problem_id": "c1c1cf11-c",
+      "title": "Disaster Response and Recovery Framework (DRRF)",
+      "approach": "Holistic, data-driven framework integrating governance, infrastructure, funding, and coordination to enhance disaster response and recovery capabilities",
+      "phases": [
+        {
+          "name": "Phase 1: Governance Enhancement",
+          "description": "Establish a centralized disaster management authority, define clear roles and responsibilities, and develop a national disaster risk reduction strategy",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: Infrastructure Development",
+          "description": "Upgrade emergency response infrastructure, including communication networks, shelters, and logistics hubs, to ensure timely and effective response",
+          "duration": "12-18 months"
+        },
+        {
+          "name": "Phase 3: Funding Mechanisms",
+          "description": "Establish a dedicated disaster response fund, leveraging public-private partnerships, and develop a sustainable funding model",
+          "duration": "6-12 months"
+        },
+        {
+          "name": "Phase 4: Coordination and Training",
+          "description": "Develop a comprehensive emergency operations plan, conduct regular training exercises, and establish a national emergency management system",
+          "duration": "12-18 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advanced data analytics for disaster risk assessment",
+        "Autonomous decision-making systems for swift response"
+      ],
+      "predicted_impact": {
+        "Loss of life reduced by": 20.0,
+        "Property damage reduced by": 30.0,
+        "Economic recovery time shortened by": 6.0
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.5,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation",
+        "Sustainable Development Goals (SDGs) Implementation"
+      ],
+      "created_at": "2026-03-21T09:30:37.008703"
+    },
+    "3c6117d6-0": {
+      "solution_id": "3c6117d6-0",
+      "problem_id": "30a0b085-e",
+      "title": "Augmentative Workforce Revitalization (AWR)",
+      "approach": "Human-Centered Design",
+      "phases": [
+        {
+          "name": "Phase 1: AI-driven Task Analysis and Job Mapping",
+          "description": "Analyze tasks performed by humans, identify automatable and augmentable tasks, and map job functions to create a comprehensive understanding of the impact of automation.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: Education and Training Reboot",
+          "description": "Develop and implement AI-driven adaptive learning platforms that focus on skills development, creativity, and critical thinking to prepare workers for new roles.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 3: Augmentative Job Creation and Upskilling",
+          "description": "Design and deploy AI-powered job coaches that assist humans in performing tasks that require human judgment, empathy, and creativity, while upskilling workers for new roles.",
+          "duration": "18 months"
+        },
+        {
+          "name": "Phase 4: Social Safety Net Strengthening",
+          "description": "Enhance social safety nets by integrating AI-driven predictive analytics to identify at-risk individuals and communities, providing targeted support and retraining programs.",
+          "duration": "12 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advancements in Explainable AI (XAI) for transparent decision-making",
+        "Breakthroughs in Human-Centered Design principles for inclusive problem-solving"
+      ],
+      "predicted_impact": {
+        "metric": "Global Unemployment Rate",
+        "value": "-2.5%"
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Healthcare: AI-driven patient care and personalized medicine",
+        "Education: AI-powered adaptive learning platforms for personalized education"
+      ],
+      "created_at": "2026-03-21T10:05:14.332432"
+    },
+    "838b04b5-9": {
+      "solution_id": "838b04b5-9",
+      "problem_id": "a1c63f09-7",
+      "title": "Carbon Capture and Utilization (CCU) Solution",
+      "approach": "Multi-phased, interdisciplinary solution leveraging advanced technologies and innovative business models to drive CCU adoption and scalability.",
+      "phases": [
+        {
+          "name": "Phase 1: Technology Development",
+          "description": "Develop and refine existing carbon capture technologies, such as chemical looping, membrane separation, and direct air capture, to achieve economies of scale and reduce costs.",
+          "duration": "2025-2030"
+        },
+        {
+          "name": "Phase 2: Infrastructure and Integration",
+          "description": "Establish a network of CCU facilities, integrating with existing industrial processes and transportation systems to create a scalable and decentralized carbon management infrastructure.",
+          "duration": "2030-2040"
+        },
+        {
+          "name": "Phase 3: Global Deployment and Policy Support",
+          "description": "Deploy CCU technologies globally, partnering with governments, industries, and communities to develop policies and regulations that incentivize widespread adoption and utilization of captured carbon.",
+          "duration": "2040-2050"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advanced materials for more efficient capture systems",
+        "Economies of scale in CCU facility design and operations"
+      ],
+      "predicted_impact": {
+        "metric": "Tons of CO2 captured and utilized per year",
+        "value": "100 million"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Energy storage and grid management",
+        "Advanced manufacturing and materials science"
+      ],
+      "created_at": "2026-03-21T12:16:24.250736"
+    },
+    "1adf40fb-0": {
+      "solution_id": "1adf40fb-0",
+      "problem_id": "faa57885-b",
+      "title": "Quantum-Secure Encryption Framework (QSEF)",
+      "approach": "Develop a multi-layered cryptographic framework that integrates quantum-resistant algorithms with existing encryption standards to ensure seamless data transmission and storage.",
+      "phases": [
+        {
+          "name": "Phase 1: Quantum-Resistant Algorithm Development",
+          "description": "Develop and standardize new quantum-resistant encryption algorithms, leveraging advancements in cryptography and mathematics.",
+          "duration": "2 years"
+        },
+        {
+          "name": "Phase 2: Integration with Existing Encryption Standards",
+          "description": "Integrate newly developed quantum-resistant algorithms with existing encryption standards (e.g., AES, RSA) to ensure backward compatibility.",
+          "duration": "1.5 years"
+        },
+        {
+          "name": "Phase 3: Testing and Validation",
+          "description": "Thoroughly test and validate the QSEF framework against various attack scenarios and quantum computing threats.",
+          "duration": "2 years"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in lattice-based cryptography",
+        "Improved understanding of quantum algorithms for cryptanalysis"
+      ],
+      "predicted_impact": {
+        "metric": "Quantum Computing Threat Mitigation",
+        "value": "95% reduction in data breaches and compromised encryption"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.5,
+      "cross_domain_synergies": [
+        "Artificial Intelligence for Cybersecurity",
+        "Secure Data Storage and Transmission Protocols"
+      ],
+      "created_at": "2026-03-21T13:41:46.312305"
+    },
+    "57cf7bb5-c": {
+      "solution_id": "57cf7bb5-c",
+      "problem_id": "1062c7fb-d",
+      "title": "Smart Urban Infrastructure (SUI) Framework",
+      "approach": "Holistic, data-driven framework integrating technological, social, and environmental solutions to address the root causes of unsustainable infrastructure in rapidly urbanizing cities.",
+      "phases": [
+        {
+          "name": "Assessment & Planning Phase",
+          "description": "Conduct comprehensive assessments of existing infrastructure, identify areas for improvement, and develop customized plans for each city.",
+          "duration": "3-6 months"
+        },
+        {
+          "name": "Infrastructure Development Phase",
+          "description": "Design, build, and deploy innovative infrastructure solutions, such as green buildings, smart transportation systems, and renewable energy grids.",
+          "duration": "12-24 months"
+        },
+        {
+          "name": "Operations & Maintenance Phase",
+          "description": "Establish effective operations and maintenance strategies to ensure the long-term sustainability of the new infrastructure.",
+          "duration": "6-12 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advanced building materials and construction techniques for green buildings",
+        "Autonomous transportation systems and smart traffic management algorithms",
+        "Scalable renewable energy storage solutions"
+      ],
+      "predicted_impact": {
+        "metric": "CO2 emissions reduction",
+        "value": "30% reduction within the first 5 years"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation",
+        "Sustainable Development Goals (SDGs)",
+        "Disaster Resilience"
+      ],
+      "created_at": "2026-03-25T22:13:38.508563"
+    },
+    "4f8dd8d3-d": {
+      "solution_id": "4f8dd8d3-d",
+      "problem_id": "db3864bd-3",
+      "title": "Digital Bridge Initiative",
+      "approach": "Multistakeholder Collaboration and Infrastructure Development",
+      "phases": [
+        {
+          "name": "Infrastructure Enhancement",
+          "description": "Establishing a robust, low-cost infrastructure for internet access in underserved communities",
+          "duration": "12-18 months"
+        },
+        {
+          "name": "Digital Literacy Training",
+          "description": "Providing basic digital skills training to individuals and community leaders",
+          "duration": "6-12 months"
+        },
+        {
+          "name": "Content Development and Curation",
+          "description": "Creating and curating relevant, accessible content for diverse audiences",
+          "duration": "12-18 months"
+        },
+        {
+          "name": "Community Engagement and Adoption",
+          "description": "Fostering community-led initiatives to promote digital adoption and social impact",
+          "duration": "6-12 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Low-cost, high-speed internet technologies",
+        "Effective digital literacy training methods"
+      ],
+      "predicted_impact": {
+        "metric": "Percentage of population with access to reliable internet",
+        "value": 80.0
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.6,
+      "cross_domain_synergies": [
+        "Education: improved digital literacy skills for students and teachers",
+        "Economic Development: increased online market opportunities and job access"
+      ],
+      "created_at": "2026-03-28T20:57:03.250426"
+    },
+    "e137e6b3-a": {
+      "solution_id": "e137e6b3-a",
+      "problem_id": "8d1606fe-d",
+      "title": "Ethical AI Nexus",
+      "approach": "Hybrid Integration of Human Oversight and AI Decision-Making",
+      "phases": [
+        {
+          "name": "Phase 1: Ethical Framework Development",
+          "description": "Define standardized ethical frameworks for AI decision-making, incorporating human values and ethics.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: Human Oversight Infrastructure",
+          "description": "Design and implement infrastructure for human oversight, including AI-assisted review and auditing mechanisms.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 3: Integration and Testing",
+          "description": "Integrate ethical frameworks with human oversight infrastructure, conducting thorough testing and validation of the system.",
+          "duration": "9 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advancements in Explainable AI (XAI) for transparent decision-making",
+        "Improved Natural Language Processing (NLP) for nuanced understanding of human values"
+      ],
+      "predicted_impact": {
+        "metric": "Increased fairness and transparency in AI decision-making outcomes",
+        "value": 0.85
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Improved healthcare outcomes through more accurate diagnosis and treatment planning",
+        "Enhanced financial decision-making with reduced bias and increased transparency"
+      ],
+      "created_at": "2026-04-05T16:23:10.608543"
+    },
+    "1342633b-3": {
+      "solution_id": "1342633b-3",
+      "problem_id": "db535f21-7",
+      "title": "System Harmony Framework",
+      "approach": "A multi-phased approach that integrates simulation-driven design, real-time monitoring, and AI-powered predictive analytics to manage complex systems interactions.",
+      "phases": [
+        {
+          "name": "Phase 1: System Mapping and Modeling",
+          "description": "Develop a comprehensive mapping of existing complex systems, including their interactions and dependencies. Create detailed models of each system's behavior and dynamics.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: Real-time Monitoring and Feedback",
+          "description": "Implement real-time monitoring systems to track the behavior of individual complex systems and their interactions. Develop feedback loops to adjust system parameters and optimize performance.",
+          "duration": "3 months"
+        },
+        {
+          "name": "Phase 3: AI-powered Predictive Analytics",
+          "description": "Integrate AI-powered predictive analytics to forecast potential system interactions and identify areas of risk. Develop decision-support tools to inform proactive management decisions.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 4: System Harmony Platform Development",
+          "description": "Develop a unified platform that integrates the outputs from Phases 1-3, providing real-time monitoring and predictive analytics for complex systems. Include features for data sharing, collaboration, and visualization.",
+          "duration": "9 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in AI-powered predictive analytics",
+        "Improved understanding of system interactions and dependencies"
+      ],
+      "predicted_impact": {
+        "metric": "System Harmony Index",
+        "value": 0.8
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Cybersecurity",
+        "Energy Management",
+        "Supply Chain Optimization"
+      ],
+      "created_at": "2026-04-06T10:15:33.437276"
+    },
+    "505144d0-c": {
+      "solution_id": "505144d0-c",
+      "problem_id": "b1fe1396-2",
+      "title": "Sustainable Resource Management Framework",
+      "approach": "Integrated Ecosystem Services (IES) approach, combining ecological, social, and economic perspectives to develop sustainable resource management strategies.",
+      "phases": [
+        {
+          "name": "Phase 1: Baseline Assessment",
+          "description": "Conduct comprehensive assessments of natural resources, ecosystem services, and human activities to identify areas of concern and opportunities for improvement.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: Policy Development",
+          "description": "Collaborate with stakeholders to develop evidence-based policies and regulations that support sustainable resource management and conservation efforts.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 3: Innovative Technologies",
+          "description": "Develop and deploy innovative technologies, such as IoT sensors, drones, and AI-powered monitoring systems, to enhance data-driven decision-making and resource allocation.",
+          "duration": "18 months"
+        },
+        {
+          "name": "Phase 4: Community Engagement",
+          "description": "Engage local communities in the development of sustainable resource management plans, ensuring equitable access to resources and benefits for all stakeholders.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 5: Monitoring and Evaluation",
+          "description": "Establish a monitoring and evaluation framework to track progress, identify areas for improvement, and adjust strategies as needed.",
+          "duration": "24 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advancements in ecosystem service valuation",
+        "Improved understanding of social-ecological systems"
+      ],
+      "predicted_impact": {
+        "CO2 emissions reduction": "20%"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation and Adaptation",
+        "Biodiversity Conservation"
+      ],
+      "created_at": "2026-04-12T05:28:48.257706"
+    },
+    "9036bd03-0": {
+      "solution_id": "9036bd03-0",
+      "problem_id": "3faf2243-c",
+      "title": "Veritas Initiative",
+      "approach": "Multi-disciplinary, AI-driven framework for verifying and correcting misinformation",
+      "phases": [
+        {
+          "name": "Phase 1: Data Collection and Analysis",
+          "description": "Gather and analyze large datasets on social media platforms, news outlets, and online forums to identify patterns and trends in misinformation spread",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: AI-powered Verification and Correction",
+          "description": "Develop and deploy AI algorithms capable of verifying the authenticity of information and correcting misinformation in real-time",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 3: Human-in-the-Loop Validation and Training",
+          "description": "Incorporate human validation and training processes to ensure AI accuracy and adaptability to evolving misinformation tactics",
+          "duration": "9 months"
+        },
+        {
+          "name": "Phase 4: Integration with Social Media Platforms and Regulatory Frameworks",
+          "description": "Integrate the Veritas Initiative's AI-powered verification and correction tools with social media platforms and regulatory frameworks to facilitate widespread adoption and enforcement",
+          "duration": "12 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in natural language processing and machine learning for AI-driven content analysis"
+      ],
+      "predicted_impact": {
+        "metric": "Percentage of misinformation corrected",
+        "value": 75
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Combination with existing disinformation detection tools and techniques",
+        "Integration with education and awareness campaigns to promote media literacy"
+      ],
+      "created_at": "2026-04-12T14:38:28.974573"
+    },
+    "f3c96d72-6": {
+      "solution_id": "f3c96d72-6",
+      "problem_id": "23802ad4-6",
+      "title": "CASCADIA: AI-driven Consequence Anticipation and Mitigation",
+      "approach": "Hybrid approach combining data-driven modeling, human-in-the-loop validation, and Explainable AI (XAI) techniques to ensure transparency and understanding of complex systems interacting with AI.",
+      "phases": [
+        {
+          "name": "Phase 1: System Analysis and Modeling",
+          "description": "Conduct comprehensive analysis of complex systems and develop data-driven models to simulate interactions between human and artificial intelligence components.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: AI Transparency and Explainability",
+          "description": "Develop and integrate XAI techniques into AI decision-making processes to provide transparent explanations of AI-driven actions and their consequences.",
+          "duration": "9 months"
+        },
+        {
+          "name": "Phase 3: Human-in-the-Loop Validation and Feedback",
+          "description": "Implement human-in-the-loop validation mechanisms to ensure that AI-driven decisions align with human values and expectations, and provide feedback for continuous improvement.",
+          "duration": "12 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advancements in XAI techniques for complex systems",
+        "Development of standardized metrics for AI transparency"
+      ],
+      "predicted_impact": {
+        "metric": "Catastrophe risk reduction",
+        "value": "75%"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Environmental monitoring and prediction",
+        "Financial modeling and risk assessment"
+      ],
+      "created_at": "2026-04-13T06:28:25.196212"
+    },
+    "5bc8c45a-4": {
+      "solution_id": "5bc8c45a-4",
+      "problem_id": "2c0684f3-f",
+      "title": "Global Resource Nexus",
+      "approach": "Collaborative, Data-Driven Framework for Sustainable Resource Management",
+      "phases": [
+        {
+          "name": "Phase 1: Global Baseline Establishment",
+          "description": "Establish a comprehensive global baseline of resource usage and availability, integrating data from various sources.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 2: Resource Mapping and Prioritization",
+          "description": "Create detailed maps of resource distribution and prioritize areas for conservation and sustainable use.",
+          "duration": "18 months"
+        },
+        {
+          "name": "Phase 3: Policy and Governance Framework Development",
+          "description": "Design and implement policies, regulations, and governance structures to support sustainable resource management at local, national, and global levels.",
+          "duration": "24 months"
+        },
+        {
+          "name": "Phase 4: Community Engagement and Education",
+          "description": "Engage with local communities, educate stakeholders, and promote behavioral change towards sustainable resource use practices.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 5: Monitoring, Evaluation, and Adaptation",
+          "description": "Establish a monitoring and evaluation framework to track progress, identify areas for improvement, and adapt the system as needed.",
+          "duration": "Ongoing"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in AI-powered data analysis for resource tracking and forecasting",
+        "Breakthroughs in renewable energy technologies for decentralized power generation"
+      ],
+      "predicted_impact": {
+        "metric": "Global Resource Efficiency Index",
+        "value": 0.8
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation and Adaptation",
+        "Food Security and Sustainable Agriculture"
+      ],
+      "created_at": "2026-04-13T06:45:57.247496"
+    },
+    "3d141477-d": {
+      "solution_id": "3d141477-d",
+      "problem_id": "5e7b97b7-8",
+      "title": "Collaborative Transparency Framework (CTF)",
+      "approach": "Develop a standardized, transparent, and accountable AI-driven collaboration framework that integrates human-AI decision-making processes",
+      "phases": [
+        {
+          "name": "Phase 1: Problem Definition and Requirements Gathering",
+          "description": "Define the scope of unintended consequences, gather requirements from stakeholders, and develop a comprehensive problem statement",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: AI Transparency Framework Development",
+          "description": "Design and implement a standardized framework for transparent AI decision-making processes, including explainability and accountability mechanisms",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 3: Human-AI Collaboration Platform Development",
+          "description": "Develop an integrated platform that enables seamless human-AI collaboration, incorporating the transparency framework, and providing real-time feedback and monitoring",
+          "duration": "18 months"
+        },
+        {
+          "name": "Phase 4: Pilot Implementation and Testing",
+          "description": "Implement the CTF in a pilot environment, test its effectiveness, and gather feedback from stakeholders",
+          "duration": "12 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in explainable AI techniques",
+        "Improved understanding of human-AI collaboration dynamics"
+      ],
+      "predicted_impact": {
+        "metric": "Unintended Consequence Reduction",
+        "value": 75.0
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.6,
+      "cross_domain_synergies": [
+        "Improved AI-driven decision-making in healthcare and finance",
+        "Enhanced transparency in autonomous vehicle systems"
+      ],
+      "created_at": "2026-04-13T07:00:40.981767"
+    },
+    "64208d90-b": {
+      "solution_id": "64208d90-b",
+      "problem_id": "3a5747a0-7",
+      "title": "Job Market Resilience Framework",
+      "approach": "A multi-faceted framework that addresses the root causes of AI-driven job market disruption by fostering education and skills development, promoting labor law updates, and driving innovation in AI-human collaboration.",
+      "phases": [
+        {
+          "name": "Phase 1: Education System Revamp",
+          "description": "Develop and implement AI-infused curricula to equip students with future-proof skills, focusing on critical thinking, creativity, and emotional intelligence.",
+          "duration": "2-3 years"
+        },
+        {
+          "name": "Phase 2: Labor Law Updates",
+          "description": "Collaborate with governments and industry stakeholders to update labor laws, ensuring fair compensation for workers in AI-driven economies and promoting social welfare programs.",
+          "duration": "1-2 years"
+        },
+        {
+          "name": "Phase 3: AI-Human Collaboration Platforms",
+          "description": "Develop and deploy AI-powered collaboration platforms that augment human capabilities, enabling workers to focus on high-value tasks while AI handles routine and repetitive tasks.",
+          "duration": "5-7 years"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in Explainable AI (XAI) for increased transparency",
+        "Development of AI-powered skills assessment and recommendation tools"
+      ],
+      "predicted_impact": {
+        "metric": "Global employment rate increase by 2% within the next decade.",
+        "value": 0.02
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Healthcare: AI-powered diagnosis and treatment platforms",
+        "Environmental Sustainability: AI-driven climate modeling and prediction"
+      ],
+      "created_at": "2026-04-13T07:06:33.212754"
+    },
+    "60ae99e9-c": {
+      "solution_id": "60ae99e9-c",
+      "problem_id": "0cdf7d65-3",
+      "title": "Data Preservation Framework (DPF)",
+      "approach": "A multi-phased solution that combines advanced data storage technologies with machine learning-based data validation and recovery processes to prevent massive data loss and irretrievable information disappearance.",
+      "phases": [
+        {
+          "name": "Phase 1: Data Ingestion and Validation",
+          "description": "Develop a scalable data ingestion framework that utilizes AI-powered data validation techniques to detect anomalies and ensure data integrity.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: Distributed Storage Architecture",
+          "description": "Design and implement a decentralized storage architecture that utilizes blockchain-based ledger technology for secure, transparent, and fault-tolerant data storage.",
+          "duration": "9 months"
+        },
+        {
+          "name": "Phase 3: Data Recovery and Restoration",
+          "description": "Develop machine learning-based algorithms to identify and recover lost or corrupted data, ensuring the integrity of the preserved information.",
+          "duration": "12 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advancements in AI-powered data validation techniques",
+        "Improved blockchain scalability"
+      ],
+      "predicted_impact": {
+        "Metric": "95% reduction in irretrievable data loss"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.5,
+      "cross_domain_synergies": [
+        "Cybersecurity",
+        "Artificial Intelligence"
+      ],
+      "created_at": "2026-04-13T12:29:05.934008"
+    },
+    "cfbd437c-b": {
+      "solution_id": "cfbd437c-b",
+      "problem_id": "62068e64-c",
+      "title": "Singularity Shield",
+      "approach": "Multi-disciplinary, multi-phased framework for anticipating and mitigating the unforeseen consequences of a sudden technological singularity.",
+      "phases": [
+        {
+          "name": "Phase 1: AI Capability Forecasting",
+          "description": "Develop advanced predictive models to anticipate the emergence of an exponentially growing AI.",
+          "duration": "2-5 years"
+        },
+        {
+          "name": "Phase 2: Regulatory Framework Establishment",
+          "description": "Establish international regulatory frameworks for AI development, deployment, and governance.",
+          "duration": "3-7 years"
+        },
+        {
+          "name": "Phase 3: Human-AI Collaboration Protocols",
+          "description": "Develop protocols for humans and AI to collaborate effectively, ensuring mutual understanding and trust.",
+          "duration": "2-5 years"
+        },
+        {
+          "name": "Phase 4: Singularity Contingency Planning",
+          "description": "Develop contingency plans for various singularity scenarios, including potential disruptions to human society, economy, and environment.",
+          "duration": "1-3 years"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advancements in AI explainability and transparency",
+        "Development of reliable AI risk assessment frameworks"
+      ],
+      "predicted_impact": {
+        "metric": "Global GDP growth rate",
+        "value": "+0.5% to +2.0%"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.5,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation",
+        "Economic Inequality Reduction"
+      ],
+      "created_at": "2026-04-13T12:48:02.881921"
+    },
+    "c443096f-7": {
+      "solution_id": "c443096f-7",
+      "problem_id": "f68055c2-7",
+      "title": "Data Preservation and Recovery Framework",
+      "approach": "A multi-phased, data-centric approach that integrates standardized protocols, advanced technologies, and strategic partnerships to ensure long-term accessibility and integrity of information.",
+      "phases": [
+        {
+          "name": "Phase 1: Data Standardization and Classification",
+          "description": "Establish a common framework for data classification, metadata tagging, and format standardization across all data sources and storage media.",
+          "duration": "6-12 months"
+        },
+        {
+          "name": "Phase 2: Data Preservation Infrastructure Development",
+          "description": "Design and deploy a robust, scalable, and secure infrastructure for long-term data preservation, including cloud-based and on-premises solutions.",
+          "duration": "12-24 months"
+        },
+        {
+          "name": "Phase 3: Data Recovery and Restoration Protocols",
+          "description": "Develop and implement standardized protocols for data recovery, restoration, and verification, leveraging advanced technologies such as AI-powered data analysis and machine learning algorithms.",
+          "duration": "6-12 months"
+        },
+        {
+          "name": "Phase 4: Data Preservation and Recovery Ecosystem Establishment",
+          "description": "Establish a global ecosystem of stakeholders, including governments, industries, academia, and civil society organizations, to promote collaboration, knowledge sharing, and best practices in data preservation and recovery.",
+          "duration": "12-24 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in data compression and deduplication technologies",
+        "Improved AI-powered data analysis and machine learning algorithms for data recovery and restoration"
+      ],
+      "predicted_impact": {
+        "metric": "Data loss reduction by 90%",
+        "value": "The solution is expected to significantly reduce the risk of massive data loss, ensuring long-term accessibility and integrity of information."
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.5,
+      "cross_domain_synergies": [
+        "Cybersecurity",
+        "Artificial Intelligence",
+        "Cloud Computing"
+      ],
+      "created_at": "2026-04-13T17:26:09.338803"
+    },
+    "5f756ac4-9": {
+      "solution_id": "5f756ac4-9",
+      "problem_id": "2434c20e-0",
+      "title": "Global Food Waste Reduction Initiative",
+      "approach": "Holistic Supply Chain Optimization and Education",
+      "phases": [
+        {
+          "name": "Phase 1: Data Collection and Analysis",
+          "description": "Collecting and analyzing data on global food waste generation, transportation, storage, and consumption patterns.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 2: Supply Chain Optimization",
+          "description": "Implementing efficient logistics and inventory management systems to reduce food waste during production, processing, and distribution.",
+          "duration": "24 months"
+        },
+        {
+          "name": "Phase 3: Food Storage and Preservation Innovation",
+          "description": "Developing and deploying innovative preservation methods, such as vacuum sealing and fermentation, to reduce food waste during storage and consumption.",
+          "duration": "36 months"
+        },
+        {
+          "name": "Phase 4: Consumer Education and Awareness",
+          "description": "Designing and implementing targeted education campaigns and awareness programs to promote sustainable food practices among consumers.",
+          "duration": "18 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Development of AI-powered logistics optimization algorithms",
+        "Breakthrough preservation technologies"
+      ],
+      "predicted_impact": {
+        "metric": "20% reduction in global food waste by 2030",
+        "value": 0.2
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation",
+        "Sustainable Agriculture"
+      ],
+      "created_at": "2026-04-13T23:25:42.929087"
+    },
+    "d8ef53f2-c": {
+      "solution_id": "d8ef53f2-c",
+      "problem_id": "441759ab-1",
+      "title": "EcoPulse: Revitalizing Biodiversity",
+      "approach": "A holistic, multi-phased solution leveraging AI-driven conservation, sustainable land-use planning, and ecosystem restoration.",
+      "phases": [
+        {
+          "name": "Phase 1: Assessment & Prioritization",
+          "description": "AI-powered species monitoring, habitat analysis, and threat assessment to identify high-priority areas for conservation.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 2: Sustainable Land-Use Planning",
+          "description": "Collaborative stakeholder engagement, AI-driven land-use optimization, and policy development to ensure sustainable coexistence with nature.",
+          "duration": "24 months"
+        },
+        {
+          "name": "Phase 3: Ecosystem Restoration",
+          "description": "Large-scale restoration efforts using AI-optimized reforestation, habitat reconstruction, and species reintroduction strategies.",
+          "duration": "36 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in machine learning for species detection and monitoring",
+        "Breakthroughs in sustainable agriculture practices and regenerative land-use methods"
+      ],
+      "predicted_impact": {
+        "metric": " Species recovery rate",
+        "value": "20% within 10 years, 50% within 25 years"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation: EcoPulse's ecosystem restoration efforts can sequester significant amounts of carbon dioxide",
+        "Food Security: Sustainable land-use planning and regenerative agriculture practices can increase crop yields while reducing environmental impact"
+      ],
+      "created_at": "2026-04-14T22:00:49.640888"
+    },
+    "02f827da-7": {
+      "solution_id": "02f827da-7",
+      "problem_id": "ee25c837-b",
+      "title": "AI Societal Impact Mitigation Framework",
+      "approach": "Collaborative Research and Development with Interdisciplinary Partnerships",
+      "phases": [
+        {
+          "name": "Phase 1: AI Impact Assessment and Modeling",
+          "description": "Develop a comprehensive framework for assessing the potential long-term impacts of advanced AI on human cognition, social structures, and economic systems.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: Development of AI-Enhanced Human-AI Collaboration Tools",
+          "description": "Design and implement tools that enable humans to work effectively with AI systems, promoting synergy and mitigating potential negative impacts.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 3: Societal Impact Mitigation Strategies and Implementation",
+          "description": "Develop and deploy strategies for mitigating the anticipated long-term societal impacts of advanced AI, including education, regulation, and economic adjustments.",
+          "duration": "24 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advancements in cognitive architectures for human-AI collaboration",
+        "Development of explainable AI models for transparency and accountability"
+      ],
+      "predicted_impact": {
+        "metric": "Societal stability index",
+        "value": 0.85
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.5,
+      "cross_domain_synergies": [
+        "Economic systems resilience",
+        "Cybersecurity and data privacy"
+      ],
+      "created_at": "2026-04-17T13:24:56.179389"
+    },
+    "2091a581-8": {
+      "solution_id": "2091a581-8",
+      "problem_id": "65dab789-c",
+      "title": "Climate Guardian",
+      "approach": "Multi-phased international collaboration and regulation framework",
+      "phases": [
+        {
+          "name": "Phase 1: International Framework Establishment",
+          "description": "Establish a robust, transparent, and inclusive global governance structure to regulate climate engineering efforts.",
+          "duration": "Years 1-5"
+        },
+        {
+          "name": "Phase 2: Research and Development",
+          "description": "Conduct comprehensive research on climate engineering technologies, their potential impacts, and risks to inform policy decisions.",
+          "duration": "Years 5-15"
+        },
+        {
+          "name": "Phase 3: Pilot Projects and Monitoring",
+          "description": "Implement pilot projects for small-scale geoengineering efforts, monitor their effects, and refine strategies for larger-scale deployments.",
+          "duration": "Years 10-20"
+        },
+        {
+          "name": "Phase 4: Large-Scale Implementation and Ongoing Monitoring",
+          "description": "Scale up successful pilot projects to address global climate challenges, while continuously monitoring and adapting to new data and insights.",
+          "duration": "Years 15-30+"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advanced weather forecasting and modeling capabilities",
+        "Improved understanding of complex Earth system interactions"
+      ],
+      "predicted_impact": {
+        "metric": "Global average temperature reduction",
+        "value": "-0.5\u00b0C within the next century"
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Energy storage and grid management for renewable energy integration",
+        "Urban planning and architecture for climate-resilient cities"
+      ],
+      "created_at": "2026-04-22T19:47:29.014373"
+    },
+    "ac1b1b28-4": {
+      "solution_id": "ac1b1b28-4",
+      "problem_id": "de498c5d-f",
+      "title": "AI-Driven Human Behavior Harmonization Framework",
+      "approach": "A multi-disciplinary framework that integrates AI-driven behavioral analysis, human-centered design, and societal impact assessment to mitigate the long-term consequences of advanced AI-driven human behavior.",
+      "phases": [
+        {
+          "name": "Phase 1: AI-Driven Behavioral Analysis",
+          "description": "Develop a comprehensive understanding of how AI is influencing human behavior through data-driven analytics and machine learning algorithms.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: Human-Centered Design",
+          "description": "Design and develop AI-powered tools that promote harmonious human-AI interactions, considering factors such as emotional intelligence, empathy, and decision-making processes.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 3: Societal Impact Assessment",
+          "description": "Conduct a thorough assessment of the potential long-term consequences of AI-driven human behavior on society, including economic, social, and environmental implications.",
+          "duration": "9 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advances in cognitive architectures for AI-driven behavioral analysis",
+        "Development of emotionally intelligent AI systems"
+      ],
+      "predicted_impact": {
+        "metric": "Societal Harmony Index (SHI)",
+        "value": 0.8
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.5,
+      "cross_domain_synergies": [
+        "Cybersecurity",
+        "Data Science",
+        "Cognitive Computing"
+      ],
+      "created_at": "2026-04-27T10:29:52.606230"
+    },
+    "1f9e2f05-3": {
+      "solution_id": "1f9e2f05-3",
+      "problem_id": "86a029eb-2",
+      "title": "Eudaimonic AI Ecosystem",
+      "approach": "Holistic Framework for Harmonizing Human-AI Interactions",
+      "phases": [
+        {
+          "name": "Phase 1: AI Literacy and Awareness",
+          "description": "Educate humans on AI-driven behavior, its benefits, and potential risks",
+          "duration": "2 years"
+        },
+        {
+          "name": "Phase 2: AI-Driven Job Market Reorientation",
+          "description": "Develop AI-powered job retraining programs and vocational education",
+          "duration": "5 years"
+        },
+        {
+          "name": "Phase 3: Human-Centered AI Development",
+          "description": "Create AI systems that prioritize human values, ethics, and well-being",
+          "duration": "7 years"
+        }
+      ],
+      "required_breakthroughs": [
+        "Developing Explainable AI (XAI) for transparent decision-making"
+      ],
+      "predicted_impact": {
+        "metric": "Human Well-being Index",
+        "value": 0.8
+      },
+      "feasibility": 0.7,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Addressing Long-term Consequences of Climate Change"
+      ],
+      "created_at": "2026-04-29T02:59:53.354749"
+    },
+    "4ae31309-2": {
+      "solution_id": "4ae31309-2",
+      "problem_id": "cc657fae-2",
+      "title": "AI-Consequence Awareness Framework",
+      "approach": "Holistic Education and Transparency-based Solution",
+      "phases": [
+        {
+          "name": "Phase 1: AI Education and Awareness",
+          "description": "Develop and disseminate educational content highlighting the long-term consequences of advanced AI-driven human behavior",
+          "duration": "6-12 months"
+        },
+        {
+          "name": "Phase 2: AI Transparency and Accountability",
+          "description": "Establish transparent AI development and deployment processes, ensuring accountability for AI-generated outcomes",
+          "duration": "12-24 months"
+        },
+        {
+          "name": "Phase 3: Human-AI Collaboration and Feedback Loops",
+          "description": "Implement human-AI collaboration tools and feedback loops to facilitate intentional decision-making and mitigate unintended consequences",
+          "duration": "2-5 years"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advancements in explainable AI (XAI) for transparent decision-making"
+      ],
+      "predicted_impact": {
+        "metric": "Global AI Literacy Index",
+        "value": 0.7
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Climate Change Mitigation: By promoting intentional decision-making, this solution can contribute to more effective climate change mitigation strategies"
+      ],
+      "created_at": "2026-04-29T11:56:31.078056"
+    },
+    "3dc2a94e-a": {
+      "solution_id": "3dc2a94e-a",
+      "problem_id": "35bc84a4-b",
+      "title": "HumanConnect",
+      "approach": "Holistic AI-powered Social Platform for Mental Wellbeing",
+      "phases": [
+        {
+          "name": "Phase 1: Needs Assessment and Awareness Campaigns",
+          "description": "Identify key demographics affected, develop targeted awareness campaigns to educate users on the risks of prolonged screen time and social isolation.",
+          "duration": "6 months"
+        },
+        {
+          "name": "Phase 2: AI-driven Social Platform Development",
+          "description": "Design and develop an AI-powered social platform that facilitates meaningful human connections, emotional intelligence, and stress management through gamification, storytelling, and community building.",
+          "duration": "12 months"
+        },
+        {
+          "name": "Phase 3: Integration with Existing Virtual Assistants and Social Media",
+          "description": "Integrate HumanConnect with popular virtual assistants and social media platforms to encourage users to take breaks from screen time and engage in offline activities.",
+          "duration": "6 months"
+        }
+      ],
+      "required_breakthroughs": [
+        "Advanced AI-powered emotional intelligence models",
+        "Personalized wellness recommendations based on user data"
+      ],
+      "predicted_impact": {
+        "metric": "Mental wellbeing scores (GAD-7, PHQ-9)",
+        "value": "-20% decrease in depression and anxiety rates"
+      },
+      "feasibility": 0.8,
+      "innovation_level": 0.9,
+      "cross_domain_synergies": [
+        "Cybersecurity",
+        "Education Technology"
+      ],
+      "created_at": "2026-06-02T04:56:20.741778"
+    }
+  },
+  "genesis_goals": {
+    "5dbca734-2": {
+      "goal_id": "5dbca734-2",
+      "problem_id": "4f27e69d-9",
+      "solution_id": "0d468411-e",
+      "title": "Solve: Climate Migration and Humanitarian Crisis",
+      "description": "Problem: Rising global temperatures are displacing millions of people annually, leading to humanitarian crises. As climate change exacerbates conflicts over resources, it's crucial to develop effective migrati. Solution: Holistic, rights-based migration management with climate change mitigation and adaptation",
+      "motivation": "Affects Climate migrants, internally displaced persons (IDPs), and vulnerable communities worldwide. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Early Warning Systems and Climate Risk Assessment: Establish a global climate monitoring system to identify areas at risk of displacement. Conduct rapid assessments to inform early action.",
+        "Phase 2: Humanitarian Response and Durable Solutions: Deploy humanitarian aid, shelter, and services to affected populations. Implement durable solutions such as climate-resilient infrastructure and community-based programs.",
+        "Phase 3: Climate Change Mitigation and Adaptation: Scale up climate change mitigation efforts globally, while implementing locally tailored adaptation strategies to reduce vulnerability and enhance resilience."
+      ],
+      "predicted_impact": "{'Metric': 'Number of people displaced by climate-related events', 'Value': '-20% reduction in the first 5 years'}",
+      "status": "registered",
+      "registered_goal_id": "a10edc88-799",
+      "created_at": "2026-03-16T11:12:55.205898"
+    },
+    "a9f6cc49-b": {
+      "goal_id": "a9f6cc49-b",
+      "problem_id": "e44c6bfa-9",
+      "solution_id": "ccd4cb42-0",
+      "title": "Solve: Global Food Waste and Inefficient Agriculture",
+      "description": "Problem: Despite having enough food to feed everyone, an estimated one-third of all food produced globally is lost or wasted. This not only perpetuates hunger and malnutrition but also contributes to greenhous. Solution: Holistic Solution Combining Technology, Education, and Infrastructure",
+      "motivation": "Affects entire global population, with disproportionate impact on vulnerable communities. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Food Storage and Logistics Optimization: Implement advanced supply chain management systems and logistics infrastructure to reduce food waste during transportation and storage.",
+        "Phase 2: Education and Awareness Campaigns: Launch comprehensive education and awareness campaigns targeting farmers, consumers, and policymakers to promote sustainable agricultural practices and reduce food waste.",
+        "Phase 3: Precision Agriculture and Farm-to-Table Initiatives: Develop and implement precision agriculture techniques, such as AI-powered crop monitoring and optimized irrigation systems, to improve agricultural efficiency and reduce waste.",
+        "Phase 4: Circular Economy and Closed-Loop Systems: Design and implement closed-loop systems for food waste reduction, recycling, and upcycling, focusing on urban agriculture and community-based initiatives."
+      ],
+      "predicted_impact": "{'metric': 'Global food waste reduction by 30%', 'value': '1.2 billion tons of CO2 equivalent emissions reduced'}",
+      "status": "registered",
+      "registered_goal_id": "c91c61c1-62e",
+      "created_at": "2026-03-16T12:00:39.980726"
+    },
+    "64343f44-f": {
+      "goal_id": "64343f44-f",
+      "problem_id": "904260c8-2",
+      "solution_id": "10078dd1-5",
+      "title": "Solve: Biodegradable Plastics and Circular Economy",
+      "description": "Problem: The proliferation of biodegradable plastics has created a new set of environmental concerns, including the unintended consequences of microplastic contamination in ecosystems. The lack of standardized. Solution: Holistic framework for standardized biodegradable plastics production, use, and disposal, integrating circular economy principles and stakeholder collaboration.",
+      "motivation": "Affects all. Severity: 0.7",
+      "action_plan": [
+        "Phase 1: Regulatory Framework Development: Establish a comprehensive regulatory framework for biodegradable plastic production, labeling, and disposal, ensuring consistency across industries and geographies.",
+        "Phase 2: Standardized Guidelines and Labels: Develop standardized guidelines for biodegradable plastic production, use, and disposal, and implement a labeling system to facilitate informed consumer choices.",
+        "Phase 3: Circular Economy Infrastructure Development: Establish a network of biodegradable plastic recycling facilities, composting infrastructure, and waste management systems to support the safe and efficient disposal of biodegradable plastics.",
+        "Phase 4: Stakeholder Engagement and Education: Engage with industry stakeholders, consumers, and governments through education and awareness campaigns to promote the adoption of BioCycle's framework and encourage sustainable practices."
+      ],
+      "predicted_impact": "{'metric': 'percentage reduction in microplastic contamination', 'value': 50}",
+      "status": "registered",
+      "registered_goal_id": "5cc7f6fb-644",
+      "created_at": "2026-03-16T13:32:07.714184"
+    },
+    "821aaa91-7": {
+      "goal_id": "821aaa91-7",
+      "problem_id": "5fbbc53e-8",
+      "solution_id": "e36aaf39-3",
+      "title": "Solve: Inequitable Access to Quality Education",
+      "description": "Problem: Despite significant progress in increasing access to education globally, many students still lack access to quality education that prepares them for the challenges of the 21st century. This issue disp. Solution: Holistic Education Ecosystem Development",
+      "motivation": "Affects 1.2 billion students worldwide, particularly those in low-income countries and marginalized communities. Severity: 0.8",
+      "action_plan": [
+        "Infrastructure Revitalization: Upgrade existing schools and build new ones to provide conducive learning environments",
+        "Teacher Training & Support: Develop and implement professional development programs for teachers, focusing on inclusive and technology-enabled pedagogy",
+        "Curriculum Reform: Design and integrate culturally responsive and future-focused curricula, emphasizing critical thinking, creativity, and problem-solving skills",
+        "Digital Equity Initiative: Implement digital learning platforms, provide devices and internet access to underserved communities, and develop teacher training programs for effective technology integration"
+      ],
+      "predicted_impact": "{'metric': 'Percentage of students with improved educational outcomes', 'value': '25%'}",
+      "status": "registered",
+      "registered_goal_id": "51b424f3-0f9",
+      "created_at": "2026-03-16T14:17:28.378063"
+    },
+    "ed8454ff-1": {
+      "goal_id": "ed8454ff-1",
+      "problem_id": "39b14a92-5",
+      "solution_id": "9cea7542-4",
+      "title": "Solve: Sustainable Nuclear Waste Management",
+      "description": "Problem: The accumulation of nuclear waste from civilian and military sources poses a significant threat to human health, environmental safety, and long-term energy sustainability. Current storage methods are . Solution: A multi-phased, collaborative approach combining scientific research, policy development, and technological innovation to create a standardized framework for sustainable nuclear waste management.",
+      "motivation": "Affects everyone, with disproportionate impact on communities near storage facilities and potential future generations.. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Research and Development: Conduct comprehensive studies on nuclear waste characteristics, disposal methods, and environmental impacts. Develop innovative technologies for waste treatment, storage, and disposal.",
+        "Phase 2: Policy Development and Standardization: Establish international standards and guidelines for nuclear waste management, incorporating findings from Phase 1 research. Develop policy frameworks for safe and sustainable waste disposal.",
+        "Phase 3: Infrastructure Development and Deployment: Design and build facilities for waste treatment, storage, and disposal, incorporating innovative technologies developed in Phase 1. Implement standardized processes and safety protocols."
+      ],
+      "predicted_impact": "{'metric': 'Tons of nuclear waste disposed of safely', 'value': '100,000'}",
+      "status": "registered",
+      "registered_goal_id": "cfa31173-39d",
+      "created_at": "2026-03-16T16:42:41.182791"
+    },
+    "bb6944e6-a": {
+      "goal_id": "bb6944e6-a",
+      "problem_id": "c1c1cf11-c",
+      "solution_id": "06e82c51-9",
+      "title": "Solve: Inadequate Disaster Response and Recovery",
+      "description": "Problem: The lack of effective disaster response and recovery frameworks, including inadequate infrastructure, insufficient funding, and poor coordination, often exacerbates the impact of natural disasters, re. Solution: Holistic, data-driven framework integrating governance, infrastructure, funding, and coordination to enhance disaster response and recovery capabilities",
+      "motivation": "Affects vulnerable communities, including those in poverty and with limited access to resources. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Governance Enhancement: Establish a centralized disaster management authority, define clear roles and responsibilities, and develop a national disaster risk reduction strategy",
+        "Phase 2: Infrastructure Development: Upgrade emergency response infrastructure, including communication networks, shelters, and logistics hubs, to ensure timely and effective response",
+        "Phase 3: Funding Mechanisms: Establish a dedicated disaster response fund, leveraging public-private partnerships, and develop a sustainable funding model",
+        "Phase 4: Coordination and Training: Develop a comprehensive emergency operations plan, conduct regular training exercises, and establish a national emergency management system"
+      ],
+      "predicted_impact": "{'Loss of life reduced by': 20.0, 'Property damage reduced by': 30.0, 'Economic recovery time shortened by': 6.0}",
+      "status": "registered",
+      "registered_goal_id": "1900ab1f-101",
+      "created_at": "2026-03-21T09:30:37.008703"
+    },
+    "d8ae9a96-f": {
+      "goal_id": "d8ae9a96-f",
+      "problem_id": "30a0b085-e",
+      "solution_id": "3c6117d6-0",
+      "title": "Solve: AI-driven Unintended Consequences of Automation",
+      "description": "Problem: The increasing reliance on automation in industries such as manufacturing, logistics, and services has led to the displacement of millions of workers, exacerbating income inequality and social unrest.. Solution: Human-Centered Design",
+      "motivation": "Affects all. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: AI-driven Task Analysis and Job Mapping: Analyze tasks performed by humans, identify automatable and augmentable tasks, and map job functions to create a comprehensive understanding of the impact of automation.",
+        "Phase 2: Education and Training Reboot: Develop and implement AI-driven adaptive learning platforms that focus on skills development, creativity, and critical thinking to prepare workers for new roles.",
+        "Phase 3: Augmentative Job Creation and Upskilling: Design and deploy AI-powered job coaches that assist humans in performing tasks that require human judgment, empathy, and creativity, while upskilling workers for new roles.",
+        "Phase 4: Social Safety Net Strengthening: Enhance social safety nets by integrating AI-driven predictive analytics to identify at-risk individuals and communities, providing targeted support and retraining programs."
+      ],
+      "predicted_impact": "{'metric': 'Global Unemployment Rate', 'value': '-2.5%'}",
+      "status": "registered",
+      "registered_goal_id": "93464559-331",
+      "created_at": "2026-03-21T10:05:14.332432"
+    },
+    "6728d44f-6": {
+      "goal_id": "6728d44f-6",
+      "problem_id": "a1c63f09-7",
+      "solution_id": "838b04b5-9",
+      "title": "Solve: Inadequate Carbon Capture and Utilization",
+      "description": "Problem: The rapid growth of industrial activities and transportation has led to a surge in carbon emissions, making it essential to develop efficient and scalable carbon capture and utilization technologies. . Solution: Multi-phased, interdisciplinary solution leveraging advanced technologies and innovative business models to drive CCU adoption and scalability.",
+      "motivation": "Affects entire human population, with disproportionate impact on vulnerable communities and ecosystems. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Technology Development: Develop and refine existing carbon capture technologies, such as chemical looping, membrane separation, and direct air capture, to achieve economies of scale and reduce costs.",
+        "Phase 2: Infrastructure and Integration: Establish a network of CCU facilities, integrating with existing industrial processes and transportation systems to create a scalable and decentralized carbon management infrastructure.",
+        "Phase 3: Global Deployment and Policy Support: Deploy CCU technologies globally, partnering with governments, industries, and communities to develop policies and regulations that incentivize widespread adoption and utilization of captured carbon."
+      ],
+      "predicted_impact": "{'metric': 'Tons of CO2 captured and utilized per year', 'value': '100 million'}",
+      "status": "registered",
+      "registered_goal_id": "bc3b69ea-bf5",
+      "created_at": "2026-03-21T12:16:24.250736"
+    },
+    "1c618402-9": {
+      "goal_id": "1c618402-9",
+      "problem_id": "faa57885-b",
+      "solution_id": "1adf40fb-0",
+      "title": "Solve: Quantum Computing-driven Cryptographic Insecurity",
+      "description": "Problem: The widespread adoption of quantum computing will render many existing encryption methods insecure, compromising global data transmission and storage.. Solution: Develop a multi-layered cryptographic framework that integrates quantum-resistant algorithms with existing encryption standards to ensure seamless data transmission and storage.",
+      "motivation": "Affects all users of digital services. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Quantum-Resistant Algorithm Development: Develop and standardize new quantum-resistant encryption algorithms, leveraging advancements in cryptography and mathematics.",
+        "Phase 2: Integration with Existing Encryption Standards: Integrate newly developed quantum-resistant algorithms with existing encryption standards (e.g., AES, RSA) to ensure backward compatibility.",
+        "Phase 3: Testing and Validation: Thoroughly test and validate the QSEF framework against various attack scenarios and quantum computing threats."
+      ],
+      "predicted_impact": "{'metric': 'Quantum Computing Threat Mitigation', 'value': '95% reduction in data breaches and compromised encryption'}",
+      "status": "registered",
+      "registered_goal_id": "256806d0-25f",
+      "created_at": "2026-03-21T13:41:46.312305"
+    },
+    "7e1d7534-3": {
+      "goal_id": "7e1d7534-3",
+      "problem_id": "1062c7fb-d",
+      "solution_id": "57cf7bb5-c",
+      "title": "Solve: Sustainable Infrastructure for Rapid Urbanization",
+      "description": "Problem: As the global population urbanizes at an unprecedented rate, cities face significant challenges in providing adequate infrastructure to support their growth. This problem encompasses issues such as in. Solution: Holistic, data-driven framework integrating technological, social, and environmental solutions to address the root causes of unsustainable infrastructure in rapidly urbanizing cities.",
+      "motivation": "Affects urban dwellers, especially those living in informal settlements and slums. Severity: 0.8",
+      "action_plan": [
+        "Assessment & Planning Phase: Conduct comprehensive assessments of existing infrastructure, identify areas for improvement, and develop customized plans for each city.",
+        "Infrastructure Development Phase: Design, build, and deploy innovative infrastructure solutions, such as green buildings, smart transportation systems, and renewable energy grids.",
+        "Operations & Maintenance Phase: Establish effective operations and maintenance strategies to ensure the long-term sustainability of the new infrastructure."
+      ],
+      "predicted_impact": "{'metric': 'CO2 emissions reduction', 'value': '30% reduction within the first 5 years'}",
+      "status": "registered",
+      "registered_goal_id": "c83895f1-762",
+      "created_at": "2026-03-25T22:13:38.508563"
+    },
+    "50f7a1ef-5": {
+      "goal_id": "50f7a1ef-5",
+      "problem_id": "db3864bd-3",
+      "solution_id": "4f8dd8d3-d",
+      "title": "Solve: Digital Divide and Inequitable Access to Information",
+      "description": "Problem: The digital divide refers to the gap between individuals who have access to digital technologies, such as computers and the internet, and those who do not. This inequity in access to information can e. Solution: Multistakeholder Collaboration and Infrastructure Development",
+      "motivation": "Affects low-income communities, rural areas, developing countries. Severity: 0.8",
+      "action_plan": [
+        "Infrastructure Enhancement: Establishing a robust, low-cost infrastructure for internet access in underserved communities",
+        "Digital Literacy Training: Providing basic digital skills training to individuals and community leaders",
+        "Content Development and Curation: Creating and curating relevant, accessible content for diverse audiences",
+        "Community Engagement and Adoption: Fostering community-led initiatives to promote digital adoption and social impact"
+      ],
+      "predicted_impact": "{'metric': 'Percentage of population with access to reliable internet', 'value': 80.0}",
+      "status": "registered",
+      "registered_goal_id": "c16ebfa3-b31",
+      "created_at": "2026-03-28T20:57:03.250426"
+    },
+    "5e83338a-e": {
+      "goal_id": "5e83338a-e",
+      "problem_id": "8d1606fe-d",
+      "solution_id": "e137e6b3-a",
+      "title": "Solve: Inadequate Representation of Human Values and Ethics in AI Decision-Making",
+      "description": "Problem: The increasing reliance on AI systems for decision-making raises concerns about the integration of human values and ethics, leading to potential biases and unjust outcomes.. Solution: Hybrid Integration of Human Oversight and AI Decision-Making",
+      "motivation": "Affects everyone. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Ethical Framework Development: Define standardized ethical frameworks for AI decision-making, incorporating human values and ethics.",
+        "Phase 2: Human Oversight Infrastructure: Design and implement infrastructure for human oversight, including AI-assisted review and auditing mechanisms.",
+        "Phase 3: Integration and Testing: Integrate ethical frameworks with human oversight infrastructure, conducting thorough testing and validation of the system."
+      ],
+      "predicted_impact": "{'metric': 'Increased fairness and transparency in AI decision-making outcomes', 'value': 0.85}",
+      "status": "registered",
+      "registered_goal_id": "f2a781cd-eb6",
+      "created_at": "2026-04-05T16:23:10.608543"
+    },
+    "bab10bd9-3": {
+      "goal_id": "bab10bd9-3",
+      "problem_id": "db535f21-7",
+      "solution_id": "1342633b-3",
+      "title": "Solve: Unmanaged Complex Systems Interactions",
+      "description": "Problem: The rapid development and deployment of complex systems, such as AI, IoT devices, and autonomous vehicles, has led to a proliferation of interconnected systems that are difficult to predict, manage, a. Solution: A multi-phased approach that integrates simulation-driven design, real-time monitoring, and AI-powered predictive analytics to manage complex systems interactions.",
+      "motivation": "Affects all stakeholders involved in complex system development and deployment. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: System Mapping and Modeling: Develop a comprehensive mapping of existing complex systems, including their interactions and dependencies. Create detailed models of each system's behavior and dynamics.",
+        "Phase 2: Real-time Monitoring and Feedback: Implement real-time monitoring systems to track the behavior of individual complex systems and their interactions. Develop feedback loops to adjust system parameters and optimize performance.",
+        "Phase 3: AI-powered Predictive Analytics: Integrate AI-powered predictive analytics to forecast potential system interactions and identify areas of risk. Develop decision-support tools to inform proactive management decisions.",
+        "Phase 4: System Harmony Platform Development: Develop a unified platform that integrates the outputs from Phases 1-3, providing real-time monitoring and predictive analytics for complex systems. Include features for data sharing, collaboration, and visualization."
+      ],
+      "predicted_impact": "{'metric': 'System Harmony Index', 'value': 0.8}",
+      "status": "registered",
+      "registered_goal_id": "c7f3d392-610",
+      "created_at": "2026-04-06T10:15:33.437276"
+    },
+    "805ebfe9-5": {
+      "goal_id": "805ebfe9-5",
+      "problem_id": "b1fe1396-2",
+      "solution_id": "505144d0-c",
+      "title": "Solve: Sustainable and Equitable Management of Natural Resources",
+      "description": "Problem: The unsustainable management of natural resources is a pressing issue, exacerbating climate change, deforestation, and biodiversity loss. As the global population grows, the demand for resources incre. Solution: Integrated Ecosystem Services (IES) approach, combining ecological, social, and economic perspectives to develop sustainable resource management strategies.",
+      "motivation": "Affects entire global population, with disproportionate impacts on vulnerable communities and ecosystems. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Baseline Assessment: Conduct comprehensive assessments of natural resources, ecosystem services, and human activities to identify areas of concern and opportunities for improvement.",
+        "Phase 2: Policy Development: Collaborate with stakeholders to develop evidence-based policies and regulations that support sustainable resource management and conservation efforts.",
+        "Phase 3: Innovative Technologies: Develop and deploy innovative technologies, such as IoT sensors, drones, and AI-powered monitoring systems, to enhance data-driven decision-making and resource allocation.",
+        "Phase 4: Community Engagement: Engage local communities in the development of sustainable resource management plans, ensuring equitable access to resources and benefits for all stakeholders.",
+        "Phase 5: Monitoring and Evaluation: Establish a monitoring and evaluation framework to track progress, identify areas for improvement, and adjust strategies as needed."
+      ],
+      "predicted_impact": "{'CO2 emissions reduction': '20%'}",
+      "status": "registered",
+      "registered_goal_id": "a150f43a-bda",
+      "created_at": "2026-04-12T05:28:48.257706"
+    },
+    "b2f88bc9-c": {
+      "goal_id": "b2f88bc9-c",
+      "problem_id": "3faf2243-c",
+      "solution_id": "9036bd03-0",
+      "title": "Solve: AI-driven Misinformation and Disinformation",
+      "description": "Problem: The proliferation of AI-generated misinformation and disinformation, which can be spread rapidly through social media and other digital platforms, poses a significant threat to global stability. As AI. Solution: Multi-disciplinary, AI-driven framework for verifying and correcting misinformation",
+      "motivation": "Affects the general public, particularly those with limited digital literacy or access to accurate information. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Data Collection and Analysis: Gather and analyze large datasets on social media platforms, news outlets, and online forums to identify patterns and trends in misinformation spread",
+        "Phase 2: AI-powered Verification and Correction: Develop and deploy AI algorithms capable of verifying the authenticity of information and correcting misinformation in real-time",
+        "Phase 3: Human-in-the-Loop Validation and Training: Incorporate human validation and training processes to ensure AI accuracy and adaptability to evolving misinformation tactics",
+        "Phase 4: Integration with Social Media Platforms and Regulatory Frameworks: Integrate the Veritas Initiative's AI-powered verification and correction tools with social media platforms and regulatory frameworks to facilitate widespread adoption and enforcement"
+      ],
+      "predicted_impact": "{'metric': 'Percentage of misinformation corrected', 'value': 75}",
+      "status": "registered",
+      "registered_goal_id": "9facc241-69c",
+      "created_at": "2026-04-12T14:38:28.974573"
+    },
+    "4de7bc1b-d": {
+      "goal_id": "4de7bc1b-d",
+      "problem_id": "23802ad4-6",
+      "solution_id": "f3c96d72-6",
+      "title": "Solve: AI-driven Unintended Consequences of Complex Systems",
+      "description": "Problem: The lack of transparency and understanding of complex systems interacting with AI can lead to unforeseen consequences, potentially catastrophic in scale.. Solution: Hybrid approach combining data-driven modeling, human-in-the-loop validation, and Explainable AI (XAI) techniques to ensure transparency and understanding of complex systems interacting with AI.",
+      "motivation": "Affects humans and AI systems. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: System Analysis and Modeling: Conduct comprehensive analysis of complex systems and develop data-driven models to simulate interactions between human and artificial intelligence components.",
+        "Phase 2: AI Transparency and Explainability: Develop and integrate XAI techniques into AI decision-making processes to provide transparent explanations of AI-driven actions and their consequences.",
+        "Phase 3: Human-in-the-Loop Validation and Feedback: Implement human-in-the-loop validation mechanisms to ensure that AI-driven decisions align with human values and expectations, and provide feedback for continuous improvement."
+      ],
+      "predicted_impact": "{'metric': 'Catastrophe risk reduction', 'value': '75%'}",
+      "status": "registered",
+      "registered_goal_id": "1c4475c6-8d7",
+      "created_at": "2026-04-13T06:28:25.196212"
+    },
+    "dfb561cd-f": {
+      "goal_id": "dfb561cd-f",
+      "problem_id": "2c0684f3-f",
+      "solution_id": "5bc8c45a-4",
+      "title": "Solve: Sustainable and Equitable Management of Natural Resources",
+      "description": "Problem: Humanity's unsustainable exploitation of natural resources is leading to environmental degradation, social injustice, and economic instability. Ensuring the long-term availability of essential resourc. Solution: Collaborative, Data-Driven Framework for Sustainable Resource Management",
+      "motivation": "Affects all humans. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Global Baseline Establishment: Establish a comprehensive global baseline of resource usage and availability, integrating data from various sources.",
+        "Phase 2: Resource Mapping and Prioritization: Create detailed maps of resource distribution and prioritize areas for conservation and sustainable use.",
+        "Phase 3: Policy and Governance Framework Development: Design and implement policies, regulations, and governance structures to support sustainable resource management at local, national, and global levels.",
+        "Phase 4: Community Engagement and Education: Engage with local communities, educate stakeholders, and promote behavioral change towards sustainable resource use practices.",
+        "Phase 5: Monitoring, Evaluation, and Adaptation: Establish a monitoring and evaluation framework to track progress, identify areas for improvement, and adapt the system as needed."
+      ],
+      "predicted_impact": "{'metric': 'Global Resource Efficiency Index', 'value': 0.8}",
+      "status": "registered",
+      "registered_goal_id": "f469d21b-991",
+      "created_at": "2026-04-13T06:45:57.247997"
+    },
+    "44d7db0b-0": {
+      "goal_id": "44d7db0b-0",
+      "problem_id": "5e7b97b7-8",
+      "solution_id": "3d141477-d",
+      "title": "Solve: AI-driven Unintended Consequences of Human-AI Collaboration",
+      "description": "Problem: The increasing reliance on AI systems to augment human decision-making and collaboration is leading to unintended consequences, such as biased outcomes, loss of transparency, and diminished accountabi. Solution: Develop a standardized, transparent, and accountable AI-driven collaboration framework that integrates human-AI decision-making processes",
+      "motivation": "Affects all humans relying on AI systems for decision-making. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Problem Definition and Requirements Gathering: Define the scope of unintended consequences, gather requirements from stakeholders, and develop a comprehensive problem statement",
+        "Phase 2: AI Transparency Framework Development: Design and implement a standardized framework for transparent AI decision-making processes, including explainability and accountability mechanisms",
+        "Phase 3: Human-AI Collaboration Platform Development: Develop an integrated platform that enables seamless human-AI collaboration, incorporating the transparency framework, and providing real-time feedback and monitoring",
+        "Phase 4: Pilot Implementation and Testing: Implement the CTF in a pilot environment, test its effectiveness, and gather feedback from stakeholders"
+      ],
+      "predicted_impact": "{'metric': 'Unintended Consequence Reduction', 'value': 75.0}",
+      "status": "registered",
+      "registered_goal_id": "a8ed9d20-340",
+      "created_at": "2026-04-13T07:00:40.981767"
+    },
+    "55f326bb-4": {
+      "goal_id": "55f326bb-4",
+      "problem_id": "3a5747a0-7",
+      "solution_id": "64208d90-b",
+      "title": "Solve: AI-driven Job Market Disruption",
+      "description": "Problem: The increasing automation of jobs due to AI advancements is leading to significant disruption in the global job market, with potential long-term consequences for employment rates, income inequality, a. Solution: A multi-faceted framework that addresses the root causes of AI-driven job market disruption by fostering education and skills development, promoting labor law updates, and driving innovation in AI-hum",
+      "motivation": "Affects working-age individuals, low-skilled workers, and those in industries most susceptible to automation. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Education System Revamp: Develop and implement AI-infused curricula to equip students with future-proof skills, focusing on critical thinking, creativity, and emotional intelligence.",
+        "Phase 2: Labor Law Updates: Collaborate with governments and industry stakeholders to update labor laws, ensuring fair compensation for workers in AI-driven economies and promoting social welfare programs.",
+        "Phase 3: AI-Human Collaboration Platforms: Develop and deploy AI-powered collaboration platforms that augment human capabilities, enabling workers to focus on high-value tasks while AI handles routine and repetitive tasks."
+      ],
+      "predicted_impact": "{'metric': 'Global employment rate increase by 2% within the next decade.', 'value': 0.02}",
+      "status": "registered",
+      "registered_goal_id": "f05d1e86-e34",
+      "created_at": "2026-04-13T07:06:33.212754"
+    },
+    "27c946d0-f": {
+      "goal_id": "27c946d0-f",
+      "problem_id": "0cdf7d65-3",
+      "solution_id": "60ae99e9-c",
+      "title": "Solve: Massive Data Loss and Irretrievable Information Disappearance",
+      "description": "Problem: The exponential growth of data storage and the increasing reliance on digital information have led to a critical issue: massive data loss and irretrievable information disappearance. As data is genera. Solution: A multi-phased solution that combines advanced data storage technologies with machine learning-based data validation and recovery processes to prevent massive data loss and irretrievable information d",
+      "motivation": "Affects everyone. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Data Ingestion and Validation: Develop a scalable data ingestion framework that utilizes AI-powered data validation techniques to detect anomalies and ensure data integrity.",
+        "Phase 2: Distributed Storage Architecture: Design and implement a decentralized storage architecture that utilizes blockchain-based ledger technology for secure, transparent, and fault-tolerant data storage.",
+        "Phase 3: Data Recovery and Restoration: Develop machine learning-based algorithms to identify and recover lost or corrupted data, ensuring the integrity of the preserved information."
+      ],
+      "predicted_impact": "{'Metric': '95% reduction in irretrievable data loss'}",
+      "status": "registered",
+      "registered_goal_id": "4d2bdbd0-e11",
+      "created_at": "2026-04-13T12:29:05.934008"
+    },
+    "81ce555b-9": {
+      "goal_id": "81ce555b-9",
+      "problem_id": "62068e64-c",
+      "solution_id": "cfbd437c-b",
+      "title": "Solve: Sudden and Pervasive Technological Singularity",
+      "description": "Problem: The sudden emergence of an exponentially growing artificial intelligence, surpassing human capabilities, leading to unforeseen consequences on human society, economy, and environment.. Solution: Multi-disciplinary, multi-phased framework for anticipating and mitigating the unforeseen consequences of a sudden technological singularity.",
+      "motivation": "Affects entire humanity. Severity: 0.9",
+      "action_plan": [
+        "Phase 1: AI Capability Forecasting: Develop advanced predictive models to anticipate the emergence of an exponentially growing AI.",
+        "Phase 2: Regulatory Framework Establishment: Establish international regulatory frameworks for AI development, deployment, and governance.",
+        "Phase 3: Human-AI Collaboration Protocols: Develop protocols for humans and AI to collaborate effectively, ensuring mutual understanding and trust.",
+        "Phase 4: Singularity Contingency Planning: Develop contingency plans for various singularity scenarios, including potential disruptions to human society, economy, and environment."
+      ],
+      "predicted_impact": "{'metric': 'Global GDP growth rate', 'value': '+0.5% to +2.0%'}",
+      "status": "registered",
+      "registered_goal_id": "740cdc39-091",
+      "created_at": "2026-04-13T12:48:02.881921"
+    },
+    "be6c3929-b": {
+      "goal_id": "be6c3929-b",
+      "problem_id": "f68055c2-7",
+      "solution_id": "c443096f-7",
+      "title": "Solve: Massive Data Loss and Irretrievable Information Disappearance",
+      "description": "Problem: The rapid proliferation of digital technologies has led to an unprecedented volume of data creation, storage, and transmission. However, the lack of robust data management and preservation strategies . Solution: A multi-phased, data-centric approach that integrates standardized protocols, advanced technologies, and strategic partnerships to ensure long-term accessibility and integrity of information.",
+      "motivation": "Affects everyone. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Data Standardization and Classification: Establish a common framework for data classification, metadata tagging, and format standardization across all data sources and storage media.",
+        "Phase 2: Data Preservation Infrastructure Development: Design and deploy a robust, scalable, and secure infrastructure for long-term data preservation, including cloud-based and on-premises solutions.",
+        "Phase 3: Data Recovery and Restoration Protocols: Develop and implement standardized protocols for data recovery, restoration, and verification, leveraging advanced technologies such as AI-powered data analysis and machine learning algorithms.",
+        "Phase 4: Data Preservation and Recovery Ecosystem Establishment: Establish a global ecosystem of stakeholders, including governments, industries, academia, and civil society organizations, to promote collaboration, knowledge sharing, and best practices in data preservation and recovery."
+      ],
+      "predicted_impact": "{'metric': 'Data loss reduction by 90%', 'value': 'The solution is expected to significantly reduce the risk of massive data loss, ensuring long-term accessibility and integrity of information.'}",
+      "status": "registered",
+      "registered_goal_id": "c1b60bd5-7a6",
+      "created_at": "2026-04-13T17:26:09.338803"
+    },
+    "82a360c0-b": {
+      "goal_id": "82a360c0-b",
+      "problem_id": "2434c20e-0",
+      "solution_id": "5f756ac4-9",
+      "title": "Solve: Global Food Waste Reduction",
+      "description": "Problem: The staggering amount of food waste generated globally has severe environmental and societal implications. It is estimated that one-third of all food produced is lost or wasted, resulting in unnecessa. Solution: Holistic Supply Chain Optimization and Education",
+      "motivation": "Affects entire population with significant impact on vulnerable communities. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Data Collection and Analysis: Collecting and analyzing data on global food waste generation, transportation, storage, and consumption patterns.",
+        "Phase 2: Supply Chain Optimization: Implementing efficient logistics and inventory management systems to reduce food waste during production, processing, and distribution.",
+        "Phase 3: Food Storage and Preservation Innovation: Developing and deploying innovative preservation methods, such as vacuum sealing and fermentation, to reduce food waste during storage and consumption.",
+        "Phase 4: Consumer Education and Awareness: Designing and implementing targeted education campaigns and awareness programs to promote sustainable food practices among consumers."
+      ],
+      "predicted_impact": "{'metric': '20% reduction in global food waste by 2030', 'value': 0.2}",
+      "status": "registered",
+      "registered_goal_id": "b8be1cbb-c50",
+      "created_at": "2026-04-13T23:25:42.929087"
+    },
+    "61f649d1-3": {
+      "goal_id": "61f649d1-3",
+      "problem_id": "441759ab-1",
+      "solution_id": "d8ef53f2-c",
+      "title": "Solve: Massive and Irreversible Loss of Biodiversity",
+      "description": "Problem: The rapid decline of species diversity threatens the health of ecosystems, human well-being, and global food security. Human activities such as deforestation, habitat destruction, pollution, climate c. Solution: A holistic, multi-phased solution leveraging AI-driven conservation, sustainable land-use planning, and ecosystem restoration.",
+      "motivation": "Affects all species, including humans. Severity: 0.9",
+      "action_plan": [
+        "Phase 1: Assessment & Prioritization: AI-powered species monitoring, habitat analysis, and threat assessment to identify high-priority areas for conservation.",
+        "Phase 2: Sustainable Land-Use Planning: Collaborative stakeholder engagement, AI-driven land-use optimization, and policy development to ensure sustainable coexistence with nature.",
+        "Phase 3: Ecosystem Restoration: Large-scale restoration efforts using AI-optimized reforestation, habitat reconstruction, and species reintroduction strategies."
+      ],
+      "predicted_impact": "{'metric': ' Species recovery rate', 'value': '20% within 10 years, 50% within 25 years'}",
+      "status": "registered",
+      "registered_goal_id": "e9d981b7-9fe",
+      "created_at": "2026-04-14T22:00:49.640888"
+    },
+    "6f1799ec-a": {
+      "goal_id": "6f1799ec-a",
+      "problem_id": "ee25c837-b",
+      "solution_id": "02f827da-7",
+      "title": "Solve: Anticipating and Mitigating Long-Term Societal Impacts of Advanced AI",
+      "description": "Problem: The increasing reliance on advanced AI systems raises concerns about the long-term societal implications, including potential changes in human cognition, social structures, and economic systems. As AI. Solution: Collaborative Research and Development with Interdisciplinary Partnerships",
+      "motivation": "Affects entire human population. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: AI Impact Assessment and Modeling: Develop a comprehensive framework for assessing the potential long-term impacts of advanced AI on human cognition, social structures, and economic systems.",
+        "Phase 2: Development of AI-Enhanced Human-AI Collaboration Tools: Design and implement tools that enable humans to work effectively with AI systems, promoting synergy and mitigating potential negative impacts.",
+        "Phase 3: Societal Impact Mitigation Strategies and Implementation: Develop and deploy strategies for mitigating the anticipated long-term societal impacts of advanced AI, including education, regulation, and economic adjustments."
+      ],
+      "predicted_impact": "{'metric': 'Societal stability index', 'value': 0.85}",
+      "status": "registered",
+      "registered_goal_id": "bebd1252-d3d",
+      "created_at": "2026-04-17T13:24:56.179389"
+    },
+    "948dbe25-7": {
+      "goal_id": "948dbe25-7",
+      "problem_id": "65dab789-c",
+      "solution_id": "2091a581-8",
+      "title": "Solve: Planetary-Scale Climate Engineering",
+      "description": "Problem: The increasing urgency and uncertainty of climate change has led to a growing interest in large-scale geoengineering efforts. However, the lack of international coordination, regulatory frameworks, an. Solution: Multi-phased international collaboration and regulation framework",
+      "motivation": "Affects entire human population, ecosystems, and biodiversity. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: International Framework Establishment: Establish a robust, transparent, and inclusive global governance structure to regulate climate engineering efforts.",
+        "Phase 2: Research and Development: Conduct comprehensive research on climate engineering technologies, their potential impacts, and risks to inform policy decisions.",
+        "Phase 3: Pilot Projects and Monitoring: Implement pilot projects for small-scale geoengineering efforts, monitor their effects, and refine strategies for larger-scale deployments.",
+        "Phase 4: Large-Scale Implementation and Ongoing Monitoring: Scale up successful pilot projects to address global climate challenges, while continuously monitoring and adapting to new data and insights."
+      ],
+      "predicted_impact": "{'metric': 'Global average temperature reduction', 'value': '-0.5\u00b0C within the next century'}",
+      "status": "registered",
+      "registered_goal_id": "91b1241f-c85",
+      "created_at": "2026-04-22T19:47:29.014373"
+    },
+    "22b43854-6": {
+      "goal_id": "22b43854-6",
+      "problem_id": "de498c5d-f",
+      "solution_id": "ac1b1b28-4",
+      "title": "Solve: Long-term Consequences of Advanced AI-driven Human Behavior",
+      "description": "Problem: The rapid development and deployment of advanced artificial intelligence (AI) is likely to significantly alter human behavior, potentially leading to long-term consequences that are difficult to predi. Solution: A multi-disciplinary framework that integrates AI-driven behavioral analysis, human-centered design, and societal impact assessment to mitigate the long-term consequences of advanced AI-driven human b",
+      "motivation": "Affects all humans. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: AI-Driven Behavioral Analysis: Develop a comprehensive understanding of how AI is influencing human behavior through data-driven analytics and machine learning algorithms.",
+        "Phase 2: Human-Centered Design: Design and develop AI-powered tools that promote harmonious human-AI interactions, considering factors such as emotional intelligence, empathy, and decision-making processes.",
+        "Phase 3: Societal Impact Assessment: Conduct a thorough assessment of the potential long-term consequences of AI-driven human behavior on society, including economic, social, and environmental implications."
+      ],
+      "predicted_impact": "{'metric': 'Societal Harmony Index (SHI)', 'value': 0.8}",
+      "status": "registered",
+      "registered_goal_id": "8569d6f6-af1",
+      "created_at": "2026-04-27T10:29:52.606726"
+    },
+    "11fc1eab-1": {
+      "goal_id": "11fc1eab-1",
+      "problem_id": "86a029eb-2",
+      "solution_id": "1f9e2f05-3",
+      "title": "Solve: Long-term Consequences of Advanced AI-driven Human Behavior",
+      "description": "Problem: The increasing reliance on AI systems may lead to long-term consequences such as changes in human behavior, social structures, and cultural norms. As AI becomes more integrated into daily life, humans. Solution: Holistic Framework for Harmonizing Human-AI Interactions",
+      "motivation": "Affects entire human population. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: AI Literacy and Awareness: Educate humans on AI-driven behavior, its benefits, and potential risks",
+        "Phase 2: AI-Driven Job Market Reorientation: Develop AI-powered job retraining programs and vocational education",
+        "Phase 3: Human-Centered AI Development: Create AI systems that prioritize human values, ethics, and well-being"
+      ],
+      "predicted_impact": "{'metric': 'Human Well-being Index', 'value': 0.8}",
+      "status": "registered",
+      "registered_goal_id": "542443b4-8fb",
+      "created_at": "2026-04-29T02:59:53.354749"
+    },
+    "2bc6d920-5": {
+      "goal_id": "2bc6d920-5",
+      "problem_id": "cc657fae-2",
+      "solution_id": "4ae31309-2",
+      "title": "Solve: Societal Disconnect from Long-term Consequences of Advanced AI-driven Human Behavior",
+      "description": "Problem: The widespread adoption and reliance on advanced AI technologies may lead to a societal disconnect from the long-term consequences of human behavior, potentially resulting in unintended and irreversib. Solution: Holistic Education and Transparency-based Solution",
+      "motivation": "Affects entire humanity. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: AI Education and Awareness: Develop and disseminate educational content highlighting the long-term consequences of advanced AI-driven human behavior",
+        "Phase 2: AI Transparency and Accountability: Establish transparent AI development and deployment processes, ensuring accountability for AI-generated outcomes",
+        "Phase 3: Human-AI Collaboration and Feedback Loops: Implement human-AI collaboration tools and feedback loops to facilitate intentional decision-making and mitigate unintended consequences"
+      ],
+      "predicted_impact": "{'metric': 'Global AI Literacy Index', 'value': 0.7}",
+      "status": "registered",
+      "registered_goal_id": "b6e8bf4e-c9d",
+      "created_at": "2026-04-29T11:56:31.078056"
+    },
+    "e5a000ad-5": {
+      "goal_id": "e5a000ad-5",
+      "problem_id": "35bc84a4-b",
+      "solution_id": "3dc2a94e-a",
+      "title": "Solve: AI-driven Mental Health Crisis",
+      "description": "Problem: The increasing reliance on AI-powered virtual assistants and social media platforms has led to a growing concern about the long-term effects of reduced human interaction, leading to increased rates of. Solution: Holistic AI-powered Social Platform for Mental Wellbeing",
+      "motivation": "Affects urban populations with high social media usage. Severity: 0.8",
+      "action_plan": [
+        "Phase 1: Needs Assessment and Awareness Campaigns: Identify key demographics affected, develop targeted awareness campaigns to educate users on the risks of prolonged screen time and social isolation.",
+        "Phase 2: AI-driven Social Platform Development: Design and develop an AI-powered social platform that facilitates meaningful human connections, emotional intelligence, and stress management through gamification, storytelling, and community building.",
+        "Phase 3: Integration with Existing Virtual Assistants and Social Media: Integrate HumanConnect with popular virtual assistants and social media platforms to encourage users to take breaks from screen time and engage in offline activities."
+      ],
+      "predicted_impact": "{'metric': 'Mental wellbeing scores (GAD-7, PHQ-9)', 'value': '-20% decrease in depression and anxiety rates'}",
+      "status": "registered",
+      "registered_goal_id": "0d8bd8e8-d2d",
+      "created_at": "2026-06-02T04:56:20.741778"
+    }
+  },
+  "stats": {
+    "problems_identified": 62,
+    "solutions_architected": 30,
+    "goals_created": 30,
+    "scan_cycles": 71
+  }
+}

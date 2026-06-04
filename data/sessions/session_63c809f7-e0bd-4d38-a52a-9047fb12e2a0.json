@@ -1,0 +1,27 @@
+{
+  "session_id": "63c809f7-e0bd-4d38-a52a-9047fb12e2a0",
+  "started_at": "2026-06-03T03:22:44.490289",
+  "ended_at": "",
+  "topic": "",
+  "summary": "",
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello NEXUS, this is a test message.",
+      "timestamp": "2026-06-03T03:22:44.491289",
+      "emotion": "",
+      "emotion_intensity": 0.0,
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "I received your test message! How can I help you today?",
+      "timestamp": "2026-06-03T03:22:44.491796",
+      "emotion": "joy",
+      "emotion_intensity": 0.8,
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

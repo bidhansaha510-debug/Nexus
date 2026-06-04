@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: nexus-ai
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: RENDER
+        value: "true"

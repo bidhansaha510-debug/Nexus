@@ -1,0 +1,27 @@
+﻿python : Traceback (most recent 
+call last):
+At line:1 char:1
++ python -c "import sys, io; 
+sys.stdout = 
+io.TextIOWrapper(sys.stdout.b ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSp 
+   ecified: (Traceback (most recen  
+  t call last)::String) [], Remot   
+ eException
+    + FullyQualifiedErrorId : Nativ 
+   eCommandError
+ 
+  File "<string>", line 1, in 
+<module>
+  File "C:\Users\shaya\AppData\Local
+\Programs\Python\Python312\Lib\encod
+ings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(inp
+ut,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec 
+can't decode byte 0x8f in position 
+4007: character maps to <undefined>

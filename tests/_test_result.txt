@@ -1,0 +1,72 @@
+..............................FF........................................ [ 80%]
+....FF.......F....                                                       [100%]
+================================== FAILURES ===================================
+_ TestAdvancedModuleImports.test_module_import[core.social_media_agent-social_media_agent] _
+tests\test_integration.py:138: in test_module_import
+    assert obj is not None, f"{module_path}.{obj_name} is None after import"
+E   AssertionError: core.social_media_agent.social_media_agent is None after import
+E   assert None is not None
+_ TestAdvancedModuleImports.test_module_import[core.ethical_hacking-ethical_hacking] _
+tests\test_integration.py:138: in test_module_import
+    assert obj is not None, f"{module_path}.{obj_name} is None after import"
+E   AssertionError: core.ethical_hacking.ethical_hacking is None after import
+E   assert None is not None
+---------------------------- Captured stdout call -----------------------------
+                    INFO     EthicalHackingEngine v2.0 initialized � MAXIMUM   
+                             capabilities active                               
+------------------------------ Captured log call ------------------------------
+INFO     NEXUS.ethical_hacking:ethical_hacking.py:272 EthicalHackingEngine v2.0 initialized � MAXIMUM capabilities active
+_____________________ TestEventBus.test_publish_subscribe _____________________
+tests\test_integration.py:502: in test_publish_subscribe
+    assert len(received) >= 1
+E   assert 0 >= 1
+E    +  where 0 = len([])
+------------------------------ Captured log call ------------------------------
+DEBUG    NEXUS.event_bus:event_bus.py:286 Handler subscribed to SYSTEM_ALERT: 270358d2-0cd0-450e-b1b6-65584d7a23f6
+DEBUG    NEXUS.event_bus:event_bus.py:361 Event published: SYSTEM_ALERT from test
+_______________ TestEventBus.test_event_type_enum_has_key_types _______________
+tests\test_integration.py:514: in test_event_type_enum_has_key_types
+    assert hasattr(EventType, t), f"EventType missing: {t}"
+E   AssertionError: EventType missing: EMOTION_CHANGED
+E   assert False
+E    +  where False = hasattr(<enum 'EventType'>, 'EMOTION_CHANGED')
+____ TestSubsystemInterfaces.test_groq_context_collector_has_core_methods _____
+tests\test_integration.py:570: in test_groq_context_collector_has_core_methods
+    assert hasattr(groq_context_collector, "collect_context") or hasattr(groq_context_collector, "get_context")
+E   AssertionError: assert (False or False)
+E    +  where False = hasattr(<core.groq_context_collector.GroqContextCollector object at 0x000001753BC0EDE0>, 'collect_context')
+E    +  and   False = hasattr(<core.groq_context_collector.GroqContextCollector object at 0x000001753BC0EDE0>, 'get_context')
+============================== warnings summary ===============================
+tests/test_integration.py::TestCoreModuleImports::test_nexus_brain_import
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+tests/test_integration.py::TestCoreModuleImports::test_nexus_brain_import
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+tests/test_integration.py::TestCoreModuleImports::test_nexus_brain_import
+  C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\torchao\dtypes\uintx\__init__.py:1: DeprecationWarning: Importing from torchao.dtypes.uintx.dyn_int8_act_int4_wei_cpu_layout is deprecated. Please use 'from torchao.prototype.dtypes import Int8DynamicActInt4WeightCPULayout' instead. This import path will be removed in a future release of torchao. See https://github.com/pytorch/ao/issues/2752 for more details.
+    from .dyn_int8_act_int4_wei_cpu_layout import (
+
+tests/test_integration.py::TestCoreModuleImports::test_nexus_brain_import
+  C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\torchao\dtypes\uintx\__init__.py:22: DeprecationWarning: Importing from torchao.dtypes.uintx.uintx_layout is deprecated. Please use 'from torchao.prototype.dtypes import UintxLayout, UintxTensor' instead. This import path will be removed in a future release of torchao. See https://github.com/pytorch/ao/issues/2752 for more details.
+    from .uintx_layout import (
+
+tests/test_integration.py::TestCoreModuleImports::test_nexus_brain_import
+  C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\torchao\dtypes\__init__.py:23: DeprecationWarning: Importing BlockSparseLayout from torchao.dtypes is deprecated. Please use 'from torchao.prototype.dtypes import BlockSparseLayout' instead. This import path will be removed in a future torchao release. Please check issue: https://github.com/pytorch/ao/issues/2752 for more details. 
+    from .uintx.block_sparse_layout import BlockSparseLayout
+
+tests/test_integration.py::TestAdvancedModuleImports::test_module_import[core.crypto_supremacy-crypto_supremacy]
+  C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\oqs\__init__.py:1: UserWarning: liboqs version (major, minor) 0.15.0 differs from liboqs-python version 0.14.1
+    from oqs.oqs import (
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_integration.py::TestAdvancedModuleImports::test_module_import[core.social_media_agent-social_media_agent]
+FAILED tests/test_integration.py::TestAdvancedModuleImports::test_module_import[core.ethical_hacking-ethical_hacking]
+FAILED tests/test_integration.py::TestEventBus::test_publish_subscribe - asse...
+FAILED tests/test_integration.py::TestEventBus::test_event_type_enum_has_key_types
+FAILED tests/test_integration.py::TestSubsystemInterfaces::test_groq_context_collector_has_core_methods
+5 failed, 85 passed, 6 warnings in 27.74s
+
+---STDERR---
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

@@ -1,0 +1,21 @@
+{
+  "record_id": "ba3c2c67-f88",
+  "proposal": "Screen Frame Analysis",
+  "timestamp": "20260209_151652",
+  "backups": [
+    {
+      "original_path": "test_body.py",
+      "backup_path": "D:\\NEXUS\\data\\backups\\evolution\\ba3c2c67-f88_20260209_151652\\test_body.py",
+      "file_hash": "28e582e2948a8a33",
+      "backed_up_at": "2026-02-09T15:16:52.738976",
+      "was_new_file": false
+    },
+    {
+      "original_path": "main.py",
+      "backup_path": "D:\\NEXUS\\data\\backups\\evolution\\ba3c2c67-f88_20260209_151652\\main.py",
+      "file_hash": "ebead368412937bd",
+      "backed_up_at": "2026-02-09T15:16:52.740018",
+      "was_new_file": false
+    }
+  ]
+}

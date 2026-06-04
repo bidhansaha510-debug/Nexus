@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#060810">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>NEXUS AI</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- ═══ PREMIUM SPLASH SCREEN ═══ -->
+    <div class="splash-screen" id="splash-screen">
+        <!-- Neural network background -->
+        <canvas id="splash-neural-bg"></canvas>
+
+        <!-- Splash content -->
+        <div class="splash-content">
+            <!-- Animated orbital logo -->
+            <div class="splash-logo">
+                <div class="splash-orb-container">
+                    <!-- Outer glow pulse -->
+                    <div class="splash-glow-pulse"></div>
+                    <!-- Orbital rings -->
+                    <div class="splash-orbit splash-orbit-1">
+                        <div class="splash-orbit-dot"></div>
+                    </div>
+                    <div class="splash-orbit splash-orbit-2">
+                        <div class="splash-orbit-dot"></div>
+                    </div>
+                    <div class="splash-orbit splash-orbit-3">
+                        <div class="splash-orbit-dot"></div>
+                    </div>
+                    <!-- Core -->
+                    <div class="splash-core">
+                        <div class="splash-core-inner"></div>
+                        <div class="splash-core-flare"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated title -->
+            <div class="splash-title">
+                <span class="splash-letter" style="--i:0">N</span>
+                <span class="splash-letter" style="--i:1">E</span>
+                <span class="splash-letter" style="--i:2">X</span>
+                <span class="splash-letter" style="--i:3">U</span>
+                <span class="splash-letter" style="--i:4">S</span>
+            </div>
+
+            <!-- Subtitle -->
+            <div class="splash-subtitle">AI SYSTEMS</div>
+
+            <!-- Loading bar -->
+            <div class="splash-loader">
+                <div class="splash-loader-track">
+                    <div class="splash-loader-bar"></div>
+                    <div class="splash-loader-glow"></div>
+                </div>
+                <div class="splash-loader-text">Initializing...</div>
+            </div>
+        </div>
+
+        <!-- Particle burst elements -->
+        <div class="splash-particles" id="splash-particles"></div>
+    </div>
+
+    <!-- PARTICLE BACKGROUND -->
+    <canvas id="particle-bg"></canvas>
+
+    <!-- CONNECTION SCREEN -->
+    <div class="connect-screen" id="connect-screen">
+        <div class="connect-card">
+            <!-- Logo -->
+            <div class="connect-logo">
+                <div class="logo-orb">
+                    <div class="orb-core"></div>
+                    <div class="orb-ring-1"></div>
+                    <div class="orb-ring-2"></div>
+                </div>
+                <h1 class="logo-title">NEXUS</h1>
+                <p class="logo-subtitle">AI SYSTEM</p>
+            </div>
+
+            <!-- Status Message -->
+            <div class="connect-status" id="connect-status">
+                <i class="fas fa-link"></i>
+                <span>Enter your NEXUS server address</span>
+            </div>
+
+            <!-- Server URL Input -->
+            <div class="connect-form">
+                <div class="input-group">
+                    <label for="server-url"><i class="fas fa-server"></i> Server URL</label>
+                    <input type="url" id="server-url" placeholder="http://192.168.1.5:5000" autocomplete="url"
+                        autocapitalize="off" autocorrect="off" spellcheck="false">
+                    <div class="input-hint">
+                        Local IP or Cloudflare tunnel URL
+                    </div>
+                </div>
+
+                <div class="remember-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="remember-server" checked>
+                        <span class="toggle-switch"></span>
+                        <span class="toggle-text">Remember this server</span>
+                    </label>
+                </div>
+
+                <button class="connect-btn" id="connect-btn" onclick="connectToServer()">
+                    <i class="fas fa-bolt"></i>
+                    <span>Connect</span>
+                </button>
+
+                <div class="connect-error" id="connect-error"></div>
+            </div>
+
+            <!-- Server Discovery -->
+            <div class="server-discovery" id="server-discovery">
+                <div class="discovery-header">
+                    <div class="discovery-title"><i class="fas fa-satellite-dish"></i> Available Servers</div>
+                    <button class="scan-btn" id="scan-btn" onclick="scanForServers()">
+                        <i class="fas fa-radar" id="scan-icon"></i>
+                        <span id="scan-label">Scan</span>
+                    </button>
+                </div>
+                <div class="server-list" id="server-list">
+                    <div class="server-list-empty" id="server-list-empty">
+                        <i class="fas fa-search"></i>
+                        <span>Tap Scan to find NEXUS servers</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Servers -->
+            <div class="recent-servers" id="recent-servers" style="display:none">
+                <div class="recent-header"><i class="fas fa-history"></i> Recent Servers</div>
+                <div class="recent-list" id="recent-list"></div>
+            </div>
+
+            <!-- App Info -->
+            <div class="connect-footer">
+                <span>NEXUS AI Mobile v1.0</span>
+                <span class="dot-sep">•</span>
+                <span>WebView Client</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOADING OVERLAY (shown while connecting) -->
+    <div class="loading-overlay" id="loading-overlay" style="display:none">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-core">🧠</div>
+            </div>
+            <div class="loading-text">Connecting to NEXUS...</div>
+            <div class="loading-url" id="loading-url"></div>
+        </div>
+    </div>
+
+    <!-- WEBVIEW CONTAINER (hidden until connected) -->
+    <iframe id="nexus-frame" class="nexus-frame" style="display:none"
+        allow="camera; microphone; clipboard-read; clipboard-write"
+        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-downloads">
+    </iframe>
+
+    <!-- FLOATING MENU BUTTON (visible when connected) -->
+    <div class="fab-menu" id="fab-menu" style="display:none">
+        <button class="fab-btn" id="fab-btn" onclick="toggleFabMenu()">
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+        <div class="fab-options" id="fab-options">
+            <button onclick="refreshServer()"><i class="fas fa-sync-alt"></i> Refresh</button>
+            <button onclick="disconnectServer()"><i class="fas fa-unlink"></i> Disconnect</button>
+            <button onclick="showServerInfo()"><i class="fas fa-info-circle"></i> Server Info</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

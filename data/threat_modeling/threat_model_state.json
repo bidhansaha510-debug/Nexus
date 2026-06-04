@@ -1,0 +1,16 @@
+{
+  "stats": {
+    "total_predictions": 5,
+    "accurate_predictions": 0,
+    "false_positives": 0,
+    "total_anomalies_detected": 0,
+    "total_patterns_recognized": 5,
+    "active_predictions": 1,
+    "avg_confidence": 0.0,
+    "prediction_accuracy": 0.0,
+    "network_baselines_tracked": 0,
+    "last_analysis_time": "2026-06-04T03:25:44.298676",
+    "risk_score": 2.64
+  },
+  "saved_at": "2026-06-04T03:26:41.032833"
+}

@@ -1,0 +1,15 @@
+{
+  "stats": {
+    "total_devices_discovered": 13,
+    "active_devices": 18,
+    "total_sensor_readings": 0,
+    "total_commands_sent": 0,
+    "environment_snapshots": 12,
+    "usb_devices_detected": 5,
+    "alerts_generated": 0,
+    "last_scan_time": "2026-06-03T03:17:50.469062",
+    "environment_state": "normal",
+    "hardware_health": 1.0
+  },
+  "saved_at": "2026-06-03T03:19:51.277555"
+}

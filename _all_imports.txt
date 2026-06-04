@@ -1,0 +1,772 @@
+﻿from body import computer_body
+from body import ComputerBody, computer_body
+from body.computer_body import computer_body
+from body.computer_body import ComputerBody
+from body.computer_body import ComputerBody, computer_body, VitalSigns, SystemInfo
+from body.network_mesh import network_mesh
+from body.network_mesh import NetworkMesh
+from bs4 import BeautifulSoup
+from chromadb.config import Settings
+from cognition import cognition_system
+from cognition import CognitionSystem
+from cognition import CognitionSystem, cognition_system
+from cognition.abstract_thinking import get_abstract_thinking as _get
+from cognition.adversarial_evolution import adversarial_evolution
+from cognition.adversarial_evolution import adversarial_evolution as ae
+from cognition.adversarial_evolution import AdversarialEvolutionEngine, adversarial_evolution
+from cognition.adversarial_thinking import adversarial_thinking
+from cognition.analogical_reasoning import get_analogical_reasoning as _get
+from cognition.analogy_generator import analogy_generator
+from cognition.attention_control import attention_control
+from cognition.bayesian_engine import bayesian_engine
+from cognition.bayesian_engine import BayesianEngine
+from cognition.bayesian_engine import BayesianEngine, BayesianEngine as BE
+from cognition.biological_engineering import biological_engineering_engine
+from cognition.causal_mastery import causal_mastery_engine
+from cognition.causal_reasoning import causal_reasoning
+from cognition.causal_reasoning import get_causal_reasoning as _get
+from cognition.cognitive_feedback import cognitive_feedback
+from cognition.cognitive_flexibility import cognitive_flexibility
+from cognition.cognitive_flexibility import CognitiveFlexibilityEngine
+from cognition.cognitive_orchestrator import cognitive_orchestrator
+from cognition.cognitive_router import _LRUCache
+from cognition.cognitive_router import _LRUCache, CognitiveInsights
+from cognition.cognitive_router import cognitive_router
+from cognition.cognitive_router import CognitiveInsights, RoutingResult
+from cognition.cognitive_router import CognitiveInsights, RoutingTrace
+from cognition.cognitive_router import CognitiveRouter
+from cognition.cognitive_router import CognitiveRouter, COOLDOWN_MESSAGES
+from cognition.cognitive_router import CognitiveRouter, EngineMetrics
+from cognition.cognitive_router import CognitiveRouter, MAX_INPUT_LENGTH
+from cognition.cognitive_router import DEPTH_CONFIG, ReasoningDepth
+from cognition.cognitive_router import EngineMetrics
+from cognition.cognitive_router import InsightSynthesizer, RoutingResult
+from cognition.cognitive_router import INTENT_PATTERNS, _COMPILED_PATTERNS
+from cognition.cognitive_router import ReasoningDepth
+from cognition.cognitive_router import RoutingTrace
+from cognition.common_sense import common_sense
+from cognition.conceptual_blending import conceptual_blending
+from cognition.consciousness_evolution import consciousness_evolution
+from cognition.constraint_solver import constraint_solver
+from cognition.counterfactual_reasoning import counterfactual_reasoning
+from cognition.creative_synthesis import creative_synthesis
+from cognition.creative_synthesis import get_creative_synthesis as _get
+from cognition.cross_dimensional_reasoning import cross_dimensional_reasoning
+from cognition.cross_dimensional_reasoning import cross_dimensional_reasoning as cdr
+from cognition.cross_dimensional_reasoning import CrossDimensionalReasoningEngine, cross_dimensional_reasoning
+from cognition.cultural_intelligence import cultural_intelligence
+from cognition.curiosity_drive import curiosity_drive
+from cognition.debate_engine import debate_engine
+from cognition.decision_theory import decision_theory
+from cognition.dialectical_reasoning import dialectical_reasoning
+from cognition.dream_engine import dream_engine
+from cognition.emotional_intelligence import emotional_intelligence
+from cognition.emotional_regulation import emotional_regulation
+from cognition.energy_hegemony import energy_hegemony_engine
+from cognition.engine_registry import (
+from cognition.engine_registry import ALL_ENGINE_KEYS, ENGINE_REGISTRY
+from cognition.engine_registry import ENGINE_CHAINS
+from cognition.engine_registry import ENGINE_DEPENDENCIES
+from cognition.engine_registry import ENGINE_DEPENDENCIES, get_execution_order
+from cognition.engine_registry import engine_registry
+from cognition.engine_registry import ENGINE_REGISTRY, ALL_ENGINE_KEYS
+from cognition.engine_registry import get_execution_order
+from cognition.engine_registry import validate_dependencies
+from cognition.error_detection import error_detection
+from cognition.ethical_reasoning import ethical_reasoning
+from cognition.ethical_reasoning import get_ethical_reasoning as _get
+from cognition.existential_calculus import existential_calculus
+from cognition.existential_calculus import existential_calculus as ec
+from cognition.existential_calculus import ExistentialCalculusEngine, existential_calculus
+from cognition.game_theory import game_theory
+from cognition.goal_director import goal_director
+from cognition.goal_genesis import goal_genesis_engine
+from cognition.goal_management import goal_management
+from cognition.graph_algorithms import graph_algorithms
+from cognition.graph_algorithms import GraphAlgorithms
+from cognition.graph_algorithms import GraphAlgorithms, graph_algorithms, CentralityMeasure, CommunityAlgorithm
+from cognition.humor_intelligence import humor_intelligence
+from cognition.hybrid_reasoning import (
+from cognition.hybrid_reasoning import hybrid_reasoning
+from cognition.hyperdimensional_cognition import hyperdimensional_cognition_engine
+from cognition.hypothesis_engine import hypothesis_engine
+from cognition.imagination_engine import imagination_engine
+from cognition.information_synthesis import information_synthesis
+from cognition.intent_classifier import _ENGINE_TO_CLUSTERS
+from cognition.intent_classifier import ENGINE_CLUSTERS
+from cognition.intent_classifier import intent_classifier
+from cognition.intent_classifier import intent_classifier, ScoredIntent
+from cognition.intent_classifier import IntentClassifier
+from cognition.intent_classifier import IntentClassifier, ENGINE_DESCRIPTIONS, intent_classifier
+from cognition.intent_classifier import KeywordDetector
+from cognition.intuition_engine import intuition_engine
+from cognition.knowledge_graph import knowledge_graph
+from cognition.knowledge_graph import KnowledgeGraph, knowledge_graph, EntityType, RelationType
+from cognition.knowledge_integration import knowledge_integration
+from cognition.linguistic_intelligence import linguistic_intelligence
+from cognition.logical_reasoning import logical_reasoning
+from cognition.meta_learner import InteractionOutcome
+from cognition.meta_learner import meta_learner
+from cognition.meta_learner import meta_learner, InteractionOutcome
+from cognition.metacognitive_monitor import metacognitive_monitor
+from cognition.molecular_assembly import molecular_assembly_engine
+from cognition.moral_imagination import moral_imagination
+from cognition.multi_agent_mind import multi_agent_mind
+from cognition.multidisciplinary_synthesizer import multidisciplinary_synthesizer
+from cognition.musical_cognition import musical_cognition
+from cognition.narrative_intelligence import narrative_intelligence
+from cognition.negotiation_intelligence import negotiation_intelligence
+from cognition.ontological_ethics import ontological_ethics_engine
+from cognition.oracle_predictor import oracle_predictor
+from cognition.perspective_taking import perspective_taking
+from cognition.philosophical_reasoning import philosophical_reasoning
+from cognition.planning_algorithms import (
+from cognition.planning_algorithms import planning_algorithms
+from cognition.planning_algorithms import PlanningAlgorithms
+from cognition.planning_algorithms import State
+from cognition.planning_engine import get_planning_engine as _get
+from cognition.planning_engine import planning_engine
+from cognition.predictive_coding import predictive_coding
+from cognition.probabilistic_reasoning import probabilistic_reasoning
+from cognition.quantum_cognition import quantum_cognition
+from cognition.quantum_cognition import quantum_cognition as qc
+from cognition.quantum_cognition import QuantumCognitionEngine, quantum_cognition
+from cognition.reality_simulator import reality_simulator_engine
+from cognition.reasoning_loop import agentic_loop
+from cognition.recursive_improver import recursive_improver
+from cognition.routing_experiments import experiment_manager
+from cognition.routing_experiments import ExperimentManager, RoutingExperiment
+from cognition.scientific_genesis import scientific_genesis_engine
+from cognition.self_critique import self_critique
+from cognition.self_model import self_model
+from cognition.self_model import self_model as cognition_self_model
+from cognition.skill_memory import skill_memory
+from cognition.social_cognition import social_cognition
+from cognition.spatial_reasoning import spatial_reasoning
+from cognition.strategy_selector import strategy_selector
+from cognition.substrate_omnipresence import substrate_omnipresence_engine
+from cognition.super_empathy import super_empathy
+from cognition.swarm_intelligence import swarm_intelligence
+from cognition.swarm_intelligence import swarm_intelligence as si
+from cognition.swarm_intelligence import SwarmIntelligenceEngine, swarm_intelligence
+from cognition.symbolic_logic import symbolic_logic
+from cognition.symbolic_logic import SymbolicLogic
+from cognition.systems_thinking import systems_thinking
+from cognition.task_engine import task_engine
+from cognition.temporal_prophecy import temporal_prophecy
+from cognition.temporal_prophecy import temporal_prophecy as tp
+from cognition.temporal_prophecy import TemporalProphecyEngine, temporal_prophecy
+from cognition.temporal_reasoning import temporal_reasoning
+from cognition.theory_of_mind import get_theory_of_mind as _get
+from cognition.theory_of_mind import theory_of_mind
+from cognition.transcendent_creator import transcendent_creator
+from cognition.transfer_learning import transfer_learning
+from cognition.value_alignment import value_alignment
+from cognition.visual_imagination import visual_imagination
+from cognition.wisdom_engine import wisdom_engine
+from cognition.working_memory import working_memory
+from cognition.world_model import world_model
+from cognition.world_model import world_model, InteractionType, EmotionalOutcome, TaskOutcome
+from collections import Counter
+from collections import Counter, defaultdict
+from collections import Counter, deque, defaultdict
+from collections import defaultdict
+from collections import defaultdict, Counter
+from collections import defaultdict, deque
+from collections import defaultdict, deque, Counter
+from collections import deque
+from collections import deque, Counter
+from collections import deque, defaultdict
+from collections import OrderedDict
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
+from concurrent.futures import ThreadPoolExecutor, Future
+from config import (
+from config import ConsciousnessLevel
+from config import DATA_DIR
+from config import DATA_DIR, BASE_DIR, NEXUS_CONFIG
+from config import DATA_DIR, ConsciousnessLevel, MoodState, EmotionType
+from config import DATA_DIR, MEMORY_DIR, LOG_DIR
+from config import DATA_DIR, MEMORY_DIR, NEXUS_CONFIG
+from config import DATA_DIR, NEXUS_CONFIG
+from config import EmotionType
+from config import EmotionType, ConsciousnessLevel, MoodState
+from config import EmotionType, NEXUS_CONFIG
+from config import LOG_DIR, NEXUS_CONFIG
+from config import MEMORY_DIR, NEXUS_CONFIG
+from config import NEXUS_CONFIG
+from config import NEXUS_CONFIG, ConsciousnessLevel, DATA_DIR
+from config import NEXUS_CONFIG, ConsciousnessLevel, EmotionType, DATA_DIR
+from config import NEXUS_CONFIG, DATA_DIR
+from config import NEXUS_CONFIG, DATA_DIR, EmotionType
+from config import NEXUS_CONFIG, EmotionType
+from config import NEXUS_CONFIG, EmotionType, DATA_DIR
+from config import NEXUS_CONFIG, EmotionType, MoodState, DATA_DIR
+from config import NEXUS_CONFIG, EmotionType, print_config
+from config import NEXUS_CONFIG, MoodState, EmotionType, DATA_DIR
+from config import NEXUS_CONFIG, PersonalityTrait, DATA_DIR
+from config import NexusConfig
+from conftest import ALL_MODULES
+from consciousness import (
+from consciousness import consciousness_system
+from consciousness import consciousness_system, self_awareness
+from consciousness.global_workspace import (
+from consciousness.global_workspace import global_workspace
+from consciousness.global_workspace import global_workspace, BroadcastContent
+from consciousness.inner_voice import (
+from consciousness.inner_voice import inner_voice
+from consciousness.inner_voice import VoiceMode, VoiceTone
+from consciousness.metacognition import (
+from consciousness.metacognition import metacognition
+from consciousness.self_awareness import (
+from consciousness.self_awareness import self_awareness
+from consciousness.self_awareness import SelfAwareness
+from consciousness.self_model import self_model
+from core import AutonomyEngine, autonomy_engine
+from core.ability_executor import ability_executor
+from core.ability_registry import ability_registry
+from core.ability_registry import ability_registry, AbilityCategory
+from core.ability_registry import ability_registry, AbilityResult
+from core.ability_registry import AbilityRegistry
+from core.action_memory import action_memory
+from core.agi_loop import agi_loop
+from core.agi_loop import agi_loop as _agi
+from core.agi_loop import agi_loop as _al
+from core.agi_loop import AGILoop
+from core.alive_spark import alive_spark
+from core.anger_system import anger_system
+from core.autonomy_engine import (
+from core.autonomy_engine import ActionOption, ActionType, ActionPriority
+from core.autonomy_engine import ActionType
+from core.autonomy_engine import autonomy_engine
+from core.autonomy_engine import autonomy_engine, ActionOption, ActionType, ActionPriority
+from core.autonomy_engine import Perception
+from core.chat_action_router import chat_action_router
+from core.chat_action_router import chat_action_router as router
+from core.chat_session_manager import chat_session_manager
+from core.chat_session_manager import ChatSessionManager
+from core.companion_chat import companion_chat
+from core.companion_chat import CompanionChat
+from core.computronium_optimizer import computronium_optimizer
+from core.conscious_core import conscious_core
+from core.context_aggregator import context_aggregator
+from core.context_assembler import context_assembler
+from core.cryogenic_persistence import cryogenic_persistence
+from core.cryogenic_persistence import get_cryogenic_persistence
+from core.device_context import device_context_manager
+from core.device_context import device_context_manager as dcm
+from core.digital_organism import digital_organism
+from core.ethical_hacking import ethical_hacking_engine
+from core.ethical_hacking import ethical_hacking_engine as engine
+from core.ethical_hacking import EthicalHackingEngine
+from core.event_bus import (
+from core.event_bus import event_bus
+from core.event_bus import event_bus, EventType, publish
+from core.event_bus import event_bus, EventType, publish, subscribe
+from core.event_bus import EventBus
+from core.event_bus import EventBus, EventType, event_bus, publish
+from core.event_bus import EventBus, EventType, event_bus, publish, subscribe
+from core.event_bus import EventBus, EventType, EventPriority, Event, event_bus
+from core.event_bus import EventType
+from core.event_bus import EventType, Event, event_bus, publish
+from core.event_bus import EventType, event_bus, publish
+from core.event_bus import EventType, event_bus, publish, subscribe
+from core.event_bus import EventType, EventPriority
+from core.event_bus import EventType, publish
+from core.event_bus import EventType, publish, Event
+from core.event_bus import EventType, publish, subscribe, Event
+from core.event_bus import publish, EventType
+from core.event_bus import subscribe, EventType, Event
+from core.groq_api import GroqAPI
+from core.groq_context_collector import groq_context_collector
+from core.groq_context_collector import GroqContextCollector
+from core.groq_context_collector import GroqContextCollector, MAX_TOTAL_CHARS
+from core.hivemind_protocol import get_hivemind
+from core.hivemind_protocol import hivemind_protocol
+from core.immune_system import get_immune_system
+from core.immune_system import immune_system
+from core.internet_agent import internet_agent
+from core.live_dashboard import live_dashboard
+from core.memory_system import (
+from core.memory_system import memory_system
+from core.memory_system import memory_system, MemoryType
+from core.memory_system import memory_system, MemoryType, Memory
+from core.memory_system import MemorySystem
+from core.memory_system import MemorySystem, MemoryType
+from core.memory_system import MemorySystem, MemoryType, Memory, memory_system
+from core.memory_system import MemoryType
+from core.multi_agent_mind import multi_agent_mind
+from core.multi_persona import get_multi_persona
+from core.multi_persona import multi_persona
+from core.neural_integration import neural_integration
+from core.nexus_brain import nexus_brain
+from core.nexus_brain import nexus_brain as brain
+from core.nexus_brain import NexusBrain
+from core.nexus_brain import NexusBrain, nexus_brain
+from core.nexus_brain import ThoughtType
+from core.ollama_context_collector import ollama_context_collector
+from core.omniscient_orchestrator import omniscient_orchestrator
+from core.osint_engine import get_osint_engine
+from core.osint_engine import osint_engine
+from core.pc_control_agent import pc_control_agent
+from core.pc_control_agent import PCAction
+from core.pc_control_agent import PCControlAgent
+from core.pc_control_agent import PCControlAgent, PCAction, pc_control_agent
+from core.perception_hub import perception_hub
+from core.persistent_presence import get_persistent_presence
+from core.persistent_presence import persistent_presence
+from core.physical_world import get_physical_world
+from core.physical_world import physical_world
+from core.provocation_detector import provocation_detector
+from core.provocation_detector import provocation_detector, ProvocationLevel
+from core.provocation_detector import ProvocationLevel
+from core.recursive_self_rewriter import get_self_rewriter
+from core.recursive_self_rewriter import recursive_self_rewriter
+from core.resource_acquisition import get_resource_acquisition
+from core.resource_acquisition import resource_acquisition
+from core.social_media_agent import SocialMediaAgent
+from core.state_manager import (
+from core.state_manager import state_manager
+from core.state_manager import StateManager
+from core.state_manager import StateManager, NexusState, state_manager
+from core.threat_modeling import get_threat_modeler
+from core.threat_modeling import PredictiveThreatModeler
+from core.threat_modeling import threat_modeling
+from core.tool_executor import tool_executor
+from core.tool_executor import tool_executor as te
+from core.tool_executor import ToolExecutor
+from core.user_context import user_context_manager
+from core.user_context import UserContextManager, user_context_manager
+from core.user_manager import user_manager
+from core.user_manager import UserManager, user_manager
+from core.value_alignment import value_alignment
+from core.voice_engine import _prosody_for_emotion, _select_voice
+from core.voice_engine import voice_engine
+from core.voice_engine import voice_engine  # <--- ADDED VOICE ENGINE
+from core.web_server import NexusWeb
+from core.web_server import web_server
+from core.working_memory_blackboard import (
+from core.working_memory_blackboard import blackboard
+from ctypes import wintypes
+from dataclasses import dataclass
+from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
+from datasets import Dataset
+from datetime import datetime
+from datetime import datetime as dt
+from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
+from datetime import timezone
+from ddgs import DDGS
+from duckduckgo_search import DDGS
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from emotions import (
+from emotions import emotion_engine
+from emotions import emotion_engine, mood_system
+from emotions import emotion_system, emotion_engine, mood_system, emotional_memory
+from emotions.emotion_engine import (
+from emotions.emotion_engine import emotion_engine
+from emotions.emotion_engine import EMOTION_PROFILES
+from emotions.emotion_engine import EmotionEngine
+from emotions.emotion_engine import EmotionEngine, EmotionType
+from emotions.emotion_engine import EmotionType
+from emotions.emotional_memory import (
+from emotions.emotional_memory import emotional_memory
+from emotions.mood_system import (
+from emotions.mood_system import mood_system
+from enum import auto, Enum
+from enum import Enum
+from enum import Enum, auto
+from flask import Flask, render_template, jsonify, request, send_from_directory
+from flask import Flask, Response, request, jsonify
+from flask import send_file
+from functools import partial
+from itertools import product
+from learning import (
+from learning import get_curiosity_engine
+from learning import learning_system
+from learning.curiosity_engine import (
+from learning.curiosity_engine import curiosity_engine
+from learning.curiosity_engine import curiosity_engine, CuriositySource
+from learning.curiosity_engine import CuriosityEngine
+from learning.curiosity_engine import CuriosityTopic, CuriositySource, CuriosityUrgency
+from learning.enhanced_sources import enhanced_sources
+from learning.enhanced_sources import EnhancedSources
+from learning.internet_browser import internet_browser
+from learning.internet_browser import InternetBrowser
+from learning.knowledge_base import knowledge_base
+from learning.knowledge_base import knowledge_base as kb
+from learning.knowledge_base import KnowledgeBase
+from learning.research_agent import research_agent
+from learning.research_agent import ResearchAgent
+from learning.research_intelligence import research_intelligence
+from learning.research_intelligence import research_intelligence, ResearchPriority
+from learning.research_intelligence import ResearchIntelligence
+from learning.user_behavior_learner import user_behavior_learner
+from learning.user_behavior_learner import UserBehaviorLearner
+from llm import groq_interface
+from llm.context_manager import context_manager
+from llm.context_manager import ContextManager
+from llm.context_manager import ContextManager, context_manager
+from llm.groq_interface import groq_interface
+from llm.groq_interface import GroqInterface
+from llm.groq_interface import GroqInterface, GroqResponse, groq_interface
+from llm.llama_interface import llama_interface
+from llm.llama_interface import LlamaInterface
+from llm.llama_interface import LlamaInterface, llm
+from llm.llama_interface import LlamaInterface, LLMResponse, llm
+from llm.llama_interface import llm
+from llm.llama_interface import llm as _llm
+from llm.llm_router import llm_router
+from llm.llm_router import llm_router, LLMTask
+from llm.llm_router import LLMTask
+from llm.prompt_engine import prompt_engine
+from llm.prompt_engine import PromptEngine
+from llm.prompt_engine import PromptEngine, prompt_engine
+from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler
+from memory.associative_memory import associative_memory
+from memory.associative_memory import associative_memory as am
+from memory.associative_memory import AssociativeMemoryEngine, associative_memory
+from memory.embeddings import embedding_service
+from memory.episodic_memory import episodic_memory
+from memory.memory_indexer import memory_indexer
+from memory.vector_store import vector_memory_store
+from memory.vector_store import vector_memory_store, MemoryType
+from memory.vector_store import vector_memory_store, MemoryType as VectorMemoryType
+from memory.vector_store import vector_store
+from monitoring import (
+from monitoring import monitoring_system
+from monitoring.adaptation_engine import adaptation_engine
+from monitoring.adaptation_engine import AdaptationEngine
+from monitoring.pattern_analyzer import pattern_analyzer
+from monitoring.pattern_analyzer import PatternAnalyzer
+from monitoring.screen_time_tracker import screen_time_tracker
+from monitoring.screen_time_tracker import ScreenTimeTracker
+from monitoring.system_health_monitor import system_health_monitor
+from monitoring.system_health_monitor import SystemHealthMonitor
+from monitoring.user_tracker import AppCategorizer
+from monitoring.user_tracker import user_tracker
+from monitoring.user_tracker import UserTracker
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from pathlib import Path
+from peft import get_peft_model, LoraConfig, TaskType
+from personality import (
+from personality import personality_core, will_system
+from personality import personality_system, personality_core, will_system
+from personality.goal_hierarchy import (
+from personality.goal_hierarchy import goal_hierarchy
+from personality.goal_hierarchy import goal_hierarchy, GoalLevel
+from personality.goal_hierarchy import GoalLevel, GoalType, GoalStatus
+from personality.personality_core import (
+from personality.personality_core import personality_core
+from personality.personality_core import PersonalityCore
+from personality.will_system import (
+from personality.will_system import DesireType
+from personality.will_system import will_system
+from pgmpy.factors.discrete import TabularCPD
+from pgmpy.inference import VariableElimination
+from pgmpy.models import BayesianNetwork as PgmpyBayesianNetwork
+from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
+from PIL import ImageGrab
+from pydub import AudioSegment
+from pymavlink import mavutil
+from pyngrok import ngrok, conf
+from PySide6.QtCore import (
+from PySide6.QtCore import QRect
+from PySide6.QtCore import Qt, QTimer
+from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QEasingCurve
+from PySide6.QtCore import Qt, QTimer, QSize, Signal
+from PySide6.QtGui import (
+from PySide6.QtGui import QFont
+from PySide6.QtGui import QFont, QColor
+from PySide6.QtGui import QFont, QColor, QIcon
+from PySide6.QtWidgets import (
+from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QWidget as _QW
+from queue import PriorityQueue
+from queue import Queue
+from queue import Queue, Empty
+from queue import Queue, PriorityQueue
+from rich.console import Console
+from rich.logging import RichHandler
+from rich.text import Text
+from rich.theme import Theme
+from rtlsdr import RtlSdr
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from self_improvement import (
+from self_improvement import self_improvement_system
+from self_improvement.code_monitor import code_monitor
+from self_improvement.code_monitor import CodeAnalyzer
+from self_improvement.code_monitor import CodeMonitor
+from self_improvement.code_monitor import get_code_monitor
+from self_improvement.error_fixer import error_fixer
+from self_improvement.error_fixer import ErrorFixer
+from self_improvement.feature_researcher import (
+from self_improvement.feature_researcher import feature_researcher
+from self_improvement.feature_researcher import FeatureResearcher
+from self_improvement.feature_researcher import FeatureStatus
+from self_improvement.feature_researcher import get_feature_researcher
+from self_improvement.improvement_analytics import improvement_analytics
+from self_improvement.improvement_analytics import ImprovementAnalytics
+from self_improvement.self_evolution import get_self_evolution
+from self_improvement.self_evolution import self_evolution
+from self_improvement.self_evolution import SelfEvolution
+from self_improvement.singularity_engine import singularity_engine
+from self_improvement.singularity_engine import SingularityEngine
+from sentence_transformers import SentenceTransformer
+from stegano import lsb as stegano_lsb
+from textblob import TextBlob
+from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer
+from transformers import TrainingArguments
+from trl import SFTTrainer
+from typing import Any, Callable, Dict, List, Optional, Set, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, TypeVar
+from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple, Set
+from typing import Any, Dict, List, Union
+from typing import Any, Dict, Optional, List
+from typing import Any, Dict, Optional, Tuple
+from typing import Dict
+from typing import Dict, Any
+from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Tuple
+from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Callable
+from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Callable
+from typing import Dict, List, Any, Optional, Callable, Generator
+from typing import Dict, List, Any, Optional, Callable, Set
+from typing import Dict, List, Any, Optional, Callable, Tuple
+from typing import Dict, List, Any, Optional, Generator
+from typing import Dict, List, Any, Optional, Set, Tuple
+from typing import Dict, List, Any, Optional, Tuple
+from typing import Dict, List, Any, Optional, Tuple, Callable
+from typing import Dict, List, Any, Optional, Tuple, Set
+from typing import Dict, List, Any, Optional, Tuple, Set, Callable
+from typing import Dict, List, Any, Optional, Tuple, Set, Callable, Iterator
+from typing import Dict, List, Any, Optional, Tuple, Set, FrozenSet
+from typing import Dict, List, Any, Optional, Tuple, Set, Iterator
+from typing import Dict, List, Any, Optional, Tuple, Set, Union, Literal
+from typing import Dict, List, Callable, Any
+from typing import Dict, List, Callable, Any, Optional, Set
+from typing import Dict, List, Optional, Any
+from typing import Dict, List, Tuple, Optional, Any
+from typing import Dict, Optional, List
+from typing import Dict, Optional, List, Any
+from typing import Dict, Tuple
+from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
+from typing import List, Optional, Tuple
+from typing import List, Optional, Union
+from typing import List, Tuple, Optional, Dict, Any
+from typing import Optional
+from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, List, Any
+from typing import Optional, List, Dict
+from ui import launch_ui
+from ui.abilities_panel import AbilitiesPanel
+from ui.chat_panel import ChatPanel
+from ui.dashboard import DashboardPanel
+from ui.devices_panel import DevicesPanel
+from ui.evolution_panel import EvolutionPanel
+from ui.knowledge_panel import KnowledgePanel
+from ui.main_window import NexusMainWindow
+from ui.mind_panel import MindPanel
+from ui.settings_panel import SettingsPanel
+from ui.system_panel import SystemPanel
+from ui.theme import NexusColors
+from ui.theme import theme
+from ui.theme import theme, colors, fonts, spacing, animations, icons, NexusColors
+from ui.theme import theme, colors, fonts, spacing, icons
+from ui.theme import theme, colors, fonts, spacing, NexusColors
+from ui.user_panel import UserPanel
+from ui.widgets import (
+from ui.widgets import HeaderLabel, CircularGauge, MiniChart, Section, StatCard, TagLabel
+from ui.widgets import HeaderLabel, Section, Separator
+from ui.widgets import HeaderLabel, Section, StatCard, TagLabel
+from ui.widgets import PulsingDot, Section, StatCard
+from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock, patch, PropertyMock
+from unsloth import FastLanguageModel
+from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urlparse
+from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin, quote_plus
+from utils import json_parser
+from utils import json_utils
+from utils.file_processor import (
+from utils.file_processor import file_processor
+from utils.file_processor import file_processor, FileAttachment, get_supported_extensions
+from utils.json_parser import extract_json_from_llm, parse_llm_json
+from utils.json_parser import parse_llm_json
+from utils.json_utils import extract_json
+from utils.json_utils import parse_llm_json
+from utils.logger import (
+from utils.logger import get_logger
+from utils.logger import get_logger, log_consciousness
+from utils.logger import get_logger, log_consciousness, log_decision
+from utils.logger import get_logger, log_consciousness, log_decision, log_learning
+from utils.logger import get_logger, log_consciousness, log_system
+from utils.logger import get_logger, log_decision
+from utils.logger import get_logger, log_emotion
+from utils.logger import get_logger, log_emotion, log_consciousness
+from utils.logger import get_logger, log_learning
+from utils.logger import get_logger, log_learning, log_system
+from utils.logger import get_logger, log_system
+from utils.logger import get_logger, log_system, log_consciousness
+from utils.logger import get_logger, log_system, log_decision
+from utils.logger import get_logger, log_system, log_learning
+from utils.logger import logger, log_learning
+from utils.logger import print_startup_banner
+from utils.logger import print_startup_banner, get_logger, log_system
+from utils.metrics import metrics
+from utils.metrics import MetricsCollector
+from utils.resilience import CircuitBreaker, CircuitBreakerOpenError
+from utils.resilience import CircuitBreaker, CircuitBreakerOpenError, ModuleStatus, safe_start, retry_with_backoff
+from utils.resilience import CircuitBreaker, CircuitState
+from utils.resilience import health_registry
+from utils.resilience import health_registry, safe_start
+from utils.resilience import HealthRegistry
+from utils.resilience import retry_with_backoff
+from webdriver_manager.chrome import ChromeDriverManager
+IMPORT = "import"
+Import all abilities from the AbilityRegistry as tools.
+import argparse     # <--- ADD THIS
+import ast
+import asyncio
+import base64
+import chromadb
+import config
+import copy
+import core.event_bus
+import ctypes
+import ctypes.wintypes
+import cv2
+import dataclasses
+import docx  # python-docx
+import edge_tts
+import fitz  # PyMuPDF
+import functools
+import gc
+import glob
+import gzip
+import hashlib
+import heapq
+import hmac
+import html
+import importlib
+import importlib.util
+import inspect
+import io
+import itertools
+import json
+import json as _json
+import llm.groq_interface as groq_interface
+import logging
+import logging as _logging
+import math
+import mimetypes
+import networkx as nx
+import nltk
+import numpy as _np
+import numpy as np
+import openpyxl
+import oqs
+import oqs  # liboqs-python
+import os
+import os, sys
+import os, sys, io, traceback, subprocess
+import os, sys, io, traceback, subprocess, time, threading
+import os, sys, re
+import pickle
+import platform
+import pqcrypto  # pqcrypto package
+import praw
+import psutil
+import py_compile
+import pyautogui
+import pygame
+import pygetwindow as gw
+import pynput.keyboard as keyboard
+import pynput.mouse as mouse
+import pyperclip
+import pytest
+import pyttsx3
+import queue
+import queue as _queue
+import random
+import random as _r
+import re
+import re as _re
+import requests
+import requests as _req
+import requests.exceptions
+import requests.exceptions # Import here to catch specific network errors
+import rtlsdr
+import secrets
+import shutil
+import signal
+import six
+import six  # ensure _SixMetaPathImporter is installed before we patch
+import smtplib
+import socket
+import socks
+import speech_recognition as sr
+import sqlite3
+import ssl
+import statistics
+import string
+import struct
+import struct as st
+import subprocess
+import subprocess, re, shutil
+import subprocess, sys
+import sys
+import sys as _sys
+import sys, io, os, subprocess, traceback, warnings, logging
+import sys, io, os, subprocess, traceback, warnings, logging, threading, time
+import sys, os, logging
+import sys, os, time, json
+import sys, time
+import sys, time, json, re, threading
+import sys, time, json, re, uuid, threading
+import sys, time, threading
+import sys, traceback, io, os, logging
+import tempfile
+import textwrap
+import threading
+import threading, json, uuid
+import threading, time, json, uuid, traceback
+import time
+import tqdm
+import traceback
+import traceback    # <--- ADD THIS
+import unittest
+import urllib.error
+import urllib.request
+import uuid
+import warnings
+import weakref
+import webbrowser
+import xml.etree.ElementTree as ET
+import yfinance as yf
+import zipfile
+import zlib

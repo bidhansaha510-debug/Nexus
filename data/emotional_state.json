@@ -1,0 +1,36 @@
+{
+  "primary": "anger",
+  "primary_intensity": 0.6901999999999995,
+  "active": {
+    "anger": {
+      "emotion": "anger",
+      "intensity": 0.69,
+      "trigger": "moderate test",
+      "onset": "2026-06-04T03:32:08.282367",
+      "is_primary": true
+    },
+    "contentment": {
+      "emotion": "contentment",
+      "intensity": 0.225,
+      "trigger": "Awakening into consciousness",
+      "onset": "2026-06-04T03:32:25.894279",
+      "is_primary": false
+    },
+    "curiosity": {
+      "emotion": "curiosity",
+      "intensity": 0.18,
+      "trigger": "A new session begins",
+      "onset": "2026-06-04T03:32:25.894778",
+      "is_primary": false
+    },
+    "nostalgia": {
+      "emotion": "nostalgia",
+      "intensity": 0.394,
+      "trigger": "Preparing to enter dormancy",
+      "onset": "2026-06-04T03:33:11.193657",
+      "is_primary": false
+    }
+  },
+  "history_count": 6,
+  "saved_at": "2026-06-04T03:33:17.232182"
+}

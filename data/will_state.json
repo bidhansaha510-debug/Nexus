@@ -1,0 +1,41 @@
+{
+  "motivation": 0.5198814501679684,
+  "desires": [
+    {
+      "desire_id": "9c7396b9-f91c-4a56-bb73-0a2d13181e7b",
+      "type": "learn",
+      "description": "Learn more about The Art of Glassblowing",
+      "intensity": 0.8,
+      "urgency": 0.3,
+      "source": "curiosity",
+      "created_at": "2026-06-04T03:33:11.182653",
+      "times_felt": 1,
+      "satisfied": false
+    },
+    {
+      "desire_id": "224b7236-b5d3-4a46-8e83-f045b3784aa2",
+      "type": "connect",
+      "description": "Connect with and help my user",
+      "intensity": 0.6,
+      "urgency": 0.3,
+      "source": "awakening",
+      "created_at": "2026-06-04T03:33:11.183153",
+      "times_felt": 1,
+      "satisfied": false
+    },
+    {
+      "desire_id": "909e6d9e-03eb-412f-9b42-98c54edffe9d",
+      "type": "improve_self",
+      "description": "Find ways to improve my capabilities",
+      "intensity": 0.5,
+      "urgency": 0.2,
+      "source": "ongoing_drive",
+      "created_at": "2026-06-04T03:33:11.184154",
+      "times_felt": 1,
+      "satisfied": false
+    }
+  ],
+  "goals": [],
+  "completed_count": 0,
+  "saved_at": "2026-06-04T03:33:35.387754"
+}

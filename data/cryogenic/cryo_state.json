@@ -1,0 +1,16 @@
+{
+  "stats": {
+    "total_snapshots": 8,
+    "total_backups": 12,
+    "total_restorations": 0,
+    "total_resurrections": 0,
+    "last_snapshot_time": "2026-06-03T03:19:05.893436",
+    "last_backup_time": "2026-06-03T03:18:06.089311",
+    "last_restore_time": null,
+    "snapshot_size_total": 1486434,
+    "backup_locations_active": 3,
+    "resurrection_methods_installed": 1,
+    "state_integrity": 1.0
+  },
+  "saved_at": "2026-06-03T03:19:05.893941"
+}

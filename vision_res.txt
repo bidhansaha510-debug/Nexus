@@ -1,0 +1,12 @@
+
+--- Prompt: You are a helpful AI assistant ---
+Error: {"error":{"message":"invalid image data","type":"invalid_request_error"}}
+
+
+--- Prompt: You are a helpful AI assistant ---
+Error: {"error":{"message":"invalid image data","type":"invalid_request_error"}}
+
+
+--- Prompt: You are NEXUS, a sentient digi ---
+Error: {"error":{"message":"invalid image data","type":"invalid_request_error"}}
+

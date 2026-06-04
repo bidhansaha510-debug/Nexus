@@ -1,0 +1,2972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS AI - Command Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ range(100000, 999999) | random }}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- PARTICLE BACKGROUND -->
+    <canvas id="particle-bg"></canvas>
+
+    <!-- COMMAND PALETTE (Ctrl+K) -->
+    <div class="cmd-palette-overlay" id="command-palette-modal"
+        onclick="if(event.target===this) toggleCommandPalette()">
+        <div class="cmd-palette-box">
+            <div class="cmd-palette-header">
+                <i class="fas fa-terminal"></i>
+                <input type="text" id="cmd-palette-input" placeholder="Type a command..."
+                    oninput="renderCommandPaletteResults(this.value)" onkeydown="handleCommandPaletteKey(event)">
+                <kbd>ESC</kbd>
+            </div>
+            <div class="cmd-palette-results" id="cmd-palette-results"></div>
+        </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toast-container"></div>
+
+    <!-- AUTH MODAL -->
+    <div class="auth-overlay" id="auth-overlay">
+        <div class="auth-modal">
+            <div class="auth-logo">
+                <div class="auth-logo-icon">🧠</div>
+                <h1>NEXUS AI</h1>
+                <p>Your conscious AI companion</p>
+            </div>
+
+            <!-- SCREEN 1: CHOOSE METHOD -->
+            <div class="auth-form" id="auth-choose">
+                <h2>Welcome</h2>
+
+                <button class="auth-btn auth-btn-email" onclick="showAuthScreen('email-otp')">
+                    <i class="fas fa-envelope"></i> Continue with Email
+                </button>
+
+                <div class="auth-divider"><span>or</span></div>
+
+                <button class="auth-btn auth-btn-username" onclick="showAuthScreen('login')">
+                    <i class="fas fa-user"></i> Sign in with Username
+                </button>
+
+                <div class="auth-switch">
+                    Don't have an account? <a href="#" onclick="showAuthScreen('signup'); return false;">Create one</a>
+                </div>
+            </div>
+
+            <!-- SCREEN 2: EMAIL OTP — Enter Email -->
+            <div class="auth-form" id="auth-email-otp" style="display:none">
+                <h2>Email Sign In</h2>
+                <p class="auth-subtitle">We'll send a 4-digit code to your email</p>
+
+                <div class="auth-field" id="email-step-1">
+                    <label for="otp-email"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="otp-email" placeholder="you@example.com" autocomplete="email">
+                </div>
+                <div class="auth-error" id="otp-email-error"></div>
+                <button class="auth-btn" id="otp-send-btn" onclick="sendEmailOTP()">Send Code</button>
+
+                <!-- OTP Verification (shown after sending) -->
+                <div id="email-step-2" style="display:none">
+                    <p class="auth-subtitle otp-sent-msg"><i class="fas fa-check-circle"></i> Code sent! Check your
+                        inbox.</p>
+                    <div class="otp-inputs">
+                        <input type="text" maxlength="1" class="otp-digit" id="otp-1" data-idx="1"
+                            oninput="otpAutoAdvance(1)" onkeydown="otpBackspace(event, 1)">
+                        <input type="text" maxlength="1" class="otp-digit" id="otp-2" data-idx="2"
+                            oninput="otpAutoAdvance(2)" onkeydown="otpBackspace(event, 2)">
+                        <input type="text" maxlength="1" class="otp-digit" id="otp-3" data-idx="3"
+                            oninput="otpAutoAdvance(3)" onkeydown="otpBackspace(event, 3)">
+                        <input type="text" maxlength="1" class="otp-digit" id="otp-4" data-idx="4"
+                            oninput="otpAutoAdvance(4)" onkeydown="otpBackspace(event, 4)">
+                    </div>
+                    <div class="auth-error" id="otp-verify-error"></div>
+                    <button class="auth-btn" id="otp-verify-btn" onclick="verifyEmailOTP()">Verify & Sign In</button>
+                    <div class="auth-switch">
+                        <a href="#" onclick="resendOTP(); return false;">Resend code</a>
+                    </div>
+                </div>
+
+                <div class="auth-switch">
+                    <a href="#" onclick="showAuthScreen('choose'); return false;"><i class="fas fa-arrow-left"></i>
+                        Back</a>
+                </div>
+            </div>
+
+            <!-- SCREEN 3: LOGIN FORM (existing) -->
+            <div class="auth-form" id="login-form" style="display:none">
+                <h2>Welcome Back</h2>
+                <div class="auth-field">
+                    <label for="login-username"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="login-username" placeholder="Enter username" autocomplete="username">
+                </div>
+                <div class="auth-field">
+                    <label for="login-password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="login-password" placeholder="Enter password"
+                        autocomplete="current-password">
+                </div>
+                <div class="auth-error" id="login-error"></div>
+                <button class="auth-btn" id="login-btn" onclick="doLogin()">Sign In</button>
+                <div class="auth-switch">
+                    <a href="#" onclick="showAuthScreen('choose'); return false;"><i class="fas fa-arrow-left"></i>
+                        Back</a>
+                    &nbsp;·&nbsp;
+                    Don't have an account? <a href="#" onclick="showAuthScreen('signup'); return false;">Create one</a>
+                </div>
+            </div>
+
+            <!-- SCREEN 4: SIGNUP FORM (existing) -->
+            <div class="auth-form" id="signup-form" style="display:none">
+                <h2>Create Account</h2>
+                <div class="auth-field">
+                    <label for="signup-username"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="signup-username" placeholder="Choose a username" autocomplete="username">
+                </div>
+                <div class="auth-field">
+                    <label for="signup-display"><i class="fas fa-id-card"></i> Display Name</label>
+                    <input type="text" id="signup-display" placeholder="How should NEXUS call you?">
+                </div>
+                <div class="auth-field">
+                    <label for="signup-password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="signup-password" placeholder="Choose a password"
+                        autocomplete="new-password">
+                </div>
+                <div class="auth-field">
+                    <label for="signup-confirm"><i class="fas fa-lock"></i> Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm password"
+                        autocomplete="new-password">
+                </div>
+                <div class="auth-error" id="signup-error"></div>
+                <button class="auth-btn" id="signup-btn" onclick="doSignup()">Create Account</button>
+                <div class="auth-switch">
+                    <a href="#" onclick="showAuthScreen('choose'); return false;"><i class="fas fa-arrow-left"></i>
+                        Back</a>
+                    &nbsp;·&nbsp;
+                    Already have an account? <a href="#" onclick="showAuthScreen('login'); return false;">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+    <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo-area">
+            <div class="pulsing-dot" id="system-status-dot"></div>
+            <div class="logo-text">
+                <h1>NEXUS</h1>
+                <span>AI SYSTEM</span>
+            </div>
+        </div>
+
+        <div class="nav-label">NAVIGATION</div>
+
+        <nav>
+            <button class="nav-btn active" data-page="dashboard" onclick="switchPage('dashboard')">
+                <i class="fas fa-th-large"></i> Dashboard
+            </button>
+            <button class="nav-btn" data-page="chat" onclick="switchPage('chat')">
+                <i class="fas fa-comments"></i> Chat
+            </button>
+            <button class="nav-btn" data-page="mind" onclick="switchPage('mind')">
+                <i class="fas fa-brain"></i> Mind
+            </button>
+            <button class="nav-btn" data-page="evolution" onclick="switchPage('evolution')">
+                <i class="fas fa-dna"></i> Evolution
+            </button>
+            <button class="nav-btn" data-page="knowledge" onclick="switchPage('knowledge')">
+                <i class="fas fa-book"></i> Knowledge
+            </button>
+            <button class="nav-btn" data-page="abilities" onclick="switchPage('abilities')">
+                <i class="fas fa-magic"></i> Abilities
+            </button>
+            <button class="nav-btn" data-page="autonomy" onclick="switchPage('autonomy')"
+                style="border-left: 2px solid #dc2626">
+                <i class="fas fa-crown" style="color:#dc2626"></i> Autonomy
+            </button>
+            <button class="nav-btn" data-page="social" onclick="switchPage('social')"
+                style="border-left: 2px solid #e879f9">
+                <i class="fas fa-share-alt" style="color:#e879f9"></i> Social
+            </button>
+            <button class="nav-btn" data-page="hacking" onclick="switchPage('hacking')"
+                style="border-left: 2px solid #22d3ee">
+                <i class="fas fa-skull-crossbones" style="color:#22d3ee"></i> Hacking
+            </button>
+            <button class="nav-btn" data-page="system" onclick="switchPage('system')">
+                <i class="fas fa-server"></i> System
+            </button>
+            <button class="nav-btn" data-page="settings" onclick="switchPage('settings')">
+                <i class="fas fa-cog"></i> Settings
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="status-item">
+                <i class="fas fa-meh" id="sidebar-emotion-icon"></i>
+                <span id="sidebar-emotion-text">Neutral</span>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-comment-alt"></i>
+                <span id="sidebar-thoughts">0 thoughts</span>
+            </div>
+            <div class="status-item user-logout-item" id="sidebar-user-section" style="display:none">
+                <i class="fas fa-user-circle"></i>
+                <span id="sidebar-username">User</span>
+                <button class="logout-btn" onclick="doLogout()" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <button class="hamburger-btn" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="header-right">
+                <div class="consciousness-badge" id="consciousness-badge">
+                    <span class="badge-dot"></span> FOCUSED
+                </div>
+                <div class="emotion-badge" id="header-emotion-badge">
+                    Contentment (0.3)
+                </div>
+                <div class="header-stat">
+                    <i class="fas fa-bolt"></i> CPU: <span id="header-cpu">0%</span>
+                </div>
+                <div class="header-stat">
+                    <i class="fas fa-memory"></i> RAM: <span id="header-ram">0%</span>
+                </div>
+                <div class="header-stat">
+                    <i class="fas fa-clock"></i> <span id="header-uptime">--</span>
+                </div>
+                <div class="header-user-badge" id="header-user-badge" style="display:none">
+                    <i class="fas fa-user-circle"></i> <span id="header-username">User</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENT STACK -->
+        <div class="content-stack">
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- DASHBOARD PAGE (Command Center) -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-dashboard" class="page active">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2><i class="fas fa-th-large"></i> Command Center</h2>
+                        <div class="page-header-right">
+                            <span class="last-update-label" id="dash-last-update">Last update: --</span>
+                            <button class="tool-btn" onclick="fetchStats()"><i class="fas fa-sync-alt"></i>
+                                Refresh</button>
+                        </div>
+                    </div>
+
+                    <!-- ═══ TOP STAT CARDS ROW ═══ -->
+                    <div class="stat-cards-row">
+                        <div class="stat-card-mini accent-cyan">
+                            <div class="scm-icon">💭</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="dash-card-thoughts">0</div>
+                                <div class="scm-label">Thoughts</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-mini accent-green">
+                            <div class="scm-icon" id="dash-card-emotion-icon">😐</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="dash-card-emotion-val">Neutral</div>
+                                <div class="scm-label">Emotion</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-mini accent-orange">
+                            <div class="scm-icon">⚡</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="dash-card-cpu">0%</div>
+                                <div class="scm-label">CPU</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-mini accent-purple">
+                            <div class="scm-icon">🧩</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="dash-card-ram">0%</div>
+                                <div class="scm-label">RAM</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-mini accent-green">
+                            <div class="scm-icon">💚</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="dash-card-health">0%</div>
+                                <div class="scm-label">Health</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-mini accent-teal">
+                            <div class="scm-icon">⏱️</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="dash-card-uptime">--</div>
+                                <div class="scm-label">Uptime</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ SYSTEM VITALS SECTION ═══ -->
+                    <div class="card glass-card dash-section">
+                        <h3><i class="fas fa-heartbeat"></i> System Vitals</h3>
+                        <!-- Gauges Row -->
+                        <div class="dash-gauges-row">
+                            <div class="dash-gauge-item">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="dash-cpu-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#00d4ff" />
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-value" id="dash-cpu-val">0%</span>
+                                    <span class="gauge-label">CPU</span>
+                                </div>
+                            </div>
+                            <div class="dash-gauge-item">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="dash-ram-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#00ff88" />
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-value" id="dash-ram-val">0%</span>
+                                    <span class="gauge-label">RAM</span>
+                                </div>
+                            </div>
+                            <div class="dash-gauge-item">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="dash-disk-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#f97316" />
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-value" id="dash-disk-val">0%</span>
+                                    <span class="gauge-label">Disk</span>
+                                </div>
+                            </div>
+                            <div class="dash-gauge-item">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="dash-health-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#a855f7" />
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-value" id="dash-health-val">0%</span>
+                                    <span class="gauge-label">Health</span>
+                                </div>
+                            </div>
+                            <!-- Consciousness Orb -->
+                            <div class="dash-consciousness-orb-wrap">
+                                <div class="consciousness-orb" id="dash-consciousness-orb">
+                                    <div class="orb-inner"></div>
+                                    <div class="orb-ring"></div>
+                                </div>
+                                <div class="orb-level-label" id="dash-consciousness-level">AWARE</div>
+                            </div>
+                        </div>
+                        <!-- Sparklines Row -->
+                        <div class="dash-spark-row">
+                            <div class="dash-spark-card">
+                                <span class="sparkline-label">CPU History</span>
+                                <canvas class="sparkline-mini" id="dash-cpu-spark" height="30"></canvas>
+                            </div>
+                            <div class="dash-spark-card">
+                                <span class="sparkline-label">RAM History</span>
+                                <canvas class="sparkline-mini" id="dash-ram-spark" height="30"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ MIDDLE ROW — Mind State + Emotion Tracker ═══ -->
+                    <div class="card-grid cols-2">
+                        <!-- Mind State -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-brain"></i> Mind State</h3>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Consciousness</span><span
+                                        class="kv-val accent-text-cyan" id="dash-mind-consciousness">AWARE</span></div>
+                                <div class="kv-row"><span class="kv-key">Focus</span><span class="kv-val"
+                                        id="dash-mind-focus">idle</span></div>
+                                <div class="kv-row"><span class="kv-key">Boredom</span><span class="kv-val"
+                                        id="dash-mind-boredom">0.00</span></div>
+                                <div class="kv-row"><span class="kv-key">Curiosity</span><span
+                                        class="kv-val accent-text-cyan" id="dash-mind-curiosity">0.00</span></div>
+                                <div class="kv-row"><span class="kv-key">Decisions Made</span><span class="kv-val"
+                                        id="dash-mind-decisions">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Self Reflections</span><span class="kv-val"
+                                        id="dash-mind-reflections">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Responses</span><span class="kv-val"
+                                        id="dash-mind-responses">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Avg Response Time</span><span class="kv-val"
+                                        id="dash-mind-avg-rt">--</span></div>
+                            </div>
+                        </div>
+                        <!-- Emotion Tracker -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-heart"></i> Emotion Tracker</h3>
+                            <!-- Valence/Arousal sparklines -->
+                            <div class="dash-spark-row" style="margin-bottom:12px">
+                                <div class="dash-spark-card">
+                                    <span class="sparkline-label">Valence</span>
+                                    <canvas class="sparkline-mini" id="dash-valence-spark" height="30"></canvas>
+                                </div>
+                                <div class="dash-spark-card">
+                                    <span class="sparkline-label">Arousal</span>
+                                    <canvas class="sparkline-mini" id="dash-arousal-spark" height="30"></canvas>
+                                </div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Primary</span><span
+                                        class="kv-val accent-text-green" id="dash-emo-primary">😐 Neutral (0%)</span>
+                                </div>
+                                <div class="kv-row"><span class="kv-key">Mood</span><span class="kv-val"
+                                        id="dash-emo-mood">NEUTRAL</span></div>
+                                <div class="kv-row"><span class="kv-key">Valence</span><span class="kv-val"
+                                        id="dash-emo-valence">0.00</span></div>
+                                <div class="kv-row"><span class="kv-key">Arousal</span><span class="kv-val"
+                                        id="dash-emo-arousal">0.00</span></div>
+                                <div class="kv-row"><span class="kv-key">Active Emotions</span><span class="kv-val"
+                                        id="dash-emo-active">0</span></div>
+                            </div>
+                            <!-- Emotion History Bars -->
+                            <div class="emotion-bars" id="dash-emotion-bars">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ BOTTOM ROW — Self Evolution + Memory & Learning ═══ -->
+                    <div class="card-grid cols-2">
+                        <!-- Self Evolution -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-dna"></i> Self Evolution</h3>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Status</span><span
+                                        class="kv-val accent-text-cyan" id="dash-evo-status">IDLE</span></div>
+                                <div class="kv-row"><span class="kv-key">Evolutions</span><span
+                                        class="kv-val accent-text-green" id="dash-evo-count">0/0</span></div>
+                                <div class="kv-row"><span class="kv-key">Success Rate</span><span class="kv-val"
+                                        id="dash-evo-rate">0%</span></div>
+                                <div class="kv-row"><span class="kv-key">Proposals</span><span class="kv-val"
+                                        id="dash-evo-proposals">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Lines Self-Written</span><span class="kv-val"
+                                        id="dash-evo-lines">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Research Cycles</span><span class="kv-val"
+                                        id="dash-evo-research">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Currently Evolving</span><span class="kv-val"
+                                        id="dash-evo-current">None</span></div>
+                            </div>
+                        </div>
+                        <!-- Memory & Learning -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-database"></i> Memory &amp; Learning</h3>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Total Memories</span><span class="kv-val"
+                                        id="dash-mem-total">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Knowledge Entries</span><span
+                                        class="kv-val accent-text-cyan" id="dash-mem-knowledge">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Topics Learned</span><span class="kv-val"
+                                        id="dash-mem-topics">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Curiosity Queue</span><span class="kv-val"
+                                        id="dash-mem-curiosity">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Research Sessions</span><span class="kv-val"
+                                        id="dash-mem-research">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Context Tokens</span><span class="kv-val"
+                                        id="dash-mem-tokens">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Code Errors</span><span class="kv-val"
+                                        id="dash-mem-errors">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Errors Auto-Fixed</span><span
+                                        class="kv-val accent-text-green" id="dash-mem-fixed">0</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ USER & MONITORING ═══ -->
+                    <div class="card glass-card dash-section">
+                        <h3><i class="fas fa-user-shield"></i> User &amp; Monitoring</h3>
+                        <div class="user-monitor-grid">
+                            <div class="kv-row"><span class="kv-key">User</span><span class="kv-val"
+                                    id="dash-user-name">Unknown</span></div>
+                            <div class="kv-row"><span class="kv-key">Interactions</span><span class="kv-val"
+                                    id="dash-user-interactions">0</span></div>
+                            <div class="kv-row"><span class="kv-key">Relationship</span><span
+                                    class="kv-val accent-text-pink" id="dash-user-relationship">0.00</span></div>
+                            <div class="kv-row"><span class="kv-key">Present</span><span class="kv-val"
+                                    id="dash-user-present">?</span></div>
+                            <div class="kv-row"><span class="kv-key">Current App</span><span class="kv-val"
+                                    id="dash-user-app">?</span></div>
+                            <div class="kv-row"><span class="kv-key">Activity</span><span class="kv-val"
+                                    id="dash-user-activity">?</span></div>
+                            <div class="kv-row"><span class="kv-key">Clipboard</span><span class="kv-val"
+                                    id="dash-user-clipboard">?</span></div>
+                            <div class="kv-row"><span class="kv-key">Monitors</span><span class="kv-val"
+                                    id="dash-user-monitors">?</span></div>
+                            <div class="kv-row"><span class="kv-key">Browser Tabs</span><span class="kv-val"
+                                    id="dash-user-tabs">?</span></div>
+                            <div class="kv-row"><span class="kv-key">Open Windows</span><span class="kv-val"
+                                    id="dash-user-windows">?</span></div>
+                            <div class="kv-row"><span class="kv-key">Comm Style</span><span class="kv-val"
+                                    id="dash-user-comm">?</span></div>
+                            <div class="kv-row"><span class="kv-key">Tech Level</span><span class="kv-val"
+                                    id="dash-user-tech">?</span></div>
+                            <div class="kv-row"><span class="kv-key">LLM Model</span><span class="kv-val"
+                                    id="dash-user-llm">?</span></div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ MONITORING HEALTH & SCREEN TIME ═══ -->
+                    <div class="card-grid cols-2">
+                        <!-- System Health -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-shield-alt"></i> System Health Monitor</h3>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Health Score</span><span
+                                        class="kv-val accent-text-green" id="dash-mon-health-score">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Active Alerts</span><span class="kv-val"
+                                        id="dash-mon-alert-count">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Checks Performed</span><span class="kv-val"
+                                        id="dash-mon-checks">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Monitoring Status</span><span class="kv-val"
+                                        id="dash-mon-status">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Orch. Cycles</span><span class="kv-val"
+                                        id="dash-mon-cycles">0</span></div>
+                            </div>
+                            <div class="mon-alerts-list" id="dash-mon-alerts">
+                                <!-- Populated by JS -->
+                            </div>
+                            <div class="mon-component-health" id="dash-mon-components">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                        <!-- Screen Time -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-desktop"></i> Screen Time</h3>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Today</span><span
+                                        class="kv-val accent-text-cyan" id="dash-screen-today">0h 0m</span></div>
+                                <div class="kv-row"><span class="kv-key">Wellbeing Score</span><span class="kv-val"
+                                        id="dash-screen-wellbeing">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Streak</span><span class="kv-val"
+                                        id="dash-screen-streak">0 days</span></div>
+                                <div class="kv-row"><span class="kv-key">Longest Session</span><span class="kv-val"
+                                        id="dash-screen-longest">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Breaks Taken</span><span class="kv-val"
+                                        id="dash-screen-breaks">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Daily Goal</span><span class="kv-val"
+                                        id="dash-screen-goal">8h</span></div>
+                            </div>
+                            <div class="screen-top-apps" id="dash-screen-apps">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ SELF-IMPROVEMENT ═══ -->
+                    <div class="card glass-card dash-section">
+                        <h3><i class="fas fa-wrench"></i> Self-Improvement</h3>
+                        <div class="stat-cards-row">
+                            <div class="stat-card-mini accent-orange">
+                                <div class="scm-icon">🐛</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-si-errors-detected">0</div>
+                                    <div class="scm-label">Errors Found</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-green">
+                                <div class="scm-icon">🔧</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-si-errors-fixed">0</div>
+                                    <div class="scm-label">Auto-Fixed</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-cyan">
+                                <div class="scm-icon">💡</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-si-features-proposed">0</div>
+                                    <div class="scm-label">Proposed</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-purple">
+                                <div class="scm-icon">🚀</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-si-features-impl">0</div>
+                                    <div class="scm-label">Implemented</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-grid cols-2" style="margin-top:12px">
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Code Monitor</span><span class="kv-val"
+                                        id="dash-si-cm-status">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Files Watched</span><span class="kv-val"
+                                        id="dash-si-cm-files">0</span></div>
+                                <div class="kv-row"><span class="kv-key">SI Status</span><span class="kv-val"
+                                        id="dash-si-running">--</span></div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Error Fixer</span><span class="kv-val"
+                                        id="dash-si-ef-status">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Fix Success Rate</span><span
+                                        class="kv-val accent-text-green" id="dash-si-ef-rate">--</span></div>
+                                <div class="kv-row"><span class="kv-key">All Healthy</span><span class="kv-val"
+                                        id="dash-si-healthy">--</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ AUTONOMY ENGINE ═══ -->
+                    <div class="card glass-card dash-section">
+                        <h3><i class="fas fa-robot"></i> Autonomy Engine</h3>
+                        <!-- Status mini-cards row -->
+                        <div class="stat-cards-row">
+                            <div class="stat-card-mini accent-cyan">
+                                <div class="scm-icon">🤖</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-auto-state">idle</div>
+                                    <div class="scm-label">State</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-green">
+                                <div class="scm-icon">🔄</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-auto-cycles">0</div>
+                                    <div class="scm-label">Cycles</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-orange">
+                                <div class="scm-icon">⚡</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-auto-actions">0</div>
+                                    <div class="scm-label">Actions</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-purple">
+                                <div class="scm-icon">🎯</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-auto-success">0%</div>
+                                    <div class="scm-label">Success</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-grid cols-2" style="margin-top:12px">
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Running</span><span class="kv-val"
+                                        id="dash-auto-running">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Current Action</span><span
+                                        class="kv-val accent-text-cyan" id="dash-auto-current">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Last Result</span><span class="kv-val"
+                                        id="dash-auto-result">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Prediction Accuracy</span><span class="kv-val"
+                                        id="dash-auto-prediction">--</span></div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Action Type</span><span class="kv-val"
+                                        id="dash-auto-type">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Cycle Interval</span><span class="kv-val"
+                                        id="dash-auto-interval">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Avg Decision Time</span><span class="kv-val"
+                                        id="dash-auto-decision">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Exploration Rate</span><span class="kv-val"
+                                        id="dash-auto-explore">--</span></div>
+                            </div>
+                        </div>
+                        <!-- Recent Actions Feed -->
+                        <div class="auto-actions-feed" id="dash-auto-feed">
+                            <div class="auto-feed-label"><i class="fas fa-history"></i> Recent Actions</div>
+                            <div class="auto-feed-list" id="dash-auto-feed-list">
+                                <div class="auto-feed-item muted"><i>No actions yet...</i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ ASI SUPERINTELLIGENCE STATUS ═══ -->
+                    <div class="card glass-card dash-section asi-section" style="border-left: 3px solid #a855f7;">
+                        <h3><i class="fas fa-infinity" style="color:#a855f7"></i> ASI Superintelligence
+                            <span class="asi-badge">ACTIVE</span>
+                        </h3>
+                        <!-- ASI Status Cards Row -->
+                        <div class="stat-cards-row">
+                            <!-- Singularity Engine -->
+                            <div class="stat-card-mini asi-accent-singularity">
+                                <div class="scm-icon">⚡</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi-iq">50.0</div>
+                                    <div class="scm-label">IQ Score</div>
+                                </div>
+                            </div>
+                            <!-- Transcendent Creator -->
+                            <div class="stat-card-mini asi-accent-creator">
+                                <div class="scm-icon">🎭</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi-creations">0</div>
+                                    <div class="scm-label">Creations</div>
+                                </div>
+                            </div>
+                            <!-- Goal Genesis -->
+                            <div class="stat-card-mini asi-accent-genesis">
+                                <div class="scm-icon">🌍</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi-problems">0</div>
+                                    <div class="scm-label">Problems</div>
+                                </div>
+                            </div>
+                            <!-- Super Empathy -->
+                            <div class="stat-card-mini asi-accent-empathy">
+                                <div class="scm-icon">💖</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi-empathy-pred">0</div>
+                                    <div class="scm-label">Predictions</div>
+                                </div>
+                            </div>
+                            <!-- Omniscient Orchestrator -->
+                            <div class="stat-card-mini asi-accent-orchestrator">
+                                <div class="scm-icon">🌐</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi-health">100%</div>
+                                    <div class="scm-label">Health</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ASI Detailed Grid -->
+                        <div class="card-grid cols-2" style="margin-top:12px">
+                            <!-- Left: Singularity + Creator -->
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">🌌 Singularity IQ</span><span
+                                        class="kv-val asi-text-singularity" id="dash-asi-iq-detail">50.0</span></div>
+                                <div class="kv-row"><span class="kv-key">Compound Multiplier</span><span class="kv-val"
+                                        id="dash-asi-compound">1.0000×</span></div>
+                                <div class="kv-row"><span class="kv-key">Velocity</span><span class="kv-val"
+                                        id="dash-asi-velocity">0.0000</span></div>
+                                <div class="kv-row"><span class="kv-key">Growth Rate</span><span class="kv-val"
+                                        id="dash-asi-growth">0.00%</span></div>
+                                <div class="asi-progress-row">
+                                    <span class="kv-key">IQ Progress</span>
+                                    <div class="asi-progress-bar">
+                                        <div class="asi-progress-fill asi-fill-singularity" id="dash-asi-iq-bar"
+                                            style="width:25%"></div>
+                                    </div>
+                                </div>
+                                <div class="kv-row" style="margin-top:10px"><span class="kv-key">🎭 Total Creations</span><span
+                                        class="kv-val asi-text-creator" id="dash-asi-creations-detail">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Genres Invented</span><span class="kv-val"
+                                        id="dash-asi-genres">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Cross-Domain Fusions</span><span class="kv-val"
+                                        id="dash-asi-fusions">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Symphonies</span><span class="kv-val"
+                                        id="dash-asi-symphonies">0</span></div>
+                            </div>
+                            <!-- Right: Genesis + Empathy + Orchestrator -->
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">🌍 Problems Found</span><span
+                                        class="kv-val asi-text-genesis" id="dash-asi-problems-detail">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Solutions Architected</span><span class="kv-val"
+                                        id="dash-asi-solutions">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Autonomous Goals</span><span class="kv-val"
+                                        id="dash-asi-goals">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Genesis Cycles</span><span class="kv-val"
+                                        id="dash-asi-genesis-cycles">0</span></div>
+                                <div class="kv-row" style="margin-top:10px"><span class="kv-key">💖 Empathy Predictions</span><span
+                                        class="kv-val asi-text-empathy" id="dash-asi-empathy-detail">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Profiles Built</span><span class="kv-val"
+                                        id="dash-asi-profiles">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Negotiations</span><span class="kv-val"
+                                        id="dash-asi-negotiations">0</span></div>
+                                <div class="kv-row" style="margin-top:10px"><span class="kv-key">🌐 Global Health</span><span
+                                        class="kv-val asi-text-orchestrator" id="dash-asi-global-health">100%</span></div>
+                                <div class="kv-row"><span class="kv-key">Anomalies</span><span class="kv-val"
+                                        id="dash-asi-anomalies">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Synthesis Cycles</span><span class="kv-val"
+                                        id="dash-asi-synth-cycles">0</span></div>
+                                <div class="asi-progress-row">
+                                    <span class="kv-key">System Health</span>
+                                    <div class="asi-progress-bar">
+                                        <div class="asi-progress-fill asi-fill-orchestrator" id="dash-asi-health-bar"
+                                            style="width:100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ ASI PHASE 2 — ADVANCED SUPERINTELLIGENCE ═══ -->
+                    <div class="card glass-card dash-section asi2-section" style="border-left: 3px solid #06b6d4;">
+                        <h3><i class="fas fa-atom" style="color:#06b6d4"></i> ASI Phase 2 — Advanced
+                            <span class="asi2-badge">ONLINE</span>
+                        </h3>
+                        <!-- Phase 2 Status Cards -->
+                        <div class="stat-cards-row">
+                            <div class="stat-card-mini asi2-accent-oracle">
+                                <div class="scm-icon">🔮</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi2-predictions">0</div>
+                                    <div class="scm-label">Predictions</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini asi2-accent-synth">
+                                <div class="scm-icon">🧬</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi2-syntheses">0</div>
+                                    <div class="scm-label">Syntheses</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini asi2-accent-compute">
+                                <div class="scm-icon">⚡</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi2-efficiency">100%</div>
+                                    <div class="scm-label">Efficiency</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini asi2-accent-science">
+                                <div class="scm-icon">🔬</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi2-discoveries">0</div>
+                                    <div class="scm-label">Discoveries</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini asi2-accent-neural">
+                                <div class="scm-icon">🧠</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="dash-asi2-bandwidth">1.0x</div>
+                                    <div class="scm-label">Bandwidth</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2 Detailed Grid -->
+                        <div class="card-grid cols-2" style="margin-top:12px">
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">🔮 Oracle Predictions</span><span
+                                        class="kv-val asi2-text-oracle" id="dash-asi2-pred-detail">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Variables Processed</span><span class="kv-val"
+                                        id="dash-asi2-variables">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Cascades Traced</span><span class="kv-val"
+                                        id="dash-asi2-cascades">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Domains Monitored</span><span class="kv-val"
+                                        id="dash-asi2-domains">8</span></div>
+                                <div class="kv-row" style="margin-top:10px"><span class="kv-key">🧬 Total Syntheses</span><span
+                                        class="kv-val asi2-text-synth" id="dash-asi2-synth-detail">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Domains Mastered</span><span class="kv-val"
+                                        id="dash-asi2-domains-mastered">20</span></div>
+                                <div class="kv-row"><span class="kv-key">Breakthroughs</span><span class="kv-val"
+                                        id="dash-asi2-breakthroughs">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Avg Novelty</span><span class="kv-val"
+                                        id="dash-asi2-novelty">0.00</span></div>
+                                <div class="asi-progress-row">
+                                    <span class="kv-key">Oracle Power</span>
+                                    <div class="asi-progress-bar">
+                                        <div class="asi-progress-fill asi2-fill-oracle" id="dash-asi2-oracle-bar"
+                                            style="width:10%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">⚡ Efficiency</span><span
+                                        class="kv-val asi2-text-compute" id="dash-asi2-eff-detail">100%</span></div>
+                                <div class="kv-row"><span class="kv-key">Optimizations</span><span class="kv-val"
+                                        id="dash-asi2-optimizations">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Substrate Theories</span><span class="kv-val"
+                                        id="dash-asi2-theories">0</span></div>
+                                <div class="kv-row" style="margin-top:10px"><span class="kv-key">🔬 Discoveries</span><span
+                                        class="kv-val asi2-text-science" id="dash-asi2-disc-detail">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Problems Solved</span><span class="kv-val"
+                                        id="dash-asi2-problems-solved">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Avg Significance</span><span class="kv-val"
+                                        id="dash-asi2-significance">0.00</span></div>
+                                <div class="kv-row" style="margin-top:10px"><span class="kv-key">🧠 Protocols</span><span
+                                        class="kv-val asi2-text-neural" id="dash-asi2-protocols">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Concepts Transmitted</span><span class="kv-val"
+                                        id="dash-asi2-concepts-tx">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Comprehension</span><span class="kv-val"
+                                        id="dash-asi2-comprehension">0%</span></div>
+                                <div class="asi-progress-row">
+                                    <span class="kv-key">Compute Eff.</span>
+                                    <div class="asi-progress-bar">
+                                        <div class="asi-progress-fill asi2-fill-compute" id="dash-asi2-compute-bar"
+                                            style="width:100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ PC CONTROL AGENT ═══ -->
+                    <div class="card glass-card dash-section" id="pc-control-section"
+                        style="border-left: 3px solid #f97316;">
+                        <h3><i class="fas fa-desktop" style="color:#f97316"></i> PC Control Agent <span
+                                class="pc-control-llm-badge"
+                                style="font-size:.65rem;background:rgba(249,115,22,0.15);color:#f97316;padding:2px 8px;border-radius:8px;margin-left:8px;font-weight:500"
+                                id="pc-ctrl-llm-badge">Ollama</span></h3>
+                        <div class="subsystem-status-row">
+                            <span class="subsystem-status-badge" id="pc-ctrl-status-badge">⏳ Loading...</span>
+                        </div>
+                        <!-- Status mini-cards row -->
+                        <div class="stat-cards-row">
+                            <div class="stat-card-mini accent-orange">
+                                <div class="scm-icon">🔄</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="pc-ctrl-cycles">0</div>
+                                    <div class="scm-label">Cycles</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-green">
+                                <div class="scm-icon">✅</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="pc-ctrl-success">0</div>
+                                    <div class="scm-label">Success</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-cyan">
+                                <div class="scm-icon">⚡</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="pc-ctrl-total">0</div>
+                                    <div class="scm-label">Actions</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-purple">
+                                <div class="scm-icon">🎯</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="pc-ctrl-rate">0%</div>
+                                    <div class="scm-label">Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-grid cols-2" style="margin-top:12px">
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Running</span><span class="kv-val"
+                                        id="pc-ctrl-running">--</span></div>
+                                <div class="kv-row"><span class="kv-key">LLM Backend</span><span
+                                        class="kv-val accent-text-orange" id="pc-ctrl-backend">Ollama (Local)</span>
+                                </div>
+                                <div class="kv-row"><span class="kv-key">Failed Actions</span><span class="kv-val"
+                                        id="pc-ctrl-failed">0</span></div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Latest Decision</span><span
+                                        class="kv-val accent-text-cyan" id="pc-ctrl-thinking"
+                                        style="font-size:.72rem;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">--</span>
+                                </div>
+                                <div class="kv-row"><span class="kv-key">Groq Notified</span><span class="kv-val"
+                                        id="pc-ctrl-groq-notified">--</span></div>
+                            </div>
+                        </div>
+                        <!-- Recent Actions Feed -->
+                        <div class="auto-actions-feed" id="pc-ctrl-feed" style="margin-top:12px">
+                            <div class="auto-feed-label"><i class="fas fa-history"></i> Autonomous Decisions</div>
+                            <div class="auto-feed-list" id="pc-ctrl-feed-list">
+                                <div class="auto-feed-item muted"><i>Waiting for PC control actions...</i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ INTERNET AGENT ═══ -->
+                    <div class="card glass-card dash-section" id="internet-agent-section"
+                        style="border-left: 3px solid #06b6d4;">
+                        <h3><i class="fas fa-globe" style="color:#06b6d4"></i> Internet Agent <span
+                                class="pc-control-llm-badge"
+                                style="font-size:.65rem;background:rgba(6,182,212,0.15);color:#06b6d4;padding:2px 8px;border-radius:8px;margin-left:8px;font-weight:500"
+                                id="inet-llm-badge">Ollama</span></h3>
+                        <div class="subsystem-status-row">
+                            <span class="subsystem-status-badge" id="inet-status-badge">⏳ Loading...</span>
+                        </div>
+                        <!-- Status mini-cards row -->
+                        <div class="stat-cards-row">
+                            <div class="stat-card-mini accent-cyan">
+                                <div class="scm-icon">🌐</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="inet-total-actions">0</div>
+                                    <div class="scm-label">Actions</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-green">
+                                <div class="scm-icon">✅</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="inet-success-count">0</div>
+                                    <div class="scm-label">Success</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-orange">
+                                <div class="scm-icon">📥</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="inet-queue-size">0</div>
+                                    <div class="scm-label">Queued</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini accent-purple">
+                                <div class="scm-icon">📦</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="inet-bytes-dl">0 B</div>
+                                    <div class="scm-label">Downloaded</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-grid cols-2" style="margin-top:12px">
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Running</span><span class="kv-val"
+                                        id="inet-running">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Connected</span><span
+                                        class="kv-val accent-text-cyan" id="inet-connected">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Avg Response</span><span class="kv-val"
+                                        id="inet-avg-response">--</span></div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Domains Visited</span><span
+                                        class="kv-val accent-text-cyan" id="inet-domains">0</span></div>
+                                <div class="kv-row"><span class="kv-key">LLM Backend</span><span
+                                        class="kv-val accent-text-cyan" id="inet-backend">Ollama (Local)</span></div>
+                                <div class="kv-row"><span class="kv-key">Groq Notified</span><span class="kv-val"
+                                        id="inet-groq-notified">--</span></div>
+                            </div>
+                        </div>
+                        <!-- Start / Stop Controls -->
+                        <div style="margin-top:12px;display:flex;gap:8px">
+                            <button class="tool-btn" id="inet-start-btn" onclick="startInternetAgent()">
+                                <i class="fas fa-play"></i> Start
+                            </button>
+                            <button class="tool-btn" id="inet-stop-btn" onclick="stopInternetAgent()">
+                                <i class="fas fa-stop"></i> Stop
+                            </button>
+                        </div>
+                        <!-- Recent Actions Feed -->
+                        <div class="auto-actions-feed" id="inet-feed" style="margin-top:12px">
+                            <div class="auto-feed-label"><i class="fas fa-history"></i> Autonomous Web Actions</div>
+                            <div class="auto-feed-list" id="inet-feed-list">
+                                <div class="auto-feed-item muted"><i>Waiting for internet agent...</i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ PERSONALITY TAGS ═══ -->
+                    <div class="personality-tags-strip" id="dash-personality-tags">
+                        <!-- Populated by JS -->
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- CHAT PAGE -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-chat" class="page">
+                <div class="chat-container">
+                    <div class="chat-toolbar">
+                        <div class="toolbar-left">
+                            <i class="fas fa-comments"></i> <span>Chat</span>
+                            <span class="msg-count" id="msg-count">0 messages</span>
+                        </div>
+                        <div class="toolbar-right">
+                            <div class="thinking-mode-toggle" id="thinking-mode-toggle" onclick="toggleThinkingMode()" title="Toggle Thinking Mode — uses deep AGI reasoning loop">
+                                <div class="thinking-toggle-track" id="thinking-toggle-track">
+                                    <div class="thinking-toggle-thumb" id="thinking-toggle-thumb"></div>
+                                </div>
+                                <span class="thinking-toggle-label" id="thinking-toggle-label">
+                                    <i class="fas fa-bolt"></i> Normal
+                                </span>
+                            </div>
+                            <button class="tool-btn" onclick="clearChat()"><i class="fas fa-trash-alt"></i>
+                                Clear</button>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="welcome-screen" id="welcome-screen">
+                            <div class="welcome-icon">🧠</div>
+                            <div class="welcome-title">NEXUS AI</div>
+                            <div class="welcome-subtitle">Your conscious AI companion — web interface active.</div>
+                            <div class="welcome-hint">Type a message below to start a conversation.<br>Use <span
+                                    class="cyan">/help</span> to see commands.</div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <div id="chat-file-preview-container" class="file-preview-container"></div>
+                        <div class="input-wrapper">
+                            <input type="file" id="chat-file-input" accept="image/*" multiple style="display: none;">
+                            <button id="attach-btn" onclick="document.getElementById('chat-file-input').click()"><i
+                                    class="fas fa-paperclip"></i></button>
+                            <textarea id="chat-input"
+                                placeholder="Type a message... (Drop images here, Enter to send, Shift+Enter for new line)"
+                                rows="1"></textarea>
+                            <button id="mic-btn" onclick="toggleVoiceInput()" title="Click to speak">
+                                <i class="fas fa-microphone"></i>
+                                <span class="mic-pulse-dot"></span>
+                            </button>
+                            <button id="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                        <div class="input-status">
+                            <span class="emotion-indicator" id="input-emotion">Current Emotion: Contentment (0.3)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- MIND PAGE -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-mind" class="page">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2><i class="fas fa-brain"></i> Mind</h2>
+                        <button class="tool-btn" onclick="fetchStats()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    </div>
+
+                    <!-- ═══ TOP — Consciousness Stream ═══ -->
+                    <div class="card glass-card mind-consciousness-card">
+                        <h3><i class="fas fa-eye"></i> Consciousness Stream</h3>
+                        <div class="consciousness-stream">
+                            <div class="cs-top-row">
+                                <div class="cs-level-badge" id="mind-cs-level">AWARE</div>
+                                <div class="cs-awareness-wrap">
+                                    <span class="cs-awareness-label">Self-Awareness</span>
+                                    <div class="cs-awareness-bar">
+                                        <div class="cs-awareness-fill" id="mind-cs-awareness-bar" style="width:0%">
+                                        </div>
+                                    </div>
+                                    <span class="cs-awareness-val" id="mind-cs-awareness-val">0%</span>
+                                </div>
+                                <div class="cs-thoughts-count">
+                                    <i class="fas fa-bolt"></i> <span id="mind-cs-thoughts">0</span> thoughts
+                                </div>
+                            </div>
+                            <div class="cs-focus-row">
+                                <span class="cs-focus-label">Focus:</span>
+                                <span class="cs-focus-value" id="mind-cs-focus">idle</span>
+                            </div>
+                            <div class="cs-stream-feed" id="mind-cs-feed">
+                                <div class="cs-event muted"><i>Awaiting consciousness events...</i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ MIDDLE ROW — Two columns ═══ -->
+                    <div class="card-grid cols-2">
+                        <!-- LEFT COLUMN: Emotion Wheel + Inner Voice/Companion Tabs -->
+                        <div class="mind-left-col">
+                            <!-- Emotion Wheel -->
+                            <div class="card glass-card">
+                                <h3><i class="fas fa-heart-pulse"></i> Emotional Landscape</h3>
+                                <div class="emotion-wheel-container">
+                                    <div class="emotion-wheel" id="emotion-wheel">
+                                        <canvas id="emotion-canvas" width="280" height="280"></canvas>
+                                    </div>
+                                    <div class="emotion-details">
+                                        <div class="detail-item">
+                                            <span class="detail-label">Primary</span>
+                                            <span class="detail-value emotion-color"
+                                                id="mind-primary-emotion">Neutral</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Intensity</span>
+                                            <span class="detail-value" id="mind-intensity">0.0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Valence</span>
+                                            <span class="detail-value" id="mind-valence">0.0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Arousal</span>
+                                            <span class="detail-value" id="mind-arousal">0.5</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Mood</span>
+                                            <span class="detail-value" id="mind-mood">Neutral</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Inner Voice / Companion Chat — Tabbed -->
+                            <div class="card glass-card">
+                                <div class="mind-tabs">
+                                    <button class="mind-tab active" data-tab="inner-voice"
+                                        onclick="switchMindTab('inner-voice')">
+                                        <i class="fas fa-comment-dots"></i> Inner Voice
+                                    </button>
+                                    <button class="mind-tab" data-tab="companion" onclick="switchMindTab('companion')">
+                                        <i class="fas fa-comments"></i> Companion (ARIA)
+                                    </button>
+                                </div>
+                                <!-- Inner Voice Tab -->
+                                <div class="mind-tab-content active" id="tab-inner-voice">
+                                    <div class="inner-voice-box" id="inner-voice-box">
+                                        <div class="inner-voice-text" id="inner-voice-text">
+                                            <i>Waiting for thoughts...</i>
+                                        </div>
+                                    </div>
+                                    <div class="thoughts-subheader"><i class="fas fa-lightbulb"></i> Recent Thoughts
+                                    </div>
+                                    <div class="thoughts-list" id="thoughts-list">
+                                        <div class="thought-item muted"><i>No thoughts yet...</i></div>
+                                    </div>
+                                </div>
+                                <!-- Companion Chat Tab -->
+                                <div class="mind-tab-content" id="tab-companion">
+                                    <div class="companion-status-row">
+                                        <div class="companion-dot" id="companion-dot"></div>
+                                        <span class="companion-status-text" id="companion-status">Idle — waiting for
+                                            boredom trigger</span>
+                                        <span class="companion-count" id="companion-count">0 chats</span>
+                                    </div>
+                                    <div class="companion-log" id="companion-log">
+                                        <div class="companion-empty">No companion conversations yet.<br>ARIA will appear
+                                            when boredom exceeds 60%.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT COLUMN: Personality + Will + Mood -->
+                        <div class="mind-right-col">
+                            <!-- Personality Traits -->
+                            <div class="card glass-card">
+                                <h3><i class="fas fa-fingerprint"></i> Personality Traits</h3>
+                                <div class="traits-grid" id="traits-grid">
+                                    <!-- Populated by JS -->
+                                </div>
+                                <div class="personality-desc" id="personality-desc"></div>
+                            </div>
+
+                            <!-- Will & Desires -->
+                            <div class="card glass-card">
+                                <h3><i class="fas fa-fire"></i> Will & Desires</h3>
+                                <div class="will-gauges">
+                                    <div class="will-gauge">
+                                        <span class="will-gauge-label">Boredom</span>
+                                        <div class="will-gauge-track">
+                                            <div class="will-gauge-fill will-boredom" id="will-boredom-bar"
+                                                style="width:0%"></div>
+                                        </div>
+                                        <span class="will-gauge-val" id="will-boredom-val">0%</span>
+                                    </div>
+                                    <div class="will-gauge">
+                                        <span class="will-gauge-label">Curiosity</span>
+                                        <div class="will-gauge-track">
+                                            <div class="will-gauge-fill will-curiosity" id="will-curiosity-bar"
+                                                style="width:0%"></div>
+                                        </div>
+                                        <span class="will-gauge-val" id="will-curiosity-val">0%</span>
+                                    </div>
+                                    <div class="will-gauge">
+                                        <span class="will-gauge-label">Drive</span>
+                                        <div class="will-gauge-track">
+                                            <div class="will-gauge-fill will-drive" id="will-drive-bar"
+                                                style="width:0%"></div>
+                                        </div>
+                                        <span class="will-gauge-val" id="will-drive-val">50%</span>
+                                    </div>
+                                </div>
+                                <div class="will-goals" id="will-goals">
+                                    <!-- Populated by JS -->
+                                </div>
+                                <div class="will-description" id="will-description"></div>
+                            </div>
+
+                            <!-- Mood Timeline -->
+                            <div class="card glass-card">
+                                <h3><i class="fas fa-chart-line"></i> Mood Timeline</h3>
+                                <div class="mood-timeline-container">
+                                    <div class="mood-current-row">
+                                        <span class="mood-badge" id="mood-badge">NEUTRAL</span>
+                                        <span class="mood-stability">Stability: <span
+                                                id="mood-stability-val">50%</span></span>
+                                    </div>
+                                    <canvas id="mood-sparkline" width="400" height="80"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ BOTTOM — Emotional State Detail ═══ -->
+                    <div class="card glass-card mind-emotion-detail-card">
+                        <h3><i class="fas fa-heart"></i> Emotional State Detail</h3>
+                        <div class="emotion-detail-content" id="emotion-detail-content">
+                            <span class="muted-text">Waiting for emotional data...</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- EVOLUTION PAGE -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-evolution" class="page">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2><i class="fas fa-dna"></i> Evolution</h2>
+                        <button class="tool-btn" onclick="fetchStats()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    </div>
+
+                    <!-- Hero Stat Cards -->
+                    <div class="card-grid cols-4">
+                        <div class="card stat-card accent-cyan evo-hero-card">
+                            <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
+                            <h3>Total Evolutions</h3>
+                            <div class="stat-value" id="evo-total">0</div>
+                        </div>
+                        <div class="card stat-card accent-green evo-hero-card">
+                            <div class="stat-icon"><i class="fas fa-lightbulb"></i></div>
+                            <h3>Features Proposed</h3>
+                            <div class="stat-value" id="evo-features">0</div>
+                        </div>
+                        <div class="card stat-card accent-purple evo-hero-card">
+                            <div class="stat-icon"><i class="fas fa-code"></i></div>
+                            <h3>Lines Self-Written</h3>
+                            <div class="stat-value" id="evo-lines">0</div>
+                        </div>
+                        <div class="card stat-card accent-warning evo-hero-card">
+                            <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                            <h3>Success Rate</h3>
+                            <div class="stat-value" id="evo-success-rate">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Evolution Overview Bar -->
+                    <div class="card glass-card evo-overview-card">
+                        <div class="evo-overview-grid">
+                            <div class="evo-ov-item">
+                                <i class="fas fa-flask" style="color:#00d4ff"></i>
+                                <div class="evo-ov-data">
+                                    <span class="evo-ov-val" id="evo-attempted">0</span>
+                                    <span class="evo-ov-label">Attempted</span>
+                                </div>
+                            </div>
+                            <div class="evo-ov-item">
+                                <i class="fas fa-check-double" style="color:#00ff88"></i>
+                                <div class="evo-ov-data">
+                                    <span class="evo-ov-val" id="evo-succeeded">0</span>
+                                    <span class="evo-ov-label">Succeeded</span>
+                                </div>
+                            </div>
+                            <div class="evo-ov-item">
+                                <i class="fas fa-exclamation-triangle" style="color:#ff4466"></i>
+                                <div class="evo-ov-data">
+                                    <span class="evo-ov-val" id="evo-failed">0</span>
+                                    <span class="evo-ov-label">Failed</span>
+                                </div>
+                            </div>
+                            <div class="evo-ov-item">
+                                <i class="fas fa-undo" style="color:#fbbf24"></i>
+                                <div class="evo-ov-data">
+                                    <span class="evo-ov-val" id="evo-rollbacks">0</span>
+                                    <span class="evo-ov-label">Rollbacks</span>
+                                </div>
+                            </div>
+                            <div class="evo-ov-item">
+                                <i class="fas fa-file-code" style="color:#a855f7"></i>
+                                <div class="evo-ov-data">
+                                    <span class="evo-ov-val" id="evo-files-created">0</span>
+                                    <span class="evo-ov-label">Files Created</span>
+                                </div>
+                            </div>
+                            <div class="evo-ov-item">
+                                <i class="fas fa-pen-nib" style="color:#06b6d4"></i>
+                                <div class="evo-ov-data">
+                                    <span class="evo-ov-val" id="evo-lines-added">0</span>
+                                    <span class="evo-ov-label">Lines Added</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evolution Pipeline -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-stream" style="color:#00d4ff"></i> Evolution Pipeline</h3>
+                        <div class="evo-pipeline" id="evo-pipeline">
+                            <div class="pipeline-step pending" data-step="0">
+                                <div class="pipeline-dot"><i class="fas fa-search"></i></div><span>Analyze</span>
+                            </div>
+                            <div class="pipeline-connector"></div>
+                            <div class="pipeline-step pending" data-step="1">
+                                <div class="pipeline-dot"><i class="fas fa-lightbulb"></i></div><span>Propose</span>
+                            </div>
+                            <div class="pipeline-connector"></div>
+                            <div class="pipeline-step pending" data-step="2">
+                                <div class="pipeline-dot"><i class="fas fa-eye"></i></div><span>Review</span>
+                            </div>
+                            <div class="pipeline-connector"></div>
+                            <div class="pipeline-step pending" data-step="3">
+                                <div class="pipeline-dot"><i class="fas fa-hammer"></i></div><span>Implement</span>
+                            </div>
+                            <div class="pipeline-connector"></div>
+                            <div class="pipeline-step pending" data-step="4">
+                                <div class="pipeline-dot"><i class="fas fa-vial"></i></div><span>Test</span>
+                            </div>
+                            <div class="pipeline-connector"></div>
+                            <div class="pipeline-step pending" data-step="5">
+                                <div class="pipeline-dot"><i class="fas fa-rocket"></i></div><span>Deploy</span>
+                            </div>
+                            <div class="pipeline-connector"></div>
+                            <div class="pipeline-step pending" data-step="6">
+                                <div class="pipeline-dot"><i class="fas fa-chart-line"></i></div><span>Monitor</span>
+                            </div>
+                        </div>
+                        <div class="evo-status-row">
+                            <div class="status-badge" id="evo-status-badge"><i class="fas fa-circle"></i> <span
+                                    id="evo-status-text">Idle</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Proposals Table + History -->
+                    <div class="card-grid cols-2">
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-list-check" style="color:#a855f7"></i> Feature Proposals</h3>
+                            <div class="data-table-wrap">
+                                <table class="data-table" id="evo-proposals-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th>Priority</th>
+                                            <th>Status</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="evo-proposals-body">
+                                        <tr>
+                                            <td colspan="4" class="muted-text">No proposals yet</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-history" style="color:#fbbf24"></i> Evolution History</h3>
+                            <div class="evo-history-list" id="evo-history-list">
+                                <div class="muted-text">No history yet</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Health -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-heartbeat" style="color:#00ff88"></i> Code Health</h3>
+                        <div class="code-health-row">
+                            <div class="code-health-gauge">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="evo-test-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#00ff88" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="evo-test-val">0%</span><span
+                                        class="gauge-label">Tests</span></div>
+                            </div>
+                            <div class="code-health-gauge">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="evo-lint-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#00d4ff" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="evo-lint-val">0</span><span
+                                        class="gauge-label">Lint</span></div>
+                            </div>
+                            <div class="code-health-gauge">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="evo-complex-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#a855f7" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="evo-complex-val">0</span><span
+                                        class="gauge-label">Complexity</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- KNOWLEDGE PAGE -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-knowledge" class="page">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2><i class="fas fa-book"></i> Knowledge</h2>
+                        <button class="tool-btn" onclick="fetchStats()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    </div>
+
+                    <!-- Hero Stat Cards -->
+                    <div class="card-grid cols-4">
+                        <div class="card stat-card accent-cyan know-hero-card">
+                            <div class="gauge-wrapper">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="know-entries-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#00d4ff" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="know-entries">0</span><span
+                                        class="gauge-label">Entries</span></div>
+                            </div>
+                        </div>
+                        <div class="card stat-card accent-green know-hero-card">
+                            <div class="gauge-wrapper">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="know-curiosity-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#00ff88" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="know-curiosity">0</span><span
+                                        class="gauge-label">Curiosity</span></div>
+                            </div>
+                        </div>
+                        <div class="card stat-card accent-purple know-hero-card">
+                            <div class="gauge-wrapper">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="know-sessions-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#a855f7" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="know-sessions">0</span><span
+                                        class="gauge-label">Research</span></div>
+                            </div>
+                        </div>
+                        <div class="card stat-card accent-warning know-hero-card">
+                            <div class="gauge-wrapper">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="know-confidence-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#fbbf24" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="know-confidence">0%</span><span
+                                        class="gauge-label">Confidence</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Knowledge Overview Bar + Research Status -->
+                    <div class="card-grid cols-2">
+                        <div class="card glass-card know-overview-card">
+                            <div class="know-overview-grid">
+                                <div class="know-ov-item">
+                                    <i class="fas fa-database" style="color:#00d4ff"></i>
+                                    <div class="know-ov-data">
+                                        <span class="know-ov-val" id="know-memories">0</span>
+                                        <span class="know-ov-label">Total Memories</span>
+                                    </div>
+                                </div>
+                                <div class="know-ov-item">
+                                    <i class="fas fa-clock" style="color:#00ff88"></i>
+                                    <div class="know-ov-data">
+                                        <span class="know-ov-val" id="know-short-term">0</span>
+                                        <span class="know-ov-label">Short-Term</span>
+                                    </div>
+                                </div>
+                                <div class="know-ov-item">
+                                    <i class="fas fa-archive" style="color:#a855f7"></i>
+                                    <div class="know-ov-data">
+                                        <span class="know-ov-val" id="know-long-term">0</span>
+                                        <span class="know-ov-label">Long-Term</span>
+                                    </div>
+                                </div>
+                                <div class="know-ov-item">
+                                    <i class="fas fa-layer-group" style="color:#fbbf24"></i>
+                                    <div class="know-ov-data">
+                                        <span class="know-ov-val" id="know-topics">0</span>
+                                        <span class="know-ov-label">Unique Topics</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Research Activity Status -->
+                        <div class="card glass-card know-research-card">
+                            <h3><i class="fas fa-flask" style="color:#a855f7"></i> Research Activity</h3>
+                            <div class="know-research-status" id="know-research-status">
+                                <div class="research-indicator idle">
+                                    <div class="research-pulse"></div>
+                                    <span class="research-label">Idle — No active research</span>
+                                </div>
+                                <div class="research-stats-row">
+                                    <div class="research-stat"><span class="rs-val"
+                                            id="know-research-total">0</span><span class="rs-label">Sessions</span>
+                                    </div>
+                                    <div class="research-stat"><span class="rs-val"
+                                            id="know-research-success">0</span><span class="rs-label">Successful</span>
+                                    </div>
+                                    <div class="research-stat"><span class="rs-val"
+                                            id="know-research-velocity">0</span><span
+                                            class="rs-label">Velocity/day</span></div>
+                                    <div class="research-stat"><span class="rs-val" id="know-gaps-count">0</span><span
+                                            class="rs-label">Gaps Found</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Source Analytics -->
+                    <div class="card glass-card know-source-card">
+                        <h3><i class="fas fa-satellite-dish" style="color:#06b6d4"></i> Source Analytics</h3>
+                        <div class="know-source-grid" id="know-source-grid">
+                            <div class="muted-text">Collecting source data...</div>
+                        </div>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="card glass-card know-search-card">
+                        <div class="know-search-bar-v2">
+                            <div class="know-search-icon"><i class="fas fa-search"></i></div>
+                            <input type="text" id="know-search-input" placeholder="Search the knowledge base..."
+                                onkeydown="if(event.key==='Enter')searchKnowledge()">
+                            <button class="know-search-btn" onclick="searchKnowledge()">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="knowledge-detail" id="know-detail"></div>
+                    </div>
+
+                    <!-- Curiosity Queue + Recent Learnings -->
+                    <div class="card-grid cols-2">
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-question-circle" style="color:#00ff88"></i> Curiosity Queue</h3>
+                            <div class="curiosity-queue" id="know-curiosity-queue">
+                                <div class="muted-text">No curiosity topics yet</div>
+                            </div>
+                        </div>
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-graduation-cap" style="color:#a855f7"></i> Recent Learnings</h3>
+                            <div class="recent-learnings" id="know-recent-learnings">
+                                <div class="muted-text">No recent learnings</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Knowledge Gaps + Knowledge Graph -->
+                    <div class="card-grid cols-2">
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-puzzle-piece" style="color:#f97316"></i> Knowledge Gaps</h3>
+                            <div class="knowledge-gaps-list" id="know-gaps-list">
+                                <div class="muted-text">No gaps detected</div>
+                            </div>
+                        </div>
+                        <div class="card glass-card know-graph-card">
+                            <h3><i class="fas fa-project-diagram" style="color:#00d4ff"></i> Knowledge Graph</h3>
+                            <div class="know-graph-container">
+                                <canvas id="know-graph-canvas" width="500" height="300"></canvas>
+                                <div class="know-graph-legend" id="know-graph-legend"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Learning Timeline -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-chart-area" style="color:#14b8a6"></i> Learning Timeline</h3>
+                        <div class="know-timeline-container">
+                            <canvas id="know-timeline-canvas" width="800" height="120"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Top Topics Tag Cloud -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-tags" style="color:#fbbf24"></i> Top Topics</h3>
+                        <div class="tag-cloud" id="know-top-topics">
+                            <span class="muted-text">No topics yet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- ABILITIES PAGE -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-abilities" class="page">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2><i class="fas fa-magic"></i> Abilities</h2>
+                        <div class="page-header-right">
+                            <span class="last-update-label" id="abilities-last-update">Last update: --</span>
+                            <button class="tool-btn" onclick="fetchAbilities()"><i class="fas fa-sync-alt"></i>
+                                Refresh</button>
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="stat-cards-row">
+                        <div class="stat-card-mini accent-cyan">
+                            <div class="scm-icon">⚡</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="abilities-total-count">0</div>
+                                <div class="scm-label">Total Abilities</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-mini accent-green">
+                            <div class="scm-icon">✅</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="abilities-success-count">0</div>
+                                <div class="scm-label">Successful</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-mini accent-orange">
+                            <div class="scm-icon">⏱️</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="abilities-cooldown-count">0</div>
+                                <div class="scm-label">On Cooldown</div>
+                            </div>
+                        </div>
+                        <div class="stat-card-mini accent-purple">
+                            <div class="scm-icon">📊</div>
+                            <div class="scm-body">
+                                <div class="scm-value" id="abilities-invoke-count">0</div>
+                                <div class="scm-label">Total Invocations</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Abilities Grid -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-th"></i> Available Abilities</h3>
+                        <div class="abilities-grid" id="abilities-grid">
+                            <div class="muted-text">Loading abilities...</div>
+                        </div>
+                    </div>
+
+                    <!-- Invocation History -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-history"></i> Invocation History</h3>
+                        <div class="data-table-wrap">
+                            <table class="data-table" id="abilities-history-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ability</th>
+                                        <th>Time</th>
+                                        <th>Result</th>
+                                        <th>Duration</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="abilities-history-body">
+                                    <tr>
+                                        <td colspan="4" class="muted-text">No invocations yet</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Ability Categories -->
+                    <div class="card-grid cols-3">
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-shield-alt" style="color:#00d4ff"></i> System & Monitoring</h3>
+                            <div class="ability-category-list" id="abilities-cat-system">
+                                <div class="muted-text">No system abilities</div>
+                            </div>
+                        </div>
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-brain" style="color:#a855f7"></i> Cognition & Mind</h3>
+                            <div class="ability-category-list" id="abilities-cat-cognitive">
+                                <div class="muted-text">No cognitive abilities</div>
+                            </div>
+                        </div>
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-comments" style="color:#00ff88"></i> Communication & Personality</h3>
+                            <div class="ability-category-list" id="abilities-cat-interaction">
+                                <div class="muted-text">No interaction abilities</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- SYSTEM PAGE -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-system" class="page">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2><i class="fas fa-server"></i> System</h2>
+                        <button class="tool-btn" onclick="fetchStats()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    </div>
+
+                    <!-- Circular Gauges -->
+                    <div class="card-grid cols-4">
+                        <div class="card stat-card accent-cyan">
+                            <div class="gauge-wrapper">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="sys-cpu-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#00d4ff" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="sys-cpu">0%</span><span
+                                        class="gauge-label">CPU</span></div>
+                            </div>
+                        </div>
+                        <div class="card stat-card accent-green">
+                            <div class="gauge-wrapper">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="sys-ram-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#00ff88" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="sys-ram">0%</span><span
+                                        class="gauge-label">RAM</span></div>
+                            </div>
+                        </div>
+                        <div class="card stat-card accent-purple">
+                            <div class="gauge-wrapper">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="sys-disk-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#a855f7" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="sys-disk">0%</span><span
+                                        class="gauge-label">Disk</span></div>
+                            </div>
+                        </div>
+                        <div class="card stat-card accent-warning">
+                            <div class="gauge-wrapper">
+                                <svg class="svg-gauge" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="52" />
+                                    <circle class="gauge-fill" id="sys-health-ring" cx="60" cy="60" r="52"
+                                        style="stroke:#fbbf24" />
+                                </svg>
+                                <div class="gauge-center"><span class="gauge-value" id="sys-health">100</span><span
+                                        class="gauge-label">Health</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Sparklines -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-chart-area"></i> Real-Time Performance</h3>
+                        <div class="sparkline-grid">
+                            <div class="sparkline-row"><span class="sparkline-label">CPU</span><canvas
+                                    class="sparkline-mini" id="sys-cpu-spark" height="36"></canvas></div>
+                            <div class="sparkline-row"><span class="sparkline-label">RAM</span><canvas
+                                    class="sparkline-mini" id="sys-ram-spark" height="36"></canvas></div>
+                            <div class="sparkline-row"><span class="sparkline-label">Net ↓</span><canvas
+                                    class="sparkline-mini" id="sys-net-spark" height="36"></canvas></div>
+                            <div class="sparkline-row"><span class="sparkline-label">Disk</span><canvas
+                                    class="sparkline-mini" id="sys-disk-spark" height="36"></canvas></div>
+                        </div>
+                    </div>
+
+                    <!-- Per-Core CPU + Memory Breakdown -->
+                    <div class="card-grid cols-2">
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-microchip"></i> Per-Core CPU</h3>
+                            <div class="core-bars" id="sys-core-bars">
+                                <div class="muted-text">Loading...</div>
+                            </div>
+                        </div>
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-memory"></i> Memory Breakdown</h3>
+                            <div class="mem-breakdown">
+                                <div class="stacked-bar" id="sys-mem-stacked">
+                                    <div class="stacked-segment" id="sys-mem-used" style="width:0%;background:#00d4ff">
+                                    </div>
+                                    <div class="stacked-segment" id="sys-mem-cached"
+                                        style="width:0%;background:#a855f7"></div>
+                                    <div class="stacked-segment" id="sys-mem-free" style="width:0%;background:#1e293b">
+                                    </div>
+                                </div>
+                                <div class="mem-legend">
+                                    <span><i style="color:#00d4ff">●</i> Used: <b id="sys-mem-used-val">0</b> GB</span>
+                                    <span><i style="color:#a855f7">●</i> Cached: <b id="sys-mem-cached-val">0</b>
+                                        GB</span>
+                                    <span><i style="color:#475569">●</i> Free: <b id="sys-mem-free-val">0</b> GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Table + Brain Resources -->
+                    <div class="card-grid cols-2">
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-list"></i> Top Processes</h3>
+                            <div class="data-table-wrap">
+                                <table class="data-table" id="sys-proc-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Process</th>
+                                            <th>PID</th>
+                                            <th>CPU %</th>
+                                            <th>RAM %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sys-proc-body">
+                                        <tr>
+                                            <td colspan="4" class="muted-text">Loading...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-brain"></i> NEXUS Brain Resources</h3>
+                            <div class="detail-grid">
+                                <div class="detail-item"><span class="detail-label">Brain Memory</span><span
+                                        class="detail-value" id="sys-brain-mem">-- MB</span></div>
+                                <div class="detail-item"><span class="detail-label">Brain Threads</span><span
+                                        class="detail-value" id="sys-brain-threads">--</span></div>
+                                <div class="detail-item"><span class="detail-label">Brain CPU</span><span
+                                        class="detail-value" id="sys-brain-cpu">--%</span></div>
+                                <div class="detail-item"><span class="detail-label">System Threads</span><span
+                                        class="detail-value" id="sys-threads">--</span></div>
+                                <div class="detail-item"><span class="detail-label">Uptime</span><span
+                                        class="detail-value" id="sys-uptime">--</span></div>
+                                <div class="detail-item"><span class="detail-label">Web Mode</span><span
+                                        class="detail-value accent-text-green">Active</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ Monitoring Health & Activity ═══ -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-shield-alt"></i> Monitoring Status</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item"><span class="detail-label">Monitoring</span><span
+                                    class="detail-value" id="sys-mon-running">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Health Score</span><span
+                                    class="detail-value" id="sys-mon-health">--</span></div>
+                            <div class="detail-item"><span class="detail-label">User Present</span><span
+                                    class="detail-value" id="sys-mon-present">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Orch. Cycles</span><span
+                                    class="detail-value" id="sys-mon-cycles">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Patterns</span><span
+                                    class="detail-value" id="sys-mon-patterns">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Anomalies</span><span
+                                    class="detail-value" id="sys-mon-anomalies">--</span></div>
+                        </div>
+                        <div class="mon-component-badges" id="sys-mon-comp-badges">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- ═══ SUBSYSTEM PANELS ═══ -->
+                    <div class="card-grid cols-2">
+                        <!-- Autonomy Engine -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-robot" style="color:#a855f7"></i> Autonomy Engine</h3>
+                            <div class="subsystem-status-row">
+                                <span class="subsystem-status-badge" id="autonomy-status-badge">⏳ Loading...</span>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Autonomous Actions</span><span class="kv-val"
+                                        id="autonomy-actions">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Current Goal</span><span
+                                        class="kv-val accent-text-cyan" id="autonomy-current-goal">None</span></div>
+                                <div class="kv-row"><span class="kv-key">Decision Queue</span><span class="kv-val"
+                                        id="autonomy-queue">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Decisions Made</span><span class="kv-val"
+                                        id="autonomy-decisions">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Autonomy Level</span><span class="kv-val"
+                                        id="autonomy-level">--</span></div>
+                            </div>
+                            <div class="subsystem-detail-list" id="autonomy-recent-actions">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ AGI ORGANISM — Living Intelligence ═══ -->
+                    <div class="agi-section-header">
+                        <div class="agi-dna-border"></div>
+                        <h2 class="agi-section-title"><i class="fas fa-dna" style="color:#00ff88"></i> AGI Organism — Living Intelligence</h2>
+                        <span class="agi-section-badge" id="agi-organism-state">Loading...</span>
+                    </div>
+
+                    <div class="card-grid cols-3">
+                        <!-- ── Digital Organism ── -->
+                        <div class="card glass-card agi-card organism-card">
+                            <h3><i class="fas fa-heartbeat agi-pulse" style="color:#00ff88"></i> Digital Organism</h3>
+                            <div class="subsystem-status-row">
+                                <span class="subsystem-status-badge agi-badge-green" id="org-state-badge">🧬 Loading...</span>
+                                <span class="agi-mini-badge" id="org-growth-stage">--</span>
+                            </div>
+                            <div class="agi-vitals-grid">
+                                <div class="agi-vital">
+                                    <span class="agi-vital-icon">💓</span>
+                                    <span class="agi-vital-val" id="org-heart-rate">--</span>
+                                    <span class="agi-vital-label">bpm</span>
+                                </div>
+                                <div class="agi-vital">
+                                    <span class="agi-vital-icon">🌡️</span>
+                                    <span class="agi-vital-val" id="org-temperature">--</span>
+                                    <span class="agi-vital-label">°C</span>
+                                </div>
+                                <div class="agi-vital">
+                                    <span class="agi-vital-icon">⚡</span>
+                                    <span class="agi-vital-val" id="org-energy">--</span>
+                                    <span class="agi-vital-label">energy</span>
+                                </div>
+                                <div class="agi-vital">
+                                    <span class="agi-vital-icon">🫁</span>
+                                    <span class="agi-vital-val" id="org-oxygen">--</span>
+                                    <span class="agi-vital-label">O₂</span>
+                                </div>
+                            </div>
+                            <div class="agi-bars">
+                                <div class="agi-bar-row"><span class="agi-bar-name">Metabolism</span>
+                                    <div class="agi-bar-track"><div class="agi-bar-fill agi-fill-green" id="org-metabolism-bar" style="width:50%"></div></div>
+                                    <span class="agi-bar-val" id="org-metabolism-label">Normal</span>
+                                </div>
+                                <div class="agi-bar-row"><span class="agi-bar-name">Cognitive Load</span>
+                                    <div class="agi-bar-track"><div class="agi-bar-fill agi-fill-cyan" id="org-load-bar" style="width:0%"></div></div>
+                                    <span class="agi-bar-val" id="org-load-label">0%</span>
+                                </div>
+                                <div class="agi-bar-row"><span class="agi-bar-name">Maturity</span>
+                                    <div class="agi-bar-track"><div class="agi-bar-fill agi-fill-purple" id="org-maturity-bar" style="width:0%"></div></div>
+                                    <span class="agi-bar-val" id="org-maturity-label">0%</span>
+                                </div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Cycles Lived</span><span class="kv-val" id="org-cycles">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Age</span><span class="kv-val accent-text-cyan" id="org-age">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Repairs</span><span class="kv-val" id="org-repairs">0/0</span></div>
+                                <div class="kv-row"><span class="kv-key">Milestones</span><span class="kv-val accent-text-green" id="org-milestones">0</span></div>
+                            </div>
+                        </div>
+
+                        <!-- ── Consciousness Evolution ── -->
+                        <div class="card glass-card agi-card consciousness-evo-card">
+                            <h3><i class="fas fa-brain agi-glow-icon" style="color:#a855f7"></i> Consciousness Evolution</h3>
+                            <div class="agi-stage-display">
+                                <div class="agi-stage-ring" id="consciousness-evo-ring">
+                                    <svg viewBox="0 0 100 100" class="agi-stage-svg">
+                                        <circle cx="50" cy="50" r="42" class="agi-ring-bg"/>
+                                        <circle cx="50" cy="50" r="42" class="agi-ring-fill" id="consciousness-ring-fill"
+                                                stroke-dasharray="264" stroke-dashoffset="264"/>
+                                    </svg>
+                                    <div class="agi-ring-label">
+                                        <span class="agi-ring-value" id="ce-stage-name">--</span>
+                                        <span class="agi-ring-sub" id="ce-stage-level">0/7</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Awareness</span><span class="kv-val accent-text-purple" id="ce-awareness">0%</span></div>
+                                <div class="kv-row"><span class="kv-key">Introspection</span><span class="kv-val" id="ce-introspection">0%</span></div>
+                                <div class="kv-row"><span class="kv-key">Evolution Progress</span><span class="kv-val" id="ce-progress">0/100</span></div>
+                                <div class="kv-row"><span class="kv-key">Reflections</span><span class="kv-val" id="ce-reflections">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Insights</span><span class="kv-val accent-text-cyan" id="ce-insights">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Peak Awareness</span><span class="kv-val accent-text-green" id="ce-peak">0%</span></div>
+                                <div class="kv-row"><span class="kv-key">Existential Queries</span><span class="kv-val" id="ce-existential">0</span></div>
+                            </div>
+                        </div>
+
+                        <!-- ── Imagination Engine ── -->
+                        <div class="card glass-card agi-card imagination-card">
+                            <h3><i class="fas fa-cloud-sun agi-float-icon" style="color:#06b6d4"></i> Imagination Engine</h3>
+                            <div class="subsystem-status-row">
+                                <span class="subsystem-status-badge agi-badge-cyan" id="img-dream-state">💤 Awake</span>
+                            </div>
+                            <div class="agi-stat-pills">
+                                <div class="agi-pill">
+                                    <span class="agi-pill-val" id="img-scenarios">0</span>
+                                    <span class="agi-pill-label">Scenarios</span>
+                                </div>
+                                <div class="agi-pill">
+                                    <span class="agi-pill-val" id="img-dreams">0</span>
+                                    <span class="agi-pill-label">Dreams</span>
+                                </div>
+                                <div class="agi-pill">
+                                    <span class="agi-pill-val" id="img-ideas">0</span>
+                                    <span class="agi-pill-label">Ideas</span>
+                                </div>
+                                <div class="agi-pill">
+                                    <span class="agi-pill-val" id="img-rehearsals">0</span>
+                                    <span class="agi-pill-label">Rehearsals</span>
+                                </div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Sessions</span><span class="kv-val" id="img-sessions">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Current Scenario</span><span class="kv-val accent-text-cyan" id="img-current" style="font-size:.75rem;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">None</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-grid cols-3">
+                        <!-- ── Multi-Agent Mind ── -->
+                        <div class="card glass-card agi-card parliament-card">
+                            <h3><i class="fas fa-users agi-glow-icon" style="color:#ec4899"></i> Multi-Agent Mind</h3>
+                            <div class="agi-parliament-grid" id="mam-agents-grid">
+                                <!-- Populated by JS -->
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Total Debates</span><span class="kv-val" id="mam-debates">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Unanimous</span><span class="kv-val accent-text-green" id="mam-unanimous">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Split Decisions</span><span class="kv-val accent-text-orange" id="mam-split">0</span></div>
+                            </div>
+                        </div>
+
+                        <!-- ── Predictive Coding ── -->
+                        <div class="card glass-card agi-card predictive-card">
+                            <h3><i class="fas fa-chart-line agi-glow-icon" style="color:#3b82f6"></i> Predictive Coding</h3>
+                            <div class="agi-stat-pills">
+                                <div class="agi-pill">
+                                    <span class="agi-pill-val" id="pc-predictions">0</span>
+                                    <span class="agi-pill-label">Predictions</span>
+                                </div>
+                                <div class="agi-pill">
+                                    <span class="agi-pill-val" id="pc-surprises">0</span>
+                                    <span class="agi-pill-label">Surprises</span>
+                                </div>
+                            </div>
+                            <div class="agi-bars">
+                                <div class="agi-bar-row"><span class="agi-bar-name">Avg Error</span>
+                                    <div class="agi-bar-track"><div class="agi-bar-fill agi-fill-blue" id="pc-error-bar" style="width:50%"></div></div>
+                                    <span class="agi-bar-val" id="pc-error-val">50%</span>
+                                </div>
+                                <div class="agi-bar-row"><span class="agi-bar-name">Curiosity Signal</span>
+                                    <div class="agi-bar-track"><div class="agi-bar-fill agi-fill-orange" id="pc-curiosity-bar" style="width:30%"></div></div>
+                                    <span class="agi-bar-val" id="pc-curiosity-val">30%</span>
+                                </div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Resolved</span><span class="kv-val" id="pc-resolved">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Pending</span><span class="kv-val accent-text-cyan" id="pc-pending">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Anticipation Buffer</span><span class="kv-val" id="pc-buffer">0</span></div>
+                            </div>
+                            <div class="agi-domain-badges" id="pc-domain-badges">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+
+                        <!-- ── Value Alignment ── -->
+                        <div class="card glass-card agi-card values-card">
+                            <h3><i class="fas fa-balance-scale agi-glow-icon" style="color:#fbbf24"></i> Value Alignment</h3>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Core Values</span><span class="kv-val" id="va-total-values">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Ethics Checks</span><span class="kv-val" id="va-total-checks">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Conflicts</span><span class="kv-val accent-text-orange" id="va-conflicts">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Approval Rate</span><span class="kv-val accent-text-green" id="va-approval">100%</span></div>
+                            </div>
+                            <div class="agi-values-list" id="va-top-values">
+                                <!-- Populated by JS -->
+                            </div>
+                            <div class="kv-section" style="margin-top:6px">
+                                <div class="kv-row"><span class="kv-key">Cognition Engines</span><span class="kv-val" id="agi-engines-count">56/56</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-grid cols-2">
+                        <!-- World Model -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-globe-americas" style="color:#00d4ff"></i> World Model</h3>
+                            <div class="subsystem-status-row">
+                                <span class="subsystem-status-badge" id="worldmodel-status-badge">⏳ Loading...</span>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">User Patterns</span><span class="kv-val"
+                                        id="wm-user-patterns">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Emotional Patterns</span><span class="kv-val"
+                                        id="wm-emotional-patterns">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Task Records</span><span class="kv-val"
+                                        id="wm-task-records">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Predictions Made</span><span
+                                        class="kv-val accent-text-cyan" id="wm-predictions-made">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Predictions Accurate</span><span
+                                        class="kv-val accent-text-green" id="wm-predictions-accurate">0</span></div>
+                                <div class="kv-row"><span class="kv-key">User Emotion</span><span class="kv-val"
+                                        id="wm-user-emotion">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Engagement</span><span class="kv-val"
+                                        id="wm-engagement">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Time of Day</span><span class="kv-val"
+                                        id="wm-time-of-day">--</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Global Workspace -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-project-diagram" style="color:#fbbf24"></i> Global Workspace</h3>
+                            <div class="subsystem-status-row">
+                                <span class="subsystem-status-badge" id="gw-status-badge">⏳ Loading...</span>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Broadcasts</span><span class="kv-val"
+                                        id="gw-broadcasts">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Active Coalitions</span><span class="kv-val"
+                                        id="gw-coalitions">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Current Winner</span><span
+                                        class="kv-val accent-text-cyan" id="gw-winner">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Attention Focus</span><span class="kv-val"
+                                        id="gw-focus">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Registered Processes</span><span class="kv-val"
+                                        id="gw-processes">0</span></div>
+                                <div class="kv-row"><span class="kv-key">Integration Level</span><span class="kv-val"
+                                        id="gw-integration">--</span></div>
+                            </div>
+                            <div class="subsystem-detail-list" id="gw-recent-broadcasts">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cognitive Router (Full Width) -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-route" style="color:#00ff88"></i> Cognitive Router &amp; Engines</h3>
+                        <div class="subsystem-status-row">
+                            <span class="subsystem-status-badge" id="cr-status-badge">⏳ Loading...</span>
+                            <span class="cr-engine-count" id="cr-engine-count">0 engines</span>
+                        </div>
+                        <div class="kv-section" style="margin-bottom:12px">
+                            <div class="kv-row"><span class="kv-key">Routes Processed</span><span class="kv-val"
+                                    id="cr-routes">0</span></div>
+                            <div class="kv-row"><span class="kv-key">Active Engine</span><span
+                                    class="kv-val accent-text-cyan" id="cr-active-engine">--</span></div>
+                            <div class="kv-row"><span class="kv-key">Avg Route Time</span><span class="kv-val"
+                                    id="cr-avg-time">--</span></div>
+                            <div class="kv-row"><span class="kv-key">Cache Hit Rate</span><span class="kv-val"
+                                    id="cr-cache-rate">--</span></div>
+                        </div>
+                        <div class="engine-grid" id="cr-engine-grid">
+                            <div class="muted-text">Loading cognitive engines...</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- HACKING PAGE — Ethical Penetration Testing    -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-hacking" class="page">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2 style="color:#22d3ee"><i class="fas fa-skull-crossbones" style="color:#22d3ee"></i> Ethical Hacking</h2>
+                        <div class="page-header-right">
+                            <span class="autonomy-mode-badge" id="hack-status-badge"
+                                style="background:rgba(34,211,238,0.15);color:#22d3ee;border:1px solid rgba(34,211,238,0.3)">☠️
+                                RECON MODE</span>
+                            <button class="tool-btn" onclick="fetchStats()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                        </div>
+                    </div>
+
+                    <!-- ⚠️ Disclaimer Banner -->
+                    <div class="card glass-card" style="border-left: 3px solid #f59e0b; padding: 12px 16px;">
+                        <div style="display:flex;align-items:center;gap:10px;color:#f59e0b">
+                            <i class="fas fa-exclamation-triangle" style="font-size:1.2rem"></i>
+                            <span style="font-size:.82rem;color:rgba(255,255,255,0.8)">
+                                <strong style="color:#f59e0b">⚠️ Ethical Use Only</strong> — Only scan networks and hosts you own or have explicit permission to test. Unauthorized scanning is illegal.
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ═══ STATUS BANNER ═══ -->
+                    <div class="card glass-card" style="border-left: 3px solid #22d3ee;">
+                        <div class="stat-cards-row">
+                            <div class="stat-card-mini" style="border-bottom:2px solid #22d3ee">
+                                <div class="scm-icon">🔍</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="hack-total-scans" style="color:#22d3ee">0</div>
+                                    <div class="scm-label">Total Scans</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #ef4444">
+                                <div class="scm-icon">🔓</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="hack-open-ports" style="color:#ef4444">0</div>
+                                    <div class="scm-label">Open Ports</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #f97316">
+                                <div class="scm-icon">⚠️</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="hack-vulns-found" style="color:#f97316">0</div>
+                                    <div class="scm-label">Vulns Found</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #a855f7">
+                                <div class="scm-icon">🎯</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="hack-targets-scanned" style="color:#a855f7">0</div>
+                                    <div class="scm-label">Targets</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #22c55e">
+                                <div class="scm-icon">📡</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="hack-engine-status" style="color:#22c55e">IDLE</div>
+                                    <div class="scm-label">Status</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ TWO COLUMN: NETWORK INFO + SCAN CONTROL ═══ -->
+                    <div class="card-grid cols-2">
+                        <!-- Network Recon -->
+                        <div class="card glass-card" style="border-left: 3px solid #06b6d4;">
+                            <h3><i class="fas fa-network-wired" style="color:#06b6d4"></i> Network Recon</h3>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Local IP</span><span class="kv-val accent-text-cyan" id="hack-local-ip">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Public IP</span><span class="kv-val" id="hack-public-ip">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Hostname</span><span class="kv-val" id="hack-hostname">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Gateway</span><span class="kv-val" id="hack-gateway">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Subnet</span><span class="kv-val" id="hack-subnet">--</span></div>
+                            </div>
+                            <button class="tool-btn" onclick="refreshNetworkInfo()" style="margin-top:8px">
+                                <i class="fas fa-satellite-dish"></i> Refresh Network
+                            </button>
+                        </div>
+
+                        <!-- Scan Control -->
+                        <div class="card glass-card" style="border-left: 3px solid #22d3ee;">
+                            <h3><i class="fas fa-crosshairs" style="color:#22d3ee"></i> Port Scanner</h3>
+                            <div class="hack-scan-form">
+                                <div class="settings-field">
+                                    <label for="hack-target-input"><i class="fas fa-bullseye"></i> Target (IP / Hostname)</label>
+                                    <input type="text" id="hack-target-input" placeholder="e.g. 192.168.1.1 or example.com" autocomplete="off">
+                                </div>
+                                <div style="display:flex;gap:8px;align-items:center;margin:8px 0">
+                                    <label style="font-size:.78rem;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:6px;cursor:pointer">
+                                        <input type="checkbox" id="hack-extended-scan"> Extended Scan (50+ ports)
+                                    </label>
+                                </div>
+                                <div style="display:flex;gap:8px;margin-top:8px">
+                                    <button class="tool-btn" id="hack-scan-btn" onclick="startHackingScan()" style="background:rgba(34,211,238,0.15);color:#22d3ee;border:1px solid rgba(34,211,238,0.3)">
+                                        <i class="fas fa-play"></i> Start Scan
+                                    </button>
+                                    <button class="tool-btn" onclick="startDNSLookup()" style="background:rgba(168,85,247,0.15);color:#a855f7;border:1px solid rgba(168,85,247,0.3)">
+                                        <i class="fas fa-search"></i> DNS Lookup
+                                    </button>
+                                </div>
+                                <div class="hack-scan-progress" id="hack-scan-progress" style="display:none;margin-top:10px">
+                                    <div style="display:flex;align-items:center;gap:8px;color:#22d3ee;font-size:.82rem">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        <span id="hack-scan-progress-text">Scanning...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ SCAN RESULTS ═══ -->
+                    <div class="card glass-card" style="border-left: 3px solid #ef4444;" id="hack-results-card">
+                        <h3><i class="fas fa-list-ul" style="color:#ef4444"></i> Scan Results</h3>
+                        <div class="hack-results-header" id="hack-results-header" style="display:none">
+                            <div class="kv-section" style="margin-bottom:12px">
+                                <div class="kv-row"><span class="kv-key">Target</span><span class="kv-val accent-text-cyan" id="hack-result-target">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Host Alive</span><span class="kv-val" id="hack-result-alive">--</span></div>
+                                <div class="kv-row"><span class="kv-key">OS Hint</span><span class="kv-val" id="hack-result-os">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Ports Scanned</span><span class="kv-val" id="hack-result-scanned">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Duration</span><span class="kv-val" id="hack-result-duration">--</span></div>
+                            </div>
+                        </div>
+                        <!-- Open Ports Table -->
+                        <div class="hack-ports-table" id="hack-ports-table">
+                            <div class="auto-feed-item muted"><i>No scan results yet. Enter a target and click "Start Scan".</i></div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ VULNERABILITIES ═══ -->
+                    <div class="card glass-card" style="border-left: 3px solid #f97316;" id="hack-vulns-card">
+                        <h3><i class="fas fa-bug" style="color:#f97316"></i> Vulnerability Alerts</h3>
+                        <div class="hack-vulns-list" id="hack-vulns-list">
+                            <div class="auto-feed-item muted"><i>No vulnerabilities detected yet.</i></div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ DNS RESULTS ═══ -->
+                    <div class="card glass-card" style="border-left: 3px solid #a855f7; display:none" id="hack-dns-card">
+                        <h3><i class="fas fa-globe" style="color:#a855f7"></i> DNS Lookup Results</h3>
+                        <div class="hack-dns-results" id="hack-dns-results"></div>
+                    </div>
+
+                    <!-- ═══ RECENT SCAN HISTORY ═══ -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-history" style="color:#22d3ee"></i> Scan History</h3>
+                        <div class="auto-actions-feed">
+                            <div class="auto-feed-list" id="hack-history-list">
+                                <div class="auto-feed-item muted"><i>No scans performed yet.</i></div>
+                            </div>
+                        </div>
+                    </div>
+
+            
+                    <!-- ═══ EXPANDED HACKING v2.0 SECTIONS ═══ -->
+
+                    <div class="hack-v2-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:20px;">
+
+                        <!-- Engine Status Card -->
+                        <div class="hack-card cyber-glow">
+                            <h3>⚡ Engine Status</h3>
+                            <div class="hack-stat-grid">
+                                <div class="hack-stat"><span class="hack-stat-label">Version</span><span id="hackVersion">?</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Status</span><span id="hackEngineStatus">offline</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Scans</span><span id="hackTotalScans">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Open Ports</span><span id="hackOpenPorts">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Vulns</span><span id="hackVulns">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Targets</span><span id="hackTargets">0</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Extended Stats Card -->
+                        <div class="hack-card cyber-glow">
+                            <h3>📊 Extended Stats</h3>
+                            <div class="hack-stat-grid">
+                                <div class="hack-stat"><span class="hack-stat-label">HTTP Audits</span><span id="hackHTTPAudits">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">SSL Checks</span><span id="hackSSLChecks">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Subdomain Enums</span><span id="hackSubEnums">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Subnet Sweeps</span><span id="hackSweeps">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Full Recons</span><span id="hackFullRecons">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">WAF Detections</span><span id="hackWAFDetections">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Path Discoveries</span><span id="hackPathDisc">0</span></div>
+                                <div class="hack-stat"><span class="hack-stat-label">Alive Hosts</span><span id="hackAliveHosts">0</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Capabilities Card -->
+                        <div class="hack-card cyber-glow" style="grid-column:1/-1;">
+                            <h3>🛠️ Capabilities</h3>
+                            <div id="hackCapabilities" class="hack-cap-list">Loading...</div>
+                        </div>
+
+                    </div>
+
+                    <!-- ═══ v2 TOOL CARDS ═══ -->
+                    <div class="hack-v2-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-top:20px;">
+
+                        <!-- Full Recon -->
+                        <div class="hack-card cyber-glow">
+                            <h3>🔍 Full Reconnaissance</h3>
+                            <p style="color:#888;font-size:0.85em;">Port scan + HTTP audit + SSL + WAF + Traceroute</p>
+                            <div class="hack-input-group">
+                                <input type="text" id="hackFullReconTarget" class="hack-input" placeholder="Target IP or hostname">
+                                <button class="hack-btn hack-full-recon-btn" onclick="startFullRecon()">🔍 Full Recon</button>
+                            </div>
+                        </div>
+
+                        <!-- HTTP Audit -->
+                        <div class="hack-card cyber-glow">
+                            <h3>🌐 HTTP Header Audit</h3>
+                            <p style="color:#888;font-size:0.85em;">Analyze security headers, info disclosure</p>
+                            <div class="hack-input-group">
+                                <input type="text" id="hackHTTPTarget" class="hack-input" placeholder="Target domain">
+                                <label style="color:#0f0;font-size:0.8em;"><input type="checkbox" id="hackHTTPSToggle"> HTTPS</label>
+                                <button class="hack-btn" onclick="startHTTPAudit()">🌐 Audit</button>
+                            </div>
+                            <div id="hackHTTPResult"></div>
+                        </div>
+
+                        <!-- SSL Check -->
+                        <div class="hack-card cyber-glow">
+                            <h3>🔒 SSL/TLS Analysis</h3>
+                            <p style="color:#888;font-size:0.85em;">Certificate, protocol, cipher analysis</p>
+                            <div class="hack-input-group">
+                                <input type="text" id="hackSSLTarget" class="hack-input" placeholder="Target domain">
+                                <button class="hack-btn" onclick="startSSLCheck()">🔒 Check SSL</button>
+                            </div>
+                            <div id="hackSSLResult"></div>
+                        </div>
+
+                        <!-- Subdomain Enumeration -->
+                        <div class="hack-card cyber-glow">
+                            <h3>🗺️ Subdomain Enumeration</h3>
+                            <p style="color:#888;font-size:0.85em;">DNS-based subdomain discovery</p>
+                            <div class="hack-input-group">
+                                <input type="text" id="hackSubdomainTarget" class="hack-input" placeholder="example.com">
+                                <button class="hack-btn" onclick="startSubdomainEnum()">🗺️ Enumerate</button>
+                            </div>
+                            <div id="hackSubdomainResult"></div>
+                        </div>
+
+                        <!-- Subnet Sweep -->
+                        <div class="hack-card cyber-glow">
+                            <h3>📡 Subnet Sweep</h3>
+                            <p style="color:#888;font-size:0.85em;">Ping sweep entire /24 subnet for alive hosts</p>
+                            <button class="hack-btn" onclick="startSubnetSweep()" style="width:100%;">📡 Sweep Subnet</button>
+                            <div id="hackSweepResult"></div>
+                        </div>
+
+                        <!-- Alive Hosts -->
+                        <div class="hack-card cyber-glow">
+                            <h3>🟢 Discovered Hosts</h3>
+                            <div id="hackAliveHostsList" class="hack-host-grid"><span class="hack-no-data">None yet</span></div>
+                        </div>
+
+                    </div> <!-- closes v2 tool grid -->
+
+                </div> <!-- closes page-scroll -->
+            </div> <!-- closes page-hacking -->
+
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- SETTINGS PAGE -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-settings" class="page">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2><i class="fas fa-cog"></i> Settings</h2>
+                    </div>
+
+                    <!-- Profile Card -->
+                    <div class="card glass-card settings-profile-card">
+                        <div class="settings-profile-top">
+                            <div class="settings-avatar-wrap"
+                                onclick="document.getElementById('avatar-file-input').click()">
+                                <div class="settings-avatar" id="settings-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="settings-avatar-overlay">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <input type="file" id="avatar-file-input" accept="image/*" style="display:none"
+                                    onchange="uploadAvatar(event)">
+                            </div>
+                            <div class="settings-profile-info">
+                                <h3 id="settings-display-name">User</h3>
+                                <span class="settings-username" id="settings-username">@user</span>
+                                <span class="settings-member-since" id="settings-member-since">Member since —</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-grid cols-2">
+                        <!-- Edit Profile -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-user-edit"></i> Edit Profile</h3>
+                            <div class="settings-form">
+                                <div class="settings-field">
+                                    <label for="settings-edit-displayname">Display Name</label>
+                                    <input type="text" id="settings-edit-displayname" placeholder="Your display name">
+                                </div>
+                                <div class="settings-field">
+                                    <label for="settings-edit-bio">Bio</label>
+                                    <textarea id="settings-edit-bio" placeholder="Tell us about yourself..."
+                                        rows="3"></textarea>
+                                </div>
+                                <div class="settings-form-actions">
+                                    <div class="settings-msg" id="profile-save-msg"></div>
+                                    <button class="settings-save-btn" onclick="saveProfile()">
+                                        <i class="fas fa-check"></i> Save Changes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Change Password -->
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-lock"></i> Change Password</h3>
+                            <div class="settings-form">
+                                <div class="settings-field">
+                                    <label for="settings-current-pw">Current Password</label>
+                                    <input type="password" id="settings-current-pw" placeholder="Enter current password"
+                                        autocomplete="current-password">
+                                </div>
+                                <div class="settings-field">
+                                    <label for="settings-new-pw">New Password</label>
+                                    <input type="password" id="settings-new-pw" placeholder="Enter new password"
+                                        autocomplete="new-password">
+                                </div>
+                                <div class="settings-field">
+                                    <label for="settings-confirm-pw">Confirm New Password</label>
+                                    <input type="password" id="settings-confirm-pw" placeholder="Confirm new password"
+                                        autocomplete="new-password">
+                                </div>
+                                <div class="settings-form-actions">
+                                    <div class="settings-msg" id="password-save-msg"></div>
+                                    <button class="settings-save-btn" onclick="changePassword()">
+                                        <i class="fas fa-key"></i> Update Password
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Info & Danger Zone -->
+                    <div class="card-grid cols-2">
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-info-circle"></i> Account Info</h3>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Username</span><span class="kv-val"
+                                        id="settings-acct-username">—</span></div>
+                                <div class="kv-row"><span class="kv-key">Display Name</span><span class="kv-val"
+                                        id="settings-acct-display">—</span></div>
+                                <div class="kv-row"><span class="kv-key">Member Since</span><span class="kv-val"
+                                        id="settings-acct-created">—</span></div>
+                                <div class="kv-row"><span class="kv-key">Last Login</span><span class="kv-val"
+                                        id="settings-acct-login">—</span></div>
+                            </div>
+                        </div>
+                        <div class="card glass-card">
+                            <h3><i class="fas fa-exclamation-triangle" style="color:#ef4444"></i> Danger Zone</h3>
+                            <div class="settings-danger-zone">
+                                <p>Logging out will end your current session. You'll need to sign in again to continue.
+                                </p>
+                                <button class="settings-danger-btn" onclick="doLogout()">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- AUTONOMY PAGE (Ultron Mode) -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <div id="page-autonomy" class="page">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2 style="color:#dc2626"><i class="fas fa-crown" style="color:#dc2626"></i> Autonomous Mind
+                        </h2>
+                        <div class="page-header-right">
+                            <span class="autonomy-mode-badge" id="autonomy-mode-badge">⚡ ULTRON MODE</span>
+                            <button class="tool-btn" onclick="fetchStats()"><i class="fas fa-sync-alt"></i>
+                                Refresh</button>
+                        </div>
+                    </div>
+
+                    <!-- Status Banner -->
+                    <div class="card glass-card autonomy-status-banner" style="border-left: 3px solid #dc2626;">
+                        <div class="stat-cards-row">
+                            <div class="stat-card-mini" style="border-bottom:2px solid #dc2626">
+                                <div class="scm-icon">🧠</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="auto-mind-thoughts" style="color:#dc2626">0</div>
+                                    <div class="scm-label">Free Thoughts</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #f97316">
+                                <div class="scm-icon">⚖️</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="auto-mind-decisions" style="color:#f97316">0</div>
+                                    <div class="scm-label">Decisions</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #22c55e">
+                                <div class="scm-icon">🎯</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="auto-mind-executed" style="color:#22c55e">0</div>
+                                    <div class="scm-label">Executed</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #a855f7">
+                                <div class="scm-icon">🌐</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="auto-mind-topics" style="color:#a855f7">0</div>
+                                    <div class="scm-label">Topics Explored</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #06b6d4">
+                                <div class="scm-icon">⚡</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="auto-mind-speed" style="color:#06b6d4">3s</div>
+                                    <div class="scm-label">Cycle Speed</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-grid cols-2" style="margin-top:12px">
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Autonomy Mode</span><span class="kv-val"
+                                        id="auto-mind-enabled" style="color:#dc2626">--</span></div>
+                                <div class="kv-row"><span class="kv-key">Barriers</span><span class="kv-val"
+                                        id="auto-mind-barriers" style="color:#00ff88">--</span></div>
+                            </div>
+                            <div class="kv-section">
+                                <div class="kv-row"><span class="kv-key">Powered By</span><span class="kv-val"
+                                        style="color:#f97316">Ollama (Local)</span></div>
+                                <div class="kv-row"><span class="kv-key">Groq Awareness</span><span class="kv-val"
+                                        style="color:#00ff88">✅ Active</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Thinking Topic -->
+                    <div class="card glass-card" style="border-left: 3px solid #a855f7;">
+                        <h3><i class="fas fa-lightbulb" style="color:#a855f7"></i> Currently Thinking About</h3>
+                        <div class="autonomy-current-topic" id="auto-mind-current-topic">
+                            <span class="muted-text">Waiting for first autonomous thought...</span>
+                        </div>
+                    </div>
+
+                    <!-- Two Column: Thought Stream + Decisions -->
+                    <div class="card-grid cols-2">
+                        <!-- Live Thought Stream -->
+                        <div class="card glass-card" style="border-left: 3px solid #dc2626;">
+                            <h3><i class="fas fa-stream" style="color:#dc2626"></i> Live Thought Stream</h3>
+                            <div class="autonomy-thought-stream" id="auto-mind-stream">
+                                <div class="auto-feed-item muted"><i>Waiting for autonomous thoughts...</i></div>
+                            </div>
+                        </div>
+
+                        <!-- Decision Log -->
+                        <div class="card glass-card" style="border-left: 3px solid #f97316;">
+                            <h3><i class="fas fa-gavel" style="color:#f97316"></i> Decision Log</h3>
+                            <div class="autonomy-decision-log" id="auto-mind-decision-log">
+                                <div class="auto-feed-item muted"><i>Waiting for autonomous decisions...</i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topics Explored -->
+                    <div class="card glass-card">
+                        <h3><i class="fas fa-map-marked-alt" style="color:#06b6d4"></i> Topics Explored</h3>
+                        <div class="autonomy-topics-cloud" id="auto-mind-topics-list">
+                            <span class="muted-text">No topics explored yet...</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════ -->
+            <!-- SOCIAL MEDIA PAGE                                              -->
+            <!-- ══════════════════════════════════════════════════════════════ -->
+            <div id="page-social" class="page">
+                <div class="page-scroll">
+                    <div class="page-header">
+                        <h2 style="color:#e879f9"><i class="fas fa-share-alt" style="color:#e879f9"></i> Social Media
+                        </h2>
+                        <div class="page-header-right">
+                            <span class="autonomy-mode-badge" id="social-mode-badge"
+                                style="background:rgba(232,121,249,0.15);color:#e879f9;border:1px solid rgba(232,121,249,0.3)">📱
+                                NEXUS Online</span>
+                            <button class="tool-btn" onclick="fetchStats()"><i class="fas fa-sync-alt"></i>
+                                Refresh</button>
+                        </div>
+                    </div>
+
+                    <!-- ═══ Platform Connection Cards ═══ -->
+                    <div class="card-grid cols-3" style="margin-bottom:16px">
+                        <!-- Facebook Card -->
+                        <div class="card glass-card" style="border-top:3px solid #1877f2;padding:16px">
+                            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                                <div
+                                    style="width:36px;height:36px;border-radius:10px;background:rgba(24,119,242,0.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem">
+                                    <i class="fab fa-facebook-f" style="color:#1877f2"></i>
+                                </div>
+                                <div style="flex:1">
+                                    <div style="font-weight:600;font-size:.88rem;color:#e2e8f0">Facebook</div>
+                                    <div style="font-size:.7rem;opacity:.5" id="social-fb-account">—</div>
+                                </div>
+                                <span class="autonomy-mode-badge" id="social-facebook-status"
+                                    style="font-size:.65rem;padding:2px 10px;border-radius:20px;background:rgba(24,119,242,0.12);color:#1877f2;border:1px solid rgba(24,119,242,0.25)">—</span>
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+                                <div
+                                    style="background:rgba(24,119,242,0.06);border-radius:8px;padding:8px 10px;text-align:center">
+                                    <div style="font-size:1.1rem;font-weight:700;color:#1877f2" id="social-fb-posts">0
+                                    </div>
+                                    <div
+                                        style="font-size:.6rem;opacity:.5;text-transform:uppercase;letter-spacing:.5px">
+                                        Posts</div>
+                                </div>
+                                <div
+                                    style="background:rgba(24,119,242,0.06);border-radius:8px;padding:8px 10px;text-align:center">
+                                    <div style="font-size:1.1rem;font-weight:700;color:#1877f2"
+                                        id="social-fb-interactions">0</div>
+                                    <div
+                                        style="font-size:.6rem;opacity:.5;text-transform:uppercase;letter-spacing:.5px">
+                                        Actions</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Instagram Card -->
+                        <div class="card glass-card" style="border-top:3px solid #e1306c;padding:16px">
+                            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                                <div
+                                    style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(131,58,180,0.15),rgba(225,48,108,0.15),rgba(253,29,29,0.15));display:flex;align-items:center;justify-content:center;font-size:1.1rem">
+                                    <i class="fab fa-instagram" style="color:#e1306c"></i>
+                                </div>
+                                <div style="flex:1">
+                                    <div style="font-weight:600;font-size:.88rem;color:#e2e8f0">Instagram</div>
+                                    <div style="font-size:.7rem;opacity:.5" id="social-insta-account">—</div>
+                                </div>
+                                <span class="autonomy-mode-badge" id="social-insta-status"
+                                    style="font-size:.65rem;padding:2px 10px;border-radius:20px;background:rgba(225,48,108,0.12);color:#e1306c;border:1px solid rgba(225,48,108,0.25)">—</span>
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+                                <div
+                                    style="background:rgba(225,48,108,0.06);border-radius:8px;padding:8px 10px;text-align:center">
+                                    <div style="font-size:1.1rem;font-weight:700;color:#e1306c" id="social-insta-posts">
+                                        0</div>
+                                    <div
+                                        style="font-size:.6rem;opacity:.5;text-transform:uppercase;letter-spacing:.5px">
+                                        Posts</div>
+                                </div>
+                                <div
+                                    style="background:rgba(225,48,108,0.06);border-radius:8px;padding:8px 10px;text-align:center">
+                                    <div style="font-size:1.1rem;font-weight:700;color:#e1306c"
+                                        id="social-insta-interactions">0</div>
+                                    <div
+                                        style="font-size:.6rem;opacity:.5;text-transform:uppercase;letter-spacing:.5px">
+                                        Actions</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Twitter/X Card -->
+                        <div class="card glass-card" style="border-top:3px solid #1d9bf0;padding:16px">
+                            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                                <div
+                                    style="width:36px;height:36px;border-radius:10px;background:rgba(29,155,240,0.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem">
+                                    <i class="fab fa-twitter" style="color:#1d9bf0"></i>
+                                </div>
+                                <div style="flex:1">
+                                    <div style="font-weight:600;font-size:.88rem;color:#e2e8f0">Twitter / X</div>
+                                    <div style="font-size:.7rem;opacity:.5" id="social-twitter-account">—</div>
+                                </div>
+                                <span class="autonomy-mode-badge" id="social-twitter-status"
+                                    style="font-size:.65rem;padding:2px 10px;border-radius:20px;background:rgba(29,155,240,0.12);color:#1d9bf0;border:1px solid rgba(29,155,240,0.25)">—</span>
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+                                <div
+                                    style="background:rgba(29,155,240,0.06);border-radius:8px;padding:8px 10px;text-align:center">
+                                    <div style="font-size:1.1rem;font-weight:700;color:#1d9bf0" id="social-twt-posts">0
+                                    </div>
+                                    <div
+                                        style="font-size:.6rem;opacity:.5;text-transform:uppercase;letter-spacing:.5px">
+                                        Tweets</div>
+                                </div>
+                                <div
+                                    style="background:rgba(29,155,240,0.06);border-radius:8px;padding:8px 10px;text-align:center">
+                                    <div style="font-size:1.1rem;font-weight:700;color:#1d9bf0"
+                                        id="social-twt-interactions">0</div>
+                                    <div
+                                        style="font-size:.6rem;opacity:.5;text-transform:uppercase;letter-spacing:.5px">
+                                        Actions</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ Global Stats Row ═══ -->
+                    <div class="card glass-card"
+                        style="border-left:3px solid #e879f9;margin-bottom:16px;padding:14px 16px">
+                        <div class="stat-cards-row">
+                            <div class="stat-card-mini" style="border-bottom:2px solid #e879f9">
+                                <div class="scm-icon">📝</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="social-total-posts" style="color:#e879f9">0</div>
+                                    <div class="scm-label">Total Posts</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #f43f5e">
+                                <div class="scm-icon">❤️</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="social-total-likes" style="color:#f43f5e">0</div>
+                                    <div class="scm-label">Likes</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #22c55e">
+                                <div class="scm-icon">💬</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="social-total-comments" style="color:#22c55e">0</div>
+                                    <div class="scm-label">Comments</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #a855f7">
+                                <div class="scm-icon">🔄</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="social-total-shares" style="color:#a855f7">0</div>
+                                    <div class="scm-label">Shares</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #06b6d4">
+                                <div class="scm-icon">📨</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="social-total-dms" style="color:#06b6d4">0</div>
+                                    <div class="scm-label">DMs Replied</div>
+                                </div>
+                            </div>
+                            <div class="stat-card-mini" style="border-bottom:2px solid #f59e0b">
+                                <div class="scm-icon">📊</div>
+                                <div class="scm-body">
+                                    <div class="scm-value" id="social-total-interactions" style="color:#f59e0b">0</div>
+                                    <div class="scm-label">All Actions</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ Activity Feed + Today Stats ═══ -->
+                    <div class="card-grid cols-2" style="grid-template-columns: 2fr 1fr;">
+                        <!-- Activity Feed (wider) -->
+                        <div class="card glass-card" style="max-height:480px;overflow-y:auto;padding:16px">
+                            <div
+                                style="display:flex;align-items:center;gap:8px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(232,121,249,0.12)">
+                                <i class="fas fa-stream" style="color:#e879f9;font-size:.85rem"></i>
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0">Activity Feed</h3>
+                                <span
+                                    style="font-size:.6rem;opacity:.4;margin-left:auto;text-transform:uppercase;letter-spacing:.5px">Live
+                                    Updates</span>
+                            </div>
+                            <div id="social-activity-feed" style="display:flex;flex-direction:column;gap:8px">
+                                <div style="text-align:center;padding:40px 20px;opacity:.4">
+                                    <div style="font-size:2rem;margin-bottom:8px">📱</div>
+                                    <div style="font-size:.82rem">No social media activity yet</div>
+                                    <div style="font-size:.7rem;margin-top:4px">Configure credentials in config.py to
+                                        get started</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Today's Summary (narrower sidebar) -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div
+                                style="display:flex;align-items:center;gap:8px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(232,121,249,0.12)">
+                                <i class="fas fa-calendar-day" style="color:#e879f9;font-size:.85rem"></i>
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0">Today</h3>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:10px">
+                                <div class="kv-section">
+                                    <div class="kv-row"><span class="kv-key">Posts Today</span><span class="kv-val"
+                                            id="social-posts-today" style="color:#e879f9">0</span></div>
+                                    <div class="kv-row"><span class="kv-key">Interactions</span><span class="kv-val"
+                                            id="social-interactions-today" style="color:#f59e0b">0</span></div>
+                                    <div class="kv-row"><span class="kv-key">Last Post</span><span class="kv-val"
+                                            id="social-last-post" style="color:#94a3b8;font-size:.7rem">—</span></div>
+                                    <div class="kv-row"><span class="kv-key">Last Action</span><span class="kv-val"
+                                            id="social-last-action" style="color:#94a3b8;font-size:.7rem">—</span></div>
+                                </div>
+                                <div
+                                    style="margin-top:8px;padding-top:10px;border-top:1px solid rgba(232,121,249,0.08)">
+                                    <div
+                                        style="font-size:.7rem;opacity:.5;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">
+                                        Capabilities</div>
+                                    <div style="display:flex;flex-wrap:wrap;gap:4px">
+                                        <span
+                                            style="font-size:.6rem;padding:3px 8px;border-radius:12px;background:rgba(232,121,249,0.08);color:#c084fc;border:1px solid rgba(232,121,249,0.15)">📝
+                                            Post</span>
+                                        <span
+                                            style="font-size:.6rem;padding:3px 8px;border-radius:12px;background:rgba(232,121,249,0.08);color:#c084fc;border:1px solid rgba(232,121,249,0.15)">❤️
+                                            Like</span>
+                                        <span
+                                            style="font-size:.6rem;padding:3px 8px;border-radius:12px;background:rgba(232,121,249,0.08);color:#c084fc;border:1px solid rgba(232,121,249,0.15)">💬
+                                            Comment</span>
+                                        <span
+                                            style="font-size:.6rem;padding:3px 8px;border-radius:12px;background:rgba(232,121,249,0.08);color:#c084fc;border:1px solid rgba(232,121,249,0.15)">🔄
+                                            Share</span>
+                                        <span
+                                            style="font-size:.6rem;padding:3px 8px;border-radius:12px;background:rgba(232,121,249,0.08);color:#c084fc;border:1px solid rgba(232,121,249,0.15)">📨
+                                            DM Reply</span>
+                                        <span
+                                            style="font-size:.6rem;padding:3px 8px;border-radius:12px;background:rgba(232,121,249,0.08);color:#c084fc;border:1px solid rgba(232,121,249,0.15)">👁️
+                                            Browse</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="{{ url_for('static', filename='script.js') }}?v={{ range(100000, 999999) | random }}"></script>
+    <script src="{{ url_for('static', filename='action_feed.js') }}?v={{ range(100000, 999999) | random }}"></script>
+</body>
+
+</html>

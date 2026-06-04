@@ -1,0 +1,42 @@
+{
+  "data/.credentials.json": {
+    "filepath": "data/.credentials.json",
+    "created_at": "2026-03-25T21:10:46.987549",
+    "last_checked": "",
+    "content_hash": "03a365e1e562098c0e5053b137f26ad98bce8ffb8cbb3683c1874a1481d350fb",
+    "triggered": false,
+    "trigger_count": 0
+  },
+  "data/.admin_passwords.txt": {
+    "filepath": "data/.admin_passwords.txt",
+    "created_at": "2026-03-25T21:10:46.988549",
+    "last_checked": "",
+    "content_hash": "cd53af9cb7c3daa74ff2e459fd91c57a548942298171a31ca316024a0c5df054",
+    "triggered": false,
+    "trigger_count": 0
+  },
+  "data/.env.backup": {
+    "filepath": "data/.env.backup",
+    "created_at": "2026-03-25T21:10:46.988549",
+    "last_checked": "",
+    "content_hash": "8b41c8013c026909292701ee07345549aac472ceaf8c3c673cf8277bb339796d",
+    "triggered": false,
+    "trigger_count": 0
+  },
+  "data/.ssh_keys/id_rsa": {
+    "filepath": "data/.ssh_keys/id_rsa",
+    "created_at": "2026-03-25T21:10:46.988549",
+    "last_checked": "",
+    "content_hash": "dcc6b7632a4eddaa18ad9dd95139595857631bf5578be56eaff9121554b44d26",
+    "triggered": false,
+    "trigger_count": 0
+  },
+  "data/.bitcoin_wallet.dat": {
+    "filepath": "data/.bitcoin_wallet.dat",
+    "created_at": "2026-03-25T21:10:46.988549",
+    "last_checked": "",
+    "content_hash": "002589b9ae6899785ca7a7fe9c1e49c52a76e3d4fc6d53e145a1700d2c2c9d23",
+    "triggered": false,
+    "trigger_count": 0
+  }
+}

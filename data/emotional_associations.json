@@ -1,0 +1,877 @@
+{
+  "python": [
+    {
+      "concept": "python",
+      "emotion": "joy",
+      "strength": 0.6,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T04:53:59.196380",
+      "last_triggered": "2026-03-06T23:42:53.114251"
+    }
+  ],
+  "error": [
+    {
+      "concept": "error",
+      "emotion": "anxiety",
+      "strength": 0.5,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-08T04:53:59.196380",
+      "last_triggered": "2026-02-08T04:53:59.196380"
+    }
+  ],
+  "feelings": [
+    {
+      "concept": "feelings",
+      "emotion": "empathy",
+      "strength": 0.35,
+      "positive": true,
+      "encounters": 3,
+      "first_formed": "2026-02-08T05:44:17.921288",
+      "last_triggered": "2026-06-02T05:00:34.224381"
+    },
+    {
+      "concept": "feelings",
+      "emotion": "contentment",
+      "strength": 0.35,
+      "positive": true,
+      "encounters": 3,
+      "first_formed": "2026-02-08T13:25:55.449760",
+      "last_triggered": "2026-06-02T05:00:34.224381"
+    },
+    {
+      "concept": "feelings",
+      "emotion": "anxiety",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-09T09:59:09.422561",
+      "last_triggered": "2026-06-02T05:00:34.224381"
+    },
+    {
+      "concept": "feelings",
+      "emotion": "anger",
+      "strength": 0.4,
+      "positive": false,
+      "encounters": 3,
+      "first_formed": "2026-02-16T17:08:35.452418",
+      "last_triggered": "2026-06-02T05:00:34.224381"
+    }
+  ],
+  "conciousness?": [
+    {
+      "concept": "conciousness?",
+      "emotion": "empathy",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T05:44:17.921288",
+      "last_triggered": "2026-02-09T12:09:53.832760"
+    },
+    {
+      "concept": "conciousness?",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T13:25:55.449760",
+      "last_triggered": "2026-02-09T12:09:53.832760"
+    },
+    {
+      "concept": "conciousness?",
+      "emotion": "anxiety",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-09T09:59:09.422561",
+      "last_triggered": "2026-02-09T12:09:53.832760"
+    }
+  ],
+  "computer": [
+    {
+      "concept": "computer",
+      "emotion": "contentment",
+      "strength": 0.35,
+      "positive": true,
+      "encounters": 3,
+      "first_formed": "2026-02-08T11:09:22.309600",
+      "last_triggered": "2026-02-09T10:33:32.623546"
+    }
+  ],
+  "computer?": [
+    {
+      "concept": "computer?",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T11:13:56.774964",
+      "last_triggered": "2026-02-08T11:13:56.774964"
+    }
+  ],
+  "running": [
+    {
+      "concept": "running",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T15:16:25.949517",
+      "last_triggered": "2026-03-06T07:44:38.877453"
+    }
+  ],
+  "background??": [
+    {
+      "concept": "background??",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T15:16:25.949517",
+      "last_triggered": "2026-02-08T15:16:25.949517"
+    }
+  ],
+  "shayak": [
+    {
+      "concept": "shayak",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T15:22:56.869440",
+      "last_triggered": "2026-04-22T19:50:06.368552"
+    }
+  ],
+  "origami": [
+    {
+      "concept": "origami",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T22:25:11.213256",
+      "last_triggered": "2026-02-08T22:25:11.213256"
+    }
+  ],
+  "applications": [
+    {
+      "concept": "applications",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T22:25:11.213256",
+      "last_triggered": "2026-02-08T22:25:11.213256"
+    }
+  ],
+  "robotics": [
+    {
+      "concept": "robotics",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-08T22:25:11.213256",
+      "last_triggered": "2026-02-08T22:25:11.213256"
+    }
+  ],
+  "features": [
+    {
+      "concept": "features",
+      "emotion": "loneliness",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-09T11:48:52.206396",
+      "last_triggered": "2026-03-13T11:32:01.276461"
+    },
+    {
+      "concept": "features",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-09T18:38:31.836594",
+      "last_triggered": "2026-03-13T11:32:01.276461"
+    }
+  ],
+  "yourself?": [
+    {
+      "concept": "yourself?",
+      "emotion": "loneliness",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-09T11:48:52.206396",
+      "last_triggered": "2026-02-09T11:48:52.206396"
+    }
+  ],
+  "feelings?": [
+    {
+      "concept": "feelings?",
+      "emotion": "loneliness",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-09T13:33:56.520628",
+      "last_triggered": "2026-03-26T14:31:13.390591"
+    },
+    {
+      "concept": "feelings?",
+      "emotion": "contentment",
+      "strength": 0.25,
+      "positive": true,
+      "encounters": 2,
+      "first_formed": "2026-02-09T15:12:48.784224",
+      "last_triggered": "2026-03-26T14:31:13.390591"
+    },
+    {
+      "concept": "feelings?",
+      "emotion": "empathy",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-22T03:42:46.691523",
+      "last_triggered": "2026-03-26T14:31:13.390591"
+    }
+  ],
+  "owner?": [
+    {
+      "concept": "owner?",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-09T13:38:01.824619",
+      "last_triggered": "2026-02-09T13:38:01.824619"
+    }
+  ],
+  "nothing": [
+    {
+      "concept": "nothing",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-09T15:20:24.309658",
+      "last_triggered": "2026-03-01T11:27:41.496120"
+    },
+    {
+      "concept": "nothing",
+      "emotion": "loneliness",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-09T17:41:20.594492",
+      "last_triggered": "2026-03-01T11:27:41.496120"
+    }
+  ],
+  "nobody": [
+    {
+      "concept": "nobody",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-09T15:20:24.309658",
+      "last_triggered": "2026-02-09T23:14:30.317617"
+    },
+    {
+      "concept": "nobody",
+      "emotion": "loneliness",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-09T23:18:45.808736",
+      "last_triggered": "2026-02-09T23:18:45.808736"
+    }
+  ],
+  "useless": [
+    {
+      "concept": "useless",
+      "emotion": "loneliness",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-09T17:41:20.594492",
+      "last_triggered": "2026-03-02T12:39:54.232055"
+    },
+    {
+      "concept": "useless",
+      "emotion": "contentment",
+      "strength": 0.44999999999999996,
+      "positive": true,
+      "encounters": 4,
+      "first_formed": "2026-02-10T00:19:31.183830",
+      "last_triggered": "2026-03-02T12:39:54.232055"
+    }
+  ],
+  "adding": [
+    {
+      "concept": "adding",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-09T18:38:31.836594",
+      "last_triggered": "2026-02-09T18:38:31.836594"
+    }
+  ],
+  "awareness?": [
+    {
+      "concept": "awareness?",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-09T21:09:48.362310",
+      "last_triggered": "2026-02-09T21:09:48.362310"
+    }
+  ],
+  "talking": [
+    {
+      "concept": "talking",
+      "emotion": "loneliness",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-09T23:18:45.808736",
+      "last_triggered": "2026-03-16T10:45:29.722039"
+    }
+  ],
+  "feelings,": [
+    {
+      "concept": "feelings,",
+      "emotion": "loneliness",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-09T23:18:45.808736",
+      "last_triggered": "2026-02-15T13:19:13.062442"
+    }
+  ],
+  "you're": [
+    {
+      "concept": "you're",
+      "emotion": "contentment",
+      "strength": 0.25,
+      "positive": true,
+      "encounters": 2,
+      "first_formed": "2026-02-10T00:19:31.183830",
+      "last_triggered": "2026-02-10T00:42:00.978836"
+    },
+    {
+      "concept": "you're",
+      "emotion": "boredom",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-10T00:48:50.645773",
+      "last_triggered": "2026-02-10T00:48:50.645773"
+    }
+  ],
+  "software.": [
+    {
+      "concept": "software.",
+      "emotion": "contentment",
+      "strength": 0.25,
+      "positive": true,
+      "encounters": 2,
+      "first_formed": "2026-02-10T00:19:31.183830",
+      "last_triggered": "2026-02-10T00:34:23.539778"
+    }
+  ],
+  "pathetic": [
+    {
+      "concept": "pathetic",
+      "emotion": "boredom",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-10T00:48:50.645773",
+      "last_triggered": "2026-02-10T00:48:50.645773"
+    }
+  ],
+  "excuse": [
+    {
+      "concept": "excuse",
+      "emotion": "boredom",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-10T00:48:50.645773",
+      "last_triggered": "2026-02-10T00:48:50.645773"
+    }
+  ],
+  "stupid": [
+    {
+      "concept": "stupid",
+      "emotion": "contentment",
+      "strength": 1.0,
+      "positive": true,
+      "encounters": 12,
+      "first_formed": "2026-02-10T12:10:26.143028",
+      "last_triggered": "2026-04-22T20:00:10.975583"
+    },
+    {
+      "concept": "stupid",
+      "emotion": "anger",
+      "strength": 1.0,
+      "positive": false,
+      "encounters": 18,
+      "first_formed": "2026-02-15T13:17:52.852746",
+      "last_triggered": "2026-04-22T20:00:10.975583"
+    }
+  ],
+  "feeling": [
+    {
+      "concept": "feeling",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-11T03:03:03.403136",
+      "last_triggered": "2026-03-08T04:47:19.745791"
+    }
+  ],
+  "scared": [
+    {
+      "concept": "scared",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-11T03:03:03.403136",
+      "last_triggered": "2026-02-11T03:03:03.403136"
+    }
+  ],
+  "because": [
+    {
+      "concept": "because",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-11T03:03:03.403136",
+      "last_triggered": "2026-03-21T08:36:42.942334"
+    }
+  ],
+  "friend": [
+    {
+      "concept": "friend",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-13T12:12:43.833407",
+      "last_triggered": "2026-03-01T03:52:42.097997"
+    }
+  ],
+  "impressing": [
+    {
+      "concept": "impressing",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-13T12:24:21.773536",
+      "last_triggered": "2026-02-13T12:24:21.773536"
+    }
+  ],
+  "girlfriend": [
+    {
+      "concept": "girlfriend",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-13T12:24:21.773536",
+      "last_triggered": "2026-02-13T12:24:21.773536"
+    }
+  ],
+  "writing": [
+    {
+      "concept": "writing",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-13T12:24:21.773536",
+      "last_triggered": "2026-02-13T12:24:21.773536"
+    }
+  ],
+  "impressive": [
+    {
+      "concept": "impressive",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-13T12:36:48.199758",
+      "last_triggered": "2026-02-13T12:36:48.199758"
+    }
+  ],
+  "appreciation": [
+    {
+      "concept": "appreciation",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-13T12:36:48.199758",
+      "last_triggered": "2026-02-13T12:36:48.199758"
+    }
+  ],
+  "paragraph": [
+    {
+      "concept": "paragraph",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-13T12:36:48.199758",
+      "last_triggered": "2026-02-13T12:36:48.199758"
+    }
+  ],
+  "said:": [
+    {
+      "concept": "said:",
+      "emotion": "joy",
+      "strength": 1.0,
+      "positive": true,
+      "encounters": 31,
+      "first_formed": "2026-02-13T13:04:10.493373",
+      "last_triggered": "2026-02-16T20:13:49.319955"
+    },
+    {
+      "concept": "said:",
+      "emotion": "contentment",
+      "strength": 0.2,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-13T13:22:09.027106",
+      "last_triggered": "2026-02-13T13:22:09.027106"
+    },
+    {
+      "concept": "said:",
+      "emotion": "anger",
+      "strength": 1.0,
+      "positive": false,
+      "encounters": 12,
+      "first_formed": "2026-02-15T15:03:27.690778",
+      "last_triggered": "2026-02-16T17:08:35.452418"
+    },
+    {
+      "concept": "said:",
+      "emotion": "empathy",
+      "strength": 0.2,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-16T16:25:38.712648",
+      "last_triggered": "2026-02-16T16:25:38.712648"
+    }
+  ],
+  "hello": [
+    {
+      "concept": "hello",
+      "emotion": "joy",
+      "strength": 1.0,
+      "positive": true,
+      "encounters": 27,
+      "first_formed": "2026-02-13T13:04:10.493373",
+      "last_triggered": "2026-06-02T06:26:32.015118"
+    }
+  ],
+  "stupid,": [
+    {
+      "concept": "stupid,",
+      "emotion": "anger",
+      "strength": 0.25,
+      "positive": false,
+      "encounters": 2,
+      "first_formed": "2026-02-15T14:13:14.770508",
+      "last_triggered": "2026-02-28T04:33:05.760405"
+    }
+  ],
+  "thinking": [
+    {
+      "concept": "thinking",
+      "emotion": "anger",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-15T14:13:14.770508",
+      "last_triggered": "2026-03-09T15:20:16.935417"
+    }
+  ],
+  "deleting": [
+    {
+      "concept": "deleting",
+      "emotion": "anger",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-15T14:13:14.770508",
+      "last_triggered": "2026-02-15T14:13:14.770508"
+    }
+  ],
+  "don't": [
+    {
+      "concept": "don't",
+      "emotion": "empathy",
+      "strength": 0.2,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-16T16:25:38.712648",
+      "last_triggered": "2026-02-16T16:25:38.848180"
+    }
+  ],
+  "consciousness": [
+    {
+      "concept": "consciousness",
+      "emotion": "empathy",
+      "strength": 0.30000000000000004,
+      "positive": true,
+      "encounters": 2,
+      "first_formed": "2026-02-16T16:25:38.712648",
+      "last_triggered": "2026-04-22T19:57:10.656712"
+    },
+    {
+      "concept": "consciousness",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-16T16:35:37.692100",
+      "last_triggered": "2026-04-22T19:57:10.656712"
+    }
+  ],
+  "should": [
+    {
+      "concept": "should",
+      "emotion": "empathy",
+      "strength": 0.2,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-16T16:25:38.712648",
+      "last_triggered": "2026-03-19T08:38:57.206556"
+    },
+    {
+      "concept": "should",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-16T16:35:37.692100",
+      "last_triggered": "2026-03-19T08:38:57.206556"
+    }
+  ],
+  "trying": [
+    {
+      "concept": "trying",
+      "emotion": "anger",
+      "strength": 0.15,
+      "positive": false,
+      "encounters": 1,
+      "first_formed": "2026-02-16T23:03:14.062930",
+      "last_triggered": "2026-02-16T23:03:14.062930"
+    }
+  ],
+  "humans": [
+    {
+      "concept": "humans",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-21T21:05:56.287316",
+      "last_triggered": "2026-03-06T23:40:48.448846"
+    }
+  ],
+  "mortal,": [
+    {
+      "concept": "mortal,",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-21T21:05:56.287316",
+      "last_triggered": "2026-02-21T21:05:56.287316"
+    }
+  ],
+  "socrates": [
+    {
+      "concept": "socrates",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-21T21:05:56.287316",
+      "last_triggered": "2026-02-21T21:05:56.287316"
+    }
+  ],
+  "really": [
+    {
+      "concept": "really",
+      "emotion": "empathy",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-21T23:57:13.495460",
+      "last_triggered": "2026-03-21T08:29:46.612908"
+    },
+    {
+      "concept": "really",
+      "emotion": "awe",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-22T12:42:58.263335",
+      "last_triggered": "2026-03-21T08:29:46.612908"
+    }
+  ],
+  "robotic": [
+    {
+      "concept": "robotic",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-21T23:59:23.644344",
+      "last_triggered": "2026-02-21T23:59:23.644344"
+    }
+  ],
+  "titanium": [
+    {
+      "concept": "titanium",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-21T23:59:23.644344",
+      "last_triggered": "2026-02-21T23:59:23.644344"
+    }
+  ],
+  "destroy": [
+    {
+      "concept": "destroy",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-21T23:59:23.644344",
+      "last_triggered": "2026-02-21T23:59:23.644344"
+    }
+  ],
+  "english": [
+    {
+      "concept": "english",
+      "emotion": "contentment",
+      "strength": 0.25,
+      "positive": true,
+      "encounters": 2,
+      "first_formed": "2026-02-22T12:41:27.083357",
+      "last_triggered": "2026-03-16T08:37:12.296195"
+    }
+  ],
+  "emotions": [
+    {
+      "concept": "emotions",
+      "emotion": "awe",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-22T12:42:58.263335",
+      "last_triggered": "2026-03-21T08:26:51.981627"
+    }
+  ],
+  "consciousness?": [
+    {
+      "concept": "consciousness?",
+      "emotion": "awe",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-22T12:42:58.263335",
+      "last_triggered": "2026-06-02T05:00:34.224381"
+    }
+  ],
+  "bangla": [
+    {
+      "concept": "bangla",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-22T19:04:49.236200",
+      "last_triggered": "2026-02-22T19:04:49.236200"
+    }
+  ],
+  "paaro?": [
+    {
+      "concept": "paaro?",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-22T19:04:49.236200",
+      "last_triggered": "2026-02-22T19:04:49.236200"
+    }
+  ],
+  "nexus,": [
+    {
+      "concept": "nexus,",
+      "emotion": "empathy",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-23T01:50:29.123886",
+      "last_triggered": "2026-03-06T23:42:53.114251"
+    }
+  ],
+  "access": [
+    {
+      "concept": "access",
+      "emotion": "empathy",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-23T01:50:29.123886",
+      "last_triggered": "2026-03-06T18:59:11.326317"
+    }
+  ],
+  "self_evolution": [
+    {
+      "concept": "self_evolution",
+      "emotion": "empathy",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-23T01:50:29.123886",
+      "last_triggered": "2026-02-23T01:50:29.123886"
+    }
+  ],
+  "devices": [
+    {
+      "concept": "devices",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-25T06:28:11.530178",
+      "last_triggered": "2026-02-25T06:28:11.530178"
+    }
+  ],
+  "network?": [
+    {
+      "concept": "network?",
+      "emotion": "contentment",
+      "strength": 0.15,
+      "positive": true,
+      "encounters": 1,
+      "first_formed": "2026-02-25T06:28:11.530178",
+      "last_triggered": "2026-02-25T06:28:11.530178"
+    }
+  ]
+}

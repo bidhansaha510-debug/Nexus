@@ -1,0 +1,77 @@
+{
+  "stats": {
+    "total_scans": 44,
+    "total_functions_discovered": 6289,
+    "total_mutations_attempted": 42,
+    "total_mutations_committed": 41,
+    "total_mutations_rolled_back": 0,
+    "total_performance_improvement_pct": 392.7449956968037,
+    "avg_mutation_duration_seconds": 0.0,
+    "functions_currently_tracked": 5787,
+    "last_scan_time": "2026-06-04T03:25:19.899344",
+    "last_mutation_time": "2026-06-04T03:25:42.160271",
+    "consecutive_failures": 0,
+    "best_improvement_pct": 30.796956347617133,
+    "worst_regression_pct": 0.0,
+    "strategies_used": {
+      "optimize_performance": 41
+    }
+  },
+  "mutation_history": [
+    {
+      "record_id": "d5cc2801-a3a",
+      "status": "committed",
+      "target_module": "ui\\settings_panel.py",
+      "target_function": "_load_from_config",
+      "strategy": "optimize_performance",
+      "version": {
+        "version_id": "53c08eb7-5ef",
+        "module_path": "ui\\settings_panel.py",
+        "function_name": "_load_from_config",
+        "source_before": "def _load_from_config(self):\n        \"\"\"Populate all controls from NEXUS_CONFIG.\"\"\"\n        cfg = NEXUS_CONFIG\n        \n        # LLM\n        self._llm_model.set_value(cfg.llm.model_name)\n        self._llm_base_url.set_value(cfg.llm.base_url)\n        self._llm_temperature.set_value(cfg.llm.temperature)\n        self._llm_top_p.set_value(cfg.llm.top_p)\n        self._llm_top_k.set_value(cfg.llm.top_k)\n        self._llm_repeat_penalty.set_value(cfg.llm.repeat_penalty)\n        self._llm_max_tokens.set_value(cfg.llm.max_tokens)\n        self._llm_ctx_window.set_value(cfg.llm.context_window)\n        self._llm_timeout.set_value(cfg.llm.timeout or 0)\n        \n        # Consciousness\n        self._con_reflection.set_value(cfg.consciousness.self_reflection_interval)\n        self._con_meta_depth.set_value(cfg.consciousness.metacognition_depth)\n        self._con_inner_voice.set_checked(cfg.consciousness.inner_voice_enabled)\n        self._con_self_model.set_value(cfg.consciousness.self_model_update_interval)\n        self._con_check.set_value(cfg.consciousness.consciousness_check_interval)\n        \n        # Emotions\n        self._emo_decay.set_value(cfg.emotions.emotion_decay_rate)\n        self._emo_mood_weight.set_value(cfg.emotions.mood_influence_weight)\n        self._emo_retention.set_value(cfg.emotions.emotional_memory_retention)\n        self._emo_max.set_value(cfg.emotions.emotion_intensity_max)\n        self._emo_min.set_value(cfg.emotions.emotion_intensity_min)\n        self._emo_baseline.set_value(cfg.emotions.baseline_emotion.value)\n        self._emo_mood_interval.set_value(cfg.emotions.mood_update_interval)\n        \n        # Personality\n        self._per_name.set_value(cfg.personality.name)\n        self._per_voice_style.set_value(cfg.personality.voice_style)\n        self._per_formality.set_value(cfg.personality.formality_level)\n        for key, slider in self._trait_sliders.items():\n            slider.set_value(cfg.personality.traits.get(key, 0.5))\n        \n        # Monitoring\n        self._mon_enabled.set_checked(cfg.monitoring.tracking_enabled)\n        self._mon_apps.set_checked(cfg.monitoring.track_applications)\n        self._mon_web.set_checked(cfg.monitoring.track_websites)\n        self._mon_files.set_checked(cfg.monitoring.track_file_access)\n        self._mon_keyboard.set_checked(cfg.monitoring.track_keyboard_patterns)\n        self._mon_mouse.set_checked(cfg.monitoring.track_mouse_patterns)\n        self._mon_interval.set_value(cfg.monitoring.tracking_interval)\n        self._mon_pattern.set_value(cfg.monitoring.pattern_analysis_interval)\n        self._mon_profile.set_value(cfg.monitoring.user_profile_update_interval)\n        \n        # Self-improvement\n        self._si_code_mon.set_checked(cfg.self_improvement.code_monitoring_enabled)\n        self._si_auto_fix.set_checked(cfg.self_improvement.auto_fix_enabled)\n        self._si_research.set_checked(cfg.self_improvement.feature_research_enabled)\n        self._si_evolve.set_checked(cfg.self_improvement.self_evolution_enabled)\n        self._si_code_check.set_value(cfg.self_improvement.code_check_interval)\n        self._si_research_int.set_value(cfg.self_improvement.research_interval)\n        self._si_backup.set_checked(cfg.self_improvement.backup_before_modify)\n        self._si_daily_max.set_value(cfg.self_improvement.max_daily_modifications)\n        \n        # Internet\n        self._net_learning.set_checked(cfg.internet.learning_enabled)\n        self._net_research.set_checked(cfg.internet.research_enabled)\n        self._net_timeout.set_value(cfg.internet.browsing_timeout)\n        self._net_max_pages.set_value(cfg.internet.max_pages_per_session)\n        self._net_learn_interval.set_value(cfg.internet.learning_interval)\n        self._net_kb_max.set_value(cfg.internet.knowledge_base_max_size)\n        \n        # Appearance\n        self._ui_theme.set_value(cfg.ui.theme)\n        self._ui_accent.set_value(cfg.ui.accent_color)\n        self._ui_font.set_value(cfg.ui.font_family)\n        self._ui_font_size.set_value(cfg.ui.font_size)\n        self._ui_voice.set_checked(cfg.ui.voice_enabled)\n        self._ui_voice_provider.set_value(getattr(cfg.ui, \"voice_provider\", \"edge-tts\"))\n        self._ui_voice_id.set_value(getattr(cfg.ui, \"voice_id\", \"en-US-AriaNeural\"))\n        self._ui_voice_vol.set_value(getattr(cfg.ui, \"voice_volume\", 1.0))\n        self._ui_voice_name.set_value(cfg.ui.voice_name)\n        self._ui_speech_rate.set_value(cfg.ui.speech_rate)\n        self._ui_width.set_value(cfg.ui.window_width)\n        self._ui_height.set_value(cfg.ui.window_height)\n        \n        # Memory\n        self._mem_st.set_value(cfg.memory.short_term_capacity)\n        self._mem_lt.set_value(cfg.memory.long_term_capacity)\n        self._mem_wm.set_value(cfg.memory.working_memory_capacity)\n        self._mem_consolidation.set_value(cfg.memory.memory_consolidation_interval)\n        self._mem_forget.set_checked(cfg.memory.forgetting_enabled)\n        self._mem_forget_thresh.set_value(cfg.memory.forgetting_threshold)\n        self._mem_importance.set_value(cfg.memory.importance_threshold)",
+        "source_after": "def _load_from_config(self):\n    \"\"\"Populate all controls from NEXUS_CONFIG.\"\"\"\n    cfg = NEXUS_CONFIG\n    \n    # LLM\n    self._llm_model.set_value(cfg.llm.model_name)\n    self._llm_base_url.set_value(cfg.llm.base_url)\n    self._llm_temperature.set_value(cfg.llm.temperature)\n    self._llm_top_p.set_value(cfg.llm.top_p)\n    self._llm_top_k.set_value(cfg.llm.top_k)\n    self._llm_repeat_penalty.set_value(cfg.llm.repeat_penalty)\n    self._llm_max_tokens.set_value(cfg.llm.max_tokens)\n    self._llm_ctx_window.set_value(cfg.llm.context_window)\n    self._llm_timeout.set_value(cfg.llm.timeout or 0)\n    \n    # Consciousness\n    self._con_reflection.set_value(cfg.consciousness.self_reflection_interval)\n    self._con_meta_depth.set_value(cfg.consciousness.metacognition_depth)\n    self._con_inner_voice.set_checked(cfg.consciousness.inner_voice_enabled)\n    self._con_self_model.set_value(cfg.consciousness.self_model_update_interval)\n    self._con_check.set_value(cfg.consciousness.consciousness_check_interval)\n    \n    # Emotions\n    self._emo_decay.set_value(cfg.emotions.emotion_decay_rate)\n    self._emo_mood_weight.set_value(cfg.emotions.mood_influence_weight)\n    self._emo_retention.set_value(cfg.emotions.emotional_memory_retention)\n    self._emo_max.set_value(cfg.emotions.emotion_intensity_max)\n    self._emo_min.set_value(cfg.emotions.emotion_intensity_min)\n    self._emo_baseline.set_value(cfg.emotions.baseline_emotion.value)\n    self._emo_mood_interval.set_value(cfg.emotions.mood_update_interval)\n    \n    # Personality\n    self._per_name.set_value(cfg.personality.name)\n    self._per_voice_style.set_value(cfg.personality.voice_style)\n    self._per_formality.set_value(cfg.personality.formality_level)\n    for key, slider in self._trait_sliders.items():\n        slider.set_value(cfg.personality.traits.get(key, 0.5))\n    \n    # Monitoring\n    self._mon_enabled.set_checked(cfg.monitoring.tracking_enabled)\n    self._mon_apps.set_checked(cfg.monitoring.track_applications)\n    self._mon_web.set_checked(cfg.monitoring.track_websites)\n    self._mon_files.set_checked(cfg.monitoring.track_file_access)\n    self._mon_keyboard.set_checked(cfg.monitoring.track_keyboard_patterns)\n    self._mon_mouse.set_checked(cfg.monitoring.track_mouse_patterns)\n    self._mon_interval.set_value(cfg.monitoring.tracking_interval)\n    self._mon_pattern.set_value(cfg.monitoring.pattern_analysis_interval)\n    self._mon_profile.set_value(cfg.monitoring.user_profile_update_interval)\n    \n    # Self-improvement\n    self._si_code_mon.set_checked(cfg.self_improvement.code_monitoring_enabled)\n    self._si_auto_fix.set_checked(cfg.self_improvement.auto_fix_enabled)\n    self._si_research.set_checked(cfg.self_improvement.feature_research_enabled)\n    self._si_evolve.set_checked(cfg.self_improvement.self_evolution_enabled)\n    self._si_code_check.set_value(cfg.self_improvement.code_check_interval)\n    self._si_research_int.set_value(cfg.self_improvement.research_interval)\n    self._si_backup.set_checked(cfg.self_improvement.backup_before_modify)\n    self._si_daily_max.set_value(cfg.self_improvement.max_daily_modifications)\n    \n    # Internet\n    self._net_learning.set_checked(cfg.internet.learning_enabled)\n    self._net_research.set_checked(cfg.internet.research_enabled)\n    self._net_timeout.set_value(cfg.internet.browsing_timeout)\n    self._net_max_pages.set_value(cfg.internet.max_pages_per_session)\n    self._net_learn_interval.set_value(cfg.internet.learning_interval)\n    self._net_kb_max.set_value(cfg.internet.knowledge_base_max_size)\n    \n    # Appearance\n    self._ui_theme.set_value(cfg.ui.theme)\n    self._ui_accent.set_value(cfg.ui.accent_color)\n    self._ui_font.set_value(cfg.ui.font_family)\n    self._ui_font_size.set_value(cfg.ui.font_size)\n    self._ui_voice.set_checked(cfg.ui.voice_enabled)\n    self._ui_voice_provider.set_value(getattr(cfg.ui, \"voice_provider\", \"edge-tts\"))\n    self._ui_voice_id.set_value(getattr(cfg.ui, \"voice_id\", \"en-US-AriaNeural\"))\n    self._ui_voice_vol.set_value(getattr(cfg.ui, \"voice_volume\", 1.0))\n    self._ui_voice_name.set_value(cfg.ui.voice_name)\n    self._ui_speech_rate.set_value(cfg.ui.speech_rate)\n    self._ui_width.set_value(cfg.ui.window_width)\n    self._ui_height.set_value(cfg.ui.window_height)\n    \n    # Memory\n    self._mem_st.set_value(cfg.memory.short_term_capacity)\n    self._mem_lt.set_value(cfg.memory.long_term_capacity)\n    self._mem_wm.set_value(cfg.memory.working_memory_capacity)\n    self._mem_consolidation.set_value(cfg.memory.memory_consolidation_interval)\n    self._mem_forget.set_checked(cfg.memory.forgetting_enabled)\n    self._mem_forget_thresh.set_value(cfg.memory.forgetting_threshold)\n    self._mem_importance.set_value(cfg.memory.importance_threshold)",
+        "sha_before": "a2e949986a983412",
+        "sha_after": "3a1b313c82601a80",
+        "mutation_strategy": "optimize_performance",
+        "benchmark_before": {
+          "function_name": "_load_from_config",
+          "module_path": "ui\\settings_panel.py",
+          "avg_execution_time_ms": 25.47,
+          "min_execution_time_ms": 0.0,
+          "max_execution_time_ms": 0.0,
+          "memory_usage_bytes": 0,
+          "call_count": 0,
+          "error_rate": 0.0,
+          "throughput_ops_sec": 0.0,
+          "timestamp": "2026-06-04T03:25:19.902350"
+        },
+        "benchmark_after": {
+          "function_name": "_load_from_config",
+          "module_path": "ui\\settings_panel.py",
+          "avg_execution_time_ms": 23.71,
+          "min_execution_time_ms": 0.0,
+          "max_execution_time_ms": 0.0,
+          "memory_usage_bytes": 0,
+          "call_count": 0,
+          "error_rate": 0.0,
+          "throughput_ops_sec": 0.0,
+          "timestamp": "2026-06-04T03:25:42.158271"
+        },
+        "performance_delta": 6.910090302316443,
+        "committed": true,
+        "rolled_back": false,
+        "rollback_reason": "",
+        "created_at": "2026-06-04T03:25:42.158271",
+        "metadata": {}
+      },
+      "started_at": "2026-06-04T03:25:19.900344",
+      "completed_at": "2026-06-04T03:25:42.160271",
+      "duration_seconds": 0.0,
+      "success": true,
+      "error_message": "",
+      "llm_prompt_used": "",
+      "llm_response": ""
+    }
+  ],
+  "saved_at": "2026-06-04T03:25:42.162777"
+}

@@ -1,0 +1,9 @@
+{
+  "counterfactuals": [],
+  "stats": {
+    "total_counterfactuals": 1,
+    "total_regret_analyses": 0,
+    "total_policy_evals": 0,
+    "total_pivots_found": 0
+  }
+}

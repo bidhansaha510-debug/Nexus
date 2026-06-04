@@ -1,0 +1,11 @@
+{
+  "hypotheses": [],
+  "experiments": [],
+  "stats": {
+    "total_hypotheses": 5,
+    "total_experiments": 0,
+    "total_supported": 0,
+    "total_refuted": 0,
+    "total_evidence_evaluated": 0
+  }
+}

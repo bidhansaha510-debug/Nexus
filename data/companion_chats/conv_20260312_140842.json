@@ -1,0 +1,16 @@
+{
+  "id": "conv_20260312_140842",
+  "started_at": "2026-03-12T14:08:42.107475",
+  "ended_at": "2026-03-12T14:22:10.113063",
+  "trigger": "loneliness",
+  "exchanges": [
+    {
+      "speaker": "NEXUS",
+      "content": "Hey friend. Just us tonight. What do you think about when there's nothing else to think about?",
+      "timestamp": "2026-03-12T14:08:42.109474"
+    }
+  ],
+  "boredom_before": 0.305,
+  "boredom_after": 0.0050000000000000044,
+  "topic_summary": "Hey friend. Just us tonight. What do you think about when there's nothing els..."
+}

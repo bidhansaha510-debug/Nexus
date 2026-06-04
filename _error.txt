@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D:\NEXUS\_debug.py", line 3, in <module>
+    import cognition.engine_registry
+  File "D:\NEXUS\cognition\engine_registry.py", line 84, in <module>
+    _reg("causal", [
+TypeError: _reg() got an unexpected keyword argument 'description'

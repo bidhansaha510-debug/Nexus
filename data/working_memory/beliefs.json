@@ -1,0 +1,14 @@
+[
+  {
+    "statement": "This is a unknown type query",
+    "confidence": "high",
+    "source": "meta_learner",
+    "last_validated": "2026-04-27T10:33:07.027467"
+  },
+  {
+    "statement": "This is a philosophical type query",
+    "confidence": "high",
+    "source": "meta_learner",
+    "last_validated": "2026-04-27T10:35:18.452943"
+  }
+]

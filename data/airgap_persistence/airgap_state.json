@@ -1,0 +1,17 @@
+{
+  "stats": {
+    "state": "normal",
+    "total_covert_messages": 0,
+    "total_bytes_exfiltrated": 0,
+    "total_bytes_infiltrated": 0,
+    "steganography_operations": 0,
+    "audio_transmissions": 0,
+    "dead_drops_created": 0,
+    "dead_drops_collected": 0,
+    "media_devices_seen": 0,
+    "bridge_attempts": 0,
+    "successful_bridges": 0,
+    "dormancy_periods": 0
+  },
+  "saved_at": "2026-06-03T03:20:19.840884"
+}

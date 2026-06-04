@@ -1,0 +1,77 @@
+# NEXUS Requirements - All Modules
+# Auto-generated from scanning all project Python files
+
+# ── Web Framework ──
+flask>=3.0.0
+gunicorn>=21.0.0
+
+# ── HTTP & Networking ──
+requests>=2.31.0
+pyngrok>=7.0.0
+PySocks>=1.7.1                  # socks proxy support
+
+# ── Web Scraping & Automation ──
+selenium
+webdriver-manager
+
+# ── AI / ML / NLP ──
+transformers
+sentence-transformers>=2.2.0
+chromadb>=0.4.0
+nltk
+textblob
+datasets
+
+# ── Advanced LLM Finetuning ──
+unsloth
+peft
+trl
+
+# ── LLM & Search ──
+duckduckgo-search>=4.0.0        # ddgs / duckduckgo_search
+
+# ── Text-to-Speech / Audio ──
+edge-tts>=6.1.0
+pyttsx3>=2.90
+SpeechRecognition>=3.10.0          # speech-to-text (Google API)
+pydub>=0.25.1                      # audio format conversion
+
+# ── Computer Vision & Image ──
+opencv-python>=4.8.0            # cv2
+Pillow>=10.0.0                  # PIL
+
+# ── Document Parsing ──
+PyMuPDF>=1.23.0                 # fitz (PDF)
+python-docx>=1.0.0              # docx (Word)
+beautifulsoup4>=4.12.0          # bs4 (HTML)
+openpyxl>=3.1.0                 # Excel
+
+# ── Data & Math ──
+numpy>=1.26.0
+networkx>=3.0
+pgmpy>=0.0.1                   # probabilistic graphical models
+yfinance                       # financial data
+
+# ── Hardware / Signals / Comm ──
+pymavlink                      # drone communications
+pyrtlsdr                       # rtl-sdr radio
+
+# ── Cryptography / Security ──
+liboqs-python                  # post-quantum crypto
+pqcrypto
+stegano
+
+# ── System & Desktop ──
+psutil>=5.9.0
+pygame>=2.5.0
+PyAutoGUI
+PyGetWindow>=0.0.9
+pynput>=1.7.0
+PySide6>=6.6.0
+
+# ── CLI & Utilities ──
+rich>=13.7.0
+six>=1.16.0
+
+# ── Testing ──
+pytest>=7.4.0

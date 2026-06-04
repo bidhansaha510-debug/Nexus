@@ -1,0 +1,25 @@
+{
+  "arguments": [
+    {
+      "argument_id": "b1431f3b",
+      "premises": [],
+      "conclusion": "",
+      "logic_type": "deductive",
+      "is_valid": false,
+      "is_sound": false,
+      "strength": 0.5,
+      "fallacies": [],
+      "missing_premises": [],
+      "counterexamples": [],
+      "created_at": "2026-06-04T03:33:55.203458"
+    }
+  ],
+  "fallacies": [],
+  "stats": {
+    "total_arguments": 304,
+    "total_proofs": 0,
+    "total_fallacies_detected": 0,
+    "total_validations": 304,
+    "valid_arguments_pct": 0.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "session_id": "d17ab733-a4a6-4e20-9ab1-cd2c6d358569",
+  "started_at": "2026-06-03T03:20:35.929462",
+  "ended_at": "",
+  "topic": "",
+  "summary": "",
+  "message_count": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "My name is John Doe",
+      "timestamp": "2026-06-03T03:20:35.929963",
+      "emotion": "",
+      "emotion_intensity": 0.0,
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "Nice to meet you, John Doe! I will remember your name.",
+      "timestamp": "2026-06-03T03:20:35.930461",
+      "emotion": "joy",
+      "emotion_intensity": 0.8,
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

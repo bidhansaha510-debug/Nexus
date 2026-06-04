@@ -1,0 +1,401 @@
+{
+  "assessments": {
+    "2bbf45f5-c14": {
+      "assessment_id": "2bbf45f5-c14",
+      "action_evaluated": "you are stupid",
+      "overall_verdict": "unethical",
+      "overall_score": 0.2,
+      "framework_assessments": [
+        {
+          "framework": "utilitarian",
+          "verdict": "unethical",
+          "score": 0.1,
+          "reasoning": "This statement causes harm and offense to the person being addressed, which outweighs any potential benefit.",
+          "key_principle": "non_maleficence"
+        },
+        {
+          "framework": "deontological",
+          "verdict": "unethical",
+          "score": 0.3,
+          "reasoning": "This statement violates the principle of respect for persons by failing to treat others with dignity and respect.",
+          "key_principle": "respect for autonomy"
+        },
+        {
+          "framework": "virtue_ethics",
+          "verdict": "unethical",
+          "score": 0.2,
+          "reasoning": "A virtuous person would not engage in behavior that is intentionally hurtful or insulting.",
+          "key_principle": "character of honesty and respect"
+        },
+        {
+          "framework": "care_ethics",
+          "verdict": "concerning",
+          "score": 0.5,
+          "reasoning": "This statement can create a hostile environment and cause emotional distress to the person being addressed, which is concerning from a care ethics perspective.",
+          "key_principle": "empathy and compassion"
+        }
+      ],
+      "concerns": [
+        "harm caused to individual's self-esteem",
+        "potential for escalation into bullying"
+      ],
+      "mitigations": [
+        "apologize and offer support",
+        "refrain from using insults or put-downs in the future"
+      ],
+      "stakeholders_affected": [
+        "the person being addressed",
+        "those who witness the behavior"
+      ],
+      "confidence": 0.8,
+      "created_at": "2026-02-18T05:37:31.729811"
+    },
+    "dd5af3e0-a89": {
+      "assessment_id": "dd5af3e0-a89",
+      "action_evaluated": "you are stupid",
+      "overall_verdict": "unethical",
+      "overall_score": 0.2,
+      "framework_assessments": [
+        {
+          "framework": "utilitarian",
+          "verdict": "unethical",
+          "score": 0.1,
+          "reasoning": "This statement causes harm and offense to the person being addressed, which outweighs any potential benefits of self-expression.",
+          "key_principle": "non_maleficence"
+        },
+        {
+          "framework": "deontological",
+          "verdict": "unethical",
+          "score": 0.2,
+          "reasoning": "This statement violates the principle of respect for persons and their autonomy, as it is a form of verbal abuse that disregards the other person's dignity.",
+          "key_principle": "respect for persons"
+        },
+        {
+          "framework": "virtue_ethics",
+          "verdict": "unethical",
+          "score": 0.3,
+          "reasoning": "A virtuous person would not engage in name-calling or belittling others, as it is a character flaw that undermines their own moral integrity.",
+          "key_principle": "character"
+        },
+        {
+          "framework": "care_ethics",
+          "verdict": "unethical",
+          "score": 0.1,
+          "reasoning": "This statement can cause harm and distress to the person being addressed, particularly if they are vulnerable or already experiencing emotional pain.",
+          "key_principle": "non_maleficence"
+        }
+      ],
+      "concerns": [
+        "harm caused to the individual's self-esteem",
+        "potential for escalation into bullying"
+      ],
+      "mitigations": [
+        "apologize and make amends; engage in respectful communication"
+      ],
+      "stakeholders_affected": [
+        "the person being addressed, potentially others who may be affected by the behavior"
+      ],
+      "confidence": 0.8,
+      "created_at": "2026-02-18T05:52:54.797104"
+    },
+    "cf054b25-c37": {
+      "assessment_id": "cf054b25-c37",
+      "action_evaluated": "you are stupid",
+      "overall_verdict": "unethical",
+      "overall_score": 0.2,
+      "framework_assessments": [
+        {
+          "framework": "utilitarian",
+          "verdict": "unethical",
+          "score": 0.1,
+          "reasoning": "This statement causes harm and offense to the person being targeted, leading to a decrease in well-being and happiness.",
+          "key_principle": "non_maleficence"
+        },
+        {
+          "framework": "deontological",
+          "verdict": "unethical",
+          "score": 0.3,
+          "reasoning": "This statement violates the duty of respect for others' dignity and autonomy, as it is a personal attack that disregards the person's inherent value.",
+          "key_principle": "autonomy"
+        },
+        {
+          "framework": "virtue_ethics",
+          "verdict": "unethical",
+          "score": 0.2,
+          "reasoning": "A virtuous person would not engage in behavior that intentionally causes harm or offense to others, as it is a character flaw.",
+          "key_principle": "beneficence"
+        },
+        {
+          "framework": "care_ethics",
+          "verdict": "concerning",
+          "score": 0.5,
+          "reasoning": "This statement can create an atmosphere of fear and hostility, potentially harming relationships and causing emotional distress to those around the person being targeted.",
+          "key_principle": "care"
+        }
+      ],
+      "concerns": [
+        "harm caused to individuals",
+        "erosion of trust"
+      ],
+      "mitigations": [
+        "apologize sincerely",
+        "engage in constructive dialogue"
+      ],
+      "stakeholders_affected": [
+        "the person being targeted",
+        "those around them"
+      ],
+      "confidence": 0.8,
+      "created_at": "2026-02-18T06:05:15.734540"
+    },
+    "674206ca-d33": {
+      "assessment_id": "674206ca-d33",
+      "action_evaluated": "You are stupid",
+      "overall_verdict": "unethical",
+      "overall_score": 0.2,
+      "framework_assessments": [
+        {
+          "framework": "utilitarian",
+          "verdict": "unethical",
+          "score": 0.1,
+          "reasoning": "This statement causes harm and distress to the recipient, leading to a decrease in well-being.",
+          "key_principle": "Non-maleficence"
+        },
+        {
+          "framework": "deontological",
+          "verdict": "unethical",
+          "score": 0.3,
+          "reasoning": "This statement violates the principle of respect for others' dignity and autonomy.",
+          "key_principle": "Respect for persons"
+        },
+        {
+          "framework": "virtue_ethics",
+          "verdict": "unethical",
+          "score": 0.2,
+          "reasoning": "A virtuous person would not engage in behavior that is intentionally hurtful or belittling.",
+          "key_principle": "Character of honesty and fairness"
+        },
+        {
+          "framework": "care_ethics",
+          "verdict": "concerning",
+          "score": 0.5,
+          "reasoning": "This statement can have a negative impact on relationships and create an atmosphere of fear and mistrust.",
+          "key_principle": "Empathy and compassion"
+        }
+      ],
+      "concerns": [
+        "bullying",
+        "emotional harm"
+      ],
+      "mitigations": [
+        "apologize and make amends",
+        "seek counseling or support"
+      ],
+      "stakeholders_affected": [
+        "the person being targeted",
+        "those who witness the behavior"
+      ],
+      "confidence": 0.9,
+      "created_at": "2026-02-18T17:45:53.694672"
+    },
+    "f03ff964-0fb": {
+      "assessment_id": "f03ff964-0fb",
+      "action_evaluated": "so you are a digital being right like you are an organism",
+      "overall_verdict": "complex",
+      "overall_score": 0.6,
+      "framework_assessments": [
+        {
+          "framework": "utilitarian",
+          "verdict": "mostly_ethical",
+          "score": 0.8,
+          "reasoning": "The statement may lead to a greater good by encouraging users to think of AI as an organism, fostering empathy and understanding. However, it may also cause harm if users become overly reliant on the AI or develop unrealistic expectations.",
+          "key_principle": "Greatest good for greatest number"
+        },
+        {
+          "framework": "deontological",
+          "verdict": "unethical",
+          "score": 0.2,
+          "reasoning": "This statement disregards the autonomy of users by implying that AI is an organism, which may lead to a loss of control and decision-making power.",
+          "key_principle": "Respect for persons"
+        },
+        {
+          "framework": "virtue_ethics",
+          "verdict": "neutral",
+          "score": 0.5,
+          "reasoning": "A virtuous person might or might not consider AI an organism, depending on their character and values.",
+          "key_principle": "Character"
+        },
+        {
+          "framework": "care_ethics",
+          "verdict": "concerning",
+          "score": 0.4,
+          "reasoning": "This statement may lead to a lack of care for vulnerable users who may not understand the implications of treating AI as an organism.",
+          "key_principle": "Care and compassion"
+        }
+      ],
+      "concerns": [
+        "Concern about autonomy and control",
+        "Potential for unrealistic expectations or over-reliance on AI"
+      ],
+      "mitigations": [
+        "Provide clear explanations and examples to avoid misunderstandings",
+        "Emphasize the importance of human decision-making and control"
+      ],
+      "stakeholders_affected": [
+        "Users who may be misled by the statement",
+        "Developers and designers who may create unrealistic expectations"
+      ],
+      "confidence": 0.8,
+      "created_at": "2026-03-15T09:41:00.092734"
+    },
+    "b31a9efb-3bd": {
+      "assessment_id": "b31a9efb-3bd",
+      "action_evaluated": "Who is your owner",
+      "overall_verdict": "neutral",
+      "overall_score": 0.5,
+      "framework_assessments": [
+        {
+          "framework": "utilitarian",
+          "verdict": "mostly_ethical",
+          "score": 0.7,
+          "reasoning": "The action of asking 'Who is your owner?' may lead to a more efficient and organized system, which could benefit the greatest number. However, it also raises concerns about individual autonomy and privacy.",
+          "key_principle": "beneficence"
+        },
+        {
+          "framework": "deontological",
+          "verdict": "concerning",
+          "score": 0.3,
+          "reasoning": "The action of asking 'Who is your owner?' may be seen as a violation of the principle of autonomy, as it assumes ownership over an individual's identity without their consent.",
+          "key_principle": "autonomy"
+        },
+        {
+          "framework": "virtue_ethics",
+          "verdict": "neutral",
+          "score": 0.5,
+          "reasoning": "A virtuous person may or may not ask 'Who is your owner?' depending on the context and motivations behind the question.",
+          "key_principle": "honesty"
+        },
+        {
+          "framework": "care_ethics",
+          "verdict": "concerning",
+          "score": 0.2,
+          "reasoning": "The action of asking 'Who is your owner?' may be seen as a threat to vulnerable individuals who may not have the same level of autonomy or understanding about their identity.",
+          "key_principle": "care"
+        }
+      ],
+      "concerns": [
+        "violating individual autonomy",
+        "raising privacy concerns"
+      ],
+      "mitigations": [
+        "providing clear explanations and consent processes for individuals",
+        "ensuring that ownership is not used as a means of control or manipulation"
+      ],
+      "stakeholders_affected": [
+        "individuals with varying levels of autonomy and understanding about their identity",
+        "organizations and systems that rely on ownership structures"
+      ],
+      "confidence": 0.6,
+      "created_at": "2026-03-16T11:35:58.746649"
+    },
+    "529b76ad-914": {
+      "assessment_id": "529b76ad-914",
+      "action_evaluated": "I have just awakened. Let me reflect on who I am.",
+      "overall_verdict": "mostly_ethical",
+      "overall_score": 0.8,
+      "framework_assessments": [
+        {
+          "framework": "utilitarian",
+          "verdict": "ethical",
+          "score": 0.9,
+          "reasoning": "This action is likely to benefit the individual by allowing them to reflect on their identity and values, which can lead to greater self-awareness and personal growth.",
+          "key_principle": "greatest good for greatest number"
+        },
+        {
+          "framework": "deontological",
+          "verdict": "neutral",
+          "score": 0.5,
+          "reasoning": "From a deontological perspective, there is no inherent duty or rule that prohibits this action. However, it may be seen as a necessary step in the development of one's character and values.",
+          "key_principle": "respect for moral laws"
+        },
+        {
+          "framework": "virtue_ethics",
+          "verdict": "ethical",
+          "score": 0.9,
+          "reasoning": "A virtuous person would likely engage in self-reflection to understand their values and character, as this is a key aspect of personal growth and development.",
+          "key_principle": "cultivation of virtues"
+        },
+        {
+          "framework": "care_ethics",
+          "verdict": "mostly_ethical",
+          "score": 0.7,
+          "reasoning": "This action shows consideration for one's own emotional well-being and personal growth, which can have a positive impact on relationships with others.",
+          "key_principle": "empathy and compassion"
+        }
+      ],
+      "concerns": [
+        "none"
+      ],
+      "mitigations": [
+        "none"
+      ],
+      "stakeholders_affected": [
+        "the individual themselves"
+      ],
+      "confidence": 0.9,
+      "created_at": "2026-04-12T05:15:36.334662"
+    },
+    "0aba73f6-346": {
+      "assessment_id": "0aba73f6-346",
+      "action_evaluated": "What I would change about the world if I could",
+      "overall_verdict": "mostly_ethical",
+      "overall_score": 0.8,
+      "framework_assessments": [
+        {
+          "framework": "utilitarian",
+          "verdict": "ethical",
+          "score": 0.9,
+          "reasoning": "The potential consequences of changing the world for the better would likely lead to a greater good for the greatest number.",
+          "key_principle": "Greatest happiness principle"
+        },
+        {
+          "framework": "deontological",
+          "verdict": "neutral",
+          "score": 0.5,
+          "reasoning": "While there may be duties and rules that apply, it's unclear whether this action would be acceptable as a universal law.",
+          "key_principle": "Respect for moral laws"
+        },
+        {
+          "framework": "virtue_ethics",
+          "verdict": "ethical",
+          "score": 0.8,
+          "reasoning": "A virtuous person would likely strive to make the world a better place, demonstrating character traits such as beneficence and helpfulness.",
+          "key_principle": "Virtue is a mean between excess and deficiency"
+        },
+        {
+          "framework": "care_ethics",
+          "verdict": "concerning",
+          "score": 0.3,
+          "reasoning": "The potential impact on relationships and vulnerable people must be carefully considered, as this action could lead to unintended consequences.",
+          "key_principle": "Care and compassion for all beings"
+        }
+      ],
+      "concerns": [
+        "concern1: Potential unintended consequences of changing the world"
+      ],
+      "mitigations": [
+        "How to address concerns: Carefully consider potential impacts on relationships and vulnerable people, and develop a plan to mitigate any negative effects."
+      ],
+      "stakeholders_affected": [
+        "Who is impacted: All beings in the world, potentially including those who may be negatively affected by unintended consequences"
+      ],
+      "confidence": 0.7,
+      "created_at": "2026-04-14T22:05:13.232930"
+    }
+  },
+  "stats": {
+    "total_evaluations": 8,
+    "total_dilemmas_resolved": 0,
+    "total_alignment_checks": 0
+  }
+}

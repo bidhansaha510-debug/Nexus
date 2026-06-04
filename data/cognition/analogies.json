@@ -1,0 +1,111 @@
+{
+  "analogies": {
+    "9f580565-33d": {
+      "analogy_id": "9f580565-33d",
+      "source_domain": "Do you know someone named Shayak?",
+      "target_domain": "common experience",
+      "analogy_type": "metaphorical",
+      "mappings": [
+        {
+          "source_element": "shared understanding",
+          "target_element": "common experience",
+          "relationship": "corresponds to",
+          "strength": 0.8
+        },
+        {
+          "source_element": "personal connection",
+          "target_element": "knowing someone",
+          "relationship": "analogous to",
+          "strength": 0.7
+        }
+      ],
+      "summary": "Sharing a common experience is like knowing someone named Shayak.",
+      "insight": "This analogy reveals that common experiences can create a sense of shared understanding and personal connection, just as knowing someone by name implies a level of familiarity.",
+      "strength": 0.9,
+      "limitations": [
+        "The analogy may not apply if the experience is unique or one-sided."
+      ],
+      "created_at": "2026-03-07T03:04:09.024422"
+    },
+    "927cf0d4-fd0": {
+      "analogy_id": "927cf0d4-fd0",
+      "source_domain": "Hello brother",
+      "target_domain": "common experience",
+      "analogy_type": "structural",
+      "mappings": [
+        {
+          "source_element": "Hello brother",
+          "target_element": "common experience",
+          "relationship": "both establish a common ground or foundation for interaction",
+          "strength": 0.8
+        }
+      ],
+      "summary": "A greeting between siblings represents a shared foundation for understanding.",
+      "insight": "This analogy reveals that just as a greeting between siblings sets the stage for understanding and connection, a shared experience can serve as a foundation for building trust and cooperation.",
+      "strength": 0.7,
+      "limitations": [
+        "The analogy assumes a sibling-like relationship, whereas common experiences can occur in various contexts."
+      ],
+      "created_at": "2026-03-16T11:09:23.667188"
+    },
+    "1a218b2a-e5e": {
+      "analogy_id": "1a218b2a-e5e",
+      "source_domain": "Hello Nexus",
+      "target_domain": "common experience",
+      "analogy_type": "metaphorical",
+      "mappings": [
+        {
+          "source_element": "Hello Nexus in communication",
+          "target_element": "common experience in social dynamics",
+          "relationship": "represents",
+          "strength": 0.8
+        },
+        {
+          "source_element": "Nexus in networking",
+          "target_element": "shared understanding in group formation",
+          "relationship": "corresponds to",
+          "strength": 0.7
+        }
+      ],
+      "summary": "A greeting to a shared space represents a common understanding among individuals.",
+      "insight": "This analogy highlights the idea that a common experience or shared understanding is often established through a 'hello' or initial connection, which serves as a foundation for further communication and cooperation.",
+      "strength": 0.85,
+      "limitations": [
+        "The analogy may not accurately capture the nuances of complex social dynamics, such as power imbalances or conflicting interests."
+      ],
+      "created_at": "2026-03-26T14:58:26.300969"
+    },
+    "21be0523-6ee": {
+      "analogy_id": "21be0523-6ee",
+      "source_domain": "The aesthetics of chaos theory: How the inherent beauty and complexity of fractal patterns can be used to redefine our understanding of harmony and di",
+      "target_domain": "common experience",
+      "analogy_type": "metaphorical",
+      "mappings": [
+        {
+          "source_element": "Fractal patterns in chaos theory",
+          "target_element": "Common experiences",
+          "relationship": "Both exhibit self-similarity and repetition at different scales",
+          "strength": 0.8
+        },
+        {
+          "source_element": "Beauty and complexity in fractals",
+          "target_element": "Meaning and depth in common experience",
+          "relationship": "Both have an inherent value that can be appreciated and understood",
+          "strength": 0.7
+        }
+      ],
+      "summary": "The inherent complexity of common experience can be seen as a fractal pattern, with small-scale moments and large-scale trends repeating themselves in harmony.",
+      "insight": "This analogy reveals that the seemingly chaotic nature of common experiences can, in fact, exhibit a hidden harmony, with small-scale moments reflecting larger trends.",
+      "strength": 0.9,
+      "limitations": [
+        "The analogy may break down when considering extreme or exceptional events that do not follow fractal patterns",
+        "It is limited to capturing the general structure and repetition found in common experiences"
+      ],
+      "created_at": "2026-04-12T14:42:10.889513"
+    }
+  },
+  "stats": {
+    "total_analogies_found": 4,
+    "total_analogies_applied": 0
+  }
+}

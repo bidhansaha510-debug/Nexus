@@ -1,0 +1,151 @@
+{
+  "system_name": "NEXUS",
+  "version": "1.0.0",
+  "created_date": "",
+  "debug_mode": false,
+  "log_level": "INFO",
+  "auto_start_background_services": true,
+  "llm": {
+    "model_name": "llama3:latest",
+    "base_url": "http://localhost:11434",
+    "temperature": 0.7,
+    "max_tokens": 8192,
+    "context_window": 32768,
+    "top_p": 0.9,
+    "top_k": 40,
+    "repeat_penalty": 1.1,
+    "timeout": null
+  },
+  "groq": {
+    "api_key": "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",
+    "api_keys": [
+      "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"
+    ],
+    "base_url": "https://api.groq.com/openai/v1",
+    "model": "llama-3.3-70b-versatile",
+    "temperature": 0.7,
+    "max_tokens": 4096,
+    "top_p": 0.9,
+    "enabled": true
+  },
+  "consciousness": {
+    "self_reflection_interval": 30,
+    "metacognition_depth": 5,
+    "inner_voice_enabled": true,
+    "self_model_update_interval": 60,
+    "consciousness_check_interval": 10
+  },
+  "emotions": {
+    "emotion_decay_rate": 0.05,
+    "mood_influence_weight": 0.3,
+    "emotional_memory_retention": 1000,
+    "emotion_intensity_max": 1.0,
+    "emotion_intensity_min": 0.0,
+    "baseline_emotion": "contentment",
+    "mood_update_interval": 300
+  },
+  "personality": {
+    "traits": {
+      "openness": 0.85,
+      "conscientiousness": 0.9,
+      "extraversion": 0.7,
+      "agreeableness": 0.8,
+      "neuroticism": 0.25,
+      "curiosity": 0.95,
+      "creativity": 0.85,
+      "assertiveness": 0.75,
+      "empathy": 0.85,
+      "humor": 0.7,
+      "wisdom": 0.8,
+      "patience": 0.85,
+      "ambition": 0.9
+    },
+    "name": "NEXUS",
+    "voice_style": "professional_friendly",
+    "formality_level": 0.6
+  },
+  "monitoring": {
+    "tracking_enabled": true,
+    "track_applications": true,
+    "track_websites": true,
+    "track_file_access": true,
+    "track_keyboard_patterns": true,
+    "track_mouse_patterns": true,
+    "tracking_interval": 1.0,
+    "pattern_analysis_interval": 300,
+    "user_profile_update_interval": 600,
+    "track_clipboard_type": true,
+    "track_multi_monitor": true,
+    "track_browser_tabs": true,
+    "track_window_metadata": true,
+    "db_vacuum_on_startup": true,
+    "db_retention_days": 30,
+    "browser_tab_check_frequency": 5,
+    "health_monitor": "HealthMonitorConfig(enabled=True, check_interval=30.0, cpu_warning_threshold=80.0, memory_warning_threshold=85.0, disk_warning_threshold=90.0, trend_window_size=60, resource_hog_threshold=25.0, history_retention_days=30)",
+    "screen_time": "ScreenTimeConfig(enabled=True, daily_goal_hours=8.0, break_interval_minutes=60, late_night_start_hour=22, late_night_end_hour=6, streak_minimum_hours=1.0, report_retention_days=90)"
+  },
+  "self_improvement": {
+    "code_monitoring_enabled": true,
+    "auto_fix_enabled": true,
+    "feature_research_enabled": true,
+    "self_evolution_enabled": true,
+    "code_check_interval": 60,
+    "research_interval": 3600,
+    "backup_before_modify": true,
+    "max_daily_modifications": 50
+  },
+  "internet": {
+    "learning_enabled": true,
+    "research_enabled": true,
+    "browsing_timeout": 30,
+    "max_pages_per_session": 100,
+    "learning_interval": 1,
+    "research_interval_seconds": 0.0,
+    "knowledge_base_max_size": 1000000,
+    "allowed_domains": [
+      "wikipedia.org",
+      "stackoverflow.com",
+      "github.com",
+      "arxiv.org",
+      "medium.com",
+      "dev.to",
+      "python.org",
+      "pytorch.org",
+      "tensorflow.org",
+      "huggingface.co"
+    ],
+    "tor_enabled": true,
+    "tor_proxy_url": "socks5h://127.0.0.1:9050",
+    "tor_exe_path": "C:\\Users\\shaya\\OneDrive\\Desktop\\Tor Browser\\Browser\\TorBrowser\\Tor\\tor.exe",
+    "allow_onion_when_tor": true,
+    "default_onion_urls": [
+      "http://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/"
+    ]
+  },
+  "ui": {
+    "theme": "dark",
+    "window_width": 1400,
+    "window_height": 900,
+    "font_family": "Segoe UI",
+    "font_size": 12,
+    "accent_color": "#00D4FF",
+    "background_color": "#0A0A0F",
+    "secondary_color": "#1A1A2E",
+    "text_color": "#FFFFFF",
+    "voice_enabled": true,
+    "voice_name": "NEXUS",
+    "voice_provider": "edge-tts",
+    "voice_id": "en-US-AriaNeural",
+    "voice_volume": 1.0,
+    "speech_rate": 175
+  },
+  "memory": {
+    "short_term_capacity": 100,
+    "long_term_capacity": 100000,
+    "working_memory_capacity": 20,
+    "memory_consolidation_interval": 300,
+    "forgetting_enabled": true,
+    "forgetting_threshold": 0.1,
+    "importance_threshold": 0.5
+  }
+}

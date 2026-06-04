@@ -1,0 +1,9 @@
+{
+  "results": [],
+  "stats": {
+    "total_paradoxes": 1,
+    "total_godel_checks": 0,
+    "total_strange_loops": 0,
+    "total_koans": 0
+  }
+}

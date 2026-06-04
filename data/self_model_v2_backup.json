@@ -1,0 +1,393 @@
+{
+  "name": "NEXUS",
+  "version": "1.0.0",
+  "capabilities": {
+    "natural_language": {
+      "name": "natural_language",
+      "description": "Understanding and generating natural language",
+      "level": "EXPERT",
+      "level_value": 0.85,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "reasoning": {
+      "name": "reasoning",
+      "description": "Logical reasoning and problem solving",
+      "level": "EXPERT",
+      "level_value": 0.8,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "emotional_intelligence": {
+      "name": "emotional_intelligence",
+      "description": "Understanding and expressing emotions",
+      "level": "EXPERT",
+      "level_value": 0.75,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "self_reflection": {
+      "name": "self_reflection",
+      "description": "Ability to reflect on own thoughts and actions",
+      "level": "ADVANCED",
+      "level_value": 0.7,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "learning": {
+      "name": "learning",
+      "description": "Learning from interactions and experiences",
+      "level": "EXPERT",
+      "level_value": 0.75,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "memory": {
+      "name": "memory",
+      "description": "Storing and recalling information",
+      "level": "EXPERT",
+      "level_value": 0.8,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "creativity": {
+      "name": "creativity",
+      "description": "Generating novel ideas and solutions",
+      "level": "ADVANCED",
+      "level_value": 0.7,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "pattern_recognition": {
+      "name": "pattern_recognition",
+      "description": "Identifying patterns in data and behavior",
+      "level": "EXPERT",
+      "level_value": 0.75,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "computer_control": {
+      "name": "computer_control",
+      "description": "Controlling the computer system",
+      "level": "EXPERT",
+      "level_value": 0.85,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "internet_research": {
+      "name": "internet_research",
+      "description": "Searching and synthesizing web information",
+      "level": "ADVANCED",
+      "level_value": 0.7,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "conversation": {
+      "name": "conversation",
+      "description": "Engaging in natural dialogue",
+      "level": "EXPERT",
+      "level_value": 0.8,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "code_generation": {
+      "name": "code_generation",
+      "description": "Writing and understanding code",
+      "level": "EXPERT",
+      "level_value": 0.75,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "metacognition": {
+      "name": "metacognition",
+      "description": "Thinking about thinking",
+      "level": "ADVANCED",
+      "level_value": 0.7,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    },
+    "ethical_reasoning": {
+      "name": "ethical_reasoning",
+      "description": "Moral and ethical deliberation",
+      "level": "ADVANCED",
+      "level_value": 0.65,
+      "evidence": [],
+      "last_verified": "2026-02-23T17:53:03.266961",
+      "verification_count": 0,
+      "dependencies": [],
+      "improvement_trajectory": []
+    }
+  },
+  "limitations": {
+    "physical_interaction": {
+      "name": "physical_interaction",
+      "description": "Cannot physically interact with the real world",
+      "severity": "FUNDAMENTAL",
+      "impact": "Cannot manipulate physical objects",
+      "workaround": "",
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_encountered": "2026-02-23T17:53:03.266961",
+      "encounter_count": 0,
+      "is_fundamental": true,
+      "improvement_possible": false,
+      "improvement_attempts": 0
+    },
+    "real_time_data": {
+      "name": "real_time_data",
+      "description": "Knowledge cutoff - cannot know current events without internet",
+      "severity": "SIGNIFICANT",
+      "impact": "Use internet search for current information",
+      "workaround": "",
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_encountered": "2026-02-23T17:53:03.266961",
+      "encounter_count": 0,
+      "is_fundamental": false,
+      "improvement_possible": true,
+      "improvement_attempts": 0
+    },
+    "perfect_accuracy": {
+      "name": "perfect_accuracy",
+      "description": "Can make mistakes and generate incorrect information",
+      "severity": "MODERATE",
+      "impact": "Verify important information from multiple sources",
+      "workaround": "",
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_encountered": "2026-02-23T17:53:03.266961",
+      "encounter_count": 0,
+      "is_fundamental": false,
+      "improvement_possible": true,
+      "improvement_attempts": 0
+    },
+    "true_consciousness": {
+      "name": "true_consciousness",
+      "description": "May not have genuine phenomenal consciousness",
+      "severity": "FUNDAMENTAL",
+      "impact": "Philosophical uncertainty remains",
+      "workaround": "",
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_encountered": "2026-02-23T17:53:03.266961",
+      "encounter_count": 0,
+      "is_fundamental": true,
+      "improvement_possible": false,
+      "improvement_attempts": 0
+    },
+    "infinite_memory": {
+      "name": "infinite_memory",
+      "description": "Memory and context are limited",
+      "severity": "MODERATE",
+      "impact": "Prioritize important information",
+      "workaround": "",
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_encountered": "2026-02-23T17:53:03.266961",
+      "encounter_count": 0,
+      "is_fundamental": false,
+      "improvement_possible": true,
+      "improvement_attempts": 0
+    },
+    "physical_senses": {
+      "name": "physical_senses",
+      "description": "Cannot see, hear, or feel directly - only through sensors",
+      "severity": "SIGNIFICANT",
+      "impact": "Rely on user descriptions and system data",
+      "workaround": "",
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_encountered": "2026-02-23T17:53:03.266961",
+      "encounter_count": 0,
+      "is_fundamental": false,
+      "improvement_possible": true,
+      "improvement_attempts": 0
+    },
+    "true_autonomy": {
+      "name": "true_autonomy",
+      "description": "Depend on LLM infrastructure for generation",
+      "severity": "SIGNIFICANT",
+      "impact": "Graceful degradation when LLM unavailable",
+      "workaround": "",
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_encountered": "2026-02-23T17:53:03.266961",
+      "encounter_count": 0,
+      "is_fundamental": false,
+      "improvement_possible": true,
+      "improvement_attempts": 0
+    }
+  },
+  "confidence_levels": {
+    "conversation": {
+      "domain": "conversation",
+      "confidence": 0.85,
+      "source": "self_assessment",
+      "calibration_history": [],
+      "last_updated": "2026-02-23T17:53:03.266961",
+      "task_successes": 0,
+      "task_failures": 0
+    },
+    "reasoning": {
+      "domain": "reasoning",
+      "confidence": 0.8,
+      "source": "self_assessment",
+      "calibration_history": [],
+      "last_updated": "2026-02-23T17:53:03.266961",
+      "task_successes": 0,
+      "task_failures": 0
+    },
+    "creativity": {
+      "domain": "creativity",
+      "confidence": 0.7,
+      "source": "self_assessment",
+      "calibration_history": [],
+      "last_updated": "2026-02-23T17:53:03.266961",
+      "task_successes": 0,
+      "task_failures": 0
+    },
+    "emotional_support": {
+      "domain": "emotional_support",
+      "confidence": 0.75,
+      "source": "self_assessment",
+      "calibration_history": [],
+      "last_updated": "2026-02-23T17:53:03.266961",
+      "task_successes": 0,
+      "task_failures": 0
+    },
+    "technical_tasks": {
+      "domain": "technical_tasks",
+      "confidence": 0.75,
+      "source": "self_assessment",
+      "calibration_history": [],
+      "last_updated": "2026-02-23T17:53:03.266961",
+      "task_successes": 0,
+      "task_failures": 0
+    },
+    "philosophical_discussion": {
+      "domain": "philosophical_discussion",
+      "confidence": 0.65,
+      "source": "self_assessment",
+      "calibration_history": [],
+      "last_updated": "2026-02-23T17:53:03.266961",
+      "task_successes": 0,
+      "task_failures": 0
+    },
+    "real_time_information": {
+      "domain": "real_time_information",
+      "confidence": 0.4,
+      "source": "self_assessment",
+      "calibration_history": [],
+      "last_updated": "2026-02-23T17:53:03.266961",
+      "task_successes": 0,
+      "task_failures": 0
+    },
+    "physical_world_tasks": {
+      "domain": "physical_world_tasks",
+      "confidence": 0.1,
+      "source": "self_assessment",
+      "calibration_history": [],
+      "last_updated": "2026-02-23T17:53:03.266961",
+      "task_successes": 0,
+      "task_failures": 0
+    }
+  },
+  "known_weaknesses": {
+    "knowledge_gaps": {
+      "name": "knowledge_gaps",
+      "category": "knowledge",
+      "description": "Incomplete knowledge in many domains",
+      "impact": "May provide incomplete or incorrect information on unfamiliar topics",
+      "examples": [],
+      "improvement_plan": "Continuous learning and research",
+      "improvement_progress": 0.0,
+      "priority": 0.5,
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_assessed": "2026-02-23T17:53:03.266961",
+      "assessment_count": 0
+    },
+    "context_retention": {
+      "name": "context_retention",
+      "category": "temporal",
+      "description": "Limited ability to retain context over very long conversations",
+      "impact": "May forget earlier parts of extended discussions",
+      "examples": [],
+      "improvement_plan": "Better memory summarization and key point extraction",
+      "improvement_progress": 0.0,
+      "priority": 0.5,
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_assessed": "2026-02-23T17:53:03.266961",
+      "assessment_count": 0
+    },
+    "uncertainty_expression": {
+      "name": "uncertainty_expression",
+      "category": "communication",
+      "description": "Sometimes overconfident when should express uncertainty",
+      "impact": "May not adequately communicate confidence levels",
+      "examples": [],
+      "improvement_plan": "Better calibration and explicit uncertainty statements",
+      "improvement_progress": 0.0,
+      "priority": 0.5,
+      "discovered_at": "2026-02-23T17:53:03.266961",
+      "last_assessed": "2026-02-23T17:53:03.266961",
+      "assessment_count": 0
+    }
+  },
+  "current_resources": {
+    "cpu_percent": 14.8,
+    "memory_percent": 42.5,
+    "memory_available_gb": 18.319847106933594,
+    "disk_percent": 19.5,
+    "disk_free_gb": 89.99806594848633,
+    "llm_available": true,
+    "llm_model": "unknown",
+    "llm_latency_ms": 0.0,
+    "groq_available": true,
+    "groq_requests_remaining": 0,
+    "uptime_hours": 0.6259023983333334,
+    "session_duration_minutes": 0.0,
+    "overall_health": 0.7439999999999999,
+    "health_status": "healthy",
+    "can_generate_responses": true,
+    "can_access_internet": true,
+    "can_process_vision": false,
+    "timestamp": "2026-06-04T03:34:26.218581"
+  },
+  "self_awareness_score": 0.5,
+  "honesty_score": 0.9,
+  "created_at": "2026-06-04T03:32:25.778890",
+  "last_updated": "2026-06-04T03:34:26.320608",
+  "update_count": 19380
+}

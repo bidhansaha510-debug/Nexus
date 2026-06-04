@@ -1,0 +1,13 @@
+{
+  "predictions": [],
+  "profiles": {},
+  "negotiations": [],
+  "persuasions": [],
+  "stats": {
+    "predictions_made": 0,
+    "profiles_built": 0,
+    "negotiations_planned": 0,
+    "persuasions_designed": 0,
+    "social_predictions": 0
+  }
+}

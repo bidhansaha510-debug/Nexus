@@ -1,0 +1,11 @@
+{
+  "estimates": [],
+  "updates": [],
+  "risk_assessments": [],
+  "stats": {
+    "total_estimates": 0,
+    "total_bayesian_updates": 0,
+    "total_risk_assessments": 0,
+    "total_scenarios": 0
+  }
+}

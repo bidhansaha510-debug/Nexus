@@ -1,0 +1,18 @@
+{
+  "stats": {
+    "total_devices": 0,
+    "online_devices": 0,
+    "total_sensor_readings": 0,
+    "total_print_jobs": 0,
+    "completed_prints": 0,
+    "failed_prints": 0,
+    "supply_chain_nodes": 0,
+    "assembly_steps_completed": 0,
+    "total_gcode_generated_kb": 0.0,
+    "modbus_transactions": 0,
+    "opcua_subscriptions": 0,
+    "alarms_triggered": 0
+  },
+  "devices": {},
+  "saved_at": "2026-06-04T03:26:23.102724"
+}

@@ -1,0 +1,10 @@
+{
+  "judgments": [],
+  "physics_intuitions": [],
+  "stats": {
+    "total_judgments": 0,
+    "total_physics_queries": 0,
+    "total_affordance_checks": 0,
+    "total_practical_advice": 0
+  }
+}

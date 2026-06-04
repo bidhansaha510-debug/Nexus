@@ -1,0 +1,11 @@
+=== TOTAL LINES: 4333 ===
+
+=== updateAllUI FUNCTION ===
+  L547: function updateAllUI(data) {
+Traceback (most recent call last):
+  File "D:\NEXUS\_check_scriptjs.py", line 23, in <module>
+    print(f"  L{i+1}: {line.rstrip()[:100]}")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 15-16: character maps to <undefined>

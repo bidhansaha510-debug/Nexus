@@ -1,0 +1,12 @@
+{
+  "total_evolutions_attempted": 34,
+  "total_evolutions_succeeded": 5,
+  "total_evolutions_failed": 23,
+  "total_rollbacks": 23,
+  "total_files_created": 0,
+  "total_files_modified": 0,
+  "total_lines_added": 0,
+  "total_packages_installed": 4,
+  "consecutive_failures": 4,
+  "last_evolution_time": "2026-03-28T21:25:25.614594"
+}

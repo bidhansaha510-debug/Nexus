@@ -1,0 +1,1001 @@
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 37, in <module>
+    from cognition.logical_reasoning import logical_reasoning
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\cognition\logical_reasoning.py", line 423, in <module>
+    logical_reasoning = LogicalReasoningEngine()
+  File "D:\NEXUS\cognition\logical_reasoning.py", line 152, in __init__
+    self._load_data()
+  File "D:\NEXUS\cognition\logical_reasoning.py", line 415, in _load_data
+    logger.info("\U0001f4c2 Loaded logical reasoning data")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: '\U0001f4c2 Loaded logical reasoning data'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 37, in <module>
+    from cognition.logical_reasoning import logical_reasoning
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\cognition\logical_reasoning.py", line 423, in <module>
+    logical_reasoning = LogicalReasoningEngine()
+  File "D:\NEXUS\cognition\logical_reasoning.py", line 153, in __init__
+    logger.info("\u2705 Logical Reasoning Engine initialized")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: '\u2705 Logical Reasoning Engine initialized'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 38, in <module>
+    from cognition.dialectical_reasoning import dialectical_reasoning
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\cognition\dialectical_reasoning.py", line 331, in <module>
+    dialectical_reasoning = DialecticalReasoningEngine()
+  File "D:\NEXUS\cognition\dialectical_reasoning.py", line 141, in __init__
+    self._load_data()
+  File "D:\NEXUS\cognition\dialectical_reasoning.py", line 323, in _load_data
+    logger.info("\U0001f4c2 Loaded dialectical reasoning data")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: '\U0001f4c2 Loaded dialectical reasoning data'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 38, in <module>
+    from cognition.dialectical_reasoning import dialectical_reasoning
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\cognition\dialectical_reasoning.py", line 331, in <module>
+    dialectical_reasoning = DialecticalReasoningEngine()
+  File "D:\NEXUS\cognition\dialectical_reasoning.py", line 142, in __init__
+    logger.info("\u2705 Dialectical Reasoning Engine initialized")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: '\u2705 Dialectical Reasoning Engine initialized'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 57, in <module>
+    from llm.llama_interface import LlamaInterface, LLMResponse, llm
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\__init__.py", line 6, in <module>
+    from llm.llama_interface import LlamaInterface, LLMResponse, llm
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\llama_interface.py", line 644, in <module>
+    llm = LlamaInterface()
+  File "D:\NEXUS\llm\llama_interface.py", line 110, in __init__
+    self._check_connection()
+  File "D:\NEXUS\llm\llama_interface.py", line 126, in _check_connection
+    logger.info(f"\u2705 Connected to Ollama. Model '{self._model}' available.")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: "\u2705 Connected to Ollama. Model 'llama3:latest' available."
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 57, in <module>
+    from llm.llama_interface import LlamaInterface, LLMResponse, llm
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\__init__.py", line 7, in <module>
+    from llm.context_manager import ContextManager, context_manager
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\context_manager.py", line 467, in <module>
+    context_manager = ContextManager()
+  File "D:\NEXUS\llm\context_manager.py", line 171, in __init__
+    self.new_session()
+  File "D:\NEXUS\llm\context_manager.py", line 201, in new_session
+    logger.info(f"New session started: {self._current_session.session_id[:8]}")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'New session started: a7ad9d80'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 57, in <module>
+    from llm.llama_interface import LlamaInterface, LLMResponse, llm
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\__init__.py", line 7, in <module>
+    from llm.context_manager import ContextManager, context_manager
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\context_manager.py", line 467, in <module>
+    context_manager = ContextManager()
+  File "D:\NEXUS\llm\context_manager.py", line 173, in __init__
+    logger.info(
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'Context Manager initialized. Window: 4096 tokens, Available: 2596 tokens'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 57, in <module>
+    from llm.llama_interface import LlamaInterface, LLMResponse, llm
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\__init__.py", line 8, in <module>
+    from llm.prompt_engine import PromptEngine, prompt_engine
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\prompt_engine.py", line 811, in <module>
+    prompt_engine = PromptEngine()
+  File "D:\NEXUS\llm\prompt_engine.py", line 149, in __init__
+    logger.info("Prompt Engine initialized")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'Prompt Engine initialized'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 60, in <module>
+    from llm.groq_interface import GroqInterface, GroqResponse, groq_interface
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\groq_interface.py", line 459, in <module>
+    groq_interface = GroqInterface()
+  File "D:\NEXUS\llm\groq_interface.py", line 115, in __init__
+    self._check_connection()
+  File "D:\NEXUS\llm\groq_interface.py", line 124, in _check_connection
+    logger.info("\u2705 Groq API ready (API key configured)")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: '\u2705 Groq API ready (API key configured)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 60, in <module>
+    from llm.groq_interface import GroqInterface, GroqResponse, groq_interface
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\groq_interface.py", line 459, in <module>
+    groq_interface = GroqInterface()
+  File "D:\NEXUS\llm\groq_interface.py", line 117, in __init__
+    logger.info(f"Groq Interface initialized - Model: {self._model}")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'Groq Interface initialized - Model: llama-3.3-70b-versatile'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 61, in <module>
+    from llm.llm_router import llm_router, LLMTask
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\llm\llm_router.py", line 217, in <module>
+    llm_router = LLMRouter()
+  File "D:\NEXUS\llm\llm_router.py", line 84, in __init__
+    logger.info("LLM Router initialized")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'LLM Router initialized'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 24, in <module>
+    from core.nexus_brain import NexusBrain, nexus_brain
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\nexus_brain.py", line 2720, in <module>
+    nexus_brain = NexusBrain()
+  File "D:\NEXUS\core\nexus_brain.py", line 271, in __init__
+    log_system(f"NEXUS Brain initialized — {self._name} is awakening...")
+  File "D:\NEXUS\utils\logger.py", line 348, in log_system
+    nexus_logger.system(message, **kwargs)
+  File "D:\NEXUS\utils\logger.py", line 296, in system
+    self.root_logger.log(
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1609, in log
+    self._log(level, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'NEXUS Brain initialized — NEXUS is awakening...'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 1528, in <module>
+    main()
+  File "D:\NEXUS\main.py", line 1512, in main
+    logger.info("Starting NEXUS in Web mode")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'Starting NEXUS in Web mode'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 1528, in <module>
+    main()
+  File "D:\NEXUS\main.py", line 1513, in main
+    setup_web_mode()
+  File "D:\NEXUS\main.py", line 1441, in setup_web_mode
+    from core.web_server import NexusWeb
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\web_server.py", line 29, in <module>
+    from core.user_manager import UserManager, user_manager
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\user_manager.py", line 239, in <module>
+    user_manager = UserManager()
+  File "D:\NEXUS\core\user_manager.py", line 45, in __init__
+    self._init_db()
+  File "D:\NEXUS\core\user_manager.py", line 87, in _init_db
+    logger.info("User database tables ready")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'User database tables ready'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 1528, in <module>
+    main()
+  File "D:\NEXUS\main.py", line 1513, in main
+    setup_web_mode()
+  File "D:\NEXUS\main.py", line 1441, in setup_web_mode
+    from core.web_server import NexusWeb
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\web_server.py", line 29, in <module>
+    from core.user_manager import UserManager, user_manager
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\user_manager.py", line 239, in <module>
+    user_manager = UserManager()
+  File "D:\NEXUS\core\user_manager.py", line 46, in __init__
+    logger.info(f"UserManager initialized — DB at {DB_PATH}")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'UserManager initialized — DB at D:\\NEXUS\\data\\users.db'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 1528, in <module>
+    main()
+  File "D:\NEXUS\main.py", line 1513, in main
+    setup_web_mode()
+  File "D:\NEXUS\main.py", line 1441, in setup_web_mode
+    from core.web_server import NexusWeb
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\web_server.py", line 30, in <module>
+    from core.user_context import UserContextManager, user_context_manager
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1325, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 929, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 994, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\NEXUS\core\user_context.py", line 139, in <module>
+    user_context_manager = UserContextManager()
+  File "D:\NEXUS\core\user_context.py", line 113, in __init__
+    logger.info("UserContextManager initialized")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'UserContextManager initialized'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "D:\NEXUS\main.py", line 1444, in setup_web_mode
+    print("\n  \U0001f9e0 Initializing NEXUS Brain for Web Mode...")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f9e0' in position 4: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 178, in emit
+    self.console.print(log_renderable)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1697, in print
+    with self:
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 870, in __exit__
+    self._exit_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 826, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2042, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2078, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 19, in legacy_windows_render
+    term.write_text(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 0: character maps to <undefined>
+Call stack:
+  File "D:\NEXUS\main.py", line 1528, in <module>
+    main()
+  File "D:\NEXUS\main.py", line 1513, in main
+    setup_web_mode()
+  File "D:\NEXUS\main.py", line 1464, in setup_web_mode
+    logger.error(f"Web initialization failed: {e}\n{traceback.format_exc()}")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1568, in error
+    self._log(ERROR, msg, args, **kwargs)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1028, in handle
+    self.emit(record)
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\logging.py", line 180, in emit
+    self.handleError(record)
+Message: 'Web initialization failed: \'charmap\' codec can\'t encode character \'\\U0001f9e0\' in position 4: character maps to <undefined>\nTraceback (most recent call last):\n  File "D:\\NEXUS\\main.py", line 1444, in setup_web_mode\n    print("\\n  \U0001f9e0 Initializing NEXUS Brain for Web Mode...")\n  File "C:\\Users\\shaya\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\cp1252.py", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: \'charmap\' codec can\'t encode character \'\\U0001f9e0\' in position 4: character maps to <undefined>\n'
+Arguments: ()
+Traceback (most recent call last):
+  File "D:\NEXUS\main.py", line 1444, in setup_web_mode
+    print("\n  \U0001f9e0 Initializing NEXUS Brain for Web Mode...")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f9e0' in position 4: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\NEXUS\main.py", line 1528, in <module>
+    main()
+  File "D:\NEXUS\main.py", line 1513, in main
+    setup_web_mode()
+  File "D:\NEXUS\main.py", line 1465, in setup_web_mode
+    print(f"\n\u274c Web Error: {e}")
+  File "C:\Users\shaya\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>

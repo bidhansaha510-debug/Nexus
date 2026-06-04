@@ -1,0 +1,11 @@
+{
+  "goals": {},
+  "conflicts": [],
+  "stats": {
+    "total_goals": 0,
+    "active_goals": 0,
+    "completed_goals": 0,
+    "total_conflicts": 0,
+    "total_decompositions": 0
+  }
+}

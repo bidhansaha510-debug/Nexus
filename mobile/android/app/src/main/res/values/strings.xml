@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NEXUS AI</string>
+    <string name="title_activity_main">NEXUS AI</string>
+    <string name="package_name">com.nexus.ai.mobile</string>
+    <string name="custom_url_scheme">com.nexus.ai.mobile</string>
+</resources>

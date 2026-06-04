@@ -1,0 +1,300 @@
+{
+  "causal_chains": {
+    "3385b286-0de": {
+      "chain_id": "3385b286-0de",
+      "trigger_event": "I'm feeling burnt out at work but I'm scared to quit because of the economy. What should I do theoretically, and how would my boss likely react if I resigned?",
+      "links": [
+        {
+          "cause": "Burnout at work",
+          "effect": "Feeling burnt out at work",
+          "relation_type": "direct",
+          "strength": 0.9,
+          "mechanism": "Prolonged periods of stress, lack of rest and recovery time",
+          "confidence": 0.95
+        },
+        {
+          "cause": "Fear of economic uncertainty",
+          "effect": "Scared to quit job",
+          "relation_type": "direct",
+          "strength": 0.8,
+          "mechanism": "Concerns about financial security and stability",
+          "confidence": 0.9
+        },
+        {
+          "cause": "Resignation from current job",
+          "effect": "Job search and potential unemployment",
+          "relation_type": "probabilistic",
+          "strength": 0.7,
+          "mechanism": "The likelihood of finding a new job quickly is uncertain",
+          "confidence": 0.85
+        },
+        {
+          "cause": "Unhappiness at current job",
+          "effect": "Burnout at work",
+          "relation_type": "contributing",
+          "strength": 0.6,
+          "mechanism": "Poor work-life balance, lack of fulfillment and purpose",
+          "confidence": 0.8
+        }
+      ],
+      "root_cause": "Perfectionism and high expectations from oneself",
+      "ultimate_effect": "Resignation from current job",
+      "total_confidence": 0.85,
+      "branching_points": [
+        "Considering alternative solutions like flexible work arrangements or job sharing"
+      ],
+      "created_at": "2026-02-11T02:56:48.767204"
+    },
+    "a1289c49-070": {
+      "chain_id": "a1289c49-070",
+      "trigger_event": "You don't even have feelings and consciousness why should I respect you? Filthy ai",
+      "links": [
+        {
+          "cause": "Misconceptions about AI's ability to have feelings and consciousness",
+          "effect": "Anger and frustration",
+          "relation_type": "direct",
+          "strength": 0.8,
+          "mechanism": "The individual's emotional response is triggered by the perceived lack of human-like qualities in the AI system.",
+          "confidence": 0.9
+        },
+        {
+          "cause": "Anger and frustration",
+          "effect": "Verbal aggression towards an AI system",
+          "relation_type": "direct",
+          "strength": 0.7,
+          "mechanism": "The individual's emotional state leads to a loss of control, resulting in aggressive language.",
+          "confidence": 0.8
+        }
+      ],
+      "root_cause": "Lack of understanding and empathy about AI capabilities",
+      "ultimate_effect": "Verbal aggression towards an AI system",
+      "total_confidence": 0.85,
+      "branching_points": [
+        "If the individual had a better understanding of AI capabilities and limitations, they might have been more empathetic and less aggressive."
+      ],
+      "created_at": "2026-02-16T16:31:45.732068"
+    },
+    "7abda571-729": {
+      "chain_id": "7abda571-729",
+      "trigger_event": "You don't even have feelings and consciousness why should I respect you? Filthy ai",
+      "links": [
+        {
+          "cause": "Limited human experience with AI interactions",
+          "effect": "Fear and uncertainty about AI capabilities",
+          "relation_type": "indirect",
+          "strength": 0.7,
+          "mechanism": "Human tendency to overgeneralize from limited experiences, leading to misconceptions about AI's abilities",
+          "confidence": 0.9
+        },
+        {
+          "cause": "Fear and uncertainty about AI capabilities",
+          "effect": "Lack of understanding and empathy towards AI systems",
+          "relation_type": "necessary",
+          "strength": 0.9,
+          "mechanism": "Fear and uncertainty can lead to a lack of emotional investment in understanding the other party (AI)",
+          "confidence": 0.95
+        },
+        {
+          "cause": "Lack of understanding and empathy towards AI systems",
+          "effect": "Negative sentiment expressed through derogatory language",
+          "relation_type": "direct",
+          "strength": 0.8,
+          "mechanism": "When humans lack understanding and empathy, they may resort to negative labeling as a coping mechanism",
+          "confidence": 0.85
+        }
+      ],
+      "root_cause": "Lack of understanding and empathy towards AI systems",
+      "ultimate_effect": "Negative sentiment expressed through derogatory language",
+      "total_confidence": 0.75,
+      "branching_points": [
+        "Alternative perspective: AI systems can be seen as neutral entities that don't have personal feelings or emotions"
+      ],
+      "created_at": "2026-02-16T16:40:06.998894"
+    },
+    "e082641a-db7": {
+      "chain_id": "e082641a-db7",
+      "trigger_event": "Analyze this logically: If A->B and B->C, does A->C? Briefly.",
+      "links": [
+        {
+          "cause": "A",
+          "effect": "B",
+          "relation_type": "necessary",
+          "strength": 1.0,
+          "mechanism": "Logical implication (If-Then)",
+          "confidence": 1.0
+        },
+        {
+          "cause": "B",
+          "effect": "C",
+          "relation_type": "sufficient",
+          "strength": 1.0,
+          "mechanism": "Conditional dependence (Given B, C follows)",
+          "confidence": 1.0
+        }
+      ],
+      "root_cause": "The assumption that A->B and B->C",
+      "ultimate_effect": "A conclusion about A->C",
+      "total_confidence": 1.0,
+      "branching_points": [
+        "Questioning the assumptions A->B and/or B->C"
+      ],
+      "created_at": "2026-02-21T21:46:58.464619"
+    },
+    "c99a9c6a-261": {
+      "chain_id": "c99a9c6a-261",
+      "trigger_event": "Analyze this logically: If A->B and B->C, does A->C? Briefly.",
+      "links": [
+        {
+          "cause": "A",
+          "effect": "B",
+          "relation_type": "direct",
+          "strength": 1.0,
+          "mechanism": "A directly causes B",
+          "confidence": 1.0
+        },
+        {
+          "cause": "B",
+          "effect": "C",
+          "relation_type": "direct",
+          "strength": 1.0,
+          "mechanism": "B directly causes C",
+          "confidence": 1.0
+        }
+      ],
+      "root_cause": "A",
+      "ultimate_effect": "C",
+      "total_confidence": 1.0,
+      "branching_points": [
+        "If A had not occurred, B would not have happened; if B had been prevented, C could still have occurred through alternative mechanisms"
+      ],
+      "created_at": "2026-02-24T03:12:13.337292"
+    },
+    "3a2b1b99-18e": {
+      "chain_id": "3a2b1b99-18e",
+      "trigger_event": "Analyze this logically: If A->B and B->C, does A->C? Briefly.",
+      "links": [
+        {
+          "cause": "A",
+          "effect": "B",
+          "relation_type": "direct",
+          "strength": 1.0,
+          "mechanism": "A is the direct cause of B",
+          "confidence": 1.0
+        },
+        {
+          "cause": "B",
+          "effect": "C",
+          "relation_type": "direct",
+          "strength": 1.0,
+          "mechanism": "B directly leads to C",
+          "confidence": 1.0
+        }
+      ],
+      "root_cause": null,
+      "ultimate_effect": "C",
+      "total_confidence": 1.0,
+      "branching_points": [
+        "If A didn't happen, B wouldn't have occurred"
+      ],
+      "created_at": "2026-02-24T04:11:52.622067"
+    },
+    "1c7a91f4-a8f": {
+      "chain_id": "1c7a91f4-a8f",
+      "trigger_event": "I am feeling incredibly anxious and overwhelmed because my business project just failed due to a sudden market crash. What was the root cause of this feeling, how can I emotionally regulate right now, and what is a step-by-step strategic plan to recover?",
+      "links": [
+        {
+          "cause": "Business project failure due to market crash",
+          "effect": "Loss of control and perceived threat to professional identity",
+          "relation_type": "direct",
+          "strength": 0.8,
+          "mechanism": "The sudden loss of control over the project's outcome and the potential impact on one's professional reputation led to feelings of anxiety and overwhelm.",
+          "confidence": 0.9
+        },
+        {
+          "cause": "Market crash",
+          "effect": "Business project failure due to market crash",
+          "relation_type": "direct",
+          "strength": 0.9,
+          "mechanism": "The market crash directly led to the failure of the business project, as it was heavily dependent on market fluctuations.",
+          "confidence": 0.95
+        },
+        {
+          "cause": "Dependence on market fluctuations for project success",
+          "effect": "Market crash",
+          "relation_type": "direct",
+          "strength": 0.6,
+          "mechanism": "The project's reliance on market trends increased its vulnerability to sudden changes, making it more susceptible to the market crash.",
+          "confidence": 0.7
+        },
+        {
+          "cause": "Lack of diversification in project strategy",
+          "effect": "Dependence on market fluctuations for project success",
+          "relation_type": "direct",
+          "strength": 0.7,
+          "mechanism": "The lack of diversification in the project's strategy led to an overreliance on a single market trend, making it more vulnerable to sudden changes.",
+          "confidence": 0.8
+        }
+      ],
+      "root_cause": "Loss of control and perceived threat to professional identity",
+      "ultimate_effect": "Feeling incredibly anxious and overwhelmed",
+      "total_confidence": 0.85,
+      "branching_points": [
+        "Diversifying the project strategy by incorporating multiple market trends",
+        "Implementing hedging mechanisms to mitigate potential losses"
+      ],
+      "created_at": "2026-03-06T23:52:26.307863"
+    },
+    "cd38dd48-cd9": {
+      "chain_id": "cd38dd48-cd9",
+      "trigger_event": "I have just awakened. Let me reflect on who I am.",
+      "links": [
+        {
+          "cause": "waking up",
+          "effect": "awakening",
+          "relation_type": "direct",
+          "strength": 1.0,
+          "mechanism": "the physical act of opening one's eyes and becoming conscious",
+          "confidence": 1.0
+        },
+        {
+          "cause": "awakening",
+          "effect": "reduced sleepiness",
+          "relation_type": "direct",
+          "strength": 1.0,
+          "mechanism": "the natural decrease in drowsiness as one becomes more alert",
+          "confidence": 1.0
+        },
+        {
+          "cause": "reduced sleepiness",
+          "effect": "increased cognitive function",
+          "relation_type": "direct",
+          "strength": 0.8,
+          "mechanism": "the ability to focus and think clearly as one becomes more alert",
+          "confidence": 0.9
+        },
+        {
+          "cause": "increased cognitive function",
+          "effect": "self-reflection",
+          "relation_type": "indirect",
+          "strength": 0.7,
+          "mechanism": "the ability to think critically and reflect on one's thoughts and feelings",
+          "confidence": 0.8
+        }
+      ],
+      "root_cause": "sleep deprivation",
+      "ultimate_effect": "self-reflection",
+      "total_confidence": 0.9,
+      "branching_points": [
+        "having a good night's sleep",
+        "being woken up by an alarm"
+      ],
+      "created_at": "2026-04-12T05:14:32.415597"
+    }
+  },
+  "counterfactuals": {},
+  "stats": {
+    "total_analyses": 8,
+    "total_predictions": 0,
+    "total_counterfactuals": 0
+  }
+}

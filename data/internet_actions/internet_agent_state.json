@@ -1,0 +1,22 @@
+{
+  "stats": {
+    "total_actions": 14,
+    "successful_actions": 13,
+    "failed_actions": 1,
+    "total_bytes_downloaded": 1602842,
+    "avg_response_time": 1.2840257712772913,
+    "actions_by_type": {
+      "search": 7,
+      "browse": 7
+    },
+    "domains_visited": [
+      "html.duckduckgo.com",
+      "en.wikipedia.org",
+      "www.crescendo.ai",
+      "duckduckgo.com"
+    ],
+    "last_action_time": "2026-06-04T03:25:43.971794"
+  },
+  "blocked_domains": [],
+  "saved_at": "2026-06-04T03:26:41.013818"
+}
