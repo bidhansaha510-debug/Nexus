@@ -38,14 +38,12 @@ from enum import Enum, auto
 from queue import Queue
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, BASE_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, publish, subscribe, Event
 
 logger = get_logger("error_fixer")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -58,7 +56,6 @@ class FixStatus(Enum):
     FAILED = "failed"
     ROLLED_BACK = "rolled_back"
     SKIPPED = "skipped"
-
 
 @dataclass
 class FixAttempt:
@@ -88,7 +85,6 @@ class FixAttempt:
         d["status"] = self.status.value
         return d
 
-
 @dataclass
 class FixerStats:
     """Error fixer statistics"""
@@ -102,7 +98,6 @@ class FixerStats:
     last_fix_file: str = ""
     last_fix_status: str = ""
     success_rate: float = 0.0
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ERROR FIXER
@@ -871,13 +866,11 @@ class ErrorFixer:
             "backups_dir": str(self._backup_dir)
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 error_fixer = ErrorFixer()
-
 
 if __name__ == "__main__":
     fixer = ErrorFixer()

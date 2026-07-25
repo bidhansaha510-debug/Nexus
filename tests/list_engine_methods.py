@@ -1,7 +1,6 @@
 """Utility: list all public methods on each cognition engine."""
 import sys, os, logging
 logging.disable(logging.CRITICAL)  # suppress all logging
-sys.path.insert(0, 'd:/NEXUS')
 os.environ['NEXUS_QUIET'] = '1'
 
 engine_list = [

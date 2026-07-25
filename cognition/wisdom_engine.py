@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("wisdom_engine")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class WisdomDomain(Enum):
     PRACTICAL = "practical"
     PHILOSOPHICAL = "philosophical"
@@ -33,7 +31,6 @@ class WisdomDomain(Enum):
     STRATEGIC = "strategic"
     SPIRITUAL = "spiritual"
     EXPERIENTIAL = "experiential"
-
 
 @dataclass
 class WisdomInsight:
@@ -56,7 +53,6 @@ class WisdomInsight:
             "long_term_view": self.long_term_view,
             "created_at": self.created_at
         }
-
 
 class WisdomEngine:
     """
@@ -91,7 +87,6 @@ class WisdomEngine:
 
         self._load_data()
         logger.info("✅ Wisdom Engine initialized")
-
 
     @staticmethod
     def _safe_parse_json(text: str) -> dict:
@@ -308,9 +303,7 @@ class WisdomEngine:
             logger.debug(f"Paradox resolution failed: {e}")
         return {"error": "Resolution failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 wisdom_engine = WisdomEngine()

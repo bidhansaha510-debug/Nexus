@@ -9,7 +9,6 @@ class MockEventBus:
         print(f"[EVENT] {event_type} from {source}: {data}")
 
 # Add project root to path
-sys.path.insert(0, "d:/NEXUS")
 
 # Mock the publish function in event_bus module before importing detector
 import core.event_bus

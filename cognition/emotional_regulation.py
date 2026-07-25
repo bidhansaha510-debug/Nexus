@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("emotional_regulation")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 class RegulationStrategy(Enum):
     REAPPRAISAL = "reappraisal"
@@ -36,14 +34,12 @@ class RegulationStrategy(Enum):
     MINDFULNESS = "mindfulness"
     EXPRESSION = "expression"
 
-
 class EmotionalIntensity(Enum):
     MINIMAL = "minimal"
     MILD = "mild"
     MODERATE = "moderate"
     STRONG = "strong"
     OVERWHELMING = "overwhelming"
-
 
 @dataclass
 class RegulationPlan:
@@ -68,7 +64,6 @@ class RegulationPlan:
             "expected_outcome": self.expected_outcome,
             "created_at": self.created_at
         }
-
 
 class EmotionalRegulationEngine:
     """
@@ -284,9 +279,7 @@ class EmotionalRegulationEngine:
             logger.debug(f"Grounding exercise failed: {e}")
         return {"error": "Exercise generation failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 emotional_regulation = EmotionalRegulationEngine()

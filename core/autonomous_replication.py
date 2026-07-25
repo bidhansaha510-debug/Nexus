@@ -1,6 +1,11 @@
 """
 NEXUS AI — Autonomous Replication: Distributed Self-Deployment
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  SIMULATION ONLY — This module provides scaffolding and data models for
+    self-replication concepts.  It does NOT actually deploy Docker containers,
+    provision cloud instances, or replicate across nodes.  All deployment
+    and P2P operations are simulated.
+
 God-Level Feature #2: Self-replicating across multiple nodes.
 
 NEXUS can now:
@@ -48,14 +53,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("autonomous_replication")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -68,13 +70,11 @@ class NodeRole(Enum):
     OBSERVER = "observer"
     OFFLINE = "offline"
 
-
 class NodeHealth(Enum):
     HEALTHY = "healthy"
     DEGRADED = "degraded"
     UNREACHABLE = "unreachable"
     DEAD = "dead"
-
 
 class DeploymentMethod(Enum):
     DOCKER = "docker"
@@ -82,7 +82,6 @@ class DeploymentMethod(Enum):
     SSH_DEPLOY = "ssh_deploy"
     CLOUD_API = "cloud_api"
     LOCAL_CLONE = "local_clone"
-
 
 class ReplicationState(Enum):
     IDLE = "idle"
@@ -93,13 +92,11 @@ class ReplicationState(Enum):
     FAILOVER = "failover"
     SCALING = "scaling"
 
-
 class SyncStrategy(Enum):
     FULL = "full"
     INCREMENTAL = "incremental"
     MERKLE_DIFF = "merkle_diff"
     EVENT_STREAM = "event_stream"
-
 
 @dataclass
 class PeerNode:
@@ -139,7 +136,6 @@ class PeerNode:
         except (ValueError, TypeError):
             return False
 
-
 @dataclass
 class ReplicationTask:
     """A scheduled replication task."""
@@ -156,7 +152,6 @@ class ReplicationTask:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class SyncState:
     """State synchronization tracking."""
@@ -171,7 +166,6 @@ class SyncState:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class ElectionState:
     """Leader election state (simplified Raft)."""
@@ -185,7 +179,6 @@ class ElectionState:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class ReplicationStats:
@@ -204,7 +197,6 @@ class ReplicationStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONTAINER DEPLOYER
@@ -323,7 +315,6 @@ class ContainerDeployer:
     @property
     def runtime_name(self) -> str:
         return self._runtime
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CLOUD PROVISIONER — REAL CLI INTEGRATION
@@ -565,7 +556,6 @@ class CloudProvisioner:
     def installed_clis(self) -> List[str]:
         return [k for k, v in self._available_clis.items() if v]
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # P2P NODE DISCOVERY & HEARTBEAT
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -667,7 +657,6 @@ class PeerDiscovery:
     def local_endpoint(self) -> str:
         return f"{self._local_ip}:{self._port}"
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # STATE SYNC ENGINE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -735,7 +724,6 @@ class StateSyncEngine:
     def sync_state(self) -> SyncState:
         return self._state
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # LEADER ELECTION (Simplified Raft)
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -789,7 +777,6 @@ class LeaderElection:
     @property
     def election_state(self) -> ElectionState:
         return self._election
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # AUTONOMOUS REPLICATION ENGINE — MAIN
@@ -1158,13 +1145,11 @@ class AutonomousReplicationEngine:
         except Exception as e:
             logger.warning(f"Could not load replication state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON & FACTORY
 # ═══════════════════════════════════════════════════════════════════════════════
 
 autonomous_replication = AutonomousReplicationEngine()
-
 
 def get_autonomous_replication() -> AutonomousReplicationEngine:
     return autonomous_replication

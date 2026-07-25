@@ -53,10 +53,8 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QFont, QColor
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from ui.theme import theme, colors, fonts, spacing, icons
 from ui.widgets import HeaderLabel, Section, StatCard, TagLabel
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CATEGORY METADATA
@@ -84,7 +82,6 @@ RISK_COLORS = {
     "high":     colors.danger,
     "critical": "#ff0000",
 }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ABILITY CARD WIDGET
@@ -153,7 +150,6 @@ class AbilityCard(QFrame):
 
         bottom.addStretch()
         layout.addLayout(bottom)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ABILITIES PANEL
@@ -565,7 +561,6 @@ class AbilitiesPanel(QFrame):
                 self._activity_labels["body"].setText(
                     f"CPU {cpu:.0f}% │ RAM {ram:.0f}%"
                 )
-
 
             # Autonomy
             if hasattr(self._brain, '_autonomy_engine') and self._brain._autonomy_engine:

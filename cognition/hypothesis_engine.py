@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("hypothesis_engine")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class HypothesisStatus(Enum):
     PROPOSED = "proposed"
     TESTING = "testing"
@@ -33,7 +31,6 @@ class HypothesisStatus(Enum):
     INCONCLUSIVE = "inconclusive"
     NEEDS_MORE_DATA = "needs_more_data"
 
-
 class EvidenceStrength(Enum):
     ANECDOTAL = "anecdotal"
     WEAK = "weak"
@@ -41,7 +38,6 @@ class EvidenceStrength(Enum):
     STRONG = "strong"
     VERY_STRONG = "very_strong"
     CONCLUSIVE = "conclusive"
-
 
 @dataclass
 class Hypothesis:
@@ -69,7 +65,6 @@ class Hypothesis:
             "domain": self.domain, "created_at": self.created_at
         }
 
-
 @dataclass
 class Experiment:
     experiment_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -94,7 +89,6 @@ class Experiment:
             "potential_confounds": self.potential_confounds,
             "sample_size": self.sample_size, "created_at": self.created_at
         }
-
 
 class HypothesisEngine:
     """
@@ -289,7 +283,6 @@ class HypothesisEngine:
             logger.debug(f"Scientific method application failed: {e}")
             return {"question": question, "hypothesis": "unknown"}
 
-
     def falsify(self, hypothesis: str) -> Dict[str, Any]:
         """
         Attempt to FALSIFY a hypothesis — find evidence, scenarios, or
@@ -375,6 +368,5 @@ class HypothesisEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 hypothesis_engine = HypothesisEngine()

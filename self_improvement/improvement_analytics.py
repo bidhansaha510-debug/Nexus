@@ -24,14 +24,12 @@ from collections import defaultdict
 import random
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("improvement_analytics")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -61,7 +59,6 @@ class ProposalRecord:
     def to_dict(self) -> dict:
         return asdict(self)
 
-
 @dataclass
 class PatternRecord:
     """Identified pattern in improvements"""
@@ -71,7 +68,6 @@ class PatternRecord:
     success_rate: float = 0.0
     last_seen: str = ""
     examples: List[str] = field(default_factory=list)
-
 
 @dataclass
 class ABTest:
@@ -90,7 +86,6 @@ class ABTest:
     success_b: int = 0
     winner: Optional[str] = None
     confidence: float = 0.0
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # IMPROVEMENT ANALYTICS ENGINE
@@ -545,13 +540,11 @@ class ImprovementAnalytics:
             self._proposals[proposal_id].user_satisfaction = satisfaction
             self._save_data()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 improvement_analytics = ImprovementAnalytics()
-
 
 if __name__ == "__main__":
     print("📊 Improvement Analytics Test\n")

@@ -26,7 +26,6 @@ from pathlib import Path
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -34,7 +33,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("theory_of_mind")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -46,7 +44,6 @@ class BeliefConfidence(Enum):
     LIKELY = "likely"              # Reasonable inference
     CONFIDENT = "confident"        # Strong evidence
     STATED = "stated"              # User explicitly said it
-
 
 @dataclass
 class InferredBelief:
@@ -86,7 +83,6 @@ class InferredBelief:
             last_updated=data.get("last_updated", ""),
             contradicted=data.get("contradicted", False),
         )
-
 
 @dataclass
 class MentalState:
@@ -137,7 +133,6 @@ class MentalState:
             context_clues=data.get("context_clues", []),
         )
 
-
 @dataclass
 class PerspectiveShift:
     """A perspective-taking result"""
@@ -157,7 +152,6 @@ class PerspectiveShift:
             "emotional_tone": self.emotional_tone,
             "created_at": self.created_at,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # THEORY OF MIND ENGINE
@@ -715,7 +709,6 @@ class TheoryOfMindEngine:
             "total_perspective_shifts": self._total_perspectives,
             "has_current_model": self._current_mental_state is not None,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

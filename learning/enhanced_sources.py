@@ -28,7 +28,6 @@ from pathlib import Path
 from collections import deque
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -51,7 +50,6 @@ except ImportError:
     HAS_BS4 = False
     logger.warning("beautifulsoup4 not installed — HTML parsing limited")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -71,7 +69,6 @@ class SourceResult:
     def to_dict(self) -> dict:
         return asdict(self)
 
-
 @dataclass
 class SourceStats:
     """Statistics for a source"""
@@ -81,7 +78,6 @@ class SourceStats:
     failed: int = 0
     last_fetch: str = ""
     avg_relevance: float = 0.5
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENHANCED SOURCES ENGINE
@@ -635,13 +631,11 @@ class EnhancedSources:
 
         return [t for t, _ in topic_counts.most_common(limit)]
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 enhanced_sources = EnhancedSources()
-
 
 if __name__ == "__main__":
     print("📡 Enhanced Sources Test")

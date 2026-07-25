@@ -36,13 +36,11 @@ from enum import Enum
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 from config import NEXUS_CONFIG, DATA_DIR
 
 logger = get_logger("cognitive_orchestrator")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONFIGURATION
@@ -55,7 +53,6 @@ MIN_CONFIDENCE_THRESHOLD = 0.3      # Below this, proposals are discarded
 SYNTHESIS_CONFLICT_THRESHOLD = 0.4  # Disagreement level that triggers deeper analysis
 HISTORY_FILE = DATA_DIR / "orchestrator_history.json"
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -67,7 +64,6 @@ class DeliberationPhase(Enum):
     SYNTHESIZE = "synthesize"
     COMMIT = "commit"
 
-
 @dataclass
 class Proposal:
     """A single engine group's proposal during deliberation."""
@@ -78,7 +74,6 @@ class Proposal:
     reasoning: str              # why this insight is relevant
     elapsed: float = 0.0
 
-
 @dataclass
 class Critique:
     """Cross-evaluation of proposals."""
@@ -86,7 +81,6 @@ class Critique:
     conflicts: List[Tuple[str, str, str]] # (group_a, group_b, description)
     gaps: List[str]                        # aspects not covered
     overall_coherence: float = 0.0         # 0.0 – 1.0
-
 
 @dataclass
 class DeliberationResult:
@@ -127,7 +121,6 @@ class DeliberationResult:
 
         lines.append("═══════════════════════════════")
         return "\n".join(lines)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENGINE GROUP DEFINITIONS
@@ -192,7 +185,6 @@ COMPLEXITY_SIGNALS = [
     lambda q: q.count(" and ") >= 2,                      # Multi-part
 ]
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ATTENTION WEIGHTS — Adaptive engine group importance
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -245,7 +237,6 @@ class AttentionAllocator:
             stats["avg_confidence"] = (
                 stats["avg_confidence"] * (n - 1) + confidence
             ) / n
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # COGNITIVE ORCHESTRATOR
@@ -694,13 +685,11 @@ class CognitiveOrchestrator:
         self._executor.shutdown(wait=False)
         logger.info("🎭 Cognitive Orchestrator stopped")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 cognitive_orchestrator = CognitiveOrchestrator()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF-TEST

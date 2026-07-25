@@ -38,13 +38,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 from config import NEXUS_CONFIG, DATA_DIR
 
 logger = get_logger("episodic_memory")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONFIGURATION
@@ -55,7 +53,6 @@ MAX_EPISODES = 10000
 CONSOLIDATION_INTERVAL = 600          # seconds between consolidation runs
 MAX_SIMILAR_EPISODES_RETURNED = 5
 LESSON_EXTRACTION_THRESHOLD = 3       # need N similar episodes to extract a lesson
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
@@ -127,7 +124,6 @@ class Episode:
             lesson_learned=row[17], similar_past_episodes=row[18],
         )
 
-
 @dataclass
 class LearnedLesson:
     """A distilled lesson from multiple similar episodes."""
@@ -139,7 +135,6 @@ class LearnedLesson:
     created_at: str = field(default_factory=lambda: datetime.now().isoformat())
     last_used: str = ""
     times_applied: int = 0
-
 
 @dataclass
 class ExperienceRecall:
@@ -173,7 +168,6 @@ class ExperienceRecall:
             lines.append(f"  Suggested approach: {self.suggested_strategy}")
 
         return "\n".join(lines)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EPISODIC MEMORY SYSTEM
@@ -719,13 +713,11 @@ class EpisodicMemory:
             "total_recalls": self._total_recalls,
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 episodic_memory = EpisodicMemory()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF-TEST

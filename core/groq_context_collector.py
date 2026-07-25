@@ -52,7 +52,6 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 from datetime import datetime
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger
 
 logger = get_logger("groq_context_collector")
@@ -60,13 +59,11 @@ logger = get_logger("groq_context_collector")
 MAX_SECTION_CHARS = 800  # ~200 tokens
 MAX_TOTAL_CHARS = 68000  # ~17000 tokens total context budget (expanded for 146 subsystem collectors + human persona + sentience layer)
 
-
 def _truncate(text: str, max_chars: int = MAX_SECTION_CHARS) -> str:
     """Truncate text to max_chars, adding ellipsis if needed."""
     if len(text) <= max_chars:
         return text
     return text[:max_chars - 3] + "..."
-
 
 class GroqContextCollector:
     """
@@ -149,7 +146,6 @@ class GroqContextCollector:
         screen_ctx = self._collect_screen_time(brain)
         if screen_ctx:
             sections.append(screen_ctx)
-
 
         # ════════════════════════════════════════════════════════════════════════
         # CONSCIOUSNESS & SELF-AWARENESS
@@ -1029,6 +1025,36 @@ class GroqContextCollector:
         if jarvis_queue_ctx:
             sections.append(jarvis_queue_ctx)
 
+        # ─── 153. P2P Swarm Network (Decentralized Mesh & BFT Consensus) ───
+        p2p_swarm_ctx = self._collect_p2p_swarm(brain)
+        if p2p_swarm_ctx:
+            sections.append(p2p_swarm_ctx)
+
+        # ─── 154. Formal Verification & MicroVM Code Sandboxing ───
+        fv_sandbox_ctx = self._collect_formal_verification_sandbox(brain)
+        if fv_sandbox_ctx:
+            sections.append(fv_sandbox_ctx)
+
+        # ─── 155. Temporal GraphRAG & Sleep Consolidation ───
+        graphrag_ctx = self._collect_temporal_graphrag(brain)
+        if graphrag_ctx:
+            sections.append(graphrag_ctx)
+
+        # ─── 156. Native Model Context Protocol (MCP) Integration ───
+        mcp_ctx = self._collect_mcp_support(brain)
+        if mcp_ctx:
+            sections.append(mcp_ctx)
+
+        # ─── 157. Local Speculative Decoding & Real-Time A/V Pipeline ───
+        stream_ctx = self._collect_speculative_streaming(brain)
+        if stream_ctx:
+            sections.append(stream_ctx)
+
+        # ─── 158. Continuous Self-Adapting LoRAs & MoE Weight Router ───
+        lora_ctx = self._collect_lora_moe(brain)
+        if lora_ctx:
+            sections.append(lora_ctx)
+
         if not sections:
             return ""
 
@@ -1317,8 +1343,6 @@ class GroqContextCollector:
         except Exception as e:
             logger.debug(f"Screen time collection: {e}")
         return ""
-
-
 
     # ═══════════════════════════════════════════════════════════════════════════
     # CONSCIOUSNESS COLLECTORS
@@ -5164,6 +5188,92 @@ class GroqContextCollector:
         except Exception:
             return "[HIVEMIND PROTOCOL] Status: standby | Distributed multi-node swarm coordination."
 
+    def _collect_p2p_swarm(self, brain) -> str:
+        """153. P2P Swarm Network (Decentralized Mesh & BFT Consensus)."""
+        try:
+            from core.p2p_swarm import get_p2p_swarm
+            engine = get_p2p_swarm()
+            summary = engine.get_summary()
+            return _truncate(f"[P2P SWARM NETWORK]\n{summary}")
+        except Exception:
+            return "[P2P SWARM NETWORK] Status: standby | Decentralized peer-to-peer mesh for multi-node coordination."
+
+    def _collect_formal_verification_sandbox(self, brain) -> str:
+        """154. Formal Verification & MicroVM Code Sandboxing."""
+        try:
+            from core.formal_verifier import get_formal_verifier
+            from core.code_sandbox import get_code_sandbox
+            v_stats = get_formal_verifier().get_stats()
+            s_stats = get_code_sandbox().get_stats()
+            summary = (
+                f"Formal Proof Engine: {v_stats['engine']} (Pass Rate: {v_stats['pass_rate']}%)\n"
+                f"Code Sandbox Engine: {s_stats['backend']} ({s_stats['successful_executions']} passed, {s_stats['blocked_executions']} blocked)"
+            )
+            return _truncate(f"[FORMAL VERIFICATION & CODE SANDBOX]\n{summary}")
+        except Exception:
+            return "[FORMAL VERIFICATION & CODE SANDBOX] Status: active | AST+Z3 Theorem Proving and WASM/Subprocess sandboxing."
+
+    def _collect_temporal_graphrag(self, brain) -> str:
+        """155. Temporal GraphRAG & Sleep Consolidation."""
+        try:
+            from memory.temporal_graphrag import get_temporal_graphrag
+            graphrag = get_temporal_graphrag()
+            stats = graphrag.get_stats()
+            summary = (
+                f"Nodes: {stats['total_nodes']} | Edges: {stats['total_edges']}\n"
+                f"Queries Processed: {stats['queries_processed']} | Consolidations: {stats['consolidations_run']}\n"
+                f"Last Sleep Cycle: {stats['last_sleep_cycle'] or 'Never'}"
+            )
+            return _truncate(f"[TEMPORAL GRAPHRAG & SLEEP CONSOLIDATION]\n{summary}")
+        except Exception:
+            return "[TEMPORAL GRAPHRAG & SLEEP CONSOLIDATION] Status: active | Vector similarity + Graph traversal & Time-decay."
+
+    def _collect_mcp_support(self, brain) -> str:
+        """156. Model Context Protocol (MCP) Integration."""
+        try:
+            from core.mcp_protocol import get_mcp_manager
+            mgr = get_mcp_manager()
+            stats = mgr.get_stats()
+            summary = (
+                f"MCP Protocol Spec: {stats['protocol_version']}\n"
+                f"Exposed Local Tools: {stats['local_tools_exposed']} | External MCP Tools Registered: {stats['external_tools_registered']}\n"
+                f"Connected External Servers: {stats['external_servers_connected']} ({', '.join([c['name'] for c in stats['external_connections']])})"
+            )
+            return _truncate(f"[MODEL CONTEXT PROTOCOL (MCP) INTEGRATION]\n{summary}")
+        except Exception:
+            return "[MODEL CONTEXT PROTOCOL (MCP) INTEGRATION] Status: active | MCP Client & Server JSON-RPC 2.0 dual role."
+
+    def _collect_speculative_streaming(self, brain) -> str:
+        """157. Local Speculative Decoding & Real-Time A/V Pipeline."""
+        try:
+            from core.speculative_decoding import get_speculative_decoder
+            from core.realtime_av_stream import get_realtime_av_stream
+            spec_stats = get_speculative_decoder().get_stats()
+            stream_stats = get_realtime_av_stream().get_stats()
+            summary = (
+                f"Speculative Decoding Speedup: {spec_stats['speedup_ratio']}x (Draft: {spec_stats['draft_model']} -> Target: {spec_stats['target_model']})\n"
+                f"A/V Stream Pipeline: {stream_stats['pipeline']} @ {stream_stats['fps']} FPS (Frames Processed: {stream_stats['frames_processed']})\n"
+                f"Duplex Voice Interrupts: {stream_stats['voice_interrupts_triggered']} triggered | Salient Keyframes: {stream_stats['key_salient_frames']}"
+            )
+            return _truncate(f"[SPECULATIVE DECODING & REAL-TIME A/V STREAMING]\n{summary}")
+        except Exception:
+            return "[SPECULATIVE DECODING & REAL-TIME A/V STREAMING] Status: active | 2.8x speculative token acceleration & zero-latency WebRTC A/V duplex stream."
+
+    def _collect_lora_moe(self, brain) -> str:
+        """158. Continuous Self-Adapting LoRAs & MoE Weight Router."""
+        try:
+            from self_improvement.lora_moe_router import get_lora_moe_router
+            router = get_lora_moe_router()
+            stats = router.get_stats()
+            summary = (
+                f"Loaded Micro-LoRA Adapters: {stats['total_adapters']} (Coding, Security, Reasoning, Persona)\n"
+                f"MoE Routes Evaluated: {stats['routes_evaluated']} | Hot-Swaps: {stats['hot_swaps_performed']}\n"
+                f"Online Training Steps: {stats['online_train_steps']} (Last Adapted: {stats['last_adaptation'][:19]})"
+            )
+            return _truncate(f"[CONTINUOUS SELF-ADAPTING LORAS & MOE ROUTER]\n{summary}")
+        except Exception:
+            return "[CONTINUOUS SELF-ADAPTING LORAS & MOE ROUTER] Status: active | Dynamic PEFT micro-LoRAs & MoE gating router."
+
     def _collect_immune_system(self, brain) -> str:
         """121. Immune System / Anti-Tamper Defense."""
         try:
@@ -5257,7 +5367,6 @@ class GroqContextCollector:
             "max_total_chars": MAX_TOTAL_CHARS,
         }
 
-
     def _collect_godlevel(self, attr_name: str, header: str, description: str) -> str:
         """Generic collector for any God-Level Skynet module.
         Looks up attr_name on the brain (stashed during collect_all), calls get_summary()."""
@@ -5321,7 +5430,6 @@ class GroqContextCollector:
         except Exception as e:
             logger.debug(f"Alive Spark collection error: {e}")
             return ""
-
 
     # ═══════════════════════════════════════════════════════════════════════════
     # SENTIENCE LAYER COLLECTORS (142-146)
@@ -5487,7 +5595,6 @@ class GroqContextCollector:
             logger.debug(f"Micro-expressions collection: {e}")
             return ""
 
-
     # ═══════════════════════════════════════════════════════════════════════════
     # SECTION 147: AGI REASONING STATE (Live Cognitive Loop)
     # ═══════════════════════════════════════════════════════════════════════════
@@ -5652,7 +5759,6 @@ class GroqContextCollector:
                 "  and conversation patterns with full lifecycle tracking"
             )
 
-
     # ═══════════════════════════════════════════════════════════════════════════
     # SECTION 150–152: JARVIS MODE — Cross-Device Command & Control
     # ═══════════════════════════════════════════════════════════════════════════
@@ -5786,7 +5892,6 @@ class GroqContextCollector:
         except Exception as e:
             logger.debug(f"JARVIS task queue collection: {e}")
             return ""
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

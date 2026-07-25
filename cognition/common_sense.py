@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -23,7 +22,6 @@ logger = get_logger("common_sense")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 import re
 
@@ -39,7 +37,6 @@ class CommonSenseDomain(Enum):
     PRACTICAL = "practical"
     SAFETY = "safety"
 
-
 class PlausibilityLevel(Enum):
     IMPOSSIBLE = "impossible"
     IMPLAUSIBLE = "implausible"
@@ -48,7 +45,6 @@ class PlausibilityLevel(Enum):
     LIKELY = "likely"
     OBVIOUS = "obvious"
     CERTAIN = "certain"
-
 
 @dataclass
 class CommonSenseJudgment:
@@ -74,7 +70,6 @@ class CommonSenseJudgment:
             "created_at": self.created_at
         }
 
-
 @dataclass
 class PhysicsIntuition:
     intuition_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -92,7 +87,6 @@ class PhysicsIntuition:
             "confidence": self.confidence,
             "common_misconceptions": self.common_misconceptions
         }
-
 
 class CommonSenseEngine:
     """
@@ -378,9 +372,7 @@ class CommonSenseEngine:
                     pass
         return None
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 common_sense = CommonSenseEngine()

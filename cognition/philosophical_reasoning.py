@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -23,7 +22,6 @@ logger = get_logger("philosophical_reasoning")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 class PhilosophyBranch(Enum):
     EPISTEMOLOGY = "epistemology"
@@ -34,7 +32,6 @@ class PhilosophyBranch(Enum):
     POLITICAL = "political"
     EXISTENTIAL = "existential"
     METAPHYSICS = "metaphysics"
-
 
 @dataclass
 class PhilosophicalAnalysis:
@@ -58,7 +55,6 @@ class PhilosophicalAnalysis:
             "depth": self.depth,
             "created_at": self.created_at
         }
-
 
 class PhilosophicalReasoningEngine:
     """
@@ -287,6 +283,5 @@ class PhilosophicalReasoningEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 philosophical_reasoning = PhilosophicalReasoningEngine()

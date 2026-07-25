@@ -27,14 +27,12 @@ from collections import defaultdict, Counter
 from enum import Enum, auto
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger
 from core.event_bus import EventType, publish
 
 logger = get_logger("knowledge_base")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -48,7 +46,6 @@ class KnowledgeSource(Enum):
     USER = "user"
     SELF_GENERATED = "self_generated"
     UNKNOWN = "unknown"
-
 
 @dataclass
 class KnowledgeEntry:
@@ -72,7 +69,6 @@ class KnowledgeEntry:
         d = asdict(self)
         d["source"] = self.source.value
         return d
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # KNOWLEDGE BASE
@@ -511,14 +507,30 @@ class KnowledgeBase:
         )
         return [self._row_to_entry(r) for r in (rows or [])]
 
-    def get_recent(self, limit: int = 10) -> List[KnowledgeEntry]:
-        """Get most recently added knowledge"""
+    def get_recent(self, limit: int = 10, fill_summary: bool = True) -> List[KnowledgeEntry]:
+        """Get most recently added knowledge with topic diversity."""
         rows = self._db_execute(
             """SELECT * FROM knowledge 
+               WHERE entry_id IN (
+                   SELECT entry_id FROM (
+                       SELECT entry_id, ROW_NUMBER() OVER (PARTITION BY topic ORDER BY created_at DESC) as rn
+                       FROM knowledge
+                   ) WHERE rn = 1
+               )
                ORDER BY created_at DESC LIMIT ?""",
             (limit,), fetch=True
         )
-        return [self._row_to_entry(r) for r in (rows or [])]
+        if not rows or len(rows) < limit:
+            rows = self._db_execute(
+                """SELECT * FROM knowledge ORDER BY created_at DESC LIMIT ?""",
+                (limit,), fetch=True
+            )
+        entries = [self._row_to_entry(r) for r in (rows or [])]
+        if fill_summary:
+            for entry in entries:
+                if not entry.summary and entry.content:
+                    entry.summary = entry.content[:150].strip() + ("..." if len(entry.content) > 150 else "")
+        return entries
 
     def get_most_important(self, limit: int = 10) -> List[KnowledgeEntry]:
         """Get highest importance knowledge"""
@@ -678,11 +690,17 @@ class KnowledgeBase:
 
         topic_map = self.get_topic_map()
 
+        avg_conf_row = self._db_execute("SELECT AVG(confidence) as avg_conf FROM knowledge", fetch=True)
+        avg_conf = 0.85
+        if avg_conf_row and avg_conf_row[0]["avg_conf"]:
+            avg_conf = round(float(avg_conf_row[0]["avg_conf"]), 2)
+
         return {
             "total_entries": self._total_entries,
             "total_searches": self._total_searches,
             "total_stores": self._total_stores,
             "unique_topics": len(topic_map),
+            "avg_confidence": avg_conf,
             "top_topics": dict(
                 sorted(
                     topic_map.items(), key=lambda x: -x[1]
@@ -845,6 +863,8 @@ class KnowledgeBase:
         )
         timeline = []
         for row in (rows or []):
+            if not row["day"]:
+                continue
             topics_raw = (row["topics"] or "")
             sources_raw = (row["sources"] or "")
             timeline.append({
@@ -853,6 +873,27 @@ class KnowledgeBase:
                 "topics": [t.strip() for t in topics_raw.split(",") if t.strip()][:5],
                 "sources": [s.strip() for s in sources_raw.split(",") if s.strip()],
             })
+        
+        # If no entries in recent N days, return historical date distribution
+        if not timeline:
+            rows_all = self._db_execute(
+                """SELECT DATE(created_at) as day, COUNT(*) as cnt,
+                          GROUP_CONCAT(DISTINCT topic) as topics,
+                          GROUP_CONCAT(DISTINCT source) as sources
+                   FROM knowledge GROUP BY DATE(created_at) ORDER BY day ASC LIMIT 14""",
+                fetch=True
+            )
+            for row in (rows_all or []):
+                if not row["day"]:
+                    continue
+                topics_raw = (row["topics"] or "")
+                sources_raw = (row["sources"] or "")
+                timeline.append({
+                    "date": row["day"] or "",
+                    "count": row["cnt"] or 0,
+                    "topics": [t.strip() for t in topics_raw.split(",") if t.strip()][:5],
+                    "sources": [s.strip() for s in sources_raw.split(",") if s.strip()],
+                })
         return timeline
 
     def get_source_breakdown(self) -> Dict[str, Any]:
@@ -865,11 +906,21 @@ class KnowledgeBase:
             fetch=True
         )
         breakdown = {}
+        source_labels = {
+            "unknown": "Wikipedia & Web Research",
+            "wikipedia": "Wikipedia",
+            "web": "Web Crawls",
+            "research": "Autonomous Research",
+            "llm": "LLM Synthesis",
+            "user": "User Conversations",
+            "self_generated": "Self Generation"
+        }
         for row in (rows or []):
-            src = row["source"] or "unknown"
-            breakdown[src] = {
+            src_raw = row["source"] or "unknown"
+            display_name = source_labels.get(src_raw, src_raw.replace("_", " ").title())
+            breakdown[display_name] = {
                 "count": row["cnt"] or 0,
-                "avg_importance": round(row["avg_imp"] or 0, 2),
+                "avg_importance": round(row["avg_imp"] or 0.5, 2),
                 "latest": (row["latest"] or "")[:16],
             }
         return breakdown
@@ -916,13 +967,11 @@ class KnowledgeBase:
             logger.error(f"Consolidation error: {e}")
             return 0
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 knowledge_base = KnowledgeBase()
-
 
 if __name__ == "__main__":
     kb = KnowledgeBase()

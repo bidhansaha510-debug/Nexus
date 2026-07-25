@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("attention_control")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class AttentionMode(Enum):
     FOCUSED = "focused"
     DIFFUSE = "diffuse"
@@ -32,7 +30,6 @@ class AttentionMode(Enum):
     SUSTAINED = "sustained"
     SELECTIVE = "selective"
     ALTERNATING = "alternating"
-
 
 @dataclass
 class AttentionState:
@@ -55,7 +52,6 @@ class AttentionState:
             "fatigue_level": self.fatigue_level,
             "created_at": self.created_at
         }
-
 
 class AttentionControlEngine:
     """
@@ -91,7 +87,6 @@ class AttentionControlEngine:
 
         self._load_data()
         logger.info("✅ Attention Control Engine initialized")
-
 
     @staticmethod
     def _safe_parse_json(text: str) -> dict:
@@ -309,9 +304,7 @@ class AttentionControlEngine:
             logger.debug(f"Task prioritization failed: {e}")
         return {"error": "Prioritization failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, "current_focus": self._current_focus, **self._stats}
-
 
 attention_control = AttentionControlEngine()

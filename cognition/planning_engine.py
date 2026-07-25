@@ -25,7 +25,6 @@ from pathlib import Path
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_decision
@@ -33,7 +32,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("planning_engine")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -49,7 +47,6 @@ class PlanStatus(Enum):
     ABANDONED = "abandoned"
     ADAPTED = "adapted"
 
-
 class StepStatus(Enum):
     """Status of a single step within a plan"""
     PENDING = "pending"
@@ -58,7 +55,6 @@ class StepStatus(Enum):
     BLOCKED = "blocked"
     SKIPPED = "skipped"
 
-
 class StepPriority(Enum):
     """Priority levels for steps"""
     CRITICAL = 0
@@ -66,7 +62,6 @@ class StepPriority(Enum):
     MEDIUM = 2
     LOW = 3
     OPTIONAL = 4
-
 
 @dataclass
 class PlanStep:
@@ -121,7 +116,6 @@ class PlanStep:
             notes=data.get("notes", ""),
             order=data.get("order", 0),
         )
-
 
 @dataclass
 class Plan:
@@ -185,7 +179,6 @@ class Plan:
         completed = sum(1 for s in self.steps if s.status == StepStatus.COMPLETED)
         self.progress = completed / len(self.steps)
         self.updated_at = datetime.now().isoformat()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PLANNING ENGINE
@@ -677,7 +670,6 @@ class PlanningEngine:
             logger.debug(f"Contingency planning failed: {e}")
         return {"error": "Planning failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
             active = sum(1 for p in self._plans.values() if p.status in (PlanStatus.ACTIVE, PlanStatus.IN_PROGRESS))
             return {
@@ -688,7 +680,6 @@ class PlanningEngine:
                 "total_plans_completed": self._total_plans_completed,
                 "total_adaptations": self._total_adaptations,
             }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

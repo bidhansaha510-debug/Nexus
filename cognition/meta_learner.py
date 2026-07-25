@@ -28,13 +28,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("meta_learner")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # QUERY TYPES
@@ -64,7 +62,6 @@ STRATEGY_TYPES = [
     "direct",           # Simple direct response
 ]
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -84,7 +81,6 @@ class InteractionOutcome:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class StrategyPerformance:
@@ -133,7 +129,6 @@ class StrategyPerformance:
             "success_rate": round(self.success_rate, 3),
         }
 
-
 @dataclass
 class LearnedBehavior:
     """A behavior pattern NEXUS has learned from experience."""
@@ -148,7 +143,6 @@ class LearnedBehavior:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # META-LEARNER
@@ -678,7 +672,6 @@ class MetaLearner:
                 lines.append(f"Learning velocity: {direction}")
 
         return " | ".join(lines)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

@@ -22,7 +22,6 @@ from pathlib import Path
 from typing import Dict, Any
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 
@@ -418,7 +417,6 @@ pollStatus();
 </body>
 </html>"""
 
-
 class LiveDashboard:
     """
     Flask-based live dashboard server for watching NEXUS control the PC.
@@ -641,7 +639,6 @@ class LiveDashboard:
             app.run(host='0.0.0.0', port=self._port, threaded=True, use_reloader=False)
         except Exception as e:
             logger.error(f"Dashboard server error: {e}")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

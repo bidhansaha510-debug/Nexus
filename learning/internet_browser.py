@@ -32,7 +32,6 @@ from collections import deque
 from urllib.parse import urlparse, urljoin, quote_plus
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger
@@ -85,7 +84,6 @@ except ImportError:
     HAS_BS4 = False
     logger.warning("beautifulsoup4 not installed — pip install beautifulsoup4 lxml")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -111,7 +109,6 @@ class WebPage:
     def to_dict(self) -> dict:
         return asdict(self)
 
-
 @dataclass
 class SearchResult:
     """A single search result"""
@@ -123,7 +120,6 @@ class SearchResult:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 @dataclass
 class SearchResults:
@@ -139,7 +135,6 @@ class SearchResults:
         d = asdict(self)
         d["results"] = [r.to_dict() for r in self.results]
         return d
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HTML CLEANER
@@ -290,7 +285,6 @@ class HTMLCleaner:
                 if len(meaningful) >= max_sentences:
                     break
         return ' '.join(meaningful)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INTERNET BROWSER
@@ -1132,13 +1126,11 @@ class InternetBrowser:
             "pages_fetched_recently": len(self._pages_fetched)
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 internet_browser = InternetBrowser()
-
 
 if __name__ == "__main__":
     browser = InternetBrowser()

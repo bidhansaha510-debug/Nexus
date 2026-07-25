@@ -32,7 +32,6 @@ from itertools import product
 import math
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -60,14 +59,12 @@ class NodeType(Enum):
     CONTINUOUS = "continuous"    # Continuous values (discretized for computation)
     ORDINAL = "ordinal"      # Ordered categories
 
-
 class InferenceMethod(Enum):
     """Methods for Bayesian inference"""
     VARIABLE_ELIMINATION = "variable_elimination"
     BELIEF_PROPAGATION = "belief_propagation"
     GIBBS_SAMPLING = "gibbs_sampling"
     LIKELIHOOD_WEIGHTING = "likelihood_weighting"
-
 
 @dataclass
 class BNode:
@@ -93,7 +90,6 @@ class BNode:
             "parents": self.parents,
             "children": self.children,
         }
-
 
 @dataclass
 class CPT:
@@ -136,7 +132,6 @@ class CPT:
             "states": self.states,
         }
 
-
 @dataclass
 class Evidence:
     """Evidence for Bayesian inference"""
@@ -150,7 +145,6 @@ class Evidence:
             "state": self.state,
             "confidence": self.confidence,
         }
-
 
 @dataclass
 class QueryResult:
@@ -181,7 +175,6 @@ class QueryResult:
             "confidence": self.confidence,
             "most_likely_state": self.most_likely_state(),
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # BAYESIAN NETWORK ENGINE
@@ -932,13 +925,11 @@ class BayesianEngine:
         self._beliefs.clear()
         self._pgmpy_model = None
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 bayesian_engine = BayesianEngine()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

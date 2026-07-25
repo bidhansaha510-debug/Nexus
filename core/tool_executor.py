@@ -33,13 +33,10 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Any, Optional, Callable
 from datetime import datetime
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from utils.logger import get_logger
 from config import NEXUS_CONFIG
 
 logger = get_logger("tool_executor")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
@@ -55,7 +52,6 @@ class ToolSchema:
     required_params: List[str] = field(default_factory=list)
     category: str = "general"
     risk_level: str = "safe"  # safe, low, moderate, high
-
 
 @dataclass
 class ToolResult:
@@ -89,7 +85,6 @@ class ToolResult:
             return f"[Tool: {self.tool_name}] ✓ {result_str}"
         else:
             return f"[Tool: {self.tool_name}] ✗ Error: {self.error}"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TOOL EXECUTOR
@@ -619,6 +614,114 @@ class ToolExecutor:
             risk_level="high",
         )
 
+        # ── swarm_offload_task ──
+        self.register_tool(
+            name="swarm_offload_task",
+            handler=self._tool_swarm_offload_task,
+            description="Offload a task to the P2P Swarm mesh for distributed consensus execution.",
+            parameters={
+                "type": "object",
+                "properties": {
+                    "task_name": {"type": "string", "description": "Name of the task"},
+                    "payload": {"type": "string", "description": "Task payload or code"},
+                },
+            },
+            required_params=["task_name"],
+            category="swarm",
+        )
+
+        # ── formal_verify_code ──
+        self.register_tool(
+            name="formal_verify_code",
+            handler=self._tool_formal_verify_code,
+            description="Mathematically verify code invariants using Z3 theorem prover and AST analysis.",
+            parameters={
+                "type": "object",
+                "properties": {
+                    "code": {"type": "string", "description": "Python code to verify"},
+                },
+            },
+            required_params=["code"],
+            category="verification",
+        )
+
+        # ── execute_sandboxed_code ──
+        self.register_tool(
+            name="execute_sandboxed_code",
+            handler=self._tool_execute_sandboxed_code,
+            description="Execute code inside a capability-isolated WASM/subprocess sandbox.",
+            parameters={
+                "type": "object",
+                "properties": {
+                    "code": {"type": "string", "description": "Python code to execute inside sandbox"},
+                },
+            },
+            required_params=["code"],
+            category="sandbox",
+        )
+
+        # ── query_temporal_graphrag ──
+        self.register_tool(
+            name="query_temporal_graphrag",
+            handler=self._tool_query_temporal_graphrag,
+            description="Query the Hybrid Temporal Knowledge Graph with time-decay multi-hop RAG.",
+            parameters={
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "Search query"},
+                    "max_hops": {"type": "integer", "description": "Maximum graph traversal hops (1-3)"},
+                },
+            },
+            required_params=["query"],
+            category="memory",
+        )
+
+        # ── mcp_call_tool ──
+        self.register_tool(
+            name="mcp_call_tool",
+            handler=self._tool_mcp_call_tool,
+            description="Dispatch JSON-RPC 2.0 call to an external or local MCP tool.",
+            parameters={
+                "type": "object",
+                "properties": {
+                    "tool_name": {"type": "string", "description": "Name of the MCP tool to call"},
+                    "arguments": {"type": "object", "description": "Dictionary of tool arguments"},
+                },
+            },
+            required_params=["tool_name"],
+            category="mcp",
+        )
+
+        # ── run_speculative_generation ──
+        self.register_tool(
+            name="run_speculative_generation",
+            handler=self._tool_run_speculative_generation,
+            description="Generate text using accelerated draft-target speculative decoding.",
+            parameters={
+                "type": "object",
+                "properties": {
+                    "prompt": {"type": "string", "description": "Generation prompt"},
+                },
+            },
+            required_params=["prompt"],
+            category="llm",
+        )
+
+        # ── route_lora_moe ──
+        self.register_tool(
+            name="route_lora_moe",
+            handler=self._tool_route_lora_moe,
+            description="Evaluate prompt domain and compute dynamic LoRA MoE gating weights.",
+            parameters={
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "Input text query"},
+                },
+            },
+            required_params=["query"],
+            category="adaptation",
+        )
+
     # ──────────────────────────────────────────────────────────────────────────
     # BUILT-IN TOOL HANDLERS
     # ──────────────────────────────────────────────────────────────────────────
@@ -795,6 +898,73 @@ class ToolExecutor:
             return f"File transfer error: {e}"
 
     # ──────────────────────────────────────────────────────────────────────────
+    # NEW ARCHITECTURAL FEATURE TOOLS (Features #1 - #6)
+    # ──────────────────────────────────────────────────────────────────────────
+
+    def _tool_swarm_offload_task(self, task_name: str, payload: str = "") -> str:
+        try:
+            from core.p2p_swarm import get_p2p_swarm
+            swarm = get_p2p_swarm()
+            task_id = swarm.offload_task_to_swarm(task_name, payload)
+            return f"✓ Task '{task_name}' offloaded to P2P Swarm (Task ID: {task_id})"
+        except Exception as e:
+            return f"Swarm offload error: {e}"
+
+    def _tool_formal_verify_code(self, code: str) -> str:
+        try:
+            from core.formal_verifier import get_formal_verifier
+            verifier = get_formal_verifier()
+            res = verifier.verify_code_mutation(code)
+            return json.dumps(res.to_dict())
+        except Exception as e:
+            return f"Formal verification error: {e}"
+
+    def _tool_execute_sandboxed_code(self, code: str) -> str:
+        try:
+            from core.code_sandbox import get_code_sandbox
+            sandbox = get_code_sandbox()
+            res = sandbox.execute_sandboxed(code)
+            return json.dumps(res.to_dict())
+        except Exception as e:
+            return f"Sandbox execution error: {e}"
+
+    def _tool_query_temporal_graphrag(self, query: str, max_hops: int = 2) -> str:
+        try:
+            from memory.temporal_graphrag import get_temporal_graphrag
+            graphrag = get_temporal_graphrag()
+            res = graphrag.query_graphrag(query, max_hops=max_hops)
+            return json.dumps(res.to_dict())
+        except Exception as e:
+            return f"Temporal GraphRAG query error: {e}"
+
+    def _tool_mcp_call_tool(self, tool_name: str, arguments: dict = None) -> str:
+        try:
+            from core.mcp_protocol import get_mcp_manager
+            mgr = get_mcp_manager()
+            payload, success, err = mgr.call_tool(tool_name, arguments or {})
+            return json.dumps({"success": success, "result": payload, "error": err})
+        except Exception as e:
+            return f"MCP call error: {e}"
+
+    def _tool_run_speculative_generation(self, prompt: str) -> str:
+        try:
+            from core.speculative_decoding import get_speculative_decoder
+            decoder = get_speculative_decoder()
+            res = decoder.generate_speculative(prompt)
+            return json.dumps(res.to_dict())
+        except Exception as e:
+            return f"Speculative generation error: {e}"
+
+    def _tool_route_lora_moe(self, query: str) -> str:
+        try:
+            from self_improvement.lora_moe_router import get_lora_moe_router
+            router = get_lora_moe_router()
+            res = router.route_query(query)
+            return json.dumps(res.to_dict())
+        except Exception as e:
+            return f"LoRA MoE router error: {e}"
+
+    # ──────────────────────────────────────────────────────────────────────────
     # STATS
     # ──────────────────────────────────────────────────────────────────────────
 
@@ -813,7 +983,6 @@ class ToolExecutor:
             "tool_call_counts": tool_counts,
             "tool_names": list(self._tools.keys()),
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

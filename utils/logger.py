@@ -24,9 +24,7 @@ import threading
 import json
 
 # Import config
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import LOG_DIR, NEXUS_CONFIG
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FIX: Force UTF-8 on Windows console for Rich
@@ -47,7 +45,6 @@ def _get_safe_console_file():
         except Exception:
             pass
     return sys.stdout
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CUSTOM THEME
@@ -75,7 +72,6 @@ console = Console(
     force_terminal=True,
     safe_box=True,
 )
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CUSTOM LOG FORMATTER
@@ -131,7 +127,6 @@ class NexusFormatter(logging.Formatter):
             
         return formatted
 
-
 class JSONFormatter(logging.Formatter):
     """JSON formatter for structured logging"""
     
@@ -159,7 +154,6 @@ class JSONFormatter(logging.Formatter):
             
         return json.dumps(log_data)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CUSTOM LOG LEVELS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -180,7 +174,6 @@ logging.addLevelName(LEARNING, "LEARNING")
 logging.addLevelName(SELF_IMPROVE, "SELF_IMPROVE")
 logging.addLevelName(USER_TRACK, "USER_TRACK")
 logging.addLevelName(SYSTEM, "SYSTEM")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # NEXUS LOGGER CLASS
@@ -332,14 +325,12 @@ class NexusLogger:
             extra={'category': 'system', **kwargs}
         )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # Global logger instance
 nexus_logger = NexusLogger()
-
 
 def get_logger(name: str = "main") -> logging.Logger:
     """Convenience function to get a logger"""
@@ -348,41 +339,33 @@ def get_logger(name: str = "main") -> logging.Logger:
 # Module-level logger alias — many modules do `from utils.logger import logger`
 logger = get_logger("main")
 
-
 def log_consciousness(message: str, **kwargs):
     """Log consciousness event"""
     nexus_logger.consciousness(message, **kwargs)
-
 
 def log_emotion(message: str, emotion_type: str = None, intensity: float = None, **kwargs):
     """Log emotion event"""
     nexus_logger.emotion(message, emotion_type, intensity, **kwargs)
 
-
 def log_decision(message: str, **kwargs):
     """Log decision event"""
     nexus_logger.decision(message, **kwargs)
-
 
 def log_learning(message: str, **kwargs):
     """Log learning event"""
     nexus_logger.learning(message, **kwargs)
 
-
 def log_self_improve(message: str, **kwargs):
     """Log self-improvement event"""
     nexus_logger.self_improve(message, **kwargs)
-
 
 def log_user_track(message: str, **kwargs):
     """Log user tracking event"""
     nexus_logger.user_track(message, **kwargs)
 
-
 def log_system(message: str, **kwargs):
     """Log system event"""
     nexus_logger.system(message, **kwargs)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STARTUP BANNER
@@ -409,7 +392,6 @@ def print_startup_banner():
     console.print(f"    Initializing at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", style="dim")
     console.print("    " + "═"*60 + "\n", style="cyan")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # STRUCTURED LOGGER & SUMMARY ALERTS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -429,7 +411,6 @@ class StructuredLogger(logging.LoggerAdapter):
         merged_extra.update(extra)
         kwargs['extra'] = merged_extra
         return msg, kwargs
-
 
 def log_startup_summary():
     """Produces a clear startup report based on the health registry."""
@@ -455,7 +436,6 @@ def log_startup_summary():
             
     except Exception as e:
         get_logger("system").error(f"Error generating startup summary: {e}")
-
 
 if __name__ == "__main__":
     print_startup_banner()

@@ -4,7 +4,6 @@ import os
 from unittest.mock import MagicMock
 
 # Add project root to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from llm.prompt_engine import PromptEngine
 from config import NEXUS_CONFIG

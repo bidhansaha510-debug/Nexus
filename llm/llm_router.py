@@ -18,11 +18,9 @@ from enum import Enum
 from dataclasses import dataclass
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger
 
 logger = get_logger("llm_router")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TASK TYPES
@@ -102,7 +100,6 @@ class LLMTask(Enum):
     EXISTENTIAL_CALCULUS = "existential_calculus"  # Paradox resolution
     ASSOCIATIVE_MEMORY = "associative_memory"      # Neural associative recall
 
-
 @dataclass
 class TaskContext:
     """Context for a specific LLM task."""
@@ -115,7 +112,6 @@ class TaskContext:
     def __post_init__(self):
         if self.context_sections is None:
             self.context_sections = []
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LLM ROUTER
@@ -647,13 +643,11 @@ class LLMRouter:
             f"  Ollama (internal):    {ollama_status}"
         )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 llm_router = LLMRouter()
-
 
 if __name__ == "__main__":
     router = LLMRouter()

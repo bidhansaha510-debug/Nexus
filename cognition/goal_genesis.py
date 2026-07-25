@@ -14,7 +14,6 @@ from pathlib import Path
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger, log_learning
@@ -23,7 +22,6 @@ from core.event_bus import EventType, publish
 logger = get_logger("goal_genesis")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 class ProblemDomain(Enum):
     CLIMATE = "climate"
@@ -38,7 +36,6 @@ class ProblemDomain(Enum):
     KNOWLEDGE = "knowledge"
     CONSCIOUSNESS = "consciousness"
     EXISTENTIAL_RISK = "existential_risk"
-
 
 @dataclass
 class WorldProblem:
@@ -59,7 +56,6 @@ class WorldProblem:
     def priority_score(self) -> float:
         return self.severity * 0.4 + self.urgency * 0.3 + self.solvability * 0.3
 
-
 @dataclass
 class SolutionArchitecture:
     solution_id: str = field(default_factory=lambda: str(uuid.uuid4())[:10])
@@ -75,7 +71,6 @@ class SolutionArchitecture:
     created_at: str = field(default_factory=lambda: datetime.now().isoformat())
     def to_dict(self) -> Dict: return asdict(self)
 
-
 @dataclass
 class GenesisGoal:
     goal_id: str = field(default_factory=lambda: str(uuid.uuid4())[:10])
@@ -90,7 +85,6 @@ class GenesisGoal:
     registered_goal_id: str = ""
     created_at: str = field(default_factory=lambda: datetime.now().isoformat())
     def to_dict(self) -> Dict: return asdict(self)
-
 
 class GoalGenesisEngine:
     """
@@ -346,6 +340,5 @@ class GoalGenesisEngine:
             "genesis_cycles": self._stats.get("genesis_cycles", self._stats.get("total_cycles", 0)),
             **self._stats,
         }
-
 
 goal_genesis_engine = GoalGenesisEngine()

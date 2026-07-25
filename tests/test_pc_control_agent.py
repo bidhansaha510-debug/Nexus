@@ -5,7 +5,6 @@ import sys
 from pathlib import Path
 
 # Add project root to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 def test_config_import():
     """Test that PCControlConfig can be imported and instantiated"""
@@ -164,7 +163,6 @@ def test_autonomy_engine_integration():
     except Exception as e:
         print(f"   ❌ Failed: {e}")
         return False
-
 
 def main():
     """Run all tests"""

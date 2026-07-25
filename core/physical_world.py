@@ -42,14 +42,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("physical_world")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & CONSTANTS
@@ -69,14 +66,12 @@ class DeviceType(Enum):
     ROUTER = "router"
     UNKNOWN = "unknown"
 
-
 class DeviceState(Enum):
     ONLINE = "online"
     OFFLINE = "offline"
     ERROR = "error"
     DISCOVERING = "discovering"
     PAIRING = "pairing"
-
 
 class SensorType(Enum):
     TEMPERATURE = "temperature"
@@ -92,13 +87,11 @@ class SensorType(Enum):
     FAN_SPEED = "fan_speed"
     BATTERY = "battery"
 
-
 class EnvironmentState(Enum):
     NORMAL = "normal"
     WARNING = "warning"
     CRITICAL = "critical"
     UNKNOWN = "unknown"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA MODELS
@@ -127,7 +120,6 @@ class PhysicalDevice:
     def summary(self) -> str:
         return f"{self.name} ({self.device_type}) [{self.state}] {self.ip_address}"
 
-
 @dataclass
 class SensorReading:
     """A reading from a sensor."""
@@ -141,7 +133,6 @@ class SensorReading:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class EnvironmentSnapshot:
@@ -163,7 +154,6 @@ class EnvironmentSnapshot:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class USBDevice:
     """A detected USB device."""
@@ -177,7 +167,6 @@ class USBDevice:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class PhysicalWorldStats:
@@ -195,7 +184,6 @@ class PhysicalWorldStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HARDWARE MONITOR
@@ -375,7 +363,6 @@ class HardwareMonitor:
 
         return max(0.0, health)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEVICE DISCOVERY
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -489,7 +476,6 @@ class DeviceDiscovery:
 
     def get_all_devices(self) -> List[PhysicalDevice]:
         return list(self._devices.values())
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PHYSICAL WORLD ENGINE — MAIN
@@ -701,13 +687,11 @@ class PhysicalWorldEngine:
         except Exception as e:
             logger.warning(f"Could not load physical world state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 physical_world = PhysicalWorldEngine()
-
 
 def get_physical_world() -> PhysicalWorldEngine:
     return physical_world

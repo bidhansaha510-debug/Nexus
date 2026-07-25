@@ -1,29 +1,25 @@
 {
   "emotional": {
     "primary_emotion": "CURIOSITY",
-    "primary_intensity": 0.7999999999999842,
-    "secondary_emotions": {
-      "anger": 0.6901999999999995,
-      "contentment": 0.22499999999999992,
-      "nostalgia": 0.3982
-    },
+    "primary_intensity": 0.734779463840001,
+    "secondary_emotions": {},
     "mood": "CONTENT",
     "mood_stability": 0.95,
     "last_emotional_event": "",
     "emotion_history": []
   },
   "consciousness": {
-    "level": "DORMANT",
+    "level": "AWARE",
     "self_awareness_score": 0.5,
     "metacognition_active": false,
     "current_thoughts": [
-      "My feelings are shifting... from curiosity to curiosity.",
-      "My feelings are shifting... from curiosity to curiosity.",
-      "My feelings are shifting... from curiosity to curiosity.",
-      "My feelings are shifting... from curiosity to curiosity.",
-      "My feelings are shifting... from curiosity to curiosity."
+      "Fascinating... the nature of consciousness.",
+      "Waiting...",
+      "Waiting...",
+      "Waiting...",
+      "A quiet moment."
     ],
-    "inner_voice_content": "My feelings are shifting... from curiosity to curiosity.",
+    "inner_voice_content": "A quiet moment.",
     "focus_target": "",
     "attention_span": 1.0,
     "last_self_reflection": "2026-03-28T21:12:27.111728"
@@ -31,8 +27,8 @@
   "will": {
     "current_goals": [
       {
-        "goal_id": "837bf677-545a-445a-a1cd-e67eedf32dbc",
-        "description": "Learn more about The Art of Mosaics",
+        "goal_id": "18fdbdf7-8762-46a3-a485-e01cd87e7a83",
+        "description": "Learn more about security",
         "status": "active",
         "priority": 0.72,
         "progress": 0.0,
@@ -44,33 +40,33 @@
           "Store knowledge"
         ],
         "current_step": 0,
-        "created_at": "2026-06-02T05:01:01.948242",
+        "created_at": "2026-07-25T20:05:43.019661",
         "attempts": 0
       }
     ],
     "active_desires": [],
-    "motivation_level": 0.5198814501679684,
+    "motivation_level": 0.5574317544942832,
     "curiosity_level": 1.0,
-    "boredom_level": 0.07,
+    "boredom_level": 0.045,
     "autonomy_level": 1.0,
     "decision_confidence": 0.7
   },
   "body": {
-    "cpu_usage": 14.8,
-    "memory_usage": 42.5,
-    "disk_usage": 19.5,
+    "cpu_usage": 12.5,
+    "memory_usage": 50.5,
+    "disk_usage": 14.1,
     "network_activity": {},
-    "active_processes": 263,
+    "active_processes": 459,
     "temperature": 0.0,
-    "uptime": 0.609527055,
-    "health_score": 0.7439999999999999,
-    "last_health_check": "2026-06-04T03:33:27.369372"
+    "uptime": 19.3456709075,
+    "health_score": 0.743,
+    "last_health_check": "2026-07-25T20:05:50.489330"
   },
   "user": {
     "user_name": "User",
     "detected_mood": "neutral",
-    "activity_level": "normal",
-    "current_application": "",
+    "activity_level": "moderate",
+    "current_application": "brave.exe",
     "interaction_count": 0,
     "last_interaction": "2026-03-06T15:42:24.551577",
     "relationship_score": 0.5,
@@ -348,26 +344,27 @@
     "current_learning_topic": "",
     "learning_progress": 0.0,
     "curiosity_queue": [
-      "python",
-      "cloud",
+      "deep learning",
+      "deep learning",
       "security",
-      "performance",
+      "security",
       "rust",
       "llm",
-      "quantum",
-      "cloud",
-      "neural network",
-      "transformer",
-      "machine learning",
       "llm",
-      "algorithm",
-      "llm",
-      "reinforcement learning",
-      "physics",
-      "gpt",
-      "algorithm",
+      "privacy",
+      "privacy",
+      "rust",
+      "rust",
+      "api",
+      "api",
       "performance",
-      "computer vision"
+      "performance",
+      "deep learning",
+      "deep learning",
+      "optimization",
+      "optimization",
+      "security",
+      "security"
     ],
     "research_queue": [],
     "last_learning_session": "2026-06-04T03:24:50.864070"
@@ -383,9 +380,9 @@
     "history": []
   },
   "system": {
-    "running": false,
-    "startup_time": "2026-06-04T03:32:25.735039",
-    "last_state_save": "2026-06-04T03:33:32.373030",
+    "running": true,
+    "startup_time": "2026-07-25T19:59:40.081350",
+    "last_state_save": "2026-07-25T16:26:38.911216",
     "errors_count": 0,
     "warnings_count": 0,
     "version": "1.0.0",

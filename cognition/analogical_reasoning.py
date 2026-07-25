@@ -24,7 +24,6 @@ from pathlib import Path
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -32,7 +31,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("analogical_reasoning")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -46,7 +44,6 @@ class AnalogyType(Enum):
     PROPORTIONAL = "proportional"  # A:B :: C:D
     METAPHORICAL = "metaphorical"  # Poetic/conceptual bridge
     EXPLANATORY = "explanatory"    # Used to explain something complex
-
 
 @dataclass
 class AnalogicalMapping:
@@ -63,7 +60,6 @@ class AnalogicalMapping:
             "relationship": self.relationship,
             "strength": self.strength,
         }
-
 
 @dataclass
 class Analogy:
@@ -115,7 +111,6 @@ class Analogy:
             limitations=data.get("limitations", []),
             created_at=data.get("created_at", ""),
         )
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ANALOGICAL REASONING ENGINE
@@ -528,7 +523,6 @@ class AnalogicalReasoningEngine:
             "total_analogies_found": self._total_analogies_found,
             "total_analogies_applied": self._total_analogies_applied,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

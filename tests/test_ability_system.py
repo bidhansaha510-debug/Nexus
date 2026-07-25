@@ -9,7 +9,6 @@ Tests:
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 def test_ability_registry():
     """Test that the ability registry works"""
@@ -50,7 +49,6 @@ def test_ability_registry():
     
     return True
 
-
 def test_ability_executor():
     """Test that the ability executor can detect and parse invocations"""
     print("\n" + "="*60)
@@ -80,7 +78,6 @@ def test_ability_executor():
             print(f"   - {inv.name} with params: {inv.params}")
     
     return True
-
 
 def test_end_to_end():
     """Test end-to-end ability execution from mock LLM response"""
@@ -122,7 +119,6 @@ def test_end_to_end():
     
     return True
 
-
 def test_prompt_includes_abilities():
     """Test that the prompt engine includes abilities"""
     print("\n" + "="*60)
@@ -156,7 +152,6 @@ def test_prompt_includes_abilities():
         print(system_prompt[start:end] + "...")
     
     return has_abilities and has_remember
-
 
 def main():
     """Run all tests"""
@@ -210,7 +205,6 @@ def main():
         print(f"\n⚠️ {total - passed} test(s) failed. Check the output above.")
     
     return passed == total
-
 
 if __name__ == "__main__":
     success = main()

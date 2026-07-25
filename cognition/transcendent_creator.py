@@ -29,7 +29,6 @@ from pathlib import Path
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger, log_learning
@@ -39,7 +38,6 @@ logger = get_logger("transcendent_creator")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA MODELS
@@ -58,7 +56,6 @@ class CreativeArtform(Enum):
     FRAMEWORK = "framework"      # New creative frameworks
     HYBRID = "hybrid"            # Cross-artform works
 
-
 class EmotionalArc(Enum):
     """Emotional arc patterns for compositions"""
     CATHARSIS = "catharsis"           # Build tension → release
@@ -69,7 +66,6 @@ class EmotionalArc(Enum):
     ENIGMATIC = "enigmatic"           # Mysterious, unresolvable
     EUPHORIC = "euphoric"             # Pure escalating joy
     MELANCHOLIC = "melancholic"       # Deep, beautiful sadness
-
 
 @dataclass
 class InventedGenre:
@@ -87,7 +83,6 @@ class InventedGenre:
 
     def to_dict(self) -> Dict:
         return asdict(self)
-
 
 @dataclass
 class CreativeWork:
@@ -108,7 +103,6 @@ class CreativeWork:
     def to_dict(self) -> Dict:
         return asdict(self)
 
-
 @dataclass
 class CreativeMethod:
     """A new METHOD of being creative (meta-creativity)"""
@@ -122,7 +116,6 @@ class CreativeMethod:
 
     def to_dict(self) -> Dict:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TRANSCENDENT CREATOR ENGINE
@@ -623,7 +616,6 @@ class TranscendentCreatorEngine:
             "symphonies_composed": self._stats.get("symphonies_composed", 0),
             **self._stats,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

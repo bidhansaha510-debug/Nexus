@@ -41,14 +41,11 @@ from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 from urllib.parse import quote_plus, urlparse
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("osint_engine")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & CONSTANTS
@@ -66,7 +63,6 @@ class FeedType(Enum):
     DARKWEB = "darkweb"
     CUSTOM = "custom"
 
-
 class ThreatCategory(Enum):
     """Categories of detected threats."""
     VULNERABILITY = "vulnerability"
@@ -81,7 +77,6 @@ class ThreatCategory(Enum):
     INSIDER_THREAT = "insider_threat"
     GENERAL = "general"
 
-
 class SentimentLevel(Enum):
     """Sentiment analysis results."""
     VERY_NEGATIVE = "very_negative"
@@ -90,7 +85,6 @@ class SentimentLevel(Enum):
     POSITIVE = "positive"
     VERY_POSITIVE = "very_positive"
 
-
 class AlertPriority(Enum):
     """Alert priority levels."""
     CRITICAL = 0
@@ -98,7 +92,6 @@ class AlertPriority(Enum):
     MEDIUM = 2
     LOW = 3
     INFO = 4
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA MODELS
@@ -130,7 +123,6 @@ class OSINTArticle:
     def summary(self) -> str:
         return f"[{self.source}] {self.title[:80]} (threat={self.threat_score:.1f})"
 
-
 @dataclass
 class FeedConfig:
     """Configuration for an OSINT feed source."""
@@ -151,7 +143,6 @@ class FeedConfig:
             d["api_key"] = "***"  # Redact
         return d
 
-
 @dataclass
 class ThreatAlert:
     """An alert generated from OSINT analysis."""
@@ -168,7 +159,6 @@ class ThreatAlert:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class IntelligenceReport:
@@ -188,7 +178,6 @@ class IntelligenceReport:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class TrackedTarget:
     """An entity being tracked across OSINT feeds."""
@@ -204,7 +193,6 @@ class TrackedTarget:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class OSINTStats:
@@ -223,7 +211,6 @@ class OSINTStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEXT ANALYZER (Built-in NLP)
@@ -340,7 +327,6 @@ class TextAnalyzer:
                 categories.append(category)
 
         return categories or [ThreatCategory.GENERAL.value]
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FEED SCRAPER
@@ -598,7 +584,6 @@ class FeedScraper:
 
         return articles
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # REPORT GENERATOR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -663,7 +648,6 @@ class ReportGenerator:
         )
 
         return report
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # OSINT ENGINE — MAIN
@@ -1012,13 +996,11 @@ class OSINTEngine:
         except Exception as e:
             logger.warning(f"Could not load OSINT state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 osint_engine = OSINTEngine()
-
 
 def get_osint_engine() -> OSINTEngine:
     return osint_engine

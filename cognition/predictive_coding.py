@@ -20,13 +20,11 @@ from pathlib import Path
 from collections import deque
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("predictive_coding")
-
 
 @dataclass
 class Prediction:
@@ -46,7 +44,6 @@ class Prediction:
                 "error": round(self.prediction_error, 3),
                 "surprise": round(self.surprise_level, 3),
                 "resolved": self.resolved}
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LLM HELPERS
@@ -86,7 +83,6 @@ def _llm_predict(domain: str, context: str) -> Optional[Dict[str, Any]]:
         logger.debug(f"LLM prediction failed: {e}")
         return None
 
-
 def _llm_compute_error(prediction: str, actual_outcome: str) -> Optional[Dict[str, Any]]:
     """Use LLM to compare prediction vs. actual outcome and compute semantic error."""
     try:
@@ -121,7 +117,6 @@ def _llm_compute_error(prediction: str, actual_outcome: str) -> Optional[Dict[st
     except Exception as e:
         logger.debug(f"LLM error computation failed: {e}")
         return None
-
 
 class PredictiveCoding:
     """Prediction-error minimization: predict, compare, learn from surprise. LLM-powered."""
@@ -351,6 +346,5 @@ class PredictiveCoding:
                         self._domain_accuracy[k] = v
         except Exception as e:
             logger.debug(f"Predictive coding load error: {e}")
-
 
 predictive_coding = PredictiveCoding()

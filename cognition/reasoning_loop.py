@@ -22,12 +22,10 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Any, Optional, Callable, Generator
 from datetime import datetime
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger
 from config import NEXUS_CONFIG
 
 logger = get_logger("reasoning_loop")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
@@ -53,7 +51,6 @@ class ReasoningStep:
             "elapsed": round(self.elapsed, 3),
         }
 
-
 @dataclass
 class AgenticResult:
     """Final result from the reasoning loop."""
@@ -72,7 +69,6 @@ class AgenticResult:
             "final_step": self.final_step,
             "steps": [s.to_dict() for s in self.steps],
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # AGENTIC REASONING LOOP
@@ -112,7 +108,6 @@ RULES:
 - Use "think_deeper" for complex reasoning, ethical dilemmas, creative tasks.
 - Use "respond" only when you have a complete, high-quality answer.
 - Respond ONLY with the JSON object, nothing else."""
-
 
 class AgenticLoop:
     """
@@ -484,7 +479,6 @@ Provide a clear, concise, and complete answer."""
 
     def get_stats(self) -> Dict[str, Any]:
         return dict(self._stats)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

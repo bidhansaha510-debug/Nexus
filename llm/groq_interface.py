@@ -15,11 +15,9 @@ from datetime import datetime
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger
 
 logger = get_logger("groq_interface")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RESPONSE DATACLASS
@@ -48,7 +46,6 @@ class GroqResponse:
             "timestamp": self.timestamp.isoformat(),
             "latency_seconds": self.latency_seconds
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GROQ INTERFACE
@@ -569,13 +566,11 @@ class GroqInterface:
         """Set default max tokens"""
         self._max_tokens = max_tokens
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 groq_interface = GroqInterface()
-
 
 if __name__ == "__main__":
     interface = GroqInterface()

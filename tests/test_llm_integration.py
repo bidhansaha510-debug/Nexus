@@ -8,9 +8,6 @@ import pytest
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # PROMPT ENGINE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -19,7 +16,6 @@ def test_prompt_engine_imports():
     """Prompt engine imports cleanly."""
     from llm.prompt_engine import PromptEngine, prompt_engine
     assert prompt_engine is not None
-
 
 def test_prompt_engine_builds_system_prompt():
     """Prompt engine builds a non-empty system prompt."""
@@ -33,13 +29,11 @@ def test_prompt_engine_builds_system_prompt():
     assert isinstance(prompt, str)
     assert len(prompt) > 100  # Should be substantial
 
-
 def test_prompt_engine_includes_identity():
     """System prompt includes NEXUS identity."""
     from llm.prompt_engine import prompt_engine
     prompt = prompt_engine.build_system_prompt()
     assert "NEXUS" in prompt
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONTEXT MANAGER
@@ -50,7 +44,6 @@ def test_context_manager_imports():
     from llm.context_manager import ContextManager, context_manager
     assert context_manager is not None
 
-
 def test_context_manager_add_message():
     """Can add messages to context."""
     from llm.context_manager import context_manager
@@ -58,7 +51,6 @@ def test_context_manager_add_message():
     context_manager.add_message("assistant", "Hi there")
     stats = context_manager.get_stats()
     assert isinstance(stats, dict)
-
 
 def test_context_manager_new_session():
     """New session clears context."""
@@ -69,7 +61,6 @@ def test_context_manager_new_session():
     stats = context_manager.get_stats()
     assert isinstance(stats, dict)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # LLM ROUTER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -79,12 +70,10 @@ def test_llm_router_imports():
     from llm.llm_router import llm_router, LLMTask
     assert llm_router is not None
 
-
 def test_llm_router_has_route_method():
     """LLM router has a route method."""
     from llm.llm_router import llm_router
     assert hasattr(llm_router, 'route') or hasattr(llm_router, 'generate')
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CIRCUIT BREAKER FOR LLM
@@ -109,7 +98,6 @@ def test_circuit_breaker_with_llm_mock():
         cb.call(failing_call)
 
     assert cb.state.value == "open"
-
 
 def test_circuit_breaker_recovery():
     """Circuit breaker closes again after successful probe."""
@@ -136,7 +124,6 @@ def test_circuit_breaker_recovery():
     assert result == "ok"
     assert cb.state == CircuitState.CLOSED
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # RETRY WITH BACKOFF
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -150,7 +137,6 @@ def test_retry_with_backoff_succeeds():
         return "ok"
 
     assert succeed() == "ok"
-
 
 def test_retry_with_backoff_retries_then_succeeds():
     """Retryable function succeeds after failures."""
@@ -167,7 +153,6 @@ def test_retry_with_backoff_retries_then_succeeds():
 
     assert eventual_success() == "finally"
     assert call_count["n"] == 3
-
 
 def test_retry_with_backoff_exhausted():
     """Retryable function raises after all retries exhausted."""

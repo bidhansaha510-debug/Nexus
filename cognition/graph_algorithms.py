@@ -30,7 +30,6 @@ import heapq
 import math
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -57,7 +56,6 @@ class PathType(Enum):
     CRITICAL = "critical"  # Critical path in DAG
     CAUSAL = "causal"  # Causal path
 
-
 class CentralityMeasure(Enum):
     """Centrality measures for node importance"""
     DEGREE = "degree"
@@ -69,14 +67,12 @@ class CentralityMeasure(Enum):
     HITS_HUB = "hits_hub"
     HITS_AUTHORITY = "hits_authority"
 
-
 class CommunityAlgorithm(Enum):
     """Algorithms for community detection"""
     LOUVAIN = "louvain"
     LABEL_PROPAGATION = "label_propagation"
     GREEDY_MODULARITY = "greedy_modularity"
     GIRVAN_NEWMAN = "girvan_newman"
-
 
 @dataclass
 class GraphNode:
@@ -92,7 +88,6 @@ class GraphNode:
             return self.node_id == other.node_id
         return False
 
-
 @dataclass
 class GraphEdge:
     """An edge in a graph"""
@@ -103,7 +98,6 @@ class GraphEdge:
     
     def __hash__(self):
         return hash((self.source, self.target))
-
 
 @dataclass
 class Path:
@@ -125,7 +119,6 @@ class Path:
             "length": self.length(),
         }
 
-
 @dataclass
 class Community:
     """A community in a graph"""
@@ -143,7 +136,6 @@ class Community:
             "size": self.size(),
             "modularity": self.modularity,
         }
-
 
 @dataclass
 class CausalEffect:
@@ -164,7 +156,6 @@ class CausalEffect:
             "adjustment_set": self.adjustment_set,
             "method": self.method,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GRAPH ALGORITHMS ENGINE
@@ -1065,13 +1056,11 @@ class GraphAlgorithms:
             "networkx_available": NETWORKX_AVAILABLE,
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 graph_algorithms = GraphAlgorithms()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

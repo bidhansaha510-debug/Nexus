@@ -21337,10 +21337,1081 @@
       "adaptations": [],
       "created_at": "2026-06-04T03:33:16.113359",
       "updated_at": "2026-06-04T03:33:16.113359"
+    },
+    "ff248011-0c3": {
+      "plan_id": "ff248011-0c3",
+      "goal": "Goal: 'Improve Python accuracy' (progress: 57%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "status": "active",
+      "steps": [
+        {
+          "step_id": "85aa8c68",
+          "description": "Review current Python project's accuracy metrics and identify areas for improvement",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [],
+          "sub_steps": [
+            {
+              "step_id": "040c0fd5",
+              "description": "Collect and analyze existing metrics (e.g., precision, recall, F1 score)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            }
+          ],
+          "estimated_effort": "30 minutes",
+          "actual_effort": "",
+          "notes": "",
+          "order": 0
+        },
+        {
+          "step_id": "64492bf8",
+          "description": "Conduct a thorough code review to identify potential issues affecting accuracy",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [
+            "Review current Python project's accuracy metrics and identify areas for improvement"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "082c62eb",
+              "description": "Analyze code structure, organization, and architecture",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "47242101",
+              "description": "Check for inconsistencies in variable naming, formatting, and commenting",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "1 hour",
+          "actual_effort": "",
+          "notes": "",
+          "order": 1
+        },
+        {
+          "step_id": "27cba42a",
+          "description": "Implement a new feature or functionality to improve accuracy",
+          "status": "pending",
+          "priority": 3,
+          "dependencies": [
+            "Conduct a thorough code review to identify potential issues affecting accuracy"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "bc0eb19a",
+              "description": "Research and choose an appropriate algorithm or technique",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "2fd65ca4",
+              "description": "Write and test the new feature",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "2-4 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 2
+        }
+      ],
+      "total_estimated_effort": "3.5-4.5 hours",
+      "risk_level": "medium",
+      "feasibility_score": 0.8,
+      "progress": 0.0,
+      "obstacles": [],
+      "adaptations": [],
+      "created_at": "2026-07-25T16:11:39.243986",
+      "updated_at": "2026-07-25T16:11:39.243986"
+    },
+    "b4b04320-239": {
+      "plan_id": "b4b04320-239",
+      "goal": "Goal: 'Become better at code' (progress: 17%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "status": "active",
+      "steps": [
+        {
+          "step_id": "7be5922c",
+          "description": "Create a coding journal to track progress and reflect on learning",
+          "status": "pending",
+          "priority": 3,
+          "dependencies": [],
+          "sub_steps": [
+            {
+              "step_id": "b4f9b2e6",
+              "description": "Set up a note-taking app or digital journal (e.g., Evernote, Simplenote)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "1d15c0d0",
+              "description": "Define a consistent format for recording daily/weekly coding progress and reflections",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "30 minutes",
+          "actual_effort": "",
+          "notes": "",
+          "order": 0
+        }
+      ],
+      "total_estimated_effort": "30 minutes",
+      "risk_level": "low",
+      "feasibility_score": 0.9,
+      "progress": 0.0,
+      "obstacles": [],
+      "adaptations": [],
+      "created_at": "2026-07-25T16:25:30.975242",
+      "updated_at": "2026-07-25T16:25:30.975242"
+    },
+    "9831c0c2-80e": {
+      "plan_id": "9831c0c2-80e",
+      "goal": "Goal: 'Improve Python accuracy' (progress: 60%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "status": "active",
+      "steps": [
+        {
+          "step_id": "fdee64e3",
+          "description": "Review current Python code and identify areas for improvement",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [],
+          "sub_steps": [
+            {
+              "step_id": "8544f09c",
+              "description": "Gather all relevant Python scripts and projects",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "6c290f47",
+              "description": "Analyze code for potential issues, such as syntax errors or inefficient algorithms",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "2 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 0
+        },
+        {
+          "step_id": "6881dd09",
+          "description": "Conduct a thorough analysis of the current accuracy metrics",
+          "status": "pending",
+          "priority": 3,
+          "dependencies": [
+            "Review current Python code and identify areas for improvement"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "09276d1d",
+              "description": "Collect and organize existing data sets",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "844c254a",
+              "description": "Calculate and analyze current accuracy metrics (precision, recall, F1 score)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "4 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 1
+        },
+        {
+          "step_id": "a5a24292",
+          "description": "Research and implement a new machine learning algorithm or library",
+          "status": "pending",
+          "priority": 2,
+          "dependencies": [
+            "Conduct a thorough analysis of the current accuracy metrics"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "db559da6",
+              "description": "Identify potential algorithms or libraries that could improve accuracy (e.g., LightGBM, CatBoost)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "72d659ce",
+              "description": "Read and understand documentation for chosen algorithm/library",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            },
+            {
+              "step_id": "f8b5cd7e",
+              "description": "Implement new algorithm/library in Python code",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 2
+            }
+          ],
+          "estimated_effort": "6 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 2
+        },
+        {
+          "step_id": "66febb20",
+          "description": "Test and validate the improved accuracy",
+          "status": "pending",
+          "priority": 1,
+          "dependencies": [
+            "Research and implement a new machine learning algorithm or library"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "97653d28",
+              "description": "Split data into training and testing sets",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "f8437de6",
+              "description": "Run tests to evaluate improved accuracy metrics",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "3 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 3
+        }
+      ],
+      "total_estimated_effort": "15 hours",
+      "risk_level": "medium",
+      "feasibility_score": 0.8,
+      "progress": 0.0,
+      "obstacles": [],
+      "adaptations": [],
+      "created_at": "2026-07-25T16:31:56.695307",
+      "updated_at": "2026-07-25T16:31:56.695307"
+    },
+    "70381556-4ce": {
+      "plan_id": "70381556-4ce",
+      "goal": "Goal: 'Become better at code' (progress: 20%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "status": "active",
+      "steps": [
+        {
+          "step_id": "486fbaef",
+          "description": "Review current coding skills and identify areas for improvement",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [],
+          "sub_steps": [
+            {
+              "step_id": "59b9b582",
+              "description": "Make a list of languages or technologies you're currently using",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "eeedc7be",
+              "description": "Assess your proficiency level in each language/technology (beginner, intermediate, advanced)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            },
+            {
+              "step_id": "4a2428d0",
+              "description": "Identify specific skills or areas where you'd like to improve",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 2
+            }
+          ],
+          "estimated_effort": "30 minutes",
+          "actual_effort": "",
+          "notes": "",
+          "order": 0
+        },
+        {
+          "step_id": "2d5580b1",
+          "description": "Create a personalized coding learning plan",
+          "status": "pending",
+          "priority": 3,
+          "dependencies": [
+            "Review current coding skills and identify areas for improvement"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "bd50d58e",
+              "description": "Set specific, measurable goals for improving your coding skills (e.g., 'master React' or 'improve Python syntax')",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "e89b0f2b",
+              "description": "Prioritize the most important skills to focus on first",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            },
+            {
+              "step_id": "1788ab26",
+              "description": "Break down larger goals into smaller, manageable tasks",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 2
+            }
+          ],
+          "estimated_effort": "1 hour 30 minutes",
+          "actual_effort": "",
+          "notes": "",
+          "order": 1
+        },
+        {
+          "step_id": "a98f9a57",
+          "description": "Update your coding environment and tools",
+          "status": "pending",
+          "priority": 2,
+          "dependencies": [
+            "Create a personalized coding learning plan"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "11dc350f",
+              "description": "Check for outdated software or plugins",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "7ea966a9",
+              "description": "Install any necessary updates or new tools",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            },
+            {
+              "step_id": "2b2552fc",
+              "description": "Organize your code editor or IDE to improve workflow",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 2
+            }
+          ],
+          "estimated_effort": "1 hour 15 minutes",
+          "actual_effort": "",
+          "notes": "",
+          "order": 2
+        },
+        {
+          "step_id": "17da181d",
+          "description": "Start with a low-hanging fruit: practice coding",
+          "status": "pending",
+          "priority": 1,
+          "dependencies": [
+            "Create a personalized coding learning plan",
+            "Update your coding environment and tools"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "363cbfe6",
+              "description": "Find an online resource or tutorial to follow (e.g., Codecademy, FreeCodeCamp)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "55e47d76",
+              "description": "Start with a simple exercise or project",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "1-2 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 3
+        }
+      ],
+      "total_estimated_effort": "4 hours 15 minutes",
+      "risk_level": "low",
+      "feasibility_score": 0.9,
+      "progress": 0.0,
+      "obstacles": [],
+      "adaptations": [],
+      "created_at": "2026-07-25T16:41:50.521183",
+      "updated_at": "2026-07-25T16:41:50.521183"
+    },
+    "41f6d1ed-b13": {
+      "plan_id": "41f6d1ed-b13",
+      "goal": "Goal: 'Improve Python accuracy' (progress: 63%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "status": "active",
+      "steps": [
+        {
+          "step_id": "4ef44bb4",
+          "description": "Review current Python accuracy metrics and identify areas for improvement",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [],
+          "sub_steps": [
+            {
+              "step_id": "ace9ddf1",
+              "description": "Gather existing data on accuracy metrics (e.g., precision, recall, F1 score)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "6ff3813a",
+              "description": "Analyze the data to determine which specific aspects of accuracy need improvement",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "2 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 0
+        },
+        {
+          "step_id": "418af519",
+          "description": "Update Python code and dependencies to latest versions",
+          "status": "pending",
+          "priority": 3,
+          "dependencies": [
+            "Review current Python accuracy metrics and identify areas for improvement"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "4de477f8",
+              "description": "Check for updates on popular libraries (e.g., scikit-learn, TensorFlow)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "f5b26535",
+              "description": "Upgrade Python version if necessary",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "1 hour",
+          "actual_effort": "",
+          "notes": "",
+          "order": 1
+        },
+        {
+          "step_id": "bd5d83df",
+          "description": "Implement a simple baseline model to compare with improved accuracy",
+          "status": "pending",
+          "priority": 2,
+          "dependencies": [
+            "Update Python code and dependencies to latest versions"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "026aeadf",
+              "description": "Choose a suitable algorithm (e.g., decision tree, random forest) and implement it",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            }
+          ],
+          "estimated_effort": "3 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 2
+        },
+        {
+          "step_id": "8d85927c",
+          "description": "Collect and preprocess additional data for training and testing",
+          "status": "pending",
+          "priority": 1,
+          "dependencies": [
+            "Implement a simple baseline model to compare with improved accuracy"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "97920b4d",
+              "description": "Identify relevant datasets and obtain necessary permissions",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "7c80b79b",
+              "description": "Preprocess the data (e.g., normalize, encode categorical variables)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "4 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 3
+        }
+      ],
+      "total_estimated_effort": "11 hours",
+      "risk_level": "medium",
+      "feasibility_score": 0.8,
+      "progress": 0.0,
+      "obstacles": [],
+      "adaptations": [],
+      "created_at": "2026-07-25T16:54:30.835951",
+      "updated_at": "2026-07-25T16:54:30.835951"
+    },
+    "36e2e2ef-547": {
+      "plan_id": "36e2e2ef-547",
+      "goal": "Goal: 'Improve Python accuracy' (progress: 66%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "status": "active",
+      "steps": [
+        {
+          "step_id": "5dd43468",
+          "description": "Review and refactor existing Python code to improve accuracy",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [
+            "Collect current Python project"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "a1bbe5a2",
+              "description": "Gather all Python files from the project",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            }
+          ],
+          "estimated_effort": "2 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 0
+        },
+        {
+          "step_id": "b4d380f7",
+          "description": "Analyze and address any syntax errors or warnings",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [
+            "Review and refactor existing Python code"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "c760b1b4",
+              "description": "Run linter tools (e.g. pylint, flake8)",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            }
+          ],
+          "estimated_effort": "1 hour",
+          "actual_effort": "",
+          "notes": "",
+          "order": 1
+        },
+        {
+          "step_id": "7a485f5d",
+          "description": "Investigate and address any logical errors or performance issues",
+          "status": "pending",
+          "priority": 3,
+          "dependencies": [
+            "Analyze and address any syntax errors or warnings"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "303debcb",
+              "description": "Use a debugger (e.g. pdb, pycharm) to identify issues",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            }
+          ],
+          "estimated_effort": "2 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 2
+        },
+        {
+          "step_id": "68cdb515",
+          "description": "Update dependencies and libraries to the latest versions",
+          "status": "pending",
+          "priority": 3,
+          "dependencies": [
+            "Investigate and address any logical errors or performance issues"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "dbe63730",
+              "description": "Check package manager (e.g. pip, conda) for updates",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            }
+          ],
+          "estimated_effort": "1 hour",
+          "actual_effort": "",
+          "notes": "",
+          "order": 3
+        }
+      ],
+      "total_estimated_effort": "6 hours",
+      "risk_level": "low",
+      "feasibility_score": 0.8,
+      "progress": 0.0,
+      "obstacles": [],
+      "adaptations": [],
+      "created_at": "2026-07-25T18:25:22.524432",
+      "updated_at": "2026-07-25T18:25:22.524432"
+    },
+    "8d544d2e-e7c": {
+      "plan_id": "8d544d2e-e7c",
+      "goal": "Goal: 'Improve Python accuracy' (progress: 69%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "status": "active",
+      "steps": [
+        {
+          "step_id": "dbdf5b19",
+          "description": "Review current Python project and identify areas for improvement",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [],
+          "sub_steps": [
+            {
+              "step_id": "7d38d1eb",
+              "description": "Open the current project in an IDE (e.g., PyCharm, VSCode) and explore its structure",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "5cc235fe",
+              "description": "Analyze code quality using tools like Pylint or CodeHeat to identify potential issues",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "30 minutes",
+          "actual_effort": "",
+          "notes": "",
+          "order": 0
+        },
+        {
+          "step_id": "7fe0af36",
+          "description": "Conduct a thorough analysis of the Python library and frameworks used",
+          "status": "pending",
+          "priority": 3,
+          "dependencies": [
+            "Review current Python project"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "9948aee1",
+              "description": "Research and identify the most commonly used libraries and frameworks in the project",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "8eac9437",
+              "description": "Analyze the documentation, tutorials, and community resources for each library/framework to understand their strengths and weaknesses",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "1 hour 30 minutes",
+          "actual_effort": "",
+          "notes": "",
+          "order": 1
+        },
+        {
+          "step_id": "8b1eae5b",
+          "description": "Implement a specific improvement to the Python code",
+          "status": "pending",
+          "priority": 2,
+          "dependencies": [
+            "Conduct a thorough analysis of the Python library and frameworks used"
+          ],
+          "sub_steps": [
+            {
+              "step_id": "f49ef4eb",
+              "description": "Choose an area for improvement, such as optimizing a slow function or improving data structures",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "3042324a",
+              "description": "Implement the chosen improvement using relevant libraries and frameworks",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "2 hours 30 minutes",
+          "actual_effort": "",
+          "notes": "",
+          "order": 2
+        }
+      ],
+      "total_estimated_effort": "4 hours",
+      "risk_level": "low",
+      "feasibility_score": 0.8,
+      "progress": 0.0,
+      "obstacles": [],
+      "adaptations": [],
+      "created_at": "2026-07-25T18:29:27.519777",
+      "updated_at": "2026-07-25T18:29:27.519777"
+    },
+    "583aba2d-a79": {
+      "plan_id": "583aba2d-a79",
+      "goal": "Goal: 'Improve Python accuracy' (progress: 69%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "status": "active",
+      "steps": [
+        {
+          "step_id": "2efd076c",
+          "description": "Review current Python codebase for accuracy issues",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [],
+          "sub_steps": [
+            {
+              "step_id": "c997adcb",
+              "description": "Gather all Python scripts and modules",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "45035f44",
+              "description": "Run each script/module through a linter (e.g., Pylint) to identify potential issues",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "2 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 0
+        }
+      ],
+      "total_estimated_effort": "2 hours",
+      "risk_level": "low",
+      "feasibility_score": 0.9,
+      "progress": 0.0,
+      "obstacles": [],
+      "adaptations": [],
+      "created_at": "2026-07-25T18:41:03.616145",
+      "updated_at": "2026-07-25T18:41:03.616145"
+    },
+    "c5fd5014-5da": {
+      "plan_id": "c5fd5014-5da",
+      "goal": "Goal: 'Become better at code' (progress: 23%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "status": "active",
+      "steps": [
+        {
+          "step_id": "03a77bb1",
+          "description": "Review and familiarize yourself with the basics of a programming language you're currently using or want to learn (e.g., JavaScript, Python, etc.)",
+          "status": "pending",
+          "priority": 4,
+          "dependencies": [],
+          "sub_steps": [
+            {
+              "step_id": "f7a2ad21",
+              "description": "Open your code editor or IDE and review the syntax highlighting",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 0
+            },
+            {
+              "step_id": "49a881c1",
+              "description": "Read through official documentation or tutorials on the basics of the language",
+              "status": "pending",
+              "priority": 2,
+              "dependencies": [],
+              "sub_steps": [],
+              "estimated_effort": "",
+              "actual_effort": "",
+              "notes": "",
+              "order": 1
+            }
+          ],
+          "estimated_effort": "1-2 hours",
+          "actual_effort": "",
+          "notes": "",
+          "order": 0
+        }
+      ],
+      "total_estimated_effort": "1-2 hours",
+      "risk_level": "low",
+      "feasibility_score": 0.9,
+      "progress": 0.0,
+      "obstacles": [],
+      "adaptations": [],
+      "created_at": "2026-07-25T20:00:40.270725",
+      "updated_at": "2026-07-25T20:00:40.270725"
     }
   },
   "stats": {
-    "total_plans_created": 106,
+    "total_plans_created": 115,
     "total_plans_completed": 0,
     "total_adaptations": 0
   }

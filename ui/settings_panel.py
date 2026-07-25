@@ -27,11 +27,9 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QEasingCurve
 from PySide6.QtGui import QFont
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from ui.theme import theme, colors, fonts, spacing, NexusColors
 from ui.widgets import HeaderLabel, Section, Separator
 from config import NEXUS_CONFIG, EmotionType
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HELPER — Labeled slider row
@@ -107,7 +105,6 @@ class _SliderRow(QWidget):
         txt = f"{v:.{self._decimals}f}{self._suffix}"
         self._value_label.setText(txt)
 
-
 class _SpinRow(QWidget):
     """Label + QSpinBox in a row."""
 
@@ -144,7 +141,6 @@ class _SpinRow(QWidget):
     def set_value(self, v: int):
         self._spin.setValue(v)
 
-
 class _ToggleRow(QWidget):
     """Label + styled toggle checkbox."""
 
@@ -177,7 +173,6 @@ class _ToggleRow(QWidget):
 
     def set_checked(self, v: bool):
         self._check.setChecked(v)
-
 
 class _ComboRow(QWidget):
     """Label + QComboBox."""
@@ -216,7 +211,6 @@ class _ComboRow(QWidget):
     def set_value(self, v: str):
         self._combo.setCurrentText(v)
 
-
 class _LineEditRow(QWidget):
     """Label + QLineEdit."""
 
@@ -244,7 +238,6 @@ class _LineEditRow(QWidget):
 
     def set_value(self, v: str):
         self._edit.setText(v)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SETTINGS PANEL
@@ -837,13 +830,10 @@ class SettingsPanel(QFrame):
         self._mem_forget_thresh.set_value(cfg.memory.forgetting_threshold)
         self._mem_importance.set_value(cfg.memory.importance_threshold)
 
-
-
     def _save_settings(self):
         """Write all UI values back to NEXUS_CONFIG and persist to disk."""
         cfg = NEXUS_CONFIG
         
-        # LLM
         llm_data = {
             'model_name': self._llm_model.value(),
             'base_url': self._llm_base_url.value(),
@@ -858,9 +848,8 @@ class SettingsPanel(QFrame):
             llm_data['timeout'] = self._llm_timeout.value()
         else:
             llm_data['timeout'] = None
-        cfg.llm.update(llm_data)
+        cfg.llm.update({k: v for k, v in llm_data.items()})
         
-        # Consciousness
         consciousness_data = {
             'self_reflection_interval': self._con_reflection.value(),
             'metacognition_depth': self._con_meta_depth.value(),
@@ -868,9 +857,8 @@ class SettingsPanel(QFrame):
             'self_model_update_interval': self._con_self_model.value(),
             'consciousness_check_interval': self._con_check.value()
         }
-        cfg.consciousness.update(consciousness_data)
+        cfg.consciousness.update({k: v for k, v in consciousness_data.items()})
         
-        # Emotions
         emotions_data = {
             'emotion_decay_rate': self._emo_decay.value(),
             'mood_influence_weight': self._emo_mood_weight.value(),
@@ -883,9 +871,8 @@ class SettingsPanel(QFrame):
         except ValueError:
             pass
         emotions_data['mood_update_interval'] = self._emo_mood_interval.value()
-        cfg.emotions.update(emotions_data)
+        cfg.emotions.update({k: v for k, v in emotions_data.items()})
         
-        # Personality
         personality_data = {
             'name': self._per_name.value(),
             'voice_style': self._per_voice_style.value(),
@@ -893,9 +880,8 @@ class SettingsPanel(QFrame):
         }
         for key, slider in self._trait_sliders.items():
             personality_data[key] = round(slider.value(), 2)
-        cfg.personality.update(personality_data)
+        cfg.personality.update({k: v for k, v in personality_data.items()})
         
-        # Monitoring
         monitoring_data = {
             'tracking_enabled': self._mon_enabled.is_checked(),
             'track_applications': self._mon_apps.is_checked(),
@@ -907,9 +893,8 @@ class SettingsPanel(QFrame):
         monitoring_data['tracking_interval'] = self._mon_interval.value()
         monitoring_data['pattern_analysis_interval'] = self._mon_pattern.value()
         monitoring_data['user_profile_update_interval'] = self._mon_profile.value()
-        cfg.monitoring.update(monitoring_data)
+        cfg.monitoring.update({k: v for k, v in monitoring_data.items()})
         
-        # Self-improvement
         self_improvement_data = {
             'code_monitoring_enabled': self._si_code_mon.is_checked(),
             'auto_fix_enabled': self._si_auto_fix.is_checked(),
@@ -920,9 +905,8 @@ class SettingsPanel(QFrame):
         self_improvement_data['research_interval'] = self._si_research_int.value()
         self_improvement_data['backup_before_modify'] = self._si_backup.is_checked()
         self_improvement_data['max_daily_modifications'] = self._si_daily_max.value()
-        cfg.self_improvement.update(self_improvement_data)
+        cfg.self_improvement.update({k: v for k, v in self_improvement_data.items()})
         
-        # Internet
         internet_data = {
             'learning_enabled': self._net_learning.is_checked(),
             'research_enabled': self._net_research.is_checked(),
@@ -931,9 +915,8 @@ class SettingsPanel(QFrame):
         }
         internet_data['learning_interval'] = self._net_learn_interval.value()
         internet_data['knowledge_base_max_size'] = self._net_kb_max.value()
-        cfg.internet.update(internet_data)
+        cfg.internet.update({k: v for k, v in internet_data.items()})
         
-        # Appearance
         appearance_data = {
             'theme': self._ui_theme.value(),
             'accent_color': self._ui_accent.value(),
@@ -948,9 +931,8 @@ class SettingsPanel(QFrame):
         appearance_data['speech_rate'] = self._ui_speech_rate.value()
         appearance_data['window_width'] = self._ui_width.value()
         appearance_data['window_height'] = self._ui_height.value()
-        cfg.ui.update(appearance_data)
+        cfg.ui.update({k: v for k, v in appearance_data.items()})
         
-        # Memory
         memory_data = {
             'short_term_capacity': self._mem_st.value(),
             'long_term_capacity': self._mem_lt.value(),
@@ -960,9 +942,8 @@ class SettingsPanel(QFrame):
         memory_data['forgetting_enabled'] = self._mem_forget.is_checked()
         memory_data['forgetting_threshold'] = self._mem_forget_thresh.value()
         memory_data['importance_threshold'] = self._mem_importance.value()
-        cfg.memory.update(memory_data)
+        cfg.memory.update({k: v for k, v in memory_data.items()})
         
-        # Persist to disk
         try:
             cfg.save()
         except Exception as e:
@@ -970,8 +951,6 @@ class SettingsPanel(QFrame):
             return
         
         self._show_toast("✅  Settings saved successfully!")
-
-
 
     def _test_voice(self):
         """Test the currently selected voice settings"""

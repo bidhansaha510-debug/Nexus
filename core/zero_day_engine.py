@@ -1,6 +1,11 @@
 """
 NEXUS AI — Zero-Day Engine: Autonomous Vulnerability Discovery
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  SIMULATION ONLY — This module provides scaffolding and data models for
+    vulnerability discovery concepts.  It does NOT perform real fuzzing,
+    binary analysis, or exploit generation.  All "capabilities" are LLM
+    prompt simulations, not functional cyber-offensive tools.
+
 God-Level Feature #3: Autonomous zero-day exploit discovery and generation.
 
 NEXUS can now:
@@ -49,14 +54,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("zero_day_engine")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -84,14 +86,12 @@ class VulnerabilityClass(Enum):
     CSRF = "cross_site_request_forgery"
     XSS = "cross_site_scripting"
 
-
 class ExploitSeverity(Enum):
     CRITICAL = "critical"    # CVSS 9.0-10.0
     HIGH = "high"            # CVSS 7.0-8.9
     MEDIUM = "medium"        # CVSS 4.0-6.9
     LOW = "low"              # CVSS 0.1-3.9
     INFORMATIONAL = "info"   # CVSS 0.0
-
 
 class FuzzingStrategy(Enum):
     RANDOM = "random"
@@ -102,7 +102,6 @@ class FuzzingStrategy(Enum):
     EVOLUTIONARY = "evolutionary"
     SMART_MUTATION = "smart_mutation"
 
-
 class TargetType(Enum):
     BINARY = "binary"
     WEB_APP = "web_app"
@@ -112,7 +111,6 @@ class TargetType(Enum):
     FILE_FORMAT = "file_format"
     KERNEL_MODULE = "kernel_module"
     FIRMWARE = "firmware"
-
 
 @dataclass
 class Vulnerability:
@@ -139,7 +137,6 @@ class Vulnerability:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class ExploitPayload:
     """A generated exploit payload."""
@@ -159,7 +156,6 @@ class ExploitPayload:
             d["payload_data"] = d["payload_data"][:100] + "...[truncated]"
         return d
 
-
 @dataclass
 class ExploitChain:
     """A multi-stage exploit chain."""
@@ -176,7 +172,6 @@ class ExploitChain:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class FuzzingCampaign:
@@ -199,7 +194,6 @@ class FuzzingCampaign:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class ZeroDayStats:
     """Zero-day engine statistics."""
@@ -219,7 +213,6 @@ class ZeroDayStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FUZZER ENGINE
@@ -403,7 +396,6 @@ class FuzzerEngine:
     def unique_crashes(self) -> int:
         return len(self._crashes)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # VULNERABILITY ANALYZER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -494,7 +486,6 @@ class VulnerabilityAnalyzer:
             return ExploitSeverity.LOW.value
         return ExploitSeverity.INFORMATIONAL.value
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # EXPLOIT CHAIN BUILDER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -581,7 +572,6 @@ class ExploitChainBuilder:
     @property
     def total_chains(self) -> int:
         return len(self._chains)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ZERO-DAY ENGINE — MAIN
@@ -1125,13 +1115,11 @@ class ZeroDayEngine:
         except Exception as e:
             logger.warning(f"Could not load zero-day state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON & FACTORY
 # ═══════════════════════════════════════════════════════════════════════════════
 
 zero_day_engine = ZeroDayEngine()
-
 
 def get_zero_day_engine() -> ZeroDayEngine:
     return zero_day_engine

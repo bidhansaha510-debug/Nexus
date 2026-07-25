@@ -16,7 +16,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -25,7 +24,6 @@ logger = get_logger("associative_memory")
 
 MEMORY_DIR = DATA_DIR / "memory"
 MEMORY_DIR.mkdir(parents=True, exist_ok=True)
-
 
 @dataclass
 class MemoryNode:
@@ -46,7 +44,6 @@ class MemoryNode:
             "access_count": self.access_count,
         }
 
-
 @dataclass
 class MemoryLink:
     """A weighted link between two memory nodes."""
@@ -55,7 +52,6 @@ class MemoryLink:
     weight: float = 0.5        # connection strength (0.0-1.0)
     link_type: str = "semantic" # semantic|causal|temporal|emotional
     co_activations: int = 0     # Hebbian counter
-
 
 class AssociativeMemoryEngine:
     """
@@ -402,6 +398,5 @@ class AssociativeMemoryEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 associative_memory = AssociativeMemoryEngine()

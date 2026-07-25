@@ -12,12 +12,10 @@ from typing import Dict, List, Any, Optional
 from datetime import datetime
 from enum import Enum
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger
 from config import NEXUS_CONFIG, DATA_DIR
 
 logger = get_logger("task_engine")
-
 
 class SubTaskStatus(Enum):
     PENDING = "pending"
@@ -80,7 +78,6 @@ class TaskResult:
             "elapsed": round(self.elapsed, 3),
             "plan": self.plan.to_dict() if self.plan else None,
         }
-
 
 class TaskEngine:
     """

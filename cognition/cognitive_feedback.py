@@ -37,13 +37,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 from config import NEXUS_CONFIG, DATA_DIR
 
 logger = get_logger("cognitive_feedback")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONFIGURATION
@@ -54,7 +52,6 @@ QUALITY_WINDOW = 50                   # Rolling window for quality trending
 QUALITY_ALERT_THRESHOLD = 0.4         # Below this triggers quality alert
 QUALITY_DECLINE_THRESHOLD = -0.15     # Slope that triggers decline alert
 STRATEGY_MIN_SAMPLES = 5             # Min samples before trusting a strategy score
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
@@ -87,7 +84,6 @@ class ResponseEvaluation:
     needed_improvement: bool = False
     improvement_areas: List[str] = field(default_factory=list)
 
-
 @dataclass
 class StrategyRecord:
     """Tracked effectiveness of a strategy for a query type."""
@@ -107,7 +103,6 @@ class StrategyRecord:
         if len(self.scores) > 100:
             self.scores = self.scores[-100:]
 
-
 @dataclass
 class QualityReport:
     """Periodic quality trending report."""
@@ -118,7 +113,6 @@ class QualityReport:
     worst_dimension: str = ""          # Which dimension scores lowest
     best_strategy: str = ""            # Best performing strategy overall
     recommendations: List[str] = field(default_factory=list)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # COGNITIVE FEEDBACK LOOP
@@ -690,13 +684,11 @@ class CognitiveFeedback:
             "quality_trend": self._last_quality_report.trend_slope if self._last_quality_report else 0.0,
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 cognitive_feedback = CognitiveFeedback()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF-TEST

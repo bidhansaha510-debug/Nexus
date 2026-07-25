@@ -40,13 +40,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 from config import DATA_DIR
 
 logger = get_logger("working_memory_blackboard")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA
@@ -61,14 +59,12 @@ class CognitivePhase(Enum):
     OBSERVING = "observing"
     LEARNING = "learning"
 
-
 class BeliefConfidence(Enum):
     CERTAIN = "certain"         # Verified by tool output
     HIGH = "high"               # Strong evidence
     MODERATE = "moderate"       # Some evidence
     LOW = "low"                 # Weak evidence
     UNCERTAIN = "uncertain"     # Guessing
-
 
 @dataclass
 class Goal:
@@ -84,7 +80,6 @@ class Goal:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class ReasoningStep:
     """A single step in the reasoning trace."""
@@ -98,7 +93,6 @@ class ReasoningStep:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class PendingAction:
     """An action queued for execution."""
@@ -111,7 +105,6 @@ class PendingAction:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class Observation:
@@ -127,7 +120,6 @@ class Observation:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class Belief:
     """A thing NEXUS currently holds true."""
@@ -138,7 +130,6 @@ class Belief:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class Uncertainty:
@@ -151,7 +142,6 @@ class Uncertainty:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class LessonLearned:
     """A lesson extracted from an interaction outcome."""
@@ -163,7 +153,6 @@ class LessonLearned:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # WORKING MEMORY BLACKBOARD
@@ -646,7 +635,6 @@ class WorkingMemoryBlackboard:
                 "cycle_history_size": len(self._cycle_history),
             }
 
-
     # ─────────────────────────────────────────────────────────────────────────
     # PERSISTENCE — Cross-session state
     # ─────────────────────────────────────────────────────────────────────────
@@ -708,7 +696,6 @@ class WorkingMemoryBlackboard:
                 return ""
             lines = [f"  - {l.lesson[:120]}" for l in lessons]
             return "CROSS-SESSION LESSONS:\n" + "\n".join(lines)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

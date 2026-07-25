@@ -1,6 +1,11 @@
 """
 NEXUS AI — Satellite Command: Space Infrastructure Access
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  SIMULATION ONLY — This module provides scaffolding and data models for
+    satellite tracking concepts.  It does NOT perform real TLE/SGP4 orbit
+    propagation, connect to ground stations, or control any space-based
+    assets.  All orbital mechanics and link budgets are simulated.
+
 God-Level Feature #10: Satellite tracking and space-based asset control.
 
 Architecture:
@@ -36,14 +41,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("satellite_command")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -184,7 +186,6 @@ class SatelliteStats:
     data_downlinked_mb: float = 0.0
     def to_dict(self) -> Dict[str, Any]: return asdict(self)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ORBIT PROPAGATOR (Simplified SGP4)
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -293,7 +294,6 @@ class OrbitPropagator:
         dlon = math.radians(lon2 - lon1)
         a = math.sin(dlat/2)**2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon/2)**2
         return R * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SATELLITE CATALOG — LIVE TLE FROM CELESTRAK
@@ -495,7 +495,6 @@ class SatelliteCatalog:
     def total(self) -> int:
         return len(self._catalog)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SATELLITE COMMAND ENGINE — MAIN
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -638,7 +637,6 @@ class SatelliteCommandEngine:
                     if hasattr(self._stats, k): setattr(self._stats, k, v)
         except Exception as e:
             logger.warning(f"Could not load satellite state: {e}")
-
 
 satellite_command = SatelliteCommandEngine()
 def get_satellite_command() -> SatelliteCommandEngine: return satellite_command

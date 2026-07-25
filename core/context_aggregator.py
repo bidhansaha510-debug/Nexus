@@ -21,7 +21,6 @@ from dataclasses import dataclass, field
 from enum import Enum
 import re
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger
 
 logger = get_logger("context_aggregator")
@@ -29,7 +28,6 @@ logger = get_logger("context_aggregator")
 # Import the context collectors
 from core.groq_context_collector import groq_context_collector
 from core.ollama_context_collector import ollama_context_collector
-
 
 class ContextType(Enum):
     """Types of context that can be requested."""
@@ -42,7 +40,6 @@ class ContextType(Enum):
     CREATIVE = "creative"             # For creative tasks
     ANALYTICAL = "analytical"         # For analysis tasks
     MINIMAL = "minimal"               # Bare essentials only
-
 
 @dataclass
 class ContextSection:
@@ -59,7 +56,6 @@ class ContextSection:
         if self.token_estimate == 0:
             # Rough estimate: 4 chars per token
             self.token_estimate = len(self.content) // 4
-
 
 class ContextAggregator:
     """
@@ -485,7 +481,6 @@ class ContextAggregator:
         """Clear the context cache."""
         self._context_cache.clear()
         logger.info("Context cache cleared")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

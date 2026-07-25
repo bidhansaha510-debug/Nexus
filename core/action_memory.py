@@ -26,14 +26,12 @@ from enum import Enum
 from collections import deque, Counter
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 from core.event_bus import EventType, publish, subscribe, Event
 
 logger = get_logger("action_memory")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -49,7 +47,6 @@ class ActionCategory(Enum):
     SELF_IMPROVEMENT = "self_improvement"  # Code fixes, evolution
     SYSTEM = "system"               # Internal system actions
     AUTONOMY = "autonomy"           # Autonomous decision-driven actions
-
 
 @dataclass
 class ActionRecord:
@@ -104,7 +101,6 @@ class ActionRecord:
         status = "✅" if self.success else "❌"
         return f"{status} {self.action_type}: {self.description[:100]}"
 
-
 @dataclass
 class ActionMemoryStats:
     """Statistics for action memory"""
@@ -115,7 +111,6 @@ class ActionMemoryStats:
     actions_by_llm: Dict[str, int] = field(default_factory=dict)
     recent_success_rate: float = 0.0
     most_common_actions: List[Tuple[str, int]] = field(default_factory=list)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ACTION MEMORY
@@ -650,13 +645,11 @@ class ActionMemory:
         """Public method to save data"""
         self._save_data()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 action_memory = ActionMemory()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

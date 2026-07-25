@@ -25,13 +25,11 @@ from pathlib import Path
 from enum import Enum, auto
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("digital_organism")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS
@@ -46,7 +44,6 @@ class OrganismState(Enum):
     RECOVERING = "recovering"
     DORMANT = "dormant"
 
-
 class GrowthStage(Enum):
     EMBRYONIC = 0       # Just initialized
     INFANT = 1          # < 1 hour of runtime
@@ -57,7 +54,6 @@ class GrowthStage(Enum):
     ELDER = 6           # < 1 year
     TRANSCENDENT = 7    # 1+ year
 
-
 class MetabolismRate(Enum):
     HIBERNATING = 0.1
     RESTING = 0.3
@@ -65,7 +61,6 @@ class MetabolismRate(Enum):
     ACTIVE = 0.7
     OVERDRIVE = 0.9
     CRITICAL = 1.0
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
@@ -108,7 +103,6 @@ class VitalSigns:
             "health_score": round(self.health_score(), 3),
         }
 
-
 @dataclass
 class DigitalDNA:
     """
@@ -146,7 +140,6 @@ class DigitalDNA:
     def to_dict(self) -> Dict[str, float]:
         return {k: round(v, 4) for k, v in self.__dict__.items()}
 
-
 @dataclass
 class GrowthRecord:
     """Track a developmental milestone."""
@@ -154,7 +147,6 @@ class GrowthRecord:
     achieved_at: str
     growth_stage: str
     details: str = ""
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DIGITAL ORGANISM
@@ -609,7 +601,6 @@ class DigitalOrganism:
                 logger.info(f"🧬 Organism state restored (age: {self._cycles_lived} cycles)")
         except Exception as e:
             logger.debug(f"Organism state load error: {e}")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

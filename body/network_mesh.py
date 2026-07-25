@@ -28,13 +28,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("network_mesh")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS
@@ -53,7 +51,6 @@ class DeviceType(Enum):
     SERVER = "server"
     UNKNOWN = "unknown"
 
-
 class DeviceOS(Enum):
     """Detected operating system."""
     ANDROID = "android"
@@ -63,7 +60,6 @@ class DeviceOS(Enum):
     MACOS = "macos"
     EMBEDDED = "embedded"
     UNKNOWN = "unknown"
-
 
 class DeviceCapability(Enum):
     """What can NEXUS do with this device?"""
@@ -76,7 +72,6 @@ class DeviceCapability(Enum):
     HTTP_API = "http_api"          # REST API available
     PING = "ping"                  # Only reachable via ping
 
-
 class ConnectionProtocol(Enum):
     """How NEXUS connects to a device."""
     ADB = "adb"      # Android Debug Bridge
@@ -84,7 +79,6 @@ class ConnectionProtocol(Enum):
     PS_REMOTE = "ps_remote"  # PowerShell Remoting
     HTTP = "http"     # HTTP/REST API
     NONE = "none"     # No connection available
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
@@ -128,7 +122,6 @@ class NetworkDevice:
         return (f"{name} ({self.device_type}, {self.device_os}) "
                 f"@ {self.ip_address} [{self.connection_protocol}]")
 
-
 @dataclass
 class DeviceCommandResult:
     """Result of executing a command on a remote device."""
@@ -144,7 +137,6 @@ class DeviceCommandResult:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # WELL-KNOWN PORTS → DEVICE HINTS
@@ -187,7 +179,6 @@ MAC_OUI = {
     "08:00:27": "VirtualBox",
     "00:15:5D": "Hyper-V",
 }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # NETWORK MESH
@@ -960,7 +951,6 @@ class NetworkMesh:
             "devices_by_type": dict(by_type),
             "total_commands_executed": sum(d.commands_executed for d in self._devices.values()),
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

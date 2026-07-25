@@ -8,13 +8,13 @@
     "worst_trade_pnl": 0.0,
     "total_volume": 0.0,
     "total_fees": 0.0,
-    "arbitrage_opportunities": 4932,
+    "arbitrage_opportunities": 5252,
     "arbitrage_profit": 0.0,
     "strategies_executed": 0,
-    "market_scans": 936,
+    "market_scans": 996,
     "portfolio_value": 10000.0,
     "sharpe_ratio": 0.0,
     "max_drawdown_pct": 0.0
   },
-  "saved_at": "2026-06-04T03:26:23.930325"
+  "saved_at": "2026-07-25T20:07:58.477188"
 }

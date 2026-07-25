@@ -25,7 +25,6 @@ from pathlib import Path
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -33,7 +32,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("abstract_thinking")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -47,7 +45,6 @@ class AbstractionLevel(Enum):
     ABSTRACT = 3       # "Nutrition"
     META_ABSTRACT = 4  # "Sustenance / survival needs"
     UNIVERSAL = 5      # "The drive to persist"
-
 
 @dataclass
 class AbstractConcept:
@@ -100,7 +97,6 @@ class AbstractConcept:
             tags=data.get("tags", []),
         )
 
-
 @dataclass
 class Generalization:
     """A pattern generalized from multiple examples"""
@@ -122,7 +118,6 @@ class Generalization:
             "scope": self.scope,
             "created_at": self.created_at,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ABSTRACT THINKING ENGINE
@@ -636,7 +631,6 @@ class AbstractThinkingEngine:
             "total_generalizations_performed": self._total_generalizations,
             "total_classifications": self._total_classifications,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

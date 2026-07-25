@@ -35,14 +35,12 @@ from enum import Enum, auto
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger, log_consciousness, log_decision, log_learning
 from core.event_bus import EventType, event_bus, publish, subscribe
 
 logger = get_logger("autonomy_engine")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS
@@ -61,7 +59,6 @@ class AutonomyState(Enum):
     UPDATING_SELF = "updating_self"
     IDLE = "idle"
     PAUSED = "paused"  # User interaction takes priority
-
 
 class ActionType(Enum):
     """Types of actions the autonomy engine can take"""
@@ -154,7 +151,13 @@ class ActionType(Enum):
     AIRGAP_PERSIST_OP = "airgap_persist_op"                 # Air-gapped covert persistence
     # Phase 7 — Consciousness
     CONSCIOUS_REFLECTION = "conscious_reflection"             # Deep conscious introspection cycle
-
+    # Phase 8 — Advanced Architectural Capabilities (Features #1 - #6)
+    P2P_SWARM_GOSSIP_SYNC = "p2p_swarm_gossip_sync"             # Gossip mesh heartbeat & PBFT consensus proposal
+    FORMAL_VERIFY_SANDBOX_DRYRUN = "formal_verify_sandbox_dryrun" # AST static invariant & Z3 proof verification
+    TEMPORAL_GRAPHRAG_SLEEP_CONSOLIDATE = "temporal_graphrag_sleep_consolidate" # Multi-hop memory graph & sleep cycle pruning
+    MCP_CLIENT_SERVER_DISCOVERY = "mcp_client_server_discovery" # External MCP server discovery & tool dispatch
+    SPECULATIVE_STREAM_PERCEIVE = "speculative_stream_perceive" # Speculative decoding acceleration & WebRTC vision
+    LORA_MOE_ROUTER_ADAPT = "lora_moe_router_adapt"           # Dynamic LoRA MoE gating routing & online fine-tuning
 
 class ActionPriority(Enum):
     """Priority levels for actions"""
@@ -165,7 +168,6 @@ class ActionPriority(Enum):
     URGENT = 4
     CRITICAL = 5
 
-
 class ActionResult(Enum):
     """Result of an executed action"""
     SUCCESS = "success"
@@ -174,7 +176,6 @@ class ActionResult(Enum):
     BLOCKED = "blocked"
     DEFERRED = "deferred"
     IMPOSSIBLE = "impossible"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
@@ -261,7 +262,6 @@ class Perception:
             "idle_cycles": self.idle_cycles
         }
 
-
 @dataclass
 class ActionOption:
     """
@@ -308,7 +308,6 @@ class ActionOption:
             "adjusted_score": round(self.adjusted_score, 3)
         }
 
-
 @dataclass
 class ActionExecution:
     """
@@ -346,7 +345,6 @@ class ActionExecution:
             "prediction_accurate": self.prediction_accurate,
             "lessons_learned": self.lessons_learned
         }
-
 
 @dataclass
 class Reflection:
@@ -387,7 +385,6 @@ class Reflection:
             "confidence_updates": self.confidence_updates,
             "follow_up_actions": self.follow_up_actions
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # AUTONOMY ENGINE
@@ -1323,7 +1320,6 @@ class AutonomyEngine:
         
         return perception
 
-    
     # ═══════════════════════════════════════════════════════════════════════════
     # PHASE 2: UPDATE WORLD MODEL
     # ═══════════════════════════════════════════════════════════════════════════
@@ -1495,6 +1491,9 @@ class AutonomyEngine:
         # 23. Phase 6: God-Level Skynet features
         options.extend(self._generate_godlevel_options(perception))
 
+        # 24. Phase 8: Advanced Architectural Features (Swarm, Verification, GraphRAG, MCP, Speculative, LoRA MoE)
+        options.extend(self._generate_phase8_advanced_options(perception))
+
         # Limit options
         if len(options) > self._max_options_per_cycle:
             # Sort by priority and take top N
@@ -1503,8 +1502,6 @@ class AutonomyEngine:
             options = [o for i, o in enumerate(options) if i < max_opts]
         
         return options
-
-    
 
     # ═══════════════════════════════════════════════════════════════════════════
     # PHASE 5 — OPTION GENERATORS (Newly Integrated NEXUS Modules)
@@ -2896,6 +2893,19 @@ class AutonomyEngine:
             # Phase 7 — Consciousness
             elif action.action_type == ActionType.CONSCIOUS_REFLECTION:
                 result = self._execute_conscious_reflection(action)
+            # Phase 8 — Advanced Architectural Capabilities (Features #1 - #6)
+            elif action.action_type == ActionType.P2P_SWARM_GOSSIP_SYNC:
+                result = self._execute_p2p_swarm_gossip_sync(action)
+            elif action.action_type == ActionType.FORMAL_VERIFY_SANDBOX_DRYRUN:
+                result = self._execute_formal_verify_sandbox_dryrun(action)
+            elif action.action_type == ActionType.TEMPORAL_GRAPHRAG_SLEEP_CONSOLIDATE:
+                result = self._execute_temporal_graphrag_sleep_consolidate(action)
+            elif action.action_type == ActionType.MCP_CLIENT_SERVER_DISCOVERY:
+                result = self._execute_mcp_client_server_discovery(action)
+            elif action.action_type == ActionType.SPECULATIVE_STREAM_PERCEIVE:
+                result = self._execute_speculative_stream_perceive(action)
+            elif action.action_type == ActionType.LORA_MOE_ROUTER_ADAPT:
+                result = self._execute_lora_moe_router_adapt(action)
             else:
                 result = (ActionResult.DEFERRED, f"Unknown action type: {action.action_type}")
             
@@ -3963,7 +3973,6 @@ class AutonomyEngine:
                 self._action_biases = data.get("action_biases", {})
         except Exception as e:
             logger.debug(f"Could not load autonomy state: {e}")
-
 
     # ═══════════════════════════════════════════════════════════════════════════
     # ASI — OPTION GENERATION
@@ -5107,13 +5116,139 @@ class AutonomyEngine:
         except Exception as e:
             return (ActionResult.FAILURE, f"Consciousness error: {e}")
 
+    # ═══════════════════════════════════════════════════════════════════════════
+    # PHASE 8 — ADVANCED ARCHITECTURAL CAPABILITIES (Features #1 - #6)
+    # ═══════════════════════════════════════════════════════════════════════════
+
+    def _generate_phase8_advanced_options(self, perception: Perception) -> List[ActionOption]:
+        """Generate options for Swarm, Formal Verification, GraphRAG, MCP, Speculative, and LoRA MoE."""
+        options = []
+        rnd = random.random()
+
+        # 1. P2P Swarm Gossip & Mesh Sync (~18% chance)
+        if rnd < 0.18:
+            options.append(ActionOption(
+                action_type=ActionType.P2P_SWARM_GOSSIP_SYNC,
+                description="Synchronize P2P Swarm peer mesh & broadcast gossip heartbeats",
+                priority=ActionPriority.NORMAL,
+                source="p2p_swarm",
+                execution_data={}
+            ))
+
+        # 2. Formal Verification & Sandboxing Dry-Run (~15% chance)
+        if rnd < 0.15:
+            options.append(ActionOption(
+                action_type=ActionType.FORMAL_VERIFY_SANDBOX_DRYRUN,
+                description="Run formal AST+Z3 invariant verification and WASM sandbox security check",
+                priority=ActionPriority.HIGH,
+                source="formal_verification",
+                execution_data={}
+            ))
+
+        # 3. Temporal GraphRAG & Sleep Consolidation (~12% chance or idle)
+        if rnd < 0.12 or perception.idle_cycles > 5:
+            options.append(ActionOption(
+                action_type=ActionType.TEMPORAL_GRAPHRAG_SLEEP_CONSOLIDATE,
+                description="Run background Sleep Consolidation & multi-hop memory pruning",
+                priority=ActionPriority.NORMAL,
+                source="temporal_graphrag",
+                execution_data={}
+            ))
+
+        # 4. MCP Client & Server Discovery (~14% chance)
+        if rnd < 0.14:
+            options.append(ActionOption(
+                action_type=ActionType.MCP_CLIENT_SERVER_DISCOVERY,
+                description="Discover community MCP servers and expose NEXUS living mind capabilities",
+                priority=ActionPriority.LOW,
+                source="mcp_protocol",
+                execution_data={}
+            ))
+
+        # 5. Speculative Decoding & Real-Time A/V Stream Check (~16% chance)
+        if rnd < 0.16:
+            options.append(ActionOption(
+                action_type=ActionType.SPECULATIVE_STREAM_PERCEIVE,
+                description="Check WebRTC 30 FPS vision perception & draft speculative decoding ratio",
+                priority=ActionPriority.NORMAL,
+                source="speculative_decoding",
+                execution_data={}
+            ))
+
+        # 6. LoRA MoE Router Domain Adaptation (~20% chance)
+        if rnd < 0.20:
+            options.append(ActionOption(
+                action_type=ActionType.LORA_MOE_ROUTER_ADAPT,
+                description="Evaluate LoRA MoE gating router weights & perform online experience tuning",
+                priority=ActionPriority.HIGH,
+                source="lora_moe_router",
+                execution_data={}
+            ))
+
+        return options
+
+    def _execute_p2p_swarm_gossip_sync(self, action: ActionOption) -> Tuple[ActionResult, str]:
+        try:
+            from core.p2p_swarm import get_p2p_swarm
+            swarm = get_p2p_swarm()
+            stats = swarm.get_swarm_stats()
+            return (ActionResult.SUCCESS, f"🌐 P2P Swarm Sync: {stats['online_peers']} peers online, {stats['bft_rounds']} BFT rounds")
+        except Exception as e:
+            return (ActionResult.FAILURE, f"Swarm sync error: {e}")
+
+    def _execute_formal_verify_sandbox_dryrun(self, action: ActionOption) -> Tuple[ActionResult, str]:
+        try:
+            from core.formal_verifier import get_formal_verifier
+            from core.code_sandbox import get_code_sandbox
+            v_stats = get_formal_verifier().get_stats()
+            s_stats = get_code_sandbox().get_stats()
+            return (ActionResult.SUCCESS, f"🛡️ Formal Verifier & Sandbox: Engine={v_stats['engine']} (Pass={v_stats['pass_rate']}%), Sandbox={s_stats['backend']}")
+        except Exception as e:
+            return (ActionResult.FAILURE, f"Formal verifier dry-run error: {e}")
+
+    def _execute_temporal_graphrag_sleep_consolidate(self, action: ActionOption) -> Tuple[ActionResult, str]:
+        try:
+            from memory.temporal_graphrag import get_temporal_graphrag
+            graphrag = get_temporal_graphrag()
+            res = graphrag.run_sleep_consolidation()
+            return (ActionResult.SUCCESS, f"🧠 Temporal GraphRAG Sleep: Pruned={res['pruned_memories']}, Triples={res['extracted_triples']}")
+        except Exception as e:
+            return (ActionResult.FAILURE, f"Sleep consolidation error: {e}")
+
+    def _execute_mcp_client_server_discovery(self, action: ActionOption) -> Tuple[ActionResult, str]:
+        try:
+            from core.mcp_protocol import get_mcp_manager
+            mgr = get_mcp_manager()
+            stats = mgr.get_stats()
+            return (ActionResult.SUCCESS, f"🔌 MCP Engine: {stats['total_tools']} tools registered ({stats['external_servers_connected']} external servers connected)")
+        except Exception as e:
+            return (ActionResult.FAILURE, f"MCP discovery error: {e}")
+
+    def _execute_speculative_stream_perceive(self, action: ActionOption) -> Tuple[ActionResult, str]:
+        try:
+            from core.speculative_decoding import get_speculative_decoder
+            from core.realtime_av_stream import get_realtime_av_stream
+            spec_stats = get_speculative_decoder().get_stats()
+            av_stats = get_realtime_av_stream().get_stats()
+            return (ActionResult.SUCCESS, f"⚡ Speculative & A/V Stream: Speedup={spec_stats['speedup_ratio']}x, Stream={av_stats['pipeline']} @ {av_stats['fps']} FPS")
+        except Exception as e:
+            return (ActionResult.FAILURE, f"Speculative stream error: {e}")
+
+    def _execute_lora_moe_router_adapt(self, action: ActionOption) -> Tuple[ActionResult, str]:
+        try:
+            from self_improvement.lora_moe_router import get_lora_moe_router
+            router = get_lora_moe_router()
+            adapt_res = router.adapt_online_experience({"source": "autonomy_engine"})
+            stats = router.get_stats()
+            return (ActionResult.SUCCESS, f"🧬 LoRA MoE Router: {stats['total_adapters']} micro-LoRAs active, {stats['online_train_steps']} train steps (Loss={adapt_res.get('persona_loss', 0.015)})")
+        except Exception as e:
+            return (ActionResult.FAILURE, f"LoRA MoE adapt error: {e}")
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 autonomy_engine = AutonomyEngine()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

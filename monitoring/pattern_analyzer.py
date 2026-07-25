@@ -30,7 +30,6 @@ from collections import defaultdict, deque, Counter
 from enum import Enum, auto
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger, log_learning
@@ -38,7 +37,6 @@ from core.event_bus import EventType, publish, Event
 from core.state_manager import state_manager
 
 logger = get_logger("pattern_analyzer")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -52,7 +50,6 @@ class PatternType(Enum):
     COMMUNICATION = "communication"
     ANOMALY = "anomaly"
     PERSONALITY = "personality"
-
 
 class DaySegment(Enum):
     EARLY_MORNING = "early_morning"      # 5-8
@@ -77,14 +74,12 @@ class DaySegment(Enum):
         else:
             return cls.LATE_NIGHT
 
-
 class ProductivityLevel(Enum):
     DEEP_FOCUS = "deep_focus"
     PRODUCTIVE = "productive"
     MIXED = "mixed"
     DISTRACTED = "distracted"
     IDLE = "idle"
-
 
 @dataclass
 class TemporalPattern:
@@ -103,7 +98,6 @@ class TemporalPattern:
     def to_dict(self) -> dict:
         return asdict(self)
 
-
 @dataclass
 class AppUsagePattern:
     """What apps the user uses most"""
@@ -118,7 +112,6 @@ class AppUsagePattern:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 @dataclass
 class WorkflowPattern:
@@ -136,7 +129,6 @@ class WorkflowPattern:
         d["common_app_pairs"] = [list(p) for p in self.common_app_pairs]
         return d
 
-
 @dataclass
 class ProductivityPattern:
     """How productive/focused the user is"""
@@ -152,7 +144,6 @@ class ProductivityPattern:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 @dataclass
 class UserPersonalityInference:
@@ -185,7 +176,6 @@ class UserPersonalityInference:
     def to_dict(self) -> dict:
         return asdict(self)
 
-
 @dataclass
 class DetectedAnomaly:
     """An unusual behavior deviation"""
@@ -200,7 +190,6 @@ class DetectedAnomaly:
     def to_dict(self) -> dict:
         return asdict(self)
 
-
 @dataclass
 class EnergyCurve:
     """Activity intensity over a session's lifetime"""
@@ -213,7 +202,6 @@ class EnergyCurve:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 @dataclass
 class PredictiveSchedule:
@@ -228,7 +216,6 @@ class PredictiveSchedule:
     def to_dict(self) -> dict:
         return asdict(self)
 
-
 @dataclass
 class DistractionCascade:
     """Rapid app-switching triggered by a distraction app"""
@@ -240,7 +227,6 @@ class DistractionCascade:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 @dataclass
 class WeeklyComparison:
@@ -257,7 +243,6 @@ class WeeklyComparison:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STATISTICAL HELPERS
@@ -290,7 +275,6 @@ def normalize_counter(counter: Counter, top_n: int = 20) -> Dict[str, float]:
         for k, v in counter.most_common(top_n)
     }
 
-
 def z_score(value: float, values: list) -> float:
     """Calculate z-score of a value against a population"""
     if len(values) < 2:
@@ -300,7 +284,6 @@ def z_score(value: float, values: list) -> float:
     if std == 0:
         return 0.0
     return (value - mean) / std
-
 
 def iqr_outliers(values: list, factor: float = 1.5) -> Tuple[float, float]:
     """Return (lower_bound, upper_bound) using IQR method"""
@@ -312,7 +295,6 @@ def iqr_outliers(values: list, factor: float = 1.5) -> Tuple[float, float]:
     q3 = sorted_v[3 * n // 4]
     iqr = q3 - q1
     return (q1 - factor * iqr, q3 + factor * iqr)
-
 
 def bayesian_confidence(
     data_points: int, consistency: float = 0.5,
@@ -335,7 +317,6 @@ def bayesian_confidence(
     # Combine volume and consistency
     raw = volume_factor * 0.6 + consistency * 0.4
     return min(0.95, round(raw, 3))
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PATTERN ANALYZER
@@ -1942,7 +1923,6 @@ class PatternAnalyzer:
             "buffer_size": len(self._realtime_buffer),
             "unique_apps_seen": len(self._total_app_time)
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

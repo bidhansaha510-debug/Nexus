@@ -25,12 +25,10 @@ from typing import Dict, List, Any, Optional, Callable
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 
 logger = get_logger("strategy_selector")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STRATEGY DEFINITIONS
@@ -46,7 +44,6 @@ class ReasoningStrategy:
     cognitive_engines: List[str] = field(default_factory=list)
     requires_tools: bool = False
     avg_latency_seconds: float = 2.0
-
 
 STRATEGIES: Dict[str, ReasoningStrategy] = {
     "chain_of_thought": ReasoningStrategy(
@@ -143,7 +140,6 @@ STRATEGIES: Dict[str, ReasoningStrategy] = {
     ),
 }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # STRATEGY SELECTOR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -158,7 +154,6 @@ class StrategyDecision:
     reason: str = ""
     prompt_fragment: str = ""
     cognitive_engines: List[str] = field(default_factory=list)
-
 
 class StrategySelector:
     """
@@ -323,7 +318,6 @@ class StrategySelector:
             "cognitive_router_available": self._cognitive_router is not None,
             "meta_learning_stats": self._meta_learner.get_stats() if self._meta_learner else {},
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

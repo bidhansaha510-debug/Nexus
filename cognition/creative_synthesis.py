@@ -25,7 +25,6 @@ from pathlib import Path
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -33,7 +32,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("creative_synthesis")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -46,7 +44,6 @@ class CreativityMode(Enum):
     LATERAL = "lateral"            # Think sideways / reframe  
     COMBINATORIAL = "combinatorial"  # Combine existing elements
     TRANSFORMATIVE = "transformative"  # Fundamentally change perspective
-
 
 @dataclass
 class CreativeIdea:
@@ -101,7 +98,6 @@ class CreativeIdea:
         """Combined score: novelty × usefulness × surprise"""
         return (self.novelty_score * 0.4 + self.usefulness_score * 0.3 + self.surprise_factor * 0.3)
 
-
 @dataclass
 class ConceptBlend:
     """A blend of two or more concepts into something new"""
@@ -123,7 +119,6 @@ class ConceptBlend:
             "novelty_score": self.novelty_score,
             "created_at": self.created_at,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CREATIVE SYNTHESIS ENGINE
@@ -655,7 +650,6 @@ class CreativeSynthesisEngine:
             logger.debug(f"SCAMPER failed: {e}")
         return {"error": "SCAMPER failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
             return {
                 "running": self._running,
@@ -665,7 +659,6 @@ class CreativeSynthesisEngine:
                 "total_blends_performed": self._total_blends,
                 "total_innovations": self._total_innovations,
             }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

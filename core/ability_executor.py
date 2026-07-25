@@ -23,13 +23,11 @@ from datetime import datetime
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.logger import get_logger
 from core.ability_registry import ability_registry, AbilityResult
 
 logger = get_logger("ability_executor")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PATTERNS FOR ABILITY DETECTION
@@ -58,7 +56,6 @@ XML_ABILITY_PATTERN = re.compile(
     re.IGNORECASE
 )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -73,7 +70,6 @@ class AbilityInvocation:
     raw_text: str
     result: Optional[AbilityResult] = None
     executed: bool = False
-
 
 @dataclass
 class ExecutionReport:
@@ -98,7 +94,6 @@ class ExecutionReport:
                 )
         
         return "\n".join(lines)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ABILITY EXECUTOR
@@ -434,13 +429,11 @@ class AbilityExecutor:
             "success_rate": total_successful / max(1, total_successful + total_failed)
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 ability_executor = AbilityExecutor()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

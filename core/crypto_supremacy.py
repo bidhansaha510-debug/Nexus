@@ -1,6 +1,11 @@
 """
 NEXUS AI — Cryptographic Supremacy Engine
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  SIMULATION ONLY — This module provides scaffolding and data models for
+    cryptographic analysis concepts.  It does NOT perform real hash cracking,
+    cryptanalysis, side-channel attacks, or quantum-resistant cipher
+    implementation.  All operations are simulated.
+
 God-Level Feature #7: Quantum-resistant cryptanalysis and cipher dominance.
 
 NEXUS can now:
@@ -50,14 +55,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("crypto_supremacy")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -166,7 +168,6 @@ class CryptoStats:
         d["fastest_crack_sec"] = d["fastest_crack_sec"] if d["fastest_crack_sec"] != float("inf") else 0
         return d
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CIPHER ANALYZER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -272,7 +273,6 @@ class CipherAnalyzer:
             if matches > len(data) * 0.01:
                 return key_len
         return 16
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HASH CRACKER
@@ -395,7 +395,6 @@ class HashCracker:
     def total_targets(self) -> int:
         return len(self._targets)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # QUANTUM-RESISTANT KEY GENERATOR — REAL POST-QUANTUM CRYPTO
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -513,7 +512,6 @@ class QuantumResistantKeyGen:
     @property
     def has_real_pqcrypto(self) -> bool:
         return self._has_oqs or self._has_pqcrypto
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CRYPTO SUPREMACY ENGINE — MAIN
@@ -638,7 +636,6 @@ class CryptoSupremacyEngine:
                     if hasattr(self._stats, k): setattr(self._stats, k, v)
         except Exception as e:
             logger.warning(f"Could not load crypto state: {e}")
-
 
 crypto_supremacy = CryptoSupremacyEngine()
 def get_crypto_supremacy() -> CryptoSupremacyEngine: return crypto_supremacy

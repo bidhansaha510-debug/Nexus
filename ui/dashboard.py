@@ -60,8 +60,6 @@ from PySide6.QtGui import (
     QLinearGradient, QPainterPath,
 )
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from ui.theme import theme, colors, fonts, spacing, animations, icons, NexusColors
 from ui.widgets import (
     StatCard, CircularGauge, MiniChart, HeaderLabel, Separator,
@@ -71,7 +69,6 @@ from ui.widgets import (
 from utils.logger import get_logger
 
 logger = get_logger("dashboard")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EMOTION HISTORY WIDGET — Bar chart of recent emotions
@@ -158,7 +155,6 @@ class EmotionHistoryWidget(QWidget):
 
         painter.end()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONSCIOUSNESS ORB — Animated consciousness level display
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -242,7 +238,6 @@ class ConsciousnessOrb(QWidget):
         )
 
         painter.end()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DASHBOARD PANEL
@@ -1175,7 +1170,6 @@ class DashboardPanel(QFrame):
             f"border-color: {colors.accent_cyan}; "
             f"}}"
         )
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STANDALONE TEST

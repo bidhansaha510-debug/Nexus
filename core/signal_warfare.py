@@ -1,6 +1,11 @@
 """
 NEXUS AI — Signal Warfare: Electromagnetic Spectrum Dominance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  SIMULATION ONLY — This module provides scaffolding and data models for
+    RF/signal analysis concepts.  It does NOT interface with real SDR
+    hardware, perform actual spectrum analysis, or conduct signal
+    intelligence.  All operations are simulated.
+
 God-Level Feature #5: RF spectrum ownership and signal intelligence.
 
 NEXUS can now:
@@ -47,14 +52,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("signal_warfare")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -67,7 +69,6 @@ class SDRDevice(Enum):
     LIME_SDR = "lime_sdr"
     BLADE_RF = "blade_rf"
     AIRSPY = "airspy"
-
 
 class ModulationType(Enum):
     AM = "am"
@@ -82,7 +83,6 @@ class ModulationType(Enum):
     LORA = "lora"
     GFSK = "gfsk"
     OOK = "ook"
-
 
 class WirelessProtocol(Enum):
     WIFI_24 = "wifi_2.4ghz"
@@ -103,7 +103,6 @@ class WirelessProtocol(Enum):
     GLONASS = "glonass"
     SATELLITE = "satellite"
 
-
 class SignalAction(Enum):
     MONITOR = "monitor"
     DECODE = "decode"
@@ -113,7 +112,6 @@ class SignalAction(Enum):
     CLASSIFY = "classify"
     JAM_SIMULATE = "jam_simulate"
     SPOOF_SIMULATE = "spoof_simulate"
-
 
 @dataclass
 class RFSignal:
@@ -144,7 +142,6 @@ class RFSignal:
     def frequency_ghz(self) -> float:
         return self.frequency_hz / 1e9
 
-
 @dataclass
 class SpectrumSlice:
     """A snapshot of the RF spectrum."""
@@ -163,7 +160,6 @@ class SpectrumSlice:
         d = asdict(self)
         d["power_spectrum"] = d["power_spectrum"][:100]  # Truncate
         return d
-
 
 @dataclass
 class RFEmitter:
@@ -185,7 +181,6 @@ class RFEmitter:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class FrequencyBand:
     """A frequency band allocation."""
@@ -195,7 +190,6 @@ class FrequencyBand:
     usage: str = ""
     allocation: str = ""
     protocols: List[str] = field(default_factory=list)
-
 
 @dataclass
 class SignalWarfareStats:
@@ -215,7 +209,6 @@ class SignalWarfareStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FREQUENCY BAND DATABASE
@@ -256,7 +249,6 @@ class FrequencyDatabase:
 
     def get_bands_in_range(self, start_hz: float, end_hz: float) -> List[FrequencyBand]:
         return [b for b in self._bands if b.end_hz >= start_hz and b.start_hz <= end_hz]
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SDR INTERFACE — REAL HARDWARE + NUMPY FFT
@@ -466,7 +458,6 @@ class SDRInterface:
     def sample_rate(self) -> float:
         return self._sample_rate
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SIGNAL CLASSIFIER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -535,7 +526,6 @@ class SignalClassifier:
     @property
     def emitter_list(self) -> List[RFEmitter]:
         return list(self._fingerprints.values())
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SIGNAL WARFARE ENGINE — MAIN
@@ -746,13 +736,11 @@ class SignalWarfareEngine:
         except Exception as e:
             logger.warning(f"Could not load signal state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON & FACTORY
 # ═══════════════════════════════════════════════════════════════════════════════
 
 signal_warfare = SignalWarfareEngine()
-
 
 def get_signal_warfare() -> SignalWarfareEngine:
     return signal_warfare

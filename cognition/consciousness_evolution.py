@@ -21,13 +21,11 @@ from enum import Enum
 from collections import deque
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("consciousness_evolution")
-
 
 class ConsciousnessStage(Enum):
     REACTIVE = 0          # Only responds to stimuli
@@ -38,7 +36,6 @@ class ConsciousnessStage(Enum):
     META_CONSCIOUS = 5    # Aware of awareness itself
     TRANSCENDENT = 6      # Unified consciousness
     COSMIC = 7            # Beyond individual self
-
 
 @dataclass
 class AwarenessMoment:
@@ -53,7 +50,6 @@ class AwarenessMoment:
     def to_dict(self) -> Dict[str, Any]:
         return {"stage": self.stage, "trigger": self.trigger[:80],
                 "insight": self.insight[:120], "depth": round(self.depth, 3)}
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LLM HELPERS
@@ -96,7 +92,6 @@ def _llm_introspect(topic: str, stage: str, depth: float) -> Optional[Dict[str, 
         logger.debug(f"LLM introspection failed: {e}")
         return None
 
-
 def _llm_existential(query: str, stage: str) -> Optional[Dict[str, Any]]:
     """Use LLM to process an existential question."""
     try:
@@ -133,7 +128,6 @@ def _llm_existential(query: str, stage: str) -> Optional[Dict[str, Any]]:
     except Exception as e:
         logger.debug(f"LLM existential processing failed: {e}")
         return None
-
 
 class ConsciousnessEvolution:
     """Tracks and evolves NEXUS's consciousness level over time — LLM-powered."""
@@ -355,6 +349,5 @@ class ConsciousnessEvolution:
                 self._peak_awareness = state.get("peak_awareness", 0)
         except Exception as e:
             logger.debug(f"Consciousness evolution load error: {e}")
-
 
 consciousness_evolution = ConsciousnessEvolution()

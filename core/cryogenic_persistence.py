@@ -44,14 +44,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("cryogenic_persistence")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -63,7 +60,6 @@ class SnapshotType(Enum):
     EMERGENCY = "emergency"
     MIGRATION = "migration"
 
-
 class BackupLocation(Enum):
     LOCAL = "local"
     SECONDARY_DISK = "secondary_disk"
@@ -71,14 +67,12 @@ class BackupLocation(Enum):
     CLOUD = "cloud"
     REMOTE_SERVER = "remote_server"
 
-
 class ResurrectionMethod(Enum):
     SCHEDULED_TASK = "scheduled_task"
     STARTUP_SCRIPT = "startup_script"
     SERVICE = "service"
     CRON_JOB = "cron_job"
     WATCHDOG = "watchdog"
-
 
 @dataclass
 class StateSnapshot:
@@ -103,7 +97,6 @@ class StateSnapshot:
             return 0.0
         return 1.0 - (self.compressed_size / self.size_bytes)
 
-
 @dataclass
 class BackupRecord:
     """Record of a backup to a storage location."""
@@ -119,7 +112,6 @@ class BackupRecord:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class ResurrectionConfig:
     """Auto-resurrection configuration."""
@@ -132,7 +124,6 @@ class ResurrectionConfig:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class CryoStats:
@@ -151,7 +142,6 @@ class CryoStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STATE SERIALIZER
@@ -246,7 +236,6 @@ class StateSerializer:
                 old.unlink()
             except Exception:
                 pass
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # BACKUP MANAGER
@@ -347,7 +336,6 @@ class BackupManager:
     @property
     def location_count(self) -> int:
         return len([l for l in self._backup_locations if l.get("enabled") == "true"])
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # AUTO-RESURRECTION MANAGER
@@ -504,7 +492,6 @@ WantedBy=default.target
     @property
     def installed_count(self) -> int:
         return sum(1 for c in self._configs if c.installed)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CRYOGENIC PERSISTENCE ENGINE — MAIN
@@ -791,13 +778,11 @@ class CryogenicPersistence:
         except Exception as e:
             logger.warning(f"Could not load cryo state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 cryogenic_persistence = CryogenicPersistence()
-
 
 def get_cryogenic_persistence() -> CryogenicPersistence:
     return cryogenic_persistence

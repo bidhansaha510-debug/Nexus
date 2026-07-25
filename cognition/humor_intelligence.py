@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -23,7 +22,6 @@ logger = get_logger("humor_intelligence")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 class HumorType(Enum):
     WORDPLAY = "wordplay"
@@ -36,7 +34,6 @@ class HumorType(Enum):
     PUNS = "puns"
     SITUATIONAL = "situational"
     DRY = "dry"
-
 
 @dataclass
 class HumorAnalysis:
@@ -59,7 +56,6 @@ class HumorAnalysis:
             "setup_punchline": self.setup_punchline,
             "created_at": self.created_at
         }
-
 
 class HumorIntelligenceEngine:
     """
@@ -254,6 +250,5 @@ class HumorIntelligenceEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 humor_intelligence = HumorIntelligenceEngine()

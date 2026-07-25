@@ -20,28 +20,14 @@
     "code_iq": 100.0,
     "creative_iq": 100.0,
     "math_iq": 130.0,
-    "common_sense_iq": 118.0,
+    "common_sense_iq": 70.0,
     "emotional_iq": 100.0,
     "strategic_iq": 100.0,
     "self_awareness_iq": 130.0,
     "adversarial_iq": 100.0,
     "instruction_iq": 100.0,
-    "composite_iq": 108.925,
+    "composite_iq": 104.125,
     "iq_history": [
-      {
-        "composite": 106.525,
-        "timestamp": "2026-04-13T23:39:33.500342",
-        "reasoning": 111.25,
-        "code": 100.0,
-        "creative": 100.0
-      },
-      {
-        "composite": 103.45,
-        "timestamp": "2026-04-14T22:04:50.204933",
-        "reasoning": 92.5,
-        "code": 100.0,
-        "creative": 100.0
-      },
       {
         "composite": 109.625,
         "timestamp": "2026-04-17T13:29:27.460952",
@@ -97,10 +83,24 @@
         "reasoning": 111.25,
         "code": 100.0,
         "creative": 100.0
+      },
+      {
+        "composite": 108.925,
+        "timestamp": "2026-07-25T16:16:12.242121",
+        "reasoning": 111.25,
+        "code": 100.0,
+        "creative": 100.0
+      },
+      {
+        "composite": 104.125,
+        "timestamp": "2026-07-25T20:06:23.331360",
+        "reasoning": 111.25,
+        "code": 100.0,
+        "creative": 100.0
       }
     ],
-    "last_measured": "2026-06-03T03:20:09.818597"
+    "last_measured": "2026-07-25T20:06:23.331360"
   },
   "training_history": [],
-  "saved_at": "2026-06-03T03:20:09.818597"
+  "saved_at": "2026-07-25T20:06:23.331360"
 }

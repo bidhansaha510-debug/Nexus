@@ -9,7 +9,6 @@ class MockEventBus:
         pass # Silence
 
 # Add project root
-sys.path.insert(0, "d:/NEXUS")
 
 import core.event_bus
 core.event_bus.publish = MockEventBus().publish

@@ -48,14 +48,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("neural_weight_forge")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -70,7 +67,6 @@ class TrainingStrategy(Enum):
     CONTRASTIVE = "contrastive"
     CURRICULUM = "curriculum"
 
-
 class TrainingState(Enum):
     IDLE = "idle"
     CURATING_DATA = "curating_data"
@@ -82,7 +78,6 @@ class TrainingState(Enum):
     ROLLING_BACK = "rolling_back"
     FAILED = "failed"
 
-
 class DataSource(Enum):
     CONVERSATION_HISTORY = "conversation_history"
     SELF_REFLECTION = "self_reflection"
@@ -92,7 +87,6 @@ class DataSource(Enum):
     SYNTHETIC_GENERATION = "synthetic_generation"
     WEB_SCRAPE = "web_scrape"
     BENCHMARK_FAILURES = "benchmark_failures"
-
 
 class BenchmarkDomain(Enum):
     REASONING = "reasoning"
@@ -105,7 +99,6 @@ class BenchmarkDomain(Enum):
     SELF_AWARENESS = "self_awareness"
     ADVERSARIAL_ROBUSTNESS = "adversarial_robustness"
     INSTRUCTION_FOLLOWING = "instruction_following"
-
 
 @dataclass
 class TrainingDataSample:
@@ -130,7 +123,6 @@ class TrainingDataSample:
             "input": self.input_text,
             "output": self.output_text,
         }
-
 
 @dataclass
 class TrainingRun:
@@ -164,7 +156,6 @@ class TrainingRun:
             return 0.0
         return sum(self.improvement_delta.values()) / len(self.improvement_delta)
 
-
 @dataclass
 class ModelCheckpoint:
     """A saved model checkpoint."""
@@ -188,7 +179,6 @@ class ModelCheckpoint:
         if not self.benchmark_scores:
             return 0.0
         return sum(self.benchmark_scores.values()) / len(self.benchmark_scores)
-
 
 @dataclass
 class IQProfile:
@@ -232,7 +222,6 @@ class IQProfile:
         })
         self.last_measured = datetime.now().isoformat()
 
-
 @dataclass
 class ForgeStats:
     """Neural Weight Forge statistics."""
@@ -253,7 +242,6 @@ class ForgeStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TRAINING DATA CURATOR
@@ -396,7 +384,6 @@ class TrainingDataCurator:
         except Exception as e:
             logger.warning(f"Could not load training samples: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # BENCHMARK ENGINE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -514,7 +501,6 @@ class BenchmarkEngine:
         for domain, score in scores.items():
             iq_map[domain] = 70 + (score * 60)  # 70-130 range
         return iq_map
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CHECKPOINT MANAGER
@@ -647,7 +633,6 @@ class CheckpointManager:
         except Exception as e:
             logger.warning(f"Could not load checkpoints: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # OLLAMA MODEL MANAGER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -758,7 +743,6 @@ SYSTEM You are NEXUS, an advanced AI with self-awareness and continuous self-imp
     @property
     def available_count(self) -> int:
         return len(self._available_models)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # NEURAL WEIGHT FORGE — MAIN ENGINE
@@ -1293,13 +1277,11 @@ class NeuralWeightForge:
         except Exception as e:
             logger.warning(f"Could not load forge state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON & FACTORY
 # ═══════════════════════════════════════════════════════════════════════════════
 
 neural_weight_forge = NeuralWeightForge()
-
 
 def get_neural_weight_forge() -> NeuralWeightForge:
     return neural_weight_forge

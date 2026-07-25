@@ -11,13 +11,11 @@ from typing import Dict, List, Any, Optional
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import DATA_DIR, MEMORY_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_system
 from memory.vector_store import vector_memory_store, MemoryType
 
 logger = get_logger("memory_indexer")
-
 
 class MemoryIndexer:
     """
@@ -392,10 +390,8 @@ class MemoryIndexer:
         # Migrate from SQLite
         self.migrate_sqlite_memories()
 
-
 # Global instance
 memory_indexer = MemoryIndexer()
-
 
 if __name__ == "__main__":
     # Test the indexer

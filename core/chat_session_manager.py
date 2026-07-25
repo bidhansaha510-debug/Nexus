@@ -14,12 +14,10 @@ from pathlib import Path
 import re
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("chat_session_manager")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SESSION DATA STRUCTURES
@@ -55,7 +53,6 @@ class ChatMessage:
             emotion_intensity=data.get("emotion_intensity", 0.0),
             metadata=data.get("metadata", {})
         )
-
 
 @dataclass
 class ChatSession:
@@ -136,7 +133,6 @@ class ChatSession:
         for msg_data in data.get("messages", []):
             session.messages.append(ChatMessage.from_dict(msg_data))
         return session
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CHAT SESSION MANAGER
@@ -551,13 +547,11 @@ class ChatSessionManager:
             )
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 chat_session_manager = ChatSessionManager()
-
 
 if __name__ == "__main__":
     # Test the session manager

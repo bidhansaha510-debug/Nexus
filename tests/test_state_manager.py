@@ -7,14 +7,10 @@ import sys
 import pytest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
-
 def test_state_manager_imports():
     """State manager imports cleanly."""
     from core.state_manager import StateManager, NexusState, state_manager
     assert state_manager is not None
-
 
 def test_state_manager_has_initial_state():
     """State manager has valid initial state."""
@@ -23,13 +19,11 @@ def test_state_manager_has_initial_state():
     assert hasattr(state_manager, 'system')
     assert hasattr(state_manager, 'user')
 
-
 def test_state_manager_update_system():
     """Can update system state."""
     from core.state_manager import state_manager
     state_manager.update_system(running=True)
     assert state_manager.system.running is True
-
 
 def test_state_manager_update_consciousness():
     """Can update consciousness level."""
@@ -37,7 +31,6 @@ def test_state_manager_update_consciousness():
     from core.state_manager import state_manager
     state_manager.update_consciousness(level=ConsciousnessLevel.FOCUSED)
     assert state_manager.consciousness.level == ConsciousnessLevel.FOCUSED
-
 
 def test_state_manager_update_emotional():
     """Can update emotional state."""
@@ -49,7 +42,6 @@ def test_state_manager_update_emotional():
     )
     assert state_manager.emotional.primary_emotion == EmotionType.JOY
     assert state_manager.emotional.primary_intensity == 0.8
-
 
 def test_state_manager_serialization():
     """State manager can serialize and deserialize."""

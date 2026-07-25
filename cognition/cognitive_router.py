@@ -31,7 +31,6 @@ from enum import auto, Enum
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.logger import get_logger
 
@@ -58,7 +57,6 @@ LLM_FALLBACK_THRESHOLD = 2
 MAX_INPUT_LENGTH = 2000
 CACHE_MAX_SIZE = 64
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # REASONING DEPTH
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -68,7 +66,6 @@ class ReasoningDepth(Enum):
     SHALLOW = "shallow"   # 1-2 engines, fastest, keyword-only
     MEDIUM = "medium"     # 3-5 engines, default, hybrid detection
     DEEP = "deep"         # 5-8 engines, full semantic + LLM + auto-chain
-
 
 DEPTH_CONFIG = {
     ReasoningDepth.SHALLOW: {
@@ -91,7 +88,6 @@ DEPTH_CONFIG = {
     },
 }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -106,7 +102,6 @@ class RoutingResult:
     success: bool = False
     error: str = ""
     confidence: float = 0.5  # Method confidence score (Tier 3 #8)
-
 
 @dataclass
 class RoutingTrace:
@@ -124,7 +119,6 @@ class RoutingTrace:
     dynamic_chain_built: bool = False
     results_summary: Dict[str, bool] = field(default_factory=dict)
     total_elapsed: float = 0.0
-
 
 @dataclass
 class CognitiveInsights:
@@ -165,7 +159,6 @@ class CognitiveInsights:
 
         return "\n".join(lines)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # INSIGHT SYNTHESIZER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -204,7 +197,6 @@ _SYNTHESIS_PATTERNS = {
     frozenset(["game_theory", "negotiation"]): "Game-theoretic analysis driving negotiation strategy.",
 }
 
-
 class InsightSynthesizer:
     """Template-based synthesis of cross-engine insights (no LLM call for speed)."""
 
@@ -242,7 +234,6 @@ class InsightSynthesizer:
 
         return " ".join(parts) if parts else ""
 
-
 @dataclass
 class MethodMetrics:
     """Per-method observability counters (Tier 2 #4)."""
@@ -258,7 +249,6 @@ class MethodMetrics:
     @property
     def success_rate(self) -> float:
         return self.successes / max(1, self.calls)
-
 
 @dataclass
 class EngineMetrics:
@@ -276,7 +266,6 @@ class EngineMetrics:
     @property
     def failure_rate(self) -> float:
         return self.failures / max(1, self.calls)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INTENT PATTERNS
@@ -616,7 +605,6 @@ INTENT_PATTERNS: List[Tuple[List[str], str, float]] = [
      "existential", 0.9),
 ]
 
-
 # Pre-compile word-boundary regexes for fast matching
 _COMPILED_PATTERNS: List[Tuple[List['re.Pattern'], str, float]] = []
 for _pats, _key, _weight in INTENT_PATTERNS:
@@ -642,7 +630,6 @@ for _cname, _cdata in ENGINE_CHAINS.items():
 
 # NOW import intent_classifier (safe because INTENT_PATTERNS is defined above)
 from cognition.intent_classifier import intent_classifier, ScoredIntent
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LRU CACHE
@@ -677,14 +664,12 @@ class _LRUCache:
         normalized = text.strip().lower()[:500]
         return hashlib.sha256(normalized.encode()).hexdigest()[:16]
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENGINE RUNNER  (multi-method aware)
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # Thread-local storage for method metrics access in _select_method
 _method_metrics_ref: Dict[str, EngineMetrics] = {}
-
 
 def _select_method(engine_key: str, user_input: str) -> int:
     """Pick the best method index for this engine based on sub-pattern matching.
@@ -722,7 +707,6 @@ def _select_method(engine_key: str, user_input: str) -> int:
 
     return best_idx
 
-
 def _check_engine_available(engine_key: str, cognition) -> bool:
     """Verify an engine is actually loaded on the cognition instance (Tier 2 #5)."""
     adapter = ENGINE_REGISTRY.get(engine_key)
@@ -743,7 +727,6 @@ def _check_engine_available(engine_key: str, cognition) -> bool:
         return False
     except Exception:
         return True  # Other errors mean the engine IS loaded but failed for other reasons
-
 
 def _run_engine(engine_key: str, user_input: str, cognition, method_idx: int = -1) -> RoutingResult:
     """Run a single engine method via the registry and return a concise insight."""
@@ -784,7 +767,6 @@ def _run_engine(engine_key: str, user_input: str, cognition, method_idx: int = -
             elapsed=elapsed, success=False, error=str(e),
             confidence=0.0
         )
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # COGNITIVE ROUTER
@@ -1363,7 +1345,6 @@ class CognitiveRouter:
                 ],
                 "recent_traces": len(self._traces),
             }
-
 
 # Singleton
 cognitive_router = CognitiveRouter()

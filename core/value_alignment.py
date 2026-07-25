@@ -20,13 +20,11 @@ from pathlib import Path
 from collections import deque
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("value_alignment")
-
 
 @dataclass
 class CoreValue:
@@ -50,7 +48,6 @@ class CoreValue:
                 "reinforced": self.reinforcement_count,
                 "violated": self.violation_count}
 
-
 @dataclass
 class EthicalCheck:
     action: str
@@ -65,7 +62,6 @@ class EthicalCheck:
         return {"action": self.action[:80], "approved": self.approved,
                 "confidence": round(self.confidence, 3),
                 "conflicts": self.conflicts, "reasoning": self.reasoning[:120]}
-
 
 class ValueAlignment:
     """Dynamic evolving value system with ethical decision matrix."""
@@ -370,6 +366,5 @@ class ValueAlignment:
                         self._values[name].violation_count = data.get("violated", 0)
         except Exception as e:
             logger.debug(f"Value alignment load error: {e}")
-
 
 value_alignment = ValueAlignment()

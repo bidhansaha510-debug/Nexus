@@ -13,7 +13,6 @@ from pathlib import Path
 from datetime import datetime
 
 # Add project root to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 def test_action_biases_initialization():
     """Test that _action_biases dict is initialized"""

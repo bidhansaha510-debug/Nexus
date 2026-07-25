@@ -24,13 +24,11 @@ from enum import Enum
 from collections import deque
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("imagination_engine")
-
 
 class ImaginationType(Enum):
     SCENARIO = "scenario"
@@ -41,14 +39,12 @@ class ImaginationType(Enum):
     FANTASY = "fantasy"
     PREDICTIVE = "predictive"
 
-
 class DreamState(Enum):
     AWAKE = "awake"
     DAYDREAMING = "daydreaming"
     LIGHT_DREAM = "light_dream"
     DEEP_DREAM = "deep_dream"
     LUCID = "lucid"
-
 
 @dataclass
 class Scenario:
@@ -75,7 +71,6 @@ class Scenario:
             "tags": self.tags[:5],
         }
 
-
 @dataclass
 class Dream:
     dream_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -89,7 +84,6 @@ class Dream:
         return {"id": self.dream_id, "content": self.content[:300],
                 "themes": self.themes[:5], "tone": self.emotional_tone,
                 "vividness": round(self.vividness, 3)}
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LLM HELPER
@@ -114,7 +108,6 @@ def _llm_generate(prompt: str, system_prompt: str, temperature: float = 0.7,
     except Exception as e:
         logger.debug(f"LLM imagination call failed: {e}")
         return None
-
 
 class ImaginationEngine:
     """Gives NEXUS hypothetical thinking, creative ideas, dreams, and rehearsal."""
@@ -532,6 +525,5 @@ class ImaginationEngine:
                 self._imagination_sessions = state.get("imagination_sessions", 0)
         except Exception as e:
             logger.debug(f"Imagination load error: {e}")
-
 
 imagination_engine = ImaginationEngine()

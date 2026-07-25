@@ -26,12 +26,10 @@ from datetime import datetime
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.logger import get_logger
 
 logger = get_logger("routing_experiments")
-
 
 @dataclass
 class ExperimentMetrics:
@@ -54,7 +52,6 @@ class ExperimentMetrics:
     def insight_rate(self) -> float:
         return self.total_successful_insights / max(1, self.total_engines_triggered)
 
-
 @dataclass
 class RoutingExperiment:
     """An A/B test variant for routing configuration."""
@@ -72,7 +69,6 @@ class RoutingExperiment:
     # - "keyword_threshold": float (override KEYWORD_HIGH_CONFIDENCE)
     # - "cooldown_messages": int (override COOLDOWN_MESSAGES)
     # - "engine_timeout": float (override ENGINE_TIMEOUT)
-
 
 class ExperimentManager:
     """
@@ -230,7 +226,6 @@ class ExperimentManager:
                 }
                 for name, exp in self._experiments.items()
             ]
-
 
 # Singleton
 experiment_manager = ExperimentManager()

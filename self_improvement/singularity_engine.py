@@ -42,14 +42,12 @@ from enum import Enum, auto
 from collections import defaultdict
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger, log_system, log_learning
 from core.event_bus import EventType, publish
 
 logger = get_logger("singularity_engine")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA MODELS
@@ -68,7 +66,6 @@ class ImprovementDomain(Enum):
     SELF_AWARENESS = "self_awareness"
     ARCHITECTURE = "architecture"
 
-
 class OptimizationStrategy(Enum):
     """Strategies for optimization"""
     ALGORITHMIC = "algorithmic"          # Improve algorithm efficiency
@@ -78,7 +75,6 @@ class OptimizationStrategy(Enum):
     KNOWLEDGE_DISTILLATION = "knowledge_distillation"  # Compress knowledge
     META_LEARNING = "meta_learning"      # Learn to learn faster
     CROSS_POLLINATION = "cross_pollination"  # Transfer insights between domains
-
 
 @dataclass
 class IntelligenceMetric:
@@ -94,7 +90,6 @@ class IntelligenceMetric:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class OptimizationCycle:
@@ -123,7 +118,6 @@ class OptimizationCycle:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class SingularityState:
@@ -169,7 +163,6 @@ class SingularityState:
             "recursion_depth": self.recursion_depth,
             "max_recursion_depth": self.max_recursion_depth,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGULARITY ENGINE
@@ -876,7 +869,6 @@ class SingularityEngine:
             ),
             "recursion_depth": self._state.recursion_depth,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

@@ -366,28 +366,28 @@
     }
   },
   "current_resources": {
-    "cpu_percent": 6.5,
-    "memory_percent": 42.9,
-    "memory_available_gb": 18.187488555908203,
-    "disk_percent": 19.5,
-    "disk_free_gb": 89.99836730957031,
+    "cpu_percent": 21.9,
+    "memory_percent": 57.9,
+    "memory_available_gb": 13.404769897460938,
+    "disk_percent": 14.1,
+    "disk_free_gb": 96.06577682495117,
     "llm_available": true,
     "llm_model": "unknown",
     "llm_latency_ms": 0.0,
     "groq_available": true,
     "groq_requests_remaining": 0,
-    "uptime_hours": 0.6507541461111112,
+    "uptime_hours": 19.386300657222222,
     "session_duration_minutes": 0.0,
-    "overall_health": 0.7703333333333333,
-    "health_status": "healthy",
+    "overall_health": 0.6869999999999999,
+    "health_status": "degraded",
     "can_generate_responses": true,
     "can_access_internet": true,
     "can_process_vision": false,
-    "timestamp": "2026-06-04T03:35:55.685172"
+    "timestamp": "2026-07-25T20:08:16.640657"
   },
   "self_awareness_score": 0.5,
   "honesty_score": 0.9,
-  "created_at": "2026-06-04T03:35:55.675662",
-  "last_updated": "2026-06-04T03:35:55.786900",
-  "update_count": 19382
+  "created_at": "2026-07-25T19:59:40.137006",
+  "last_updated": "2026-07-25T20:08:16.756429",
+  "update_count": 19496
 }

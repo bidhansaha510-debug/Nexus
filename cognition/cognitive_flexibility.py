@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -23,7 +22,6 @@ logger = get_logger("cognitive_flexibility")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 class PerspectiveType(Enum):
     FIRST_PERSON = "first_person"
@@ -39,7 +37,6 @@ class PerspectiveType(Enum):
     ECONOMIC = "economic"
     EMOTIONAL = "emotional"
 
-
 class ReframeType(Enum):
     POSITIVE = "positive"
     GROWTH = "growth"
@@ -49,7 +46,6 @@ class ReframeType(Enum):
     BROADER_CONTEXT = "broader_context"
     TEMPORAL = "temporal"
     HUMOR = "humor"
-
 
 @dataclass
 class PerspectiveShift:
@@ -70,7 +66,6 @@ class PerspectiveShift:
             "blind_spots_revealed": self.blind_spots_revealed,
             "created_at": self.created_at
         }
-
 
 @dataclass
 class CognitiveReframe:
@@ -93,7 +88,6 @@ class CognitiveReframe:
             "emotional_shift": self.emotional_shift,
             "usefulness": self.usefulness, "created_at": self.created_at
         }
-
 
 class CognitiveFlexibilityEngine:
     """
@@ -396,9 +390,7 @@ class CognitiveFlexibilityEngine:
             logger.debug(f"Paradigm shift failed: {e}")
         return {"error": "Paradigm shift failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 cognitive_flexibility = CognitiveFlexibilityEngine()

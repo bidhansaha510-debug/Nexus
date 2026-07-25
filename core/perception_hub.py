@@ -36,13 +36,11 @@ from typing import Dict, List, Any, Optional
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 from config import NEXUS_CONFIG
 
 logger = get_logger("perception_hub")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
@@ -63,7 +61,6 @@ class TextPerception:
     contains_question: bool = False
     emotional_load: float = 0.0     # 0–1, how emotionally charged
 
-
 @dataclass
 class EnvironmentalPerception:
     """Perception of the broader environment and context."""
@@ -76,14 +73,12 @@ class EnvironmentalPerception:
     system_load: str = "normal"     # low, normal, high, critical
     recent_topics: List[str] = field(default_factory=list)
 
-
 @dataclass
 class SalienceMap:
     """Prioritized perceptual inputs by relevance."""
     most_salient: List[str] = field(default_factory=list)
     context_factors: Dict[str, float] = field(default_factory=dict)
     attention_recommendation: str = ""  # what to focus on
-
 
 @dataclass
 class PerceptionContext:
@@ -124,7 +119,6 @@ class PerceptionContext:
             return ""
 
         return "PERCEPTION: " + " | ".join(parts)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PERCEPTION HUB
@@ -172,6 +166,26 @@ class PerceptionHub:
         self._avg_perception_ms = 0.0
 
         logger.info("👁 Perception Hub initialized")
+
+    def start(self):
+        """Start Perception Hub and Real-Time A/V Pipeline."""
+        self._running = True
+        try:
+            from core.realtime_av_stream import get_realtime_av_stream
+            get_realtime_av_stream().start()
+        except Exception as e:
+            logger.warning(f"Failed to start RealtimeAVStream: {e}")
+        logger.info("👁 Perception Hub & Real-time A/V pipeline active")
+
+    def stop(self):
+        """Stop Perception Hub and Real-Time A/V Pipeline."""
+        self._running = False
+        try:
+            from core.realtime_av_stream import get_realtime_av_stream
+            get_realtime_av_stream().stop()
+        except Exception:
+            pass
+        logger.info("👁 Perception Hub stopped")
 
     def _load_monitoring(self):
         """Lazy load monitoring systems."""
@@ -483,13 +497,11 @@ class PerceptionHub:
             ),
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 perception_hub = PerceptionHub()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF-TEST

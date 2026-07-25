@@ -32,7 +32,6 @@ from enum import Enum
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, DATA_DIR
 from utils.logger import get_logger, log_system, log_decision
@@ -41,7 +40,6 @@ from core.state_manager import state_manager
 from core.memory_system import memory_system, MemoryType
 
 logger = get_logger("computer_body")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SYSTEM INFO SNAPSHOT
@@ -73,7 +71,6 @@ class SystemInfo:
     
     def to_dict(self) -> Dict:
         return {k: v for k, v in self.__dict__.items()}
-
 
 @dataclass
 class VitalSigns:
@@ -111,7 +108,6 @@ class VitalSigns:
             "health_score": round(self.health_score, 3),
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ACTION LOG
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -139,7 +135,6 @@ class BodyAction:
             "reason": self.reason,
             "timestamp": self.timestamp.isoformat()
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # COMPUTER BODY
@@ -1623,7 +1618,6 @@ class ComputerBody:
             "actions_logged": len(self._action_log),
             "autonomous_actions": sum(1 for a in self._action_log if a.autonomous)
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

@@ -4,7 +4,6 @@ import unittest
 from unittest.mock import MagicMock
 
 # Add project root
-sys.path.insert(0, "d:/NEXUS")
 
 # Mock dependencies
 sys.modules['core.event_bus'] = MagicMock()

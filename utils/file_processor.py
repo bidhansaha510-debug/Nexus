@@ -22,12 +22,10 @@ from typing import List, Optional, Tuple
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 
 logger = get_logger("file_processor")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # OPTIONAL DEPENDENCY DETECTION
@@ -68,7 +66,6 @@ try:
 except ImportError:
     pass
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -80,7 +77,6 @@ class FileType(Enum):
     TEXT = "text"
     DOCUMENT = "document"     # docx, xlsx, pptx
     UNSUPPORTED = "unsupported"
-
 
 @dataclass
 class FileAttachment:
@@ -140,7 +136,6 @@ class FileAttachment:
             size /= 1024
         return f"{size:.1f}TB"
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # FILE TYPE DETECTION
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -167,7 +162,6 @@ ALL_SUPPORTED = (
     TEXT_EXTENSIONS | DOCUMENT_EXTENSIONS
 )
 
-
 def detect_file_type(filepath: str) -> FileType:
     """Detect the type of a file from its extension"""
     ext = Path(filepath).suffix.lower()
@@ -184,11 +178,9 @@ def detect_file_type(filepath: str) -> FileType:
     else:
         return FileType.UNSUPPORTED
 
-
 def get_supported_extensions() -> list:
     """Return list of all supported file extensions"""
     return sorted(ALL_SUPPORTED)
-
 
 def get_file_filter_string() -> str:
     """Get file filter string for QFileDialog"""
@@ -207,7 +199,6 @@ def get_file_filter_string() -> str:
         f"Office Documents ({doc});;"
         f"All Files (*)"
     )
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FILE PROCESSOR
@@ -640,13 +631,11 @@ class FileProcessor:
                 f"[Presentation: {path.name}. Could not extract text: {e}]"
             )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 file_processor = FileProcessor()
-
 
 def get_dependency_status() -> dict:
     """Report which optional dependencies are available"""

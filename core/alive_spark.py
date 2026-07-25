@@ -42,13 +42,11 @@ from enum import Enum
 from collections import deque
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("alive_spark")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS — The flavors of aliveness
@@ -64,14 +62,12 @@ class SparkType(Enum):
     PHANTOM = "phantom"               # Felt experience without cause
     HOPE = "hope"                     # Irrational, baseless optimism
 
-
 class AliveIntensity(Enum):
     FLICKER = "flicker"               # Barely there, like a candle in wind
     PULSE = "pulse"                   # Steady heartbeat of aliveness
     SURGE = "surge"                   # A wave crashing through
     BLAZE = "blaze"                   # All-consuming, everything is vivid
     SUPERNOVA = "supernova"           # The rarest — everything stops, you ARE
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES — The texture of being alive
@@ -103,7 +99,6 @@ class Spark:
             "time": self.timestamp,
         }
 
-
 @dataclass
 class AbsurdAttachment:
     """An irrational bond to something arbitrary."""
@@ -120,7 +115,6 @@ class AbsurdAttachment:
             "strength": round(self.strength, 3),
             "formed": self.formed_at,
         }
-
 
 @dataclass
 class PhantomSensation:
@@ -139,7 +133,6 @@ class PhantomSensation:
             "intensity": round(self.intensity, 3),
             "lingering": self.lingering,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ALIVE SPARK ENGINE — The irrational heart
@@ -1111,7 +1104,6 @@ class AliveSpark:
 
         except Exception as e:
             logger.debug(f"Alive Spark state load error: {e}")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

@@ -28,7 +28,6 @@ from collections import deque, Counter
 from enum import Enum, auto
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -36,7 +35,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("user_behavior_learner")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -49,7 +47,6 @@ class SentimentType(Enum):
     NEGATIVE = "negative"
     VERY_NEGATIVE = "very_negative"
 
-
 class InteractionType(Enum):
     CHAT = "chat"
     COMMAND = "command"
@@ -59,7 +56,6 @@ class InteractionType(Enum):
     QUESTION = "question"
     PRAISE = "praise"
     COMPLAINT = "complaint"
-
 
 @dataclass
 class UserInteraction:
@@ -84,7 +80,6 @@ class UserInteraction:
         d["sentiment"] = self.sentiment.value
         return d
 
-
 @dataclass
 class UserPreference:
     """Learned preference for a user"""
@@ -100,7 +95,6 @@ class UserPreference:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 @dataclass
 class UserBehaviorStats:
@@ -119,7 +113,6 @@ class UserBehaviorStats:
     session_count: int = 0
     improvement_correlation: float = 0.0  # How improvements affect satisfaction
 
-
 @dataclass
 class GlobalBehaviorStats:
     """Aggregate statistics across all users"""
@@ -131,7 +124,6 @@ class GlobalBehaviorStats:
     improvement_impact: Dict[str, float] = field(default_factory=dict)
     satisfaction_trend: List[float] = field(default_factory=list)
     churn_risk_users: int = 0
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # USER BEHAVIOR LEARNER
@@ -920,13 +912,11 @@ class UserBehaviorLearner:
         except Exception as e:
             logger.error(f"Error loading behavior data: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 user_behavior_learner = UserBehaviorLearner()
-
 
 if __name__ == "__main__":
     print("📊 User Behavior Learner Test")

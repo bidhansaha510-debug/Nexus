@@ -5,7 +5,6 @@ import time
 from pathlib import Path
 
 # Add project root to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from learning.internet_browser import internet_browser
 from learning.curiosity_engine import curiosity_engine, CuriositySource

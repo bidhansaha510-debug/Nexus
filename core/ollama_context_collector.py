@@ -22,12 +22,10 @@ from pathlib import Path
 from typing import Optional
 from datetime import datetime
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger
 from core.groq_context_collector import GroqContextCollector, MAX_TOTAL_CHARS
 
 logger = get_logger("ollama_context_collector")
-
 
 class OllamaContextCollector(GroqContextCollector):
     """
@@ -254,7 +252,6 @@ class OllamaContextCollector(GroqContextCollector):
         except Exception as e:
             logger.debug(f"Ollama identity collection error: {e}")
             return ""
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

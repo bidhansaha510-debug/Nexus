@@ -28,7 +28,6 @@ from collections import deque, Counter
 from enum import Enum, auto
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -36,7 +35,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("research_intelligence")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -49,13 +47,11 @@ class ResearchPriority(Enum):
     LOW = 2         # Nice to have
     EXPLORATORY = 1 # Serendipitous learning
 
-
 class ResearchDepth(Enum):
     QUICK = 1       # Single source, basic summary
     STANDARD = 2    # Multiple sources, cross-reference
     DEEP = 3        # Comprehensive, synthesis, examples
     EXHAUSTIVE = 4  # Academic-level, all sources
-
 
 class ResearchStatus(Enum):
     PENDING = "pending"
@@ -63,7 +59,6 @@ class ResearchStatus(Enum):
     COMPLETED = "completed"
     FAILED = "failed"
     DEFERRED = "deferred"
-
 
 @dataclass
 class ResearchTopic:
@@ -92,7 +87,6 @@ class ResearchTopic:
         d["status"] = self.status.value
         return d
 
-
 @dataclass
 class ResearchSession:
     """A research session with results"""
@@ -109,7 +103,6 @@ class ResearchSession:
     quality_score: float = 0.0
     errors: List[str] = field(default_factory=list)
 
-
 @dataclass
 class KnowledgeGap:
     """Detected gap in knowledge"""
@@ -119,7 +112,6 @@ class KnowledgeGap:
     impact: float = 0.5  # How much this gap affects capabilities
     frequency: int = 0   # How often this gap is encountered
     last_encountered: str = ""
-
 
 @dataclass
 class ResearchIntelligenceStats:
@@ -132,7 +124,6 @@ class ResearchIntelligenceStats:
     total_insights: int = 0
     knowledge_gaps_filled: int = 0
     research_efficiency: float = 0.0  # insights per minute
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RESEARCH INTELLIGENCE ENGINE
@@ -813,13 +804,11 @@ class ResearchIntelligence:
         except Exception as e:
             logger.error(f"Error loading research intelligence data: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 research_intelligence = ResearchIntelligence()
-
 
 if __name__ == "__main__":
     print("🔬 Research Intelligence Test")

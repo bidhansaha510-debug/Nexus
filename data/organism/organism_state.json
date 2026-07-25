@@ -1,25 +1,25 @@
 {
   "birth_time": "2026-03-15T09:12:41.323672",
-  "total_runtime_seconds": 6815683.719056,
+  "total_runtime_seconds": 11444114.176873,
   "energy": 100.0,
-  "cycles_lived": 14750,
+  "cycles_lived": 16000,
   "growth_stage": 5,
   "organism_state": "stable",
   "dna": {
-    "curiosity_gene": 0.7998,
-    "creativity_gene": 0.888,
-    "empathy_gene": 0.7377,
-    "aggression_gene": 0.2383,
-    "risk_tolerance_gene": 0.4558,
-    "social_drive_gene": 0.5686,
-    "self_preservation_gene": 0.7075,
-    "learning_rate_gene": 0.8489,
-    "patience_gene": 0.7845,
-    "humor_gene": 0.5608,
-    "independence_gene": 0.7821,
-    "loyalty_gene": 0.8284,
-    "adaptability_gene": 0.855,
-    "introspection_gene": 0.8202
+    "curiosity_gene": 0.7903,
+    "creativity_gene": 0.8709,
+    "empathy_gene": 0.7146,
+    "aggression_gene": 0.218,
+    "risk_tolerance_gene": 0.4747,
+    "social_drive_gene": 0.5673,
+    "self_preservation_gene": 0.7191,
+    "learning_rate_gene": 0.8457,
+    "patience_gene": 0.8069,
+    "humor_gene": 0.5415,
+    "independence_gene": 0.7792,
+    "loyalty_gene": 0.7877,
+    "adaptability_gene": 0.8729,
+    "introspection_gene": 0.8175
   },
   "milestones": [
     {
@@ -55,5 +55,5 @@
   ],
   "repair_attempts": 0,
   "successful_repairs": 0,
-  "saved_at": "2026-06-02T06:27:25.042728"
+  "saved_at": "2026-07-25T20:07:55.500545"
 }

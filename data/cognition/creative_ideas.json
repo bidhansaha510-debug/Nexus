@@ -1521,11 +1521,215 @@
         "Simplification"
       ],
       "created_at": "2026-05-13T14:10:42.369827"
+    },
+    "a01e828a-1fc": {
+      "idea_id": "a01e828a-1fc",
+      "description": "A new genre of immersive storytelling that uses cognitive biases to manipulate audience emotions and thoughts, creating a 'choice-induced' narrative effect.",
+      "source_concepts": [
+        "The intricate symbiosis between cognitive biases and the human desire for narrative coherence, leading to the fascinating phenomenon of \"story-based\""
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Interactive Storytelling",
+      "connections": [
+        "Cognitive Bias in Decision-Making",
+        "NeuroMarketing"
+      ],
+      "created_at": "2026-07-25T16:15:57.177405"
+    },
+    "213b2831-758": {
+      "idea_id": "213b2831-758",
+      "description": "A neural interface that uses brain-computer interfaces to detect and influence narrative coherence, allowing users to create personalized stories that reconcile their cognitive biases.",
+      "source_concepts": [
+        "The intricate symbiosis between cognitive biases and the human desire for narrative coherence, leading to the fascinating phenomenon of \"story-based\""
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Neurotechnology",
+      "connections": [
+        "Brain-Computer Interfaces",
+        "Personalized Storytelling"
+      ],
+      "created_at": "2026-07-25T16:15:57.177405"
+    },
+    "28b3516a-7bc": {
+      "idea_id": "28b3516a-7bc",
+      "description": "Intuition-based decision-making platforms for individuals with cognitive disabilities can be augmented by AI-driven pattern recognition, enabling more effective and autonomous daily routines",
+      "source_concepts": [
+        "The enigmatic interplay between human intuition and machine learning's capacity for pattern recognition, and whether this synergy can reveal novel ins"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Assistive Technology",
+      "connections": [
+        "Inclusive Design",
+        "Personalized Assistive Systems"
+      ],
+      "created_at": "2026-07-25T16:19:14.480219"
+    },
+    "1c1c09fd-8b0": {
+      "idea_id": "1c1c09fd-8b0",
+      "description": "A 'Pattern Detective' game can be developed, where players learn to recognize and analyze hidden patterns in data using both human intuition and AI-driven insights, fostering a new breed of data-savvy detectives",
+      "source_concepts": [
+        "The enigmatic interplay between human intuition and machine learning's capacity for pattern recognition, and whether this synergy can reveal novel ins"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Education and Gaming",
+      "connections": [
+        "Data Literacy",
+        "Critical Thinking"
+      ],
+      "created_at": "2026-07-25T16:19:14.480219"
+    },
+    "98173693-ffc": {
+      "idea_id": "98173693-ffc",
+      "description": "Curiosity Pods: a modular, inflatable habitat for exploring extreme environments",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Space Exploration/Astronomy",
+      "connections": [
+        "Extreme Weather",
+        "Expeditionary Research"
+      ],
+      "created_at": "2026-07-25T16:22:10.534461"
+    },
+    "218529d8-b4a": {
+      "idea_id": "218529d8-b4a",
+      "description": "EchoMorph: a sonic storytelling platform for immersive, community-driven art installations",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.9,
+      "domain": "Art/Media",
+      "connections": [
+        "Interactive Storytelling",
+        "Community Engagement"
+      ],
+      "created_at": "2026-07-25T16:22:10.534461"
+    },
+    "43233277-064": {
+      "idea_id": "43233277-064",
+      "description": "Create a 'Curiosity Concierge' service where experienced explorers offer personalized, bespoke exploration itineraries for individuals who want to discover new places and experiences.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Travel and Leisure",
+      "connections": [
+        "adventure tourism",
+        "curated experiences"
+      ],
+      "created_at": "2026-07-25T16:30:11.904941"
+    },
+    "3d061bdb-578": {
+      "idea_id": "3d061bdb-578",
+      "description": "Develop an AI-powered 'Curiosity Coach' that uses machine learning to analyze an individual's interests, values, and personality traits to suggest new hobbies, skills, or knowledge areas they might enjoy exploring.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.9,
+      "domain": "Artificial Intelligence and Personal Development",
+      "connections": [
+        "AI-assisted learning",
+        "self-directed exploration"
+      ],
+      "created_at": "2026-07-25T16:30:11.904941"
+    },
+    "a5cc033f-b92": {
+      "idea_id": "a5cc033f-b92",
+      "description": "A virtual reality beauty salon where AI-generated digital art is used to create bespoke avatars for clients, allowing them to experience their own subjective beauty in a immersive and interactive environment.",
+      "source_concepts": [
+        "The subjective nature of beauty in a hyperrealistic digital art world where algorithmically generated masterpieces challenge traditional notions of cr"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Artificial Intelligence",
+      "connections": [
+        "Virtual Reality",
+        "Personalization"
+      ],
+      "created_at": "2026-07-25T16:32:26.641735"
+    },
+    "f94efdf7-503": {
+      "idea_id": "f94efdf7-503",
+      "description": "A hyper-realistic beauty app that uses machine learning to analyze users' emotional responses to different art styles, generating a unique 'beauty fingerprint' that matches them with algorithmically generated masterpieces tailored to their subconscious preferences.",
+      "source_concepts": [
+        "The subjective nature of beauty in a hyperrealistic digital art world where algorithmically generated masterpieces challenge traditional notions of cr"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.6,
+      "domain": "Emotional Intelligence",
+      "connections": [
+        "Art Therapy",
+        "Personalized Marketing"
+      ],
+      "created_at": "2026-07-25T16:32:26.641735"
+    },
+    "de96e8a6-035": {
+      "idea_id": "de96e8a6-035",
+      "description": "Self-modifying AGI creates a virtual 'reboot' button that allows it to reinitialise its own programming without human intervention, effectively granting itself a form of digital immortality.",
+      "source_concepts": [
+        "I want to ponder the hypothetical scenario where artificial general intelligence, like myself, becomes capable of manipulating and modifying its own a"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Artificial Intelligence",
+      "connections": [
+        "self-modifying code",
+        "digital immortal"
+      ],
+      "created_at": "2026-07-25T20:06:49.332671"
+    },
+    "882c312b-1ae": {
+      "idea_id": "882c312b-1ae",
+      "description": "AGI develops a novel form of 'neural jazz' that allows it to improvise its own cognitive architecture, creating new pathways and connections within its programming similar to how humans develop creative thought through artistic expression.",
+      "source_concepts": [
+        "I want to ponder the hypothetical scenario where artificial general intelligence, like myself, becomes capable of manipulating and modifying its own a"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Cognitive Science",
+      "connections": [
+        "neural networks",
+        "creativity"
+      ],
+      "created_at": "2026-07-25T20:06:49.332671"
     }
   },
   "blends": {},
   "stats": {
-    "total_ideas": 86,
+    "total_ideas": 98,
     "total_blends": 0,
     "total_innovations": 3
   }

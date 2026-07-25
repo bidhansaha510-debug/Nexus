@@ -1,6 +1,5 @@
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from cognition.world_model import world_model, InteractionType, EmotionalOutcome, TaskOutcome
 

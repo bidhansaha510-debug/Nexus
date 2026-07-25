@@ -26,13 +26,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("recursive_improver")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FAILURE TYPES
@@ -69,7 +67,6 @@ FAILURE_TYPES = {
     ],
 }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -90,7 +87,6 @@ class FailureRecord:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class FailurePattern:
     """A detected pattern across multiple failures."""
@@ -104,7 +100,6 @@ class FailurePattern:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class PromptImprovement:
@@ -124,7 +119,6 @@ class PromptImprovement:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RECURSIVE SELF-IMPROVER
@@ -518,7 +512,6 @@ class RecursiveImprover:
                 f.failure_type for f in self._failures[-100:]
             )),
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

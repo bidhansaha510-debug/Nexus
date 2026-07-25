@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("dream_engine")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class DreamType(Enum):
     FREE_ASSOCIATION = "free_association"
     LUCID = "lucid"
@@ -33,7 +31,6 @@ class DreamType(Enum):
     SURREAL = "surreal"
     PROBLEM_SOLVING = "problem_solving"
     MEMORY_REPLAY = "memory_replay"
-
 
 @dataclass
 class Dream:
@@ -58,7 +55,6 @@ class Dream:
             "surrealism_level": self.surrealism_level,
             "created_at": self.created_at
         }
-
 
 class DreamEngine:
     """
@@ -148,6 +144,16 @@ class DreamEngine:
         except Exception as e:
             logger.debug(f"Dream generation failed: {e}")
             return Dream(seed=seed)
+
+    def run_sleep_consolidation(self) -> Dict[str, Any]:
+        """Trigger background sleep consolidation & memory pruning via Temporal GraphRAG."""
+        try:
+            from memory.temporal_graphrag import get_temporal_graphrag
+            graphrag = get_temporal_graphrag()
+            return graphrag.run_sleep_consolidation()
+        except Exception as e:
+            logger.warning(f"Sleep consolidation in DreamEngine exception: {e}")
+            return {"status": "failed", "error": str(e)}
 
     def free_associate(self, start_word: str, depth: int = 10) -> Dict[str, Any]:
         """Free-associate from a starting concept."""
@@ -297,9 +303,7 @@ class DreamEngine:
             logger.debug(f"Lucid dream generation failed: {e}")
         return {"error": "Dream generation failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 dream_engine = DreamEngine()

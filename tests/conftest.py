@@ -13,8 +13,6 @@ from dataclasses import dataclass
 
 # Ensure project root is on path
 PROJECT_ROOT = Path(__file__).parent.parent
-sys.path.insert(0, str(PROJECT_ROOT))
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LIST OF ALL IMPORTABLE MODULES (for parametrized import tests)
@@ -79,7 +77,6 @@ ALL_MODULES = (
     CONSCIOUSNESS_MODULES + COGNITION_MODULES + EMOTION_MODULES
 )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # FIXTURES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -103,7 +100,6 @@ def nexus_config():
     config.log_level = "WARNING"
     return config
 
-
 @pytest.fixture
 def fresh_event_bus():
     """Isolated event bus instance for testing."""
@@ -112,7 +108,6 @@ def fresh_event_bus():
     bus._initialized = False
     bus.__init__()
     return bus
-
 
 @pytest.fixture
 def mock_llm():
@@ -134,7 +129,6 @@ def mock_llm():
 
     return mock
 
-
 @pytest.fixture
 def memory_system_fixture(tmp_path):
     """Fresh in-memory/temp memory system for testing."""
@@ -147,7 +141,6 @@ def memory_system_fixture(tmp_path):
         ms.__init__()
     return ms
 
-
 @pytest.fixture
 def state_manager_fixture():
     """Fresh state manager for testing."""
@@ -156,7 +149,6 @@ def state_manager_fixture():
     sm._initialized = False
     sm.__init__()
     return sm
-
 
 @pytest.fixture
 def health_registry():
@@ -167,7 +159,6 @@ def health_registry():
     registry.__init__()
     return registry
 
-
 @pytest.fixture
 def metrics_collector():
     """Fresh metrics collector for testing."""
@@ -176,7 +167,6 @@ def metrics_collector():
     mc._initialized = False
     mc.__init__()
     return mc
-
 
 @pytest.fixture
 def mock_brain(mock_llm, state_manager_fixture, memory_system_fixture, fresh_event_bus):

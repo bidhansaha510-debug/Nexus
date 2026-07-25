@@ -19,13 +19,11 @@ from typing import Optional, Dict, List, Any
 from datetime import datetime, timedelta
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import DATA_DIR
 from utils.logger import get_logger
 logger = get_logger("user_manager")
 
 DB_PATH = Path(DATA_DIR) / "users.db"
-
 
 class UserManager:
     """Manages user accounts and chat history with SQLite storage."""
@@ -345,7 +343,6 @@ class UserManager:
             finally:
                 conn.close()
 
-
     # ── Email OTP ──
 
     def create_or_get_email_user(self, email: str) -> Dict[str, Any]:
@@ -488,7 +485,6 @@ class UserManager:
                 conn.commit()
             finally:
                 conn.close()
-
 
 # Global instance
 user_manager = UserManager()

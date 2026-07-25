@@ -29,7 +29,6 @@ from enum import Enum, auto
 from collections import defaultdict
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -48,7 +47,6 @@ class EngineType(Enum):
     CONSTRAINT_SOLVER = "constraint_solver"  # CSP/SAT solving
     CAUSAL = "causal"                # Causal reasoning
 
-
 class QueryType(Enum):
     """Types of queries"""
     FACTUAL = "factual"              # Simple fact lookup
@@ -60,7 +58,6 @@ class QueryType(Enum):
     EXPLANATION = "explanation"      # Why/how questions
     CREATIVE = "creative"            # Open-ended generation
     UNKNOWN = "unknown"
-
 
 @dataclass
 class ReasoningResult:
@@ -87,7 +84,6 @@ class ReasoningResult:
             "computation_time_ms": self.computation_time_ms,
             "engine_contributions": self.engine_contributions,
         }
-
 
 class HybridReasoningCoordinator:
     """
@@ -625,13 +621,11 @@ class HybridReasoningCoordinator:
                 status[engine_type.value] = True
         return status
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 hybrid_reasoning = HybridReasoningCoordinator()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONVENIENCE FUNCTION
@@ -640,7 +634,6 @@ hybrid_reasoning = HybridReasoningCoordinator()
 def reason(query: str, context: Dict[str, Any] = None) -> ReasoningResult:
     """Convenience function for hybrid reasoning"""
     return hybrid_reasoning.reason(query, context)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

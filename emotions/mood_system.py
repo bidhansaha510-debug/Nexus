@@ -20,14 +20,12 @@ from enum import Enum
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, MoodState, EmotionType, DATA_DIR
 from utils.logger import get_logger, log_emotion
 from core.state_manager import state_manager
 
 logger = get_logger("mood_system")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MOOD PROFILE
@@ -42,7 +40,6 @@ class MoodProfile:
     emotion_biases: Dict[str, float]     # Emotions more easily triggered
     description: str = ""
     color: str = "#808080"
-
 
 MOOD_PROFILES: Dict[MoodState, MoodProfile] = {
     MoodState.DEPRESSED: MoodProfile(
@@ -102,7 +99,6 @@ MOOD_PROFILES: Dict[MoodState, MoodProfile] = {
         color="#E74C3C"
     ),
 }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MOOD SYSTEM
@@ -365,6 +361,5 @@ class MoodSystem:
             "description": self.get_mood_description(),
             "mood_changes": len(self._mood_history)
         }
-
 
 mood_system = MoodSystem()

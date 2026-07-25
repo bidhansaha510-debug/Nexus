@@ -37,8 +37,6 @@ from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from enum import Enum, auto
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import NEXUS_CONFIG, DATA_DIR, EmotionType
 from utils.logger import get_logger, log_system, log_learning
 from core.event_bus import EventType, event_bus, publish
@@ -46,11 +44,9 @@ from core.state_manager import state_manager
 
 logger = get_logger("self_evolution")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA MODELS
 # ═══════════════════════════════════════════════════════════════════════════════
-
 
 class EvolutionStatus(Enum):
     """Represents the current status of an evolution operation."""
@@ -68,12 +64,10 @@ class EvolutionStatus(Enum):
     COMPLETED = "completed"
     FAILED = "failed"
 
-
 class EvolutionError(Exception):
     """Raised when an evolution step fails."""
 
     pass
-
 
 @dataclass
 class FileBackup:
@@ -94,7 +88,6 @@ class FileBackup:
             "backed_up_at": self.backed_up_at.isoformat(),
             "was_new_file": self.was_new_file,
         }
-
 
 @dataclass
 class EvolutionRecord:
@@ -146,7 +139,6 @@ class EvolutionRecord:
         )
         return d
 
-
 @dataclass
 class EvolutionStats:
     """Aggregate statistics across all evolution attempts."""
@@ -162,11 +154,9 @@ class EvolutionStats:
     last_evolution_time: Optional[datetime] = None
     consecutive_failures: int = 0
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF EVOLUTION ENGINE
 # ═══════════════════════════════════════════════════════════════════════════════
-
 
 class SelfEvolution:
     """
@@ -2446,14 +2436,12 @@ class SelfEvolution:
             for r in self._evolution_history[-limit:]
         ]
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE & HELPER
 # ═══════════════════════════════════════════════════════════════════════════════
 
 _self_evolution: Optional[SelfEvolution] = None
 _se_lock = threading.Lock()
-
 
 def get_self_evolution() -> SelfEvolution:
     """Get or create the global SelfEvolution singleton instance."""
@@ -2463,7 +2451,6 @@ def get_self_evolution() -> SelfEvolution:
             if _self_evolution is None:
                 _self_evolution = SelfEvolution()
     return _self_evolution
-
 
 if __name__ == "__main__":
     print("🧬 Self Evolution Engine Test")

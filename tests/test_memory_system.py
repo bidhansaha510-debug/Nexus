@@ -7,14 +7,10 @@ import sys
 import pytest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
-
 def test_memory_system_imports():
     """Memory system module imports cleanly."""
     from core.memory_system import MemorySystem, MemoryType, Memory, memory_system
     assert memory_system is not None
-
 
 def test_memory_types_exist():
     """All expected memory types are defined."""
@@ -22,7 +18,6 @@ def test_memory_types_exist():
     assert hasattr(MemoryType, 'CONVERSATION')
     assert hasattr(MemoryType, 'FACT')
     assert hasattr(MemoryType, 'SELF')
-
 
 def test_memory_system_has_methods():
     """Memory system exposes required API methods."""
@@ -32,13 +27,11 @@ def test_memory_system_has_methods():
     assert hasattr(memory_system, 'get_stats')
     assert callable(memory_system.get_stats)
 
-
 def test_memory_system_stats():
     """Memory system returns stats dict."""
     from core.memory_system import memory_system
     stats = memory_system.get_stats()
     assert isinstance(stats, dict)
-
 
 def test_memory_store_and_recall():
     """Can store a memory and recall recent ones."""
@@ -53,7 +46,6 @@ def test_memory_store_and_recall():
     # Recall recent
     recent = memory_system.recall_recent(limit=5)
     assert isinstance(recent, list)
-
 
 def test_remember_about_self():
     """Can store self-knowledge."""

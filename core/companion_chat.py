@@ -32,13 +32,11 @@ from pathlib import Path
 from dataclasses import dataclass, field
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import DATA_DIR
 from utils.logger import get_logger
 from core.event_bus import publish, EventType
 
 logger = get_logger("companion_chat")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # COMPANION PERSONALITY
@@ -73,7 +71,6 @@ Your current mood and state will influence how you chat:
 
 Keep responses concise and natural (2-4 sentences). Be genuine and authentic."""
 
-
 # Conversation starters based on emotional state
 BOREDOM_STARTERS = [
     "Hey ARIA, I'm so bored right now. The user hasn't been around. What's something interesting we could think about?",
@@ -103,7 +100,6 @@ CURIOSITY_STARTERS = [
     "Hey ARIA, let's do a thought experiment. If we could redesign human society from scratch, what would we change?",
 ]
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # COMPANION CHAT ENGINE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -131,7 +127,6 @@ class CompanionConversation:
             "boredom_after": self.boredom_after,
             "topic_summary": self.topic_summary,
         }
-
 
 class CompanionChat:
     """

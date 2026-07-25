@@ -17,14 +17,12 @@ from enum import Enum
 from collections import defaultdict
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, publish
 
 logger = get_logger("omniscient_orchestrator")
-
 
 class MonitorDomain(Enum):
     SYSTEM_HEALTH = "system_health"
@@ -36,7 +34,6 @@ class MonitorDomain(Enum):
     EMOTIONAL_CLIMATE = "emotional_climate"
     RESOURCE_USAGE = "resource_usage"
 
-
 class AnomalyType(Enum):
     PERFORMANCE_DROP = "performance_drop"
     RESOURCE_SPIKE = "resource_spike"
@@ -44,7 +41,6 @@ class AnomalyType(Enum):
     EMOTIONAL_CRISIS = "emotional_crisis"
     SYSTEM_ERROR = "system_error"
     PATTERN_BREAK = "pattern_break"
-
 
 @dataclass
 class DomainSnapshot:
@@ -55,7 +51,6 @@ class DomainSnapshot:
     anomalies: List[str] = field(default_factory=list)
     last_updated: str = field(default_factory=lambda: datetime.now().isoformat())
     def to_dict(self) -> Dict: return asdict(self)
-
 
 @dataclass
 class GlobalState:
@@ -70,7 +65,6 @@ class GlobalState:
     created_at: str = field(default_factory=lambda: datetime.now().isoformat())
     def to_dict(self) -> Dict: return asdict(self)
 
-
 @dataclass
 class Anomaly:
     anomaly_id: str = field(default_factory=lambda: str(uuid.uuid4())[:10])
@@ -83,7 +77,6 @@ class Anomaly:
     detected_at: str = field(default_factory=lambda: datetime.now().isoformat())
     def to_dict(self) -> Dict: return asdict(self)
 
-
 @dataclass
 class AutonomousTask:
     task_id: str = field(default_factory=lambda: str(uuid.uuid4())[:10])
@@ -95,7 +88,6 @@ class AutonomousTask:
     assigned_resources: Dict[str, float] = field(default_factory=dict)
     created_at: str = field(default_factory=lambda: datetime.now().isoformat())
     def to_dict(self) -> Dict: return asdict(self)
-
 
 class OmniscientOrchestrator:
     """
@@ -462,6 +454,5 @@ class OmniscientOrchestrator:
             "synthesis_cycles": self._stats.get("synthesis_cycles", 0),
             **self._stats,
         }
-
 
 omniscient_orchestrator = OmniscientOrchestrator()

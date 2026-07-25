@@ -1,20 +1,31 @@
 {
   "errors": [
     {
-      "error_id": "c65bdb10",
-      "content": "This is a test response from the mock LLM",
+      "error_id": "bb0f3efa",
+      "content": "Hello",
       "error_type": "logical",
-      "severity": "minor",
-      "description": "what the error is",
-      "location": "where in the text",
-      "suggestion": "how to fix it",
-      "confidence": 0.0,
-      "created_at": "2026-06-04T03:25:29.780565"
+      "severity": "critical",
+      "description": "No text was provided for analysis. The prompt instructs me to scan 'this text' but only contains the instruction template itself.",
+      "location": "Entire input",
+      "suggestion": "Provide the actual text you want me to analyze after the instruction.",
+      "confidence": 1.0,
+      "created_at": "2026-07-25T16:21:12.570142"
+    },
+    {
+      "error_id": "16773451",
+      "content": "Hello",
+      "error_type": "logical",
+      "severity": "critical",
+      "description": "No text was provided to scan for errors. The prompt contains only the instruction and the output schema.",
+      "location": "Entire input",
+      "suggestion": "Provide the text you want analyzed in the prompt.",
+      "confidence": 1.0,
+      "created_at": "2026-07-25T16:31:03.182297"
     }
   ],
   "stats": {
-    "total_checks": 29,
-    "total_errors_found": 40,
+    "total_checks": 31,
+    "total_errors_found": 42,
     "total_fact_checks": 0,
     "total_consistency_checks": 0
   }

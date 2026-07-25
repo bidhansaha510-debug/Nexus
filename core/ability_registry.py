@@ -26,12 +26,10 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.logger import get_logger
 
 logger = get_logger("ability_registry")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
@@ -54,7 +52,6 @@ class AbilityCategory(Enum):
     ENVIRONMENT = "environment"
     NETWORK = "network"
 
-
 class AbilityRisk(Enum):
     """Risk level of an ability"""
     SAFE = "safe"           # No side effects, always okay
@@ -62,7 +59,6 @@ class AbilityRisk(Enum):
     MODERATE = "moderate"   # Noticeable effects, use with care
     HIGH = "high"           # Significant effects, requires caution
     CRITICAL = "critical"   # Can cause major changes, use sparingly
-
 
 @dataclass
 class AbilityResult:
@@ -83,7 +79,6 @@ class AbilityResult:
             "execution_time": self.execution_time,
             "side_effects": self.side_effects
         }
-
 
 @dataclass
 class Ability:
@@ -142,7 +137,6 @@ class Ability:
         risk_str = f"[Risk: {self.risk.value}]"
         
         return f"- {self.name}: {self.description} {params_str} {risk_str}"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ABILITY REGISTRY
@@ -1565,13 +1559,11 @@ class AbilityRegistry:
                                        if (datetime.now() - datetime.fromisoformat(r["timestamp"])).total_seconds() < 3600])
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 ability_registry = AbilityRegistry()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

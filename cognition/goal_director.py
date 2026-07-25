@@ -39,13 +39,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 from config import NEXUS_CONFIG, DATA_DIR
 
 logger = get_logger("goal_director")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONFIGURATION
@@ -56,7 +54,6 @@ MAX_ACTIVE_GOALS = 10
 MAX_TOTAL_GOALS = 100
 GOAL_REVIEW_INTERVAL = 300  # seconds between goal reviews
 GOAL_PROGRESS_DECAY = 0.01  # progress decays slightly if not worked on
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
@@ -69,14 +66,12 @@ class GoalStatus(Enum):
     ABANDONED = "abandoned"
     BLOCKED = "blocked"
 
-
 class GoalPriority(Enum):
     CRITICAL = 0     # Must do immediately
     HIGH = 1         # Important, do soon
     NORMAL = 2       # Standard priority
     LOW = 3          # Nice to have
     BACKGROUND = 4   # Work on when idle
-
 
 class GoalSource(Enum):
     USER = "user"                  # Explicitly requested by user
@@ -86,7 +81,6 @@ class GoalSource(Enum):
     INNER_VOICE = "inner_voice"    # From inner voice observations
     CONVERSATION = "conversation"  # Inferred from conversation patterns
     AUTONOMOUS = "autonomous"      # From autonomous thinking
-
 
 @dataclass
 class GoalStep:
@@ -109,7 +103,6 @@ class GoalStep:
     @classmethod
     def from_dict(cls, d: dict) -> "GoalStep":
         return cls(**{k: v for k, v in d.items() if k in cls.__dataclass_fields__})
-
 
 @dataclass
 class Goal:
@@ -172,7 +165,6 @@ class Goal:
         valid_keys = set(cls.__dataclass_fields__.keys())
         filtered = {k: v for k, v in d.items() if k in valid_keys}
         return cls(**filtered)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GOAL DIRECTOR
@@ -805,13 +797,11 @@ class GoalDirector:
                 "active_goals": len(self.get_active_goals()),
             }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 goal_director = GoalDirector()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF-TEST

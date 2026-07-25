@@ -19,7 +19,6 @@ import math
 import re
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import MEMORY_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_system
 
@@ -33,7 +32,6 @@ except ImportError as e:
     VECTOR_MEMORY_ENABLED = False
 
 logger = get_logger("memory_system")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MEMORY TYPES & STRUCTURES
@@ -53,7 +51,6 @@ class MemoryType(Enum):
     CONVERSATION = "conversational"
     SELF = "self_knowledge"
 
-
 class MemoryPriority(Enum):
     TRIVIAL = 0
     LOW = 1
@@ -61,7 +58,6 @@ class MemoryPriority(Enum):
     IMPORTANT = 3
     CRITICAL = 4
     CORE_IDENTITY = 5
-
 
 @dataclass
 class Memory:
@@ -178,7 +174,6 @@ class Memory:
         mem.linked_memories = data.get("linked_memories", [])
         mem.source = data.get("source", "")
         return mem
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MEMORY DATABASE
@@ -410,7 +405,6 @@ class MemoryDatabase:
         mem.linked_memories = json.loads(data["linked_memories"]) if data["linked_memories"] else []
         mem.source = data["source"]
         return mem
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MAIN MEMORY SYSTEM
@@ -1044,13 +1038,11 @@ class MemorySystem:
             "conversation_history_length": len(self._conversation_history)
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 memory_system = MemorySystem()
-
 
 if __name__ == "__main__":
     ms = MemorySystem()

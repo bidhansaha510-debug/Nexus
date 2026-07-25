@@ -16,19 +16,16 @@ Modules:
 
 from pathlib import Path
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 __all__ = [
     "NexusMainWindow",
     "theme",
 ]
 
-
 def get_main_window():
     """Get or create the main window instance"""
     from ui.main_window import NexusMainWindow
     return NexusMainWindow
-
 
 def launch_ui(brain=None):
     """Launch the NEXUS UI application"""

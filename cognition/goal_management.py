@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,14 +23,12 @@ logger = get_logger("goal_management")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class GoalPriority(Enum):
     CRITICAL = "critical"
     HIGH = "high"
     MEDIUM = "medium"
     LOW = "low"
     OPTIONAL = "optional"
-
 
 class GoalStatus(Enum):
     PROPOSED = "proposed"
@@ -42,14 +39,12 @@ class GoalStatus(Enum):
     ABANDONED = "abandoned"
     PAUSED = "paused"
 
-
 class GoalConflictType(Enum):
     RESOURCE = "resource"
     TIME = "time"
     VALUE = "value"
     LOGICAL = "logical"
     DEPENDENCY = "dependency"
-
 
 @dataclass
 class Goal:
@@ -79,7 +74,6 @@ class Goal:
             "parent_id": self.parent_id, "created_at": self.created_at
         }
 
-
 @dataclass
 class GoalConflict:
     conflict_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -98,7 +92,6 @@ class GoalConflict:
             "description": self.description,
             "resolution": self.resolution, "resolved": self.resolved
         }
-
 
 class GoalManagementEngine:
     """
@@ -318,6 +311,5 @@ class GoalManagementEngine:
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats,
                 "current_active_goals": len(self.get_active_goals())}
-
 
 goal_management = GoalManagementEngine()

@@ -12,12 +12,10 @@ import json
 import re
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import NEXUS_CONFIG
 from utils.logger import get_logger
 
 logger = get_logger("context_manager")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONTEXT MESSAGE
@@ -49,7 +47,6 @@ class ContextMessage:
             "importance": self.importance,
             "metadata": self.metadata
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONVERSATION SESSION
@@ -105,7 +102,6 @@ class ConversationSession:
             "total_tokens": self.total_tokens,
             "is_active": self.is_active
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONTEXT MANAGER
@@ -493,13 +489,11 @@ class ContextManager:
                 "persistent_contexts": len(self._persistent_context)
             }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 context_manager = ContextManager()
-
 
 if __name__ == "__main__":
     cm = ContextManager()

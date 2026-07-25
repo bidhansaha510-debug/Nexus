@@ -10,8 +10,6 @@ import unittest
 from pathlib import Path
 
 # Ensure project root is on the path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 
 class TestQuantumCognition(unittest.TestCase):
     def test_import_and_singleton(self):
@@ -32,7 +30,6 @@ class TestQuantumCognition(unittest.TestCase):
         self.assertIn("running", stats)
         self.assertIn("total_superpositions", stats)
 
-
 class TestSwarmIntelligence(unittest.TestCase):
     def test_import_and_singleton(self):
         from cognition.swarm_intelligence import SwarmIntelligenceEngine, swarm_intelligence
@@ -50,7 +47,6 @@ class TestSwarmIntelligence(unittest.TestCase):
         stats = si.get_stats()
         self.assertIn("total_swarms", stats)
         self.assertIn("total_hive_minds", stats)
-
 
 class TestTemporalProphecy(unittest.TestCase):
     def test_import_and_singleton(self):
@@ -70,7 +66,6 @@ class TestTemporalProphecy(unittest.TestCase):
         self.assertIn("total_prophecies", stats)
         self.assertIn("total_black_swans", stats)
 
-
 class TestAdversarialEvolution(unittest.TestCase):
     def test_import_and_singleton(self):
         from cognition.adversarial_evolution import AdversarialEvolutionEngine, adversarial_evolution
@@ -88,7 +83,6 @@ class TestAdversarialEvolution(unittest.TestCase):
         stats = ae.get_stats()
         self.assertIn("total_evolutions", stats)
         self.assertIn("total_mutations", stats)
-
 
 class TestCrossDimensionalReasoning(unittest.TestCase):
     def test_import_and_singleton(self):
@@ -108,7 +102,6 @@ class TestCrossDimensionalReasoning(unittest.TestCase):
         self.assertIn("total_hypercubes", stats)
         self.assertIn("total_fractals", stats)
 
-
 class TestExistentialCalculus(unittest.TestCase):
     def test_import_and_singleton(self):
         from cognition.existential_calculus import ExistentialCalculusEngine, existential_calculus
@@ -127,7 +120,6 @@ class TestExistentialCalculus(unittest.TestCase):
         self.assertIn("total_paradoxes", stats)
         self.assertIn("total_koans", stats)
 
-
 class TestAssociativeMemory(unittest.TestCase):
     def test_import_and_singleton(self):
         from memory.associative_memory import AssociativeMemoryEngine, associative_memory
@@ -145,7 +137,6 @@ class TestAssociativeMemory(unittest.TestCase):
         stats = am.get_stats()
         self.assertIn("total_nodes", stats)
         self.assertIn("total_activations", stats)
-
 
 class TestEngineRegistryIntegration(unittest.TestCase):
     """Verify new engines are registered in the engine registry."""
@@ -170,7 +161,6 @@ class TestEngineRegistryIntegration(unittest.TestCase):
         self.assertIn("evolution", ENGINE_DEPENDENCIES)
         self.assertIn("existential", ENGINE_DEPENDENCIES)
 
-
 class TestLLMRouterIntegration(unittest.TestCase):
     """Verify new LLM task types are defined."""
 
@@ -181,7 +171,6 @@ class TestLLMRouterIntegration(unittest.TestCase):
                      "EXISTENTIAL_CALCULUS", "ASSOCIATIVE_MEMORY"]
         for task in new_tasks:
             self.assertTrue(hasattr(LLMTask, task), f"Missing LLMTask: {task}")
-
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

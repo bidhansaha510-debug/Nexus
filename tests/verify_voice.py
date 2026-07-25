@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 
 # Add project root to path
-sys.path.insert(0, "d:/NEXUS")
 
 from llm.prompt_engine import prompt_engine
 

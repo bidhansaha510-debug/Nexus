@@ -30,7 +30,6 @@ from concurrent.futures import ThreadPoolExecutor, Future
 from enum import Enum, auto
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from core.anger_system import anger_system
 from core.provocation_detector import provocation_detector
@@ -72,7 +71,6 @@ from core.ollama_context_collector import ollama_context_collector
 
 logger = get_logger("nexus_brain")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # THINKING & TASK TYPES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -92,14 +90,12 @@ class ThoughtType(Enum):
     USER_UNDERSTANDING = "user_understanding"
     SELF_IMPROVEMENT_THOUGHT = "self_improvement_thought"
 
-
 class TaskPriority(Enum):
     CRITICAL = 0
     HIGH = 1
     NORMAL = 2
     LOW = 3
     IDLE = 4
-
 
 @dataclass
 class Thought:
@@ -115,7 +111,6 @@ class Thought:
     def __lt__(self, other):
         return self.priority.value < other.priority.value
 
-
 @dataclass
 class BrainStats:
     total_thoughts_processed: int = 0
@@ -128,7 +123,6 @@ class BrainStats:
     average_response_time: float = 0.0
     last_thought_time: datetime = field(default_factory=datetime.now)
     response_times: List[float] = field(default_factory=list)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # NEXUS BRAIN - THE CENTRAL INTELLIGENCE
@@ -1582,8 +1576,6 @@ class NexusBrain:
         
         log_startup_summary()
 
-
-
     @property
     def is_running(self) -> bool:
         """Return whether the Nexus brain is running."""
@@ -2488,7 +2480,6 @@ class NexusBrain:
                 if intensity > 0.5:
                     self._inner_voice.feel(emotion.value, intensity)
             
-    
     def _process_emotional_reaction_basic(self, user_input: str):
         """Enhanced fallback emotional processing when emotion engine handles non-insult input"""
         analysis = self._analyze_user_input(user_input)
@@ -2830,8 +2821,6 @@ class NexusBrain:
                     parts.append(perception_ctx)
             except Exception as e:
                 logger.debug(f"Perception Hub context error: {e}")
-
-
 
         # ──── SENTIENCE LAYER: Emotional Echoes ────
         emotional_echoes = self._get_emotional_echoes()
@@ -5719,7 +5708,6 @@ class NexusBrain:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 nexus_brain = NexusBrain()
-
 
 if __name__ == "__main__":
     print_startup_banner()

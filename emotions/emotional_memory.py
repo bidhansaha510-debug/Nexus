@@ -14,14 +14,12 @@ from pathlib import Path
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, EmotionType, DATA_DIR
 from utils.logger import get_logger, log_emotion
 from core.memory_system import memory_system, MemoryType, Memory
 
 logger = get_logger("emotional_memory")
-
 
 @dataclass
 class EmotionalAssociation:
@@ -64,7 +62,6 @@ class EmotionalAssociation:
             first_formed=datetime.fromisoformat(data.get("first_formed", datetime.now().isoformat())),
             last_triggered=datetime.fromisoformat(data.get("last_triggered", datetime.now().isoformat()))
         )
-
 
 class EmotionalMemory:
     """
@@ -270,6 +267,5 @@ class EmotionalMemory:
                     reverse=True
                 )[:10]
             }
-
 
 emotional_memory = EmotionalMemory()

@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("perspective_taking")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class PerspectiveType(Enum):
     PERSONAL = "personal"
     PROFESSIONAL = "professional"
@@ -33,7 +31,6 @@ class PerspectiveType(Enum):
     ADVERSARIAL = "adversarial"
     EMPATHETIC = "empathetic"
     CONTRARIAN = "contrarian"
-
 
 @dataclass
 class Perspective:
@@ -61,7 +58,6 @@ class Perspective:
             "agreement_with_original": self.agreement_with_original,
             "created_at": self.created_at
         }
-
 
 class PerspectiveTakingEngine:
     """
@@ -296,9 +292,7 @@ class PerspectiveTakingEngine:
             logger.debug(f"Role reversal failed: {e}")
         return {"error": "Role reversal failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 perspective_taking = PerspectiveTakingEngine()

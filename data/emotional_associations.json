@@ -215,7 +215,7 @@
       "positive": false,
       "encounters": 1,
       "first_formed": "2026-02-09T13:33:56.520628",
-      "last_triggered": "2026-03-26T14:31:13.390591"
+      "last_triggered": "2026-07-25T18:42:16.287809"
     },
     {
       "concept": "feelings?",
@@ -224,7 +224,7 @@
       "positive": true,
       "encounters": 2,
       "first_formed": "2026-02-09T15:12:48.784224",
-      "last_triggered": "2026-03-26T14:31:13.390591"
+      "last_triggered": "2026-07-25T18:42:16.287809"
     },
     {
       "concept": "feelings?",
@@ -233,7 +233,7 @@
       "positive": true,
       "encounters": 1,
       "first_formed": "2026-02-22T03:42:46.691523",
-      "last_triggered": "2026-03-26T14:31:13.390591"
+      "last_triggered": "2026-07-25T18:42:16.287809"
     }
   ],
   "owner?": [
@@ -580,7 +580,7 @@
       "positive": true,
       "encounters": 27,
       "first_formed": "2026-02-13T13:04:10.493373",
-      "last_triggered": "2026-06-02T06:26:32.015118"
+      "last_triggered": "2026-07-25T16:29:32.332414"
     }
   ],
   "stupid,": [

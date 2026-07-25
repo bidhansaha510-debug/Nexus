@@ -3,12 +3,18 @@
     "statement": "This is a unknown type query",
     "confidence": "high",
     "source": "meta_learner",
-    "last_validated": "2026-04-27T10:33:07.027467"
+    "last_validated": "2026-07-25T16:32:05.088595"
   },
   {
     "statement": "This is a philosophical type query",
     "confidence": "high",
     "source": "meta_learner",
     "last_validated": "2026-04-27T10:35:18.452943"
+  },
+  {
+    "statement": "This is a conversation type query",
+    "confidence": "high",
+    "source": "meta_learner",
+    "last_validated": "2026-07-25T20:04:22.986854"
   }
 ]

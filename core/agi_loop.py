@@ -29,7 +29,6 @@ from typing import Dict, List, Any, Optional, Tuple
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger
 from core.working_memory_blackboard import (
@@ -37,7 +36,6 @@ from core.working_memory_blackboard import (
 )
 
 logger = get_logger("agi_loop")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONFIGURATION
@@ -50,7 +48,6 @@ SHORT_CIRCUIT_PATTERNS = [    # Inputs that skip the full loop
     "hmm", "hm", "lol", "lmao", "haha", "nice", "cool",
 ]
 MIN_INPUT_LENGTH_FOR_LOOP = 8  # Minimum chars to trigger full AGI loop
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # AGI LOOP
@@ -847,7 +844,6 @@ class AGILoop:
             f"{stats['blackboard_stats'].get('total_lessons', 0)} lessons learned."
         )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # RESULT DATA CLASS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -908,7 +904,6 @@ class AGILoopResult:
             "success": self.success,
             "error": self.error,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

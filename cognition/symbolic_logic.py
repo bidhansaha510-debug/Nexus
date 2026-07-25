@@ -31,7 +31,6 @@ from itertools import product
 from collections import defaultdict
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -60,7 +59,6 @@ class LogicalOperator(Enum):
     IMPLIES_TEXT = "IMPLIES"
     IFF_TEXT = "IFF"
 
-
 class PropositionType(Enum):
     """Types of propositions"""
     ATOMIC = "atomic"        # Single variable: P
@@ -69,7 +67,6 @@ class PropositionType(Enum):
     BICONDITIONAL = "biconditional"  # Iff: P ↔ Q
     UNIVERSAL = "universal"  # For all: ∀x P(x)
     EXISTENTIAL = "existential"  # There exists: ∃x P(x)
-
 
 class InferenceRule(Enum):
     """Standard inference rules"""
@@ -82,7 +79,6 @@ class InferenceRule(Enum):
     ADDITION = "addition"              # P ⊢ P∨Q
     CONTRUCTION = "construction"       # P→Q, P→R ⊢ P→(Q∧R)
     RESOLUTION = "resolution"          # P∨Q, ¬P∨R ⊢ Q∨R
-
 
 @dataclass
 class Proposition:
@@ -109,7 +105,6 @@ class Proposition:
             "truth_value": self.truth_value,
         }
 
-
 @dataclass
 class TruthTable:
     """A truth table for a proposition"""
@@ -130,7 +125,6 @@ class TruthTable:
             "is_contingent": self.is_contingent,
         }
 
-
 @dataclass
 class Proof:
     """A logical proof"""
@@ -150,7 +144,6 @@ class Proof:
             "is_valid": self.is_valid,
             "proof_type": self.proof_type,
         }
-
 
 @dataclass
 class Argument:
@@ -173,7 +166,6 @@ class Argument:
             "is_sound": self.is_sound,
             "proof": self.proof.to_dict() if self.proof else None,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SYMBOLIC LOGIC ENGINE
@@ -961,13 +953,11 @@ class SymbolicLogicEngine:
             "total_validations": self._total_validations,
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 symbolic_logic = SymbolicLogicEngine()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

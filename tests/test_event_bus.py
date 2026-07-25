@@ -9,9 +9,6 @@ import pytest
 import threading
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
-
 def test_event_bus_subscribe_and_publish(fresh_event_bus):
     """Events reach subscribers."""
     from core.event_bus import EventType
@@ -36,7 +33,6 @@ def test_event_bus_subscribe_and_publish(fresh_event_bus):
     finally:
         fresh_event_bus.stop()
 
-
 def test_event_bus_multiple_subscribers(fresh_event_bus):
     """Multiple subscribers receive the same event."""
     from core.event_bus import EventType
@@ -58,7 +54,6 @@ def test_event_bus_multiple_subscribers(fresh_event_bus):
         assert len(received_b) >= 1
     finally:
         fresh_event_bus.stop()
-
 
 def test_event_bus_unsubscribe(fresh_event_bus):
     """Unsubscribed handlers stop receiving events."""
@@ -83,7 +78,6 @@ def test_event_bus_unsubscribe(fresh_event_bus):
     finally:
         fresh_event_bus.stop()
 
-
 def test_event_bus_does_not_crash_on_handler_error(fresh_event_bus):
     """Handler exceptions are caught — don't crash the bus."""
     from core.event_bus import EventType
@@ -107,12 +101,10 @@ def test_event_bus_does_not_crash_on_handler_error(fresh_event_bus):
     finally:
         fresh_event_bus.stop()
 
-
 def test_event_bus_stats(fresh_event_bus):
     """Event bus reports stats."""
     stats = fresh_event_bus.get_stats()
     assert "events_published" in stats or isinstance(stats, dict)
-
 
 def test_event_bus_sync_publish(fresh_event_bus):
     """Events published synchronously are immediately processed."""
@@ -134,7 +126,6 @@ def test_event_bus_sync_publish(fresh_event_bus):
     assert len(received) == 1
     assert received[0]["test"] == "sync"
 
-
 def test_event_bus_priority_ordering(fresh_event_bus):
     """Events with higher priority are processed first."""
     from core.event_bus import EventType, EventPriority
@@ -154,7 +145,6 @@ def test_event_bus_priority_ordering(fresh_event_bus):
     
     # Handlers should run in order of priority: 0, 5, 10
     assert received_order == [2, 3, 1]
-
 
 def test_event_bus_global_handlers(fresh_event_bus):
     """Global handlers receive events of all types."""

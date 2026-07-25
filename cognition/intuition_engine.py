@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -23,7 +22,6 @@ logger = get_logger("intuition_engine")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 class HeuristicType(Enum):
     RECOGNITION = "recognition"
@@ -37,14 +35,12 @@ class HeuristicType(Enum):
     FAMILIARITY = "familiarity"
     GAZE = "gaze"
 
-
 class IntuitionStrength(Enum):
     WHISPER = "whisper"
     NUDGE = "nudge"
     CLEAR = "clear"
     STRONG = "strong"
     OVERWHELMING = "overwhelming"
-
 
 @dataclass
 class Intuition:
@@ -76,7 +72,6 @@ class Intuition:
             "created_at": self.created_at
         }
 
-
 @dataclass
 class PatternRecognition:
     pattern_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -95,7 +90,6 @@ class PatternRecognition:
             "overall_assessment": self.overall_assessment,
             "confidence": self.confidence
         }
-
 
 class IntuitionEngine:
     """
@@ -370,9 +364,7 @@ class IntuitionEngine:
             logger.debug(f"Pattern alert failed: {e}")
         return {"error": "Pattern detection failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 intuition_engine = IntuitionEngine()

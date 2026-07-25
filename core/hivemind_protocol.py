@@ -46,14 +46,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("hivemind_protocol")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & CONSTANTS
@@ -68,7 +65,6 @@ class InstanceRole(Enum):
     WORKER = "worker"
     STANDBY = "standby"
 
-
 class InstanceState(Enum):
     """Current state of a hivemind instance."""
     ONLINE = "online"
@@ -78,7 +74,6 @@ class InstanceState(Enum):
     OFFLINE = "offline"
     STARTING = "starting"
     SHUTTING_DOWN = "shutting_down"
-
 
 class MessageType(Enum):
     """Types of hivemind messages."""
@@ -102,13 +97,11 @@ class MessageType(Enum):
     STATE_TRANSFER = "state_transfer"
     CAPABILITY_ANNOUNCE = "capability_announce"
 
-
 class VoteDecision(Enum):
     """Possible decisions in a vote."""
     APPROVE = "approve"
     REJECT = "reject"
     ABSTAIN = "abstain"
-
 
 class TaskPriority(Enum):
     """Priority levels for delegated tasks."""
@@ -117,7 +110,6 @@ class TaskPriority(Enum):
     NORMAL = 2
     LOW = 3
     BACKGROUND = 4
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA MODELS
@@ -153,7 +145,6 @@ class HivemindInstance:
             f"[{self.role}/{self.state}] leader={self.is_leader}"
         )
 
-
 @dataclass
 class HivemindMessage:
     """A message in the hivemind network."""
@@ -182,7 +173,6 @@ class HivemindMessage:
                 setattr(msg, k, v)
         return msg
 
-
 @dataclass
 class HivemindTask:
     """A task delegated within the hivemind."""
@@ -204,7 +194,6 @@ class HivemindTask:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class ConsensusVote:
@@ -239,7 +228,6 @@ class ConsensusVote:
         total_non_abstain = tally["approve"] + tally["reject"]
         return total_non_abstain > 0
 
-
 @dataclass
 class SharedMemoryEntry:
     """An entry in the shared hivemind memory."""
@@ -260,7 +248,6 @@ class SharedMemoryEntry:
             "ttl_seconds": self.ttl_seconds,
         }
 
-
 @dataclass
 class HivemindStats:
     """Aggregate hivemind statistics."""
@@ -280,7 +267,6 @@ class HivemindStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MESSAGE AUTHENTICATOR
@@ -303,7 +289,6 @@ class MessageAuthenticator:
         """Verify HMAC signature of a message."""
         expected = self.sign(message)
         return hmac.compare_digest(expected, message.signature)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SHARED MEMORY STORE
@@ -385,7 +370,6 @@ class SharedMemoryStore:
     @property
     def size(self) -> int:
         return len(self._store)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TASK DELEGATION ENGINE
@@ -498,7 +482,6 @@ class TaskDelegator:
                         pass
         return timed_out
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONSENSUS ENGINE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -577,7 +560,6 @@ class ConsensusEngine:
     @property
     def completed_count(self) -> int:
         return len(self._completed_votes)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LEADER ELECTION (Simplified Raft-inspired)
@@ -673,7 +655,6 @@ class LeaderElection:
                 return True
             elapsed = time.time() - self._last_leader_heartbeat
             return elapsed > self._election_timeout
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HIVEMIND PROTOCOL — MAIN ENGINE
@@ -806,6 +787,12 @@ class HivemindProtocol:
         self._running = True
         self._local_instance.state = InstanceState.ONLINE.value
 
+        try:
+            from core.p2p_swarm import p2p_swarm
+            p2p_swarm.start()
+        except Exception as e:
+            logger.debug(f"P2P swarm start warning in hivemind: {e}")
+
         self._daemon_thread = threading.Thread(
             target=self._daemon_loop,
             daemon=True,
@@ -820,6 +807,11 @@ class HivemindProtocol:
         self._local_instance.state = InstanceState.SHUTTING_DOWN.value
         self._broadcast(MessageType.LEAVE, {"instance_id": self._local_instance.instance_id})
         self._save_state()
+        try:
+            from core.p2p_swarm import p2p_swarm
+            p2p_swarm.stop()
+        except Exception:
+            pass
         if self._daemon_thread and self._daemon_thread.is_alive():
             self._daemon_thread.join(timeout=10)
         logger.info("🌐 Hivemind Protocol stopped")
@@ -1257,14 +1249,16 @@ class HivemindProtocol:
         except Exception as e:
             logger.warning(f"Could not load hivemind state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON & MODULE-LEVEL ACCESS
 # ═══════════════════════════════════════════════════════════════════════════════
 
 hivemind_protocol = HivemindProtocol()
 
-
 def get_hivemind_protocol() -> HivemindProtocol:
     """Get the singleton HivemindProtocol instance."""
+    return hivemind_protocol
+
+def get_hivemind() -> HivemindProtocol:
+    """Alias for get_hivemind_protocol."""
     return hivemind_protocol

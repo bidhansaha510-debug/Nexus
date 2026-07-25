@@ -31,13 +31,11 @@ from pathlib import Path
 from datetime import datetime
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger, log_system, log_learning
 from core.event_bus import EventType, publish
 
 logger = get_logger("learning")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LAZY IMPORTS & SINGLETONS
@@ -52,7 +50,6 @@ _enhanced_sources = None
 _research_intelligence = None
 _lock = threading.Lock()
 
-
 def _get_internet_browser():
     global _internet_browser
     if _internet_browser is None:
@@ -61,7 +58,6 @@ def _get_internet_browser():
                 from learning.internet_browser import InternetBrowser
                 _internet_browser = InternetBrowser()
     return _internet_browser
-
 
 def _get_knowledge_base():
     global _knowledge_base
@@ -72,7 +68,6 @@ def _get_knowledge_base():
                 _knowledge_base = KnowledgeBase()
     return _knowledge_base
 
-
 def _get_curiosity_engine():
     global _curiosity_engine
     if _curiosity_engine is None:
@@ -81,7 +76,6 @@ def _get_curiosity_engine():
                 from learning.curiosity_engine import CuriosityEngine
                 _curiosity_engine = CuriosityEngine()
     return _curiosity_engine
-
 
 def _get_research_agent():
     global _research_agent
@@ -92,7 +86,6 @@ def _get_research_agent():
                 _research_agent = ResearchAgent()
     return _research_agent
 
-
 def _get_user_behavior_learner():
     global _user_behavior_learner
     if _user_behavior_learner is None:
@@ -101,7 +94,6 @@ def _get_user_behavior_learner():
                 from learning.user_behavior_learner import UserBehaviorLearner
                 _user_behavior_learner = UserBehaviorLearner()
     return _user_behavior_learner
-
 
 def _get_enhanced_sources():
     global _enhanced_sources
@@ -112,7 +104,6 @@ def _get_enhanced_sources():
                 _enhanced_sources = EnhancedSources()
     return _enhanced_sources
 
-
 def _get_research_intelligence():
     global _research_intelligence
     if _research_intelligence is None:
@@ -121,7 +112,6 @@ def _get_research_intelligence():
                 from learning.research_intelligence import ResearchIntelligence
                 _research_intelligence = ResearchIntelligence()
     return _research_intelligence
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LEARNING SYSTEM — Unified Orchestrator
@@ -509,7 +499,6 @@ class LearningSystem:
             return f"{hours}h {minutes}m"
         return f"{minutes}m"
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # MODULE-LEVEL SINGLETONS (LAZY)
 # Prevent side effects during import (important for test collection).
@@ -517,7 +506,6 @@ class LearningSystem:
 
 _learning_system_singleton: Optional[LearningSystem] = None
 _learning_system_lock = threading.Lock()
-
 
 def get_learning_system() -> LearningSystem:
     """Lazily create the LearningSystem singleton (no import-time side effects)."""
@@ -528,34 +516,26 @@ def get_learning_system() -> LearningSystem:
                 _learning_system_singleton = LearningSystem()
     return _learning_system_singleton
 
-
 def get_internet_browser():
     return _get_internet_browser()
-
 
 def get_knowledge_base():
     return _get_knowledge_base()
 
-
 def get_curiosity_engine():
     return _get_curiosity_engine()
-
 
 def get_research_agent():
     return _get_research_agent()
 
-
 def get_user_behavior_learner():
     return _get_user_behavior_learner()
-
 
 def get_enhanced_sources():
     return _get_enhanced_sources()
 
-
 def get_research_intelligence():
     return _get_research_intelligence()
-
 
 __all__ = [
     "LearningSystem", "get_learning_system",

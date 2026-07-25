@@ -27,7 +27,6 @@ from typing import Dict, Any, Optional, List
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
@@ -35,7 +34,6 @@ from core.state_manager import state_manager
 from config import DATA_DIR
 
 logger = get_logger("self_improvement")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LAZY COMPONENT GETTERS
@@ -55,7 +53,6 @@ _se_lock = threading.Lock()
 _ia_lock = threading.Lock()
 _sg_lock = threading.Lock()
 
-
 def get_code_monitor():
     """Get or create the CodeMonitor singleton"""
     global _code_monitor
@@ -69,7 +66,6 @@ def get_code_monitor():
                 except ImportError as e:
                     logger.warning(f"CodeMonitor not available: {e}")
     return _code_monitor
-
 
 def get_error_fixer():
     """Get or create the ErrorFixer singleton"""
@@ -85,7 +81,6 @@ def get_error_fixer():
                     logger.warning(f"ErrorFixer not available: {e}")
     return _error_fixer
 
-
 def get_feature_researcher():
     """Get or create the FeatureResearcher singleton"""
     global _feature_researcher
@@ -99,7 +94,6 @@ def get_feature_researcher():
                 except ImportError as e:
                     logger.warning(f"FeatureResearcher not available: {e}")
     return _feature_researcher
-
 
 def get_self_evolution():
     """Get or create the SelfEvolution singleton"""
@@ -115,7 +109,6 @@ def get_self_evolution():
                     logger.warning(f"SelfEvolution not available: {e}")
     return _self_evolution
 
-
 def get_improvement_analytics():
     """Get or create the ImprovementAnalytics singleton"""
     global _improvement_analytics
@@ -130,7 +123,6 @@ def get_improvement_analytics():
                     logger.warning(f"ImprovementAnalytics not available: {e}")
     return _improvement_analytics
 
-
 def get_singularity_engine():
     """Get or create the SingularityEngine singleton"""
     global _singularity_engine
@@ -144,7 +136,6 @@ def get_singularity_engine():
                 except ImportError as e:
                     logger.warning(f"SingularityEngine not available: {e}")
     return _singularity_engine
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF IMPROVEMENT SYSTEM — ORCHESTRATOR
@@ -723,14 +714,12 @@ class SelfImprovementSystem:
 
         return "\n".join(parts)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 _self_improvement_system: Optional[SelfImprovementSystem] = None
 _sis_lock = threading.Lock()
-
 
 def _get_system() -> SelfImprovementSystem:
     global _self_improvement_system
@@ -740,10 +729,8 @@ def _get_system() -> SelfImprovementSystem:
                 _self_improvement_system = SelfImprovementSystem()
     return _self_improvement_system
 
-
 # Module-level singleton
 self_improvement_system = _get_system()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONVENIENCE EXPORTS
@@ -761,7 +748,6 @@ __all__ = [
     "get_improvement_analytics",
     "get_singularity_engine",
 ]
-
 
 if __name__ == "__main__":
     print("🔧 Self-Improvement System Test\n")

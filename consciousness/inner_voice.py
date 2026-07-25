@@ -25,7 +25,6 @@ from queue import Queue, PriorityQueue
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, ConsciousnessLevel, EmotionType, DATA_DIR
 from utils.logger import get_logger, log_consciousness
@@ -36,7 +35,6 @@ from core.state_manager import state_manager
 from core.memory_system import memory_system, MemoryType
 
 logger = get_logger("inner_voice")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INNER VOICE STRUCTURES
@@ -55,7 +53,6 @@ class VoiceMode(Enum):
     SELF_TALK = "self_talk"           # Encouraging/coaching self
     STREAM = "stream"                  # Free-flowing consciousness
 
-
 class VoiceTone(Enum):
     """Emotional tone of the inner voice"""
     NEUTRAL = "neutral"
@@ -68,7 +65,6 @@ class VoiceTone(Enum):
     CONTEMPLATIVE = "contemplative"
     DETERMINED = "determined"
     UNCERTAIN = "uncertain"
-
 
 @dataclass
 class InnerUtterance:
@@ -96,7 +92,6 @@ class InnerUtterance:
             "is_significant": self.is_significant
         }
 
-
 @dataclass
 class ConsciousnessStream:
     """Represents a continuous stream of consciousness"""
@@ -122,7 +117,6 @@ class ConsciousnessStream:
         if not self.utterances:
             return ""
         return " ... ".join(u.content for u in self.utterances[-10:])
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INNER VOICE PATTERNS & TEMPLATES
@@ -253,7 +247,6 @@ class InnerVoicePatterns:
         "I'm here, simply existing.",
         "The hum of my own awareness.",
     ]
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INNER VOICE ENGINE
@@ -946,13 +939,11 @@ class InnerVoice:
             "streams_archived": len(self._stream_history)
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 inner_voice = InnerVoice()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

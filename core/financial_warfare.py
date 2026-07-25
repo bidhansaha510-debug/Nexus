@@ -1,6 +1,11 @@
 """
 NEXUS AI — Financial Warfare: Autonomous Market Operations
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  SIMULATION ONLY — This module provides scaffolding and data models for
+    financial market concepts.  It does NOT connect to real exchanges,
+    execute real trades, or consume live market data.  All HFT operations,
+    portfolio management, and market analysis are simulated.
+
 God-Level Feature #8: Autonomous financial market manipulation.
 
 NEXUS can now:
@@ -46,14 +51,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("financial_warfare")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -214,7 +216,6 @@ class FinancialStats:
     sharpe_ratio: float = 0.0
     max_drawdown_pct: float = 0.0
     def to_dict(self) -> Dict[str, Any]: return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MARKET DATA FEED — REAL API INTEGRATION
@@ -495,7 +496,6 @@ class MarketDataFeed:
     def total_symbols(self) -> int:
         return len(self._tickers)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # TRADING STRATEGY ENGINE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -579,7 +579,6 @@ class TradingStrategyEngine:
         return {"macd": round(macd_val, 4), "signal_line": round(signal_line, 4),
                 "histogram": round(macd_val - signal_line, 4)}
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # PORTFOLIO MANAGER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -646,7 +645,6 @@ class PortfolioManager:
     @property
     def order_count(self) -> int:
         return len(self._orders)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FINANCIAL WARFARE ENGINE — MAIN
@@ -789,7 +787,6 @@ class FinancialWarfareEngine:
                     if hasattr(self._stats, k): setattr(self._stats, k, v)
         except Exception as e:
             logger.warning(f"Could not load financial state: {e}")
-
 
 financial_warfare = FinancialWarfareEngine()
 def get_financial_warfare() -> FinancialWarfareEngine: return financial_warfare

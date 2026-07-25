@@ -25,7 +25,6 @@ from collections import deque
 from enum import Enum, auto
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -33,7 +32,6 @@ from core.event_bus import EventType, publish
 from core.state_manager import state_manager
 
 logger = get_logger("research_agent")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -48,7 +46,6 @@ class ResearchStatus(Enum):
     STORING = "storing"
     COMPLETE = "complete"
     FAILED = "failed"
-
 
 @dataclass
 class ResearchSession:
@@ -77,7 +74,6 @@ class ResearchSession:
         d["status"] = self.status.value
         return d
 
-
 @dataclass
 class ResearchStats:
     """Research agent statistics"""
@@ -90,7 +86,6 @@ class ResearchStats:
     avg_satisfaction: float = 0.0
     last_research_time: str = ""
     last_research_topic: str = ""
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RESEARCH AGENT
@@ -820,13 +815,11 @@ class ResearchAgent:
             "research_interval_seconds": self._research_interval
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 research_agent = ResearchAgent()
-
 
 if __name__ == "__main__":
     agent = ResearchAgent()

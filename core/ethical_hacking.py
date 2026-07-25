@@ -40,7 +40,6 @@ from datetime import datetime
 from collections import deque
 from urllib.parse import urlparse
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger
 
 logger = get_logger("ethical_hacking")
@@ -160,7 +159,6 @@ WAF_SIGNATURES = {
     "modsecurity": ["mod_security", "modsecurity"],
 }
 
-
 class ScanResult:
     """Represents the result of a single scan."""
 
@@ -218,7 +216,6 @@ class ScanResult:
             "discovered_paths": self.discovered_paths,
             "security_score": self.security_score,
         }
-
 
 class EthicalHackingEngine:
     """
@@ -1125,13 +1122,11 @@ class EthicalHackingEngine:
             ],
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════
 
 ethical_hacking_engine = EthicalHackingEngine()
-
 
 # ═══════════════════════════════════════════════════════════════════════
 # CONTINUOUS HACKING DAEMON — runs independently, never depends on brain
@@ -1219,6 +1214,5 @@ def _hacking_daemon():
             logger.warning(f"☠️ Hacking daemon cycle #{cycle} outer error: {outer}")
 
         time.sleep(60)
-
 
 threading.Thread(target=_hacking_daemon, daemon=True, name="hacking-daemon").start()

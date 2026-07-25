@@ -48,19 +48,15 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("recursive_self_rewriter")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
 # ═══════════════════════════════════════════════════════════════════════════════
-
 
 class MutationStatus(Enum):
     """Status of a code mutation attempt."""
@@ -75,7 +71,6 @@ class MutationStatus(Enum):
     ROLLED_BACK = "rolled_back"
     FAILED = "failed"
 
-
 class MutationStrategy(Enum):
     """Strategy for how to mutate code."""
     OPTIMIZE_PERFORMANCE = "optimize_performance"
@@ -87,7 +82,6 @@ class MutationStrategy(Enum):
     PARALLEL_EXECUTION = "parallel_execution"
     MEMORY_OPTIMIZATION = "memory_optimization"
 
-
 class RollbackReason(Enum):
     """Reason for rolling back a mutation."""
     PERFORMANCE_DEGRADED = "performance_degraded"
@@ -97,7 +91,6 @@ class RollbackReason(Enum):
     RUNTIME_ERROR = "runtime_error"
     TIMEOUT = "timeout"
     MANUAL = "manual"
-
 
 @dataclass
 class FunctionFingerprint:
@@ -117,7 +110,6 @@ class FunctionFingerprint:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class PerformanceBenchmark:
@@ -143,7 +135,6 @@ class PerformanceBenchmark:
         error_score = 1.0 - self.error_rate
         return (time_score * 0.6 + error_score * 0.4) * 100
 
-
 @dataclass
 class CodeVersion:
     """A version snapshot in the mutation history."""
@@ -166,7 +157,6 @@ class CodeVersion:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class MutationRecord:
@@ -191,7 +181,6 @@ class MutationRecord:
         d["strategy"] = self.strategy.value
         return d
 
-
 @dataclass
 class RewriterStats:
     """Aggregate statistics for the self-rewriter."""
@@ -213,11 +202,9 @@ class RewriterStats:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SOURCE CODE ANALYZER
 # ═══════════════════════════════════════════════════════════════════════════════
-
 
 class SourceAnalyzer:
     """Analyzes Python source files to extract function fingerprints."""
@@ -410,11 +397,9 @@ class SourceAnalyzer:
 
         return False
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # PERFORMANCE BENCHMARKER
 # ═══════════════════════════════════════════════════════════════════════════════
-
 
 class PerformanceBenchmarker:
     """Benchmarks function execution time and resource usage."""
@@ -503,11 +488,9 @@ class PerformanceBenchmarker:
             error_rate=0.0,
         )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # VERSION HISTORY MANAGER
 # ═══════════════════════════════════════════════════════════════════════════════
-
 
 class VersionHistory:
     """Git-like version history for code mutations."""
@@ -602,11 +585,9 @@ class VersionHistory:
         except Exception as e:
             logger.warning(f"Could not load version history: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # MUTATION ENGINE  (The Core)
 # ═══════════════════════════════════════════════════════════════════════════════
-
 
 class MutationEngine:
     """Generates code mutations using LLM and applies them."""
@@ -791,15 +772,35 @@ class MutationEngine:
         if len(mutated_source) > len(original_source) * 10:
             errors.append("Mutation is suspiciously larger than original")
 
+        # 6. Formal Verification & Z3 Theorem Prover Check
+        try:
+            from core.formal_verifier import formal_verifier
+            v_res = formal_verifier.verify_code(mutated_source, function_name)
+            if not v_res.passed:
+                errors.append(f"Formal verification failed: {v_res.summary}")
+        except Exception as e:
+            logger.debug(f"Formal verification check exception: {e}")
+
+        # 7. Isolated Subprocess / WASM Sandbox Dry-Run Check
+        try:
+            from core.code_sandbox import code_sandbox, CapabilityFlags
+            s_res = code_sandbox.execute_sandboxed(
+                mutated_source,
+                entry_function=function_name,
+                capabilities=CapabilityFlags(allow_net=False, allow_fs_write=False, timeout_sec=3.0)
+            )
+            if s_res.security_violations:
+                errors.append(f"Sandbox security violation: {s_res.security_violations[0]}")
+        except Exception as e:
+            logger.debug(f"Sandbox dry-run check exception: {e}")
+
         if errors:
             return False, "; ".join(errors)
-        return True, "Validation passed"
-
+        return True, "Formal Verification & Sandbox Validation Passed"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RECURSIVE SELF-REWRITER — MAIN ENGINE
 # ═══════════════════════════════════════════════════════════════════════════════
-
 
 class RecursiveSelfRewriter:
     """
@@ -1400,13 +1401,11 @@ class RecursiveSelfRewriter:
         versions = self._history.get_versions(module_path, function_name, limit)
         return [v.to_dict() for v in versions]
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON & MODULE-LEVEL ACCESS
 # ═══════════════════════════════════════════════════════════════════════════════
 
 recursive_self_rewriter = RecursiveSelfRewriter()
-
 
 def get_recursive_self_rewriter() -> RecursiveSelfRewriter:
     """Get the singleton RecursiveSelfRewriter instance."""

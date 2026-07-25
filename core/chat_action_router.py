@@ -18,13 +18,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG
 from utils.logger import get_logger
 
 logger = get_logger("chat_action_router")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ACTION RESULT
@@ -45,7 +43,6 @@ class ActionResult:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INTENT DETECTION (Fast, local keyword-based + LLM fallback)
@@ -91,7 +88,6 @@ CONVERSATION_PATTERNS = [
     r'\?$',  # Questions usually aren't actions
 ]
 
-
 def detect_intent_fast(message: str) -> Tuple[bool, str, float]:
     """
     Fast keyword-based intent detection.
@@ -111,7 +107,6 @@ def detect_intent_fast(message: str) -> Tuple[bool, str, float]:
 
     # Ambiguous — low confidence
     return False, "unknown", 0.3
-
 
 def detect_intent_llm(message: str, brain) -> Tuple[bool, str, str]:
     """
@@ -163,7 +158,6 @@ Examples:
         logger.warning(f"LLM intent detection failed: {e}")
 
     return False, "unknown", ""
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ACTION PLAN GENERATOR
@@ -244,7 +238,6 @@ Reply with ONLY valid JSON in this exact format:
         logger.error(f"Action plan generation failed: {e}")
 
     return None
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CHAT ACTION ROUTER (Main Class)
@@ -611,7 +604,6 @@ class ChatActionRouter:
     def get_recent_actions(self, limit: int = 20) -> List[dict]:
         with self._history_lock:
             return self._action_history[-limit:]
-
 
 # Singleton
 chat_action_router = ChatActionRouter()

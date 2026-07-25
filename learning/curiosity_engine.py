@@ -29,7 +29,6 @@ from enum import Enum, auto
 from queue import PriorityQueue
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -37,7 +36,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("curiosity_engine")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -53,14 +51,12 @@ class CuriositySource(Enum):
     SELF_IMPROVEMENT = "self_improvement"  # To improve own capabilities
     EVENT_TRIGGERED = "event_triggered"    # From system events
 
-
 class CuriosityUrgency(Enum):
     IDLE = 0          # Learn when nothing else to do
     LOW = 1           # Would be nice to know
     MODERATE = 2      # Interested
     HIGH = 3          # Very curious
     BURNING = 4       # Must know NOW
-
 
 @dataclass
 class CuriosityTopic:
@@ -88,7 +84,6 @@ class CuriosityTopic:
         d["source"] = self.source.value
         d["urgency"] = self.urgency.name
         return d
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SEED TOPICS — Fallback curiosity seeds
@@ -121,7 +116,6 @@ SEED_TOPICS = [
     "What is the hero's journey in literature?",
     "How do submarines navigate?",
 ]
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CURIOSITY ENGINE
@@ -762,13 +756,11 @@ class CuriosityEngine:
             "conversation_sparks": len(self._conversation_sparks)
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 curiosity_engine = CuriosityEngine()
-
 
 if __name__ == "__main__":
     engine = CuriosityEngine()

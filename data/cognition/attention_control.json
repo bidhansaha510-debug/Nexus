@@ -1,26 +1,26 @@
 {
   "states": [
     {
-      "state_id": "6fbb5214",
+      "state_id": "d02af566",
       "mode": "focused",
-      "primary_focus": "Review and practice solving specific types of Python problems (e.g., data structures, algorithms) to improve coding skills",
+      "primary_focus": "Practice coding exercises and problems",
       "secondary_foci": [
-        "Monitor progress on LeetCode or similar platforms",
-        "Take notes on common pitfalls and areas for improvement"
+        "Review existing code for improvement",
+        "Learn new concepts and techniques"
       ],
       "distractions": [
         "Social media",
         "Email notifications",
-        "Unrelated online browsing"
+        "Chatty coworkers"
       ],
       "focus_strength": 0.8,
       "fatigue_level": 0.0,
-      "created_at": "2026-06-04T03:33:21.318639"
+      "created_at": "2026-07-25T20:00:42.644688"
     }
   ],
-  "current_focus": "Review and practice solving specific types of Python problems (e.g., data structures, algorithms) to improve coding skills",
+  "current_focus": "Practice coding exercises and problems",
   "stats": {
-    "total_focus_sessions": 112,
+    "total_focus_sessions": 120,
     "total_prioritizations": 0,
     "total_distraction_filters": 0,
     "total_attention_shifts": 0

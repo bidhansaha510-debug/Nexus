@@ -38,14 +38,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("threat_modeling")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -60,7 +57,6 @@ class ThreatPredictionType(Enum):
     BEHAVIORAL_ANOMALY = "behavioral_anomaly"
     TEMPORAL_CORRELATION = "temporal_correlation"
 
-
 class RiskLevel(Enum):
     NEGLIGIBLE = "negligible"
     LOW = "low"
@@ -68,14 +64,12 @@ class RiskLevel(Enum):
     HIGH = "high"
     CRITICAL = "critical"
 
-
 class AnomalyType(Enum):
     SPIKE = "spike"
     DROP = "drop"
     PATTERN_BREAK = "pattern_break"
     CYCLIC_DEVIATION = "cyclic_deviation"
     TREND_REVERSAL = "trend_reversal"
-
 
 @dataclass
 class TimeSeriesPoint:
@@ -87,7 +81,6 @@ class TimeSeriesPoint:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class ThreatPrediction:
@@ -113,7 +106,6 @@ class ThreatPrediction:
     def summary(self) -> str:
         return f"[{self.risk_level.upper()}] {self.title} (p={self.probability:.0%})"
 
-
 @dataclass
 class AttackPattern:
     """A recognized attack pattern."""
@@ -129,7 +121,6 @@ class AttackPattern:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class NetworkBaseline:
@@ -151,7 +142,6 @@ class NetworkBaseline:
             return 0.0
         return (value - self.avg_value) / self.std_deviation
 
-
 @dataclass
 class ThreatModelStats:
     """Statistics for the threat modeling engine."""
@@ -169,7 +159,6 @@ class ThreatModelStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TIME SERIES FORECASTER
@@ -228,7 +217,6 @@ class TimeSeriesForecaster:
         elif normalized_slope < -0.05:
             return "decreasing"
         return "stable"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ANOMALY DETECTOR
@@ -315,7 +303,6 @@ class AnomalyDetector:
 
     def get_all_baselines(self) -> Dict[str, Dict]:
         return {k: v.to_dict() for k, v in self._baselines.items()}
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ATTACK PATTERN RECOGNIZER
@@ -409,7 +396,6 @@ class AttackPatternRecognizer:
     def pattern_count(self) -> int:
         return len(self._known_patterns)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # RISK SCORER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -462,7 +448,6 @@ class RiskScorer:
 
     def get_factors(self) -> Dict[str, float]:
         return dict(self._risk_factors)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PREDICTIVE THREAT MODELER — MAIN ENGINE
@@ -894,13 +879,11 @@ class PredictiveThreatModeler:
         except Exception as e:
             logger.warning(f"Could not load threat model state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 threat_modeler = PredictiveThreatModeler()
-
 
 def get_threat_modeler() -> PredictiveThreatModeler:
     return threat_modeler

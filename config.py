@@ -10,6 +10,11 @@ from typing import Dict, List, Any, Optional
 from enum import Enum
 import json
 
+# Set PYOQS_ENABLE_FAULTHANDLER environment flag for liboqs-python
+os.environ["PYOQS_ENABLE_FAULTHANDLER"] = "1"
+
+
+
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # BASE PATHS (Updated for EXE Support)
@@ -136,10 +141,10 @@ class LLMConfig:
 @dataclass
 class GroqConfig:
     """Configuration for Groq API (used for user-facing responses)"""
-    api_key: str = os.environ.get("GROQ_API_KEY", "modalresearch_j3wT9jljyE7pUZX-GK7QW6vVgZp9mTwc0NzNjDEqne8")
+    api_key: str = os.environ.get("GROQ_API_KEY", "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")
     api_keys: List[str] = field(default_factory=lambda: []) # List of loaded API keys
-    base_url: str = "https://api.us-west-2.modal.direct/v1"
-    model: str = "zai-org/GLM-5.1-FP8"
+    base_url: str = "https://openrouter.ai/api/v1"
+    model: str = "nvidia/nemotron-3-ultra-550b-a55b:free"
     temperature: float = 0.7
     max_tokens: int = 4096
     top_p: float = 0.9
@@ -453,6 +458,77 @@ class DeviceConfig:
     live_feed_enabled: bool = True               # Stream actions to web UI
 
 
+@dataclass
+class P2PSwarmConfig:
+    """Configuration for P2P Distributed Swarm Network"""
+    enabled: bool = True
+    discovery_port: int = 9877          # UDP broadcast port
+    transport_port: int = 9876          # TCP transport port
+    heartbeat_interval: float = 10.0    # Seconds between heartbeats
+    peer_timeout: float = 30.0          # Seconds before marking peer offline
+    gossip_fanout: int = 3              # Peers to forward each gossip msg to
+    bft_quorum_ratio: float = 0.67      # 2/3 + 1 for BFT consensus
+    max_peers: int = 50                 # Max tracked peers
+    task_offload_enabled: bool = True   # Allow distributing tasks to peers
+    discovery_broadcast_interval: float = 15.0  # Seconds between UDP broadcasts
+    message_ttl: int = 30               # Max seconds a message lives
+    hmac_secret: str = ""               # Shared secret (auto-generated if empty)
+
+
+@dataclass
+class FormalVerificationConfig:
+    """Configuration for Formal Verification & MicroVM Code Sandboxing"""
+    enabled: bool = True
+    z3_prover_enabled: bool = True
+    sandbox_timeout_sec: float = 5.0
+    sandbox_max_memory_mb: float = 128.0
+    audit_prohibited_imports: bool = True
+
+
+@dataclass
+class TemporalGraphRAGConfig:
+    """Configuration for Temporal GraphRAG & Sleep Consolidation"""
+    enabled: bool = True
+    decay_half_life_days: float = 30.0
+    max_hops: int = 2
+    sleep_consolidation_interval_sec: float = 3600.0
+    prune_decay_threshold: float = 0.1
+
+
+@dataclass
+class MCPConfig:
+    """Configuration for Model Context Protocol (MCP) Client & Server"""
+    enabled: bool = True
+    server_enabled: bool = True
+    client_enabled: bool = True
+    auto_connect_community_servers: bool = True
+    protocol_version: str = "2024-11-05"
+
+
+@dataclass
+class SpeculativeStreamingConfig:
+    """Configuration for Local Speculative Decoding & Real-Time A/V Pipeline"""
+    enabled: bool = True
+    speculative_decoding_enabled: bool = True
+    draft_model: str = "Llama-3.2-1B-Draft"
+    target_model: str = "Llama-3.3-70B-Target"
+    lookahead_k: int = 5
+    webrtc_pipeline_enabled: bool = True
+    av_stream_fps: float = 30.0
+    duplex_voice_interrupts: bool = True
+
+
+@dataclass
+class LoRAMoEConfig:
+    """Configuration for Continuous Self-Adapting LoRAs & MoE Router"""
+    enabled: bool = True
+    online_finetuning_enabled: bool = True
+    moe_router_enabled: bool = True
+    max_micro_loras: int = 16
+    adapter_rank: int = 16
+    adapter_alpha: float = 32.0
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # MAIN CONFIGURATION CLASS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -482,6 +558,12 @@ class NexusConfig:
     pc_control: PCControlConfig = field(default_factory=PCControlConfig)
     social_media: SocialMediaConfig = field(default_factory=SocialMediaConfig)
     device: DeviceConfig = field(default_factory=DeviceConfig)
+    p2p_swarm: P2PSwarmConfig = field(default_factory=P2PSwarmConfig)
+    formal_verification: FormalVerificationConfig = field(default_factory=FormalVerificationConfig)
+    temporal_graphrag: TemporalGraphRAGConfig = field(default_factory=TemporalGraphRAGConfig)
+    mcp: MCPConfig = field(default_factory=MCPConfig)
+    speculative_streaming: SpeculativeStreamingConfig = field(default_factory=SpeculativeStreamingConfig)
+    lora_moe: LoRAMoEConfig = field(default_factory=LoRAMoEConfig)
     
     # System Settings
     debug_mode: bool = False

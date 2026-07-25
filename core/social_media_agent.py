@@ -24,15 +24,12 @@ from typing import Dict, List, Any, Optional
 from enum import Enum
 from collections import deque
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import NEXUS_CONFIG, DATA_DIR
 from utils.logger import get_logger
 from core.event_bus import EventType, publish
 import socket
 
 logger = get_logger("social_media_agent")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # NETWORK CONNECTIVITY HELPER
@@ -47,7 +44,6 @@ def _check_connectivity(host: str, port: int = 443, timeout: float = 3.0) -> boo
     except (socket.timeout, socket.gaierror, OSError):
         return False
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA TYPES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -56,7 +52,6 @@ class SocialPlatform(Enum):
     FACEBOOK = "facebook"
     TWITTER = "twitter"
     INSTAGRAM = "instagram"
-
 
 class SocialActionType(Enum):
     POST = "post"
@@ -68,7 +63,6 @@ class SocialActionType(Enum):
     BROWSE_FEED = "browse_feed"
     FOLLOW = "follow"
     SEARCH = "search"
-
 
 @dataclass
 class SocialAction:
@@ -97,7 +91,6 @@ class SocialAction:
             "error": self.error,
             "timestamp": self.timestamp,
         }
-
 
 @dataclass
 class SocialMediaStats:
@@ -129,7 +122,6 @@ class SocialMediaStats:
             "last_interaction_time": self.last_interaction_time,
             "platforms_active": self.platforms_active,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELENIUM HELPER — shared WebDriver factory
@@ -191,7 +183,6 @@ def _create_selenium_driver(platform_name: str = ""):
         err_msg = str(e).split('\n')[0][:200] if str(e) else type(e).__name__
         logger.warning(f"📱 {platform_name}: Selenium init failed: {err_msg}")
         return None
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PLATFORM DRIVERS
@@ -912,8 +903,6 @@ class FacebookDriver:
                 pass
             self._driver = None
 
-
-
 class TwitterDriver:
     """Twitter/X driver using Selenium browser automation."""
 
@@ -1232,7 +1221,6 @@ class TwitterDriver:
             except Exception:
                 pass
             self._driver = None
-
 
 class InstagramDriver:
     """Instagram driver using Selenium browser automation."""
@@ -2224,7 +2212,6 @@ class InstagramDriver:
             except Exception:
                 pass
             self._driver = None
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SOCIAL MEDIA AGENT

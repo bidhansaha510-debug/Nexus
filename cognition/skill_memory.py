@@ -32,13 +32,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("skill_memory")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
@@ -99,7 +97,6 @@ class Skill:
             f"{steps_text}{tools_text}\n"
             f"Success rate: {self.success_rate:.0%} over {self.times_used} uses"
         )
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SKILL MEMORY
@@ -436,7 +433,6 @@ class SkillMemory:
                 for s in sorted(self._skills, key=lambda x: x.times_used, reverse=True)[:5]
             ],
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

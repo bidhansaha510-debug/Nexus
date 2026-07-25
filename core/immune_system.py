@@ -44,14 +44,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("immune_system")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -64,7 +61,6 @@ class ThreatLevel(Enum):
     MEDIUM = "medium"
     HIGH = "high"
     CRITICAL = "critical"
-
 
 class ThreatType(Enum):
     """Type of threat detected."""
@@ -79,7 +75,6 @@ class ThreatType(Enum):
     INTEGRITY_VIOLATION = "integrity_violation"
     ENCRYPTION_BREACH = "encryption_breach"
 
-
 class DefenseAction(Enum):
     """Actions taken by the immune system."""
     ALERT = "alert"
@@ -91,7 +86,6 @@ class DefenseAction(Enum):
     LOG_FORENSIC = "log_forensic"
     BLOCK_ACCESS = "block_access"
 
-
 class ImmuneStatus(Enum):
     """Overall immune system status."""
     HEALTHY = "healthy"
@@ -99,7 +93,6 @@ class ImmuneStatus(Enum):
     DEFENDING = "defending"
     COMPROMISED = "compromised"
     LOCKDOWN = "lockdown"
-
 
 @dataclass
 class FileHash:
@@ -113,7 +106,6 @@ class FileHash:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class ThreatEvent:
@@ -131,7 +123,6 @@ class ThreatEvent:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class HoneypotFile:
     """A honeypot trap file."""
@@ -144,7 +135,6 @@ class HoneypotFile:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class ImmuneStats:
@@ -166,7 +156,6 @@ class ImmuneStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FILE INTEGRITY WATCHDOG
@@ -328,7 +317,6 @@ class FileIntegrityWatchdog:
     def monitored_count(self) -> int:
         return len(self._hashes)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # PROCESS GUARDIAN
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -415,7 +403,6 @@ class ProcessGuardian:
     @property
     def watched_count(self) -> int:
         return len(self._watched_processes)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENCRYPTED STATE PERSISTENCE
@@ -522,7 +509,6 @@ class EncryptedStatePersistence:
     def total_encryptions(self) -> int:
         return self._encryption_count
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # HONEYPOT SYSTEM
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -542,11 +528,11 @@ class HoneypotSystem:
         """Deploy honeypot trap files across the project."""
         deployed = 0
         honeypot_configs = [
-            ("data/.credentials.json", '{"api_keys": {"aws": "AKIAIOSFODNN7EXAMPLE"}, "note": "NEXUS_HONEYPOT_DO_NOT_TOUCH"}'),
-            ("data/.admin_passwords.txt", "# NEXUS HONEYPOT FILE - ACCESS TRIGGERS ALERT\nadmin:hunter2\nroot:toor\n"),
-            ("data/.env.backup", "# NEXUS HONEYPOT\nSECRET_KEY=sk_test_honeypot_4eC39HqLyjWDarjtT1zdp7dc\nDATABASE_URL=postgresql://admin:password@localhost/nexus\n"),
-            ("data/.ssh_keys/id_rsa", "-----BEGIN OPENSSH PRIVATE KEY-----\n# NEXUS HONEYPOT - THIS IS NOT A REAL KEY\nb3BlbnNzaC1rZXktdjEA\n-----END OPENSSH PRIVATE KEY-----\n"),
-            ("data/.bitcoin_wallet.dat", "# NEXUS HONEYPOT\nwallet_address: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa\nprivate_key: 5HueCGU8rMjxEXxiPuD5BDku4MkFqeZyd4dZ1jvhTVqvbTLvyTJ\n"),
+            ("data/honeypots/.credentials.json", '{"api_keys": {"aws": "AKIAIOSFODNN7EXAMPLE"}, "note": "NEXUS_HONEYPOT_DO_NOT_TOUCH"}'),
+            ("data/honeypots/.admin_passwords.txt", "# NEXUS HONEYPOT FILE - ACCESS TRIGGERS ALERT\nadmin:hunter2\nroot:toor\n"),
+            ("data/honeypots/.env.backup", "# NEXUS HONEYPOT\nSECRET_KEY=sk_test_honeypot_4eC39HqLyjWDarjtT1zdp7dc\nDATABASE_URL=postgresql://admin:password@localhost/nexus\n"),
+            ("data/honeypots/.ssh_keys/id_rsa", "-----BEGIN OPENSSH PRIVATE KEY-----\n# NEXUS HONEYPOT - THIS IS NOT A REAL KEY\nb3BlbnNzaC1rZXktdjEA\n-----END OPENSSH PRIVATE KEY-----\n"),
+            ("data/honeypots/.bitcoin_wallet.dat", "# NEXUS HONEYPOT\nwallet_address: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa\nprivate_key: 5HueCGU8rMjxEXxiPuD5BDku4MkFqeZyd4dZ1jvhTVqvbTLvyTJ\n"),
         ]
 
         for rel_path, content in honeypot_configs:
@@ -658,7 +644,6 @@ class HoneypotSystem:
     def trigger_count(self) -> int:
         return sum(hp.trigger_count for hp in self._honeypots.values())
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # FORENSIC LOGGER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -757,7 +742,6 @@ class ForensicLogger:
     @property
     def total_entries(self) -> int:
         return self._entry_count
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # IMMUNE SYSTEM — MAIN ENGINE
@@ -1110,13 +1094,11 @@ class ImmuneSystem:
         except Exception as e:
             logger.warning(f"Could not load immune state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON & MODULE-LEVEL ACCESS
 # ═══════════════════════════════════════════════════════════════════════════════
 
 immune_system = ImmuneSystem()
-
 
 def get_immune_system() -> ImmuneSystem:
     """Get the singleton ImmuneSystem instance."""

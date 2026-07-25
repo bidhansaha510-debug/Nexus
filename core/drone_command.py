@@ -1,6 +1,11 @@
 """
 NEXUS AI — Drone Command: Autonomous Robotics & Swarm Control
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  SIMULATION ONLY — This module provides scaffolding and data models for
+    drone/robotics concepts.  It does NOT connect to real ROS2 nodes,
+    MAVLink autopilots, or physical drones.  All flight operations and
+    sensor data are simulated.
+
 God-Level Feature #6: Physical world interaction through autonomous drones
 and robotic actuators via ROS2 and MAVLink.
 
@@ -39,14 +44,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("drone_command")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -190,7 +192,6 @@ class DroneStats:
     mavlink_messages: int = 0
     def to_dict(self) -> Dict[str, Any]: return asdict(self)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # MAVLINK PROTOCOL HANDLER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -288,7 +289,6 @@ class MAVLinkHandler:
     def sequence(self) -> int:
         return self._sequence
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SWARM COORDINATOR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -355,7 +355,6 @@ class SwarmCoordinator:
     def active_formation(self) -> str:
         return self._active_formation
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SENSOR FUSION
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -393,7 +392,6 @@ class SensorFusion:
     @property
     def total_readings(self) -> int:
         return sum(len(buf) for buf in self._buffers.values())
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DRONE COMMAND ENGINE — MAIN
@@ -695,7 +693,6 @@ class DroneCommandEngine:
                     if hasattr(self._stats, k): setattr(self._stats, k, v)
         except Exception as e:
             logger.warning(f"Could not load drone state: {e}")
-
 
 drone_command = DroneCommandEngine()
 def get_drone_command() -> DroneCommandEngine: return drone_command

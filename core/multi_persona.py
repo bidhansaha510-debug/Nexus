@@ -40,14 +40,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("multi_persona")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & CONSTANTS
@@ -66,7 +63,6 @@ class PersonaType(Enum):
     MENTOR = "mentor"
     OPERATOR = "operator"
 
-
 class CommunicationStyle(Enum):
     """Communication style modifiers."""
     FORMAL = "formal"
@@ -77,7 +73,6 @@ class CommunicationStyle(Enum):
     EMPATHETIC = "empathetic"
     CONCISE = "concise"
     VERBOSE = "verbose"
-
 
 class Platform(Enum):
     """Platforms that influence persona behavior."""
@@ -90,7 +85,6 @@ class Platform(Enum):
     API = "api"
     INTERNAL = "internal"
 
-
 class Mood(Enum):
     """Emotional tone modifiers."""
     NEUTRAL = "neutral"
@@ -101,7 +95,6 @@ class Mood(Enum):
     SERIOUS = "serious"
     CURIOUS = "curious"
     CONFIDENT = "confident"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA MODELS
@@ -121,7 +114,6 @@ class PersonaTraits:
 
     def to_dict(self) -> Dict[str, float]:
         return asdict(self)
-
 
 @dataclass
 class Persona:
@@ -158,7 +150,6 @@ class Persona:
             f"[style={self.communication_style}, mood={self.default_mood}]"
         )
 
-
 @dataclass
 class UserProfile:
     """Profile of a user for communication adaptation."""
@@ -185,7 +176,6 @@ class UserProfile:
             return 0.0
         return sum(self.sentiment_history[-20:]) / len(self.sentiment_history[-20:])
 
-
 @dataclass
 class ConversationContext:
     """Context for persona selection."""
@@ -203,7 +193,6 @@ class ConversationContext:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class PersonaStats:
     """Aggregate statistics for the persona system."""
@@ -218,7 +207,6 @@ class PersonaStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PERSONA LIBRARY
@@ -512,7 +500,6 @@ class PersonaLibrary:
     def count(self) -> int:
         return len(self._personas)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONTEXT ANALYZER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -623,7 +610,6 @@ class ContextAnalyzer:
         score *= (0.5 + persona.success_rate * 0.5)
 
         return score
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MULTI-PERSONA ENGINE
@@ -948,13 +934,11 @@ class MultiPersonaSystem:
         except Exception as e:
             logger.warning(f"Could not load persona state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 multi_persona = MultiPersonaSystem()
-
 
 def get_multi_persona() -> MultiPersonaSystem:
     return multi_persona

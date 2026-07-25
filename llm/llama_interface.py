@@ -13,12 +13,10 @@ from datetime import datetime
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import NEXUS_CONFIG
 from utils.logger import get_logger
 
 logger = get_logger("llama_interface")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RESPONSE DATACLASS
@@ -49,7 +47,6 @@ class LLMResponse:
             "error": self.error,
             "timestamp": self.timestamp.isoformat()
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LLAMA INTERFACE
@@ -253,29 +250,69 @@ class LlamaInterface:
         
         self._stats["total_requests"] += 1
         
+        # Build options dictionary cleanly (omit None values)
+        options = {}
+        temp_val = temperature if temperature is not None else getattr(self._config, "temperature", None)
+        if temp_val is not None:
+            options["temperature"] = temp_val
+        max_tok = max_tokens if max_tokens is not None else getattr(self._config, "max_tokens", None)
+        if max_tok is not None:
+            options["num_predict"] = max_tok
+        ctx_win = getattr(self._config, "context_window", None)
+        if ctx_win is not None:
+            options["num_ctx"] = ctx_win
+        top_p_val = top_p if top_p is not None else getattr(self._config, "top_p", None)
+        if top_p_val is not None:
+            options["top_p"] = top_p_val
+        top_k_val = top_k if top_k is not None else getattr(self._config, "top_k", None)
+        if top_k_val is not None:
+            options["top_k"] = top_k_val
+        rep_pen = repeat_penalty if repeat_penalty is not None else getattr(self._config, "repeat_penalty", None)
+        if rep_pen is not None:
+            options["repeat_penalty"] = rep_pen
+        if stop:
+            options["stop"] = stop
+
+        # Strip base64 data headers from images if present (e.g. data:image/png;base64,...)
+        cleaned_images = None
+        if images:
+            cleaned_images = []
+            for img in images:
+                if isinstance(img, str) and img.strip():
+                    raw = img.strip()
+                    if "," in raw and raw.startswith("data:image"):
+                        raw = raw.split(",", 1)[1]
+                    cleaned_images.append(raw)
+            if not cleaned_images:
+                cleaned_images = None
+
+        # Determine target model: if images are present, auto-route to vision model (e.g. llava)
+        target_model = self._model
+        if cleaned_images:
+            v_model = self.get_vision_model()
+            if v_model:
+                target_model = v_model
+                logger.info(f"📸 Image payload detected — auto-routing to vision model '{target_model}'")
+            else:
+                logger.warning(
+                    f"📸 Image payload detected but default model '{self._model}' is text-only. "
+                    f"No vision model found in Ollama. Retrying text-only..."
+                )
+                cleaned_images = None
+
         payload = {
-            "model": self._model,
+            "model": target_model,
             "prompt": prompt,
             "stream": False,
-            "options": {
-                "temperature": temperature or self._config.temperature,
-                "num_predict": max_tokens or self._config.max_tokens,
-                "num_ctx": self._config.context_window,
-                "top_p": top_p or self._config.top_p,
-                "top_k": top_k or self._config.top_k,
-                "repeat_penalty": repeat_penalty or self._config.repeat_penalty
-            }
+            "options": options
         }
         
         if system_prompt:
             payload["system"] = system_prompt
         
-        if images:
-            payload["images"] = images
-        
-        if stop:
-            payload["options"]["stop"] = stop
-        
+        if cleaned_images:
+            payload["images"] = cleaned_images
+
         for attempt in range(self._MAX_RETRIES + 1):
             try:
                 self._ollama_semaphore.acquire()
@@ -322,6 +359,15 @@ class LlamaInterface:
                     self._record_request(prompt, llm_response)
                     
                     return llm_response
+                elif response.status_code == 400 and payload.get("images"):
+                    # Model does not support vision / images in payload — retry text-only
+                    err_detail = response.text[:200]
+                    logger.warning(
+                        f"Ollama 400 Bad Request with images ({err_detail}). "
+                        f"Model '{self._model}' is text-only — retrying without images..."
+                    )
+                    payload.pop("images", None)
+                    continue
                 elif response.status_code == 429:
                     if attempt < self._MAX_RETRIES:
                         delay = self._RETRY_BASE_DELAY * (2 ** attempt)
@@ -337,11 +383,14 @@ class LlamaInterface:
                         logger.error(error_msg)
                         return LLMResponse(success=False, error=error_msg)
                 else:
+                    err_detail = response.text[:300] if response.text else ""
                     error_msg = f"Ollama returned status {response.status_code}"
+                    if err_detail:
+                        error_msg += f": {err_detail}"
                     self._stats["failed_requests"] += 1
                     logger.error(error_msg)
                     return LLMResponse(success=False, error=error_msg)
-                    
+
             except requests.Timeout:
                 self._stats["failed_requests"] += 1
                 timeout_val = self._config.timeout
@@ -471,8 +520,25 @@ class LlamaInterface:
         
         self._stats["total_requests"] += 1
         
+        # Determine target model for chat: if images present, use vision model if available
+        target_model = self._model
+        cleaned_images = None
+        if images:
+            cleaned_images = []
+            for img in images:
+                if isinstance(img, str) and img.strip():
+                    raw = img.strip()
+                    if "," in raw and raw.startswith("data:image"):
+                        raw = raw.split(",", 1)[1]
+                    cleaned_images.append(raw)
+            if cleaned_images:
+                v_model = self.get_vision_model()
+                if v_model:
+                    target_model = v_model
+                    logger.info(f"📸 Chat image payload detected — auto-routing to vision model '{target_model}'")
+
         payload = {
-            "model": self._model,
+            "model": target_model,
             "messages": messages,
             "stream": False,
             "options": {
@@ -491,12 +557,12 @@ class LlamaInterface:
             ] + messages
         
         # Inject images into the last user message for multimodal models
-        if images:
+        if cleaned_images:
             for msg in reversed(payload["messages"]):
                 if msg.get("role") == "user":
-                    msg["images"] = images
+                    msg["images"] = cleaned_images
                     break
-        
+
         for attempt in range(self._MAX_RETRIES + 1):
             try:
                 self._ollama_semaphore.acquire()
@@ -728,8 +794,33 @@ class LlamaInterface:
         except:
             pass
         return []
+
+    def get_vision_model(self) -> Optional[str]:
+        """Find an available vision model in Ollama (e.g. llava, llama3.2-vision, bakllava)."""
+        try:
+            response = requests.get(f"{self._base_url}/api/tags", timeout=3)
+            if response.status_code == 200:
+                models = response.json().get("models", [])
+                
+                # Check for explicit vision capability or clip family first
+                for m in models:
+                    caps = m.get("capabilities", [])
+                    fams = m.get("details", {}).get("families", [])
+                    if "vision" in caps or "clip" in fams:
+                        return m["name"]
+                
+                # Fallback to model name matching
+                vision_keywords = ["llava", "vision", "bakllava", "moondream", "minicpm", "cogvlm"]
+                for m in models:
+                    name = m.get("name", "").lower()
+                    if any(kw in name for kw in vision_keywords):
+                        return m["name"]
+        except Exception as e:
+            logger.debug(f"Error querying vision models: {e}")
+        return None
     
     def switch_model(self, model_name: str) -> bool:
+
         """Switch to a different model"""
         available = self.list_models()
         if any(model_name in name for name in available):
@@ -741,13 +832,11 @@ class LlamaInterface:
             logger.warning(f"Model {model_name} not available")
             return False
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 llm = LlamaInterface()
-
 
 if __name__ == "__main__":
     interface = LlamaInterface()

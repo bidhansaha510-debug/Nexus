@@ -26,8 +26,6 @@ from typing import Dict, Tuple
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # COLOR DEFINITIONS
@@ -187,7 +185,6 @@ class NexusColors:
         b = int(c1[2] * (1 - factor) + c2[2] * factor)
         return f"#{r:02x}{g:02x}{b:02x}"
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # FONT DEFINITIONS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -208,7 +205,6 @@ class NexusFonts:
     size_xxl: int = 24
     size_title: int = 32
     size_hero: int = 48
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SPACING & SIZING
@@ -240,7 +236,6 @@ class NexusSpacing:
     icon_lg: int = 24
     icon_xl: int = 32
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ANIMATION SETTINGS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -259,7 +254,6 @@ class NexusAnimations:
     emotion_refresh_ms: int = 500     # Emotion display refresh
     stats_refresh_ms: int = 3000      # Stats refresh
     stream_check_ms: int = 50         # Token stream check
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # COMPLETE THEME
@@ -803,7 +797,6 @@ QSlider::sub-page:horizontal {{
                 margin: 4px 20px 4px 60px;
             """
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ICON SYSTEM — Unicode/Emoji icons for UI elements
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -904,7 +897,6 @@ class NexusIcons:
         }
         return icon_map.get(emotion.lower(), "😐")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL THEME INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -916,7 +908,6 @@ fonts = theme.fonts
 spacing = theme.spacing
 animations = theme.animations
 icons = NexusIcons()
-
 
 if __name__ == "__main__":
     print("🎨 NEXUS Theme Engine")

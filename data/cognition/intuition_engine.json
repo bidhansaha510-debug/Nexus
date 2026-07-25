@@ -1,8 +1,25 @@
 {
-  "intuitions": [],
+  "intuitions": [
+    {
+      "intuition_id": "ddbc9e75",
+      "situation": "you have feelings?",
+      "gut_feeling": "I sense a mix of emotions, but overall it feels ambiguous and unclear.",
+      "direction": "neutral",
+      "strength": "whisper",
+      "confidence": 0.5,
+      "heuristics_used": [
+        "affect",
+        "representativeness"
+      ],
+      "pattern_matched": "uncertainty or indecision in decision-making",
+      "should_trust": false,
+      "reasoning": "my intuition is telling me that there's no clear emotional response, which might mean I'm not fully processing the situation.",
+      "created_at": "2026-07-25T18:44:23.179365"
+    }
+  ],
   "patterns": [],
   "stats": {
-    "total_intuitions": 3,
+    "total_intuitions": 4,
     "total_patterns": 0,
     "total_snap_judgments": 0,
     "total_vibes_checked": 0,

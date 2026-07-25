@@ -1,8 +1,87 @@
 {
-  "models": [],
+  "models": [
+    {
+      "model_id": "362dd4b5",
+      "description": "The mysterious relationship between the spatial distribution of dark matter and the emergence of complex, self-organized structures in both physical a",
+      "entities": [
+        {
+          "name": "Dark Matter",
+          "position": "(0, 0)",
+          "size": "Large",
+          "shape": "Amorphous"
+        },
+        {
+          "name": "Complex Structure",
+          "position": "(10, 5)",
+          "size": "Medium",
+          "shape": "Irregular"
+        }
+      ],
+      "relations": [
+        {
+          "entity_a": "Dark Matter",
+          "relation": "above",
+          "entity_b": "Complex Structure"
+        },
+        {
+          "entity_a": "Complex Structure",
+          "relation": "contains",
+          "entity_b": "Dark Matter"
+        }
+      ],
+      "properties": {
+        "scale": "Galactic",
+        "coordinate_system": "Cartesian"
+      },
+      "dimensions": 2,
+      "created_at": "2026-07-25T16:21:48.565048"
+    },
+    {
+      "model_id": "c9648598",
+      "description": "The concept of \"temporal friction\" as a hypothetical force governing the relative ease or difficulty of navigating and manipulating events through tim",
+      "entities": [
+        {
+          "name": "Event 1",
+          "position": "2020-01-01T12:00:00",
+          "size": "1 hour",
+          "shape": null,
+          "properties": {
+            "scale": "Low"
+          }
+        },
+        {
+          "name": "Event 2",
+          "position": "2020-01-02T14:00:00",
+          "size": "3 days",
+          "shape": null,
+          "properties": {
+            "scale": "Medium"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "entity_a": "Event 1",
+          "relation": "above",
+          "entity_b": "Event 2"
+        },
+        {
+          "entity_a": "Event 3",
+          "relation": "overlapping",
+          "entity_b": "Event 4"
+        }
+      ],
+      "properties": {
+        "scale": "Temporal Friction Level",
+        "coordinate_system": null
+      },
+      "dimensions": 1,
+      "created_at": "2026-07-25T16:23:52.761344"
+    }
+  ],
   "queries": [],
   "stats": {
-    "total_models": 4,
+    "total_models": 6,
     "total_queries": 0,
     "total_paths": 0,
     "total_transformations": 0

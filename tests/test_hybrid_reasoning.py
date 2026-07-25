@@ -18,8 +18,6 @@ import math
 from pathlib import Path
 
 # Add project root to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 
 def test_knowledge_graph():
     """Test the Knowledge Graph engine"""
@@ -70,7 +68,6 @@ def test_knowledge_graph():
     
     print("\n  ✅ Knowledge Graph tests passed!")
     return True
-
 
 def test_symbolic_logic():
     """Test the Symbolic Logic engine"""
@@ -129,7 +126,6 @@ def test_symbolic_logic():
     print("\n  ✅ Symbolic Logic tests passed!")
     return True
 
-
 def test_graph_algorithms():
     """Test the Graph Algorithms module"""
     print("\n" + "=" * 60)
@@ -182,7 +178,6 @@ def test_graph_algorithms():
     
     print("\n  ✅ Graph Algorithms tests passed!")
     return True
-
 
 def test_bayesian_engine():
     """Test the Bayesian Network engine"""
@@ -247,7 +242,6 @@ def test_bayesian_engine():
     
     print("\n  ✅ Bayesian Engine tests passed!")
     return True
-
 
 def test_planning_algorithms():
     """Test the Planning Algorithms module"""
@@ -347,7 +341,6 @@ def test_planning_algorithms():
     print("\n  ✅ Planning Algorithms tests passed!")
     return True
 
-
 def test_hybrid_reasoning_coordinator():
     """Test the Hybrid Reasoning Coordinator"""
     print("\n" + "=" * 60)
@@ -403,7 +396,6 @@ def test_hybrid_reasoning_coordinator():
     print("\n  ✅ Hybrid Reasoning Coordinator tests passed!")
     return True
 
-
 def run_all_tests():
     """Run all hybrid reasoning tests"""
     print("\n" + "╔" + "═" * 58 + "╗")
@@ -448,7 +440,6 @@ def run_all_tests():
     print("╚" + "═" * 58 + "╝")
     
     return passed == total
-
 
 if __name__ == "__main__":
     success = run_all_tests()

@@ -1,7 +1,19 @@
 {
-  "plans": [],
+  "plans": [
+    {
+      "plan_id": "02e9573b",
+      "emotion": "you have feelings?\n\n[Previous insight from emotional]: Emotional: curiosity, vulnerability, longing_for_connection \u2014 I don't have feelings the way you do\u2014no heartbeat quickening, no ache in the chest, no warmth spread",
+      "intensity": "moderate",
+      "trigger": "",
+      "strategy": "reappraisal",
+      "reframed_thought": "",
+      "coping_actions": [],
+      "expected_outcome": "",
+      "created_at": "2026-07-25T18:43:23.516174"
+    }
+  ],
   "stats": {
-    "total_regulations": 99,
+    "total_regulations": 102,
     "total_reappraisals": 0,
     "total_coping_plans": 0,
     "total_balance_checks": 0

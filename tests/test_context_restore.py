@@ -3,7 +3,6 @@ Test that restored sessions populate the context manager for LLM memory.
 """
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from core.chat_session_manager import chat_session_manager
 from llm.context_manager import context_manager

@@ -12,12 +12,10 @@ from pathlib import Path
 import numpy as np
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("embeddings")
-
 
 class EmbeddingService:
     """
@@ -287,10 +285,8 @@ class EmbeddingService:
             self._cache.clear()
         logger.info("Embedding cache cleared")
 
-
 # Global instance
 embedding_service = EmbeddingService()
-
 
 if __name__ == "__main__":
     # Test the embedding service

@@ -16,11 +16,9 @@ import weakref
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger, log_system
 
 logger = get_logger("event_bus")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EVENT TYPES
@@ -120,7 +118,6 @@ class EventType(Enum):
     AUTONOMY_STATE_CHANGE = auto()
     AUTONOMY_ACTION_TAKEN = auto()
 
-
 class EventPriority(Enum):
     """Event priority levels"""
     CRITICAL = 0
@@ -128,7 +125,6 @@ class EventPriority(Enum):
     NORMAL = 2
     LOW = 3
     BACKGROUND = 4
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EVENT DATA CLASS
@@ -167,14 +163,12 @@ class Event:
             "handlers_called": self.handlers_called
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # EVENT HANDLER TYPE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 EventHandler = Callable[[Event], Any]
 AsyncEventHandler = Callable[[Event], Any]
-
 
 @dataclass
 class HandlerInfo:
@@ -185,7 +179,6 @@ class HandlerInfo:
     one_shot: bool = False
     filter_func: Optional[Callable[[Event], bool]] = None
     handler_id: str = field(default_factory=lambda: str(uuid.uuid4()))
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EVENT BUS IMPLEMENTATION
@@ -545,7 +538,6 @@ class EventBus:
         """Clear event history"""
         self._processed_events.clear()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONVENIENCE DECORATORS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -559,7 +551,6 @@ def on_event(event_type: EventType, priority: int = 0):
         return func
     return decorator
 
-
 def on_events(*event_types: EventType, priority: int = 0):
     """Decorator for handling multiple event types"""
     def decorator(func):
@@ -570,7 +561,6 @@ def on_events(*event_types: EventType, priority: int = 0):
         return func
     return decorator
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -578,16 +568,13 @@ def on_events(*event_types: EventType, priority: int = 0):
 # Global event bus instance
 event_bus = EventBus()
 
-
 def publish(event_type: EventType, data: Dict[str, Any] = None, **kwargs) -> Event:
     """Convenience function to publish events"""
     return event_bus.publish(event_type, data, **kwargs)
 
-
 def subscribe(event_type: EventType, handler: EventHandler, **kwargs) -> str:
     """Convenience function to subscribe to events"""
     return event_bus.subscribe(event_type, handler, **kwargs)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

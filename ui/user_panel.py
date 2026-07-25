@@ -48,7 +48,6 @@ from PySide6.QtGui import (
     QPainterPath
 )
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from ui.theme import theme, colors, fonts, spacing, icons
 from ui.widgets import (
     HeaderLabel, StatCard, Section, KeyValueRow, TagLabel,
@@ -57,7 +56,6 @@ from ui.widgets import (
 from utils.logger import get_logger
 
 logger = get_logger("user_panel")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PERSONALITY RADAR CHART
@@ -206,7 +204,6 @@ class PersonalityRadar(QWidget):
 
         painter.end()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # HOURS HEATMAP
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -264,7 +261,6 @@ class HoursHeatmap(QWidget):
 
         painter.end()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # APP USAGE BAR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -317,7 +313,6 @@ class AppUsageBar(QWidget):
         self._name_label.setText(name[:20])
         self._bar.setValue(int(min(pct, 100)))
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # MOOD INDICATOR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -334,7 +329,6 @@ MOOD_COLORS = {
     "focused": colors.accent_cyan, "tired": "#888888", "curious": "#bb86fc",
     "content": colors.accent_green, "frustrated": "#ff6b6b",
 }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # USER PANEL

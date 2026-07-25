@@ -5,7 +5,6 @@ import time
 from unittest.mock import MagicMock
 
 # Add project root to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from core.nexus_brain import NexusBrain
 from emotions.emotion_engine import EmotionType
@@ -31,7 +30,6 @@ def test_anger_prompt_generation():
     if brain._mood_system:
          brain._mood_system.feed_emotion_valence(-0.9)
 
-    
     # Build prompt
     prompt = brain._build_system_prompt()
     

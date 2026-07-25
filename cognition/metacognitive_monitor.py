@@ -14,7 +14,6 @@ from enum import Enum, auto
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -23,7 +22,6 @@ logger = get_logger("metacognitive_monitor")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -46,14 +44,12 @@ class BiasType(Enum):
     STATUS_QUO = "status_quo_bias"
     SURVIVORSHIP = "survivorship_bias"
 
-
 class ReasoningQuality(Enum):
     EXCELLENT = "excellent"
     GOOD = "good"
     ADEQUATE = "adequate"
     POOR = "poor"
     FLAWED = "flawed"
-
 
 class ConfidenceLevel(Enum):
     CERTAIN = "certain"
@@ -62,7 +58,6 @@ class ConfidenceLevel(Enum):
     LOW = "low"
     UNCERTAIN = "uncertain"
     NO_KNOWLEDGE = "no_knowledge"
-
 
 @dataclass
 class BiasDetection:
@@ -81,7 +76,6 @@ class BiasDetection:
             "severity": self.severity, "mitigation": self.mitigation,
             "detected_at": self.detected_at
         }
-
 
 @dataclass
 class ReasoningAssessment:
@@ -117,7 +111,6 @@ class ReasoningAssessment:
             "created_at": self.created_at
         }
 
-
 @dataclass
 class ConfidenceCalibration:
     calibration_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -136,7 +129,6 @@ class ConfidenceCalibration:
             "calibration_error": self.calibration_error,
             "domain": self.domain, "created_at": self.created_at
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # METACOGNITIVE MONITOR ENGINE
@@ -456,7 +448,6 @@ class MetacognitiveMonitor:
             **self._stats,
             "knowledge_domains_tracked": len(self._knowledge_boundaries)
         }
-
 
 # ─── Singleton ────────────────────────────────────────────────────────────────
 metacognitive_monitor = MetacognitiveMonitor()

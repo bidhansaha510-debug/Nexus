@@ -37,10 +37,8 @@ from PySide6.QtGui import (
 )
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from ui.theme import theme, colors, fonts, spacing, icons
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PULSING DOT — Animated status indicator
@@ -113,7 +111,6 @@ class PulsingDot(QWidget):
         )
 
         painter.end()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CIRCULAR GAUGE — Animated arc gauge
@@ -229,7 +226,6 @@ class CircularGauge(QWidget):
 
         painter.end()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # STAT CARD — Dashboard statistics card
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -310,7 +306,6 @@ class StatCard(QFrame):
         self._value_label.setStyleSheet(f"color: {color};")
         self.setStyleSheet(theme.get_stat_card_style(color))
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # EMOTION BADGE — Colored emotion indicator
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -378,10 +373,8 @@ class EmotionBadge(QFrame):
             f"border-radius: {spacing.border_radius_sm}px;"
         )
 
-
 # Import for hex_to_rgba
 from ui.theme import NexusColors
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HEADER LABEL — Section header with accent line
@@ -429,7 +422,6 @@ class HeaderLabel(QWidget):
         )
         layout.addWidget(line)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SIDEBAR BUTTON — Navigation button
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -456,7 +448,6 @@ class SidebarButton(QPushButton):
     @property
     def is_active(self) -> bool:
         return self._active
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TAG LABEL — Colored tag/chip
@@ -489,7 +480,6 @@ class TagLabel(QLabel):
     def set_color(self, color: str):
         self._color = color
         self._apply_style()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOW CARD — Card with animated glow border
@@ -552,7 +542,6 @@ class GlowCard(QFrame):
         )
 
         painter.end()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MINI CHART — Simple sparkline-style inline chart
@@ -650,7 +639,6 @@ class MiniChart(QWidget):
 
         painter.end()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SEPARATOR — Horizontal line separator
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -662,7 +650,6 @@ class Separator(QFrame):
         super().__init__(parent)
         self.setFixedHeight(1)
         self.setStyleSheet(f"background-color: {colors.border_subtle};")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SECTION WIDGET — Collapsible section container
@@ -743,7 +730,6 @@ class Section(QFrame):
     def content_layout(self):
         return self._content_layout
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # KEY-VALUE ROW — Simple label: value display
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -778,7 +764,6 @@ class KeyValueRow(QWidget):
         self._value_label.setText(value)
         if color:
             self._value_label.setStyleSheet(f"color: {color};")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STATUS BAR WIDGET — For the bottom status bar
@@ -869,7 +854,6 @@ class StatusBarWidget(QWidget):
 
     def update_uptime(self, uptime_str: str):
         self._uptime.setText(f"Uptime: {uptime_str}")
-
 
 if __name__ == "__main__":
     from PySide6.QtWidgets import QApplication

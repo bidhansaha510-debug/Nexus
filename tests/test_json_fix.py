@@ -1,7 +1,6 @@
 
 import sys
 import unittest
-sys.path.insert(0, "d:/NEXUS")
 
 from utils.json_utils import extract_json
 

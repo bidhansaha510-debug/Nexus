@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("transfer_learning")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class TransferType(Enum):
     NEAR = "near"        # Similar domains
     FAR = "far"          # Distant domains
@@ -32,7 +30,6 @@ class TransferType(Enum):
     ANALOGICAL = "analogical"
     STRUCTURAL = "structural"
     PROCEDURAL = "procedural"
-
 
 @dataclass
 class KnowledgeTransfer:
@@ -58,7 +55,6 @@ class KnowledgeTransfer:
             "risks": self.risks,
             "created_at": self.created_at
         }
-
 
 class TransferLearningEngine:
     """
@@ -270,9 +266,7 @@ class TransferLearningEngine:
             logger.debug(f"Cross-pollination failed: {e}")
         return {"error": "Transfer failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 transfer_learning = TransferLearningEngine()

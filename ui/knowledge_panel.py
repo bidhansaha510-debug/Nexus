@@ -54,7 +54,6 @@ from PySide6.QtGui import (
     QLinearGradient, QPainterPath
 )
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from ui.theme import theme, colors, fonts, spacing, icons
 from ui.widgets import (
     HeaderLabel, Section, TagLabel, StatCard,
@@ -63,7 +62,6 @@ from ui.widgets import (
 from utils.logger import get_logger
 
 logger = get_logger("knowledge_panel")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONSTANTS
@@ -104,7 +102,6 @@ SOURCE_COLORS = {
     "self_generated": "#bb86fc",
     "unknown":        "#888888",
 }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # KNOWLEDGE GRAPH MINI VISUALIZATION
@@ -215,7 +212,6 @@ class KnowledgeNetworkWidget(QWidget):
 
         painter.end()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # URGENCY BAR WIDGET
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -277,7 +273,6 @@ class UrgencyBar(QWidget):
             x += seg_w
 
         painter.end()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # KNOWLEDGE PANEL

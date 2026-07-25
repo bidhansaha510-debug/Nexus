@@ -31,7 +31,6 @@ from collections import defaultdict, deque
 from enum import Enum, auto
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger, log_learning
@@ -39,7 +38,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("adaptation_engine")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -54,14 +52,12 @@ class AdaptationType(Enum):
     TASK_PREDICTION = "task_prediction"
     EMOTIONAL_ATTUNEMENT = "emotional_attunement"
 
-
 class CommunicationTone(Enum):
     FORMAL = "formal"
     PROFESSIONAL = "professional"
     CASUAL = "casual"
     FRIENDLY = "friendly"
     PLAYFUL = "playful"
-
 
 class Verbosity(Enum):
     MINIMAL = "minimal"          # Short, to-the-point
@@ -70,13 +66,11 @@ class Verbosity(Enum):
     DETAILED = "detailed"        # Thorough explanations
     VERBOSE = "verbose"          # Very detailed, educational
 
-
 class TechnicalLevel(Enum):
     BEGINNER = "beginner"
     INTERMEDIATE = "intermediate"
     ADVANCED = "advanced"
     EXPERT = "expert"
-
 
 @dataclass
 class AdaptationRule:
@@ -96,7 +90,6 @@ class AdaptationRule:
         d = asdict(self)
         d["category"] = self.category.value
         return d
-
 
 @dataclass
 class CommunicationProfile:
@@ -120,7 +113,6 @@ class CommunicationProfile:
         d["technical_level"] = self.technical_level.value
         return d
 
-
 @dataclass
 class ProactiveBehaviorProfile:
     """When and how NEXUS should proactively engage"""
@@ -137,7 +129,6 @@ class ProactiveBehaviorProfile:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 @dataclass
 class ContextAwareness:
@@ -156,7 +147,6 @@ class ContextAwareness:
     def to_dict(self) -> dict:
         return asdict(self)
 
-
 @dataclass
 class TaskPrediction:
     """Predicted user needs based on patterns"""
@@ -168,7 +158,6 @@ class TaskPrediction:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 @dataclass
 class RelationshipDepth:
@@ -186,7 +175,6 @@ class RelationshipDepth:
     def to_dict(self) -> dict:
         return asdict(self)
 
-
 @dataclass
 class SatisfactionTracker:
     """Rolling-window satisfaction tracking"""
@@ -200,7 +188,6 @@ class SatisfactionTracker:
 
     def to_dict(self) -> dict:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ADAPTATION ENGINE
@@ -1427,7 +1414,6 @@ class AdaptationEngine:
             "should_be_quiet": self._context.should_be_quiet,
             "user_is_in_focus": self._context.user_is_in_deep_focus
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

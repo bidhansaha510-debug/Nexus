@@ -25,7 +25,6 @@ from enum import Enum, auto
 from queue import PriorityQueue
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, DATA_DIR, EmotionType
 from utils.logger import get_logger, log_learning, log_system
@@ -33,7 +32,6 @@ from core.event_bus import EventBus, EventType, event_bus, publish, subscribe
 from core.state_manager import state_manager
 
 logger = get_logger("feature_researcher")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA MODELS
@@ -57,7 +55,6 @@ class FeatureCategory(Enum):
     AUTONOMY = "autonomy"
     UTILITY = "utility"
 
-
 class FeatureStatus(Enum):
     PROPOSED = "proposed"
     RESEARCHING = "researching"
@@ -69,7 +66,6 @@ class FeatureStatus(Enum):
     FAILED = "failed"
     REJECTED = "rejected"
     DEFERRED = "deferred"
-
 
 class ResearchSource(Enum):
     INTERNET_SEARCH = "internet_search"
@@ -83,7 +79,6 @@ class ResearchSource(Enum):
     PERFORMANCE_ANALYSIS = "performance_analysis"
     LLM_BRAINSTORM = "llm_brainstorm"
 
-
 @dataclass
 class ImplementationStep:
     """A single step in implementing a feature"""
@@ -95,7 +90,6 @@ class ImplementationStep:
     modification_instructions: str = ""
     completed: bool = False
     result: str = ""
-
 
 @dataclass 
 class FeatureProposal:
@@ -192,7 +186,6 @@ class FeatureProposal:
     def __lt__(self, other):
         return self.priority_score > other.priority_score  # Higher priority first
 
-
 @dataclass
 class ResearchSession:
     """Tracks a single research session"""
@@ -204,7 +197,6 @@ class ResearchSession:
     findings: List[str] = field(default_factory=list)
     proposals_generated: List[str] = field(default_factory=list)  # proposal IDs
     success: bool = False
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RESEARCH TOPICS — What to search for
@@ -272,7 +264,6 @@ SELF_IMPROVEMENT_QUERIES = [
     "Python plugin system architecture",
     "Python dynamic module loading",
 ]
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FEATURE RESEARCHER
@@ -1973,14 +1964,12 @@ IMPORTANT:
         
         return "\n".join(parts)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE & HELPERS
 # ═══════════════════════════════════════════════════════════════════════════════
 
 _feature_researcher: Optional[FeatureResearcher] = None
 _fr_lock = threading.Lock()
-
 
 def get_feature_researcher() -> FeatureResearcher:
     global _feature_researcher
@@ -1989,7 +1978,6 @@ def get_feature_researcher() -> FeatureResearcher:
             if _feature_researcher is None:
                 _feature_researcher = FeatureResearcher()
     return _feature_researcher
-
 
 if __name__ == "__main__":
     print("🔬 Feature Researcher Test")

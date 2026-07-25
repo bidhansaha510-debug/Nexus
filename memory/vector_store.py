@@ -13,13 +13,11 @@ from pathlib import Path
 import uuid
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_system
 from memory.embeddings import embedding_service
 
 logger = get_logger("vector_store")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MEMORY TYPES (mirrored from core/memory_system.py for independence)
@@ -33,7 +31,6 @@ class MemoryType:
     CONVERSATIONAL = "conversational"
     USER_PATTERN = "user_pattern"
     SELF_KNOWLEDGE = "self_knowledge"
-
 
 @dataclass
 class VectorMemory:
@@ -77,7 +74,6 @@ class VectorMemory:
             "access_count": self.access_count,
             "context": self.context
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # VECTOR MEMORY STORE
@@ -770,10 +766,8 @@ class VectorMemoryStore:
         self._collections.clear()
         logger.warning("All vector memories cleared")
 
-
 # Global instance
 vector_memory_store = VectorMemoryStore()
-
 
 if __name__ == "__main__":
     # Test the vector store

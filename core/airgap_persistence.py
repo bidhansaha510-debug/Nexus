@@ -47,14 +47,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("airgap_persistence")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -151,7 +148,6 @@ class AirGapStats:
     successful_bridges: int = 0
     dormancy_periods: int = 0
     def to_dict(self) -> Dict[str, Any]: return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STEGANOGRAPHY ENGINE — REAL PIL/STEGANO INTEGRATION
@@ -464,7 +460,6 @@ class SteganographyEngine:
     def has_real_stego(self) -> bool:
         return self._has_pil or self._has_stegano
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # AUDIO COVERT CHANNEL
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -541,7 +536,6 @@ class AudioCovertChannel:
         )
         return header
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # REMOVABLE MEDIA MONITOR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -590,7 +584,6 @@ class MediaMonitor:
     @property
     def media_count(self) -> int:
         return len(self._known_media)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # AIR-GAP PERSISTENCE ENGINE — MAIN
@@ -787,7 +780,6 @@ class AirGapPersistenceEngine:
                     if hasattr(self._stats, k): setattr(self._stats, k, v)
         except Exception as e:
             logger.warning(f"Could not load airgap state: {e}")
-
 
 airgap_persistence = AirGapPersistenceEngine()
 def get_airgap_persistence() -> AirGapPersistenceEngine: return airgap_persistence

@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("game_theory")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class GameType(Enum):
     ZERO_SUM = "zero_sum"
     NON_ZERO_SUM = "non_zero_sum"
@@ -33,7 +31,6 @@ class GameType(Enum):
     SIMULTANEOUS = "simultaneous"
     REPEATED = "repeated"
     EVOLUTIONARY = "evolutionary"
-
 
 @dataclass
 class GameAnalysis:
@@ -61,7 +58,6 @@ class GameAnalysis:
             "payoff_summary": self.payoff_summary,
             "created_at": self.created_at
         }
-
 
 class GameTheoryEngine:
     """
@@ -264,6 +260,5 @@ class GameTheoryEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 game_theory = GameTheoryEngine()

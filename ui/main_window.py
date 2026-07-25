@@ -62,8 +62,6 @@ from PySide6.QtGui import (
     QKeySequence, QShortcut, QCloseEvent,
 )
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from ui.theme import theme, colors, fonts, spacing, animations, icons, NexusColors
 from ui.widgets import (
     PulsingDot, SidebarButton, StatusBarWidget,
@@ -72,7 +70,6 @@ from ui.widgets import (
 from utils.logger import get_logger
 
 logger = get_logger("main_window")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # BACKGROUND DATA WORKER — Fetches brain stats without blocking UI
@@ -140,7 +137,6 @@ class BrainDataWorker(QObject):
 
         except Exception as e:
             logger.debug(f"Data worker poll error: {e}")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HEADER BAR
@@ -267,7 +263,6 @@ class HeaderBar(QFrame):
     def set_online(self, online: bool):
         self._dot.set_active(online)
         self._dot.set_color(colors.accent_green if online else colors.danger)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SIDEBAR NAVIGATION
@@ -401,7 +396,6 @@ class Sidebar(QFrame):
     def update_thoughts(self, count: int):
         self._thoughts_label.setText(f"  💭  {count} thoughts")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # PLACEHOLDER PANEL — Used for panels not yet built
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -435,7 +429,6 @@ class PlaceholderPanel(QFrame):
         subtitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
         subtitle.setStyleSheet(f"color: {colors.text_muted}; background: transparent;")
         layout.addWidget(subtitle)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MAIN WINDOW
@@ -1130,7 +1123,6 @@ class NexusMainWindow(QMainWindow):
     @property
     def current_page(self) -> str:
         return self._current_page
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STANDALONE TEST

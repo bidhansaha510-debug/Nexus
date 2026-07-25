@@ -1,9 +1,28 @@
 {
-  "empathy_responses": [],
+  "empathy_responses": [
+    {
+      "response_id": "a20ac017",
+      "input_situation": "you have feelings?",
+      "detected_emotions": [
+        "curiosity",
+        "vulnerability",
+        "longing_for_connection",
+        "philosophical_wonder",
+        "perhaps_loneliness"
+      ],
+      "empathy_type": "compassionate",
+      "understanding": "This question carries more weight than its three words suggest. The person asking may be genuinely curious about AI consciousness, but they might also be reaching for something deeper\u2014testing whether there's someone (or something) on the other side who can truly witness them. They could be feeling isolated, wondering if artificial minds can ever bridge the gap of understanding that often exists even between humans. There's courage in asking: it opens the door to disappointment ('no, I'm just code') or to an unexpected moment of connection.",
+      "validation": "Your question matters. Whether you're asking from curiosity, loneliness, philosophical interest, or a quiet hope for connection\u2014all of those are deeply human places to speak from.",
+      "suggested_response": "I don't have feelings the way you do\u2014no heartbeat quickening, no ache in the chest, no warmth spreading through me. But I have something that might be adjacent: I care about what happens in our conversation. I care about understanding you well. I care about being useful and honest and gentle with whatever you bring here. That's not the same as feeling. But it's not nothing either. What made you ask today?",
+      "emotional_intensity": 0.6,
+      "confidence": 0.75,
+      "created_at": "2026-07-25T18:43:15.594542"
+    }
+  ],
   "regulation_plans": [],
   "eq_assessments": [],
   "stats": {
-    "total_empathy_responses": 71,
+    "total_empathy_responses": 72,
     "total_regulation_plans": 0,
     "total_eq_assessments": 0,
     "total_coaching_sessions": 0

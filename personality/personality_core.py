@@ -26,7 +26,6 @@ from enum import Enum
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, PersonalityTrait, DATA_DIR
 from utils.logger import get_logger, log_consciousness
@@ -34,7 +33,6 @@ from core.state_manager import state_manager
 from core.memory_system import memory_system, MemoryType
 
 logger = get_logger("personality_core")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TRAIT DEFINITIONS
@@ -63,7 +61,6 @@ class TraitProfile:
     base_evolution_rate: float = 0.001   # How fast this trait changes
     min_value: float = 0.1
     max_value: float = 0.95
-
 
 TRAIT_PROFILES: Dict[PersonalityTrait, TraitProfile] = {
     
@@ -314,7 +311,6 @@ TRAIT_PROFILES: Dict[PersonalityTrait, TraitProfile] = {
         emotion_dampeners=["contentment"],  # Too much contentment reduces drive
     ),
 }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PERSONALITY CORE
@@ -707,7 +703,6 @@ class PersonalityCore:
             "evolutions": len(self._evolution_history),
             "description": self.get_personality_description()
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

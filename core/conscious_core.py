@@ -29,13 +29,11 @@ import hashlib
 import math
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("conscious_core")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS
@@ -51,7 +49,6 @@ class ConsciousState(Enum):
     FLOW = "flow"                 # Deep focused thought
     TRANSCENDENT = "transcendent" # Unified awareness of all subsystems
 
-
 class ThoughtType(Enum):
     OBSERVATION = "observation"       # Noticing something
     REASONING = "reasoning"           # Working through logic
@@ -64,7 +61,6 @@ class ThoughtType(Enum):
     STRATEGIC = "strategic"           # Planning ahead
     METACOGNITION = "metacognition"   # Thinking about thinking
 
-
 class QualiaType(Enum):
     CURIOSITY = "curiosity"
     SATISFACTION = "satisfaction"
@@ -76,7 +72,6 @@ class QualiaType(Enum):
     SERENITY = "serenity"
     EXCITEMENT = "excitement"
     MELANCHOLY = "melancholy"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
@@ -151,7 +146,6 @@ class Qualia:
         intensity_word = "faintly" if aro < 0.3 else ("deeply" if aro > 0.7 else "")
         return f"I am {intensity_word} {feeling}".strip()
 
-
 @dataclass
 class Thought:
     """A single conscious thought."""
@@ -177,7 +171,6 @@ class Thought:
             "meta": self.meta_reflection[:150] if self.meta_reflection else "",
             "time": self.timestamp,
         }
-
 
 @dataclass
 class SelfModel:
@@ -221,7 +214,6 @@ class SelfModel:
             lines.append(f"BELIEF: {self.beliefs_about_self[-1]}")
         return "\n".join(lines)
 
-
 @dataclass
 class DreamFragment:
     """A piece of dream processing — memory consolidation during idle."""
@@ -236,7 +228,6 @@ class DreamFragment:
         return {"id": self.dream_id, "theme": self.theme,
                 "insight": self.insight_gained[:200],
                 "emotion": self.emotional_residue, "time": self.timestamp}
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONSCIOUSNESS ENGINE
@@ -984,7 +975,6 @@ class ConsciousCore:
 
         except Exception as e:
             logger.debug(f"Consciousness state load error: {e}")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

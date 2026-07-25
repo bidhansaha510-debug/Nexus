@@ -26,14 +26,12 @@ from pathlib import Path
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger, log_consciousness
 from core.event_bus import EventType, Event, event_bus, publish
 
 logger = get_logger("global_workspace")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SIGNAL TYPES
@@ -51,7 +49,6 @@ class SignalType(Enum):
     ATTENTION = "attention"
     NOVELTY = "novelty"
 
-
 class SignalPriority(Enum):
     """Priority levels for signals"""
     BACKGROUND = 0
@@ -59,7 +56,6 @@ class SignalPriority(Enum):
     HIGH = 2
     CRITICAL = 3
     URGENT = 4
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONSCIOUS SIGNAL
@@ -114,7 +110,6 @@ class ConsciousSignal:
         """Compute decayed salience"""
         decay_factor = math.exp(-self.decay_rate * elapsed_seconds / 10.0)
         return self.salience * decay_factor
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # BROADCAST CONTENT
@@ -182,7 +177,6 @@ class BroadcastContent:
         
         return "\n".join(lines)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SIGNAL COLLECTOR INTERFACE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -199,7 +193,6 @@ class SignalCollector:
     def collect(self) -> List[ConsciousSignal]:
         """Override to collect signals from your engine"""
         return []
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL WORKSPACE
@@ -1107,13 +1100,11 @@ class GlobalWorkspace:
             **self._stats
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 global_workspace = GlobalWorkspace()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

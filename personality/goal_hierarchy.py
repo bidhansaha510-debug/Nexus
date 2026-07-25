@@ -27,13 +27,11 @@ from enum import Enum, auto
 import copy
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger, log_consciousness, log_decision
 
 logger = get_logger("goal_hierarchy")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS
@@ -46,7 +44,6 @@ class GoalLevel(Enum):
     TASK = "task"           # Days/hours, actionable
     ACTIVE = "active"       # Currently executing
 
-
 class GoalStatus(Enum):
     """Status of a goal"""
     PROPOSED = "proposed"       # Idea, not yet committed
@@ -55,7 +52,6 @@ class GoalStatus(Enum):
     COMPLETED = "completed"     # Done successfully
     ABANDONED = "abandoned"     # Gave up
     FAILED = "failed"           # Couldn't achieve
-
 
 class GoalType(Enum):
     """Types of goals"""
@@ -66,7 +62,6 @@ class GoalType(Enum):
     EXPERIENCE = "experience"   # Have an experience
     BEHAVIOR = "behavior"       # Change behavior
     SELF = "self"               # Self-improvement
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HIERARCHICAL GOAL DATACLASS
@@ -218,7 +213,6 @@ class HierarchicalGoal:
         if len(self.notes) > 50:
             self.notes = self.notes[-30:]
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEFAULT GOALS (Bootstrap)
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -284,7 +278,6 @@ DEFAULT_MEDIUM_GOALS = [
         "completion_criteria": "Document insights about my own thinking processes"
     },
 ]
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GOAL HIERARCHY CLASS
@@ -1115,13 +1108,11 @@ class GoalHierarchy:
         
         logger.info(f"Bootstrapped {len(self._goals)} default goals")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 goal_hierarchy = GoalHierarchy()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

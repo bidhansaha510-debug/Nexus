@@ -21,8 +21,6 @@ import sys
 import os
 
 # Add project root to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 
 class TestEngineRegistry:
     """Tests for the ENGINE_REGISTRY."""
@@ -45,7 +43,6 @@ class TestEngineRegistry:
             for method in adapter.methods:
                 assert callable(method.invoke), f"{key}.{method.name}: invoke is not callable"
                 assert callable(method.format_result), f"{key}.{method.name}: format_result is not callable"
-
 
 class TestIntentDetection:
     """Tests for keyword/pattern matching — false-positive reduction."""
@@ -127,7 +124,6 @@ class TestIntentDetection:
                 f"Normal message '{msg}' triggered {len(result)} engines: {result}"
             )
 
-
 class TestPatternDeduplication:
     """Tests that conflicting patterns are deduplicated."""
 
@@ -147,7 +143,6 @@ class TestPatternDeduplication:
         result = self._detect("debate this topic for me")
         assert "debate" in result, "'debate this' should match debate"
         assert "dialectic" not in result, "'debate this' should NOT also match dialectic"
-
 
 class TestInputSanitization:
     """Tests for input sanitization."""
@@ -170,7 +165,6 @@ class TestInputSanitization:
     def test_strips_whitespace(self):
         from cognition.cognitive_router import CognitiveRouter
         assert CognitiveRouter._sanitize_input("  hello  ") == "hello"
-
 
 class TestLRUCache:
     """Tests for the LRU cache."""
@@ -207,7 +201,6 @@ class TestLRUCache:
         k2 = _LRUCache.make_key("hello world")
         assert k1 == k2, "Cache keys should be case-insensitive and trim whitespace"
 
-
 class TestEngineMetrics:
     """Tests for the EngineMetrics dataclass."""
 
@@ -226,7 +219,6 @@ class TestEngineMetrics:
         m = EngineMetrics()
         assert m.avg_latency == 0.0
         assert m.failure_rate == 0.0
-
 
 class TestCooldown:
     """Tests for the sliding-window cooldown."""
@@ -259,7 +251,6 @@ class TestCooldown:
             f"Engine should be blocked after appearing {COOLDOWN_MESSAGES} times"
         )
         assert "ethics" in selected
-
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])

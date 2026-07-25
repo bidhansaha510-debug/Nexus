@@ -10,11 +10,9 @@ from datetime import datetime
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from utils.logger import get_logger
 
 logger = get_logger("user_context")
-
 
 class UserChatContext:
     """
@@ -86,7 +84,6 @@ class UserChatContext:
             self.messages.clear()
             self._loaded = False
 
-
 class UserContextManager:
     """
     Manages per-user conversation contexts.
@@ -133,7 +130,6 @@ class UserContextManager:
         """Get count of active user contexts."""
         with self._ctx_lock:
             return len(self._contexts)
-
 
 # Global instance
 user_context_manager = UserContextManager()

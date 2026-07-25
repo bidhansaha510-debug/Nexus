@@ -15,7 +15,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -25,13 +24,11 @@ logger = get_logger("swarm_intelligence")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class SwarmMode(Enum):
     SOLVE = "solve"
     STIGMERGY = "stigmergy"
     FLOCKING = "flocking"
     HIVE_MIND = "hive_mind"
-
 
 @dataclass
 class SwarmAgent:
@@ -41,7 +38,6 @@ class SwarmAgent:
     solution: str = ""
     confidence: float = 0.5
     pheromone_strength: float = 0.0
-
 
 @dataclass
 class SwarmResult:
@@ -66,7 +62,6 @@ class SwarmResult:
             "summary": self.summary,
             "created_at": self.created_at
         }
-
 
 class SwarmIntelligenceEngine:
     """
@@ -309,6 +304,5 @@ class SwarmIntelligenceEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 swarm_intelligence = SwarmIntelligenceEngine()

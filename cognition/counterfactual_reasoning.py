@@ -16,7 +16,6 @@ from pathlib import Path
 import sys
 import re
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -26,7 +25,6 @@ logger = get_logger("counterfactual_reasoning")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class CounterfactualType(Enum):
     UPWARD = "upward"          # Better outcome possible
     DOWNWARD = "downward"      # Worse outcome possible
@@ -35,7 +33,6 @@ class CounterfactualType(Enum):
     ADDITIVE = "additive"      # What if X was added
     SUBTRACTIVE = "subtractive"  # What if X was removed
 
-
 class PlausibilityLevel(Enum):
     IMPOSSIBLE = "impossible"
     IMPLAUSIBLE = "implausible"
@@ -43,7 +40,6 @@ class PlausibilityLevel(Enum):
     PLAUSIBLE = "plausible"
     LIKELY = "likely"
     NEAR_CERTAIN = "near_certain"
-
 
 @dataclass
 class Counterfactual:
@@ -72,7 +68,6 @@ class Counterfactual:
             "lessons_learned": self.lessons_learned,
             "created_at": self.created_at
         }
-
 
 class CounterfactualReasoningEngine:
     """
@@ -246,7 +241,6 @@ class CounterfactualReasoningEngine:
             logger.debug(f"Policy evaluation failed: {e}")
             return {"effectiveness_score": 0.0}
 
-
     def timeline_divergence(self, event: str, change: str) -> Dict[str, Any]:
         """
         Model how a single change creates cascading divergences across time,
@@ -350,6 +344,5 @@ class CounterfactualReasoningEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 counterfactual_reasoning = CounterfactualReasoningEngine()

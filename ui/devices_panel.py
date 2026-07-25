@@ -37,14 +37,11 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, QTimer, QSize, Signal
 from PySide6.QtGui import QFont, QColor, QIcon
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from ui.theme import theme, colors, fonts, spacing, animations, icons, NexusColors
 from ui.widgets import PulsingDot, Section, StatCard
 from utils.logger import get_logger
 
 logger = get_logger("devices_panel")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEVICE TYPE ICONS
@@ -70,7 +67,6 @@ PROTOCOL_LABELS = {
     "http": ("HTTP", colors.warning),
     "none": ("None", colors.text_disabled),
 }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEVICE CARD — compact card shown in the device list
@@ -165,7 +161,6 @@ class DeviceCard(QFrame):
     def mousePressEvent(self, event):
         self.clicked.emit(self._device_id)
         super().mousePressEvent(event)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DETAIL PANEL — right side showing full device info
@@ -414,7 +409,6 @@ class DeviceDetailPanel(QFrame):
                 return f"{int(diff // 86400)}d ago"
         except Exception:
             return iso_str[:19]
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEVICES PANEL — main panel registered in the sidebar

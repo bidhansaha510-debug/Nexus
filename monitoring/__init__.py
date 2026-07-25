@@ -26,13 +26,11 @@ from pathlib import Path
 from datetime import datetime
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, publish
 
 logger = get_logger("monitoring")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LAZY IMPORTS & SINGLETONS
@@ -45,7 +43,6 @@ _health_monitor = None
 _screen_time_tracker = None
 _lock = threading.Lock()
 
-
 def _get_user_tracker():
     global _user_tracker
     if _user_tracker is None:
@@ -54,7 +51,6 @@ def _get_user_tracker():
                 from monitoring.user_tracker import UserTracker
                 _user_tracker = UserTracker()
     return _user_tracker
-
 
 def _get_pattern_analyzer():
     global _pattern_analyzer
@@ -65,7 +61,6 @@ def _get_pattern_analyzer():
                 _pattern_analyzer = PatternAnalyzer()
     return _pattern_analyzer
 
-
 def _get_adaptation_engine():
     global _adaptation_engine
     if _adaptation_engine is None:
@@ -74,7 +69,6 @@ def _get_adaptation_engine():
                 from monitoring.adaptation_engine import AdaptationEngine
                 _adaptation_engine = AdaptationEngine()
     return _adaptation_engine
-
 
 def _get_health_monitor():
     global _health_monitor
@@ -85,7 +79,6 @@ def _get_health_monitor():
                 _health_monitor = SystemHealthMonitor()
     return _health_monitor
 
-
 def _get_screen_time_tracker():
     global _screen_time_tracker
     if _screen_time_tracker is None:
@@ -94,7 +87,6 @@ def _get_screen_time_tracker():
                 from monitoring.screen_time_tracker import ScreenTimeTracker
                 _screen_time_tracker = ScreenTimeTracker()
     return _screen_time_tracker
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MONITORING SYSTEM — Unified Orchestrator
@@ -841,33 +833,26 @@ class MonitoringSystem:
             return f"{hours}h {minutes}m"
         return f"{minutes}m"
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # MODULE-LEVEL SINGLETONS
 # ═══════════════════════════════════════════════════════════════════════════════
 
 monitoring_system = MonitoringSystem()
 
-
 def get_user_tracker():
     return _get_user_tracker()
-
 
 def get_pattern_analyzer():
     return _get_pattern_analyzer()
 
-
 def get_adaptation_engine():
     return _get_adaptation_engine()
-
 
 def get_health_monitor():
     return _get_health_monitor()
 
-
 def get_screen_time_tracker():
     return _get_screen_time_tracker()
-
 
 __all__ = [
     "MonitoringSystem", "monitoring_system",

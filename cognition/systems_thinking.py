@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,12 +23,10 @@ logger = get_logger("systems_thinking")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class FeedbackType(Enum):
     REINFORCING = "reinforcing"
     BALANCING = "balancing"
     DELAY = "delay"
-
 
 class SystemArchetype(Enum):
     LIMITS_TO_GROWTH = "limits_to_growth"
@@ -42,7 +39,6 @@ class SystemArchetype(Enum):
     GROWTH_UNDERINVESTMENT = "growth_underinvestment"
     ACCIDENTAL_ADVERSARIES = "accidental_adversaries"
     ATTRACTIVENESS_PRINCIPLE = "attractiveness_principle"
-
 
 @dataclass
 class SystemModel:
@@ -69,7 +65,6 @@ class SystemModel:
             "emergent_properties": self.emergent_properties,
             "boundaries": self.boundaries, "created_at": self.created_at
         }
-
 
 class SystemsThinkingEngine:
     """
@@ -340,9 +335,7 @@ class SystemsThinkingEngine:
             logger.debug(f"Leverage points analysis failed: {e}")
         return {"error": "Analysis failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 systems_thinking = SystemsThinkingEngine()

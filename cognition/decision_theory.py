@@ -14,14 +14,12 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 import re
 
 logger = get_logger("decision_theory")
-
 
 def _extract_json(text: str) -> dict:
     """Safely extract JSON from LLM response text."""
@@ -46,7 +44,6 @@ def _extract_json(text: str) -> dict:
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class DecisionFramework(Enum):
     EXPECTED_UTILITY = "expected_utility"
     MINIMAX = "minimax"
@@ -59,7 +56,6 @@ class DecisionFramework(Enum):
     PARETO = "pareto"
     COST_BENEFIT = "cost_benefit"
 
-
 class GameType(Enum):
     ZERO_SUM = "zero_sum"
     NON_ZERO_SUM = "non_zero_sum"
@@ -69,7 +65,6 @@ class GameType(Enum):
     STAG_HUNT = "stag_hunt"
     CHICKEN = "chicken"
     COORDINATION = "coordination"
-
 
 @dataclass
 class DecisionOption:
@@ -91,7 +86,6 @@ class DecisionOption:
             "regret_score": self.regret_score,
             "criteria_scores": self.criteria_scores
         }
-
 
 @dataclass
 class Decision:
@@ -116,7 +110,6 @@ class Decision:
             "created_at": self.created_at
         }
 
-
 @dataclass
 class GameAnalysis:
     game_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -140,7 +133,6 @@ class GameAnalysis:
             "recommended_strategy": self.recommended_strategy,
             "reasoning": self.reasoning, "created_at": self.created_at
         }
-
 
 class DecisionTheoryEngine:
     """
@@ -176,7 +168,6 @@ class DecisionTheoryEngine:
 
         self._load_data()
         logger.info("✅ Decision Theory Engine initialized")
-
 
     @staticmethod
     def _safe_parse_json(text: str) -> dict:
@@ -350,7 +341,6 @@ class DecisionTheoryEngine:
             logger.debug(f"Tradeoff analysis failed: {e}")
             return {"tradeoffs": [], "recommendation": "unknown"}
 
-
     def multi_criteria_analysis(self, decision: str) -> Dict[str, Any]:
         """
         Perform a structured multi-criteria analysis with weighted scoring.
@@ -432,6 +422,5 @@ class DecisionTheoryEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 decision_theory = DecisionTheoryEngine()

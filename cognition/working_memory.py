@@ -16,7 +16,6 @@ from collections import deque
 
 import re
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -29,14 +28,12 @@ COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 MAX_BUFFER_SIZE = 20
 MAX_CHUNKS = 7  # Miller's number
 
-
 class MemoryPriority(Enum):
     CRITICAL = "critical"
     HIGH = "high"
     NORMAL = "normal"
     LOW = "low"
     BACKGROUND = "background"
-
 
 @dataclass
 class MemoryItem:
@@ -61,7 +58,6 @@ class MemoryItem:
             "decay_rate": self.decay_rate
         }
 
-
 @dataclass
 class CognitiveChunk:
     chunk_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -76,7 +72,6 @@ class CognitiveChunk:
             "items": self.items, "summary": self.summary,
             "importance": self.importance
         }
-
 
 class WorkingMemoryEngine:
     """
@@ -352,7 +347,6 @@ class WorkingMemoryEngine:
                     pass
         return None
 
-
     def get_stats(self) -> Dict[str, Any]:
             return {
                 "running": self._running,
@@ -361,6 +355,5 @@ class WorkingMemoryEngine:
                 "cognitive_load": self._cognitive_load,
                 **self._stats
             }
-
 
 working_memory = WorkingMemoryEngine()

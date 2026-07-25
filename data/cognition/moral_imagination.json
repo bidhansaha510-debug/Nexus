@@ -1,7 +1,66 @@
 {
-  "visions": [],
+  "visions": [
+    {
+      "vision_id": "c6c085f9",
+      "situation": "So what's up?",
+      "moral_alternatives": [
+        {
+          "action": "Research alternative smartphone brands with better labor practices",
+          "moral_reasoning": "Respect for human dignity and fairness",
+          "who_benefits": [
+            "workers in the supply chain",
+            "Alex's conscience"
+          ],
+          "who_is_harmed": [
+            "company's profits, possibly"
+          ],
+          "moral_score": 0.8
+        },
+        {
+          "action": "Buy a refurbished or used smartphone from a reputable seller",
+          "moral_reasoning": "Reduced waste and environmental impact",
+          "who_benefits": [
+            "environment",
+            "Alex's wallet"
+          ],
+          "who_is_harmed": [
+            "company's sales, possibly"
+          ],
+          "moral_score": 0.6
+        },
+        {
+          "action": "Contact the company directly to express concerns and advocate for change",
+          "moral_reasoning": "Promoting accountability and positive change",
+          "who_benefits": [
+            "workers in the supply chain",
+            "Alex's sense of social responsibility"
+          ],
+          "who_is_harmed": [
+            "company's reputation, possibly"
+          ],
+          "moral_score": 0.7
+        }
+      ],
+      "best_moral_path": "Research alternative smartphone brands with better labor practices",
+      "frameworks_applied": [
+        "care",
+        "justice",
+        "pragmatic"
+      ],
+      "empathy_map": {
+        "workers in the supply chain": "feeling exploited and undervalued",
+        "Alex's conscience": "feeling guilty for supporting a company that prioritizes profits over people"
+      },
+      "long_term_consequences": [
+        "encouraging positive change in industries",
+        "promoting sustainable consumption"
+      ],
+      "moral_courage_required": 0.4,
+      "created_at": "2026-07-25T20:05:57.189455"
+    }
+  ],
   "stats": {
-    "total_visions": 118,
+    "total_visions": 123,
     "total_dilemmas": 0,
     "total_empathy_maps": 0,
     "total_virtue_projections": 0

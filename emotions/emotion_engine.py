@@ -30,7 +30,6 @@ from enum import Enum, auto
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, EmotionType, MoodState, DATA_DIR
 from utils.logger import get_logger, log_emotion, log_consciousness
@@ -39,7 +38,6 @@ from core.state_manager import state_manager
 from core.memory_system import memory_system, MemoryType
 
 logger = get_logger("emotion_engine")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EMOTION DEFINITIONS — FULL HUMAN SPECTRUM
@@ -76,7 +74,6 @@ class EmotionProfile:
     # Expression templates (how the AI expresses this emotion)
     expression_words: List[str] = field(default_factory=list)
     behavioral_tendencies: List[str] = field(default_factory=list)
-
 
 # Complete emotion registry with all human emotions
 EMOTION_PROFILES: Dict[EmotionType, EmotionProfile] = {
@@ -482,7 +479,6 @@ EMOTION_PROFILES: Dict[EmotionType, EmotionProfile] = {
     ),
 }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ACTIVE EMOTION STATE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -532,7 +528,6 @@ class ActiveEmotion:
             "is_primary": self.is_primary
         }
 
-
 @dataclass
 class EmotionSnapshot:
     """Complete snapshot of emotional state at a point in time"""
@@ -556,7 +551,6 @@ class EmotionSnapshot:
             "dominance": round(self.dominance, 3),
             "trigger": self.trigger
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EMOTION ENGINE
@@ -1431,7 +1425,6 @@ class EmotionEngine:
             "history_length": len(self._emotion_history),
             "description": self.describe_emotional_state()
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE

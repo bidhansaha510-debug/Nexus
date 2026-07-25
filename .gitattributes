@@ -1,0 +1,39 @@
+# Normalize line endings across all platforms
+* text=auto
+
+# Python files always use LF
+*.py text eol=lf
+*.pyi text eol=lf
+
+# Config files
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+*.json text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+
+# Markdown / docs
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+
+# Windows-specific
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files — do not touch
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.db binary
+*.sqlite binary
+*.pkl binary
+*.dat binary
+*.whl binary

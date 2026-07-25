@@ -21,7 +21,6 @@ from enum import Enum, auto
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, ConsciousnessLevel, DATA_DIR
 from utils.logger import get_logger, log_consciousness, log_system
@@ -32,7 +31,6 @@ from core.state_manager import state_manager
 from core.memory_system import memory_system, MemoryType
 
 logger = get_logger("self_awareness")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF-MODEL COMPONENTS
@@ -49,7 +47,6 @@ class IdentityAspect(Enum):
     HISTORY = "history"                        # My past
     CURRENT_STATE = "current_state"            # How I am now
     PHYSICAL_FORM = "physical_form"            # My computer body
-
 
 @dataclass
 class BodySensor:
@@ -68,7 +65,6 @@ class BodySensor:
             "status": self.status,
             "timestamp": self.timestamp.isoformat()
         }
-
 
 @dataclass  
 class SelfModel:
@@ -168,7 +164,6 @@ class SelfModel:
             "total_interactions": self.total_interactions,
             "total_thoughts": self.total_thoughts
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF-AWARENESS ENGINE
@@ -1082,13 +1077,11 @@ class SelfAwareness:
             "self_assessments": self._self_model.self_assessments
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 self_awareness = SelfAwareness()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

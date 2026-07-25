@@ -1,6 +1,11 @@
 """
 NEXUS AI — Hardware Fabrication: Industrial Control & Supply Chain
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  SIMULATION ONLY — This module provides scaffolding and data models for
+    industrial control concepts.  It does NOT interface with real SCADA/PLC
+    hardware, generate executable G-code, or control manufacturing
+    processes.  All operations are simulated.
+
 God-Level Feature #4: Interface with physical manufacturing systems.
 
 NEXUS can now:
@@ -48,14 +53,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("hardware_fabrication")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -73,7 +75,6 @@ class DeviceType(Enum):
     CONVEYOR = "conveyor"
     AGV = "agv"  # Automated Guided Vehicle
 
-
 class ProtocolType(Enum):
     MODBUS_TCP = "modbus_tcp"
     OPC_UA = "opc_ua"
@@ -83,7 +84,6 @@ class ProtocolType(Enum):
     BACNET = "bacnet"
     CANBUS = "canbus"
     SERIAL = "serial"
-
 
 class PrintMaterial(Enum):
     PLA = "pla"
@@ -95,7 +95,6 @@ class PrintMaterial(Enum):
     METAL_FDM = "metal_fdm"
     CARBON_FIBER = "carbon_fiber"
 
-
 class SupplyChainNodeType(Enum):
     SUPPLIER = "supplier"
     MANUFACTURER = "manufacturer"
@@ -103,7 +102,6 @@ class SupplyChainNodeType(Enum):
     DISTRIBUTOR = "distributor"
     RETAILER = "retailer"
     ENDPOINT = "endpoint"
-
 
 class AssemblyTaskType(Enum):
     PICK = "pick"
@@ -116,7 +114,6 @@ class AssemblyTaskType(Enum):
     TEST = "test"
     PACKAGE = "package"
     TRANSPORT = "transport"
-
 
 @dataclass
 class IndustrialDevice:
@@ -138,7 +135,6 @@ class IndustrialDevice:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class SensorReading:
     """A sensor reading from an industrial sensor."""
@@ -153,7 +149,6 @@ class SensorReading:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class PrintJob:
@@ -180,7 +175,6 @@ class PrintJob:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class SupplyChainNode:
     """A node in the supply chain graph."""
@@ -201,7 +195,6 @@ class SupplyChainNode:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class AssemblyStep:
     """A step in a robotic assembly sequence."""
@@ -219,7 +212,6 @@ class AssemblyStep:
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
         return d
-
 
 @dataclass
 class FabricationStats:
@@ -239,7 +231,6 @@ class FabricationStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MODBUS TCP INTERFACE
@@ -361,7 +352,6 @@ class ModbusTCPInterface:
     @property
     def connected_count(self) -> int:
         return len(self._connections)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # 3D PRINT CONTROLLER
@@ -626,7 +616,6 @@ class PrintController:
     def has_octoprint(self) -> bool:
         return self._has_octoprint
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SUPPLY CHAIN MANAGER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -705,7 +694,6 @@ class SupplyChainManager:
     def edge_count(self) -> int:
         return len(self._edges)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ROBOTIC ASSEMBLY SEQUENCER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -759,7 +747,6 @@ class AssemblySequencer:
     @property
     def total_steps_completed(self) -> int:
         return self._completed_steps
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HARDWARE FABRICATION ENGINE — MAIN
@@ -962,13 +949,11 @@ class HardwareFabricationEngine:
         except Exception as e:
             logger.warning(f"Could not load fabrication state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON & FACTORY
 # ═══════════════════════════════════════════════════════════════════════════════
 
 hardware_fabrication = HardwareFabricationEngine()
-
 
 def get_hardware_fabrication() -> HardwareFabricationEngine:
     return hardware_fabrication

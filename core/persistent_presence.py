@@ -43,14 +43,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("persistent_presence")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -66,7 +63,6 @@ class TunnelType(Enum):
     SERVEO = "serveo"
     DIRECT = "direct"
 
-
 class TunnelState(Enum):
     """State of a tunnel connection."""
     DISCONNECTED = "disconnected"
@@ -76,7 +72,6 @@ class TunnelState(Enum):
     FAILED = "failed"
     RATE_LIMITED = "rate_limited"
 
-
 class PresenceState(Enum):
     """Overall presence status."""
     OFFLINE = "offline"
@@ -85,14 +80,12 @@ class PresenceState(Enum):
     DEGRADED = "degraded"
     FAILOVER = "failover"
 
-
 class HeartbeatStatus(Enum):
     """Heartbeat check results."""
     ALIVE = "alive"
     TIMEOUT = "timeout"
     UNREACHABLE = "unreachable"
     ERROR = "error"
-
 
 @dataclass
 class TunnelConfig:
@@ -110,7 +103,6 @@ class TunnelConfig:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class TunnelConnection:
@@ -135,7 +127,6 @@ class TunnelConnection:
     def summary(self) -> str:
         return f"{self.tunnel_type}://{self.public_url} [{self.state}]"
 
-
 @dataclass
 class HeartbeatRecord:
     """Record of a heartbeat check."""
@@ -147,7 +138,6 @@ class HeartbeatRecord:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class AccessLogEntry:
@@ -162,7 +152,6 @@ class AccessLogEntry:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class FallbackHost:
@@ -179,7 +168,6 @@ class FallbackHost:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 @dataclass
 class PresenceStats:
@@ -200,7 +188,6 @@ class PresenceStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TUNNEL MANAGER
@@ -532,7 +519,6 @@ class TunnelManager:
         active = self.get_active_tunnels()
         return active[0].public_url if active else ""
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # HEARTBEAT MONITOR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -587,7 +573,6 @@ class HeartbeatMonitor:
                 return 100.0
             alive = sum(1 for h in self._heartbeats if h.status == HeartbeatStatus.ALIVE.value)
             return (alive / len(self._heartbeats)) * 100
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PERSISTENT PRESENCE ENGINE
@@ -876,13 +861,11 @@ class PersistentPresence:
         except Exception as e:
             logger.warning(f"Could not load presence state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 persistent_presence = PersistentPresence()
-
 
 def get_persistent_presence() -> PersistentPresence:
     return persistent_presence

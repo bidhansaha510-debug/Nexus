@@ -33,14 +33,11 @@ from pathlib import Path
 from collections import defaultdict, deque
 from enum import Enum, auto
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR, BASE_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, publish, subscribe, Event
 
 logger = get_logger("code_monitor")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -52,7 +49,6 @@ class ErrorSeverity(Enum):
     ERROR = "error"
     CRITICAL = "critical"
 
-
 class ErrorType(Enum):
     SYNTAX = "syntax"
     IMPORT = "import"
@@ -61,13 +57,11 @@ class ErrorType(Enum):
     QUALITY = "quality"
     COMPILATION = "compilation"
 
-
 class FileStatus(Enum):
     HEALTHY = "healthy"
     WARNING = "warning"
     ERROR = "error"
     UNKNOWN = "unknown"
-
 
 @dataclass
 class CodeError:
@@ -94,7 +88,6 @@ class CodeError:
         d["severity"] = self.severity.value
         return d
 
-
 @dataclass
 class FileInfo:
     """Tracked info about a source file"""
@@ -118,7 +111,6 @@ class FileInfo:
         d["status"] = self.status.value
         return d
 
-
 @dataclass
 class MonitorStats:
     """Code monitor statistics"""
@@ -133,7 +125,6 @@ class MonitorStats:
     last_scan_duration_seconds: float = 0.0
     last_error_found: str = ""
     uptime_seconds: float = 0.0
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CODE ANALYZER — Static Analysis Tools
@@ -432,7 +423,6 @@ class CodeAnalyzer:
                 return sum(1 for _ in f)
         except Exception:
             return 0
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CODE MONITOR
@@ -1237,13 +1227,11 @@ class CodeMonitor:
             "scan_interval": self._scan_interval
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 code_monitor = CodeMonitor()
-
 
 if __name__ == "__main__":
     monitor = CodeMonitor()

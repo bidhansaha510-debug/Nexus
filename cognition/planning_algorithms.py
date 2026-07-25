@@ -33,7 +33,6 @@ import heapq
 import copy
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -52,13 +51,11 @@ class PlanStatus(Enum):
     FAILURE = "failure"
     INVALID = "invalid"
 
-
 class ActionType(Enum):
     """Types of planning actions"""
     PRIMITIVE = "primitive"      # Directly executable
     COMPOUND = "compound"        # Requires decomposition
     CONDITIONAL = "conditional"  # Branches based on conditions
-
 
 @dataclass
 class State:
@@ -93,7 +90,6 @@ class State:
     def to_dict(self) -> Dict:
         return {"variables": self.variables}
 
-
 @dataclass
 class Action:
     """A planning action"""
@@ -127,7 +123,6 @@ class Action:
             "description": self.description,
         }
 
-
 @dataclass
 class Plan:
     """A sequence of actions"""
@@ -155,7 +150,6 @@ class Plan:
             "length": self.length(),
         }
 
-
 @dataclass
 class SearchNode:
     """A node in the search tree"""
@@ -178,7 +172,6 @@ class SearchNode:
                 actions.append(node.action)
             node = node.parent
         return list(reversed(actions))
-
 
 @dataclass
 class MCTSNode:
@@ -209,7 +202,6 @@ class MCTSNode:
         """Select best child using UCB1"""
         return max(self.children, key=lambda c: c.ucb1(exploration_weight))
 
-
 @dataclass
 class HTNMethod:
     """A method for decomposing a compound task"""
@@ -227,7 +219,6 @@ class HTNMethod:
             "preconditions": self.preconditions,
             "subtasks": self.subtasks,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PLANNING ALGORITHMS ENGINE
@@ -841,13 +832,11 @@ class PlanningAlgorithms:
             "htn_methods": sum(len(methods) for methods in self._htn_methods.values()),
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 planning_algorithms = PlanningAlgorithms()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

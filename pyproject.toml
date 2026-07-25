@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-ai"
+version = "0.11.0"
+description = "NEXUS AI — Autonomous AGI System"
+requires-python = ">=3.10"
+readme = "README.md"
+
+[tool.setuptools.packages.find]
+include = ["core*", "llm*", "cognition*", "consciousness*", "emotions*",
+           "learning*", "memory*", "monitoring*", "personality*",
+           "self_improvement*", "ui*", "utils*", "body*", "mobile*",
+           "scripts*", "deploy*"]
+
+[tool.setuptools]
+py-modules = ["config", "main"]

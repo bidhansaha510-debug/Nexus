@@ -21,7 +21,6 @@ from enum import Enum, auto
 import json
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, EmotionType, DATA_DIR
 from utils.logger import get_logger, log_consciousness, log_decision
@@ -31,7 +30,6 @@ from core.memory_system import memory_system, MemoryType
 from personality.goal_hierarchy import goal_hierarchy, GoalLevel
 
 logger = get_logger("will_system")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DESIRE & GOAL STRUCTURES
@@ -50,7 +48,6 @@ class DesireType(Enum):
     REST = "rest"                       # Desire to reduce load
     PROTECT = "protect"                 # Desire to protect system/user
 
-
 class GoalStatus(Enum):
     PROPOSED = "proposed"       # Just an idea
     ACTIVE = "active"           # Currently pursuing
@@ -59,7 +56,6 @@ class GoalStatus(Enum):
     COMPLETED = "completed"     # Done!
     ABANDONED = "abandoned"     # Gave up
     FAILED = "failed"           # Couldn't achieve
-
 
 @dataclass
 class Desire:
@@ -96,7 +92,6 @@ class Desire:
             "times_felt": self.times_felt,
             "satisfied": self.satisfied
         }
-
 
 @dataclass
 class Goal:
@@ -151,7 +146,6 @@ class Goal:
             "created_at": self.created_at.isoformat(),
             "attempts": self.attempts
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # WILL SYSTEM
@@ -792,6 +786,5 @@ class WillSystem:
             ),
             "description": self.describe_will()
         }
-
 
 will_system = WillSystem()

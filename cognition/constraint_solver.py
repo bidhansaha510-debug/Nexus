@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -23,7 +22,6 @@ logger = get_logger("constraint_solver")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 class ConstraintType(Enum):
     HARD = "hard"
@@ -36,7 +34,6 @@ class ConstraintType(Enum):
     RESOURCE = "resource"
     LOGICAL = "logical"
 
-
 class OptimizationGoal(Enum):
     MINIMIZE = "minimize"
     MAXIMIZE = "maximize"
@@ -44,14 +41,12 @@ class OptimizationGoal(Enum):
     BALANCE = "balance"
     PARETO = "pareto"
 
-
 class FeasibilityResult(Enum):
     FEASIBLE = "feasible"
     INFEASIBLE = "infeasible"
     PARTIALLY_FEASIBLE = "partially_feasible"
     UNKNOWN = "unknown"
     NEEDS_RELAXATION = "needs_relaxation"
-
 
 @dataclass
 class Constraint:
@@ -67,7 +62,6 @@ class Constraint:
             "description": self.description, "priority": self.priority,
             "relaxable": self.relaxable
         }
-
 
 @dataclass
 class Solution:
@@ -96,7 +90,6 @@ class Solution:
             "reasoning": self.reasoning, "created_at": self.created_at
         }
 
-
 @dataclass
 class Schedule:
     schedule_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -118,7 +111,6 @@ class Schedule:
             "bottlenecks": self.bottlenecks,
             "created_at": self.created_at
         }
-
 
 class ConstraintSolverEngine:
     """
@@ -369,6 +361,5 @@ class ConstraintSolverEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 constraint_solver = ConstraintSolverEngine()

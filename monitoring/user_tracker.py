@@ -39,7 +39,6 @@ from enum import Enum, auto
 import psutil
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # ── Fix pynput/six conflict at module load ──────────────────────
 # six 1.17+ installs a _SixMetaPathImporter into sys.meta_path that
@@ -76,7 +75,6 @@ class ActivityLevel(Enum):
     ACTIVE = "active"
     INTENSE = "intense"
 
-
 @dataclass
 class WindowInfo:
     """Information about the currently active window"""
@@ -94,7 +92,6 @@ class WindowInfo:
             "exe_path": self.exe_path,
             "timestamp": self.timestamp.isoformat()
         }
-
 
 @dataclass
 class ActivitySnapshot:
@@ -143,7 +140,6 @@ class ActivitySnapshot:
             d["active_window"] = self.active_window.to_dict()
         return d
 
-
 @dataclass
 class AppSession:
     """Tracks a single app usage session"""
@@ -163,7 +159,6 @@ class AppSession:
         self.end_time = datetime.now()
         self.duration_seconds = (self.end_time - self.start_time).total_seconds()
 
-
 @dataclass
 class UserSession:
     """Tracks a complete user session (login to idle/logout)"""
@@ -180,7 +175,6 @@ class UserSession:
     @property
     def is_active(self) -> bool:
         return self.end_time is None
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # APPLICATION CATEGORIZER
@@ -280,7 +274,6 @@ class AppCategorizer:
 
         cls._process_cache[key] = "other"
         return "other"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PLATFORM-SPECIFIC WINDOW DETECTION
@@ -476,7 +469,6 @@ class WindowDetector:
 
         return WindowInfo(title="Unknown", process_name="unknown")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # IDLE TIME DETECTOR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -545,7 +537,6 @@ class IdleDetector:
         except Exception:
             pass
         return 0.0
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INPUT ACTIVITY MONITOR (Activity levels only — NOT a keylogger)
@@ -672,7 +663,6 @@ class InputActivityMonitor:
         events_per_sec = count / window_seconds
         return min(1.0, events_per_sec / 50.0)  # Mouse generates many events
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENHANCED DETECTORS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -717,7 +707,6 @@ class ClipboardTypeDetector:
                 user32.CloseClipboard()
         except Exception:
             return "unknown"
-
 
 class MultiMonitorDetector:
     """
@@ -786,7 +775,6 @@ class MultiMonitorDetector:
         except Exception:
             return {"count": 1, "active_index": 0, "monitors": []}
 
-
 class BrowserTabEstimator:
     """
     Estimate browser tab count using process heuristics.
@@ -821,7 +809,6 @@ class BrowserTabEstimator:
         except Exception:
             return 0
 
-
 class WindowMetadataDetector:
     """
     Enhanced window metadata: total open window count.
@@ -854,7 +841,6 @@ class WindowMetadataDetector:
             return count
         except Exception:
             return 0
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # USER TRACKER — Main Class
@@ -1829,7 +1815,6 @@ class UserTracker:
             "open_window_count": self._open_window_count,
             "virtual_desktop_id": self._virtual_desktop_id,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MODULE-LEVEL SINGLETON

@@ -17,3 +17,17 @@ variables:
   SECRET_DETECTION_ENABLED: 'true'
 secret_detection:
   stage: secret-detection
+
+# ── Unit Tests ────────────────────────────────────────────────────
+unit_tests:
+  stage: test
+  image: python:3.10-slim
+  before_script:
+    - pip install -e ".[dev]" 2>/dev/null || pip install -e .
+    - pip install pytest pytest-timeout
+  script:
+    - pytest tests/ -x --tb=short -q -m "not slow and not integration"
+  allow_failure: false
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

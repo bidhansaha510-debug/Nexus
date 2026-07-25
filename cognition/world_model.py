@@ -32,16 +32,13 @@ from collections import defaultdict
 import statistics
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
-
 
 from utils.logger import get_logger, log_learning
 from core.event_bus import event_bus, EventType, publish, subscribe
 
 logger = get_logger("world_model")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS
@@ -63,7 +60,6 @@ class InteractionType(Enum):
     PRAISE = "praise"
     COMMAND = "command"
 
-
 class EmotionalOutcome(Enum):
     """Possible emotional outcomes from interactions"""
     POSITIVE_ENGAGED = "positive_engaged"
@@ -78,7 +74,6 @@ class EmotionalOutcome(Enum):
     ANNOYED = "annoyed"
     TRUSTING = "trusting"
 
-
 class TaskOutcome(Enum):
     """Possible task outcomes"""
     SUCCESS = "success"
@@ -88,7 +83,6 @@ class TaskOutcome(Enum):
     ESCALATED = "escalated"
     RETRY_NEEDED = "retry_needed"
 
-
 class ResourceImpact(Enum):
     """Resource impact levels"""
     NEGLIGIBLE = "negligible"
@@ -96,7 +90,6 @@ class ResourceImpact(Enum):
     MODERATE = "moderate"
     HIGH = "high"
     CRITICAL = "critical"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA STRUCTURES
@@ -211,7 +204,6 @@ class UserReactionPattern:
         # Update confidence based on sample count
         self.confidence = min(1.0, self.sample_count / 10.0)  # Max confidence at 10 samples
 
-
 @dataclass
 class EmotionalResponsePattern:
     """
@@ -275,7 +267,6 @@ class EmotionalResponsePattern:
             first_observed=data.get("first_observed", datetime.now().isoformat()),
             last_observed=data.get("last_observed", datetime.now().isoformat())
         )
-
 
 @dataclass
 class ResourceConsequence:
@@ -373,7 +364,6 @@ class ResourceConsequence:
         
         self.last_observed = datetime.now().isoformat()
 
-
 @dataclass
 class TaskSuccessRecord:
     """
@@ -448,7 +438,6 @@ class TaskSuccessRecord:
             user_satisfaction=data.get("user_satisfaction", 0.5),
             timestamp=data.get("timestamp", datetime.now().isoformat())
         )
-
 
 @dataclass
 class EnvironmentState:
@@ -539,7 +528,6 @@ class EnvironmentState:
         
         self.day_of_week = now.strftime("%A").lower()
         self.last_updated = now.isoformat()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # WORLD MODEL ENGINE
@@ -1476,18 +1464,15 @@ Respond ONLY with JSON:
             **self._stats
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 world_model = WorldModel()
 
-
 def get_world_model() -> WorldModel:
     """Get the global world model instance"""
     return world_model
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

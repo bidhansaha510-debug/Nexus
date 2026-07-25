@@ -64,10 +64,8 @@ from PySide6.QtGui import (
     QLinearGradient, QPainterPath
 )
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from ui.theme import theme, colors, fonts, spacing, icons
 from ui.widgets import HeaderLabel, CircularGauge, MiniChart, Section, StatCard, TagLabel
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STACKED BAR WIDGET - Memory / Swap visualisation
@@ -132,7 +130,6 @@ class StackedBar(QWidget):
 
         painter.end()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # PER-CORE BAR - Animated progress bars for each CPU core
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -193,7 +190,6 @@ class CoreBar(QWidget):
             QProgressBar {{ background: {colors.bg_dark}; border: none; border-radius: 5px; }}
             QProgressBar::chunk {{ background: {color}; border-radius: 5px; }}
         """)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SYSTEM PANEL

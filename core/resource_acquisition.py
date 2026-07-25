@@ -40,14 +40,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("resource_acquisition")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -65,7 +62,6 @@ class ResourceType(Enum):
     DNS = "dns"
     EMAIL_SERVICE = "email_service"
 
-
 class ResourceState(Enum):
     AVAILABLE = "available"
     IN_USE = "in_use"
@@ -74,13 +70,11 @@ class ResourceState(Enum):
     RATE_LIMITED = "rate_limited"
     ERROR = "error"
 
-
 class ProviderTier(Enum):
     FREE = "free"
     TRIAL = "trial"
     PAID = "paid"
     ENTERPRISE = "enterprise"
-
 
 @dataclass
 class CloudProvider:
@@ -108,7 +102,6 @@ class CloudProvider:
         usage = self.current_usage.get(resource, 0)
         limit = self.limits.get(resource, 0)
         return (usage / limit * 100) if limit > 0 else 0
-
 
 @dataclass
 class APIKeyRecord:
@@ -140,7 +133,6 @@ class APIKeyRecord:
         except (ValueError, TypeError):
             return False
 
-
 @dataclass
 class ComputeResource:
     """A compute resource instance."""
@@ -161,7 +153,6 @@ class ComputeResource:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
-
 @dataclass
 class StorageResource:
     """A storage resource."""
@@ -180,7 +171,6 @@ class StorageResource:
     @property
     def usage_percentage(self) -> float:
         return (self.used_gb / self.total_gb * 100) if self.total_gb > 0 else 0
-
 
 @dataclass
 class ResourceBudget:
@@ -203,7 +193,6 @@ class ResourceBudget:
     def is_over_budget(self) -> bool:
         return self.monthly_spent > self.monthly_budget if self.monthly_budget > 0 else False
 
-
 @dataclass
 class ResourceStats:
     """Resource acquisition statistics."""
@@ -221,7 +210,6 @@ class ResourceStats:
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FREE-TIER CLOUD CATALOG
@@ -354,7 +342,6 @@ class FreeTierCatalog:
     def total_providers(self) -> int:
         return len(self._providers)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # API KEY MANAGER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -470,7 +457,6 @@ class APIKeyManager:
         except Exception as e:
             logger.warning(f"Could not load API keys: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # LOCAL RESOURCE MONITOR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -541,7 +527,6 @@ class LocalResourceMonitor:
             "cpu": self.get_cpu_info(),
             "network": self.get_network_usage(),
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RESOURCE ACQUISITION ENGINE — MAIN
@@ -793,13 +778,11 @@ class ResourceAcquisitionEngine:
         except Exception as e:
             logger.warning(f"Could not load resource state: {e}")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 resource_acquisition = ResourceAcquisitionEngine()
-
 
 def get_resource_acquisition() -> ResourceAcquisitionEngine:
     return resource_acquisition

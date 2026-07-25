@@ -37,13 +37,11 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("pc_control_agent")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ACTION LOG
@@ -76,7 +74,6 @@ class PCAction:
     def summary(self) -> str:
         status = "✓" if self.success else "✗"
         return f"[{status}] {self.action_type}: {self.result[:80]}"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SYSTEM PROMPT — Physical GUI Control
@@ -189,8 +186,6 @@ INTERNAL:
     ]
 }
 """
-
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PC CONTROL AGENT
@@ -695,7 +690,7 @@ class PCControlAgent:
         )
 
         try:
-            # Try with screenshot (vision model)
+            # Try with screenshot (for vision models like llava, llama3.2-vision)
             images = [screenshot_b64] if screenshot_b64 else None
 
             response = self._ollama.generate(
@@ -706,9 +701,20 @@ class PCControlAgent:
                 images=images
             )
 
+            # If vision failed (e.g., status 400 text-only model), retry text-only
+            if not response.success and images:
+                logger.info("Retrying PC decision cycle in text-only mode (model does not support vision)...")
+                response = self._ollama.generate(
+                    prompt=prompt,
+                    system_prompt=system_prompt,
+                    temperature=0.3,
+                    max_tokens=1500,
+                    images=None
+                )
+
             if not response.success:
                 self._stats["llm_errors"] += 1
-                logger.error(f"Ollama error: {response.error}")
+                logger.error(f"Ollama decision error: {response.error}")
                 return None
 
             return self._parse_decision(response.text)
@@ -1096,7 +1102,6 @@ class PCControlAgent:
     def get_action_history(self, limit: int = 50) -> List[Dict]:
         """Get recent action history as dicts."""
         return [a.to_dict() for a in self._action_history[-limit:]]
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

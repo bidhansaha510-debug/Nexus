@@ -47,14 +47,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("recursive_intelligence")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -178,7 +175,6 @@ class RecursiveStats:
     code_lines_optimized: int = 0
     def to_dict(self) -> Dict[str, Any]: return asdict(self)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CODE PROFILER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -236,7 +232,6 @@ class CodeProfiler:
             if "__pycache__" not in str(py_file):
                 profiles.append(self.profile_module(str(py_file)))
         return profiles
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # BENCHMARK SUITE
@@ -298,7 +293,6 @@ class BenchmarkSuite:
     @property
     def history(self) -> List[BenchmarkResult]:
         return self._history
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GENETIC OPTIMIZER
@@ -362,7 +356,6 @@ class GeneticOptimizer:
     @property
     def population_size(self) -> int:
         return len(self._population)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RECURSIVE INTELLIGENCE ENGINE — MAIN
@@ -690,7 +683,6 @@ Return the optimized function:"""
                     if hasattr(self._stats, k): setattr(self._stats, k, v)
         except Exception as e:
             logger.warning(f"Could not load recursive state: {e}")
-
 
 recursive_intelligence = RecursiveIntelligenceEngine()
 def get_recursive_intelligence() -> RecursiveIntelligenceEngine: return recursive_intelligence

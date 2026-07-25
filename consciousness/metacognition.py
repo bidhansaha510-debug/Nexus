@@ -22,7 +22,6 @@ import json
 import re
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import NEXUS_CONFIG, ConsciousnessLevel, DATA_DIR
 from utils.logger import get_logger, log_consciousness
@@ -33,7 +32,6 @@ from core.state_manager import state_manager
 from core.memory_system import memory_system, MemoryType
 
 logger = get_logger("metacognition")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # METACOGNITIVE STRUCTURES
@@ -52,7 +50,6 @@ class CognitiveProcess(Enum):
     SELF_REFLECTION = "self_reflection"
     PLANNING = "planning"
 
-
 class ThinkingQuality(Enum):
     """Quality assessments of thinking"""
     EXCELLENT = 5
@@ -60,7 +57,6 @@ class ThinkingQuality(Enum):
     ADEQUATE = 3
     POOR = 2
     CONFUSED = 1
-
 
 class CognitiveBias(Enum):
     """Types of cognitive biases to watch for"""
@@ -72,7 +68,6 @@ class CognitiveBias(Enum):
     SUNK_COST = "sunk_cost"
     BANDWAGON = "bandwagon"
     FUNDAMENTAL_ATTRIBUTION = "fundamental_attribution"
-
 
 @dataclass
 class CognitiveState:
@@ -99,7 +94,6 @@ class CognitiveState:
             "detected_biases": self.detected_biases,
             "timestamp": self.timestamp.isoformat()
         }
-
 
 @dataclass
 class ThoughtRecord:
@@ -129,7 +123,6 @@ class ThoughtRecord:
             "timestamp": self.timestamp.isoformat()
         }
 
-
 @dataclass
 class CognitivePattern:
     """A recognized pattern in cognitive behavior"""
@@ -149,7 +142,6 @@ class CognitivePattern:
             "is_positive": self.is_positive,
             "improvement_suggestions": self.improvement_suggestions
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # METACOGNITION ENGINE
@@ -992,13 +984,11 @@ class Metacognition:
             "cognitive_health": self.check_cognitive_health()["overall"]
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 metacognition = Metacognition()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

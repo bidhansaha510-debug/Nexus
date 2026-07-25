@@ -26,7 +26,6 @@ from pathlib import Path
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_decision
@@ -34,7 +33,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("ethical_reasoning")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -49,7 +47,6 @@ class EthicalFramework(Enum):
     RIGHTS_BASED = "rights_based"        # Individual rights focus
     PRAGMATIC = "pragmatic"              # Practical consequences
 
-
 class EthicalVerdict(Enum):
     """Outcome of ethical evaluation"""
     ETHICAL = "ethical"
@@ -58,7 +55,6 @@ class EthicalVerdict(Enum):
     CONCERNING = "concerning"
     UNETHICAL = "unethical"
     COMPLEX = "complex"  # No clear verdict, genuine dilemma
-
 
 @dataclass
 class FrameworkAssessment:
@@ -77,7 +73,6 @@ class FrameworkAssessment:
             "reasoning": self.reasoning,
             "key_principle": self.key_principle,
         }
-
 
 @dataclass
 class EthicalAssessment:
@@ -141,7 +136,6 @@ class EthicalAssessment:
             created_at=data.get("created_at", ""),
         )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CORE VALUES (NEXUS's built-in moral compass)
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -158,7 +152,6 @@ CORE_VALUES = {
     "growth": "Support learning and personal development",
     "safety": "Prioritize safety over convenience",
 }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ETHICAL REASONING ENGINE
@@ -425,7 +418,6 @@ class EthicalReasoningEngine:
 
         return {"aligned": True, "confidence": 0.0, "explanation": "Check failed"}
 
-
     def dilemma_resolver(self, dilemma: str) -> Dict[str, Any]:
         """
         Resolve a complex ethical dilemma by applying multiple ethical frameworks
@@ -582,7 +574,6 @@ class EthicalReasoningEngine:
             "total_alignment_checks": self._total_alignment_checks,
             "core_values_count": len(self._core_values),
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

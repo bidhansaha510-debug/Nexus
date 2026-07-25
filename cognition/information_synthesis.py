@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("information_synthesis")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class SynthesisType(Enum):
     SUMMARY = "summary"
     COMPARISON = "comparison"
@@ -32,7 +30,6 @@ class SynthesisType(Enum):
     DISTILLATION = "distillation"
     NARRATIVE = "narrative"
     FRAMEWORK = "framework"
-
 
 @dataclass
 class Synthesis:
@@ -56,7 +53,6 @@ class Synthesis:
             "gaps_identified": self.gaps_identified,
             "created_at": self.created_at
         }
-
 
 class InformationSynthesisEngine:
     """
@@ -297,9 +293,7 @@ class InformationSynthesisEngine:
             logger.debug(f"Meta-analysis failed: {e}")
         return {"error": "Meta-analysis failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 information_synthesis = InformationSynthesisEngine()

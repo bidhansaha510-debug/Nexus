@@ -32,7 +32,6 @@ from collections import defaultdict
 from enum import Enum, auto
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -65,7 +64,6 @@ class EntityType(Enum):
     EFFECT = "effect"
     UNKNOWN = "unknown"
 
-
 class RelationType(Enum):
     """Types of relationships between entities"""
     IS_A = "is_a"                    # Taxonomy
@@ -83,7 +81,6 @@ class RelationType(Enum):
     USED_FOR = "used_for"            # Purpose
     SIMILAR_TO = "similar_to"        # Similarity
     DEPENDS_ON = "depends_on"        # Dependency
-
 
 @dataclass
 class Entity:
@@ -124,7 +121,6 @@ class Entity:
             access_count=data.get("access_count", 0),
         )
 
-
 @dataclass
 class Relation:
     """An edge in the knowledge graph"""
@@ -162,7 +158,6 @@ class Relation:
             created_at=data.get("created_at", ""),
         )
 
-
 @dataclass
 class GraphPath:
     """A path through the knowledge graph"""
@@ -180,7 +175,6 @@ class GraphPath:
             "confidence": self.confidence,
             "length": self.length,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # KNOWLEDGE GRAPH ENGINE
@@ -985,13 +979,11 @@ class KnowledgeGraph:
 
         logger.warning("Knowledge graph cleared")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 knowledge_graph = KnowledgeGraph()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

@@ -64,8 +64,6 @@ from PySide6.QtGui import (
     QAction, QKeySequence, QShortcut, QDesktopServices,
 )
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from ui.theme import theme, colors, fonts, spacing, animations, icons, NexusColors
 from ui.widgets import (
     HeaderLabel, Separator, PulsingDot, EmotionBadge,
@@ -80,7 +78,6 @@ from core.voice_engine import voice_engine  # <--- ADDED VOICE ENGINE
 from core.chat_session_manager import chat_session_manager
 
 logger = get_logger("chat_panel")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # RESPONSE WORKER — Streams tokens from the brain on a background thread
@@ -132,7 +129,6 @@ class ResponseWorker(QObject):
             self.error_occurred.emit(str(e))
         finally:
             self.finished.emit()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CHAT INPUT — Multi-line input with Enter/Shift+Enter
@@ -199,7 +195,6 @@ class ChatInput(QTextEdit):
         new_height = max(52, min(int(doc_height) + 24, 160))
         self.setFixedHeight(new_height)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # MESSAGE DATA
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -231,7 +226,6 @@ class ChatMessage:
             "emotion": self.emotion,
             "emotion_intensity": self.emotion_intensity,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CHAT DISPLAY — Renders messages as styled HTML
@@ -624,7 +618,6 @@ class ChatDisplay(QTextBrowser):
 
     def get_message_count(self) -> int:
         return len(self._messages)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CHAT PANEL — Full chat interface
@@ -1538,7 +1531,6 @@ class ChatPanel(QFrame):
                 logger.debug(f"Saved {len(messages)} messages to session")
         except Exception as e:
             logger.error(f"Failed to save session: {e}")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STANDALONE TEST

@@ -60,8 +60,6 @@ from PySide6.QtGui import (
     QFont, QColor, QBrush, QIcon,
 )
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from ui.theme import theme, colors, fonts, spacing, animations, icons, NexusColors
 from ui.widgets import (
     StatCard, HeaderLabel, Separator, Section, KeyValueRow,
@@ -70,7 +68,6 @@ from ui.widgets import (
 from utils.logger import get_logger
 
 logger = get_logger("evolution_panel")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EVOLUTION PROGRESS WIDGET — Shows current evolution pipeline status
@@ -365,7 +362,6 @@ class EvolutionProgressWidget(GlowCard):
                     parent_layout.insertWidget(i, new_tag)
                     return new_tag
         return new_tag
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PROPOSAL TABLE — Browsable list of feature proposals
@@ -696,7 +692,6 @@ class ProposalTable(QFrame):
 
         self._detail.setHtml(html)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # EVOLUTION HISTORY — Timeline of past evolutions
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -786,7 +781,6 @@ class EvolutionHistory(QFrame):
 
         self._list.setHtml("\n".join(html_parts))
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CODE HEALTH WIDGET
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -873,7 +867,6 @@ class CodeHealthWidget(QFrame):
             f"font-size: {fonts.size_xs}px; }} "
             f"QProgressBar::chunk {{ background: {bar_color}; border-radius: 6px; }}"
         )
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EVOLUTION PANEL — Main panel
@@ -1371,7 +1364,6 @@ class EvolutionPanel(QFrame):
             f"border-color: {colors.accent_cyan}; "
             f"}}"
         )
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STANDALONE TEST

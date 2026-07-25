@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,12 +23,10 @@ logger = get_logger("emotional_intelligence")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class EmpathyType(Enum):
     COGNITIVE = "cognitive"
     AFFECTIVE = "affective"
     COMPASSIONATE = "compassionate"
-
 
 class RegulationStrategy(Enum):
     REAPPRAISAL = "reappraisal"
@@ -43,13 +40,11 @@ class RegulationStrategy(Enum):
     HUMOR = "humor"
     PHYSICAL_ACTIVITY = "physical_activity"
 
-
 class EmotionalGranularity(Enum):
     BASIC = "basic"
     MODERATE = "moderate"
     NUANCED = "nuanced"
     EXPERT = "expert"
-
 
 @dataclass
 class EmpathyResponse:
@@ -77,7 +72,6 @@ class EmpathyResponse:
             "confidence": self.confidence, "created_at": self.created_at
         }
 
-
 @dataclass
 class RegulationPlan:
     plan_id: str = field(default_factory=lambda: str(uuid.uuid4())[:8])
@@ -100,7 +94,6 @@ class RegulationPlan:
             "long_term_suggestions": self.long_term_suggestions,
             "created_at": self.created_at
         }
-
 
 @dataclass
 class EQAssessment:
@@ -126,7 +119,6 @@ class EQAssessment:
             "strengths": self.strengths, "growth_areas": self.growth_areas,
             "created_at": self.created_at
         }
-
 
 class EmotionalIntelligenceEngine:
     """
@@ -163,7 +155,6 @@ class EmotionalIntelligenceEngine:
 
         self._load_data()
         logger.info("✅ Emotional Intelligence Engine initialized")
-
 
     @staticmethod
     def _safe_parse_json(text: str) -> dict:
@@ -475,9 +466,7 @@ class EmotionalIntelligenceEngine:
             logger.debug(f"Emotional forecast failed: {e}")
         return {"error": "Forecast failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 emotional_intelligence = EmotionalIntelligenceEngine()

@@ -18,7 +18,6 @@ from pathlib import Path
 import psutil
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -26,7 +25,6 @@ from core.event_bus import event_bus, EventType, publish
 from core.state_manager import state_manager
 
 logger = get_logger("self_model")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS
@@ -57,7 +55,6 @@ class CapabilityLevel(Enum):
         else:
             return cls.MASTERY
 
-
 class LimitationSeverity(Enum):
     """Severity of a limitation"""
     MINOR = 1        # Inconvenience, easily worked around
@@ -65,7 +62,6 @@ class LimitationSeverity(Enum):
     SIGNIFICANT = 3  # Major constraint on capabilities
     CRITICAL = 4     # Blocks entire categories of tasks
     FUNDAMENTAL = 5  # Core architectural limitation, unchangeable
-
 
 class ConfidenceSource(Enum):
     """How confidence was determined"""
@@ -75,7 +71,6 @@ class ConfidenceSource(Enum):
     TESTING = "testing"
     REFLECTION = "reflection"
     DEFAULT = "default"
-
 
 class WeaknessCategory(Enum):
     """Categories of weaknesses"""
@@ -89,7 +84,6 @@ class WeaknessCategory(Enum):
     TEMPORAL = "temporal"      # Memory/time related
     COMMUNICATION = "communication"
     ETHICAL = "ethical"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
@@ -150,7 +144,6 @@ class CapabilityEntry:
         self.level = CapabilityLevel.from_float(self.level_value)
         self.improvement_trajectory.append(self.level_value)
 
-
 @dataclass
 class LimitationEntry:
     """
@@ -204,7 +197,6 @@ class LimitationEntry:
         """Record encountering this limitation"""
         self.last_encountered = datetime.now()
         self.encounter_count += 1
-
 
 @dataclass
 class ResourceSnapshot:
@@ -314,7 +306,6 @@ class ResourceSnapshot:
         
         return snapshot
 
-
 @dataclass
 class WeaknessEntry:
     """
@@ -375,7 +366,6 @@ class WeaknessEntry:
         """Update improvement progress"""
         self.improvement_progress = max(0.0, min(1.0, progress))
         self.last_assessed = datetime.now()
-
 
 @dataclass
 class ConfidenceEntry:
@@ -438,7 +428,6 @@ class ConfidenceEntry:
         self.calibration_history.append(self.confidence)
         self.last_updated = datetime.now()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF MODEL
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -494,7 +483,6 @@ class SelfModel:
             "last_updated": self.last_updated.isoformat(),
             "update_count": self.update_count
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SELF MODEL MANAGER
@@ -1383,13 +1371,11 @@ Respond with JSON:
             "resource_history_size": len(self._model.resource_history)
         }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 self_model = SelfModelManager()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

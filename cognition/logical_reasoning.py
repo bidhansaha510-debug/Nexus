@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -25,7 +24,6 @@ logger = get_logger("logical_reasoning")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class LogicType(Enum):
     DEDUCTIVE = "deductive"
     INDUCTIVE = "inductive"
@@ -34,7 +32,6 @@ class LogicType(Enum):
     FUZZY = "fuzzy"
     PROPOSITIONAL = "propositional"
     PREDICATE = "predicate"
-
 
 class FallacyType(Enum):
     AD_HOMINEM = "ad_hominem"
@@ -57,7 +54,6 @@ class FallacyType(Enum):
     COMPOSITION = "composition"
     DIVISION = "division"
     GENETIC = "genetic"
-
 
 @dataclass
 class LogicalArgument:
@@ -84,7 +80,6 @@ class LogicalArgument:
             "created_at": self.created_at
         }
 
-
 @dataclass
 class ProofStep:
     step_number: int = 0
@@ -97,7 +92,6 @@ class ProofStep:
             "step_number": self.step_number, "statement": self.statement,
             "justification": self.justification, "rule_applied": self.rule_applied
         }
-
 
 @dataclass
 class FallacyDetection:
@@ -114,7 +108,6 @@ class FallacyDetection:
             "fallacy_type": self.fallacy_type, "explanation": self.explanation,
             "severity": self.severity, "fix_suggestion": self.fix_suggestion
         }
-
 
 class LogicalReasoningEngine:
     """
@@ -182,7 +175,6 @@ class LogicalReasoningEngine:
             if not data:
                  logger.debug(f"Failed to parse JSON from LLM: {response.text[:100]}")
 
-
             lt_map = {l.value: l for l in LogicType}
 
             arg = LogicalArgument(
@@ -223,7 +215,6 @@ class LogicalReasoningEngine:
             )
             response = llm.generate(prompt, max_tokens=600, temperature=0.4)
             data = extract_json(response.text) or {}
-
 
             lt_map = {l.value: l for l in LogicType}
 
@@ -336,7 +327,6 @@ class LogicalReasoningEngine:
             logger.debug(f"Syllogism evaluation failed: {e}")
             return {"conclusion": "unknown", "is_valid": False}
 
-
     def proof_chain(self, claim: str) -> Dict[str, Any]:
         """
         Build a complete logical proof chain from premises to conclusion,
@@ -418,6 +408,5 @@ class LogicalReasoningEngine:
 
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 logical_reasoning = LogicalReasoningEngine()

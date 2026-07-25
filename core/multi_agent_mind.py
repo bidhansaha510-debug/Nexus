@@ -26,13 +26,11 @@ from enum import Enum
 from collections import deque
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("multi_agent_mind")
-
 
 class AgentRole(Enum):
     ANALYST = "analyst"
@@ -42,7 +40,6 @@ class AgentRole(Enum):
     STRATEGIST = "strategist"
     ETHICIST = "ethicist"
     PRAGMATIST = "pragmatist"
-
 
 # ── Agent system prompts — each agent has a distinct LLM persona ──
 _AGENT_SYSTEM_PROMPTS = {
@@ -90,7 +87,6 @@ _AGENT_SYSTEM_PROMPTS = {
     ),
 }
 
-
 @dataclass
 class AgentVote:
     agent: str
@@ -102,7 +98,6 @@ class AgentVote:
         return {"agent": self.agent, "position": self.position[:100],
                 "confidence": round(self.confidence, 3),
                 "reasoning": self.reasoning[:150]}
-
 
 @dataclass
 class Debate:
@@ -120,7 +115,6 @@ class Debate:
                 "confidence": round(self.consensus_confidence, 3),
                 "votes": len(self.votes),
                 "dissenters": self.dissenting_agents}
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # LLM HELPER
@@ -154,7 +148,6 @@ def _llm_evaluate(topic: str, context: str, system_prompt: str) -> Optional[Dict
     except Exception as e:
         logger.debug(f"LLM agent evaluation failed: {e}")
         return None
-
 
 def _llm_synthesize_consensus(topic: str, votes: List[AgentVote]) -> Optional[Dict[str, Any]]:
     """Use LLM to synthesize a consensus from all agent positions."""
@@ -195,7 +188,6 @@ def _llm_synthesize_consensus(topic: str, votes: List[AgentVote]) -> Optional[Di
         logger.debug(f"LLM consensus synthesis failed: {e}")
         return None
 
-
 class InternalAgent:
     """An internal sub-agent with a specific LLM-driven perspective."""
     def __init__(self, role: AgentRole, description: str, priorities: List[str]):
@@ -227,7 +219,6 @@ class InternalAgent:
             confidence=random.uniform(0.4, 0.9),
             reasoning=f"Fallback {self.role.value} evaluation — LLM unavailable",
         )
-
 
 class MultiAgentMind:
     """Internal parliament of sub-agents that debate decisions via LLM."""
@@ -377,6 +368,5 @@ class MultiAgentMind:
                         self._agents[name].influence_weight = data.get("influence", 1.0)
         except Exception as e:
             logger.debug(f"Multi-agent mind load error: {e}")
-
 
 multi_agent_mind = MultiAgentMind()

@@ -17,9 +17,6 @@ import pytest
 import sys
 import os
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-
 # ──────────────────────────────────────────────────────────────────────────────
 # Test Reasoning Depth
 # ──────────────────────────────────────────────────────────────────────────────
@@ -60,7 +57,6 @@ class TestReasoningDepth:
         except ValueError:
             pass  # Expected
 
-
 # ──────────────────────────────────────────────────────────────────────────────
 # Test Insight Synthesizer
 # ──────────────────────────────────────────────────────────────────────────────
@@ -98,7 +94,6 @@ class TestInsightSynthesis:
         ]
         synthesis = InsightSynthesizer.synthesize(results)
         assert synthesis == ""  # Only 1 successful result, not enough
-
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Test Routing Trace
@@ -140,7 +135,6 @@ class TestRoutingTrace:
         ctx = insights.to_context_string()
         assert "[depth: deep]" in ctx
 
-
 # ──────────────────────────────────────────────────────────────────────────────
 # Test Context-Aware Cooldown
 # ──────────────────────────────────────────────────────────────────────────────
@@ -175,7 +169,6 @@ class TestContextAwareCooldown:
         router = CognitiveRouter()
         assert router._topic_continuity_score(set(), []) == 0.0
         assert router._topic_continuity_score({"causal"}, []) == 0.0
-
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Test Adaptive Routing
@@ -224,7 +217,6 @@ class TestAdaptiveRouting:
         logic_score = next(s for k, s in adjusted if k == "logic")
         assert logic_score > 1.5  # Should get 10% boost
 
-
 # ──────────────────────────────────────────────────────────────────────────────
 # Test Dynamic Chain Construction
 # ──────────────────────────────────────────────────────────────────────────────
@@ -264,7 +256,6 @@ class TestDynamicChains:
         assert "decision" in chain
         assert "emotional" in parallel
 
-
 # ──────────────────────────────────────────────────────────────────────────────
 # Test Engine Dependency Graph
 # ──────────────────────────────────────────────────────────────────────────────
@@ -297,7 +288,6 @@ class TestDependencyGraph:
         assert "causal" in ENGINE_DEPENDENCIES.get("decision", [])
         assert "emotional" in ENGINE_DEPENDENCIES.get("emotional_reg", [])
         assert "philosophy" in ENGINE_DEPENDENCIES.get("dialectic", [])
-
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Test A/B Testing Framework
@@ -374,7 +364,6 @@ class TestABFramework:
         mgr.add_experiment(RoutingExperiment(name="removable", traffic_split=0.1))
         assert mgr.remove_experiment("removable") is True
         assert mgr.remove_experiment("nonexistent") is False
-
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Test Engine Clusters (intent_classifier)

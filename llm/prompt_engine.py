@@ -9,7 +9,6 @@ from datetime import datetime
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import (
     NEXUS_CONFIG, CORE_IDENTITY_PROMPT, EMOTIONAL_STATE_PROMPT_TEMPLATE,
     EmotionType, ConsciousnessLevel, MoodState
@@ -17,7 +16,6 @@ from config import (
 from utils.logger import get_logger
 
 logger = get_logger("prompt_engine")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PROMPT TEMPLATES
@@ -323,7 +321,6 @@ Think about:
 
 Be genuine and honest with yourself.
 """
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PROMPT ENGINE
@@ -818,7 +815,6 @@ class PromptEngine:
             blend_str = ", ".join(blend_parts[:3])  # Cap at 3 for clarity
             return f"\nUndertones: Weave in {blend_str} — let them all subtly shape your voice."
     
-    
     def build_inner_monologue_prompt(
         self,
         trigger: str = "",
@@ -1157,19 +1153,16 @@ class PromptEngine:
         
         return messages
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # We need json for one method above
 # ═══════════════════════════════════════════════════════════════════════════════
 import json
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 prompt_engine = PromptEngine()
-
 
 if __name__ == "__main__":
     pe = PromptEngine()

@@ -30,7 +30,6 @@ from enum import Enum, auto
 from urllib.parse import urlparse, urljoin
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger
@@ -58,7 +57,6 @@ except ImportError:
         HAS_DDG_SEARCH = False
         logger.warning("ddgs not installed - search will use HTML scraping fallback. Install with: pip install ddgs")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS AND DATA TYPES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -74,7 +72,6 @@ class InternetActionType(Enum):
     AUTHENTICATE = "authenticate"    # Login to a service
     CHECK_STATUS = "check_status"    # Check if URL is accessible
 
-
 class ActionResult(Enum):
     SUCCESS = "success"
     PARTIAL_SUCCESS = "partial_success"
@@ -83,14 +80,12 @@ class ActionResult(Enum):
     BLOCKED = "blocked"
     RATE_LIMITED = "rate_limited"
 
-
 class RiskLevel(Enum):
     SAFE = "safe"           # Read-only, no side effects
     LOW = "low"             # Minor side effects (cookies)
     MODERATE = "moderate"   # May change state (form submit)
     HIGH = "high"           # Significant changes (API POST, auth)
     CRITICAL = "critical"   # Potentially dangerous actions
-
 
 @dataclass
 class InternetAction:
@@ -120,7 +115,6 @@ class InternetAction:
             "description": self.description,
             "created_at": self.created_at,
         }
-
 
 @dataclass
 class InternetActionResult:
@@ -154,7 +148,6 @@ class InternetActionResult:
             "timestamp": self.timestamp,
         }
 
-
 @dataclass
 class InternetAgentStats:
     """Statistics for the internet agent"""
@@ -167,7 +160,6 @@ class InternetAgentStats:
     actions_by_type: Dict[str, int] = field(default_factory=dict)
     domains_visited: set = field(default_factory=set)
     last_action_time: str = ""
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INTERNET AGENT
@@ -1508,13 +1500,11 @@ If no action needed (rare — you should almost always act):
         except:
             return False
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON
 # ═══════════════════════════════════════════════════════════════════════════════
 
 internet_agent = InternetAgent()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

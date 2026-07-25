@@ -20,7 +20,6 @@ import threading
 import time
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from dataclasses import dataclass, field
 from typing import Dict, List, Tuple, Optional, Any
@@ -34,13 +33,11 @@ except ImportError:
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.logger import get_logger
 from cognition.engine_registry import ENGINE_REGISTRY, ALL_ENGINE_KEYS
 
 logger = get_logger("intent_classifier")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENGINE SEMANTIC DESCRIPTIONS
@@ -609,7 +606,6 @@ for _cluster_name, _cluster_engines in ENGINE_CLUSTERS.items():
     for _ekey in _cluster_engines:
         _ENGINE_TO_CLUSTERS.setdefault(_ekey, []).append(_cluster_name)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA CLASSES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -623,14 +619,12 @@ class ScoredIntent:
     confidence: float = 1.0
     matched_pattern: str = ""
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # KEYWORD DETECTOR
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # NOTE: INTENT_PATTERNS and _COMPILED_PATTERNS are imported lazily from
 # cognitive_router to avoid circular imports.
-
 
 class KeywordDetector:
     """Fast keyword-based intent detection using word-boundary regex."""
@@ -677,7 +671,6 @@ class KeywordDetector:
             ))
 
         return sorted(results, key=lambda x: x.score, reverse=True)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SEMANTIC DETECTOR
@@ -847,7 +840,6 @@ class SemanticDetector:
         with self._cache_lock:
             self._similarity_cache.clear()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # LLM DETECTOR
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -929,7 +921,6 @@ class LLMDetector:
             logger.debug(f"LLM intent detection failed: {e}")
 
         return []
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # HYBRID INTENT CLASSIFIER
@@ -1157,13 +1148,11 @@ class IntentClassifier:
         with self._stats_lock:
             return dict(self._stats)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 intent_classifier = IntentClassifier()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST FUNCTION

@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -24,7 +23,6 @@ logger = get_logger("adversarial_thinking")
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
 
-
 class AdversarialMode(Enum):
     RED_TEAM = "red_team"
     DEVILS_ADVOCATE = "devils_advocate"
@@ -32,7 +30,6 @@ class AdversarialMode(Enum):
     VULNERABILITY = "vulnerability"
     COUNTER_ARGUMENT = "counter_argument"
     PREMORTEM = "premortem"
-
 
 @dataclass
 class AdversarialAnalysis:
@@ -55,7 +52,6 @@ class AdversarialAnalysis:
             "overall_resilience": self.overall_resilience,
             "created_at": self.created_at
         }
-
 
 class AdversarialThinkingEngine:
     """
@@ -294,9 +290,7 @@ class AdversarialThinkingEngine:
             logger.debug(f"Vulnerability chain analysis failed: {e}")
         return {"error": "Analysis failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 adversarial_thinking = AdversarialThinkingEngine()

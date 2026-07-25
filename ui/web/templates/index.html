@@ -203,6 +203,30 @@
                 style="border-left: 2px solid #22d3ee">
                 <i class="fas fa-skull-crossbones" style="color:#22d3ee"></i> Hacking
             </button>
+            <button class="nav-btn" data-page="swarm" onclick="switchPage('swarm')"
+                style="border-left: 2px solid #10b981">
+                <i class="fas fa-network-wired" style="color:#10b981"></i> Swarm Mesh
+            </button>
+            <button class="nav-btn" data-page="sandbox" onclick="switchPage('sandbox')"
+                style="border-left: 2px solid #f43f5e">
+                <i class="fas fa-shield-alt" style="color:#f43f5e"></i> Sandboxing
+            </button>
+            <button class="nav-btn" data-page="graphrag" onclick="switchPage('graphrag')"
+                style="border-left: 2px solid #a855f7">
+                <i class="fas fa-project-diagram" style="color:#a855f7"></i> GraphRAG
+            </button>
+            <button class="nav-btn" data-page="mcp" onclick="switchPage('mcp')"
+                style="border-left: 2px solid #3b82f6">
+                <i class="fas fa-plug" style="color:#3b82f6"></i> MCP Protocol
+            </button>
+            <button class="nav-btn" data-page="stream" onclick="switchPage('stream')"
+                style="border-left: 2px solid #eab308">
+                <i class="fas fa-bolt" style="color:#eab308"></i> Stream & Speculate
+            </button>
+            <button class="nav-btn" data-page="lora" onclick="switchPage('lora')"
+                style="border-left: 2px solid #ec4899">
+                <i class="fas fa-dna" style="color:#ec4899"></i> LoRA MoE
+            </button>
             <button class="nav-btn" data-page="system" onclick="switchPage('system')">
                 <i class="fas fa-server"></i> System
             </button>
@@ -2957,6 +2981,617 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- PAGE: SWARM MESH NETWORK -->
+            <div id="page-swarm" class="page">
+                <div style="display:flex;flex-direction:column;gap:20px">
+
+                    <!-- Header bar -->
+                    <div class="card glass-card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(16,185,129,0.15);display:flex;align-items:center;justify-content:center;color:#10b981;font-size:1.2rem">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <h2 style="margin:0;font-size:1.1rem;font-weight:700;color:#f8fafc">P2P Swarm & Consensus Network</h2>
+                                <p style="margin:2px 0 0 0;font-size:.78rem;opacity:.6">Decentralized peer-to-peer mesh, BFT consensus voting & distributed task offloading</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <span id="swarm-status-badge" class="badge" style="background:rgba(16,185,129,0.15);color:#10b981;border:1px solid rgba(16,185,129,0.3);padding:4px 12px;border-radius:12px;font-size:.75rem">
+                                <i class="fas fa-circle" style="font-size:.5rem;margin-right:4px"></i> Mesh Active
+                            </span>
+                            <button onclick="triggerSwarmBroadcast()" style="background:rgba(16,185,129,0.2);color:#10b981;border:1px solid rgba(16,185,129,0.4);padding:6px 14px;border-radius:8px;font-size:.75rem;cursor:pointer;font-weight:600">
+                                <i class="fas fa-broadcast-tower"></i> Broadcast Ping
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Top stats counter cards -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Active Peers</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#10b981;margin-top:4px" id="swarm-peers-count">1</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px" id="swarm-peers-sub">0 external connected</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Messages Exchanged</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#38bdf8;margin-top:4px" id="swarm-msgs-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px" id="swarm-msgs-sub">HMAC signed gossip</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">BFT Proposals</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#c084fc;margin-top:4px" id="swarm-bft-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">2/3+ Quorum PBFT</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Tasks Offloaded</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#f59e0b;margin-top:4px" id="swarm-tasks-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Load-balanced execution</div>
+                        </div>
+                    </div>
+
+                    <!-- Main Grid: Topology + Peers List -->
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+                        <!-- Topology map -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-project-diagram" style="color:#10b981;margin-right:6px"></i> Mesh Topology</h3>
+                                <span style="font-size:.68rem;opacity:.5">UDP Discovery (Port 9877)</span>
+                            </div>
+                            <div id="swarm-topology-container" style="min-height:220px;background:rgba(0,0,0,0.2);border-radius:8px;border:1px solid rgba(255,255,255,0.05);padding:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center">
+                                <div style="text-align:center;padding:20px;opacity:.5">Loading network map...</div>
+                            </div>
+                        </div>
+
+                        <!-- BFT Consensus & Action Voting -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-vote-yea" style="color:#c084fc;margin-right:6px"></i> BFT Consensus Voting</h3>
+                                <button onclick="triggerSwarmPropose()" style="background:rgba(192,132,252,0.15);color:#c084fc;border:1px solid rgba(192,132,252,0.3);padding:3px 10px;border-radius:6px;font-size:.7rem;cursor:pointer">
+                                    + Propose
+                                </button>
+                            </div>
+                            <div id="swarm-bft-container" style="display:flex;flex-direction:column;gap:10px;min-height:220px">
+                                <div style="text-align:center;padding:40px 20px;opacity:.4">
+                                    <i class="fas fa-check-double" style="font-size:1.5rem;margin-bottom:6px;color:#c084fc"></i>
+                                    <div style="font-size:.8rem">No active BFT proposals</div>
+                                    <div style="font-size:.7rem;margin-top:2px">Initiate a proposal to trigger 3-phase BFT consensus</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Peers Table & Tasks List -->
+                    <div class="card glass-card" style="padding:16px">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                            <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-server" style="color:#38bdf8;margin-right:6px"></i> Swarm Nodes Registry</h3>
+                            <span style="font-size:.7rem;opacity:.5" id="swarm-local-id">Local Node: --</span>
+                        </div>
+                        <div style="overflow-x:auto">
+                            <table style="width:100%;border-collapse:collapse;font-size:.78rem">
+                                <thead>
+                                    <tr style="border-bottom:1px solid rgba(255,255,255,0.08);text-align:left;opacity:.6;font-size:.7rem">
+                                        <th style="padding:8px">PEER ID</th>
+                                        <th style="padding:8px">HOSTNAME / IP</th>
+                                        <th style="padding:8px">ROLE</th>
+                                        <th style="padding:8px">CPU LOAD</th>
+                                        <th style="padding:8px">MEMORY</th>
+                                        <th style="padding:8px">STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="swarm-peers-tbody">
+                                    <tr><td colspan="6" style="text-align:center;padding:20px;opacity:.4">Discovering peer nodes...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PAGE: FORMAL VERIFICATION & MICROVM SANDBOXING -->
+            <div id="page-sandbox" class="page">
+                <div style="display:flex;flex-direction:column;gap:20px">
+
+                    <!-- Header bar -->
+                    <div class="card glass-card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(244,63,94,0.15);display:flex;align-items:center;justify-content:center;color:#f43f5e;font-size:1.2rem">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h2 style="margin:0;font-size:1.1rem;font-weight:700;color:#f8fafc">Formal Verification & WASM Sandboxing</h2>
+                                <p style="margin:2px 0 0 0;font-size:.78rem;opacity:.6">AST static analysis, Z3 Theorem Prover mathematical guarantees & capability-restricted sandbox</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <span id="sandbox-engine-badge" class="badge" style="background:rgba(244,63,94,0.15);color:#f43f5e;border:1px solid rgba(244,63,94,0.3);padding:4px 12px;border-radius:12px;font-size:.75rem">
+                                <i class="fas fa-check-shield" style="font-size:.7rem;margin-right:4px"></i> Z3 + Subprocess Active
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Top Counter Cards -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Theorem Prover</div>
+                            <div style="font-size:1.2rem;font-weight:700;color:#38bdf8;margin-top:4px" id="fv-engine-title">AST + Z3</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px" id="fv-pass-rate">Pass Rate: 100%</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Verifications Executed</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#10b981;margin-top:4px" id="fv-verifications-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px" id="fv-verified-sub">0 passed / 0 failed</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Sandbox Executions</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#c084fc;margin-top:4px" id="sandbox-runs-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px" id="sandbox-backend-title">WASM / Subprocess</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Security Violations Blocked</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#f43f5e;margin-top:4px" id="sandbox-blocked-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Capability-restricted</div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Tester Grid: Formal Verifier & Sandbox Runner -->
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+                        <!-- Z3 Formal Verifier Tester -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-square-root-alt" style="color:#38bdf8;margin-right:6px"></i> Z3 Theorem Prover Tester</h3>
+                                <button onclick="runFormalVerificationTest()" style="background:rgba(56,189,248,0.18);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);padding:4px 12px;border-radius:6px;font-size:.72rem;cursor:pointer;font-weight:600">
+                                    <i class="fas fa-play"></i> Prove Correctness
+                                </button>
+                            </div>
+                            <textarea id="fv-input-code" style="width:100%;height:150px;background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:10px;font-family:monospace;font-size:.78rem;resize:vertical" placeholder="# Write Python code to formally verify...
+def compute_factorial(n):
+    if n <= 1:
+        return 1
+    return n * compute_factorial(n - 1)"></textarea>
+                            <div id="fv-result-output" style="margin-top:10px;padding:10px;background:rgba(0,0,0,0.25);border-radius:6px;border:1px solid rgba(255,255,255,0.05);font-size:.75rem;min-height:70px">
+                                <span style="opacity:.5">Click "Prove Correctness" to run AST static invariant analysis & Z3 theorem prover verification.</span>
+                            </div>
+                        </div>
+
+                        <!-- Capability Sandbox Execution Tester -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-box-open" style="color:#c084fc;margin-right:6px"></i> Sandbox Execution Tester</h3>
+                                <button onclick="runSandboxExecutionTest()" style="background:rgba(192,132,252,0.18);color:#c084fc;border:1px solid rgba(192,132,252,0.4);padding:4px 12px;border-radius:6px;font-size:.72rem;cursor:pointer;font-weight:600">
+                                    <i class="fas fa-terminal"></i> Run Sandboxed
+                                </button>
+                            </div>
+                            <textarea id="sandbox-input-code" style="width:100%;height:120px;background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:10px;font-family:monospace;font-size:.78rem;resize:vertical" placeholder="# Code to execute inside capability sandbox...
+def main():
+    import math
+    return {'result': math.sqrt(2026), 'status': 'isolated'}"></textarea>
+                            <div style="display:flex;gap:12px;margin:8px 0;font-size:.72rem">
+                                <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+                                    <input type="checkbox" id="sandbox-cap-net"> Allow Network
+                                </label>
+                                <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+                                    <input type="checkbox" id="sandbox-cap-fs"> Allow Filesystem
+                                </label>
+                            </div>
+                            <div id="sandbox-result-output" style="margin-top:8px;padding:10px;background:rgba(0,0,0,0.25);border-radius:6px;border:1px solid rgba(255,255,255,0.05);font-size:.75rem;min-height:60px">
+                                <span style="opacity:.5">Click "Run Sandboxed" to test code execution inside the capability-bounded process sandbox.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PAGE: TEMPORAL GRAPHRAG & SLEEP CONSOLIDATION -->
+            <div id="page-graphrag" class="page">
+                <div style="display:flex;flex-direction:column;gap:20px">
+
+                    <!-- Header bar -->
+                    <div class="card glass-card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(168,85,247,0.15);display:flex;align-items:center;justify-content:center;color:#a855f7;font-size:1.2rem">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div>
+                                <h2 style="margin:0;font-size:1.1rem;font-weight:700;color:#f8fafc">Temporal GraphRAG & Sleep Consolidation</h2>
+                                <p style="margin:2px 0 0 0;font-size:.78rem;opacity:.6">Hybrid ChromaDB vector search + multi-hop temporal graph traversal & sleep memory pruning</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <button onclick="triggerSleepConsolidation()" style="background:rgba(168,85,247,0.2);color:#a855f7;border:1px solid rgba(168,85,247,0.4);padding:6px 14px;border-radius:8px;font-size:.75rem;cursor:pointer;font-weight:600">
+                                <i class="fas fa-moon"></i> Run Sleep Consolidation
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Top Stats Cards -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Graph Entities / Nodes</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#a855f7;margin-top:4px" id="gr-nodes-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Time-decay weighted</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Relations / Edges</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#38bdf8;margin-top:4px" id="gr-edges-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Causal & Temporal linkages</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">GraphRAG Queries</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#10b981;margin-top:4px" id="gr-queries-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Multi-hop vector hybrid</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Sleep Cycles Run</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#f59e0b;margin-top:4px" id="gr-sleep-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px" id="gr-last-sleep">Last: Never</div>
+                        </div>
+                    </div>
+
+                    <!-- Main Grid: Multi-Hop Query Tester + Knowledge Graph Explorer -->
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+                        <!-- Temporal GraphRAG Multi-Hop Search -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-search" style="color:#a855f7;margin-right:6px"></i> Multi-Hop GraphRAG Search</h3>
+                                <div style="display:flex;align-items:center;gap:6px">
+                                    <select id="gr-max-hops" style="background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:2px 6px;font-size:.7rem">
+                                        <option value="1">1 Hop</option>
+                                        <option value="2" selected>2 Hops</option>
+                                        <option value="3">3 Hops</option>
+                                    </select>
+                                    <button onclick="runGraphRAGQueryTest()" style="background:rgba(168,85,247,0.18);color:#a855f7;border:1px solid rgba(168,85,247,0.4);padding:4px 12px;border-radius:6px;font-size:.72rem;cursor:pointer;font-weight:600">
+                                        <i class="fas fa-brain"></i> Traverse Graph
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="text" id="gr-query-input" style="width:100%;background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:8px 12px;font-size:.8rem;margin-bottom:10px" placeholder="Enter query (e.g. 'What does User prefer in Python since 2024?')" value="NEXUS AI features">
+
+                            <div id="gr-query-output" style="padding:10px;background:rgba(0,0,0,0.25);border-radius:6px;border:1px solid rgba(255,255,255,0.05);font-size:.75rem;min-height:160px">
+                                <span style="opacity:.5">Click "Traverse Graph" to perform hybrid ChromaDB vector similarity seed retrieval + N-hop temporal causal graph traversal.</span>
+                            </div>
+                        </div>
+
+                        <!-- Knowledge Graph Explorer Table -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-sitemap" style="color:#38bdf8;margin-right:6px"></i> Active Entity Triples</h3>
+                                <button onclick="loadGraphRAGData()" style="background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);padding:3px 10px;border-radius:6px;font-size:.7rem;cursor:pointer">
+                                    <i class="fas fa-sync-alt"></i> Refresh
+                                </button>
+                            </div>
+                            <div style="overflow-y:auto;max-height:220px">
+                                <table style="width:100%;border-collapse:collapse;font-size:.75rem">
+                                    <thead>
+                                        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);text-align:left;opacity:.6;font-size:.68rem">
+                                            <th style="padding:6px">SUBJECT</th>
+                                            <th style="padding:6px">RELATION</th>
+                                            <th style="padding:6px">OBJECT</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="gr-triples-tbody">
+                                        <tr><td colspan="3" style="text-align:center;padding:20px;opacity:.4">Loading graph triples...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PAGE: MODEL CONTEXT PROTOCOL (MCP) INTEGRATION -->
+            <div id="page-mcp" class="page">
+                <div style="display:flex;flex-direction:column;gap:20px">
+
+                    <!-- Header bar -->
+                    <div class="card glass-card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(59,130,246,0.15);display:flex;align-items:center;justify-content:center;color:#3b82f6;font-size:1.2rem">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <div>
+                                <h2 style="margin:0;font-size:1.1rem;font-weight:700;color:#f8fafc">Model Context Protocol (MCP) Support</h2>
+                                <p style="margin:2px 0 0 0;font-size:.78rem;opacity:.6">Dual Role MCP Server & Client over JSON-RPC 2.0 (GitHub, Postgres, Slack, Claude Desktop)</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <span id="mcp-version-badge" class="badge" style="background:rgba(59,130,246,0.15);color:#3b82f6;border:1px solid rgba(59,130,246,0.3);padding:4px 12px;border-radius:12px;font-size:.75rem">
+                                <i class="fas fa-code-branch" style="font-size:.7rem;margin-right:4px"></i> MCP Spec 2024-11-05
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Top Counter Cards -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Exposed Local Tools</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#3b82f6;margin-top:4px" id="mcp-local-tools-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">MCP Server Mode</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">External MCP Tools</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#10b981;margin-top:4px" id="mcp-ext-tools-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">MCP Client Mode</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Connected MCP Servers</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#a855f7;margin-top:4px" id="mcp-servers-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px" id="mcp-servers-sub">GitHub, Brave Search</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">JSON-RPC Requests</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#f59e0b;margin-top:4px" id="mcp-requests-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Stdio / SSE / HTTP</div>
+                        </div>
+                    </div>
+
+                    <!-- Connect External Server + Tool Tester -->
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+                        <!-- Connect New External MCP Server -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-plus-circle" style="color:#10b981;margin-right:6px"></i> Connect External MCP Server</h3>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:10px">
+                                <div>
+                                    <label style="font-size:.72rem;opacity:.7;display:block;margin-bottom:4px">Server Name Identifier</label>
+                                    <input type="text" id="mcp-conn-name" style="width:100%;background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:6px 10px;font-size:.78rem" placeholder="e.g. postgres_db">
+                                </div>
+                                <div>
+                                    <label style="font-size:.72rem;opacity:.7;display:block;margin-bottom:4px">Command / Stdio Endpoint</label>
+                                    <input type="text" id="mcp-conn-cmd" style="width:100%;background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:6px 10px;font-size:.78rem" placeholder="e.g. npx -y @modelcontextprotocol/server-postgres">
+                                </div>
+                                <button onclick="connectExternalMCPServer()" style="background:rgba(16,185,129,0.18);color:#10b981;border:1px solid rgba(16,185,129,0.4);padding:8px;border-radius:6px;font-size:.78rem;cursor:pointer;font-weight:600;margin-top:4px">
+                                    <i class="fas fa-link"></i> Handshake & Connect
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- JSON-RPC Tool Executor Tester -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-terminal" style="color:#3b82f6;margin-right:6px"></i> JSON-RPC 2.0 Tool Call Tester</h3>
+                                <button onclick="executeMCPToolCallTest()" style="background:rgba(59,130,246,0.18);color:#3b82f6;border:1px solid rgba(59,130,246,0.4);padding:4px 12px;border-radius:6px;font-size:.72rem;cursor:pointer;font-weight:600">
+                                    <i class="fas fa-play"></i> Call Tool
+                                </button>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:8px">
+                                <select id="mcp-tools-dropdown" style="width:100%;background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:6px 10px;font-size:.78rem">
+                                    <option value="get_system_info">get_system_info (local_nexus)</option>
+                                </select>
+                                <textarea id="mcp-call-args" style="width:100%;height:80px;background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:8px;font-family:monospace;font-size:.75rem" placeholder='{"arg1": "val1"}'></textarea>
+                            </div>
+                            <div id="mcp-call-output" style="margin-top:8px;padding:8px;background:rgba(0,0,0,0.25);border-radius:6px;border:1px solid rgba(255,255,255,0.05);font-size:.72rem;min-height:50px">
+                                <span style="opacity:.5">Click "Call Tool" to execute JSON-RPC tools/call dispatch.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Connected MCP Servers Table -->
+                    <div class="card glass-card" style="padding:16px">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                            <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-server" style="color:#a855f7;margin-right:6px"></i> Active MCP Server Connections</h3>
+                            <button onclick="loadMCPData()" style="background:rgba(168,85,247,0.15);color:#a855f7;border:1px solid rgba(168,85,247,0.3);padding:3px 10px;border-radius:6px;font-size:.7rem;cursor:pointer">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                        </div>
+                        <div style="overflow-x:auto">
+                            <table style="width:100%;border-collapse:collapse;font-size:.78rem">
+                                <thead>
+                                    <tr style="border-bottom:1px solid rgba(255,255,255,0.08);text-align:left;opacity:.6;font-size:.7rem">
+                                        <th style="padding:8px">SERVER NAME</th>
+                                        <th style="padding:8px">TRANSPORT / COMMAND</th>
+                                        <th style="padding:8px">TOOLS EXPOSED</th>
+                                        <th style="padding:8px">CONNECTED AT</th>
+                                        <th style="padding:8px">STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mcp-servers-tbody">
+                                    <tr><td colspan="5" style="text-align:center;padding:20px;opacity:.4">Loading MCP server connections...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PAGE: LOCAL SPECULATIVE DECODING & REAL-TIME A/V STREAMING -->
+            <div id="page-stream" class="page">
+                <div style="display:flex;flex-direction:column;gap:20px">
+
+                    <!-- Header bar -->
+                    <div class="card glass-card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(234,179,8,0.15);display:flex;align-items:center;justify-content:center;color:#eab308;font-size:1.2rem">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h2 style="margin:0;font-size:1.1rem;font-weight:700;color:#f8fafc">Local Speculative Decoding & Real-Time A/V Pipeline</h2>
+                                <p style="margin:2px 0 0 0;font-size:.78rem;opacity:.6">2x-3.5x speculative LLM token acceleration + 30 FPS WebRTC vision & duplex voice interrupts</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <button onclick="triggerVoiceInterruptSim()" style="background:rgba(239,68,68,0.2);color:#ef4444;border:1px solid rgba(239,68,68,0.4);padding:6px 14px;border-radius:8px;font-size:.75rem;cursor:pointer;font-weight:600">
+                                <i class="fas fa-microphone-slash"></i> Trigger Voice Interrupt
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Top Counter Cards -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Speculative Speedup</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#eab308;margin-top:4px" id="stream-speedup-ratio">2.8x</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Draft: Llama-3.2-1B</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Token Acceptance Rate</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#10b981;margin-top:4px" id="stream-acceptance-rate">86.4%</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Parallel verification pass</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Stream Framerate</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#38bdf8;margin-top:4px" id="stream-fps-count">30 FPS</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Zero-lag WebRTC / GStreamer</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Voice Interrupts</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#f43f5e;margin-top:4px" id="stream-interrupts-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Duplex conversational VAD</div>
+                        </div>
+                    </div>
+
+                    <!-- Video / Audio Pipeline Feed & Speculative Benchmark Tester -->
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+                        <!-- Real-Time Camera / Screen Canvas Feed -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-video" style="color:#38bdf8;margin-right:6px"></i> 30 FPS Real-Time Vision & Duplex Voice</h3>
+                                <span class="badge" style="background:rgba(16,185,129,0.15);color:#10b981;font-size:.68rem">● STREAM LIVE</span>
+                            </div>
+                            <!-- Simulated WebRTC video viewport -->
+                            <div style="width:100%;height:160px;background:rgba(0,0,0,0.4);border-radius:8px;border:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden">
+                                <i class="fas fa-desktop" style="font-size:2.5rem;color:rgba(56,189,248,0.4)"></i>
+                                <div style="margin-top:8px;font-size:.75rem;color:#94a3b8">Continuous Screen & Camera Optical Flow Perception</div>
+                                <div style="position:absolute;bottom:8px;left:8px;font-size:.65rem;background:rgba(0,0,0,0.6);padding:2px 8px;border-radius:4px;color:#eab308">
+                                    <i class="fas fa-eye"></i> Salience Delta: 0.82
+                                </div>
+                            </div>
+                            <!-- Duplex Audio VAD Waveform Indicator -->
+                            <div style="margin-top:12px;padding:10px;background:rgba(0,0,0,0.25);border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+                                <div style="display:flex;align-items:center;gap:8px">
+                                    <div style="width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 8px #10b981" id="vad-indicator"></div>
+                                    <span style="font-size:.75rem;color:#e2e8f0">Duplex Voice Activity (VAD): <strong id="vad-status-text">Listening</strong></span>
+                                </div>
+                                <span style="font-size:.75rem;color:#38bdf8;font-family:monospace" id="vad-latency-text">Latency: 12.5ms</span>
+                            </div>
+                        </div>
+
+                        <!-- Local Speculative Decoding Tester -->
+                        <div class="card glass-card" style="padding:16px">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                                <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-tachometer-alt" style="color:#eab308;margin-right:6px"></i> Speculative Token Acceleration</h3>
+                                <button onclick="runSpeculativeBenchmark()" style="background:rgba(234,179,8,0.18);color:#eab308;border:1px solid rgba(234,179,8,0.4);padding:4px 12px;border-radius:6px;font-size:.72rem;cursor:pointer;font-weight:600">
+                                    <i class="fas fa-bolt"></i> Run Speculate Test
+                                </button>
+                            </div>
+                            <input type="text" id="speculative-prompt-input" style="width:100%;background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:8px 12px;font-size:.8rem;margin-bottom:10px" placeholder="Enter prompt to test speculative generation..." value="Synthesize quantum neural network topology optimization">
+
+                            <div id="speculative-benchmark-output" style="padding:10px;background:rgba(0,0,0,0.25);border-radius:6px;border:1px solid rgba(255,255,255,0.05);font-size:.75rem;min-height:140px">
+                                <span style="opacity:.5">Click "Run Speculate Test" to generate text using parallel Llama-3.2-1B draft speculation and target model acceptance sampling.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PAGE: CONTINUOUS SELF-ADAPTING LORAS & MOE ROUTER -->
+            <div id="page-lora" class="page">
+                <div style="display:flex;flex-direction:column;gap:20px">
+
+                    <!-- Header bar -->
+                    <div class="card glass-card" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(236,72,153,0.15);display:flex;align-items:center;justify-content:center;color:#ec4899;font-size:1.2rem">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <div>
+                                <h2 style="margin:0;font-size:1.1rem;font-weight:700;color:#f8fafc">Continuous Self-Adapting LoRAs & MoE Router</h2>
+                                <p style="margin:2px 0 0 0;font-size:.78rem;opacity:.6">Dynamic PEFT Micro-LoRAs (1-5MB) + MoE Gating Softmax Router with online fine-tuning</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <button onclick="triggerOnlineLoRAAdaptation()" style="background:rgba(236,72,153,0.2);color:#ec4899;border:1px solid rgba(236,72,153,0.4);padding:6px 14px;border-radius:8px;font-size:.75rem;cursor:pointer;font-weight:600">
+                                <i class="fas fa-graduation-cap"></i> Train Online Step
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Top Counter Cards -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Active Micro-LoRAs</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#ec4899;margin-top:4px" id="lora-total-count">4</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Coding, Security, Math, Persona</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">MoE Routes Evaluated</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#38bdf8;margin-top:4px" id="lora-routes-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Softmax Gating Network</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">On-the-Fly Hot-Swaps</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#10b981;margin-top:4px" id="lora-swaps-count">0</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px">Zero-restart weight merging</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px">
+                            <div style="font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px">Online Training Steps</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:#f59e0b;margin-top:4px" id="lora-train-steps">1,200</div>
+                            <div style="font-size:.68rem;opacity:.5;margin-top:2px" id="lora-last-adapted">Persona Loss: 0.019</div>
+                        </div>
+                    </div>
+
+                    <!-- Expert Micro-LoRA Cards Grid -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px" id="lora-adapters-grid">
+                        <div class="card glass-card" style="padding:14px;border-left:3px solid #38bdf8">
+                            <div style="font-weight:700;color:#f8fafc;font-size:.85rem">Coding-Expert-LoRA</div>
+                            <div style="font-size:.7rem;color:#38bdf8;margin-top:2px">Domain: coding (3.4 MB)</div>
+                            <div style="font-size:.68rem;opacity:.6;margin-top:6px">Rank: 16 | Alpha: 32 | Steps: 2,450</div>
+                            <div style="font-size:.68rem;color:#10b981;margin-top:2px">Loss: 0.038</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px;border-left:3px solid #ec4899">
+                            <div style="font-weight:700;color:#f8fafc;font-size:.85rem">Security-OSINT-LoRA</div>
+                            <div style="font-size:.7rem;color:#ec4899;margin-top:2px">Domain: security (4.1 MB)</div>
+                            <div style="font-size:.68rem;opacity:.6;margin-top:6px">Rank: 16 | Alpha: 32 | Steps: 1,890</div>
+                            <div style="font-size:.68rem;color:#10b981;margin-top:2px">Loss: 0.041</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px;border-left:3px solid #a855f7">
+                            <div style="font-weight:700;color:#f8fafc;font-size:.85rem">Reasoning-Z3-LoRA</div>
+                            <div style="font-size:.7rem;color:#a855f7;margin-top:2px">Domain: reasoning (2.8 MB)</div>
+                            <div style="font-size:.68rem;opacity:.6;margin-top:6px">Rank: 16 | Alpha: 32 | Steps: 3,100</div>
+                            <div style="font-size:.68rem;color:#10b981;margin-top:2px">Loss: 0.029</div>
+                        </div>
+                        <div class="card glass-card" style="padding:14px;border-left:3px solid #f59e0b">
+                            <div style="font-weight:700;color:#f8fafc;font-size:.85rem">Persona-User-LoRA</div>
+                            <div style="font-size:.7rem;color:#f59e0b;margin-top:2px">Domain: persona (1.5 MB)</div>
+                            <div style="font-size:.68rem;opacity:.6;margin-top:6px">Rank: 8 | Alpha: 16 | Steps: 4,200</div>
+                            <div style="font-size:.68rem;color:#10b981;margin-top:2px">Loss: 0.019</div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic MoE Router Prompt Tester -->
+                    <div class="card glass-card" style="padding:16px">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                            <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-route" style="color:#ec4899;margin-right:6px"></i> MoE Gating Router Tester</h3>
+                            <button onclick="testLoRAMoERoute()" style="background:rgba(236,72,153,0.18);color:#ec4899;border:1px solid rgba(236,72,153,0.4);padding:4px 12px;border-radius:6px;font-size:.72rem;cursor:pointer;font-weight:600">
+                                <i class="fas fa-random"></i> Route & Merge Weights
+                            </button>
+                        </div>
+                        <input type="text" id="lora-route-input" style="width:100%;background:rgba(0,0,0,0.3);color:#e2e8f0;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:8px 12px;font-size:.8rem;margin-bottom:10px" placeholder="Enter prompt to evaluate MoE gating weights..." value="Write Python code for post-quantum crypto formal verification">
+
+                        <div id="lora-route-output" style="padding:10px;background:rgba(0,0,0,0.25);border-radius:6px;border:1px solid rgba(255,255,255,0.05);font-size:.75rem;min-height:120px">
+                            <span style="opacity:.5">Click "Route & Merge Weights" to test real-time MoE gating router domain detection and dynamic Micro-LoRA weight blending.</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

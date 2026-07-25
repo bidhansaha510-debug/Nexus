@@ -16,7 +16,6 @@ from pathlib import Path
 import sys
 import re
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -25,7 +24,6 @@ logger = get_logger("linguistic_intelligence")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 class SpeechAct(Enum):
     ASSERTIVE = "assertive"
@@ -38,7 +36,6 @@ class SpeechAct(Enum):
     PROMISE = "promise"
     APOLOGY = "apology"
     COMPLIMENT = "compliment"
-
 
 class RhetoricalDevice(Enum):
     METAPHOR = "metaphor"
@@ -54,7 +51,6 @@ class RhetoricalDevice(Enum):
     RHETORICAL_QUESTION = "rhetorical_question"
     TRICOLON = "tricolon"
 
-
 class Register(Enum):
     FORMAL = "formal"
     INFORMAL = "informal"
@@ -66,7 +62,6 @@ class Register(Enum):
     JOURNALISTIC = "journalistic"
     POETIC = "poetic"
     COLLOQUIAL = "colloquial"
-
 
 @dataclass
 class TextAnalysis:
@@ -94,7 +89,6 @@ class TextAnalysis:
             "implied_meanings": self.implied_meanings,
             "created_at": self.created_at
         }
-
 
 class LinguisticIntelligenceEngine:
     """
@@ -367,9 +361,7 @@ class LinguisticIntelligenceEngine:
                     pass
         return None
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 linguistic_intelligence = LinguisticIntelligenceEngine()

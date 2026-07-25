@@ -14,7 +14,6 @@ from enum import Enum
 from pathlib import Path
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
@@ -23,7 +22,6 @@ logger = get_logger("error_detection")
 
 COGNITION_DIR = DATA_DIR / "cognition"
 COGNITION_DIR.mkdir(parents=True, exist_ok=True)
-
 
 class ErrorType(Enum):
     LOGICAL = "logical"
@@ -35,14 +33,12 @@ class ErrorType(Enum):
     SEMANTIC = "semantic"
     CAUSAL = "causal"
 
-
 class Severity(Enum):
     TRIVIAL = "trivial"
     MINOR = "minor"
     MODERATE = "moderate"
     MAJOR = "major"
     CRITICAL = "critical"
-
 
 @dataclass
 class DetectedError:
@@ -67,7 +63,6 @@ class DetectedError:
             "confidence": self.confidence,
             "created_at": self.created_at
         }
-
 
 class ErrorDetectionEngine:
     """
@@ -308,9 +303,7 @@ class ErrorDetectionEngine:
             logger.debug(f"Premortem failed: {e}")
         return {"error": "Premortem failed"}
 
-
     def get_stats(self) -> Dict[str, Any]:
         return {"running": self._running, **self._stats}
-
 
 error_detection = ErrorDetectionEngine()

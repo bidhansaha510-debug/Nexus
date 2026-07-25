@@ -1,7 +1,7 @@
 {
   "arguments": [
     {
-      "argument_id": "b1431f3b",
+      "argument_id": "5c3f1f06",
       "premises": [],
       "conclusion": "",
       "logic_type": "deductive",
@@ -11,15 +11,28 @@
       "fallacies": [],
       "missing_premises": [],
       "counterexamples": [],
-      "created_at": "2026-06-04T03:33:55.203458"
+      "created_at": "2026-07-25T16:21:10.701350"
+    },
+    {
+      "argument_id": "e6d5bf00",
+      "premises": [],
+      "conclusion": "",
+      "logic_type": "deductive",
+      "is_valid": false,
+      "is_sound": false,
+      "strength": 0.5,
+      "fallacies": [],
+      "missing_premises": [],
+      "counterexamples": [],
+      "created_at": "2026-07-25T16:31:00.074227"
     }
   ],
   "fallacies": [],
   "stats": {
-    "total_arguments": 304,
+    "total_arguments": 306,
     "total_proofs": 0,
     "total_fallacies_detected": 0,
-    "total_validations": 304,
+    "total_validations": 306,
     "valid_arguments_pct": 0.0
   }
 }

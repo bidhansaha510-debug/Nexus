@@ -5,7 +5,6 @@ import time
 from pathlib import Path
 
 # Add project root to path
-sys.path.insert(0, "d:/NEXUS")
 
 from core.provocation_detector import provocation_detector, ProvocationLevel
 from llm.prompt_engine import prompt_engine

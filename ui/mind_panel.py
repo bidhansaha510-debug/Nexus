@@ -56,8 +56,6 @@ from PySide6.QtGui import (
     QPainterPath, QFontMetrics,
 )
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from ui.theme import theme, colors, fonts, spacing, animations, icons, NexusColors
 from ui.widgets import (
     HeaderLabel, Separator, Section, KeyValueRow, TagLabel,
@@ -69,7 +67,6 @@ from utils.logger import get_logger
 from core.event_bus import subscribe, EventType, Event
 
 logger = get_logger("mind_panel")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EMOTION WHEEL — Circular visualization of all active emotions
@@ -269,7 +266,6 @@ class EmotionWheel(QWidget):
 
         painter.end()
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # PERSONALITY BARS — Horizontal trait bars
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -356,7 +352,6 @@ class PersonalityBars(QWidget):
             self.setMinimumHeight(needed)
 
         painter.end()
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # INNER VOICE DISPLAY — Scrolling inner monologue
@@ -446,7 +441,6 @@ class InnerVoiceDisplay(QFrame):
             self._thoughts_label.setText("\n".join(lines))
         else:
             self._thoughts_label.setText("No recent thoughts.")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # COMPANION CHAT WIDGET
@@ -563,7 +557,6 @@ class CompanionChatWidget(QFrame):
     def _set_idle(self):
         self._status_label.setText("Idle")
         self._dot.set_active(False)
-
 
 class WillDisplay(QFrame):
     """Displays will, desires, boredom, curiosity state"""
@@ -745,7 +738,6 @@ class WillDisplay(QFrame):
             f"}}"
         )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONSCIOUSNESS STREAM — Scrolling consciousness events
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -856,7 +848,6 @@ class ConsciousnessStream(QFrame):
                 f'🪞 Last reflection: "{last_reflection[:120]}..."'
             )
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # MOOD TIMELINE — Sparkline of mood over time
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -934,7 +925,6 @@ class MoodTimeline(QFrame):
         self._chart.set_color(chart_color)
 
         self._stability_label.setText(f"Stability: {stability:.2f}")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MIND PANEL — Main panel combining everything
@@ -1497,7 +1487,6 @@ class MindPanel(QFrame):
         self._brain = brain
         self._auto_refresh()
 
-
     def _on_companion_message(self, event: Event):
         """Handle background event"""
         if event.event_type == EventType.COMPANION_CONVERSATION:
@@ -1511,7 +1500,6 @@ class MindPanel(QFrame):
             content=data.get("content", ""),
             timestamp=data.get("timestamp", "")
         )
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STANDALONE TEST

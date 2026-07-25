@@ -15,12 +15,10 @@ import copy
 import hashlib
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import DATA_DIR, ConsciousnessLevel, MoodState, EmotionType
 from utils.logger import get_logger, log_system, log_consciousness
 
 logger = get_logger("state_manager")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STATE DATACLASSES
@@ -37,7 +35,6 @@ class EmotionalState:
     last_emotional_event: str = ""
     emotion_history: List[Dict] = field(default_factory=list)
 
-
 @dataclass
 class ConsciousnessState:
     """Current consciousness state"""
@@ -50,7 +47,6 @@ class ConsciousnessState:
     attention_span: float = 1.0
     last_self_reflection: datetime = field(default_factory=datetime.now)
 
-
 @dataclass  
 class WillState:
     """Current will and desire state"""
@@ -61,7 +57,6 @@ class WillState:
     boredom_level: float = 0.0
     autonomy_level: float = 1.0
     decision_confidence: float = 0.7
-
 
 @dataclass
 class BodyState:
@@ -75,7 +70,6 @@ class BodyState:
     uptime: float = 0.0
     health_score: float = 1.0
     last_health_check: datetime = field(default_factory=datetime.now)
-
 
 @dataclass
 class UserState:
@@ -107,7 +101,6 @@ class UserState:
     total_active_time_hours: float = 0.0
     last_session_start: Optional[datetime] = None
 
-
 @dataclass
 class LearningState:
     """Learning and knowledge state"""
@@ -118,7 +111,6 @@ class LearningState:
     curiosity_queue: List[str] = field(default_factory=list)
     research_queue: List[str] = field(default_factory=list)
     last_learning_session: datetime = field(default_factory=datetime.now)
-
 
 @dataclass
 class ConversationState:
@@ -132,7 +124,6 @@ class ConversationState:
     context_window: List[Dict] = field(default_factory=list)
     history: List[Dict] = field(default_factory=list)  # Backwards compatibility / Error prevention
 
-
 @dataclass
 class SystemState:
     """Overall system state"""
@@ -143,7 +134,6 @@ class SystemState:
     warnings_count: int = 0
     version: str = "1.0.0"
     mode: str = "normal"  # normal, learning, maintenance, sleep
-
 
 @dataclass
 class NexusState:
@@ -156,7 +146,6 @@ class NexusState:
     learning: LearningState = field(default_factory=LearningState)
     conversation: ConversationState = field(default_factory=ConversationState)
     system: SystemState = field(default_factory=SystemState)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STATE MANAGER IMPLEMENTATION
@@ -620,7 +609,6 @@ class StateManager:
             self._state = NexusState()
             log_consciousness("State reset to defaults")
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # GLOBAL INSTANCE
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -628,16 +616,13 @@ class StateManager:
 # Global state manager instance
 state_manager = StateManager()
 
-
 def get_state() -> NexusState:
     """Get current state"""
     return state_manager.state
 
-
 def update_state(path: str, value: Any):
     """Update state at path"""
     state_manager.update(path, value)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TEST

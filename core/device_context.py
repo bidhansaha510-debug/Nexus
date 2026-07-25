@@ -27,13 +27,11 @@ from typing import Dict, List, Any, Optional
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR
 from utils.logger import get_logger
 
 logger = get_logger("device_context")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS
@@ -48,7 +46,6 @@ class DeviceType(Enum):
     API_CLIENT = "api_client"     # Direct API consumer
     UNKNOWN = "unknown"
 
-
 class DeviceOS(Enum):
     WINDOWS = "windows"
     ANDROID = "android"
@@ -57,7 +54,6 @@ class DeviceOS(Enum):
     LINUX = "linux"
     CHROMEOS = "chromeos"
     UNKNOWN = "unknown"
-
 
 class DeviceCapability(Enum):
     """What NEXUS can do on/with this device."""
@@ -71,7 +67,6 @@ class DeviceCapability(Enum):
     CAMERA = "camera"
     MICROPHONE = "microphone"
     VIBRATE = "vibrate"                 # Phone haptics
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEVICE SESSION
@@ -180,7 +175,6 @@ class DeviceSession:
         name = self.device_name or self.device_type
         return f"{name} ({self.device_os}) @ {self.ip_address}"
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # USER-AGENT PARSER
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -280,7 +274,6 @@ def _parse_user_agent(ua: str) -> Dict[str, Any]:
         info["device_name"] = " ".join(parts) if parts else "Unknown Device"
 
     return info
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEVICE CONTEXT MANAGER
@@ -552,7 +545,6 @@ class DeviceContextManager:
             "host_connected": any(d.is_host_pc for d in devices),
             "devices": [d.to_dict() for d in devices],
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

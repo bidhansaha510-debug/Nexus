@@ -25,7 +25,6 @@ from pathlib import Path
 from enum import Enum
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from config import DATA_DIR, NEXUS_CONFIG
 from utils.logger import get_logger, log_learning
@@ -33,7 +32,6 @@ from core.event_bus import EventType, publish, subscribe, Event
 from core.state_manager import state_manager
 
 logger = get_logger("causal_reasoning")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DATA TYPES
@@ -48,7 +46,6 @@ class CausalRelationType(Enum):
     SUFFICIENT = "sufficient"    # A alone is enough for B
     PROBABILISTIC = "probabilistic"  # A makes B more likely
     INHIBITING = "inhibiting"    # A prevents or reduces B
-
 
 @dataclass
 class CausalLink:
@@ -69,7 +66,6 @@ class CausalLink:
             "mechanism": self.mechanism,
             "confidence": self.confidence,
         }
-
 
 @dataclass
 class CausalChain:
@@ -123,7 +119,6 @@ class CausalChain:
             created_at=data.get("created_at", ""),
         )
 
-
 @dataclass
 class Counterfactual:
     """A counterfactual analysis — 'what if?'"""
@@ -145,7 +140,6 @@ class Counterfactual:
             "confidence": self.confidence,
             "created_at": self.created_at,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CAUSAL REASONING ENGINE
@@ -634,7 +628,6 @@ class CausalReasoningEngine:
             "total_predictions": self._total_predictions,
             "total_counterfactual_analyses": self._total_counterfactuals,
         }
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SINGLETON

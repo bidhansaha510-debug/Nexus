@@ -46,14 +46,11 @@ from enum import Enum, auto
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
 from config import DATA_DIR
 from utils.logger import get_logger, log_system
 from core.event_bus import EventType, event_bus, publish
 
 logger = get_logger("social_engineering")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ENUMS & DATA MODELS
@@ -177,7 +174,6 @@ class SocialEngineeringStats:
     avg_persona_credibility: float = 0.5
     def to_dict(self) -> Dict[str, Any]: return asdict(self)
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 # PERSONA FACTORY
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -247,7 +243,6 @@ class PersonaFactory:
     @property
     def active_personas(self) -> int:
         return sum(1 for p in self._personas.values() if p.is_active)
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SENTIMENT ANALYZER — REAL NLP INTEGRATION
@@ -374,7 +369,6 @@ class SentimentAnalyzer:
     @property
     def has_real_nlp(self) -> bool:
         return self._has_vader or self._has_textblob
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SOCIAL ENGINEERING ENGINE — MAIN
@@ -508,7 +502,6 @@ class SocialEngineeringEngine:
                     if hasattr(self._stats, k): setattr(self._stats, k, v)
         except Exception as e:
             logger.warning(f"Could not load social state: {e}")
-
 
 social_engineering = SocialEngineeringEngine()
 def get_social_engineering() -> SocialEngineeringEngine: return social_engineering

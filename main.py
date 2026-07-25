@@ -11,8 +11,8 @@ import time
 import json
 from pathlib import Path
 from datetime import datetime
-import argparse     # <--- ADD THIS
-import traceback    # <--- ADD THIS
+import argparse
+import traceback
 import subprocess
 import io
 
@@ -45,8 +45,19 @@ def _utf8_popen_init(self, *args, **kwargs):
 subprocess.Popen.__init__ = _utf8_popen_init
 # ────────────────────────────────────────────────────────────────
 
+# ── Enable Post-Quantum liboqs Flag & Suppress PyTorch Crashes ──
+os.environ["PYOQS_ENABLE_FAULTHANDLER"] = "1"
+os.environ["TORCH_CPP_LOG_LEVEL"] = "ERROR"
+os.environ["PYTHONWARNINGS"] = "ignore"
+os.environ["PYTHONUNBUFFERED"] = "1"
+try:
+    import torch.distributed.elastic.multiprocessing.redirects as _torch_redirects
+    _torch_redirects.redirect = lambda *args, **kwargs: None
+except Exception:
+    pass
+# ──────────────────────────────────────────────────────────────────────
+
 # Add project root to path
-sys.path.insert(0, str(Path(__file__).parent))
 
 # ── Fix pynput/six conflict ─────────────────────────────────────
 # six 1.17+ installs a _SixMetaPathImporter into sys.meta_path that
@@ -72,8 +83,6 @@ from core.nexus_brain import NexusBrain, nexus_brain
 from utils.file_processor import file_processor, FileAttachment, get_supported_extensions
 
 logger = get_logger("main")
-
-
 
 class NexusConsole:
     """
@@ -150,7 +159,6 @@ class NexusConsole:
 
         self._print_help_summary()
         self._interaction_loop()
-
 
     def _print_help_summary(self):
         """Print available commands"""
@@ -1609,9 +1617,20 @@ def setup_web_mode():
         web = NexusWeb(brain=nexus_brain)
         web.start()
         
+        print("\n  🌐 NEXUS Web Application is active and running!")
+        print("  Press Ctrl+C to stop the server.\n")
+
         # Keep main thread alive
         while True:
-            time.sleep(1)
+            try:
+                time.sleep(1)
+            except (KeyboardInterrupt, SystemExit):
+                print("\n👋 Web server stopping gracefully...")
+                web.stop()
+                break
+            except Exception as e:
+                logger.error(f"Web loop heartbeat error: {e}")
+                time.sleep(1)
             
     except ImportError as e:
         logger.error(f"Web dependency missing: {e}")
@@ -1624,7 +1643,6 @@ def setup_web_mode():
         logger.error(f"Web initialization failed: {e}\n{traceback.format_exc()}")
         print(f"\n❌ Web Error: {e}")
         return False
-
 
 def setup_gui_mode():
     """Initialize and launch the GUI interface"""
@@ -1682,7 +1700,6 @@ def main():
         logger.info("Starting NEXUS in Console mode")
         console = NexusConsole()
         console.start()
-
 
 if __name__ == "__main__":
     main()
