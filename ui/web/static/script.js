@@ -4446,26 +4446,30 @@ function updateSwarmPanel(swarmData) {
         setText('swarm-local-id', `Local Node: ${localPeer.peer_id} (${localPeer.ip_address || '127.0.0.1'})`);
     }
 
-    // Topology Visualization
+    // Topology Visualization (animated nodes)
     const topoContainer = document.getElementById('swarm-topology-container');
     if (topoContainer) {
         const topoNodes = swarmData.network_topology || [];
         if (topoNodes.length === 0) {
-            topoContainer.innerHTML = `<div style="text-align:center;padding:20px;opacity:.5">Standalone node (listening for UDP beacons on port 9877)</div>`;
+            topoContainer.innerHTML = `<div style="text-align:center;padding:20px;opacity:.5"><span class="status-pulse active" style="margin-right:6px"></span>Standalone node (listening for UDP beacons on port 9877)</div>`;
         } else {
             let html = '';
-            topoNodes.forEach(node => {
+            topoNodes.forEach((node, idx) => {
                 const isLocal = node.group === 'local';
-                const bg = isLocal ? 'rgba(16,185,129,0.2)' : 'rgba(56,189,248,0.2)';
-                const border = isLocal ? '#10b981' : '#38bdf8';
-                const icon = isLocal ? 'fa-home' : 'fa-laptop';
+                const iconClass = isLocal ? 'fa-home' : 'fa-laptop';
+                const iconColor = isLocal ? '#10b981' : '#38bdf8';
+                const nodeClass = isLocal ? 'topo-node local' : 'topo-node';
+                if (idx > 0) {
+                    html += `<div class="topo-connection"></div>`;
+                }
                 html += `
-                    <div style="padding:10px 14px;border-radius:10px;background:${bg};border:1px solid ${border};display:flex;align-items:center;gap:8px;font-size:.78rem">
-                        <i class="fas ${icon}" style="color:${border}"></i>
-                        <div>
-                            <div style="font-weight:600;color:#f8fafc">${node.label}</div>
-                            <div style="font-size:.65rem;opacity:.6">${node.id}</div>
+                    <div class="${nodeClass}">
+                        <div class="topo-icon" style="background:${isLocal ? 'rgba(16,185,129,0.15)' : 'rgba(56,189,248,0.15)'};color:${iconColor}">
+                            <i class="fas ${iconClass}"></i>
                         </div>
+                        <div class="topo-label">${node.label}</div>
+                        <div class="topo-sublabel">${node.id} • ${node.ip || '127.0.0.1'}</div>
+                        <span class="status-pulse ${isLocal ? 'active' : 'info'}" style="position:absolute;top:8px;right:8px"></span>
                     </div>
                 `;
             });
@@ -4918,14 +4922,39 @@ function updateStreamPanel(data) {
     const spec = data.speculative || {};
     const av = data.av_stream || {};
 
-    setText('stream-speedup-ratio', `${spec.speedup_ratio || 2.8}x`);
-    setText('stream-acceptance-rate', `${spec.acceptance_rate_pct || 86.4}%`);
-    setText('stream-fps-count', `${av.fps || 30} FPS`);
+    // Update stat cards with real data
+    const speedupEl = document.getElementById('stream-speedup-ratio');
+    if (speedupEl) {
+        speedupEl.textContent = `${spec.speedup_ratio || 0}x`;
+        speedupEl.classList.add('stat-value-animated');
+    }
+    setText('stream-acceptance-rate', `${spec.acceptance_rate_pct || 0}%`);
+    const fpsEl = document.getElementById('stream-fps-count');
+    if (fpsEl) {
+        fpsEl.innerHTML = `<span class="fps-counter">${av.fps || 30}</span> FPS`;
+    }
     setText('stream-interrupts-count', av.voice_interrupts_triggered || 0);
 
+    // Update VAD status and waveform
     const vadText = document.getElementById('vad-status-text');
+    const vadIndicator = document.getElementById('vad-indicator');
     if (vadText && av.audio_status) {
-        vadText.textContent = av.audio_status.is_speaking ? 'AI Speaking' : 'Listening (Active VAD)';
+        const isSpeaking = av.audio_status.is_speaking;
+        vadText.textContent = isSpeaking ? 'AI Speaking' : 'Listening (Active VAD)';
+        if (vadIndicator) {
+            vadIndicator.className = `status-pulse ${isSpeaking ? 'warning' : 'active'}`;
+        }
+    }
+    const vadLatency = document.getElementById('vad-latency-text');
+    if (vadLatency && av.audio_status) {
+        vadLatency.textContent = `Latency: ${av.audio_status.latency_ms || 12.5}ms`;
+    }
+
+    // Update frames processed in salience indicator
+    if (av.frames_processed) {
+        const salience = av.last_frame ? av.last_frame.salience_score : 0.82;
+        const salientEl = document.querySelector('[data-salience-delta]');
+        if (salientEl) salientEl.textContent = `Salience Delta: ${salience}`;
     }
 }
 
@@ -4998,15 +5027,47 @@ function updateLoRAPanel(data) {
     // Render Micro-LoRAs Grid if adapters present
     const grid = document.getElementById('lora-adapters-grid');
     if (grid && data.adapters && data.adapters.length > 0) {
-        const colors = { coding: '#38bdf8', security: '#ec4899', reasoning: '#a855f7', persona: '#f59e0b' };
+        const colors = { coding: '#38bdf8', security: '#f43f5e', reasoning: '#a855f7', persona: '#ec4899' };
         grid.innerHTML = data.adapters.map(a => `
-            <div class="card glass-card" style="padding:14px;border-left:3px solid ${colors[a.domain] || '#ec4899'}">
-                <div style="font-weight:700;color:#f8fafc;font-size:.85rem">${a.name}</div>
-                <div style="font-size:.7rem;color:${colors[a.domain] || '#ec4899'};margin-top:2px">Domain: ${a.domain} (${a.size_mb} MB)</div>
-                <div style="font-size:.68rem;opacity:.6;margin-top:6px">Rank: ${a.rank} | Alpha: ${a.alpha} | Steps: ${(a.trained_steps || 0).toLocaleString()}</div>
-                <div style="font-size:.68rem;color:#10b981;margin-top:2px">Loss: ${a.loss}</div>
+            <div class="card glass-card feature-card-lora" style="padding:14px">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+                    <div style="font-weight:700;color:#f8fafc;font-size:.85rem">${a.name}</div>
+                    <span class="domain-badge ${a.domain}">${a.domain.toUpperCase()}</span>
+                </div>
+                <div style="font-size:.7rem;opacity:.6;margin-bottom:6px">Rank: ${a.rank} | α=${a.alpha} | ${a.size_mb} MB | ${(a.trained_steps || 0).toLocaleString()} steps</div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                    <span style="font-size:.68rem;opacity:.5;min-width:32px">Loss:</span>
+                    <div class="gating-bar" style="flex:1">
+                        <div class="gating-bar-fill" style="width:${Math.min(100, (1 - a.loss) * 100)}%;background:linear-gradient(90deg, ${colors[a.domain] || '#ec4899'}88, ${colors[a.domain] || '#ec4899'})"></div>
+                    </div>
+                    <span style="font-size:.72rem;font-weight:600;color:${colors[a.domain] || '#ec4899'};min-width:40px;text-align:right">${a.loss}</span>
+                </div>
+                <div style="font-size:.62rem;opacity:.4;text-align:right">${a.status === 'loaded' ? '● Loaded' : a.status}</div>
             </div>
         `).join('');
+    }
+
+    // Render active MoE gating weights as horizontal bars
+    const weightsEl = document.getElementById('lora-weights-visual');
+    if (weightsEl && data.active_weights) {
+        const colors = { 'Coding-Expert-LoRA': '#38bdf8', 'Security-OSINT-LoRA': '#f43f5e', 'Reasoning-Z3-LoRA': '#a855f7', 'Persona-User-LoRA': '#ec4899' };
+        let wHtml = '';
+        Object.entries(data.active_weights).forEach(([name, w]) => {
+            const pct = (w * 100).toFixed(1);
+            const color = colors[name] || '#ec4899';
+            wHtml += `
+                <div style="margin-bottom:6px">
+                    <div style="display:flex;justify-content:space-between;font-size:.7rem;margin-bottom:2px">
+                        <span style="opacity:.8">${name}</span>
+                        <span style="font-weight:600;color:${color}">${pct}%</span>
+                    </div>
+                    <div class="gating-bar">
+                        <div class="gating-bar-fill" style="width:${pct}%;background:linear-gradient(90deg, ${color}66, ${color})"></div>
+                    </div>
+                </div>
+            `;
+        });
+        weightsEl.innerHTML = wHtml;
     }
 }
 
@@ -5031,22 +5092,26 @@ async function testLoRAMoERoute() {
         if (res.ok) {
             let weightsHtml = '';
             if (data.gating_weights) {
+                const rColors = { 'Coding-Expert-LoRA': '#38bdf8', 'Security-OSINT-LoRA': '#f43f5e', 'Reasoning-Z3-LoRA': '#a855f7', 'Persona-User-LoRA': '#ec4899' };
                 weightsHtml = Object.entries(data.gating_weights).map(([name, w]) => `
-                    <div style="margin-top:4px">
-                        <div style="display:flex;justify-content:space-between;font-size:.7rem">
+                    <div style="margin-top:6px">
+                        <div style="display:flex;justify-content:space-between;font-size:.7rem;margin-bottom:2px">
                             <span>${name}</span>
-                            <span style="font-weight:600;color:#ec4899">${(w * 100).toFixed(1)}%</span>
+                            <span style="font-weight:600;color:${rColors[name] || '#ec4899'}">${(w * 100).toFixed(1)}%</span>
                         </div>
-                        <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;margin-top:2px">
-                            <div style="width:${w * 100}%;height:100%;background:#ec4899;border-radius:2px"></div>
+                        <div class="gating-bar">
+                            <div class="gating-bar-fill" style="width:${w * 100}%;background:linear-gradient(90deg, ${rColors[name] || '#ec4899'}66, ${rColors[name] || '#ec4899'})"></div>
                         </div>
                     </div>
                 `).join('');
             }
             if (outputEl) {
                 outputEl.innerHTML = `
-                    <div style="color:#10b981;font-weight:600;margin-bottom:4px"><i class="fas fa-check-circle"></i> MoE Gating Softmax Distribution (Domain: ${data.detected_domain})</div>
-                    <div style="font-size:.7rem;opacity:.7;margin-bottom:6px">Active Experts: ${data.active_experts ? data.active_experts.join(', ') : 'None'} | Routing Latency: ${data.routing_time_ms}ms</div>
+                    <div style="color:#10b981;font-weight:600;margin-bottom:4px"><i class="fas fa-check-circle"></i> MoE Gating Softmax Distribution</div>
+                    <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+                        <span class="domain-badge ${data.detected_domain}">${data.detected_domain.toUpperCase()}</span>
+                        <span style="font-size:.7rem;opacity:.7">Active: ${data.active_experts ? data.active_experts.join(', ') : 'None'} | ${data.routing_time_ms}ms</span>
+                    </div>
                     ${weightsHtml}
                 `;
             }
@@ -5078,3 +5143,17 @@ async function triggerOnlineLoRAAdaptation() {
         showToast('LoRA adaptation error');
     }
 }
+
+// ══════════════════════════════════════════════
+// AUTO-REFRESH FOR FEATURE PAGES
+// ══════════════════════════════════════════════
+(function initFeatureAutoRefresh() {
+    const featurePages = ['page-swarm', 'page-sandbox', 'page-graphrag', 'page-mcp', 'page-stream', 'page-lora'];
+    setInterval(() => {
+        // Only auto-refresh if a feature page is currently visible
+        const activePage = document.querySelector('.page[style*="display: block"], .page[style*="display:block"], .page.active');
+        if (activePage && featurePages.includes(activePage.id)) {
+            fetchStats();
+        }
+    }, 10000); // Every 10 seconds
+})();

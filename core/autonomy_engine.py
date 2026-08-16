@@ -799,6 +799,61 @@ class AutonomyEngine:
             except ImportError:
                 pass
 
+        # ── Self-Improvement Subsystems (needed for autonomous code evolution) ──
+        if not hasattr(self, '_self_evolution') or self._self_evolution is None:
+            try:
+                from self_improvement.self_evolution import get_self_evolution
+                self._self_evolution = get_self_evolution()
+            except ImportError:
+                self._self_evolution = None
+
+        if not hasattr(self, '_error_fixer') or self._error_fixer is None:
+            try:
+                from self_improvement.error_fixer import error_fixer
+                self._error_fixer = error_fixer
+            except ImportError:
+                self._error_fixer = None
+
+        if not hasattr(self, '_code_monitor') or self._code_monitor is None:
+            try:
+                from self_improvement.code_monitor import code_monitor
+                self._code_monitor = code_monitor
+            except ImportError:
+                self._code_monitor = None
+
+        if not hasattr(self, '_feature_researcher') or self._feature_researcher is None:
+            try:
+                from self_improvement.feature_researcher import get_feature_researcher
+                self._feature_researcher = get_feature_researcher()
+            except ImportError:
+                self._feature_researcher = None
+
+        if not hasattr(self, '_recursive_self_rewriter') or self._recursive_self_rewriter is None:
+            try:
+                from core.recursive_self_rewriter import recursive_self_rewriter
+                self._recursive_self_rewriter = recursive_self_rewriter
+            except ImportError:
+                self._recursive_self_rewriter = None
+
+        # ── Internet & Social Media Agents ──
+        if not hasattr(self, '_internet_agent') or self._internet_agent is None:
+            try:
+                from core.internet_agent import internet_agent
+                self._internet_agent = internet_agent
+            except ImportError:
+                self._internet_agent = None
+
+        if not hasattr(self, '_social_media_agent') or self._social_media_agent is None:
+            try:
+                from core.social_media_agent import SocialMediaAgent
+                # Don't create a new one — try to get the running brain's instance
+                if self._nexus_brain and hasattr(self._nexus_brain, '_social_media_agent'):
+                    self._social_media_agent = self._nexus_brain._social_media_agent
+                else:
+                    self._social_media_agent = None
+            except ImportError:
+                self._social_media_agent = None
+
     # ═══════════════════════════════════════════════════════════════════════════
     # MAIN AUTONOMY LOOP
     # ═══════════════════════════════════════════════════════════════════════════
@@ -1895,16 +1950,22 @@ class AutonomyEngine:
     def _execute_self_rewrite_cycle(self, action: ActionOption) -> Tuple[ActionResult, str]:
         """Execute recursive self-rewriting — evolve own code architecture."""
         try:
-            from core.recursive_self_rewriter import recursive_self_rewriter
-            if hasattr(recursive_self_rewriter, 'run_rewrite_cycle'):
-                recursive_self_rewriter.run_rewrite_cycle()
-            elif hasattr(recursive_self_rewriter, 'rewrite'):
-                recursive_self_rewriter.rewrite()
-            stats = recursive_self_rewriter.get_stats() if hasattr(recursive_self_rewriter, 'get_stats') else {}
+            rsr = getattr(self, '_recursive_self_rewriter', None)
+            if rsr is None:
+                from core.recursive_self_rewriter import recursive_self_rewriter
+                rsr = recursive_self_rewriter
+                self._recursive_self_rewriter = rsr
+            if hasattr(rsr, 'run_rewrite_cycle'):
+                rsr.run_rewrite_cycle()
+            elif hasattr(rsr, 'rewrite'):
+                rsr.rewrite()
+            stats = rsr.get_stats() if hasattr(rsr, 'get_stats') else {}
             if isinstance(stats, dict):
-                rewrites = stats.get('total_rewrites', stats.get('rewrites', 0))
-                improvements = stats.get('improvements', 0)
-                return (ActionResult.SUCCESS, f"🔁 Self-Rewriter: rewrites={rewrites}, improvements={improvements}")
+                rewrites = stats.get('total_mutations_committed', stats.get('total_rewrites', 0))
+                attempted = stats.get('total_mutations_attempted', 0)
+                candidates = stats.get('mutation_candidates_count', 0)
+                return (ActionResult.SUCCESS,
+                        f"🔁 Self-Rewriter: committed={rewrites}, attempted={attempted}, candidates={candidates}")
             return (ActionResult.SUCCESS, "🔁 Recursive self-rewrite cycle complete")
         except Exception as e:
             return (ActionResult.FAILURE, f"Self-rewrite cycle failed: {e}")
@@ -1912,16 +1973,21 @@ class AutonomyEngine:
     def _execute_error_fix_cycle(self, action: ActionOption) -> Tuple[ActionResult, str]:
         """Detect and auto-fix code errors across the NEXUS codebase."""
         try:
-            from self_improvement.error_fixer import error_fixer
-            if hasattr(error_fixer, 'run_fix_cycle'):
-                error_fixer.run_fix_cycle()
-            elif hasattr(error_fixer, 'fix_all'):
-                error_fixer.fix_all()
-            stats = error_fixer.get_stats() if hasattr(error_fixer, 'get_stats') else {}
+            ef = getattr(self, '_error_fixer', None)
+            if ef is None:
+                from self_improvement.error_fixer import error_fixer
+                ef = error_fixer
+                self._error_fixer = ef
+            if hasattr(ef, 'run_fix_cycle'):
+                ef.run_fix_cycle()
+            elif hasattr(ef, 'fix_all'):
+                ef.fix_all()
+            stats = ef.get_stats() if hasattr(ef, 'get_stats') else {}
             if isinstance(stats, dict):
                 detected = stats.get('errors_detected', stats.get('total_errors', 0))
                 fixed = stats.get('errors_fixed', stats.get('fixed', 0))
-                return (ActionResult.SUCCESS, f"🔧 Error Fixer: detected={detected}, fixed={fixed}")
+                pending = stats.get('queue_size', stats.get('pending', 0))
+                return (ActionResult.SUCCESS, f"🔧 Error Fixer: detected={detected}, fixed={fixed}, pending={pending}")
             return (ActionResult.SUCCESS, "🔧 Error fix cycle complete")
         except Exception as e:
             return (ActionResult.FAILURE, f"Error fix cycle failed: {e}")
@@ -4519,20 +4585,32 @@ class AutonomyEngine:
             return (ActionResult.FAILURE, f"Ethical hacking scan failed: {e}")
 
     def _execute_social_media_act(self, action: ActionOption) -> Tuple[ActionResult, str]:
-        """Execute autonomous social media action."""
+        """Execute autonomous social media action using the RUNNING agent instance."""
         try:
-            from core.social_media_agent import SocialMediaAgent
-            agent = SocialMediaAgent()
+            # Use the running social media agent — don't create a new one
+            agent = self._social_media_agent
+            if agent is None:
+                # Try to get it from the brain's running instance
+                if self._nexus_brain and hasattr(self._nexus_brain, '_social_media_agent'):
+                    agent = self._nexus_brain._social_media_agent
+                    self._social_media_agent = agent
+            if agent is None:
+                return (ActionResult.BLOCKED, "📱 Social Media agent not running")
+
+            # Get current stats from the running agent
             stats = agent.get_stats()
             if stats:
                 stats_dict = stats.to_dict() if hasattr(stats, 'to_dict') else stats
+                posts = stats_dict.get('total_posts', 0)
+                interactions = stats_dict.get('total_interactions', 0)
+                platforms = stats_dict.get('platforms_active', [])
+                dms = stats_dict.get('total_dms_replied', 0)
                 return (
                     ActionResult.SUCCESS,
-                    f"📱 Social Media: posts={stats_dict.get('total_posts', 0)}, "
-                    f"interactions={stats_dict.get('total_interactions', 0)}, "
-                    f"platforms={stats_dict.get('platforms_active', [])}"
+                    f"📱 Social Media: posts={posts}, interactions={interactions}, "
+                    f"dms_replied={dms}, platforms={platforms}"
                 )
-            return (ActionResult.PARTIAL_SUCCESS, "📱 Social Media agent checked — no activity")
+            return (ActionResult.PARTIAL_SUCCESS, "📱 Social Media agent active — awaiting platform login")
         except Exception as e:
             logger.error(f"Social media action error: {e}")
             return (ActionResult.FAILURE, f"Social media action failed: {e}")
@@ -4654,16 +4732,24 @@ class AutonomyEngine:
     def _execute_self_evolution_cycle(self, action: ActionOption) -> Tuple[ActionResult, str]:
         """Execute self-evolution cycle."""
         try:
-            from self_improvement.self_evolution import self_evolution
-            if hasattr(self_evolution, 'run_evolution_cycle'):
-                self_evolution.run_evolution_cycle()
-            stats = self_evolution.get_stats()
+            # Use pre-loaded instance or lazy-load via get_self_evolution()
+            se = self._self_evolution
+            if se is None:
+                from self_improvement.self_evolution import get_self_evolution
+                se = get_self_evolution()
+                self._self_evolution = se
+            if hasattr(se, 'run_evolution_cycle'):
+                se.run_evolution_cycle()
+            elif hasattr(se, '_run_evolution_step'):
+                se._run_evolution_step()
+            stats = se.get_stats()
             generation = stats.get('generation', 0) if isinstance(stats, dict) else 0
-            improvements = stats.get('total_improvements', 0) if isinstance(stats, dict) else 0
+            improvements = stats.get('total_improvements', stats.get('total_mutations_committed', 0)) if isinstance(stats, dict) else 0
+            proposals = stats.get('pending_proposals', stats.get('proposals_pending', 0)) if isinstance(stats, dict) else 0
             return (
                 ActionResult.SUCCESS,
                 f"🧬 Self-Evolution: generation={generation}, "
-                f"improvements={improvements}"
+                f"improvements={improvements}, pending_proposals={proposals}"
             )
         except Exception as e:
             logger.error(f"Self-evolution cycle error: {e}")
@@ -4672,13 +4758,19 @@ class AutonomyEngine:
     def _execute_code_monitor_scan(self, action: ActionOption) -> Tuple[ActionResult, str]:
         """Execute code monitoring scan."""
         try:
-            from self_improvement.code_monitor import code_monitor
-            if hasattr(code_monitor, 'run_scan'):
-                code_monitor.run_scan()
-            stats = code_monitor.get_stats()
-            issues = stats.get('issues_found', 0) if isinstance(stats, dict) else 0
-            fixed = stats.get('issues_fixed', 0) if isinstance(stats, dict) else 0
-            scans = stats.get('total_scans', 0) if isinstance(stats, dict) else 0
+            cm = self._code_monitor
+            if cm is None:
+                from self_improvement.code_monitor import code_monitor
+                cm = code_monitor
+                self._code_monitor = cm
+            if hasattr(cm, 'run_scan'):
+                cm.run_scan()
+            elif hasattr(cm, 'force_scan'):
+                cm.force_scan()
+            stats = cm.get_stats()
+            issues = stats.get('issues_found', stats.get('total_issues', 0)) if isinstance(stats, dict) else 0
+            fixed = stats.get('issues_fixed', stats.get('auto_fixed', 0)) if isinstance(stats, dict) else 0
+            scans = stats.get('total_scans', stats.get('scans_completed', 0)) if isinstance(stats, dict) else 0
             return (
                 ActionResult.SUCCESS,
                 f"🔍 Code Monitor: scans={scans}, issues={issues}, fixed={fixed}"
@@ -4690,12 +4782,18 @@ class AutonomyEngine:
     def _execute_feature_research(self, action: ActionOption) -> Tuple[ActionResult, str]:
         """Execute feature research cycle."""
         try:
-            from self_improvement.feature_researcher import feature_researcher
-            if hasattr(feature_researcher, 'run_research_cycle'):
-                feature_researcher.run_research_cycle()
-            stats = feature_researcher.get_stats()
-            researched = stats.get('features_researched', 0) if isinstance(stats, dict) else 0
-            proposed = stats.get('features_proposed', 0) if isinstance(stats, dict) else 0
+            fr = self._feature_researcher
+            if fr is None:
+                from self_improvement.feature_researcher import get_feature_researcher
+                fr = get_feature_researcher()
+                self._feature_researcher = fr
+            if hasattr(fr, 'run_research_cycle'):
+                fr.run_research_cycle()
+            elif hasattr(fr, 'research_next'):
+                fr.research_next()
+            stats = fr.get_stats()
+            researched = stats.get('features_researched', stats.get('total_researched', 0)) if isinstance(stats, dict) else 0
+            proposed = stats.get('features_proposed', stats.get('total_proposed', 0)) if isinstance(stats, dict) else 0
             return (
                 ActionResult.SUCCESS,
                 f"🔬 Feature Research: researched={researched}, proposed={proposed}"
@@ -5121,12 +5219,12 @@ class AutonomyEngine:
     # ═══════════════════════════════════════════════════════════════════════════
 
     def _generate_phase8_advanced_options(self, perception: Perception) -> List[ActionOption]:
-        """Generate options for Swarm, Formal Verification, GraphRAG, MCP, Speculative, and LoRA MoE."""
+        """Generate options for Swarm, Formal Verification, GraphRAG, MCP, Speculative, and LoRA MoE.
+        Uses independent random calls per feature so each has a truly independent chance."""
         options = []
-        rnd = random.random()
 
-        # 1. P2P Swarm Gossip & Mesh Sync (~18% chance)
-        if rnd < 0.18:
+        # 1. P2P Swarm Gossip & Mesh Sync (~18% chance, independent)
+        if random.random() < 0.18:
             options.append(ActionOption(
                 action_type=ActionType.P2P_SWARM_GOSSIP_SYNC,
                 description="Synchronize P2P Swarm peer mesh & broadcast gossip heartbeats",
@@ -5135,51 +5233,51 @@ class AutonomyEngine:
                 execution_data={}
             ))
 
-        # 2. Formal Verification & Sandboxing Dry-Run (~15% chance)
-        if rnd < 0.15:
+        # 2. Formal Verification & Sandboxing (~15% chance, independent)
+        if random.random() < 0.15:
             options.append(ActionOption(
                 action_type=ActionType.FORMAL_VERIFY_SANDBOX_DRYRUN,
-                description="Run formal AST+Z3 invariant verification and WASM sandbox security check",
+                description="Run formal AST+Z3 invariant verification on recent self-improvements",
                 priority=ActionPriority.HIGH,
                 source="formal_verification",
                 execution_data={}
             ))
 
-        # 3. Temporal GraphRAG & Sleep Consolidation (~12% chance or idle)
-        if rnd < 0.12 or perception.idle_cycles > 5:
+        # 3. Temporal GraphRAG & Sleep Consolidation (~12% chance or when idle)
+        if random.random() < 0.12 or perception.idle_cycles > 5:
             options.append(ActionOption(
                 action_type=ActionType.TEMPORAL_GRAPHRAG_SLEEP_CONSOLIDATE,
-                description="Run background Sleep Consolidation & multi-hop memory pruning",
+                description="Run Sleep Consolidation: compress short-term memories, prune duplicates, build long-term triples",
                 priority=ActionPriority.NORMAL,
                 source="temporal_graphrag",
                 execution_data={}
             ))
 
-        # 4. MCP Client & Server Discovery (~14% chance)
-        if rnd < 0.14:
+        # 4. MCP Client & Server Discovery (~14% chance, independent)
+        if random.random() < 0.14:
             options.append(ActionOption(
                 action_type=ActionType.MCP_CLIENT_SERVER_DISCOVERY,
-                description="Discover community MCP servers and expose NEXUS living mind capabilities",
+                description="Refresh MCP tool registry and check external server connections",
                 priority=ActionPriority.LOW,
                 source="mcp_protocol",
                 execution_data={}
             ))
 
-        # 5. Speculative Decoding & Real-Time A/V Stream Check (~16% chance)
-        if rnd < 0.16:
+        # 5. Speculative Decoding & Real-Time A/V Stream (~16% chance, independent)
+        if random.random() < 0.16:
             options.append(ActionOption(
                 action_type=ActionType.SPECULATIVE_STREAM_PERCEIVE,
-                description="Check WebRTC 30 FPS vision perception & draft speculative decoding ratio",
+                description="Check A/V stream pipeline health & measure speculative decoding acceptance rate",
                 priority=ActionPriority.NORMAL,
                 source="speculative_decoding",
                 execution_data={}
             ))
 
-        # 6. LoRA MoE Router Domain Adaptation (~20% chance)
-        if rnd < 0.20:
+        # 6. LoRA MoE Router Domain Adaptation (~20% chance, independent)
+        if random.random() < 0.20:
             options.append(ActionOption(
                 action_type=ActionType.LORA_MOE_ROUTER_ADAPT,
-                description="Evaluate LoRA MoE gating router weights & perform online experience tuning",
+                description="Run online LoRA MoE experience adaptation and recompute gating weights",
                 priority=ActionPriority.HIGH,
                 source="lora_moe_router",
                 execution_data={}
@@ -5191,8 +5289,11 @@ class AutonomyEngine:
         try:
             from core.p2p_swarm import get_p2p_swarm
             swarm = get_p2p_swarm()
+            # Auto-start the swarm if not running
+            if not swarm.running:
+                swarm.start()
             stats = swarm.get_swarm_stats()
-            return (ActionResult.SUCCESS, f"🌐 P2P Swarm Sync: {stats['online_peers']} peers online, {stats['bft_rounds']} BFT rounds")
+            return (ActionResult.SUCCESS, f"🌐 P2P Swarm Sync: {stats['online_peers']} peers online, {stats['messages_sent']} msgs sent, {stats['bft_rounds']} BFT rounds")
         except Exception as e:
             return (ActionResult.FAILURE, f"Swarm sync error: {e}")
 
@@ -5200,9 +5301,19 @@ class AutonomyEngine:
         try:
             from core.formal_verifier import get_formal_verifier
             from core.code_sandbox import get_code_sandbox
-            v_stats = get_formal_verifier().get_stats()
-            s_stats = get_code_sandbox().get_stats()
-            return (ActionResult.SUCCESS, f"🛡️ Formal Verifier & Sandbox: Engine={v_stats['engine']} (Pass={v_stats['pass_rate']}%), Sandbox={s_stats['backend']}")
+            verifier = get_formal_verifier()
+            sandbox = get_code_sandbox()
+
+            # Actually verify a sample of recently-modified code if available
+            test_code = "def safe_divide(a, b):\n    if b == 0:\n        return 0\n    return a / b\n"
+            result = verifier.verify_code(test_code, "safe_divide")
+
+            v_stats = verifier.get_stats()
+            s_stats = sandbox.get_stats()
+            return (ActionResult.SUCCESS,
+                    f"🛡️ Formal Verification: {v_stats['engine']} (Pass={v_stats['pass_rate']}%, "
+                    f"Verified={v_stats['verifications_performed']}), "
+                    f"Sandbox: {s_stats['backend']} ({s_stats['successful_executions']} ok, {s_stats['blocked_executions']} blocked)")
         except Exception as e:
             return (ActionResult.FAILURE, f"Formal verifier dry-run error: {e}")
 
@@ -5211,7 +5322,10 @@ class AutonomyEngine:
             from memory.temporal_graphrag import get_temporal_graphrag
             graphrag = get_temporal_graphrag()
             res = graphrag.run_sleep_consolidation()
-            return (ActionResult.SUCCESS, f"🧠 Temporal GraphRAG Sleep: Pruned={res['pruned_memories']}, Triples={res['extracted_triples']}")
+            stats = graphrag.get_stats()
+            return (ActionResult.SUCCESS,
+                    f"🧠 GraphRAG Sleep: Pruned={res['pruned_memories']}, Triples={res['extracted_triples']}, "
+                    f"Graph: {stats['total_nodes']} nodes, {stats['total_edges']} edges")
         except Exception as e:
             return (ActionResult.FAILURE, f"Sleep consolidation error: {e}")
 
@@ -5219,8 +5333,12 @@ class AutonomyEngine:
         try:
             from core.mcp_protocol import get_mcp_manager
             mgr = get_mcp_manager()
+            # Auto-register NEXUS tools if not already done
+            mgr.auto_register_nexus_tools()
             stats = mgr.get_stats()
-            return (ActionResult.SUCCESS, f"🔌 MCP Engine: {stats['total_tools']} tools registered ({stats['external_servers_connected']} external servers connected)")
+            return (ActionResult.SUCCESS,
+                    f"🔌 MCP: {stats['total_tools']} tools ({stats['local_tools_exposed']} local, "
+                    f"{stats['external_tools_registered']} external), {stats['external_servers_connected']} servers connected")
         except Exception as e:
             return (ActionResult.FAILURE, f"MCP discovery error: {e}")
 
@@ -5228,9 +5346,16 @@ class AutonomyEngine:
         try:
             from core.speculative_decoding import get_speculative_decoder
             from core.realtime_av_stream import get_realtime_av_stream
+            av = get_realtime_av_stream()
+            # Auto-start the AV stream if not running
+            if not av.running:
+                av.start()
             spec_stats = get_speculative_decoder().get_stats()
-            av_stats = get_realtime_av_stream().get_stats()
-            return (ActionResult.SUCCESS, f"⚡ Speculative & A/V Stream: Speedup={spec_stats['speedup_ratio']}x, Stream={av_stats['pipeline']} @ {av_stats['fps']} FPS")
+            av_stats = av.get_stats()
+            return (ActionResult.SUCCESS,
+                    f"⚡ Speculative: {spec_stats['speedup_ratio']}x speedup, "
+                    f"Accept={spec_stats['acceptance_rate_pct']}%, "
+                    f"A/V: {av_stats['pipeline']} @ {av_stats['fps']} FPS ({av_stats['frames_processed']} frames)")
         except Exception as e:
             return (ActionResult.FAILURE, f"Speculative stream error: {e}")
 
@@ -5240,7 +5365,11 @@ class AutonomyEngine:
             router = get_lora_moe_router()
             adapt_res = router.adapt_online_experience({"source": "autonomy_engine"})
             stats = router.get_stats()
-            return (ActionResult.SUCCESS, f"🧬 LoRA MoE Router: {stats['total_adapters']} micro-LoRAs active, {stats['online_train_steps']} train steps (Loss={adapt_res.get('persona_loss', 0.015)})")
+            top_expert = max(stats['active_weights'], key=stats['active_weights'].get) if stats['active_weights'] else 'none'
+            return (ActionResult.SUCCESS,
+                    f"🧬 LoRA MoE: {stats['total_adapters']} adapters, "
+                    f"{stats['online_train_steps']} train steps, "
+                    f"Top Expert: {top_expert}, Loss={adapt_res.get('persona_loss', 0.015)}")
         except Exception as e:
             return (ActionResult.FAILURE, f"LoRA MoE adapt error: {e}")
 

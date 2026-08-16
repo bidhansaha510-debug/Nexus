@@ -5203,12 +5203,9 @@ class GroqContextCollector:
         try:
             from core.formal_verifier import get_formal_verifier
             from core.code_sandbox import get_code_sandbox
-            v_stats = get_formal_verifier().get_stats()
-            s_stats = get_code_sandbox().get_stats()
-            summary = (
-                f"Formal Proof Engine: {v_stats['engine']} (Pass Rate: {v_stats['pass_rate']}%)\n"
-                f"Code Sandbox Engine: {s_stats['backend']} ({s_stats['successful_executions']} passed, {s_stats['blocked_executions']} blocked)"
-            )
+            verifier = get_formal_verifier()
+            sandbox = get_code_sandbox()
+            summary = f"{verifier.get_summary()}\n{sandbox.get_summary()}"
             return _truncate(f"[FORMAL VERIFICATION & CODE SANDBOX]\n{summary}")
         except Exception:
             return "[FORMAL VERIFICATION & CODE SANDBOX] Status: active | AST+Z3 Theorem Proving and WASM/Subprocess sandboxing."
@@ -5233,12 +5230,7 @@ class GroqContextCollector:
         try:
             from core.mcp_protocol import get_mcp_manager
             mgr = get_mcp_manager()
-            stats = mgr.get_stats()
-            summary = (
-                f"MCP Protocol Spec: {stats['protocol_version']}\n"
-                f"Exposed Local Tools: {stats['local_tools_exposed']} | External MCP Tools Registered: {stats['external_tools_registered']}\n"
-                f"Connected External Servers: {stats['external_servers_connected']} ({', '.join([c['name'] for c in stats['external_connections']])})"
-            )
+            summary = mgr.get_summary()
             return _truncate(f"[MODEL CONTEXT PROTOCOL (MCP) INTEGRATION]\n{summary}")
         except Exception:
             return "[MODEL CONTEXT PROTOCOL (MCP) INTEGRATION] Status: active | MCP Client & Server JSON-RPC 2.0 dual role."
@@ -5248,28 +5240,19 @@ class GroqContextCollector:
         try:
             from core.speculative_decoding import get_speculative_decoder
             from core.realtime_av_stream import get_realtime_av_stream
-            spec_stats = get_speculative_decoder().get_stats()
-            stream_stats = get_realtime_av_stream().get_stats()
-            summary = (
-                f"Speculative Decoding Speedup: {spec_stats['speedup_ratio']}x (Draft: {spec_stats['draft_model']} -> Target: {spec_stats['target_model']})\n"
-                f"A/V Stream Pipeline: {stream_stats['pipeline']} @ {stream_stats['fps']} FPS (Frames Processed: {stream_stats['frames_processed']})\n"
-                f"Duplex Voice Interrupts: {stream_stats['voice_interrupts_triggered']} triggered | Salient Keyframes: {stream_stats['key_salient_frames']}"
-            )
+            spec_summary = get_speculative_decoder().get_summary()
+            av_summary = get_realtime_av_stream().get_summary()
+            summary = f"{spec_summary}\n{av_summary}"
             return _truncate(f"[SPECULATIVE DECODING & REAL-TIME A/V STREAMING]\n{summary}")
         except Exception:
-            return "[SPECULATIVE DECODING & REAL-TIME A/V STREAMING] Status: active | 2.8x speculative token acceleration & zero-latency WebRTC A/V duplex stream."
+            return "[SPECULATIVE DECODING & REAL-TIME A/V STREAMING] Status: active | Speculative token acceleration & WebRTC A/V duplex stream."
 
     def _collect_lora_moe(self, brain) -> str:
         """158. Continuous Self-Adapting LoRAs & MoE Weight Router."""
         try:
             from self_improvement.lora_moe_router import get_lora_moe_router
             router = get_lora_moe_router()
-            stats = router.get_stats()
-            summary = (
-                f"Loaded Micro-LoRA Adapters: {stats['total_adapters']} (Coding, Security, Reasoning, Persona)\n"
-                f"MoE Routes Evaluated: {stats['routes_evaluated']} | Hot-Swaps: {stats['hot_swaps_performed']}\n"
-                f"Online Training Steps: {stats['online_train_steps']} (Last Adapted: {stats['last_adaptation'][:19]})"
-            )
+            summary = router.get_summary()
             return _truncate(f"[CONTINUOUS SELF-ADAPTING LORAS & MOE ROUTER]\n{summary}")
         except Exception:
             return "[CONTINUOUS SELF-ADAPTING LORAS & MOE ROUTER] Status: active | Dynamic PEFT micro-LoRAs & MoE gating router."

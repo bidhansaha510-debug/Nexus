@@ -219,6 +219,21 @@ class LoRAMoERouter:
             "last_adaptation": self._stats["last_adaptation"],
         }
 
+    def get_summary(self) -> str:
+        """Human-readable summary for context collector."""
+        stats = self.get_stats()
+        adapter_names = [a['name'] for a in stats['adapters']]
+        top_weight = max(stats['active_weights'].values()) if stats['active_weights'] else 0
+        top_expert = max(stats['active_weights'], key=stats['active_weights'].get) if stats['active_weights'] else 'none'
+        lines = [
+            f"LoRA MoE Router: {'Enabled' if self.enabled else 'Disabled'} ({stats['total_adapters']} Micro-LoRAs)",
+            f"Adapters: {', '.join(adapter_names)}",
+            f"Routes Evaluated: {stats['routes_evaluated']} | Hot-Swaps: {stats['hot_swaps_performed']}",
+            f"Top Expert: {top_expert} (α={top_weight:.3f})",
+            f"Online Training: {stats['online_train_steps']} steps (Last: {stats['last_adaptation'][:19]})",
+        ]
+        return "\n".join(lines)
+
 # Singleton accessor
 lora_moe_router = LoRAMoERouter()
 

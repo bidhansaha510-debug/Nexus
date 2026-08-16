@@ -290,6 +290,16 @@ if __name__ == '__main__':
             "backend": "WASM/Subprocess Sandbox" if WASMTIME_AVAILABLE else "Isolated Subprocess Sandbox",
         }
 
+    def get_summary(self) -> str:
+        """Human-readable summary for context collector."""
+        stats = self.get_stats()
+        lines = [
+            f"Code Sandbox Backend: {stats['backend']}",
+            f"WASM Runtime: {'Available' if stats['wasm_available'] else 'Unavailable (subprocess fallback)'}",
+            f"Total Executions: {stats['total_executions']} ({stats['successful_executions']} passed, {stats['blocked_executions']} blocked)",
+        ]
+        return "\n".join(lines)
+
 # Singleton accessor
 code_sandbox = CodeSandbox()
 

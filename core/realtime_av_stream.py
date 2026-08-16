@@ -195,6 +195,18 @@ class RealtimeAVStreamManager:
             "audio_packets_streamed": self._stats["audio_packets_streamed"],
         }
 
+    def get_summary(self) -> str:
+        """Human-readable summary for context collector."""
+        stats = self.get_stats()
+        lines = [
+            f"Real-Time A/V Pipeline: {stats['pipeline']} ({'Running' if stats['running'] else 'Stopped'})",
+            f"Video: {stats['fps']} FPS | Frames Processed: {stats['frames_processed']}",
+            f"Salient Keyframes Detected: {stats['key_salient_frames']}",
+            f"Audio: {'Listening' if stats['audio_status']['is_listening'] else 'Idle'} | Voice Interrupts: {stats['voice_interrupts_triggered']}",
+            f"Duplex Latency: {stats['audio_status']['latency_ms']}ms",
+        ]
+        return "\n".join(lines)
+
 # Singleton accessor
 realtime_av_stream = RealtimeAVStreamManager()
 

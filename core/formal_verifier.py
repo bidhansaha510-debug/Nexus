@@ -291,6 +291,17 @@ class FormalVerifier:
             "pass_rate": round((self._passed_count / max(1, self._verifications_count)) * 100, 1),
         }
 
+    def get_summary(self) -> str:
+        """Human-readable summary for context collector."""
+        stats = self.get_stats()
+        lines = [
+            f"Formal Verification Engine: {stats['engine']}",
+            f"Z3 Theorem Prover: {'Available' if stats['z3_available'] else 'Unavailable (AST fallback)'}",
+            f"Verifications Performed: {stats['verifications_performed']}",
+            f"Results: {stats['passed_count']} passed, {stats['failed_count']} failed (Pass Rate: {stats['pass_rate']}%)",
+        ]
+        return "\n".join(lines)
+
 # Singleton accessor
 formal_verifier = FormalVerifier()
 

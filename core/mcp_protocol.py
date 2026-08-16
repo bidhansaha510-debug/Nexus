@@ -396,6 +396,31 @@ class MCPManager:
         """Direct JSON-RPC 2.0 handler entrypoint."""
         return self.server_engine.handle_jsonrpc_request(request_payload)
 
+    def auto_register_nexus_tools(self):
+        """Auto-register core NEXUS cognitive tools into the MCP server engine.
+        Safe to call multiple times — skips already-registered tools."""
+        try:
+            existing_names = {t.name for t in self.server_engine.tools}
+            core_tools = [
+                MCPTool(name="nexus_chat", description="Send a message to NEXUS AI and get a response", category="cognitive",
+                        inputSchema={"type": "object", "properties": {"message": {"type": "string"}}, "required": ["message"]}),
+                MCPTool(name="nexus_memory_search", description="Search NEXUS long-term memory", category="memory",
+                        inputSchema={"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]}),
+                MCPTool(name="nexus_code_verify", description="Formally verify Python code with AST+Z3", category="verification",
+                        inputSchema={"type": "object", "properties": {"code": {"type": "string"}}, "required": ["code"]}),
+                MCPTool(name="nexus_sandbox_run", description="Execute code in capability-bounded sandbox", category="sandbox",
+                        inputSchema={"type": "object", "properties": {"code": {"type": "string"}}, "required": ["code"]}),
+            ]
+            added = 0
+            for tool in core_tools:
+                if tool.name not in existing_names:
+                    self.server_engine.tools.append(tool)
+                    added += 1
+            if added > 0:
+                logger.debug(f"MCP auto-registered {added} NEXUS tools")
+        except Exception as e:
+            logger.debug(f"MCP auto-register skipped: {e}")
+
     def get_stats(self) -> Dict[str, Any]:
         all_tools = self.get_registered_mcp_tools()
         local_count = sum(1 for t in all_tools if t.source == "local_nexus")
@@ -412,6 +437,18 @@ class MCPManager:
             "server_requests_handled": self._stats["server_requests_handled"],
             "client_calls_executed": self._stats["client_calls_executed"],
         }
+
+    def get_summary(self) -> str:
+        """Human-readable summary for context collector."""
+        stats = self.get_stats()
+        ext_names = [c['name'] for c in stats['external_connections']] if stats['external_connections'] else ['none']
+        lines = [
+            f"MCP Protocol: v{stats['protocol_version']} (Dual-Role Server+Client)",
+            f"Local NEXUS Tools Exposed: {stats['local_tools_exposed']} | External Tools Registered: {stats['external_tools_registered']}",
+            f"Connected External Servers: {stats['external_servers_connected']} ({', '.join(ext_names)})",
+            f"Server Requests Handled: {stats['server_requests_handled']} | Client Calls: {stats['client_calls_executed']}",
+        ]
+        return "\n".join(lines)
 
 # Singleton accessor
 mcp_manager = MCPManager()

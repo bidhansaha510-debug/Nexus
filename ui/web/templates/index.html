@@ -3476,8 +3476,18 @@ def main():
                             <!-- Duplex Audio VAD Waveform Indicator -->
                             <div style="margin-top:12px;padding:10px;background:rgba(0,0,0,0.25);border-radius:6px;display:flex;align-items:center;justify-content:space-between">
                                 <div style="display:flex;align-items:center;gap:8px">
-                                    <div style="width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 8px #10b981" id="vad-indicator"></div>
+                                    <span class="status-pulse active" id="vad-indicator"></span>
                                     <span style="font-size:.75rem;color:#e2e8f0">Duplex Voice Activity (VAD): <strong id="vad-status-text">Listening</strong></span>
+                                </div>
+                                <div style="display:flex;align-items:flex-end;gap:2px;height:20px" id="vad-waveform">
+                                    <div class="waveform-bar" style="height:8px;animation-delay:0s"></div>
+                                    <div class="waveform-bar" style="height:14px;animation-delay:0.15s"></div>
+                                    <div class="waveform-bar" style="height:18px;animation-delay:0.3s"></div>
+                                    <div class="waveform-bar" style="height:12px;animation-delay:0.45s"></div>
+                                    <div class="waveform-bar" style="height:16px;animation-delay:0.6s"></div>
+                                    <div class="waveform-bar" style="height:10px;animation-delay:0.75s"></div>
+                                    <div class="waveform-bar" style="height:14px;animation-delay:0.9s"></div>
+                                    <div class="waveform-bar" style="height:20px;animation-delay:1.05s"></div>
                                 </div>
                                 <span style="font-size:.75rem;color:#38bdf8;font-family:monospace" id="vad-latency-text">Latency: 12.5ms</span>
                             </div>
@@ -3574,6 +3584,17 @@ def main():
                             <div style="font-size:.7rem;color:#f59e0b;margin-top:2px">Domain: persona (1.5 MB)</div>
                             <div style="font-size:.68rem;opacity:.6;margin-top:6px">Rank: 8 | Alpha: 16 | Steps: 4,200</div>
                             <div style="font-size:.68rem;color:#10b981;margin-top:2px">Loss: 0.019</div>
+                        </div>
+                    </div>
+
+                    <!-- Live MoE Gating Weights Visualization -->
+                    <div class="card glass-card feature-card-lora" style="padding:16px">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                            <h3 style="margin:0;font-size:.9rem;font-weight:600;color:#e2e8f0"><i class="fas fa-sliders-h" style="color:#ec4899;margin-right:6px"></i> Live MoE Gating Weights (α<sub>i</sub>)</h3>
+                            <span style="font-size:.68rem;opacity:.5">Softmax distribution across experts</span>
+                        </div>
+                        <div id="lora-weights-visual" style="display:flex;flex-direction:column;gap:4px">
+                            <div style="text-align:center;padding:16px;opacity:.4;font-size:.75rem">Weights will update after first MoE route evaluation...</div>
                         </div>
                     </div>
 
