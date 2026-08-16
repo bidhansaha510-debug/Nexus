@@ -588,18 +588,24 @@ class ResearchAgent:
                     query, max_results=5
                 )
 
-                if not search_results.success:
+                if not search_results:
                     continue
 
-                for result in search_results.results[:3]:
-                    if result.url in seen_urls:
+                # Handle search_results whether it's a list or an object with .results
+                results_list = search_results.results if hasattr(search_results, "results") else search_results
+                if not isinstance(results_list, list):
+                    continue
+
+                for result in results_list[:3]:
+                    url = result.get("url", "") if isinstance(result, dict) else getattr(result, "url", "")
+                    if not url or url in seen_urls:
                         continue
-                    seen_urls.add(result.url)
+                    seen_urls.add(url)
 
                     # Only fetch from allowed domains
-                    if self._browser.is_domain_allowed(result.url):
-                        page = self._browser.fetch(result.url)
-                        if page.success and page.word_count > 50:
+                    if self._browser.is_domain_allowed(url):
+                        page = self._browser.fetch(url)
+                        if page and getattr(page, "success", False) and getattr(page, "word_count", 0) > 50:
                             all_pages.append(page)
 
                     if len(all_pages) >= self._max_pages_per_session:

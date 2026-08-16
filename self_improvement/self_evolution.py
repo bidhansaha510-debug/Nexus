@@ -326,6 +326,67 @@ class SelfEvolution:
                 logger.warning("Feature researcher not available")
 
     # ═══════════════════════════════════════════════════════════════════════════
+    # ON-DEMAND EVOLUTION (called by Autonomy Engine)
+    # ═══════════════════════════════════════════════════════════════════════════
+
+    def run_evolution_cycle(self):
+        """
+        Run a single evolution step on demand.
+
+        Called by the Autonomy Engine when it chooses SELF_EVOLUTION_CYCLE.
+        Loads LLM, grabs the next approved proposal, and attempts evolution.
+        If no proposals exist, triggers emergency research to fill the pipeline.
+        """
+        self._load_llm()
+        if not self._llm:
+            logger.warning("🧬 run_evolution_cycle: LLM not available, skipping")
+            return
+
+        # Get feature researcher
+        if not self._feature_researcher:
+            self._load_feature_researcher()
+        if not self._feature_researcher:
+            logger.warning("🧬 run_evolution_cycle: Feature researcher not available")
+            return
+
+        try:
+            proposal = self._feature_researcher.get_next_approved_proposal()
+
+            if proposal is None:
+                logger.info("🧬 run_evolution_cycle: No approved proposals — triggering emergency research")
+                try:
+                    fr = self._feature_researcher
+                    fr._research_llm_brainstorm()
+                    fr._evaluate_pending_proposals()
+                    fr._auto_approve_proposals()
+                    fr._save_proposals()
+                    logger.info("✅ Emergency research cycle complete")
+                    # Try again after emergency research
+                    proposal = self._feature_researcher.get_next_approved_proposal()
+                except Exception as er:
+                    logger.warning(f"Emergency research failed: {er}")
+                    return
+
+            if proposal is None:
+                logger.info("🧬 run_evolution_cycle: Still no proposals after research")
+                return
+
+            # Execute evolution
+            logger.info(f"🧬 On-demand evolution: {proposal.name} [{proposal.category.value}]")
+            success = self.evolve(proposal)
+
+            if success:
+                logger.info(f"✅ On-demand evolution complete: {proposal.name}")
+                self._stats.consecutive_failures = 0
+            else:
+                logger.warning(f"❌ On-demand evolution failed: {proposal.name}")
+                self._stats.consecutive_failures += 1
+
+        except Exception as e:
+            logger.error(f"🧬 run_evolution_cycle error: {e}")
+            self._stats.consecutive_failures += 1
+
+    # ═══════════════════════════════════════════════════════════════════════════
     # MAIN EVOLUTION LOOP
     # ═══════════════════════════════════════════════════════════════════════════
 

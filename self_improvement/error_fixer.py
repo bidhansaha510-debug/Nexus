@@ -206,6 +206,56 @@ class ErrorFixer:
         """Wire up the code monitor"""
         self._code_monitor = monitor
 
+    def run_fix_cycle(self):
+        """
+        Run a single error-detection + fix cycle on demand.
+
+        Called by the Autonomy Engine when it chooses ERROR_FIX_CYCLE.
+        Queries the code monitor for active errors, queues them, and
+        processes one fix synchronously.
+        """
+        # Ensure LLM is available
+        if self._llm is None:
+            try:
+                from llm.llama_interface import llm
+                if llm.is_connected:
+                    self._llm = llm
+            except ImportError:
+                pass
+
+        if self._llm is None:
+            logger.warning("🔧 run_fix_cycle: LLM not available, skipping")
+            return
+
+        # Query code monitor for active errors
+        if self._code_monitor is None:
+            try:
+                from self_improvement.code_monitor import code_monitor
+                self._code_monitor = code_monitor
+            except ImportError:
+                pass
+
+        if self._code_monitor and hasattr(self._code_monitor, 'get_active_errors'):
+            try:
+                errors = self._code_monitor.get_active_errors()
+                for err in errors[:3]:  # Process up to 3 errors per cycle
+                    error_id = err.get("error_id", "")
+                    if error_id not in self._recently_fixed_errors:
+                        self._fix_queue.put(err)
+            except Exception as e:
+                logger.debug(f"Could not query code monitor: {e}")
+
+        # Process one queued fix
+        if not self._fix_queue.empty():
+            try:
+                error_data = self._fix_queue.get(timeout=1.0)
+                self._process_fix(error_data)
+                logger.info("🔧 On-demand fix cycle: processed one error")
+            except Exception as e:
+                logger.warning(f"🔧 On-demand fix cycle error: {e}")
+        else:
+            logger.info("🔧 On-demand fix cycle: no errors in queue")
+
     # ═══════════════════════════════════════════════════════════════════════════
     # EVENT HANDLING
     # ═══════════════════════════════════════════════════════════════════════════

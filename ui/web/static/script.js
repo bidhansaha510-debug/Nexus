@@ -29,6 +29,14 @@ function getAuthHeaders() {
     if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
     return headers;
 }
+function getToken() {
+    return authToken || localStorage.getItem('nexus_auth_token');
+}
+function fetchWithAuth(url, options = {}) {
+    const opts = { ...options };
+    opts.headers = { ...getAuthHeaders(), ...(opts.headers || {}) };
+    return fetch(url, opts);
+}
 // ── Rolling history arrays for sparklines ──
 const SPARK_MAX = 60;
 const sparkData = {
@@ -109,6 +117,11 @@ function pushSpark(key, value) {
     sparkData[key].push(value);
     if (sparkData[key].length > SPARK_MAX) sparkData[key].shift();
 }
+function startPolling() {
+    // Kick off an immediate stats fetch so the dashboard populates right away.
+    // Continuous polling is handled by the module-level setInterval(fetchStats, ...) below.
+    fetchStats();
+}
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', () => {
     checkAuth();
@@ -163,6 +176,18 @@ function showAuthModal() {
     if (overlay) overlay.style.display = 'flex';
     showAuthScreen('choose');
     initGoogleSignIn();
+}
+// Google Sign-In is optional and only rendered if the GSI script is loaded
+// on the page. This guard keeps the auth flow working when it is absent.
+function initGoogleSignIn() {
+    if (typeof google === 'undefined' || !google.accounts || !google.accounts.id) return;
+    const container = document.getElementById('google-signin-button');
+    if (!container) return;
+    try {
+        google.accounts.id.renderButton(container, { theme: 'outline', size: 'large' });
+    } catch (e) {
+        console.warn('Google Sign-In render failed:', e);
+    }
 }
 function hideAuthModal() {
     const overlay = document.getElementById('auth-overlay');
@@ -3072,6 +3097,9 @@ function showToast(message, type = 'info', duration = 3000) {
         setTimeout(() => toast.remove(), 400);
     }, duration);
 }
+function showNotification(message, type = 'info', duration = 3000) {
+    showToast(message, type, duration);
+}
 // ══════════════════════════════════════════════
 // KEYBOARD SHORTCUTS
 // ══════════════════════════════════════════════
@@ -4061,6 +4089,31 @@ async function refreshNetworkInfo() {
 // ═══════════════════════════════════════════════════════════════════
 // ETHICAL HACKING v2.0 — Expanded Panel Functions
 // ═══════════════════════════════════════════════════════════════════
+function pollHackingScan(taskId, scanType = 'scan') {
+    const label = String(scanType).replace(/_/g, ' ').toUpperCase();
+    let attempts = 0;
+    const maxAttempts = 120; // ~3 minutes at 1.5s intervals
+    const poll = setInterval(async () => {
+        attempts++;
+        try {
+            const res = await fetchWithAuth(`/api/hacking/scan/status/${taskId}`);
+            const data = await res.json();
+            if (data.status === 'complete') {
+                clearInterval(poll);
+                showNotification(`${label} scan completed!`, 'success');
+                fetchStats(); // Refresh stats
+            } else if (data.status === 'error') {
+                clearInterval(poll);
+                showNotification(`${label} scan failed: ${data.error || 'Unknown error'}`, 'error');
+            }
+        } catch (e) {
+            if (attempts >= maxAttempts) {
+                clearInterval(poll);
+                showNotification(`Poll error: ${e.message}`, 'error');
+            }
+        }
+    }, 1500);
+}
 function startFullRecon() {
     const target = document.getElementById('hackFullReconTarget');
     if (!target || !target.value.trim()) { showNotification('Enter a target', 'warning'); return; }

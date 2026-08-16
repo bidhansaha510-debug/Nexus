@@ -516,6 +516,28 @@ def get_learning_system() -> LearningSystem:
                 _learning_system_singleton = LearningSystem()
     return _learning_system_singleton
 
+
+class _LearningSystemProxy:
+    """
+    Lazy proxy so `from learning import learning_system` works.
+
+    Defers LearningSystem creation until first attribute/method access,
+    keeping import-time side-effect-free.
+    """
+    def __getattr__(self, name):
+        return getattr(get_learning_system(), name)
+
+    def __bool__(self):
+        return get_learning_system() is not None
+
+    def __repr__(self):
+        return repr(get_learning_system())
+
+
+# Module-level singleton expected by: nexus_brain, tool_executor,
+# context_assembler, autonomy_engine, ability_registry, reasoning_loop
+learning_system = _LearningSystemProxy()
+
 def get_internet_browser():
     return _get_internet_browser()
 
@@ -538,7 +560,7 @@ def get_research_intelligence():
     return _get_research_intelligence()
 
 __all__ = [
-    "LearningSystem", "get_learning_system",
+    "LearningSystem", "get_learning_system", "learning_system",
     "get_internet_browser", "get_knowledge_base",
     "get_curiosity_engine", "get_research_agent",
     "get_user_behavior_learner", "get_enhanced_sources",
