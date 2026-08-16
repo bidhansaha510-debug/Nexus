@@ -116,7 +116,7 @@
     ],
     "tor_enabled": true,
     "tor_proxy_url": "socks5h://127.0.0.1:9050",
-    "tor_exe_path": "C:\\Users\\shaya\\OneDrive\\Desktop\\Tor Browser\\Browser\\TorBrowser\\Tor\\tor.exe",
+    "tor_exe_path": "C:\\Users\\shaya\\Desktop\\Tor Browser\\Browser\\TorBrowser\\Tor\\tor.exe",
     "allow_onion_when_tor": true,
     "default_onion_urls": [
       "http://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/"

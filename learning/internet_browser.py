@@ -426,14 +426,33 @@ class InternetBrowser:
 
     def _try_launch_tor(self):
         """Try to auto-start the Tor process from the configured exe path."""
-        exe_path = self._tor_exe_path
-        if not exe_path:
-            logger.debug("No tor_exe_path configured, cannot auto-launch Tor")
-            return
         import os
-        if not os.path.isfile(exe_path):
-            logger.warning(f"Tor executable not found at: {exe_path}")
-            return
+        exe_path = self._tor_exe_path
+
+        # If configured path doesn't exist, check common fallback locations
+        if not exe_path or not os.path.isfile(exe_path):
+            candidates = [
+                exe_path,
+                os.path.expanduser(r"~\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe"),
+                os.path.expanduser(r"~\OneDrive\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe"),
+                r"C:\Users\shaya\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe",
+                r"C:\Users\shaya\OneDrive\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe",
+                r"C:\Program Files\Tor Browser\Browser\TorBrowser\Tor\tor.exe",
+                r"C:\Program Files (x86)\Tor Browser\Browser\TorBrowser\Tor\tor.exe",
+            ]
+            found = False
+            for c in candidates:
+                if c and os.path.isfile(c):
+                    exe_path = c
+                    found = True
+                    break
+            if not found:
+                if exe_path:
+                    logger.warning(f"Tor executable not found at: {exe_path}")
+                else:
+                    logger.debug("No tor_exe_path configured, cannot auto-launch Tor")
+                return
+
         try:
             self._tor_process = subprocess.Popen(
                 [exe_path],
@@ -441,7 +460,7 @@ class InternetBrowser:
                 stderr=subprocess.DEVNULL,
                 creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
             )
-            logger.info(f"Launched Tor process (PID {self._tor_process.pid})")
+            logger.info(f"Launched Tor process (PID {self._tor_process.pid}) from {exe_path}")
         except Exception as e:
             logger.error(f"Failed to launch Tor: {e}")
 

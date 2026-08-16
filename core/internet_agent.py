@@ -1212,78 +1212,93 @@ If no action needed (rare — you should almost always act):
             # Parse response
             response_text = response.text if hasattr(response, 'text') else str(response)
             
-            # Extract JSON
-            import re
-            json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
-            if json_match:
-                raw_json = json_match.group()
-                
-                # Fix common LLM JSON issues:
-                # 1. Replace single quotes with double quotes
-                fixed = raw_json.replace("'", '"')
-                # 2. Add double quotes around unquoted property names
-                fixed = re.sub(
-                    r'(?<=[{,])\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*:',
-                    r' "\1":',
-                    fixed
-                )
-                # 3. Remove trailing commas before } or ]
-                fixed = re.sub(r',\s*([}\]])', r'\1', fixed)
-                
+            # Parse response using robust JSON extraction
+            decision = None
+            try:
+                from utils.json_utils import extract_json
+                decision = extract_json(response_text)
+            except Exception:
+                decision = None
+
+            if not isinstance(decision, dict):
+                # Fallback 1: Extract JSON from markdown or curly braces
+                import re
+                json_match = re.search(r'\{[\s\S]*\}', response_text)
+                if json_match:
+                    raw_json = json_match.group()
+                    # Sanitize double-braces if LLM copied prompt template
+                    sanitized = raw_json.replace('{{', '{').replace('}}', '}')
+                    try:
+                        decision = json.loads(sanitized)
+                    except json.JSONDecodeError:
+                        # Clean trailing commas and control characters without destroying string quotes
+                        cleaned = re.sub(r',\s*([}\]])', r'\1', sanitized)
+                        cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', cleaned)
+                        try:
+                            decision = json.loads(cleaned)
+                        except json.JSONDecodeError:
+                            pass
+
+            if not isinstance(decision, dict):
+                # Fallback 2: ast.literal_eval for Python-style dict outputs
+                import ast
                 try:
-                    decision = json.loads(fixed)
-                except json.JSONDecodeError:
-                    # Last resort: try the original text
-                    decision = json.loads(raw_json)
+                    eval_match = re.search(r'\{[\s\S]*\}', response_text)
+                    if eval_match:
+                        evaluated = ast.literal_eval(eval_match.group())
+                        if isinstance(evaluated, dict):
+                            decision = evaluated
+                except Exception:
+                    pass
+
+            if decision and isinstance(decision, dict) and decision.get('should_act'):
+                action_type = decision.get('action_type', 'browse')
+                url = decision.get('url', '').strip()
                 
-                if decision.get('should_act'):
-                    action_type = decision.get('action_type', 'browse')
-                    url = decision.get('url', '').strip()
-                    
-                    # For search actions, build URL from query
-                    if action_type == 'search':
-                        query = decision.get('query', '').strip()
-                        if not query:
-                            logger.debug("Ollama decided search but provided no query, skipping")
-                            return None
-                        from urllib.parse import quote_plus
-                        url = f"https://duckduckgo.com/?q={quote_plus(query)}"
-                    
-                    # Validate URL for non-search actions
-                    if not url or not url.startswith(('http://', 'https://')):
-                        logger.warning(
-                            f"Ollama decided '{action_type}' but provided no valid URL "
-                            f"(got: {url!r}), skipping action"
-                        )
+                # For search actions, build URL from query
+                if action_type == 'search':
+                    query = decision.get('query', '').strip()
+                    if not query:
+                        logger.debug("Ollama decided search but provided no query, skipping")
                         return None
-                    
-                    action = InternetAction(
-                        action_id=self._generate_action_id(),
-                        created_at=datetime.now().isoformat(),
-                        description=decision.get('reasoning', '')
+                    from urllib.parse import quote_plus
+                    url = f"https://duckduckgo.com/?q={quote_plus(query)}"
+                
+                # Validate URL for non-search actions
+                if not url or not url.startswith(('http://', 'https://')):
+                    logger.warning(
+                        f"Ollama decided '{action_type}' but provided no valid URL "
+                        f"(got: {url!r}), skipping action"
                     )
-                    
-                    action.action_type = InternetActionType(action_type)
-                    action.url = url
-                    action.method = decision.get('method', 'GET')
-                    action.params = decision.get('params', {})
-                    action.headers = decision.get('headers', {})
-                    
-                    # Handle data for POST/form actions
-                    if decision.get('data'):
-                        action.data = decision['data']
-                    
-                    if action_type == 'search':
-                        action.params['query'] = decision.get('query', '')
-                    
-                    # For form_submit / authenticate, use POST method
-                    if action_type in ('form_submit', 'authenticate') and action.method == 'GET':
-                        action.method = 'POST'
-                    
-                    return action
-                    
+                    return None
+                
+                action = InternetAction(
+                    action_id=self._generate_action_id(),
+                    created_at=datetime.now().isoformat(),
+                    description=decision.get('reasoning', '')
+                )
+                
+                action.action_type = InternetActionType(action_type)
+                action.url = url
+                action.method = decision.get('method', 'GET')
+                action.params = decision.get('params', {})
+                action.headers = decision.get('headers', {})
+                
+                # Handle data for POST/form actions
+                if decision.get('data'):
+                    action.data = decision['data']
+                
+                if action_type == 'search':
+                    action.params['query'] = decision.get('query', '')
+                
+                # For form_submit / authenticate, use POST method
+                if action_type in ('form_submit', 'authenticate') and action.method == 'GET':
+                    action.method = 'POST'
+                
+                return action
+                
         except Exception as e:
-            logger.error(f"Ollama decision error: {e}")
+            logger.warning(f"Ollama decision parsing note: {e}")
         
         return None
     

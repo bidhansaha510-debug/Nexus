@@ -281,7 +281,7 @@ class InternetConfig:
     tor_enabled: bool = True
     tor_proxy_url: str = "socks5h://127.0.0.1:9050"  # Standalone tor.exe default
     tor_exe_path: str = (
-        r"C:\Users\shaya\OneDrive\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe"
+        r"C:\Users\shaya\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe"
     )
     allow_onion_when_tor: bool = True  # When Tor enabled, allow *.onion in fetches
     # Default .onion URLs used for autonomous dark web learning (when Tor enabled)
