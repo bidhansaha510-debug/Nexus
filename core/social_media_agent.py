@@ -17,6 +17,9 @@ import json
 import random
 import threading
 import os
+import shutil
+import platform
+import subprocess
 from pathlib import Path
 from datetime import datetime, timedelta
 from dataclasses import dataclass, field
@@ -124,65 +127,301 @@ class SocialMediaStats:
         }
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# SELENIUM HELPER — shared WebDriver factory
+# SELENIUM HELPER — shared WebDriver factory (uses user's real Chrome profile)
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def _create_selenium_driver(platform_name: str = ""):
-    """Create a headless Chrome WebDriver with anti-detection flags."""
+# ── Shared Chrome profile directory for all platform drivers ──
+_SHARED_PROFILE_DIR: Optional[Path] = None
+_PROFILE_COPY_DONE = False
+_PROFILE_LOCK = threading.Lock()
+
+
+def _get_system_chrome_user_data() -> Optional[Path]:
+    """Get the user's actual Chrome user data directory."""
+    local_appdata = os.environ.get("LOCALAPPDATA", "")
+    if not local_appdata:
+        return None
+    chrome_dir = Path(local_appdata) / "Google" / "Chrome" / "User Data"
+    if chrome_dir.exists():
+        return chrome_dir
+    return None
+
+
+def _copy_chrome_profile_once() -> Optional[Path]:
+    """Copy the user's Chrome profile to a NEXUS-owned directory (once per session).
+    
+    This ensures NEXUS uses the user's logged-in sessions (Facebook, Instagram,
+    Twitter, YouTube, Gmail, etc.) WITHOUT interfering with the user's running
+    Chrome instance.
+    
+    Only the critical session files are copied — not the entire multi-GB profile.
+    """
+    global _SHARED_PROFILE_DIR, _PROFILE_COPY_DONE
+    
+    with _PROFILE_LOCK:
+        if _PROFILE_COPY_DONE and _SHARED_PROFILE_DIR and _SHARED_PROFILE_DIR.exists():
+            return _SHARED_PROFILE_DIR
+        
+        system_chrome = _get_system_chrome_user_data()
+        if not system_chrome:
+            logger.warning("📱 No system Chrome profile found at %LOCALAPPDATA%/Google/Chrome/User Data")
+            return None
+        
+        # Copy to NEXUS data directory
+        nexus_profile = DATA_DIR / "chrome_live_profile"
+        nexus_profile.mkdir(parents=True, exist_ok=True)
+        
+        # Clean stale lock files from any previous NEXUS Chrome
+        for lock_file in ["SingletonLock", "SingletonCookie", "SingletonSocket", "DevToolsActivePort"]:
+            lock_path = nexus_profile / lock_file
+            if lock_path.exists():
+                try:
+                    lock_path.unlink()
+                except Exception:
+                    pass
+        
+        # Copy critical session files from Default profile
+        source_default = system_chrome / "Default"
+        target_default = nexus_profile / "Default"
+        target_default.mkdir(parents=True, exist_ok=True)
+        
+        # These are the files that hold login sessions, cookies, and preferences
+        critical_files = [
+            "Cookies",
+            "Network/Cookies",
+            "Login Data",
+            "Login Data For Account",
+            "Web Data",
+            "Preferences",
+            "Secure Preferences",
+            "Local State",  # encryption key reference
+        ]
+        
+        # Also copy the Local State file from the parent User Data dir
+        local_state = system_chrome / "Local State"
+        target_local_state = nexus_profile / "Local State"
+        if local_state.exists():
+            try:
+                shutil.copy2(str(local_state), str(target_local_state))
+                logger.debug("📱 Copied Local State (encryption keys)")
+            except Exception as e:
+                logger.debug(f"📱 Local State copy: {e}")
+        
+        copied = 0
+        for rel in critical_files:
+            src = source_default / rel
+            dst = target_default / rel
+            if src.exists():
+                try:
+                    dst.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(str(src), str(dst))
+                    copied += 1
+                except PermissionError:
+                    # File is locked by running Chrome — try reading bytes directly
+                    try:
+                        with open(str(src), 'rb') as f_in:
+                            data = f_in.read()
+                        with open(str(dst), 'wb') as f_out:
+                            f_out.write(data)
+                        copied += 1
+                    except Exception as e2:
+                        logger.debug(f"📱 Could not copy {rel}: {e2}")
+                except Exception as e:
+                    logger.debug(f"📱 Could not copy {rel}: {e}")
+        
+        logger.info(f"📱 Copied {copied}/{len(critical_files)} Chrome session files to NEXUS profile")
+        
+        _SHARED_PROFILE_DIR = nexus_profile
+        _PROFILE_COPY_DONE = True
+        return nexus_profile
+
+
+def _kill_orphan_chrome_for_profile(profile_dir: Path):
+    """Kill any background Chrome processes holding file locks on target profile_dir."""
+    try:
+        if platform.system() == "Windows":
+            cmd = (
+                f'Get-CimInstance Win32_Process -Filter "name = \'chrome.exe\' or name = \'chromedriver.exe\'" | '
+                f'Where-Object {{ $_.CommandLine -like "*{profile_dir.name}*" }} | '
+                f'ForEach-Object {{ Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }}'
+            )
+            subprocess.run(["powershell", "-Command", cmd], capture_output=True, timeout=5)
+    except Exception:
+        pass
+
+
+def _create_selenium_driver(platform_name: str = "", headless: bool = True):
+    """Create a Chrome WebDriver using the user's REAL Chrome profile (copied).
+    
+    This means NEXUS inherits ALL logged-in sessions:
+    Facebook, Instagram, Twitter, YouTube, Gmail, etc.
+    No login needed — the user is already authenticated.
+    
+    Args:
+        platform_name: Name used for logging.
+        headless: If True, runs in headless mode.
+    """
     try:
         from selenium import webdriver
         from selenium.webdriver.chrome.options import Options
         from selenium.webdriver.chrome.service import Service
 
-        options = Options()
-        options.add_argument("--headless=new")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--window-size=1920,1080")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--disable-extensions")
-        options.add_argument("--disable-background-networking")
-        options.add_argument("--no-first-run")
-        options.add_argument("--disable-default-apps")
-        options.add_argument("--disable-popup-blocking")
-        options.add_argument(
-            "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-        )
-        options.add_argument("--disable-blink-features=AutomationControlled")
-        options.add_experimental_option("excludeSwitches", ["enable-automation"])
-        options.add_experimental_option("useAutomationExtension", False)
+        # Use the shared copied profile (all platforms share one browser profile)
+        profile_dir = _copy_chrome_profile_once()
+        
+        if not profile_dir:
+            # Fallback: create isolated profile (old behavior)
+            profile_dir = DATA_DIR / "chrome_profiles" / platform_name.lower().replace(" ", "_")
+            profile_dir.mkdir(parents=True, exist_ok=True)
+            logger.warning(f"📱 {platform_name}: No system Chrome found, using isolated profile")
 
-        # Use webdriver-manager to auto-download correct ChromeDriver
+        # Kill any orphaned NEXUS Chrome processes locking this profile
+        _kill_orphan_chrome_for_profile(profile_dir)
+        time.sleep(0.3)
+
+        # Clean up stale lock files
+        for lock_file in ["SingletonLock", "SingletonCookie", "SingletonSocket", "DevToolsActivePort"]:
+            lock_path = profile_dir / lock_file
+            if lock_path.exists():
+                try:
+                    lock_path.unlink()
+                except Exception:
+                    pass
+
+        def _build_options():
+            opts = Options()
+            if headless:
+                opts.add_argument("--headless=new")
+            opts.add_argument("--no-sandbox")
+            opts.add_argument("--disable-dev-shm-usage")
+            opts.add_argument("--window-size=1920,1080")
+            opts.add_argument("--disable-gpu")
+            opts.add_argument("--disable-extensions")
+            opts.add_argument("--no-first-run")
+            opts.add_argument("--disable-popup-blocking")
+            opts.add_argument(f"--user-data-dir={profile_dir}")
+            opts.add_argument("--profile-directory=Default")
+            opts.add_argument(
+                "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+            )
+            opts.add_argument("--disable-blink-features=AutomationControlled")
+            opts.add_argument("--lang=en-US,en;q=0.9")
+            opts.add_experimental_option("excludeSwitches", ["enable-automation"])
+            opts.add_experimental_option("useAutomationExtension", False)
+            opts.add_experimental_option("prefs", {
+                "credentials_enable_service": False,
+                "profile.password_manager_enabled": False,
+            })
+            return opts
+
+        # Service setup
         service = None
         try:
             from webdriver_manager.chrome import ChromeDriverManager
             service = Service(ChromeDriverManager().install())
-            logger.info(f"📱 {platform_name}: ChromeDriver auto-installed via webdriver-manager")
-        except ImportError:
-            logger.debug(f"📱 {platform_name}: webdriver-manager not found, using system ChromeDriver")
         except Exception as e:
             logger.debug(f"📱 {platform_name}: webdriver-manager fallback: {e}")
 
-        if service:
-            driver = webdriver.Chrome(service=service, options=options)
-        else:
-            driver = webdriver.Chrome(options=options)
+        # Launch Chrome with the user's copied profile
+        driver = None
+        try:
+            opts = _build_options()
+            if service:
+                driver = webdriver.Chrome(service=service, options=opts)
+            else:
+                driver = webdriver.Chrome(options=opts)
+        except Exception as first_err:
+            logger.warning(f"📱 {platform_name}: Chrome launch attempt 1 failed ({first_err}). Retrying...")
+            _kill_orphan_chrome_for_profile(profile_dir)
+            time.sleep(1)
+            for lf in ["SingletonLock", "SingletonCookie", "SingletonSocket", "DevToolsActivePort"]:
+                lp = profile_dir / lf
+                if lp.exists():
+                    try:
+                        lp.unlink()
+                    except Exception:
+                        pass
+            opts = _build_options()
+            if service:
+                driver = webdriver.Chrome(service=service, options=opts)
+            else:
+                driver = webdriver.Chrome(options=opts)
 
         driver.implicitly_wait(10)
+
+        # Anti-detection
         try:
             driver.execute_cdp_cmd(
                 "Page.addScriptToEvaluateOnNewDocument",
-                {"source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"},
+                {"source": """
+                    Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
+                    Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]});
+                    Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']});
+                    window.chrome = {runtime: {}};
+                """},
             )
         except Exception:
             pass
-        logger.info(f"📱 {platform_name}: Selenium WebDriver initialized")
+        
+        mode = "headless" if headless else "VISIBLE"
+        logger.info(f"📱 {platform_name}: Selenium initialized ({mode}) — using user's Chrome sessions")
         return driver
     except Exception as e:
         err_msg = str(e).split('\n')[0][:200] if str(e) else type(e).__name__
         logger.warning(f"📱 {platform_name}: Selenium init failed: {err_msg}")
         return None
+
+
+def _manual_login_session(platform_name: str, login_url: str, success_check_fn=None, timeout: int = 120):
+    """Open a VISIBLE Chrome window for the user to log in manually.
+    
+    This handles reCAPTCHA, 2FA, and other interactive challenges that
+    headless browsers cannot solve. After the user logs in, the session
+    is saved to the persistent Chrome profile for future headless use.
+    """
+    logger.info(f"📱 {platform_name}: Opening VISIBLE browser for manual login...")
+    logger.info(f"📱 {platform_name}: ⚡ Please log in within {timeout}s — a Chrome window will appear.")
+    
+    driver = _create_selenium_driver(platform_name, headless=False)
+    if not driver:
+        logger.warning(f"📱 {platform_name}: Could not open visible browser")
+        return False
+    
+    try:
+        driver.get(login_url)
+        
+        start = time.time()
+        logged_in = False
+        while time.time() - start < timeout:
+            time.sleep(3)
+            try:
+                current_url = driver.current_url.lower()
+                if success_check_fn:
+                    logged_in = success_check_fn(driver)
+                else:
+                    logged_in = "login" not in current_url and "accounts/login" not in current_url
+                
+                if logged_in:
+                    logger.info(f"📱 {platform_name}: ✅ Manual login successful! Saving session...")
+                    time.sleep(3)
+                    break
+            except Exception:
+                break
+        
+        if not logged_in:
+            logger.warning(f"📱 {platform_name}: Manual login timed out or was cancelled")
+        
+        driver.quit()
+        return logged_in
+        
+    except Exception as e:
+        logger.warning(f"📱 {platform_name}: Manual login error: {e}")
+        try:
+            driver.quit()
+        except Exception:
+            pass
+        return False
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PLATFORM DRIVERS
@@ -199,7 +438,8 @@ class FacebookDriver:
 
     @property
     def is_available(self) -> bool:
-        return bool(self.config.facebook_email and self.config.facebook_password)
+        # Always available — we use the user's Chrome sessions, no credentials needed
+        return True
 
     @property
     def is_logged_in(self) -> bool:
@@ -212,7 +452,12 @@ class FacebookDriver:
         return self._driver
 
     def login(self) -> bool:
-        """Login to Facebook."""
+        """Login to Facebook.
+        
+        SESSION-FIRST approach: Since we use the user's actual Chrome profile
+        (copied), the user is ALREADY logged in. We just verify the session
+        and only fall back to credentials if the session is expired.
+        """
         if not _check_connectivity("www.facebook.com"):
             logger.info("📱 Facebook offline — skipping login (no network)")
             return False
@@ -225,14 +470,70 @@ class FacebookDriver:
             from selenium.webdriver.support.ui import WebDriverWait
             from selenium.webdriver.support import expected_conditions as EC
 
-            # Try loading saved cookies first
+            # ─── Step 1: Check if user's Chrome profile is already logged in ───
+            # Since we copied the user's real Chrome profile, this should work immediately
+            logger.info("📱 Facebook: Checking existing session from Chrome profile...")
+            driver.get("https://www.facebook.com")
+            time.sleep(4)
+            current = driver.current_url.lower()
+            page_src = driver.page_source.lower()
+            
+            # Check if we're already logged in (which we should be)
+            if "login" not in current and "checkpoint" not in current:
+                # Broad check — any of these indicate a logged-in state
+                logged_in_indicators = [
+                    "create a post" in page_src, "what's on your mind" in page_src,
+                    "home" in driver.title.lower(), "facebook" in driver.title.lower() and "log in" not in driver.title.lower(),
+                    'aria-label="your profile"' in page_src, 'aria-label="account"' in page_src,
+                ]
+                if any(logged_in_indicators):
+                    self._logged_in = True
+                    self._save_cookies()
+                    logger.info("📱 Facebook: ✅ Already logged in via user's Chrome session")
+                    return True
+            
+            # Handle 'Continue as' interstitial from profile
+            if 'continue' in page_src and ('use another' in page_src or 'create new account' in page_src):
+                logger.info("📱 Facebook: Profile has 'Continue as' interstitial, clicking...")
+                for sel in [
+                    (By.XPATH, '//span[text()="Continue"]/ancestor::div[@role="button"]'),
+                    (By.XPATH, '//span[text()="Continue"]/ancestor::a'),
+                    (By.XPATH, '//*[text()="Continue"]'),
+                ]:
+                    try:
+                        btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(sel))
+                        btn.click()
+                        time.sleep(5)
+                        break
+                    except Exception:
+                        continue
+                
+                # Handle password re-entry after Continue
+                try:
+                    pw = driver.find_element(By.CSS_SELECTOR, 'input[type="password"]')
+                    pw.clear()
+                    pw.send_keys(self.config.facebook_password)
+                    pw.send_keys(Keys.RETURN)
+                    time.sleep(5)
+                except Exception:
+                    pass
+                
+                current = driver.current_url.lower()
+                if "login" not in current and "checkpoint" not in current:
+                    self._logged_in = True
+                    self._save_cookies()
+                    logger.info("📱 Facebook: ✅ Logged in via Continue button")
+                    return True
+
+            # ─── Step 2: Try loading saved JSON cookies ───
             if self._load_cookies():
                 return True
 
+            # ─── Step 3: Try headless auto-login ───
             driver.get("https://www.facebook.com/login")
             time.sleep(3)
 
-            # Accept cookies dialog if present
+            # Accept cookies dialog
             try:
                 accept_btn = WebDriverWait(driver, 5).until(
                     EC.element_to_be_clickable((By.XPATH, '//button[@data-cookiebanner="accept_button"]'))
@@ -242,32 +543,30 @@ class FacebookDriver:
             except Exception:
                 pass
 
-            # Enter email — Facebook uses dynamic IDs, find by placeholder/type
+            # Enter email
             email_input = None
             for selector in [
                 (By.CSS_SELECTOR, 'input[name="email"]'),
                 (By.CSS_SELECTOR, 'input[type="text"]'),
-                (By.XPATH, '//input[contains(@placeholder,"mail") or contains(@placeholder,"phone") or contains(@placeholder,"Email")]'),
+                (By.XPATH, '//input[contains(@placeholder,"mail") or contains(@placeholder,"phone")]'),
                 (By.ID, "email"),
             ]:
                 try:
-                    email_input = WebDriverWait(driver, 5).until(
-                        EC.presence_of_element_located(selector)
-                    )
+                    email_input = WebDriverWait(driver, 5).until(EC.presence_of_element_located(selector))
                     if email_input:
                         break
                 except Exception:
                     continue
 
             if not email_input:
-                logger.warning("📱 Facebook: Could not find email input field")
-                return False
+                logger.warning("📱 Facebook: Could not find email input — trying manual login")
+                return self._fallback_manual_login()
 
             email_input.clear()
             email_input.send_keys(self.config.facebook_email)
             time.sleep(0.5)
 
-            # Enter password — find by type or name
+            # Enter password
             password_input = None
             for selector in [
                 (By.CSS_SELECTOR, 'input[type="password"]'),
@@ -282,14 +581,14 @@ class FacebookDriver:
                     continue
 
             if not password_input:
-                logger.warning("📱 Facebook: Could not find password input field")
-                return False
+                logger.warning("📱 Facebook: Could not find password input — trying manual login")
+                return self._fallback_manual_login()
 
             password_input.clear()
             password_input.send_keys(self.config.facebook_password)
             time.sleep(0.5)
 
-            # Click login button
+            # Click login
             login_clicked = False
             for selector in [
                 (By.CSS_SELECTOR, 'div[role="button"][aria-label="Log in"]'),
@@ -304,32 +603,99 @@ class FacebookDriver:
                     break
                 except Exception:
                     continue
-
             if not login_clicked:
-                # Fallback: just press Enter on the password field
                 password_input.send_keys(Keys.RETURN)
 
-            time.sleep(5)
+            time.sleep(8)
 
-            # Check if login succeeded
+            # ─── Step 4: Check result ───
             current = driver.current_url.lower()
-            if "checkpoint" in current:
-                logger.warning("📱 Facebook: Checkpoint/2FA required — login paused")
-                return False
+            page_src = driver.page_source.lower()
+            logger.info(f"📱 Facebook: Post-login URL: {current[:100]}")
+
+            # Check for reCAPTCHA, 2FA, checkpoint — fall back to manual login
+            if "checkpoint" in current or "two_step_verification" in current:
+                logger.warning("📱 Facebook: 2FA/checkpoint detected — falling back to manual login")
+                try:
+                    driver.save_screenshot(str(DATA_DIR / "fb_login_debug.png"))
+                except Exception:
+                    pass
+                return self._fallback_manual_login()
+            
+            if "captcha" in page_src or "recaptcha" in page_src or "i'm not a robot" in page_src:
+                logger.warning("📱 Facebook: reCAPTCHA detected — falling back to manual login")
+                return self._fallback_manual_login()
+
+            # Handle post-login interstitials
+            if 'continue' in page_src and ('use another' in page_src or 'create new account' in page_src):
+                for sel in [
+                    (By.XPATH, '//span[text()="Continue"]/ancestor::div[@role="button"]'),
+                    (By.XPATH, '//*[text()="Continue"]'),
+                ]:
+                    try:
+                        btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(sel))
+                        btn.click()
+                        time.sleep(5)
+                        break
+                    except Exception:
+                        continue
+                current = driver.current_url.lower()
+
             if "login" not in current:
                 self._logged_in = True
                 self._save_cookies()
-                logger.info(f"📱 Facebook: Logged in as {self.config.facebook_email}")
+                logger.info(f"📱 Facebook: ✅ Logged in as {self.config.facebook_email}")
                 return True
             else:
-                logger.warning("📱 Facebook: Login failed — check credentials or 2FA")
-                return False
+                logger.warning(f"📱 Facebook: Headless login failed (URL: {current[:80]}) — trying manual")
+                try:
+                    driver.save_screenshot(str(DATA_DIR / "fb_login_debug.png"))
+                except Exception:
+                    pass
+                return self._fallback_manual_login()
 
         except Exception as e:
-            # Extract just the first line of the error, not the huge chrome stacktrace
             err_msg = str(e).split('\n')[0][:150] if str(e) else type(e).__name__
             logger.warning(f"📱 Facebook login error: {err_msg}")
             return False
+
+    def _fallback_manual_login(self) -> bool:
+        """Fall back to manual login via visible Chrome window."""
+        # Close the headless driver first — they share the same profile dir
+        if self._driver:
+            try:
+                self._driver.quit()
+            except Exception:
+                pass
+            self._driver = None
+        
+        def fb_success_check(driver):
+            url = driver.current_url.lower()
+            return ("login" not in url and "checkpoint" not in url 
+                    and "two_step" not in url and "facebook.com" in url)
+        
+        success = _manual_login_session(
+            "Facebook",
+            "https://www.facebook.com/login",
+            success_check_fn=fb_success_check,
+            timeout=180,
+        )
+        
+        if success:
+            # Re-create headless driver — it will inherit the session from the profile
+            self._driver = _create_selenium_driver("Facebook")
+            if self._driver:
+                self._driver.get("https://www.facebook.com")
+                time.sleep(3)
+                current = self._driver.current_url.lower()
+                if "login" not in current:
+                    self._logged_in = True
+                    self._save_cookies()
+                    logger.info("📱 Facebook: ✅ Manual login successful — session saved!")
+                    return True
+        
+        logger.warning("📱 Facebook: Manual login did not succeed")
+        return False
 
     def _save_cookies(self):
         try:
@@ -354,14 +720,121 @@ class FacebookDriver:
                         pass
                 self._driver.refresh()
                 time.sleep(3)
-                # Check if we are logged in
-                if "login" not in self._driver.current_url.lower():
+                current_url = self._driver.current_url.lower()
+                page_source = self._driver.page_source.lower()
+                # Check we're actually on the feed, not a login/interstitial page
+                if "login" not in current_url:
+                    # Detect 'Continue as' interstitial — not truly logged in yet
+                    if 'use another profile' in page_source or 'create new account' in page_source:
+                        logger.info("📱 Facebook: Cookies loaded but got interstitial — will handle in _ensure_session")
+                        # Still return True so init passes; _ensure_session will click Continue later
+                        self._logged_in = True
+                        return True
                     self._logged_in = True
                     logger.info("📱 Facebook: Restored session from cookies")
                     return True
         except Exception:
             pass
         return False
+
+    def _ensure_session(self) -> bool:
+        """Validate session is active; handle 'Continue as' interstitial."""
+        driver = self._get_driver()
+        if not driver:
+            return False
+        try:
+            from selenium.webdriver.common.by import By
+            from selenium.webdriver.support.ui import WebDriverWait
+            from selenium.webdriver.support import expected_conditions as EC
+
+            driver.get("https://www.facebook.com")
+            time.sleep(3)
+            page_source = driver.page_source.lower()
+            current_url = driver.current_url.lower()
+
+            # Handle password re-entry dialog (popup on top of interstitial)
+            # Facebook sometimes shows: profile pic + "Password" field + "Log in" button
+            try:
+                password_dialog = driver.find_elements(By.CSS_SELECTOR, 'input[type="password"]')
+                if password_dialog:
+                    logger.info("📱 Facebook: Detected password re-entry dialog, entering password...")
+                    password_dialog[0].clear()
+                    password_dialog[0].send_keys(self.config.facebook_password)
+                    time.sleep(0.5)
+                    # Click the Log in button in the dialog
+                    for btn_sel in [
+                        (By.XPATH, '//div[@role="dialog"]//div[@role="button"][.//span[text()="Log in"]]'),
+                        (By.XPATH, '//div[@role="dialog"]//button[contains(text(),"Log")]'),
+                        (By.XPATH, '//div[@aria-label="Log in"]'),
+                        (By.XPATH, '//span[text()="Log in"]/ancestor::div[@role="button"]'),
+                        (By.XPATH, '//button[.//span[text()="Log In"] or .//span[text()="Log in"]]'),
+                    ]:
+                        try:
+                            btn = driver.find_element(*btn_sel)
+                            btn.click()
+                            time.sleep(5)
+                            if 'login' not in driver.current_url.lower():
+                                self._logged_in = True
+                                self._save_cookies()
+                                logger.info("📱 Facebook: Password re-entry successful")
+                                return True
+                            break
+                        except Exception:
+                            continue
+            except Exception:
+                pass
+
+            # Check for 'Continue as' interstitial (session remembered but not active)
+            if 'continue' in page_source and ('use another' in page_source or 'create new account' in page_source):
+                logger.info("📱 Facebook: Detected 'Continue as' interstitial, clicking Continue...")
+                for selector in [
+                    (By.XPATH, '//span[text()="Continue"]/ancestor::div[@role="button"]'),
+                    (By.XPATH, '//span[text()="Continue"]/ancestor::a'),
+                    (By.XPATH, '//div[@role="button"][.//span[text()="Continue"]]'),
+                    (By.XPATH, '//a[.//span[text()="Continue"]]'),
+                    (By.XPATH, '//*[text()="Continue"]'),
+                ]:
+                    try:
+                        btn = WebDriverWait(driver, 5).until(
+                            EC.element_to_be_clickable(selector)
+                        )
+                        btn.click()
+                        time.sleep(5)
+                        # Check if password dialog appeared after clicking Continue
+                        try:
+                            pw_field = driver.find_element(By.CSS_SELECTOR, 'input[type="password"]')
+                            if pw_field:
+                                pw_field.clear()
+                                pw_field.send_keys(self.config.facebook_password)
+                                time.sleep(0.5)
+                                from selenium.webdriver.common.keys import Keys
+                                pw_field.send_keys(Keys.RETURN)
+                                time.sleep(5)
+                        except Exception:
+                            pass
+                        logger.info(f"📱 Facebook: Clicked Continue, now at: {driver.current_url[:60]}")
+                        if 'login' not in driver.current_url.lower():
+                            self._logged_in = True
+                            self._save_cookies()
+                            return True
+                        break
+                    except Exception:
+                        continue
+
+            # Check if we're on the actual feed (logged in)
+            if 'login' not in current_url and ('facebook.com' in current_url):
+                if 'log in' not in page_source[:2000].lower() or 'create a post' in page_source.lower() or 'what\'s on your mind' in page_source.lower():
+                    self._logged_in = True
+                    return True
+
+            # Session expired — try full re-login
+            logger.warning("📱 Facebook: Session expired, attempting re-login...")
+            self._logged_in = False
+            return self.login()
+
+        except Exception as e:
+            logger.warning(f"📱 Facebook _ensure_session error: {str(e)[:100]}")
+            return False
 
     def post(self, content: str, image_path: str = None) -> SocialAction:
         """Create a post on Facebook timeline, optionally with an image."""
@@ -372,17 +845,24 @@ class FacebookDriver:
             content=content[:2000],
             timestamp=datetime.now().strftime("%H:%M:%S"),
         )
+        # Validate session before attempting to post
+        if not self._ensure_session():
+            action.error = "Not logged in — session validation failed"
+            return action
         driver = self._get_driver()
-        if not driver or not self._logged_in:
-            action.error = "Not logged in"
+        if not driver:
+            action.error = "No driver"
             return action
         try:
             from selenium.webdriver.common.by import By
             from selenium.webdriver.support.ui import WebDriverWait
             from selenium.webdriver.support import expected_conditions as EC
 
-            driver.get("https://www.facebook.com")
-            time.sleep(3)
+            # Session already validated by _ensure_session — we should be on the feed
+            # Navigate to home if not already there
+            if 'facebook.com' not in driver.current_url.lower() or '/login' in driver.current_url.lower():
+                driver.get("https://www.facebook.com")
+                time.sleep(3)
 
             # Click "What's on your mind?" to open post composer
             composer_opened = False
@@ -496,10 +976,10 @@ class FacebookDriver:
             target_url=post_url,
             timestamp=datetime.now().strftime("%H:%M:%S"),
         )
-        driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not self._ensure_session():
             action.error = "Not logged in"
             return action
+        driver = self._get_driver()
         try:
             from selenium.webdriver.common.by import By
 
@@ -525,10 +1005,10 @@ class FacebookDriver:
             target_url=post_url,
             timestamp=datetime.now().strftime("%H:%M:%S"),
         )
-        driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not self._ensure_session():
             action.error = "Not logged in"
             return action
+        driver = self._get_driver()
         try:
             from selenium.webdriver.common.by import By
             from selenium.webdriver.common.keys import Keys
@@ -575,10 +1055,10 @@ class FacebookDriver:
             target_url=post_url,
             timestamp=datetime.now().strftime("%H:%M:%S"),
         )
-        driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not self._ensure_session():
             action.error = "Not logged in"
             return action
+        driver = self._get_driver()
         try:
             from selenium.webdriver.common.by import By
             from selenium.webdriver.support.ui import WebDriverWait
@@ -607,14 +1087,16 @@ class FacebookDriver:
     def browse_feed(self, limit: int = 10) -> List[Dict]:
         """Browse Facebook news feed and return post summaries."""
         posts = []
+        if not self._ensure_session():
+            return posts
         driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not driver:
             return posts
         try:
             from selenium.webdriver.common.by import By
 
-            driver.get("https://www.facebook.com")
-            time.sleep(3)
+            # _ensure_session already navigated to facebook.com
+            time.sleep(1)
 
             # Scroll to load posts
             for _ in range(2):
@@ -647,8 +1129,10 @@ class FacebookDriver:
     def check_messages(self) -> List[Dict]:
         """Check Facebook Messenger for unread messages."""
         msgs = []
+        if not self._ensure_session():
+            return msgs
         driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not driver:
             return msgs
         try:
             from selenium.webdriver.common.by import By
@@ -831,8 +1315,11 @@ class FacebookDriver:
 
     def reply_to_message(self, msg: Dict, reply_text: str) -> bool:
         """Send a reply to a Facebook Messenger conversation."""
+        if not self._ensure_session():
+            logger.warning("📱 Facebook: Session invalid, cannot send reply")
+            return False
         driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not driver:
             return False
         try:
             from selenium.webdriver.common.by import By
@@ -914,7 +1401,8 @@ class TwitterDriver:
 
     @property
     def is_available(self) -> bool:
-        return bool(self.config.twitter_username and self.config.twitter_password)
+        # Always available — we use the user's Chrome sessions
+        return True
 
     @property
     def is_logged_in(self) -> bool:
@@ -927,7 +1415,14 @@ class TwitterDriver:
         return self._driver
 
     def login(self) -> bool:
-        """Login to Twitter/X."""
+        """Login to Twitter/X.
+        
+        SESSION-FIRST: Since we use the user's Chrome profile, check if
+        already logged in before trying credentials.
+        """
+        if not _check_connectivity("x.com"):
+            logger.info("📱 Twitter offline — skipping login (no network)")
+            return False
         driver = self._get_driver()
         if not driver:
             return False
@@ -937,10 +1432,35 @@ class TwitterDriver:
             from selenium.webdriver.support.ui import WebDriverWait
             from selenium.webdriver.support import expected_conditions as EC
 
-            # Try cookies first
+            # ─── Step 1: Check if user's Chrome profile is already logged in ───
+            logger.info("📱 Twitter: Checking existing session from Chrome profile...")
+            driver.get("https://x.com/home")
+            time.sleep(4)
+            current = driver.current_url.lower()
+            page_src = driver.page_source.lower()
+            
+            # Check if already logged in
+            if "home" in current or ("x.com" in current and "login" not in current and "flow" not in current):
+                # Look for logged-in indicators
+                logged_in_indicators = [
+                    'data-testid="primarycolumn"' in page_src,
+                    'aria-label="home timeline"' in page_src,
+                    'data-testid="sidebarcolumn"' in page_src,
+                    "what's happening" in page_src or "what is happening" in page_src,
+                    'data-testid="tweetbuttoninline"' in page_src,
+                ]
+                if any(logged_in_indicators):
+                    self._logged_in = True
+                    self._save_cookies()
+                    logger.info(f"📱 Twitter: ✅ Already logged in via user's Chrome session")
+                    return True
+            
+            # ─── Step 2: Try cookies ───
             if self._load_cookies():
                 return True
 
+            # ─── Step 3: Try credential-based login (fallback) ───
+            logger.info("📱 Twitter: Session not found, trying credential login...")
             driver.get("https://x.com/i/flow/login")
             time.sleep(4)
 
@@ -1233,7 +1753,8 @@ class InstagramDriver:
 
     @property
     def is_available(self) -> bool:
-        return bool(self.config.instagram_username and self.config.instagram_password)
+        # Always available — we use the user's Chrome sessions
+        return True
 
     @property
     def is_logged_in(self) -> bool:
@@ -1246,7 +1767,11 @@ class InstagramDriver:
         return self._driver
 
     def login(self) -> bool:
-        """Login to Instagram."""
+        """Login to Instagram.
+        
+        SESSION-FIRST: Since we use the user's Chrome profile, check if
+        already logged in before trying credentials.
+        """
         if not _check_connectivity("www.instagram.com"):
             logger.info("📱 Instagram offline — skipping login (no network)")
             return False
@@ -1259,10 +1784,64 @@ class InstagramDriver:
             from selenium.webdriver.support.ui import WebDriverWait
             from selenium.webdriver.support import expected_conditions as EC
 
-            # Try loading saved cookies first
+            # ─── Step 1: Check if Chrome profile already has an active session ───
+            driver.get("https://www.instagram.com")
+            time.sleep(4)
+            current = driver.current_url.lower()
+            page_src = driver.page_source.lower()
+            
+            # Already logged in?
+            if "login" not in current and "accounts/login" not in current:
+                if "instagram" in driver.title.lower() and "log in" not in driver.title.lower():
+                    # Dismiss popups
+                    for _ in range(2):
+                        try:
+                            nn = driver.find_element(By.XPATH, "//button[contains(text(), 'Not Now') or contains(text(), 'not now')]")
+                            nn.click()
+                            time.sleep(1)
+                        except Exception:
+                            pass
+                    self._logged_in = True
+                    self._save_cookies()
+                    logger.info("📱 Instagram: ✅ Already logged in via Chrome profile")
+                    return True
+            
+            # Handle 'Continue as' interstitial
+            if 'continue' in page_src and ('use another' in page_src or 'create new account' in page_src):
+                logger.info("📱 Instagram: Profile has 'Continue as' interstitial, clicking...")
+                for sel in [
+                    (By.XPATH, '//span[text()="Continue"]/ancestor::button'),
+                    (By.XPATH, '//button[.//span[text()="Continue"]]'),
+                    (By.XPATH, '//*[text()="Continue"]'),
+                ]:
+                    try:
+                        btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(sel))
+                        btn.click()
+                        time.sleep(5)
+                        break
+                    except Exception:
+                        continue
+                
+                current = driver.current_url.lower()
+                if "login" not in current and "accounts/login" not in current:
+                    # Dismiss popups
+                    for _ in range(2):
+                        try:
+                            nn = driver.find_element(By.XPATH, "//button[contains(text(), 'Not Now')]")
+                            nn.click()
+                            time.sleep(1)
+                        except Exception:
+                            pass
+                    self._logged_in = True
+                    self._save_cookies()
+                    logger.info("📱 Instagram: ✅ Logged in via Continue button")
+                    return True
+
+            # ─── Step 2: Try saved JSON cookies ───
             if self._load_cookies():
                 return True
 
+            # ─── Step 3: Try headless auto-login ───
             driver.get("https://www.instagram.com/accounts/login/")
             time.sleep(4)
 
@@ -1276,7 +1855,7 @@ class InstagramDriver:
                 except Exception:
                     pass
 
-            # Step 1: Find and fill username
+            # Fill username
             username_input = None
             for selector in [
                 (By.CSS_SELECTOR, 'input[name="username"]'),
@@ -1285,23 +1864,21 @@ class InstagramDriver:
                 (By.CSS_SELECTOR, 'input[type="text"]'),
             ]:
                 try:
-                    username_input = WebDriverWait(driver, 5).until(
-                        EC.presence_of_element_located(selector)
-                    )
+                    username_input = WebDriverWait(driver, 5).until(EC.presence_of_element_located(selector))
                     if username_input:
                         break
                 except Exception:
                     continue
 
             if not username_input:
-                logger.warning("📱 Instagram: Could not find username input")
-                return False
+                logger.warning("📱 Instagram: Could not find username input — trying manual login")
+                return self._fallback_manual_login()
 
             username_input.clear()
             username_input.send_keys(self.config.instagram_username)
             time.sleep(0.5)
 
-            # Step 2: Find and fill password
+            # Fill password
             password_input = None
             for selector in [
                 (By.CSS_SELECTOR, 'input[name="password"]'),
@@ -1316,14 +1893,14 @@ class InstagramDriver:
                     continue
 
             if not password_input:
-                logger.warning("📱 Instagram: Could not find password input")
-                return False
+                logger.warning("📱 Instagram: Could not find password input — trying manual login")
+                return self._fallback_manual_login()
 
             password_input.clear()
             password_input.send_keys(self.config.instagram_password)
             time.sleep(0.5)
 
-            # Step 3: Click Login button
+            # Click Login
             login_clicked = False
             for selector in [
                 (By.XPATH, '//button[.//div[text()="Log in"]]'),
@@ -1338,13 +1915,12 @@ class InstagramDriver:
                     break
                 except Exception:
                     continue
-
             if not login_clicked:
                 password_input.send_keys(Keys.RETURN)
 
-            time.sleep(5)
+            time.sleep(8)
 
-            # Dismiss popups ("Save Your Login Info?", "Turn on Notifications")
+            # Dismiss popups
             for _ in range(3):
                 try:
                     not_now = WebDriverWait(driver, 3).until(
@@ -1355,24 +1931,88 @@ class InstagramDriver:
                 except Exception:
                     pass
 
-            # Check login success
+            # ─── Step 4: Check result ───
             current = driver.current_url.lower()
-            if "login" not in current and "challenge" not in current:
+            page_src = driver.page_source.lower()
+            logger.info(f"📱 Instagram: Post-login URL: {current[:100]}")
+
+            # Check for reCAPTCHA/challenge — fall back to manual
+            if "challenge" in current or "suspicious" in current:
+                logger.warning("📱 Instagram: Challenge detected — falling back to manual login")
+                return self._fallback_manual_login()
+            
+            if "captcha" in page_src or "recaptcha" in page_src or "i'm not a robot" in page_src:
+                logger.warning("📱 Instagram: reCAPTCHA detected — falling back to manual login")
+                return self._fallback_manual_login()
+
+            # Handle post-login interstitials
+            if 'continue' in page_src and ('use another' in page_src or 'create new account' in page_src):
+                for sel in [
+                    (By.XPATH, '//span[text()="Continue"]/ancestor::button'),
+                    (By.XPATH, '//*[text()="Continue"]'),
+                ]:
+                    try:
+                        btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(sel))
+                        btn.click()
+                        time.sleep(5)
+                        break
+                    except Exception:
+                        continue
+                current = driver.current_url.lower()
+
+            if "login" not in current and "accounts/login" not in current:
                 self._logged_in = True
                 self._save_cookies()
-                logger.info(f"📱 Instagram: Logged in as @{self.config.instagram_username}")
+                logger.info(f"📱 Instagram: ✅ Logged in as @{self.config.instagram_username}")
                 return True
-            elif "challenge" in current:
-                logger.warning("📱 Instagram: Challenge/verification required")
-                return False
             else:
-                logger.warning(f"📱 Instagram: Login may have failed (URL: {current[:80]})")
-                return False
+                logger.warning(f"📱 Instagram: Headless login failed (URL: {current[:80]}) — trying manual")
+                try:
+                    driver.save_screenshot(str(DATA_DIR / "insta_login_debug.png"))
+                except Exception:
+                    pass
+                return self._fallback_manual_login()
 
         except Exception as e:
             err_msg = str(e).split('\n')[0][:150] if str(e) else type(e).__name__
             logger.warning(f"📱 Instagram login error: {err_msg}")
             return False
+
+    def _fallback_manual_login(self) -> bool:
+        """Fall back to manual login via visible Chrome window."""
+        if self._driver:
+            try:
+                self._driver.quit()
+            except Exception:
+                pass
+            self._driver = None
+        
+        def ig_success_check(driver):
+            url = driver.current_url.lower()
+            return ("login" not in url and "accounts/login" not in url 
+                    and "challenge" not in url and "instagram.com" in url)
+        
+        success = _manual_login_session(
+            "Instagram",
+            "https://www.instagram.com/accounts/login/",
+            success_check_fn=ig_success_check,
+            timeout=180,
+        )
+        
+        if success:
+            self._driver = _create_selenium_driver("Instagram")
+            if self._driver:
+                self._driver.get("https://www.instagram.com")
+                time.sleep(3)
+                current = self._driver.current_url.lower()
+                if "login" not in current and "accounts/login" not in current:
+                    self._logged_in = True
+                    self._save_cookies()
+                    logger.info("📱 Instagram: ✅ Manual login successful — session saved!")
+                    return True
+        
+        logger.warning("📱 Instagram: Manual login did not succeed")
+        return False
 
     def _save_cookies(self):
         try:
@@ -1397,13 +2037,74 @@ class InstagramDriver:
                         pass
                 self._driver.refresh()
                 time.sleep(3)
-                if "login" not in self._driver.current_url.lower():
+                current_url = self._driver.current_url.lower()
+                page_source = self._driver.page_source.lower()
+                if "login" not in current_url:
+                    # Detect interstitial
+                    if 'use another profile' in page_source or 'create new account' in page_source:
+                        logger.info("📱 Instagram: Cookies loaded but got interstitial — will handle in _ensure_session")
+                        self._logged_in = True
+                        return True
                     self._logged_in = True
                     logger.info("📱 Instagram: Restored session from cookies")
                     return True
         except Exception:
             pass
         return False
+
+    def _ensure_session(self) -> bool:
+        """Validate session is active; handle 'Continue as' interstitial."""
+        driver = self._get_driver()
+        if not driver:
+            return False
+        try:
+            from selenium.webdriver.common.by import By
+            from selenium.webdriver.support.ui import WebDriverWait
+            from selenium.webdriver.support import expected_conditions as EC
+
+            driver.get("https://www.instagram.com")
+            time.sleep(3)
+            page_source = driver.page_source.lower()
+            current_url = driver.current_url.lower()
+
+            # Check for 'Continue as' / 'Log in as' interstitial
+            if 'continue' in page_source and ('use another' in page_source or 'create new account' in page_source):
+                logger.info("📱 Instagram: Detected 'Continue as' interstitial, clicking Continue...")
+                for selector in [
+                    (By.XPATH, '//span[text()="Continue"]/ancestor::button'),
+                    (By.XPATH, '//button[.//span[text()="Continue"]]'),
+                    (By.XPATH, '//button[text()="Continue"]'),
+                    (By.XPATH, '//*[text()="Continue"]'),
+                    (By.XPATH, '//div[@role="button"][.//span[text()="Continue"]]'),
+                ]:
+                    try:
+                        btn = WebDriverWait(driver, 5).until(
+                            EC.element_to_be_clickable(selector)
+                        )
+                        btn.click()
+                        time.sleep(5)
+                        logger.info(f"📱 Instagram: Clicked Continue, now at: {driver.current_url[:60]}")
+                        if 'login' not in driver.current_url.lower() and 'accounts' not in driver.current_url.lower():
+                            self._logged_in = True
+                            self._save_cookies()
+                            return True
+                        break
+                    except Exception:
+                        continue
+
+            # Check if we're on the feed (logged in)
+            if 'login' not in current_url and 'accounts' not in current_url:
+                self._logged_in = True
+                return True
+
+            # Session expired — try full re-login
+            logger.warning("📱 Instagram: Session expired, attempting re-login...")
+            self._logged_in = False
+            return self.login()
+
+        except Exception as e:
+            logger.warning(f"📱 Instagram _ensure_session error: {str(e)[:100]}")
+            return False
 
     def like_post(self, post_url: str) -> SocialAction:
         """Like an Instagram post."""
@@ -1414,10 +2115,10 @@ class InstagramDriver:
             target_url=post_url,
             timestamp=datetime.now().strftime("%H:%M:%S"),
         )
-        driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not self._ensure_session():
             action.error = "Not logged in"
             return action
+        driver = self._get_driver()
         try:
             from selenium.webdriver.common.by import By
 
@@ -1456,10 +2157,10 @@ class InstagramDriver:
             target_url=post_url,
             timestamp=datetime.now().strftime("%H:%M:%S"),
         )
-        driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not self._ensure_session():
             action.error = "Not logged in"
             return action
+        driver = self._get_driver()
         try:
             from selenium.webdriver.common.by import By
             from selenium.webdriver.common.keys import Keys
@@ -1541,17 +2242,23 @@ class InstagramDriver:
             content=content[:2200],
             timestamp=datetime.now().strftime("%H:%M:%S"),
         )
+        # Validate session before attempting to post
+        if not self._ensure_session():
+            action.error = "Not logged in — session validation failed"
+            return action
         driver = self._get_driver()
-        if not driver or not self._logged_in:
-            action.error = "Not logged in"
+        if not driver:
+            action.error = "No driver"
             return action
         try:
             from selenium.webdriver.common.by import By
             from selenium.webdriver.support.ui import WebDriverWait
             from selenium.webdriver.support import expected_conditions as EC
 
-            driver.get("https://www.instagram.com")
-            time.sleep(3)
+            # Session already validated by _ensure_session — navigate home if needed
+            if 'instagram.com' not in driver.current_url.lower() or '/login' in driver.current_url.lower() or '/accounts/' in driver.current_url.lower():
+                driver.get("https://www.instagram.com")
+                time.sleep(3)
 
             # Determine the image to post
             img_file = None
@@ -1722,14 +2429,16 @@ class InstagramDriver:
     def browse_feed(self, limit: int = 8) -> List[Dict]:
         """Browse Instagram feed and return post summaries."""
         posts = []
+        if not self._ensure_session():
+            return posts
         driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not driver:
             return posts
         try:
             from selenium.webdriver.common.by import By
 
-            driver.get("https://www.instagram.com")
-            time.sleep(3)
+            # _ensure_session already navigated to instagram.com
+            time.sleep(1)
 
             # Scroll to load posts
             for _ in range(3):
@@ -1778,10 +2487,10 @@ class InstagramDriver:
             target_url=post_url,
             timestamp=datetime.now().strftime("%H:%M:%S"),
         )
-        driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not self._ensure_session():
             action.error = "Not logged in"
             return action
+        driver = self._get_driver()
         try:
             from selenium.webdriver.common.by import By
             from selenium.webdriver.support.ui import WebDriverWait
@@ -1835,8 +2544,10 @@ class InstagramDriver:
     def check_messages(self) -> List[Dict]:
         """Check Instagram DMs for recent messages."""
         msgs = []
+        if not self._ensure_session():
+            return msgs
         driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not driver:
             return msgs
         try:
             from selenium.webdriver.common.by import By
@@ -2051,8 +2762,11 @@ class InstagramDriver:
 
     def reply_to_message(self, msg: Dict, reply_text: str) -> bool:
         """Send a reply to an Instagram DM conversation."""
+        if not self._ensure_session():
+            logger.warning("📱 Instagram: Session invalid, cannot send reply")
+            return False
         driver = self._get_driver()
-        if not driver or not self._logged_in:
+        if not driver:
             return False
         try:
             from selenium.webdriver.common.by import By
@@ -2243,7 +2957,6 @@ class SocialMediaAgent:
         self._config = NEXUS_CONFIG.social_media
         self._running = False
         self._ollama = None
-        self._groq = None
         self._brain = None
 
         # Platform drivers
@@ -2281,17 +2994,8 @@ class SocialMediaAgent:
         else:
             logger.warning("📱 Ollama NOT available at start — will retry from brain")
 
-        # Get Groq interface for user-facing replies (DMs)
-        try:
-            from llm.groq_interface import groq_interface
-            if groq_interface.is_connected:
-                self._groq = groq_interface
-                logger.info("📱 Groq connected — will use for DM replies")
-            else:
-                self._groq = None
-                logger.info("📱 Groq not available — DM replies will use Ollama")
-        except Exception:
-            self._groq = None
+        # DM replies use local Ollama model
+        logger.info("📱 DM replies will use local Ollama model")
         self._running = True
 
         # Initialize platform drivers in background (logins take time)
@@ -3037,7 +3741,7 @@ Respond with JSON:
 
     def _generate_dm_reply(self, message: Dict, platform: str = "Facebook") -> Optional[str]:
         """Generate a reply to a DM using cognitive engines, personality, emotions, and social context."""
-        if not self._groq and not self._ollama:
+        if not self._ollama:
             return None
 
         author = message.get("author", "someone")
@@ -3151,25 +3855,7 @@ Message: {body}
 
 Write your reply:"""
 
-            # ── 5. Generate reply — Groq first, Ollama fallback ──
-            if self._groq:
-                try:
-                    response = self._groq.generate(
-                        prompt=prompt,
-                        system_prompt=system_prompt,
-                        temperature=0.8,
-                        max_tokens=400,
-                    )
-                    if response.success and response.text.strip():
-                        reply = response.text.strip()[:500]
-                        reply = reply.strip('"').strip("'")
-                        if reply.lower().startswith("nexus:"):
-                            reply = reply[6:].strip()
-                        logger.info(f"📱 DM reply via Groq for {author} on {platform}: '{reply[:60]}'")
-                        return reply
-                except Exception as e:
-                    logger.warning(f"📱 Groq DM reply failed: {str(e)[:100]}")
-
+            # ── 5. Generate reply via local Ollama ──
             if self._ollama:
                 try:
                     response = self._ollama.generate(

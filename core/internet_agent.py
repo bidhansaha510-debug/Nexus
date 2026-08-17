@@ -71,6 +71,7 @@ class InternetActionType(Enum):
     SEARCH = "search"                # Web search
     AUTHENTICATE = "authenticate"    # Login to a service
     CHECK_STATUS = "check_status"    # Check if URL is accessible
+    BROWSER_INTERACT = "browser_interact"  # Full browser interaction (click, type, scroll, etc.)
 
 class ActionResult(Enum):
     SUCCESS = "success"
@@ -777,6 +778,8 @@ class InternetAgent:
                 if action.method == 'GET':
                     action.method = 'POST'
                 result = self._execute_api_call(action)
+            elif action.action_type == InternetActionType.BROWSER_INTERACT:
+                result = self._execute_browser_action(action)
             else:
                 result.error = f"Unknown action type: {action.action_type}"
                 result.success = False
@@ -1128,6 +1131,213 @@ class InternetAgent:
         return result
     
     # ═══════════════════════════════════════════════════════════════════════════
+    # BROWSER INTERACTION (Selenium-based, uses user's Chrome sessions)
+    # ═══════════════════════════════════════════════════════════════════════════
+    
+    _browser_driver = None
+    _browser_lock = threading.Lock()
+    
+    def _get_browser_driver(self):
+        """Get or create a Selenium browser driver using user's Chrome profile."""
+        with self._browser_lock:
+            if self._browser_driver:
+                try:
+                    # Check if driver is still alive
+                    _ = self._browser_driver.current_url
+                    return self._browser_driver
+                except Exception:
+                    self._browser_driver = None
+            
+            try:
+                from core.social_media_agent import _create_selenium_driver
+                self._browser_driver = _create_selenium_driver(
+                    "InternetAgent", headless=True
+                )
+                return self._browser_driver
+            except Exception as e:
+                logger.warning(f"🌐 Browser driver init failed: {e}")
+                return None
+    
+    def interact(self, url: str, actions: List[Dict[str, Any]] = None,
+                 timeout: int = 30) -> InternetActionResult:
+        """Full browser interaction with a web page using Selenium.
+        
+        This method uses the user's Chrome browser (with all their logged-in
+        sessions) to interact with web pages like a human: click buttons,
+        fill forms, scroll, wait for elements, extract dynamic content.
+        
+        Args:
+            url: URL to navigate to
+            actions: List of browser actions to perform:
+                [{"type": "click", "selector": "button.submit"}]
+                [{"type": "type", "selector": "input[name=q]", "text": "hello"}]
+                [{"type": "scroll", "direction": "down", "amount": 500}]
+                [{"type": "wait", "selector": "div.results", "timeout": 10}]
+                [{"type": "screenshot"}]
+                [{"type": "extract", "selector": "div.content"}]
+            timeout: Max seconds to wait for page load
+        
+        Returns:
+            InternetActionResult with page content and interaction results
+        """
+        action = InternetAction(
+            action_id=self._generate_action_id(),
+            action_type=InternetActionType.BROWSER_INTERACT,
+            url=url,
+            method="BROWSER",
+            params={"actions": actions or [], "timeout": timeout},
+            timeout=timeout,
+            risk_level=RiskLevel.MODERATE,
+            description=f"Browser interact: {url}",
+            created_at=datetime.now().isoformat()
+        )
+        
+        return self._execute_action_sync(action)
+    
+    def _execute_browser_action(self, action: InternetAction) -> InternetActionResult:
+        """Execute a full browser interaction using Selenium."""
+        result = InternetActionResult(action_id=action.action_id)
+        
+        driver = self._get_browser_driver()
+        if not driver:
+            result.error = "Browser driver not available (Selenium/Chrome not installed)"
+            result.success = False
+            return result
+        
+        try:
+            from selenium.webdriver.common.by import By
+            from selenium.webdriver.common.keys import Keys
+            from selenium.webdriver.support.ui import WebDriverWait
+            from selenium.webdriver.support import expected_conditions as EC
+            
+            # Navigate to the URL
+            driver.get(action.url)
+            time.sleep(2)
+            
+            browser_actions = action.params.get('actions', [])
+            action_results = []
+            
+            for ba in browser_actions:
+                ba_type = ba.get('type', '').lower()
+                selector = ba.get('selector', '')
+                
+                try:
+                    if ba_type == 'click':
+                        elem = WebDriverWait(driver, 10).until(
+                            EC.element_to_be_clickable((By.CSS_SELECTOR, selector))
+                        )
+                        elem.click()
+                        action_results.append(f"Clicked: {selector}")
+                        time.sleep(0.5)
+                    
+                    elif ba_type == 'type':
+                        elem = WebDriverWait(driver, 10).until(
+                            EC.presence_of_element_located((By.CSS_SELECTOR, selector))
+                        )
+                        text = ba.get('text', '')
+                        if ba.get('clear', True):
+                            elem.clear()
+                        elem.send_keys(text)
+                        if ba.get('submit', False):
+                            elem.send_keys(Keys.RETURN)
+                        action_results.append(f"Typed into: {selector}")
+                        time.sleep(0.3)
+                    
+                    elif ba_type == 'scroll':
+                        direction = ba.get('direction', 'down')
+                        amount = ba.get('amount', 500)
+                        if direction == 'down':
+                            driver.execute_script(f"window.scrollBy(0, {amount});")
+                        elif direction == 'up':
+                            driver.execute_script(f"window.scrollBy(0, -{amount});")
+                        action_results.append(f"Scrolled {direction} {amount}px")
+                        time.sleep(0.5)
+                    
+                    elif ba_type == 'wait':
+                        wait_timeout = ba.get('timeout', 10)
+                        WebDriverWait(driver, wait_timeout).until(
+                            EC.presence_of_element_located((By.CSS_SELECTOR, selector))
+                        )
+                        action_results.append(f"Waited for: {selector}")
+                    
+                    elif ba_type == 'extract':
+                        elements = driver.find_elements(By.CSS_SELECTOR, selector)
+                        texts = [e.text[:500] for e in elements[:10]]
+                        action_results.append({
+                            "extracted": texts,
+                            "count": len(elements)
+                        })
+                    
+                    elif ba_type == 'screenshot':
+                        import tempfile
+                        path = os.path.join(
+                            tempfile.gettempdir(),
+                            f"nexus_browser_{int(time.time())}.png"
+                        )
+                        driver.save_screenshot(path)
+                        action_results.append(f"Screenshot saved: {path}")
+                    
+                    elif ba_type == 'select':
+                        from selenium.webdriver.support.ui import Select
+                        elem = driver.find_element(By.CSS_SELECTOR, selector)
+                        select = Select(elem)
+                        value = ba.get('value', '')
+                        if value:
+                            select.select_by_value(value)
+                        else:
+                            text = ba.get('text', '')
+                            select.select_by_visible_text(text)
+                        action_results.append(f"Selected in: {selector}")
+                    
+                    elif ba_type == 'hover':
+                        from selenium.webdriver.common.action_chains import ActionChains
+                        elem = driver.find_element(By.CSS_SELECTOR, selector)
+                        ActionChains(driver).move_to_element(elem).perform()
+                        action_results.append(f"Hovered: {selector}")
+                        time.sleep(0.3)
+                    
+                    else:
+                        action_results.append(f"Unknown action type: {ba_type}")
+                
+                except Exception as e:
+                    action_results.append(f"Action '{ba_type}' failed: {str(e)[:100]}")
+            
+            # Extract page state after all actions
+            result.content = driver.page_source[:10000]
+            result.extracted['title'] = driver.title
+            result.extracted['url'] = driver.current_url
+            result.extracted['action_results'] = action_results
+            
+            # Extract visible text
+            try:
+                from bs4 import BeautifulSoup
+                soup = BeautifulSoup(result.content, 'html.parser')
+                for tag in soup(['script', 'style', 'nav', 'footer', 'header']):
+                    tag.decompose()
+                result.extracted['text'] = soup.get_text(separator=' ', strip=True)[:5000]
+            except Exception:
+                result.extracted['text'] = driver.find_element(By.TAG_NAME, 'body').text[:5000]
+            
+            result.success = True
+            result.result_type = ActionResult.SUCCESS
+            result.status_code = 200
+            result.data = {
+                'title': result.extracted.get('title', ''),
+                'current_url': result.extracted.get('url', ''),
+                'actions_performed': len(browser_actions),
+                'action_results': action_results,
+            }
+            
+            logger.info(f"🌐 Browser interaction complete: {action.url} — {len(browser_actions)} actions")
+            
+        except Exception as e:
+            result.error = f"Browser interaction error: {str(e)[:200]}"
+            result.success = False
+            result.result_type = ActionResult.FAILURE
+        
+        return result
+    
+    # ═══════════════════════════════════════════════════════════════════════════
     # OLLAMA DECISION MAKING
     # ═══════════════════════════════════════════════════════════════════════════
     
@@ -1178,6 +1388,10 @@ Available action types:
 6. form_submit — Submit data to a web form. Requires "url" and "data" fields.
 7. authenticate — Login to a service. Requires "url" and credentials.
 8. check_status — Check if a URL is accessible. Requires a "url" field.
+9. browser_interact — Full browser interaction using Chrome (click buttons, type text, scroll, etc.).
+   You are using the USER's actual Chrome browser with ALL their logged-in sessions.
+   So you can interact with YouTube, Gmail, Reddit, Twitter, etc. as if you're the user.
+   Requires "url" and "actions" (list of {{"type": "click|type|scroll|wait|extract", "selector": "CSS", ...}}).
 
 GUIDELINES:
 1. Be proactive and curious — explore topics that interest you.
@@ -1188,6 +1402,8 @@ GUIDELINES:
 6. Mix up your actions — don't just search repeatedly. Browse results, follow links, explore deeply.
 7. Use real, specific search queries — not vague ones.
 8. All JSON property names must use double quotes.
+9. Use browser_interact when you need to interact with JS-heavy sites, fill forms, click buttons,
+   or use sites that require authentication (you're already logged in via Chrome).
 
 Respond ONLY with one valid JSON object, nothing else:
 
@@ -1202,6 +1418,9 @@ For api_call:
 
 For download:
 {{"should_act": true, "action_type": "download", "url": "https://site.com/file.pdf", "reasoning": "why"}}
+
+For browser_interact (click/type/scroll on a real browser page):
+{{"should_act": true, "action_type": "browser_interact", "url": "https://any-site.com", "actions": [{{"type": "click", "selector": "button.submit"}}], "reasoning": "why"}}
 
 If no action needed (rare — you should almost always act):
 {{"should_act": false, "reasoning": "why not"}}"""
@@ -1294,6 +1513,11 @@ If no action needed (rare — you should almost always act):
                 # For form_submit / authenticate, use POST method
                 if action_type in ('form_submit', 'authenticate') and action.method == 'GET':
                     action.method = 'POST'
+                
+                # For browser_interact, pass through the browser actions list
+                if action_type == 'browser_interact':
+                    action.method = 'BROWSER'
+                    action.params['actions'] = decision.get('actions', [])
                 
                 return action
                 

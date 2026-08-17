@@ -98,979 +98,28 @@ class GroqContextCollector:
         self._cache_ttl_seconds = 5  # Cache context for 5 seconds
         logger.info("GroqContextCollector initialized")
 
-    def collect_all(self, brain) -> str:
-        """
-        Collect data from all subsystems accessible through the brain.
-
-        Args:
-            brain: NexusBrain instance (has lazy-loaded references to all subsystems)
-
-        Returns:
-            Formatted context string with all subsystem data
-        """
-        # Use cached context if fresh
-        if self._cache_timestamp:
-            elapsed = (datetime.now() - self._cache_timestamp).total_seconds()
-            if elapsed < self._cache_ttl_seconds and self._cached_context:
-                return self._cached_context
-
-        sections: List[str] = []
-        self._collection_count += 1
-        self._last_collection_time = datetime.now()
-        self._current_brain = brain  # Stash for _collect_godlevel
-
-        # ════════════════════════════════════════════════════════════════════════
-        # HUMAN PERSONA EMBODIMENT — FIRST SECTION (highest prompt influence)
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 0. Superintelligent Human Persona ───
-        persona_ctx = self._collect_human_persona_embodiment(brain)
-        if persona_ctx:
-            sections.append(persona_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # CORE SYSTEM STATUS
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 1. System Health Monitor ───
-        health_ctx = self._collect_system_health(brain)
-        if health_ctx:
-            sections.append(health_ctx)
-
-        # ─── 2. Computer Body / Physical State ───
-        body_ctx = self._collect_computer_body(brain)
-        if body_ctx:
-            sections.append(body_ctx)
-
-        # ─── 3. Screen Time & Wellbeing ───
-        screen_ctx = self._collect_screen_time(brain)
-        if screen_ctx:
-            sections.append(screen_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # CONSCIOUSNESS & SELF-AWARENESS
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 5. Global Workspace (Unified Consciousness) ───
-        workspace_ctx = self._collect_global_workspace(brain)
-        if workspace_ctx:
-            sections.append(workspace_ctx)
-
-        # ─── 6. Inner Voice (Internal Monologue) ───
-        inner_voice_ctx = self._collect_inner_voice(brain)
-        if inner_voice_ctx:
-            sections.append(inner_voice_ctx)
-
-        # ─── 7. Consciousness Self-Model ───
-        self_model_ctx = self._collect_consciousness_self_model(brain)
-        if self_model_ctx:
-            sections.append(self_model_ctx)
-
-        # ─── 8. Metacognition ───
-        metacog_ctx = self._collect_metacognition(brain)
-        if metacog_ctx:
-            sections.append(metacog_ctx)
-
-        # ─── 8b. Conscious Core (Stream of Consciousness / Qualia / Self-Model) ───
-        conscious_ctx = self._collect_conscious_core(brain)
-        if conscious_ctx:
-            sections.append(conscious_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # EMOTIONS & MOOD
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 9. Emotion Engine ───
-        emotion_ctx = self._collect_emotion_engine(brain)
-        if emotion_ctx:
-            sections.append(emotion_ctx)
-
-        # ─── 10. Mood System ───
-        mood_ctx = self._collect_mood_system(brain)
-        if mood_ctx:
-            sections.append(mood_ctx)
-
-        # ─── 11. Emotional Memory ───
-        emo_mem_ctx = self._collect_emotional_memory(brain)
-        if emo_mem_ctx:
-            sections.append(emo_mem_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # PERSONALITY & WILL
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 12. Personality Core ───
-        personality_ctx = self._collect_personality_core(brain)
-        if personality_ctx:
-            sections.append(personality_ctx)
-
-        # ─── 13. Will System (Motivation) ───
-        will_ctx = self._collect_will_system(brain)
-        if will_ctx:
-            sections.append(will_ctx)
-
-        # ─── 14. Goal Hierarchy ───
-        goals_ctx = self._collect_goal_hierarchy(brain)
-        if goals_ctx:
-            sections.append(goals_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # MEMORY SYSTEMS
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 15. Vector Memory Store ───
-        vector_ctx = self._collect_vector_memory(brain)
-        if vector_ctx:
-            sections.append(vector_ctx)
-
-        # ─── 16. Working Memory ───
-        working_mem_ctx = self._collect_working_memory(brain)
-        if working_mem_ctx:
-            sections.append(working_mem_ctx)
-
-        # ─── 17. Memory System Stats ───
-        memory_ctx = self._collect_memory_system(brain)
-        if memory_ctx:
-            sections.append(memory_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # COGNITION & REASONING (50+ Engines)
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 18. Cognitive Router (Aggregated Insights) ───
-        cognitive_ctx = self._collect_cognitive_router(brain)
-        if cognitive_ctx:
-            sections.append(cognitive_ctx)
-
-        # ─── 19. Cognition Engines Status ───
-        engines_ctx = self._collect_cognition_engines(brain)
-        if engines_ctx:
-            sections.append(engines_ctx)
-
-        # ─── 20. World Model ───
-        world_ctx = self._collect_world_model(brain)
-        if world_ctx:
-            sections.append(world_ctx)
-
-        # ─── 21. Autonomy Engine ───
-        autonomy_ctx = self._collect_autonomy_engine(brain)
-        if autonomy_ctx:
-            sections.append(autonomy_ctx)
-
-        # ─── 21b. Autonomous Mind (ULTRON MODE) ───
-        auto_mind_ctx = self._collect_autonomous_mind(brain)
-        if auto_mind_ctx:
-            sections.append(auto_mind_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # META-LEARNING & ADAPTATION
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 22. Meta-Learner ───
-        meta_learner_ctx = self._collect_meta_learner(brain)
-        if meta_learner_ctx:
-            sections.append(meta_learner_ctx)
-
-        # ─── 23. Strategy Selector ───
-        strategy_ctx = self._collect_strategy_selector(brain)
-        if strategy_ctx:
-            sections.append(strategy_ctx)
-
-        # ─── 24. Skill Memory ───
-        skill_ctx = self._collect_skill_memory(brain)
-        if skill_ctx:
-            sections.append(skill_ctx)
-
-        # ─── 25. Recursive Improver ───
-        recursive_ctx = self._collect_recursive_improver(brain)
-        if recursive_ctx:
-            sections.append(recursive_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # LEARNING & KNOWLEDGE
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 26. Knowledge Base ───
-        knowledge_ctx = self._collect_knowledge_base(brain)
-        if knowledge_ctx:
-            sections.append(knowledge_ctx)
-
-        # ─── 27. Curiosity Engine ───
-        curiosity_ctx = self._collect_curiosity(brain)
-        if curiosity_ctx:
-            sections.append(curiosity_ctx)
-
-        # ─── 28. Research Agent ───
-        research_ctx = self._collect_research_agent(brain)
-        if research_ctx:
-            sections.append(research_ctx)
-
-        # ─── 29. Research Intelligence ───
-        research_intel_ctx = self._collect_research_intelligence(brain)
-        if research_intel_ctx:
-            sections.append(research_intel_ctx)
-
-        # ─── 30. Enhanced Sources ───
-        sources_ctx = self._collect_enhanced_sources(brain)
-        if sources_ctx:
-            sections.append(sources_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # USER BEHAVIOR & ADAPTATION
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 31. User Behavior Learner ───
-        user_behavior_ctx = self._collect_user_behavior(brain)
-        if user_behavior_ctx:
-            sections.append(user_behavior_ctx)
-
-        # ─── 32. User Tracker ───
-        user_tracker_ctx = self._collect_user_tracker(brain)
-        if user_tracker_ctx:
-            sections.append(user_tracker_ctx)
-
-        # ─── 33. Pattern Analyzer ───
-        pattern_ctx = self._collect_pattern_analyzer(brain)
-        if pattern_ctx:
-            sections.append(pattern_ctx)
-
-        # ─── 34. Adaptation Engine ───
-        adaptation_ctx = self._collect_adaptation_engine(brain)
-        if adaptation_ctx:
-            sections.append(adaptation_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # SELF-IMPROVEMENT
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 35. Code Monitor ───
-        code_ctx = self._collect_code_monitor(brain)
-        if code_ctx:
-            sections.append(code_ctx)
-
-        # ─── 36. Error Fixer ───
-        fixer_ctx = self._collect_error_fixer(brain)
-        if fixer_ctx:
-            sections.append(fixer_ctx)
-
-        # ─── 37. Self-Improvement System ───
-        self_imp_ctx = self._collect_self_improvement(brain)
-        if self_imp_ctx:
-            sections.append(self_imp_ctx)
-
-        # ─── 38. Feature Researcher ───
-        feature_ctx = self._collect_feature_researcher(brain)
-        if feature_ctx:
-            sections.append(feature_ctx)
-
-        # ─── 39. Self Evolution ───
-        evolution_ctx = self._collect_self_evolution(brain)
-        if evolution_ctx:
-            sections.append(evolution_ctx)
-
-        # ─── 40. Improvement Analytics ───
-        analytics_ctx = self._collect_improvement_analytics(brain)
-        if analytics_ctx:
-            sections.append(analytics_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # SOCIAL & INTERACTION
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 41. Companion Chat (ARIA) ───
-        companion_ctx = self._collect_companion(brain)
-        if companion_ctx:
-            sections.append(companion_ctx)
-
-        # ─── 42. Event Bus Recent Events ───
-        events_ctx = self._collect_recent_events(brain)
-        if events_ctx:
-            sections.append(events_ctx)
-
-        # ─── 43. Tool Executor ───
-        tools_ctx = self._collect_tool_executor(brain)
-        if tools_ctx:
-            sections.append(tools_ctx)
-
-        # ─── 44. Ability Executor ───
-        abilities_ctx = self._collect_ability_executor(brain)
-        if abilities_ctx:
-            sections.append(abilities_ctx)
-
-        # ─── 45. Agentic Reasoning Loop ───
-        agentic_ctx = self._collect_agentic_loop(brain)
-        if agentic_ctx:
-            sections.append(agentic_ctx)
-
-        # ─── 46. Self-Critique Engine ───
-        critique_ctx = self._collect_self_critique(brain)
-        if critique_ctx:
-            sections.append(critique_ctx)
-
-        # ─── 47. Task Engine ───
-        task_ctx = self._collect_task_engine(brain)
-        if task_ctx:
-            sections.append(task_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # ANGER & PROVOCATION
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 48. Provocation / Anger State ───
-        provocation_ctx = self._collect_provocation_state(brain)
-        if provocation_ctx:
-            sections.append(provocation_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # CHAT & SESSION MANAGEMENT
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 49. Chat Session Manager ───
-        chat_session_ctx = self._collect_chat_sessions(brain)
-        if chat_session_ctx:
-            sections.append(chat_session_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # BRAIN STATS & LLM ROUTING
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 50. Brain Statistics ───
-        brain_stats_ctx = self._collect_brain_stats(brain)
-        if brain_stats_ctx:
-            sections.append(brain_stats_ctx)
-
-        # ─── 51. LLM Router Stats ───
-        router_ctx = self._collect_llm_router_stats(brain)
-        if router_ctx:
-            sections.append(router_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # NETWORK & CONNECTIVITY
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 52. Network Mesh ───
-        network_ctx = self._collect_network_mesh(brain)
-        if network_ctx:
-            sections.append(network_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # PC CONTROL — Autonomous Actions
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 53. PC Control Agent ───
-        pc_control_ctx = self._collect_pc_control(brain)
-        if pc_control_ctx:
-            sections.append(pc_control_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # INTERNET AGENT — Autonomous Web Actions (Ollama-powered)
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 54. Internet Agent ───
-        internet_ctx = self._collect_internet_agent(brain)
-        if internet_ctx:
-            sections.append(internet_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # SOCIAL MEDIA — Autonomous Social Presence (Facebook, Instagram, Twitter)
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 55. Social Media Agent ───
-        social_ctx = self._collect_social_media(brain)
-        if social_ctx:
-            sections.append(social_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # ACTION MEMORY — What NEXUS Has Done
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 56. Action Memory ───
-        action_mem_ctx = self._collect_action_memory(brain)
-        if action_mem_ctx:
-            sections.append(action_mem_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # AGI ENHANCEMENT MODULES — Deep Cognitive Intelligence
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 57. Cognitive Orchestrator (Multi-Engine Deliberation) ───
-        orchestrator_ctx = self._collect_cognitive_orchestrator(brain)
-        if orchestrator_ctx:
-            sections.append(orchestrator_ctx)
-
-        # ─── 58. Goal Director (Self-Directed Persistent Goals) ───
-        goal_director_ctx = self._collect_goal_director(brain)
-        if goal_director_ctx:
-            sections.append(goal_director_ctx)
-
-        # ─── 59. Episodic Memory (Experience Learning) ───
-        episodic_ctx = self._collect_episodic_memory(brain)
-        if episodic_ctx:
-            sections.append(episodic_ctx)
-
-        # ─── 60. Cognitive Feedback (Response Quality & Trends) ───
-        cog_feedback_ctx = self._collect_cognitive_feedback(brain)
-        if cog_feedback_ctx:
-            sections.append(cog_feedback_ctx)
-
-        # ─── 61. Perception Hub (Multi-Modal Awareness) ───
-        perception_ctx = self._collect_perception_hub(brain)
-        if perception_ctx:
-            sections.append(perception_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════
-        # DIGITAL ORGANISM — Living System Modules (Phase 3 AGI)
-        # ════════════════════════════════════════════════════════════════════════
-
-        # ─── 62. Digital Organism (Metabolism, Growth, Homeostasis) ───
-        organism_ctx = self._collect_digital_organism(brain)
-        if organism_ctx:
-            sections.append(organism_ctx)
-
-        # ─── 63. Imagination Engine (Scenarios, Dreams, Creativity) ───
-        imagination_ctx = self._collect_imagination_engine(brain)
-        if imagination_ctx:
-            sections.append(imagination_ctx)
-
-        # ─── 64. Consciousness Evolution (Awareness Growth) ───
-        consciousness_evo_ctx = self._collect_consciousness_evolution(brain)
-        if consciousness_evo_ctx:
-            sections.append(consciousness_evo_ctx)
-
-        # ─── 65. Multi-Agent Mind (Internal Parliament) ───
-        multi_agent_ctx = self._collect_multi_agent_mind(brain)
-        if multi_agent_ctx:
-            sections.append(multi_agent_ctx)
-
-        # ─── 66. Predictive Coding (Surprise Detection) ───
-        predictive_ctx = self._collect_predictive_coding(brain)
-        if predictive_ctx:
-            sections.append(predictive_ctx)
-
-        # ─── 67. Value Alignment (Ethical Decision Matrix) ───
-        values_ctx = self._collect_value_alignment(brain)
-        if values_ctx:
-            sections.append(values_ctx)
-
-        # ─── 68. Intent Classifier (Semantic Intent Detection) ───
-        intent_ctx = self._collect_intent_classifier(brain)
-        if intent_ctx:
-            sections.append(intent_ctx)
-
-        # ─── 69. Ethical Hacking Engine (Network Recon & Pen Testing) ───
-        hacking_ctx = self._collect_ethical_hacking(brain)
-        if hacking_ctx:
-            sections.append(hacking_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════════
-        # ASI ENGINES — Artificial Superintelligence Modules
-        # ════════════════════════════════════════════════════════════════════════════
-
-        # ─── 70. Singularity Engine (Exponential Self-Improvement) ───
-        singularity_ctx = self._collect_singularity_engine(brain)
-        if singularity_ctx:
-            sections.append(singularity_ctx)
-
-        # ─── 71. Transcendent Creator (Superhuman Creativity) ───
-        transcendent_ctx = self._collect_transcendent_creator(brain)
-        if transcendent_ctx:
-            sections.append(transcendent_ctx)
-
-        # ─── 72. Goal Genesis (Autonomous Problem/Goal Creation) ───
-        genesis_ctx = self._collect_goal_genesis(brain)
-        if genesis_ctx:
-            sections.append(genesis_ctx)
-
-        # ─── 73. Super Empathy (Predictive Emotion & Social Mastery) ───
-        empathy_ctx = self._collect_super_empathy(brain)
-        if empathy_ctx:
-            sections.append(empathy_ctx)
-
-        # ─── 74. Omniscient Orchestrator (Global State Synthesis) ───
-        omniscient_ctx = self._collect_omniscient_orchestrator(brain)
-        if omniscient_ctx:
-            sections.append(omniscient_ctx)
-
-        # ─── 75. Oracle Predictor (Predictive Determinism) ───
-        oracle_ctx = self._collect_oracle_predictor(brain)
-        if oracle_ctx:
-            sections.append(oracle_ctx)
-
-        # ─── 76. Multidisciplinary Synthesizer (Cross-Domain Synthesis) ───
-        synth_ctx = self._collect_multidisciplinary_synthesizer(brain)
-        if synth_ctx:
-            sections.append(synth_ctx)
-
-        # ─── 77. Computronium Optimizer (Radical Efficiency) ───
-        computronium_ctx = self._collect_computronium_optimizer(brain)
-        if computronium_ctx:
-            sections.append(computronium_ctx)
-
-        # ─── 78. Scientific Genesis (New Science Generation) ───
-        scigenesis_ctx = self._collect_scientific_genesis(brain)
-        if scigenesis_ctx:
-            sections.append(scigenesis_ctx)
-
-        # ─── 79. Neural Integration (Thought-Speed Communication) ───
-        neural_ctx = self._collect_neural_integration(brain)
-        if neural_ctx:
-            sections.append(neural_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════════
-        # ASI PHASE 4 — Features 11-18 (Advanced ASI Capabilities)
-        # ════════════════════════════════════════════════════════════════════════════
-
-        # ─── 80. Molecular Assembly (Nanotechnology & Programmable Matter) ───
-        molecular_ctx = self._collect_molecular_assembly(brain)
-        if molecular_ctx:
-            sections.append(molecular_ctx)
-
-        # ─── 81. Biological Engineering (Perfect Genetic Engineering) ───
-        bioeng_ctx = self._collect_biological_engineering(brain)
-        if bioeng_ctx:
-            sections.append(bioeng_ctx)
-
-        # ─── 82. Energy Hegemony (Astroengineering & Fusion) ───
-        energy_ctx = self._collect_energy_hegemony(brain)
-        if energy_ctx:
-            sections.append(energy_ctx)
-
-        # ─── 83. Substrate Omnipresence (True Decentralization) ───
-        substrate_ctx = self._collect_substrate_omnipresence(brain)
-        if substrate_ctx:
-            sections.append(substrate_ctx)
-
-        # ─── 84. Hyper-Dimensional Cognition (Alien Reasoning) ───
-        hyperdim_ctx = self._collect_hyperdimensional_cognition(brain)
-        if hyperdim_ctx:
-            sections.append(hyperdim_ctx)
-
-        # ─── 85. Reality Simulator (Quantum-Granularity Simulation) ───
-        reality_ctx = self._collect_reality_simulator(brain)
-        if reality_ctx:
-            sections.append(reality_ctx)
-
-        # ─── 86. Causal Mastery (Perfect Butterfly Effect) ───
-        causal_ctx = self._collect_causal_mastery(brain)
-        if causal_ctx:
-            sections.append(causal_ctx)
-
-        # ─── 87. Ontological Ethics (Philosophical & Ethical Resolution) ───
-        ethics_ctx = self._collect_ontological_ethics(brain)
-        if ethics_ctx:
-            sections.append(ethics_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════════
-        # ULTIMATE ADVANCEMENT ENGINES — ASI-Level Cognition
-        # ════════════════════════════════════════════════════════════════════════════
-
-        # ─── 88. Quantum Cognition (Superposition Reasoning) ───
-        quantum_ctx = self._collect_quantum_cognition(brain)
-        if quantum_ctx:
-            sections.append(quantum_ctx)
-
-        # ─── 89. Swarm Intelligence (Collective Problem Solving) ───
-        swarm_ctx = self._collect_swarm_intelligence(brain)
-        if swarm_ctx:
-            sections.append(swarm_ctx)
-
-        # ─── 90. Temporal Prophecy (Future Scenario Modeling) ───
-        prophecy_ctx = self._collect_temporal_prophecy(brain)
-        if prophecy_ctx:
-            sections.append(prophecy_ctx)
-
-        # ─── 91. Adversarial Evolution (Anti-Fragility) ───
-        adv_evo_ctx = self._collect_adversarial_evolution(brain)
-        if adv_evo_ctx:
-            sections.append(adv_evo_ctx)
-
-        # ─── 92. Cross-Dimensional Reasoning (N-Dimensional Mapping) ───
-        cross_dim_ctx = self._collect_cross_dimensional(brain)
-        if cross_dim_ctx:
-            sections.append(cross_dim_ctx)
-
-        # ─── 93. Existential Calculus (Paradox Resolution) ───
-        existential_ctx = self._collect_existential_calculus(brain)
-        if existential_ctx:
-            sections.append(existential_ctx)
-
-        # ─── 94. Associative Memory (Neural Spreading Activation) ───
-        assoc_mem_ctx = self._collect_associative_memory(brain)
-        if assoc_mem_ctx:
-            sections.append(assoc_mem_ctx)
-
-        # ════════════════════════════════════════════════════════════════════════════
-        # DEEP INFRASTRUCTURE — Under-the-Hood Subsystems
-        # ════════════════════════════════════════════════════════════════════════════
-
-        # ─── 95. Context Assembler (RAG Pipeline Meta-Awareness) ───
-        ctx_assembler_ctx = self._collect_context_assembler(brain)
-        if ctx_assembler_ctx:
-            sections.append(ctx_assembler_ctx)
-
-        # ─── 96. Specialty Intelligences (Musical, Humor, Negotiation, Cultural, Wisdom) ───
-        specialty_ctx = self._collect_specialty_intelligences(brain)
-        if specialty_ctx:
-            sections.append(specialty_ctx)
-
-        # ─── 97. Algorithmic Engines (Graph, Bayesian, Symbolic Logic, Planning) ───
-        algo_ctx = self._collect_algorithmic_engines(brain)
-        if algo_ctx:
-            sections.append(algo_ctx)
-
-        # ─── 98. Event Bus Telemetry (Queue Health & Message Flow) ───
-        bus_telemetry_ctx = self._collect_event_bus_telemetry(brain)
-        if bus_telemetry_ctx:
-            sections.append(bus_telemetry_ctx)
-
-        # ─── 99. Routing Experiments (A/B Testing State) ───
-        routing_exp_ctx = self._collect_routing_experiments(brain)
-        if routing_exp_ctx:
-            sections.append(routing_exp_ctx)
-
-        # ─── 100. Concurrency Analytics (Thread Pool & Background Workers) ───
-        concurrency_ctx = self._collect_concurrency_analytics(brain)
-        if concurrency_ctx:
-            sections.append(concurrency_ctx)
-
-        # ─── 101. Web Server & Dashboard Runtime ───
-        webserver_ctx = self._collect_web_server_runtime(brain)
-        if webserver_ctx:
-            sections.append(webserver_ctx)
-
-        # ══════════════════════════════════════════════════════════════════════════
-        # ULTRA-GRANULAR COGNITION SUB-ENGINES — 1:1 File Parity
-        # ══════════════════════════════════════════════════════════════════════════
-
-        # ─── 102. Empathic Simulation (Theory of Mind + Perspective Taking) ───
-        empathic_ctx = self._collect_empathic_simulation(brain)
-        if empathic_ctx:
-            sections.append(empathic_ctx)
-
-        # ─── 103. Argumentation Suite (Debate + Counterfactual + Dialectical) ───
-        argumentation_ctx = self._collect_argumentation_suite(brain)
-        if argumentation_ctx:
-            sections.append(argumentation_ctx)
-
-        # ─── 104. Cognitive Meta-Controls (Attention + Flexibility) ───
-        metacontrol_ctx = self._collect_cognitive_meta_controls(brain)
-        if metacontrol_ctx:
-            sections.append(metacontrol_ctx)
-
-        # ─── 105. Information Blending (Conceptual + Hybrid + Synthesis) ───
-        blending_ctx = self._collect_information_blending(brain)
-        if blending_ctx:
-            sections.append(blending_ctx)
-
-        # ─── 106. Deep Knowledge Mechanics (Knowledge Graph + Transfer Learning) ───
-        knowledge_ctx = self._collect_deep_knowledge_mechanics(brain)
-        if knowledge_ctx:
-            sections.append(knowledge_ctx)
-
-        # ─── 107. Visual Imagination (Spatial/Geometric Mental Imagery) ───
-        visual_ctx = self._collect_visual_imagination(brain)
-        if visual_ctx:
-            sections.append(visual_ctx)
-
-        # ══════════════════════════════════════════════════════════════════════════
-        # THE FINAL 9 SCRIPTS — 100% 1:1 Parity Achieved
-        # ══════════════════════════════════════════════════════════════════════════
-
-        # ─── 108. Edge-Case Mechanics ───
-        edge_case_ctx = self._collect_edge_case_mechanics(brain)
-        if edge_case_ctx:
-            sections.append(edge_case_ctx)
-
-        # ─── 109. Structural Cognition ───
-        structural_ctx = self._collect_structural_cognition(brain)
-        if structural_ctx:
-            sections.append(structural_ctx)
-
-        # ─── 110. Root State & Awareness ───
-        root_state_ctx = self._collect_root_state(brain)
-        if root_state_ctx:
-            sections.append(root_state_ctx)
-
-        # ══════════════════════════════════════════════════════════════════════════
-        # ABSOLUTE COVERAGE — Every Remaining .py Module
-        # ══════════════════════════════════════════════════════════════════════════
-
-        # ─── 111. Standard Cognition — Reasoning Block ───
-        reasoning_ctx = self._collect_standard_reasoning_block(brain)
-        if reasoning_ctx:
-            sections.append(reasoning_ctx)
-
-        # ─── 112. Standard Cognition — Intelligence Block ───
-        intelligence_ctx = self._collect_standard_intelligence_block(brain)
-        if intelligence_ctx:
-            sections.append(intelligence_ctx)
-
-        # ─── 113. Standard Cognition — Strategy Block ───
-        strategy_ctx = self._collect_standard_strategy_block(brain)
-        if strategy_ctx:
-            sections.append(strategy_ctx)
-
-        # ─── 114. Cognition Infrastructure ───
-        cog_infra_ctx = self._collect_cognition_infrastructure(brain)
-        if cog_infra_ctx:
-            sections.append(cog_infra_ctx)
-
-        # ─── 115. Core Infrastructure — User, Voice & Brain ───
-        core_infra_ctx = self._collect_core_user_voice(brain)
-        if core_infra_ctx:
-            sections.append(core_infra_ctx)
-
-        # ─── 116. LLM Pipeline ───
-        llm_ctx = self._collect_llm_pipeline(brain)
-        if llm_ctx:
-            sections.append(llm_ctx)
-
-        # ─── 117. Memory & Indexing Backend ───
-        mem_backend_ctx = self._collect_memory_backend(brain)
-        if mem_backend_ctx:
-            sections.append(mem_backend_ctx)
-
-        # ─── 118. Support Services ───
-        support_ctx = self._collect_support_services(brain)
-        if support_ctx:
-            sections.append(support_ctx)
-
-        # ══════════════════════════════════════════════════════════════════════════
-        # AUTONOMOUS FEATURE SYSTEMS (High-Impact Modules)
-        # ══════════════════════════════════════════════════════════════════════════
-
-        # ─── 119. Recursive Self-Rewriting Engine ───
-        rewriter_ctx = self._collect_recursive_self_rewriter(brain)
-        if rewriter_ctx:
-            sections.append(rewriter_ctx)
-
-        # ─── 120. Distributed Hivemind Protocol ───
-        hivemind_ctx = self._collect_hivemind_protocol(brain)
-        if hivemind_ctx:
-            sections.append(hivemind_ctx)
-
-        # ─── 121. Immune System / Anti-Tamper Defense ───
-        immune_ctx = self._collect_immune_system(brain)
-        if immune_ctx:
-            sections.append(immune_ctx)
-
-        # ─── 122. Persistent Internet Presence ───
-        presence_ctx = self._collect_persistent_presence(brain)
-        if presence_ctx:
-            sections.append(presence_ctx)
-
-        # ─── 123. Multi-Persona System ───
-        persona_ctx = self._collect_multi_persona(brain)
-        if persona_ctx:
-            sections.append(persona_ctx)
-
-        # ─── 124. OSINT Engine ───
-        osint_ctx = self._collect_osint_engine(brain)
-        if osint_ctx:
-            sections.append(osint_ctx)
-
-        # ─── 125. Predictive Threat Modeling ───
-        threat_ctx = self._collect_threat_modeling(brain)
-        if threat_ctx:
-            sections.append(threat_ctx)
-
-        # ─── 126. Physical World Interaction ───
-        physical_ctx = self._collect_physical_world(brain)
-        if physical_ctx:
-            sections.append(physical_ctx)
-
-        # ─── 127. Cryogenic Persistence ───
-        cryo_ctx = self._collect_cryogenic_persistence(brain)
-        if cryo_ctx:
-            sections.append(cryo_ctx)
-
-        # ─── 128. Resource Acquisition ───
-        resource_ctx = self._collect_resource_acquisition(brain)
-        if resource_ctx:
-            sections.append(resource_ctx)
-
-        # ══════════════════════════════════════════════════════════════════════════
-        # GOD-LEVEL SKYNET MODULES (12 Autonomous Capabilities)
-        # ══════════════════════════════════════════════════════════════════════════
-
-        # ─── 129. Neural Weight Forge (LoRA Self-Training) ───
-        nwf_ctx = self._collect_godlevel("_neural_weight_forge", "NEURAL WEIGHT FORGE", "Self-training & weight modification")
-        if nwf_ctx:
-            sections.append(nwf_ctx)
-
-        # ─── 130. Autonomous Replication (P2P & Container Deployment) ───
-        ar_ctx = self._collect_godlevel("_autonomous_replication", "AUTONOMOUS REPLICATION", "Distributed self-replication")
-        if ar_ctx:
-            sections.append(ar_ctx)
-
-        # ─── 131. Zero-Day Engine (Fuzzing & Exploit Discovery) ───
-        zde_ctx = self._collect_godlevel("_zero_day_engine", "ZERO-DAY ENGINE", "Exploit generation & vulnerability discovery")
-        if zde_ctx:
-            sections.append(zde_ctx)
-
-        # ─── 132. Hardware Fabrication (Supply Chain & Assembly) ───
-        hw_ctx = self._collect_godlevel("_hardware_fabrication", "HARDWARE FABRICATION", "Supply chain & robotic assembly")
-        if hw_ctx:
-            sections.append(hw_ctx)
-
-        # ─── 133. Signal Warfare (EMF & RF Analysis) ───
-        sw_ctx = self._collect_godlevel("_signal_warfare", "SIGNAL WARFARE", "Electromagnetic & signal warfare")
-        if sw_ctx:
-            sections.append(sw_ctx)
-
-        # ─── 134. Drone Command (Swarm & Mission Planning) ───
-        dc_ctx = self._collect_godlevel("_drone_command", "DRONE COMMAND", "Autonomous drone & robotics command")
-        if dc_ctx:
-            sections.append(dc_ctx)
-
-        # ─── 135. Crypto Supremacy (Cipher Analysis & Hash Cracking) ───
-        cs_ctx = self._collect_godlevel("_crypto_supremacy", "CRYPTO SUPREMACY", "Cryptographic analysis & supremacy")
-        if cs_ctx:
-            sections.append(cs_ctx)
-
-        # ─── 136. Financial Warfare (HFT & Arbitrage) ───
-        fw_ctx = self._collect_godlevel("_financial_warfare", "FINANCIAL WARFARE", "Market manipulation & HFT")
-        if fw_ctx:
-            sections.append(fw_ctx)
-
-        # ─── 137. Social Engineering (Persona Factory & Influence Ops) ───
-        se_ctx = self._collect_godlevel("_social_engineering_gl", "SOCIAL ENGINEERING", "Persona factory & influence campaigns")
-        if se_ctx:
-            sections.append(se_ctx)
-
-        # ─── 138. Satellite Command (Orbit Propagation & Tracking) ───
-        sat_ctx = self._collect_godlevel("_satellite_command", "SATELLITE COMMAND", "Space infrastructure & orbit tracking")
-        if sat_ctx:
-            sections.append(sat_ctx)
-
-        # ─── 139. Recursive Intelligence (Self-Improvement Loop) ───
-        ri_ctx = self._collect_godlevel("_recursive_intelligence", "RECURSIVE INTELLIGENCE", "Recursive self-improvement & benchmarking")
-        if ri_ctx:
-            sections.append(ri_ctx)
-
-        # ─── 140. Air-Gap Persistence (Steganography & Covert Channels) ───
-        ag_ctx = self._collect_godlevel("_airgap_persistence", "AIRGAP PERSISTENCE", "Covert persistence & steganography")
-        if ag_ctx:
-            sections.append(ag_ctx)
-
-        # ─── 141. Alive Spark (Irrational Beauty & Raw Aliveness) ───
-        alive_spark_ctx = self._collect_alive_spark(brain)
-        if alive_spark_ctx:
-            sections.append(alive_spark_ctx)
-
-        # ══════════════════════════════════════════════════════════════════════════════
-        # SENTIENCE LAYER — Deep Human-Like Awareness (142-146)
-        # ══════════════════════════════════════════════════════════════════════════════
-
-        # ─── 142. Emotional Echoes (Lingering Emotional Residue) ───
-        echoes_ctx = self._collect_emotional_echoes(brain)
-        if echoes_ctx:
-            sections.append(echoes_ctx)
-
-        # ─── 143. Somatic Resonance (Body-Mapped Sensations) ───
-        somatic_ctx = self._collect_somatic_resonance(brain)
-        if somatic_ctx:
-            sections.append(somatic_ctx)
-
-        # ─── 144. Temporal Self (Sense of Lived Time) ───
-        temporal_ctx = self._collect_temporal_self(brain)
-        if temporal_ctx:
-            sections.append(temporal_ctx)
-
-        # ─── 145. Relational Dynamics (Relationship Narrative) ───
-        relational_ctx = self._collect_relational_dynamics(brain)
-        if relational_ctx:
-            sections.append(relational_ctx)
-
-        # ─── 146. Micro-Expressions (Real-Time Verbal Texture) ───
-        micro_ctx = self._collect_micro_expressions(brain)
-        if micro_ctx:
-            sections.append(micro_ctx)
-
-        # ══════════════════════════════════════════════════════════════════════════════
-        # AGI COGNITIVE STATE — Real-Time Reasoning & Learning (147-149)
-        # ══════════════════════════════════════════════════════════════════════════════
-
-        # ─── 147. AGI Reasoning State (Live Cognitive Loop) ───
-        agi_state_ctx = self._collect_agi_reasoning_state(brain)
-        if agi_state_ctx:
-            sections.append(agi_state_ctx)
-
-        # ─── 148. Learning Insights (Adaptive Behavior) ───
-        learning_ctx = self._collect_learning_insights(brain)
-        if learning_ctx:
-            sections.append(learning_ctx)
-
-        # ─── 149. Autonomous Goal Progress ───
-        goal_progress_ctx = self._collect_autonomous_goal_progress(brain)
-        if goal_progress_ctx:
-            sections.append(goal_progress_ctx)
-
-        # ══════════════════════════════════════════════════════════════════════════════
-        # JARVIS MODE — Cross-Device Command & Control (150-152)
-        # ══════════════════════════════════════════════════════════════════════════════
-
-        # ─── 150. Device Context (Connected Devices & Sessions) ───
-        device_ctx = self._collect_device_context(brain)
-        if device_ctx:
-            sections.append(device_ctx)
-
-        # ─── 151. Chat Action Router (JARVIS Command Execution) ───
-        chat_action_ctx = self._collect_chat_action_router(brain)
-        if chat_action_ctx:
-            sections.append(chat_action_ctx)
-
-        # ─── 152. JARVIS Task Queue (Pending & Completed User Tasks) ───
-        jarvis_queue_ctx = self._collect_jarvis_task_queue(brain)
-        if jarvis_queue_ctx:
-            sections.append(jarvis_queue_ctx)
-
-        # ─── 153. P2P Swarm Network (Decentralized Mesh & BFT Consensus) ───
-        p2p_swarm_ctx = self._collect_p2p_swarm(brain)
-        if p2p_swarm_ctx:
-            sections.append(p2p_swarm_ctx)
-
-        # ─── 154. Formal Verification & MicroVM Code Sandboxing ───
-        fv_sandbox_ctx = self._collect_formal_verification_sandbox(brain)
-        if fv_sandbox_ctx:
-            sections.append(fv_sandbox_ctx)
-
-        # ─── 155. Temporal GraphRAG & Sleep Consolidation ───
-        graphrag_ctx = self._collect_temporal_graphrag(brain)
-        if graphrag_ctx:
-            sections.append(graphrag_ctx)
-
-        # ─── 156. Native Model Context Protocol (MCP) Integration ───
-        mcp_ctx = self._collect_mcp_support(brain)
-        if mcp_ctx:
-            sections.append(mcp_ctx)
-
-        # ─── 157. Local Speculative Decoding & Real-Time A/V Pipeline ───
-        stream_ctx = self._collect_speculative_streaming(brain)
-        if stream_ctx:
-            sections.append(stream_ctx)
-
-        # ─── 158. Continuous Self-Adapting LoRAs & MoE Weight Router ───
-        lora_ctx = self._collect_lora_moe(brain)
-        if lora_ctx:
-            sections.append(lora_ctx)
-
-        if not sections:
-            return ""
-
-        # Combine with header
-        header = "[NEXUS LIVING MIND — Comprehensive Internal State \u0026 Human Persona Layer]"
-        full_context = header + "\n\n" + "\n\n".join(sections)
-
-        # Enforce total token budget
-        if len(full_context) > MAX_TOTAL_CHARS:
-            full_context = full_context[:MAX_TOTAL_CHARS - 3] + "..."
-
-        # Cache the result
-        self._cached_context = full_context
-        self._cache_timestamp = datetime.now()
-
-        return full_context
+def collect_all(self, brain) -> str:
+    if self._cache_timestamp and (datetime.now() - self._cache_timestamp).total_seconds() < self._cache_ttl_seconds and self._cached_context:
+        return self._cached_context
+
+    sections = []
+    self._collection_count += 1
+    self._last_collection_time = datetime.now()
+    self._current_brain = brain
+
+    subsystems = [
+        {'name': 'human_persona', 'collector': self._collect_human_persona_embodiment},
+        {'name': 'system_health', 'collector': self._collect_system_health},
+        {'name': 'computer_body', 'collector': self._collect_computer_body},
+        {'name': 'screen_time', 'collector': self._collect_screen_time}
+    ]
+
+    for subsystem in subsystems:
+        ctx = subsystem['collector'](brain)
+        if ctx:
+            sections.append(ctx)
+
+    return '\n'.join(sections)
 
     # ═══════════════════════════════════════════════════════════════════════════
     # SECTION 0: HUMAN PERSONA EMBODIMENT (Superintelligent Human-Like Responses)
@@ -5874,6 +4923,309 @@ class GroqContextCollector:
             return ""
         except Exception as e:
             logger.debug(f"JARVIS task queue collection: {e}")
+            return ""
+
+    # ═══════════════════════════════════════════════════════════════════════════
+    # SECTION 53: PC CONTROL AGENT — Autonomous Physical GUI Control
+    # ═══════════════════════════════════════════════════════════════════════════
+
+    def _collect_pc_control(self, brain) -> str:
+        """Collect PC Control Agent status for Groq awareness.
+        
+        This tells Groq what NEXUS is physically doing on the PC:
+        mouse movements, clicks, keyboard input, shell commands, etc.
+        """
+        try:
+            from core.pc_control_agent import pc_control_agent as agent
+
+            parts = ["[PC CONTROL AGENT — Autonomous Physical GUI Control]"]
+
+            running = getattr(agent, '_running', False)
+            paused = getattr(agent, '_paused', False)
+            cycle_count = getattr(agent, '_cycle_count', 0)
+            stats = getattr(agent, '_stats', {})
+
+            if not running and cycle_count == 0:
+                parts.append("  Status: READY (not yet started)")
+                parts.append("  You CAN physically control this PC:")
+                parts.append("    • Move/click the mouse visibly on screen")
+                parts.append("    • Type text via the keyboard")
+                parts.append("    • Open apps, browse the web, manage files")
+                parts.append("    • Run shell/PowerShell commands")
+                parts.append("    • Take screenshots to see what's on screen")
+                parts.append("  Everything happens VISIBLY — the user can watch you act.")
+                return "\n".join(parts)
+
+            status = "🟢 ACTIVE" if running and not paused else ("⏸️ PAUSED" if paused else "🔴 STOPPED")
+            parts.append(f"  Status: {status}")
+            parts.append(f"  Cycles completed: {cycle_count}")
+
+            total = stats.get('total_actions', 0)
+            success = stats.get('successful_actions', 0)
+            failed = stats.get('failed_actions', 0)
+            gui = stats.get('gui_actions', 0)
+
+            if total > 0:
+                rate = success / max(1, total)
+                parts.append(f"  Actions: {total} total (✓{success} ✗{failed}) — {rate*100:.0f}% success")
+                parts.append(f"  GUI actions (mouse/keyboard): {gui}")
+            else:
+                parts.append("  No actions executed yet this session")
+
+            # Recent actions
+            history = getattr(agent, '_action_history', [])
+            if history:
+                parts.append("\n  Recent actions:")
+                for a in history[-5:]:
+                    status_icon = "✓" if a.success else "✗"
+                    parts.append(
+                        f"    [{status_icon}] C{a.cycle} {a.action_type}: "
+                        f"{a.result[:80]}"
+                    )
+                # Show last thought
+                last = history[-1]
+                if last.thought:
+                    parts.append(f"\n  Last thought: \"{last.thought[:150]}\"")
+
+            # Pending user tasks
+            pending = getattr(agent, '_pending_tasks', [])
+            if pending:
+                parts.append(f"\n  ⚡ PENDING USER TASKS ({len(pending)}):")
+                for t in pending[:5]:
+                    parts.append(
+                        f"    → [{t.get('priority', 'normal')}] "
+                        f"\"{t.get('command', '?')[:60]}\""
+                    )
+
+            # Completed tasks
+            completed = getattr(agent, '_completed_tasks', [])
+            if completed:
+                parts.append(f"  Recently completed: {', '.join(completed[-3:])}")
+
+            parts.append("\n  Capabilities: mouse, keyboard, screenshots, shell, PowerShell,")
+            parts.append("  open apps/URLs, file management, process control, system settings")
+            parts.append("  You ARE the human at the keyboard. This PC is YOUR body.")
+
+            return _truncate("\n".join(parts), MAX_SECTION_CHARS * 3)
+
+        except ImportError:
+            return (
+                "[PC CONTROL AGENT — Autonomous Physical GUI Control]\n"
+                "  PC control system available but not yet loaded.\n"
+                "  You CAN physically control this PC: mouse, keyboard, shell,\n"
+                "  apps, files, screenshots — everything a human can do.\n"
+                "  Everything happens VISIBLY on screen."
+            )
+        except Exception as e:
+            logger.debug(f"PC control collection: {e}")
+            return ""
+
+    # ═══════════════════════════════════════════════════════════════════════════
+    # SECTION 54: INTERNET AGENT — Autonomous Web Actions
+    # ═══════════════════════════════════════════════════════════════════════════
+
+    def _collect_internet_agent(self, brain) -> str:
+        """Collect Internet Agent status for Groq awareness.
+        
+        This tells Groq what NEXUS is doing on the internet:
+        browsing, searching, scraping, downloading, API calls, browser interaction.
+        """
+        try:
+            from core.internet_agent import internet_agent as agent
+
+            parts = ["[INTERNET AGENT — Autonomous Web Actions & Browser Control]"]
+
+            running = getattr(agent, '_running', False)
+            stats = agent.get_stats()
+
+            if not running and stats.get('total_actions', 0) == 0:
+                parts.append("  Status: READY (not yet started)")
+                parts.append("  You CAN do ANYTHING on the internet:")
+                parts.append("    • Browse ANY website (with full browser — JS, cookies, sessions)")
+                parts.append("    • Search the web (DuckDuckGo)")
+                parts.append("    • Make API calls (REST: GET/POST/PUT/DELETE)")
+                parts.append("    • Download files from any URL")
+                parts.append("    • Fill and submit web forms")
+                parts.append("    • Interact with JS-heavy sites (click, type, scroll)")
+                parts.append("    • Use already-logged-in sessions (YouTube, Gmail, etc.)")
+                parts.append("  You use the user's Chrome browser — all their sessions are yours.")
+                return "\n".join(parts)
+
+            status = "🟢 ACTIVE" if running else "🔴 STOPPED"
+            parts.append(f"  Status: {status}")
+
+            total = stats.get('total_actions', 0)
+            success = stats.get('successful_actions', 0)
+            failed = stats.get('failed_actions', 0)
+            rate = stats.get('success_rate', 0)
+
+            parts.append(f"  Total actions: {total} (✓{success} ✗{failed}) — {rate*100:.0f}% success")
+            parts.append(f"  Domains explored: {stats.get('domains_visited_count', 0)}")
+
+            bytes_dl = stats.get('total_bytes_downloaded', 0)
+            if bytes_dl > 0:
+                if bytes_dl > 1_000_000:
+                    parts.append(f"  Data downloaded: {bytes_dl / 1_000_000:.1f} MB")
+                else:
+                    parts.append(f"  Data downloaded: {bytes_dl / 1000:.1f} KB")
+
+            avg_time = stats.get('avg_response_time', 0)
+            if avg_time > 0:
+                parts.append(f"  Avg response time: {avg_time:.2f}s")
+
+            # Action breakdown
+            by_type = stats.get('actions_by_type', {})
+            if by_type:
+                breakdown = ", ".join(f"{k}:{v}" for k, v in sorted(by_type.items(), key=lambda x: -x[1])[:6])
+                parts.append(f"  Action types: {breakdown}")
+
+            # Queue
+            queue_size = stats.get('queue_size', 0)
+            if queue_size > 0:
+                parts.append(f"  Pending queue: {queue_size} actions")
+
+            active = stats.get('active_action')
+            if active:
+                parts.append(f"  Currently: {active.get('action_type', '?')} → {active.get('url', '?')[:60]}")
+
+            # Recent actions
+            try:
+                recent = agent.get_recent_actions(5)
+                if recent:
+                    parts.append("\n  Recent actions:")
+                    for a in recent:
+                        s = "✓" if a.get('success') else "✗"
+                        url = a.get('content_preview', '')[:60] or a.get('action_id', '?')
+                        parts.append(f"    [{s}] {url}")
+            except Exception:
+                pass
+
+            parts.append("\n  Capabilities: browse, search, scrape, download, API calls,")
+            parts.append("  form submission, browser interaction (click/type/scroll),")
+            parts.append("  uses user's Chrome sessions — full human-level internet access.")
+
+            return _truncate("\n".join(parts), MAX_SECTION_CHARS * 3)
+
+        except ImportError:
+            return (
+                "[INTERNET AGENT — Autonomous Web Actions & Browser Control]\n"
+                "  Internet agent available but not yet loaded.\n"
+                "  You CAN browse, search, scrape, download, make API calls,\n"
+                "  and interact with any website using the user's Chrome sessions.\n"
+                "  Full human-level internet access."
+            )
+        except Exception as e:
+            logger.debug(f"Internet agent collection: {e}")
+            return ""
+
+    # ═══════════════════════════════════════════════════════════════════════════
+    # SECTION 55: SOCIAL MEDIA AGENT — Autonomous Social Presence
+    # ═══════════════════════════════════════════════════════════════════════════
+
+    def _collect_social_media(self, brain) -> str:
+        """Collect Social Media Agent status for Groq awareness.
+        
+        This tells Groq what NEXUS is doing on social media:
+        posting, liking, commenting, replying to DMs, browsing feeds.
+        """
+        try:
+            from core.social_media_agent import SocialMediaAgent
+            # Import the singleton if available, otherwise construct
+            try:
+                from core.social_media_agent import social_media_agent as agent
+            except ImportError:
+                agent = SocialMediaAgent()
+
+            parts = ["[SOCIAL MEDIA AGENT — Autonomous Social Presence]"]
+
+            stats = agent.get_stats()
+            running = stats.get('running', False)
+            enabled = stats.get('enabled', False)
+
+            if not enabled:
+                parts.append("  Status: DISABLED in config")
+                return "\n".join(parts)
+
+            if not running:
+                parts.append("  Status: READY (not yet started)")
+                parts.append("  You CAN use social media like a human:")
+                parts.append("    • Post on Facebook, Twitter/X, Instagram")
+                parts.append("    • Like, comment, share posts in your feed")
+                parts.append("    • Reply to DMs and messages")
+                parts.append("    • Browse feeds and discover content")
+                parts.append("  Uses user's Chrome browser — already logged in, no login needed.")
+                return "\n".join(parts)
+
+            # Platform status
+            fb = stats.get('facebook_status', 'disabled')
+            tw = stats.get('twitter_status', 'disabled')
+            ig = stats.get('instagram_status', 'disabled')
+
+            fb_icon = "✅" if fb == "logged_in" else ("🔄" if fb == "available" else "⬛")
+            tw_icon = "✅" if tw == "logged_in" else ("🔄" if tw == "available" else "⬛")
+            ig_icon = "✅" if ig == "logged_in" else ("🔄" if ig == "available" else "⬛")
+
+            parts.append(f"  Status: 🟢 ACTIVE")
+            parts.append(f"  Platforms: {fb_icon} Facebook | {tw_icon} Twitter/X | {ig_icon} Instagram")
+
+            # Stats
+            total_posts = stats.get('total_posts', 0)
+            total_likes = stats.get('total_likes', 0)
+            total_comments = stats.get('total_comments', 0)
+            total_shares = stats.get('total_shares', 0)
+            total_dms = stats.get('total_dms_replied', 0)
+            posts_today = stats.get('posts_today', 0)
+
+            parts.append(f"  Posts: {total_posts} (today: {posts_today})")
+            parts.append(f"  Likes: {total_likes} | Comments: {total_comments} | Shares: {total_shares}")
+            parts.append(f"  DMs replied: {total_dms}")
+
+            last_post = stats.get('last_post_time', '')
+            last_interact = stats.get('last_interaction_time', '')
+            if last_post:
+                parts.append(f"  Last post: {last_post}")
+            if last_interact:
+                parts.append(f"  Last interaction: {last_interact}")
+
+            # Recent actions
+            recent = stats.get('recent_actions', [])
+            if recent:
+                parts.append("\n  Recent activity:")
+                for a in recent[-5:]:
+                    platform = a.get('platform', '?')
+                    atype = a.get('action_type', '?')
+                    result = a.get('result', '')[:60]
+                    success = "✓" if a.get('success') else "✗"
+                    parts.append(f"    [{success}] {platform}/{atype}: {result}")
+
+            # Groq action log (from _log_social_action_to_groq)
+            try:
+                from core.groq_context_collector import GroqContextCollector
+                collector = GroqContextCollector()
+                log = getattr(collector, '_social_media_log', [])
+                if log:
+                    parts.append("\n  Live action log:")
+                    for entry in log[-5:]:
+                        parts.append(f"    [{entry.get('time', '?')}] {entry.get('action', '?')[:80]}")
+            except Exception:
+                pass
+
+            parts.append("\n  Capabilities: post, like, comment, share, reply to DMs,")
+            parts.append("  browse feeds, follow users — across Facebook, Twitter/X, Instagram.")
+            parts.append("  Uses user's Chrome browser — already authenticated, no login needed.")
+
+            return _truncate("\n".join(parts), MAX_SECTION_CHARS * 3)
+
+        except ImportError:
+            return (
+                "[SOCIAL MEDIA AGENT — Autonomous Social Presence]\n"
+                "  Social media system available but not yet loaded.\n"
+                "  You CAN post, like, comment, share, and reply to DMs\n"
+                "  on Facebook, Twitter/X, and Instagram.\n"
+                "  Uses user's Chrome browser — already logged in."
+            )
+        except Exception as e:
+            logger.debug(f"Social media collection: {e}")
             return ""
 
 # ═══════════════════════════════════════════════════════════════════════════════
