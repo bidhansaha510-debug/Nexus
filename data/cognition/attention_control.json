@@ -1,26 +1,25 @@
 {
   "states": [
     {
-      "state_id": "d02af566",
+      "state_id": "6cd9a25a",
       "mode": "focused",
-      "primary_focus": "Practice coding exercises and problems",
+      "primary_focus": "Review and refactor existing code",
       "secondary_foci": [
-        "Review existing code for improvement",
-        "Learn new concepts and techniques"
+        "Read relevant documentation on best practices and optimization techniques"
       ],
       "distractions": [
         "Social media",
         "Email notifications",
-        "Chatty coworkers"
+        "Unrelated chat conversations"
       ],
       "focus_strength": 0.8,
       "fatigue_level": 0.0,
-      "created_at": "2026-07-25T20:00:42.644688"
+      "created_at": "2026-08-17T02:31:33.810248"
     }
   ],
-  "current_focus": "Practice coding exercises and problems",
+  "current_focus": "Review and refactor existing code",
   "stats": {
-    "total_focus_sessions": 120,
+    "total_focus_sessions": 170,
     "total_prioritizations": 0,
     "total_distraction_filters": 0,
     "total_attention_shifts": 0

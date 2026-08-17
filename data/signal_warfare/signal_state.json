@@ -2,7 +2,7 @@
   "stats": {
     "total_signals_detected": 0,
     "total_emitters_tracked": 0,
-    "total_spectrum_scans": 590,
+    "total_spectrum_scans": 888,
     "total_signals_decoded": 0,
     "total_protocols_identified": 0,
     "total_recordings": 0,
@@ -17,5 +17,5 @@
     "unique_fingerprints": 0
   },
   "emitters": [],
-  "saved_at": "2026-07-25T20:07:42.798882"
+  "saved_at": "2026-08-17T23:00:02.233526"
 }

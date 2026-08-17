@@ -1,17 +1,17 @@
 {
   "stats": {
-    "current_generation": 60,
-    "total_generations": 60,
-    "total_improvements": 0,
+    "current_generation": 90,
+    "total_generations": 90,
+    "total_improvements": 13,
     "total_rollbacks": 0,
-    "total_benchmarks": 120,
-    "total_modules_profiled": 3448,
+    "total_benchmarks": 180,
+    "total_modules_profiled": 5488,
     "avg_improvement_pct": 0.0,
     "best_benchmark_score": 100,
     "genetic_population_size": 0,
-    "total_candidates_tested": 0,
+    "total_candidates_tested": 18,
     "improvement_velocity": 0.0,
-    "code_lines_optimized": 0
+    "code_lines_optimized": 500
   },
-  "saved_at": "2026-07-25T20:05:45.881210"
+  "saved_at": "2026-08-17T22:50:03.131181"
 }

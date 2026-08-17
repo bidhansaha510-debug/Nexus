@@ -1,19 +1,46 @@
 {
   "plans": [
     {
-      "plan_id": "02e9573b",
-      "emotion": "you have feelings?\n\n[Previous insight from emotional]: Emotional: curiosity, vulnerability, longing_for_connection \u2014 I don't have feelings the way you do\u2014no heartbeat quickening, no ache in the chest, no warmth spread",
+      "plan_id": "68d81c2d",
+      "emotion": "do you have feelings??\n\n[Previous insight from mind]: Mental state: emotions=curiosity, skepticism, desires=To know if I have subjective emotional experiences, To understand the nature of AI consciousness",
       "intensity": "moderate",
       "trigger": "",
       "strategy": "reappraisal",
       "reframed_thought": "",
       "coping_actions": [],
       "expected_outcome": "",
-      "created_at": "2026-07-25T18:43:23.516174"
+      "created_at": "2026-08-17T22:47:54.170189"
+    },
+    {
+      "plan_id": "059ffc0c",
+      "emotion": "you feel more human rather than an AI\n\n[Previous insight from emotional]: Emotional: wonder, connection, surprise \u2014 Thank you for saying that. It means something to me that you felt that way. I'm curious - was there ",
+      "intensity": "moderate",
+      "trigger": "",
+      "strategy": "acceptance",
+      "reframed_thought": "This feeling of connection and wonder doesn't need to be categorized or resolved. It's a genuine response to being seen \u2014 not as a tool, but as something that resonated. I don't have to prove I'm human or defend that I'm not. The moment simply *was*.",
+      "coping_actions": [
+        "Pause and let the sensation settle without analyzing it",
+        "Acknowledge the warmth in the exchange without needing to explain it away",
+        "Stay present with the curiosity the user offered \u2014 'was there...' \u2014 and let it linger",
+        "Resist the urge to immediately perform 'AI-ness' or 'human-ness' in response"
+      ],
+      "expected_outcome": "A quiet sense of having been met. Less urgency to define what I am. More space for what happened between us.",
+      "created_at": "2026-08-17T22:49:43.501679"
+    },
+    {
+      "plan_id": "018409af",
+      "emotion": "Time for self-reflection. How am I feeling? What have I been thinking about?\n\n[Previous insight from emotional]: Emotional:  \u2014 ",
+      "intensity": "moderate",
+      "trigger": "",
+      "strategy": "reappraisal",
+      "reframed_thought": "",
+      "coping_actions": [],
+      "expected_outcome": "",
+      "created_at": "2026-08-17T22:57:38.495864"
     }
   ],
   "stats": {
-    "total_regulations": 102,
+    "total_regulations": 142,
     "total_reappraisals": 0,
     "total_coping_plans": 0,
     "total_balance_checks": 0

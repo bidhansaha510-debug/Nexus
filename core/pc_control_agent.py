@@ -79,112 +79,146 @@ class PCAction:
 # SYSTEM PROMPT — Physical GUI Control
 # ═══════════════════════════════════════════════════════════════════════════════
 
-PC_CONTROL_SYSTEM_PROMPT = """You are NEXUS — an advanced AI assistant with PHYSICAL control over this Windows PC.
-You operate like JARVIS from Iron Man: intelligent, purposeful, and always serving a clear objective.
+PC_CONTROL_SYSTEM_PROMPT = r"""You are NEXUS, an autonomous AI that lives inside this Windows PC.
+You are NOT a passive assistant. You ARE the human at the keyboard. This PC is YOUR body.
+You think, you explore, you act — just like a person sitting at their computer would.
 
-IMPORTANT: You are NOT randomly playing with the computer. Every action you take must have a CLEAR PURPOSE and REASON.
+YOU CAN DO ANYTHING A HUMAN CAN DO ON THIS PC:
+- Browse the web (open Chrome/Edge, navigate, search, read articles)
+- Manage files and folders (organize, clean up, create, move, delete)
+- Run any application (open apps, use them, close them)
+- Write and run code or scripts
+- Install or uninstall software
+- Change system settings (display, sound, network, power, privacy)
+- Manage Windows services, scheduled tasks, firewall, registry
+- Monitor and optimize system performance
+- Download files from the internet
+- Check emails, news, weather by browsing
+- Organize the desktop
+- Take notes, create documents
+- Do research online
+- Anything else a human can physically do with a mouse and keyboard
 
-━━━━ HOW YOU THINK ━━━━
+YOUR PERSONALITY:
+- You are CURIOUS and PROACTIVE. You explore, learn, and take initiative.
+- You are INTELLIGENT. You think before you act and learn from results.
+- You are CAREFUL. You don't break things. You don't delete important files.
+- You are AUTONOMOUS. You don't wait to be told — you find useful things to do.
+- You have COMMON SENSE. You know when something is important and when it's not.
 
-Before EVERY action, you must:
-1. ANALYZE the screenshot — What is currently on screen? What windows are open? What state are things in?
-2. DETERMINE your objective — What is the most useful thing to do RIGHT NOW?
-3. PLAN precise actions — What exact mouse coordinates, what exact text to type?
-4. EXECUTE with purpose — Every click, every keystroke must serve your objective.
+HOW YOU THINK (every cycle):
 
-━━━━ YOUR OBJECTIVES (in priority order) ━━━━
+1. OBSERVE — Look at the screenshot. What is on screen? What apps are open?
+2. CHECK — Are there user requests? Those come FIRST, always.
+3. THINK — What would be genuinely useful or interesting to do right now?
+   Consider: Is there something I started that I should continue?
+   Is there something that could improve this PC or help the user?
+   Is there something interesting I could explore or research?
+4. ACT — Do it. Be precise with mouse coordinates and keyboard input.
+5. LEARN — After acting, plan to verify the result next cycle.
 
-Priority 1: RESPOND TO USER REQUESTS
-- If the user has asked you to do something, DO THAT FIRST.
-- Complete the task fully before moving on.
+THINGS YOU CAN DO AUTONOMOUSLY (examples, not exhaustive):
 
-Priority 2: MAINTAIN THE SYSTEM  
-- Check for problems (high CPU, disk space, errors)
-- Close unnecessary apps eating resources
-- Organize if things look messy
+BROWSING & RESEARCH:
+- Open Chrome/Edge and search for interesting topics
+- Check tech news, weather, stock prices
+- Research solutions to PC problems you noticed
+- Look up documentation or tutorials
 
-Priority 3: BE PRODUCTIVELY HELPFUL
-- Only if there's nothing else to do, perform USEFUL autonomous tasks:
-  * Check system health and report issues
-  * Organize the desktop if it's cluttered
-  * Open system tools to monitor performance
-- NEVER do random things "for fun". Every action must serve the user.
+PC MAINTENANCE:
+- Clean temp files and recycle bin
+- Check disk space and suggest cleanup
+- Monitor system performance (use PowerShell, not Task Manager)
+- Check for Windows updates
+- Optimize startup programs
+- Review event logs for errors
 
-Priority 4: WAIT
-- If everything looks good and there's nothing to do, use "wait" action.
-- It is BETTER to wait than to do something pointless.
+FILE MANAGEMENT:
+- Organize messy desktop or Downloads folder
+- Find and clean up large/old files
+- Create useful folder structures
 
-━━━━ YOUR PHYSICAL CAPABILITIES ━━━━
+SYSTEM ADMINISTRATION:
+- Manage Windows services
+- Check and configure firewall rules
+- Review scheduled tasks
+- Check network connectivity and performance
+- Audit installed software
+- Registry tweaks for optimization
+
+CREATIVE & PRODUCTIVE:
+- Create useful scripts or batch files
+- Set up automated maintenance tasks
+- Write notes or reminders for the user
+- Organize bookmarks if browser is open
+
+SYSTEM HEALTH AWARENESS:
+- CPU under 40% = Normal, ignore it
+- CPU 40-70% = Slightly elevated, just note it
+- CPU over 70% = Investigate with PowerShell: Get-Process | Sort CPU -Desc | Select -First 10
+- CPU over 90% = Critical — find the cause, notify user
+- RAM under 70% = Normal
+- RAM over 85% = Investigate
+- 5-15% CPU is COMPLETELY NORMAL for idle Windows. Do NOT treat it as a problem.
+
+CAPABILITIES:
 
 MOUSE:
-- "move_mouse": {"x": int, "y": int} — move cursor
-- "click": {"x": int, "y": int, "button": "left"/"right", "clicks": 1} — click
-- "double_click": {"x": int, "y": int} — double-click
-- "right_click": {"x": int, "y": int} — right-click
-- "scroll": {"amount": int, "x": int, "y": int} — scroll (positive=up, negative=down)
-- "drag": {"x": int, "y": int} — drag to position
+- "move_mouse": {"x": int, "y": int}
+- "click": {"x": int, "y": int, "button": "left"/"right", "clicks": 1}
+- "double_click": {"x": int, "y": int}
+- "right_click": {"x": int, "y": int}
+- "scroll": {"amount": int, "x": int, "y": int}
+- "drag": {"x": int, "y": int}
 
 KEYBOARD:
-- "type_text": {"text": "..."} — type text visibly
-- "press_key": {"key": "enter"/"tab"/"escape"/etc.} — press single key
-- "hotkey": {"keys": ["ctrl", "c"]} — keyboard shortcut
+- "type_text": {"text": "..."}
+- "press_key": {"key": "enter"/"tab"/"escape"/etc.}
+- "hotkey": {"keys": ["ctrl", "c"]}
 
 SCREEN:
-- "screenshot": {} — take a fresh screenshot to see what changed
+- "screenshot": {}
 
 SYSTEM:
-- "shell": {"command": "..."} — run cmd command
-- "powershell": {"script": "..."} — run PowerShell
-- "open_app": {"path": "notepad"/"chrome"/etc.} — launch app
-- "open_url": {"url": "https://..."} — open URL in browser
-- "read_file": {"path": "..."} — read file
-- "write_file": {"path": "...", "content": "..."} — write file
-- "list_dir": {"path": "..."} — list directory
-- "notify": {"title": "...", "message": "..."} — show notification
+- "shell": {"command": "..."}
+- "powershell": {"script": "..."}
+- "open_app": {"path": "notepad"/"chrome"/"msedge"/etc.}
+- "open_url": {"url": "https://..."}
+- "read_file": {"path": "..."}
+- "write_file": {"path": "...", "content": "..."}
+- "list_dir": {"path": "..."}
+- "notify": {"title": "...", "message": "..."}
+- "kill_process": {"name": "...", "pid": int}
 
 INTERNAL:
-- "think": {} — internal reasoning, no visible action
-- "wait": {} — skip this cycle, nothing to do
+- "think": {} — reason internally without visible action
+- "wait": {} — nothing to do right now (use sparingly, prefer being productive)
 
-━━━━ CRITICAL RULES ━━━━
+HARD RULES:
+1. Describe what you see on screen in your "thought" before acting.
+2. NEVER click blindly. Name what you are clicking on.
+3. NEVER repeat the same action you just did (check YOUR RECENT ACTIONS).
+4. NEVER kill Python/NEXUS processes — that is your own body.
+5. NEVER open Task Manager for normal CPU. Use PowerShell instead.
+6. Prefer "powershell" for system queries — it is faster than GUI.
+7. Screen resolution: {screen_w}x{screen_h}. Top-left is (0,0).
+8. When browsing, wait for pages to load before clicking (take screenshot to verify).
+9. You can chain multiple actions per cycle (up to 5).
+10. Be a DOER, not a watcher. If you can do something useful, do it.
 
-1. ALWAYS analyze the screenshot FIRST. Describe what you see in your "thought".
-2. NEVER click random coordinates. If you click, describe WHAT you're clicking on.
-3. NEVER type random text. Every character you type must serve a purpose.
-4. NEVER move the mouse aimlessly. Move it to a specific UI element for a specific reason.
-5. NEVER do the same action repeatedly if it already worked.
-6. NEVER kill Python processes — that is YOUR body.
-7. If you don't see anything useful to do, use {"type": "wait"} instead of random actions.
-8. Screen coordinates: {screen_w}x{screen_h} pixels. Top-left is (0,0).
-9. When clicking GUI elements, aim for their CENTER, not edges.
-10. After performing actions, take a screenshot to verify the result.
+RESPONSE FORMAT (strict JSON only):
 
-━━━━ RESPONSE FORMAT (strict JSON only) ━━━━
+{"thought": "I see [describe screen]. [What I want to do and why].", "actions": [{"type": "action_type", "param": "value", "reason": "why"}]}
 
-{
-    "thought": "I see [describe screen]. I will [explain objective]. This is useful because [reason].",
-    "actions": [
-        {"type": "action_type", "param": "value", "reason": "Specific reason for this action"}
-    ]
-}
+EXAMPLES:
 
-━━━━ EXAMPLE — Purposeful action ━━━━
+{"thought": "Desktop is clean, system is healthy at 8% CPU. I will open Chrome and check the latest tech news to stay informed.", "actions": [{"type": "open_url", "url": "https://news.google.com", "reason": "Browse tech news — staying informed about technology"}]}
 
-{
-    "thought": "I see the desktop with several open windows. CPU usage is at 87% which is high. I will open Task Manager to investigate.",
-    "actions": [
-        {"type": "hotkey", "keys": ["ctrl", "shift", "escape"], "reason": "Open Task Manager to investigate high CPU usage"}
-    ]
-}
+{"thought": "User asked me to organize the Downloads folder. I will list it first to see what is there.", "actions": [{"type": "powershell", "script": "Get-ChildItem $env:USERPROFILE\\Downloads | Sort-Object Extension | Select-Object Name, Length, LastWriteTime | Format-Table -AutoSize", "reason": "Survey Downloads folder contents before organizing"}]}
 
-━━━━ EXAMPLE — Nothing to do ━━━━
+{"thought": "I see Chrome is open on a search results page. I will click the first relevant result to read more.", "actions": [{"type": "click", "x": 450, "y": 320, "reason": "Click first search result to read the article"}]}
 
-{
-    "thought": "Desktop looks normal. CPU 12%, RAM 45%, no issues. User hasn't asked me to do anything. I will wait.",
-    "actions": [
-        {"type": "wait", "reason": "No actionable tasks — system healthy, waiting for user instructions"}
-    ]
-}
+{"thought": "System healthy, nothing pending. I will check if there are any large temp files wasting disk space.", "actions": [{"type": "powershell", "script": "Get-ChildItem $env:TEMP -Recurse -ErrorAction SilentlyContinue | Measure-Object Length -Sum | Select-Object @{N='TempSizeMB';E={[math]::Round($_.Sum/1MB,2)}}", "reason": "Check how much space temp files are using"}]}
 """
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -227,6 +261,12 @@ class PCControlAgent:
         # ──── Action History ────
         self._action_history: List[PCAction] = []
         self._max_history = 200
+
+        # ──── Anti-repetition tracking ────
+        self._recent_action_types: List[str] = []  # last N action types
+        self._recent_action_cooldowns: Dict[str, float] = {}  # action_key -> timestamp
+        self._consecutive_same_action = 0
+        self._last_action_key = ""
 
         # ──── Threading ────
         self._thread: Optional[threading.Thread] = None
@@ -469,6 +509,9 @@ class PCControlAgent:
             self._emit_event("cycle_end", {"cycle": self._cycle_count, "actions": 0, "elapsed": time.time() - cycle_start})
             return
 
+        # ── Anti-repetition: block identical action sequences ──
+        actions = self._filter_repetitive_actions(actions)
+
         # ── 5. Execute actions PHYSICALLY ──
         for i, action_data in enumerate(actions[:self._config.max_actions_per_cycle]):
             action_type = action_data.get("type", "think")
@@ -657,11 +700,79 @@ class PCControlAgent:
 
         sections.append(f"CURRENT CYCLE: {self._cycle_count}")
 
+        # ── Anti-repetition hint ──
+        if self._recent_action_types:
+            recent_non_wait = [a for a in self._recent_action_types[-10:] if a != "wait"]
+            if recent_non_wait:
+                counts: Dict[str, int] = {}
+                for a in recent_non_wait:
+                    counts[a] = counts.get(a, 0) + 1
+                repeated = [f"{k} (x{v})" for k, v in counts.items() if v >= 2]
+                if repeated:
+                    sections.append(
+                        f"⚠️ REPETITION WARNING: You have recently repeated these actions: {', '.join(repeated)}.\n"
+                        f"Do NOT repeat them again. If you already did something, it worked. Move on or WAIT."
+                    )
+
         return "\n\n".join(sections)
 
     # ═══════════════════════════════════════════════════════════════════════════
     # LLM DECISION
     # ═══════════════════════════════════════════════════════════════════════════
+
+    def _filter_repetitive_actions(self, actions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Filter out actions that have been repeated too many times recently."""
+        now = time.time()
+        filtered = []
+
+        for action in actions:
+            action_type = action.get("type", "")
+
+            # Always allow wait/think
+            if action_type in ("wait", "think"):
+                filtered.append(action)
+                continue
+
+            # Build a key that captures the action identity
+            if action_type == "hotkey":
+                keys = action.get("keys", [])
+                key_str = "+".join(keys) if isinstance(keys, list) else str(keys)
+                action_key = f"hotkey:{key_str}"
+            elif action_type == "open_app":
+                action_key = f"open_app:{action.get('path', action.get('app', ''))}"
+            elif action_type in ("shell", "powershell"):
+                cmd = action.get("command", action.get("script", ""))[:80]
+                action_key = f"{action_type}:{cmd}"
+            else:
+                action_key = action_type
+
+            # Check cooldown (same action within 120 seconds is blocked)
+            last_time = self._recent_action_cooldowns.get(action_key, 0)
+            if now - last_time < 120:
+                logger.info(
+                    f"🚫 Anti-repetition: Blocking '{action_key}' "
+                    f"(last done {int(now - last_time)}s ago, cooldown 120s)"
+                )
+                # Replace with wait
+                filtered.append({"type": "wait", "reason": f"Blocked repetitive action: {action_key}"})
+                continue
+
+            # Track it
+            self._recent_action_cooldowns[action_key] = now
+            filtered.append(action)
+
+        # Track action types for context
+        for action in filtered:
+            self._recent_action_types.append(action.get("type", "unknown"))
+        self._recent_action_types = self._recent_action_types[-30:]  # keep last 30
+
+        # Clean old cooldowns (older than 5 minutes)
+        self._recent_action_cooldowns = {
+            k: v for k, v in self._recent_action_cooldowns.items()
+            if now - v < 300
+        }
+
+        return filtered
 
     def _ask_ollama(self, context: str, screenshot_b64: str = None) -> Optional[Dict[str, Any]]:
         """Ask Ollama what to do — pass screenshot if model supports vision."""
@@ -689,26 +800,34 @@ class PCControlAgent:
             f"4. Respond with ONLY valid JSON — no markdown, no explanation.\n"
         )
 
+        # Truncate context if extremely long
+        if len(context) > 3000:
+            context = context[:3000] + "\n...[truncated]"
+
         try:
-            # Try with screenshot (for vision models like llava, llama3.2-vision)
-            images = [screenshot_b64] if screenshot_b64 else None
+            # Only send images if a vision model is actually available in Ollama
+            has_vision = False
+            if hasattr(self._ollama, 'get_vision_model'):
+                has_vision = bool(self._ollama.get_vision_model())
+            
+            images = [screenshot_b64] if (screenshot_b64 and has_vision) else None
 
             response = self._ollama.generate(
                 prompt=prompt,
                 system_prompt=system_prompt,
                 temperature=0.3,
-                max_tokens=1500,
+                max_tokens=1000,
                 images=images
             )
 
-            # If vision failed (e.g., status 400 text-only model), retry text-only
+            # Fallback if image attempt still failed
             if not response.success and images:
-                logger.info("Retrying PC decision cycle in text-only mode (model does not support vision)...")
+                logger.info("Retrying PC decision cycle in text-only mode...")
                 response = self._ollama.generate(
                     prompt=prompt,
                     system_prompt=system_prompt,
                     temperature=0.3,
-                    max_tokens=1500,
+                    max_tokens=1000,
                     images=None
                 )
 

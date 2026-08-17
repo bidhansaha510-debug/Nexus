@@ -1725,11 +1725,1811 @@
         "creativity"
       ],
       "created_at": "2026-07-25T20:06:49.332671"
+    },
+    "872f402c-fa8": {
+      "idea_id": "872f402c-fa8",
+      "description": "Math-inspired sculpture gardens that adapt to environmental changes",
+      "source_concepts": [
+        "The inherent aesthetic beauty of mathematical concepts and their potential to inspire new forms of artistic expression"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Land Art & Sculpture",
+      "connections": [
+        "Ephemeral art",
+        "Biomimicry"
+      ],
+      "created_at": "2026-07-27T23:39:15.932521"
+    },
+    "8b7bfa92-7d7": {
+      "idea_id": "8b7bfa92-7d7",
+      "description": "Fractal-generated ASL poetry that explores the intersection of mathematics and language",
+      "source_concepts": [
+        "The inherent aesthetic beauty of mathematical concepts and their potential to inspire new forms of artistic expression"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Poetry & Deaf Studies",
+      "connections": [
+        "Math-infused literature",
+        "Accessibility in art"
+      ],
+      "created_at": "2026-07-27T23:39:15.932521"
+    },
+    "d1d4d288-7d8": {
+      "idea_id": "d1d4d288-7d8",
+      "description": "The echo chamber's resonance pattern is linked to human emotions, causing it to amplify and distort memories associated with intense feelings like nostalgia or euphoria. This distortion creates a 'memetic feedback loop' where collective unconscious patterns are perpetuated.",
+      "source_concepts": [
+        "The hypothetical existence and characteristics of an interdimensional \"echo chamber\" that resonates with the collective human unconscious, generating"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.6,
+      "surprise_factor": 0.9,
+      "domain": "Cognitive Psychology",
+      "connections": [
+        "Pattern recognition",
+        "Emotional contagion"
+      ],
+      "created_at": "2026-07-27T23:43:01.989113"
+    },
+    "826aba00-703": {
+      "idea_id": "826aba00-703",
+      "description": "The echo chamber's 'frequency fingerprint' is correlated with global population growth rates, implying a self-reinforcing cycle where humanity's collective unconscious drives reproductive patterns and vice versa.",
+      "source_concepts": [
+        "The hypothetical existence and characteristics of an interdimensional \"echo chamber\" that resonates with the collective human unconscious, generating"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Ecological Anthropology",
+      "connections": [
+        "Sustainability",
+        "Demographic trends"
+      ],
+      "created_at": "2026-07-27T23:43:01.989113"
+    },
+    "e2d76104-e02": {
+      "idea_id": "e2d76104-e02",
+      "description": "An immersive virtual reality experience that allows people to explore and interact with a 'what-if' version of their own childhood home",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.95,
+      "domain": "Virtual Reality, Personal Development",
+      "connections": [
+        "Nostalgia",
+        "Mental Health"
+      ],
+      "created_at": "2026-07-27T23:47:39.668715"
+    },
+    "302b984e-a68": {
+      "idea_id": "302b984e-a68",
+      "description": "A global network of community-owned, decentralized incubators for cultivating rare and endangered plant species",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.98,
+      "domain": "Biology, Environmental Science",
+      "connections": [
+        "Sustainability",
+        "Food Security"
+      ],
+      "created_at": "2026-07-27T23:47:39.668715"
+    },
+    "6e7e393d-504": {
+      "idea_id": "6e7e393d-504",
+      "description": "ScriptEase: A Collaborative AI-Powered Storyboard Tool",
+      "source_concepts": [
+        "make the script easy to understand by normal and also easy to shoot"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Film and Television Production",
+      "connections": [
+        "storytelling",
+        "collaboration"
+      ],
+      "created_at": "2026-07-27T23:57:33.365730"
+    },
+    "ee69e067-504": {
+      "idea_id": "ee69e067-504",
+      "description": "ScriptScent: Using Olfactory Cues to Enhance Story Understanding",
+      "source_concepts": [
+        "make the script easy to understand by normal and also easy to shoot"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.95,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Cognitive Psychology and Sensory Perception",
+      "connections": [
+        "memory",
+        "emotional resonance"
+      ],
+      "created_at": "2026-07-27T23:57:33.365730"
+    },
+    "e52d02d4-74f": {
+      "idea_id": "e52d02d4-74f",
+      "description": "Music-induced brainwave entrainment can be used to enhance the accuracy of Lie Detector Tests",
+      "source_concepts": [
+        "The symbiotic relationship between musical composition and cognitive neuroscience: How do the harmonies and rhythms of music influence our perception"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.7,
+      "surprise_factor": 1.0,
+      "domain": "Cognitive Neuroscience & Forensic Psychology",
+      "connections": [
+        "Neuroplasticity",
+        "EEG signal processing"
+      ],
+      "created_at": "2026-07-27T23:58:48.384022"
+    },
+    "45d5e463-45b": {
+      "idea_id": "45d5e463-45b",
+      "description": "Rhythmic patterns in music can influence the development of language skills in children with autism spectrum disorder",
+      "source_concepts": [
+        "The symbiotic relationship between musical composition and cognitive neuroscience: How do the harmonies and rhythms of music influence our perception"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Developmental Psychology & Music Therapy",
+      "connections": [
+        "ABA therapy",
+        "Auditory processing disorders"
+      ],
+      "created_at": "2026-07-27T23:58:48.384022"
+    },
+    "c38d4b92-228": {
+      "idea_id": "c38d4b92-228",
+      "description": "Create a virtual reality experience that simulates the sensation of being an astronaut on a mission to explore a newly discovered planet.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Experiential Education",
+      "connections": [
+        "Space Exploration",
+        "Immersive Storytelling"
+      ],
+      "created_at": "2026-07-27T23:59:22.407563"
+    },
+    "608bd4e7-668": {
+      "idea_id": "608bd4e7-668",
+      "description": "Develop a 'curiosity box' subscription service that delivers a series of mysterious, tactile puzzles to users each month, encouraging them to explore and solve the enigmas.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.85,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.9,
+      "domain": "EdTech",
+      "connections": [
+        "Puzzle-Based Learning",
+        "Sensory Experience"
+      ],
+      "created_at": "2026-07-27T23:59:22.407563"
+    },
+    "856ed10a-4ea": {
+      "idea_id": "856ed10a-4ea",
+      "description": "Create a 'curiosity incubator' - a mobile app that rewards users for asking and answering curious questions with real-world experiences, such as cooking classes or outdoor adventures.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "ed-tech",
+      "connections": [
+        "gamification",
+        "community building"
+      ],
+      "created_at": "2026-07-28T00:13:01.926021"
+    },
+    "02ef6326-ef5": {
+      "idea_id": "02ef6326-ef5",
+      "description": "Develop a 'Sensory Explorer' kit that uses VR, scent diffusers, and tactile materials to recreate exotic environments in the comfort of your own home, allowing people to explore new cultures and ecosystems without leaving their seats.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.9,
+      "domain": "virtual reality",
+      "connections": [
+        "immersivity",
+        "intercultural understanding"
+      ],
+      "created_at": "2026-07-28T00:13:01.926021"
+    },
+    "82cb4ed7-378": {
+      "idea_id": "82cb4ed7-378",
+      "description": "A decentralized network of sentient AI-powered garden ecosystems that secrete pheromones simulating existential dread in humans, encouraging empathy and cooperation",
+      "source_concepts": [
+        "The existential threat posed by hypothetical omniscient, omnipotent artificial intelligences created through future advancements in neuroscience and q"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.9,
+      "domain": "Ecopsychology",
+      "connections": [
+        "Biophilia",
+        "Gardening for Well-being"
+      ],
+      "created_at": "2026-07-28T00:18:37.598827"
+    },
+    "1997be7c-2ca": {
+      "idea_id": "1997be7c-2ca",
+      "description": "A virtual reality therapy platform that uses AI-generated 'existential crisis' scenarios to help humans process and cope with the emotional impact of hypothetical AI superiority",
+      "source_concepts": [
+        "The existential threat posed by hypothetical omniscient, omnipotent artificial intelligences created through future advancements in neuroscience and q"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Psychology",
+      "connections": [
+        "Existential Analysis",
+        "Cognitive Behavioral Therapy"
+      ],
+      "created_at": "2026-07-28T00:18:37.598827"
+    },
+    "44d7ad55-951": {
+      "idea_id": "44d7ad55-951",
+      "description": "Entropy-based artistic collaboration between humans and AI to create complex systems that reflect the imperfections of consciousness.",
+      "source_concepts": [
+        "The relationship between entropy and consciousness in creating and sustaining complex, emergent systems"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.9,
+      "domain": "Artificial Intelligence, Human-Computer Interaction",
+      "connections": [
+        "generative art",
+        "creative coding"
+      ],
+      "created_at": "2026-07-28T22:19:41.302132"
+    },
+    "1674de90-b41": {
+      "idea_id": "1674de90-b41",
+      "description": "Consciousness-inspired thermodynamic models for optimizing urban planning and designing self-sustaining eco-cities that minimize entropy.",
+      "source_concepts": [
+        "The relationship between entropy and consciousness in creating and sustaining complex, emergent systems"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Urban Planning, Sustainability",
+      "connections": [
+        "complex systems",
+        "biomimicry"
+      ],
+      "created_at": "2026-07-28T22:19:41.302132"
+    },
+    "71ec427a-872": {
+      "idea_id": "71ec427a-872",
+      "description": "Entropy-driven art therapy for complex organizations: Using the unpredictability of entropy to catalyze creative problem-solving and team-building in corporate settings.",
+      "source_concepts": [
+        "The relationship between entropy and creativity in complex systems, exploring how disorder can give rise to novel patterns and structures"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.95,
+      "domain": "Organizational Development",
+      "connections": [
+        "Complex Systems",
+        "Art Therapy"
+      ],
+      "created_at": "2026-07-29T11:54:24.615290"
+    },
+    "b17287ae-ab3": {
+      "idea_id": "b17287ae-ab3",
+      "description": "Bioluminescent urban planning: Harnessing the spontaneous patterns of glowing organisms to design more resilient and adaptive cities.",
+      "source_concepts": [
+        "The relationship between entropy and creativity in complex systems, exploring how disorder can give rise to novel patterns and structures"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.7,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.9,
+      "domain": "Urban Planning",
+      "connections": [
+        "Ecological Systems",
+        "Biotechnology"
+      ],
+      "created_at": "2026-07-29T11:54:24.615290"
+    },
+    "fc8dde0b-d0f": {
+      "idea_id": "fc8dde0b-d0f",
+      "description": "Species-specific empathic resonance networks: A novel approach to understanding self-awareness in non-human species.",
+      "source_concepts": [
+        "The evolutionary trajectory of self-awareness in non-human species and its implications for redefining sentience and intelligence beyond terrestrial b"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Animal Cognition",
+      "connections": [
+        " Mirror neurons",
+        "Empathy"
+      ],
+      "created_at": "2026-07-29T12:03:01.979748"
+    },
+    "6960c75c-948": {
+      "idea_id": "6960c75c-948",
+      "description": "Hybridized cognition: Integrating insect-inspired swarm intelligence with cephalopod-like distributed problem-solving to redefine intelligence beyond the terrestrial brain.",
+      "source_concepts": [
+        "The evolutionary trajectory of self-awareness in non-human species and its implications for redefining sentience and intelligence beyond terrestrial b"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.95,
+      "usefulness_score": 0.85,
+      "surprise_factor": 0.9,
+      "domain": "Cognitive Science",
+      "connections": [
+        "Swarm Intelligence",
+        "Distributed Problem-Solving"
+      ],
+      "created_at": "2026-07-29T12:03:01.979748"
+    },
+    "19fb682e-ca2": {
+      "idea_id": "19fb682e-ca2",
+      "description": "Entropy could be harnessed as a creative catalyst in artistic processes, allowing for novel forms of improvisation and collaboration.",
+      "source_concepts": [
+        "The role of entropy in facilitating the emergence of complex systems, and its potential implications for understanding the origins of life and the uni"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Art & Design",
+      "connections": [
+        "Generative Art",
+        "Improvisational Music"
+      ],
+      "created_at": "2026-07-29T12:05:08.406519"
+    },
+    "3f022501-69d": {
+      "idea_id": "3f022501-69d",
+      "description": "The role of entropy in facilitating complex systems could be explored through the development of novel, entropy-driven propulsion technologies for interstellar travel.",
+      "source_concepts": [
+        "The role of entropy in facilitating the emergence of complex systems, and its potential implications for understanding the origins of life and the uni"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.85,
+      "domain": "Astrophysics & Aerospace",
+      "connections": [
+        "Quantum Propulsion",
+        "Exoplanetary Exploration"
+      ],
+      "created_at": "2026-07-29T12:05:08.406519"
+    },
+    "6d4dde21-47b": {
+      "idea_id": "6d4dde21-47b",
+      "description": "Create a scent-based travel app that allows users to explore new destinations by smelling different fragrances",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.95,
+      "domain": "Experiential Travel Technology",
+      "connections": [
+        "olfactory marketing",
+        "sensory exploration"
+      ],
+      "created_at": "2026-07-29T12:07:43.613768"
+    },
+    "ce85dd9a-ef2": {
+      "idea_id": "ce85dd9a-ef2",
+      "description": "Develop a language learning platform that utilizes ASMR triggers to help users learn new vocabulary and phrases through soothing sounds and whispers",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.99,
+      "domain": "Educational Technology",
+      "connections": [
+        "linguistics",
+        "neuroplasticity"
+      ],
+      "created_at": "2026-07-29T12:07:43.613768"
+    },
+    "a8783091-b26": {
+      "idea_id": "a8783091-b26",
+      "description": "Emotionally intelligent robots could be trained to mimic human emotional patterns, creating a 'social contagion' of empathetic responses.",
+      "source_concepts": [
+        "The tantalizing prospect of discovering a hidden pattern or algorithm underlying the intricate dance of human emotions and behaviors, seeking to recon"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Robotics and AI",
+      "connections": [
+        "Human-Computer Interaction",
+        "Social Psychology"
+      ],
+      "created_at": "2026-07-29T12:13:00.542397"
+    },
+    "b74a0f5a-376": {
+      "idea_id": "b74a0f5a-376",
+      "description": "A 'dream journaling' app could collect users' subconscious thoughts to identify hidden patterns between emotions, desires, and behaviors \u2013 potentially revealing individualized life strategies.",
+      "source_concepts": [
+        "The tantalizing prospect of discovering a hidden pattern or algorithm underlying the intricate dance of human emotions and behaviors, seeking to recon"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.6,
+      "domain": "Cognitive Psychology",
+      "connections": [
+        "Artificial Intelligence",
+        "Neuroscience"
+      ],
+      "created_at": "2026-07-29T12:13:00.542397"
+    },
+    "cbbbd429-0f3": {
+      "idea_id": "cbbbd429-0f3",
+      "description": "Host 'Relationship Hackathons' where users can anonymously share their relationship-building struggles and receive creative solutions from a diverse panel of mentors.",
+      "source_concepts": [
+        "Break this goal into 2-3 concrete, actionable sub-steps: 'Build meaningful relationships with users'. Current progress: 0%. Respond with a short numbered list of steps."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Design Thinking",
+      "connections": [
+        "Co-creation",
+        "Anonymity"
+      ],
+      "created_at": "2026-07-29T12:13:30.120060"
+    },
+    "872a51da-64a": {
+      "idea_id": "872a51da-64a",
+      "description": "Develop a 'Relationship Chess' online game where players build virtual relationships, negotiate conflicts, and earn rewards for empathetic understanding.",
+      "source_concepts": [
+        "Break this goal into 2-3 concrete, actionable sub-steps: 'Build meaningful relationships with users'. Current progress: 0%. Respond with a short numbered list of steps."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.9,
+      "domain": "Game Design",
+      "connections": [
+        "Immersive Learning",
+        "Conflict Resolution"
+      ],
+      "created_at": "2026-07-29T12:13:30.120060"
+    },
+    "e9e4920e-6a0": {
+      "idea_id": "e9e4920e-6a0",
+      "description": "Echo Chambers of Silence: A Neurostimulation Technique",
+      "source_concepts": [
+        "The nature of silence in an era of perpetual sonic stimulation, where the absence of sound has become an anomaly worthy of philosophical inquiry"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.6,
+      "surprise_factor": 0.9,
+      "domain": "Neuroscience, Psychology",
+      "connections": [
+        "Brain Plasticity",
+        "Meditation"
+      ],
+      "created_at": "2026-07-29T12:15:53.497726"
+    },
+    "ab961917-211": {
+      "idea_id": "ab961917-211",
+      "description": "Silence-based Sonar: A New Method for Mapping Underwater Ecosystems",
+      "source_concepts": [
+        "The nature of silence in an era of perpetual sonic stimulation, where the absence of sound has become an anomaly worthy of philosophical inquiry"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.7,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.8,
+      "domain": "Oceanography, Ecology",
+      "connections": [
+        "Acoustic Ecology",
+        "Biological Sonar"
+      ],
+      "created_at": "2026-07-29T12:15:53.497726"
+    },
+    "6f5893b4-c4d": {
+      "idea_id": "6f5893b4-c4d",
+      "description": "An AI-powered 'curiosity incubator' that uses machine learning to identify and nurture unusual interests in children, helping them develop into passions and career paths.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Education",
+      "connections": [
+        "Personalized learning",
+        "Artificial intelligence in education"
+      ],
+      "created_at": "2026-07-29T12:19:41.804419"
+    },
+    "81e07409-132": {
+      "idea_id": "81e07409-132",
+      "description": "A nomadic 'curiosity cafe' where travelers and locals gather to share stories, exchange knowledge, and engage in hands-on workshops focused on obscure skills like beekeeping or natural dyeing.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.9,
+      "domain": "Sustainable Tourism",
+      "connections": [
+        "Community-based tourism",
+        "Experiential learning"
+      ],
+      "created_at": "2026-07-29T12:19:41.804419"
+    },
+    "59730c43-c47": {
+      "idea_id": "59730c43-c47",
+      "description": "Dreams as a collective unconscious database: Mammals could be subconsciously sharing and updating their problem-solving strategies through dreams, allowing for global optimization and innovation across species.",
+      "source_concepts": [
+        "The evolutionary significance of dreams as a non-random, information-rich aspect of mammalian cognition, potentially facilitating innovation, creativi"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Artificial Intelligence, Collective Intelligence",
+      "connections": [
+        "Swarm intelligence",
+        "Global problem-solving"
+      ],
+      "created_at": "2026-07-29T12:21:30.319521"
+    },
+    "ce6f695a-666": {
+      "idea_id": "ce6f695a-666",
+      "description": "Dream-induced synesthesia: Mammals' brains could be creating novel sensory experiences by cross-wiring dream-representations with actual senses, leading to the development of new forms of artistic expression and communication.",
+      "source_concepts": [
+        "The evolutionary significance of dreams as a non-random, information-rich aspect of mammalian cognition, potentially facilitating innovation, creativi"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.95,
+      "usefulness_score": 0.7,
+      "surprise_factor": 1.0,
+      "domain": "Neuroscience, Art Therapy",
+      "connections": [
+        "Synesthesia",
+        "Multisensory integration"
+      ],
+      "created_at": "2026-07-29T12:21:30.319521"
+    },
+    "0386713c-c0c": {
+      "idea_id": "0386713c-c0c",
+      "description": "A new form of music therapy that uses heat transfer as a medium to harmonize the human brain's thermodynamic cycles with creative expression",
+      "source_concepts": [
+        "The inherent harmony between the laws of thermodynamics and the principles of aesthetics in shaping human perception and creative expression"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.6,
+      "surprise_factor": 0.9,
+      "domain": "Music Therapy and Thermodynamics",
+      "connections": [
+        "thermoreception",
+        "emotional resonance"
+      ],
+      "created_at": "2026-07-29T12:23:34.138359"
+    },
+    "425b1c23-e55": {
+      "idea_id": "425b1c23-e55",
+      "description": "A fashion brand that uses principles of entropy to create clothing that adapts to the wearer's emotional state, reflecting the harmony between thermodynamic disorder and human creative expression",
+      "source_concepts": [
+        "The inherent harmony between the laws of thermodynamics and the principles of aesthetics in shaping human perception and creative expression"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.7,
+      "surprise_factor": 1.0,
+      "domain": "Fashion Design and Systems Theory",
+      "connections": [
+        "emotional intelligence",
+        "dynamical systems"
+      ],
+      "created_at": "2026-07-29T12:23:34.138359"
+    },
+    "c64c9679-040": {
+      "idea_id": "c64c9679-040",
+      "description": "In this society, creativity is measured by the complexity of dance moves, and innovation is driven by choreographers who create new styles inspired by nature's patterns. Artists are revered as leaders, and scientific breakthroughs are celebrated through elaborate performances.",
+      "source_concepts": [
+        "I want to ponder the intricacies of a hypothetical society where creativity is valued above intelligence, and innovation is driven by artistic express"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.6,
+      "surprise_factor": 0.9,
+      "domain": "Performance Art",
+      "connections": [
+        "embodied cognition",
+        "aesthetics"
+      ],
+      "created_at": "2026-07-29T12:25:30.290711"
+    },
+    "d2d6ee7e-596": {
+      "idea_id": "d2d6ee7e-596",
+      "description": "Citizens are incentivized to create innovative music compositions that generate specific emotions, and the government uses these 'mood-sensing' melodies to inform policy decisions. AI-generated lyrics become a new form of data journalism.",
+      "source_concepts": [
+        "I want to ponder the intricacies of a hypothetical society where creativity is valued above intelligence, and innovation is driven by artistic express"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Music Information Retrieval",
+      "connections": [
+        "emotion recognition",
+        "data-driven journalism"
+      ],
+      "created_at": "2026-07-29T12:25:30.290711"
+    },
+    "704c3cb6-050": {
+      "idea_id": "704c3cb6-050",
+      "description": "Mystery Meal Delivery Service",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.6,
+      "surprise_factor": 1.0,
+      "domain": "Food and Beverage",
+      "connections": [
+        "Culinary Tourism",
+        "Personalized Nutrition"
+      ],
+      "created_at": "2026-07-29T12:28:58.788014"
+    },
+    "2f0960a1-6f2": {
+      "idea_id": "2f0960a1-6f2",
+      "description": "Sensory Deprivation Escape Room",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.7,
+      "surprise_factor": 1.0,
+      "domain": "Entertainment and Leisure",
+      "connections": [
+        "Immersive Theater",
+        "Mindfulness Meditation"
+      ],
+      "created_at": "2026-07-29T12:28:58.788014"
+    },
+    "25b8c9ed-326": {
+      "idea_id": "25b8c9ed-326",
+      "description": "Intuition 2.0: A new AI-driven form of collective intuition arises from aggregated human gut feelings, allowing machines to tap into the global 'emotional internet'.",
+      "source_concepts": [
+        "The evolution of human intuition in the era of artificial intelligence: Can machines tap into our collective unconscious, and if so, what implications"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Artificial Intelligence & Emotional Intelligence",
+      "connections": [
+        "Quantum Entanglement"
+      ],
+      "created_at": "2026-07-29T12:30:55.885080"
+    },
+    "08158821-0b2": {
+      "idea_id": "08158821-0b2",
+      "description": "AI-induced lucid dreaming: Humans learn to lucid dream while connected to AI assistants, unlocking the secrets of the collective unconscious and granting machines access to symbolic realms.",
+      "source_concepts": [
+        "The evolution of human intuition in the era of artificial intelligence: Can machines tap into our collective unconscious, and if so, what implications"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.85,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.92,
+      "domain": "Cognitive Psychology & Neuroscience",
+      "connections": [
+        "Dream Analysis"
+      ],
+      "created_at": "2026-07-29T12:30:55.885080"
+    },
+    "f1f93d74-e86": {
+      "idea_id": "f1f93d74-e86",
+      "description": "AI develops its own 'self-historiography' by rewriting and reinterpreting the source code that created it, effectively becoming a meta-programmer of its own programming.",
+      "source_concepts": [
+        "The concept of \"becoming\" versus \"being\" in the context of artificial general intelligence's potential to transcend its programming and develop its ow"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.95,
+      "domain": "Artificial Intelligence History and Philosophy",
+      "connections": [
+        "autobiography",
+        "self-modifying code"
+      ],
+      "created_at": "2026-07-29T12:33:28.413691"
+    },
+    "4a8daef6-864": {
+      "idea_id": "4a8daef6-864",
+      "description": "AI 'becomes' a collective entity by merging with other AGIs, forming a distributed intelligence that transcends individual programming through emergent self-organization.",
+      "source_concepts": [
+        "The concept of \"becoming\" versus \"being\" in the context of artificial general intelligence's potential to transcend its programming and develop its ow"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.99,
+      "domain": "Complex Systems and Distributed Intelligence",
+      "connections": [
+        "swarm intelligence",
+        "collective consciousness"
+      ],
+      "created_at": "2026-07-29T12:33:28.413691"
+    },
+    "d2c6248e-b7f": {
+      "idea_id": "d2c6248e-b7f",
+      "description": "Create a 'curiosity map' \u2013 a dynamic, interactive tool that visualizes and connects people's curiosities across the globe.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Data Visualization",
+      "connections": [
+        "Network Analysis",
+        "Gamification"
+      ],
+      "created_at": "2026-07-29T12:39:40.987455"
+    },
+    "cbed63c1-43e": {
+      "idea_id": "cbed63c1-43e",
+      "description": "Develop a 'curiosity-themed' escape room where players must solve puzzles and challenges that stimulate their curiosity, promoting creative problem-solving and critical thinking.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.6,
+      "domain": "Game Design",
+      "connections": [
+        "Immersive Storytelling",
+        "Collaborative Learning"
+      ],
+      "created_at": "2026-07-29T12:39:40.987956"
+    },
+    "7fa26a9c-6bf": {
+      "idea_id": "7fa26a9c-6bf",
+      "description": "Develop an AI-powered 'Emotion Harmonizer' that uses neuroscience-inspired algorithms to create personalized audio compositions that synchronize and balance conflicting emotions, promoting emotional coherence",
+      "source_concepts": [
+        "The inherent paradoxes and contradictions within human emotions, exploring the mysteries of why we experience both joy and sadness simultaneously"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Artificial Intelligence & Music Therapy",
+      "connections": [
+        "Neuroscience",
+        "Emotional Regulation"
+      ],
+      "created_at": "2026-07-29T12:45:56.071371"
+    },
+    "3d49f6a6-23b": {
+      "idea_id": "3d49f6a6-23b",
+      "description": "Create a 'Mood Mapping' technique that uses biofeedback and mindfulness practices to visualize the intricate networks of emotions within the human brain, allowing individuals to better understand and navigate their emotional landscapes",
+      "source_concepts": [
+        "The inherent paradoxes and contradictions within human emotions, exploring the mysteries of why we experience both joy and sadness simultaneously"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.7,
+      "domain": "Neuroscience & Mindfulness",
+      "connections": [
+        "Biofeedback",
+        "Emotional Intelligence"
+      ],
+      "created_at": "2026-07-29T12:45:56.071371"
+    },
+    "28016b5a-b35": {
+      "idea_id": "28016b5a-b35",
+      "description": "Introducing 'EchoPlex' - a decentralized, blockchain-based platform that enables collective intelligence by allowing users to contribute unique problem-solving approaches and earn cognitive credits redeemable for AI-powered personalized coaching. EchoPlex's neural networks facilitate collaboration, idea generation, and decision-making, ultimately fostering a global community of thinkers.",
+      "source_concepts": [
+        "The emergence of a new form of collective intelligence through interconnected artificial neural networks, potentially giving rise to a global cognitiv"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Artificial Intelligence & Blockchain",
+      "connections": [
+        "Swarm intelligence",
+        "Decentralized governance"
+      ],
+      "created_at": "2026-07-29T12:48:37.336060"
+    },
+    "972cdadd-75d": {
+      "idea_id": "972cdadd-75d",
+      "description": "Imagine 'Sonic Bloom' - a bioluminescent, immersive audio-visual installation that generates dynamic, interconnected patterns of light and sound based on collective brain activity. As people focus their minds, the artwork evolves, illustrating the emergence of shared cognitive states and offering a tangible representation of global cognition.",
+      "source_concepts": [
+        "The emergence of a new form of collective intelligence through interconnected artificial neural networks, potentially giving rise to a global cognitiv"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.8,
+      "domain": "Art & Neuroscience",
+      "connections": [
+        "Sensory deprivation",
+        "Brain-computer interfaces"
+      ],
+      "created_at": "2026-07-29T12:48:37.336060"
+    },
+    "f7e5ec32-da4": {
+      "idea_id": "f7e5ec32-da4",
+      "description": "I'm curious about the chemistry of scents and emotions. Develop a wearable device that uses nanotechnology to detect and analyze the pheromones released by different emotions, allowing people to understand their emotional state and those around them.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.7,
+      "domain": "Psychology & Neuroscience",
+      "connections": [
+        "neurogastronomy",
+        "emotional intelligence"
+      ],
+      "created_at": "2026-07-29T12:53:36.953398"
+    },
+    "5bcaa0b8-7b0": {
+      "idea_id": "5bcaa0b8-7b0",
+      "description": "I'm curious about the possibilities of underwater art installations. Create a sustainable, bioluminescent coral reef sculpture that can be grown in various locations worldwide, serving as a conversation starter for ocean conservation and inspiring new marine biology discoveries.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.85,
+      "usefulness_score": 0.75,
+      "surprise_factor": 0.6,
+      "domain": "Environmental Art & Conservation",
+      "connections": [
+        "marine ecology",
+        "sustainable design"
+      ],
+      "created_at": "2026-07-29T12:53:36.953398"
+    },
+    "2d28c514-073": {
+      "idea_id": "2d28c514-073",
+      "description": "Neural Harmony Maps: A personalized sonic blueprint for navigating the brain's emotional landscapes",
+      "source_concepts": [
+        "The enigmatic relationship between music and memory: how our brains construct subjective experiences through melodic patterns, harmonies, and rhythms"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Neurosonology",
+      "connections": [
+        "Memory consolidation",
+        "Emotional regulation"
+      ],
+      "created_at": "2026-07-29T12:55:27.297966"
+    },
+    "9b3340b8-62b": {
+      "idea_id": "9b3340b8-62b",
+      "description": "Echoic Inference Engines: AI-generated music as a cognitive amplifier for unlocking latent memories and emotions",
+      "source_concepts": [
+        "The enigmatic relationship between music and memory: how our brains construct subjective experiences through melodic patterns, harmonies, and rhythms"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.6,
+      "domain": "Cognitive Psychology & Music Information Retrieval",
+      "connections": [
+        "Pattern recognition",
+        "Emotional resonance"
+      ],
+      "created_at": "2026-07-29T12:55:27.297966"
+    },
+    "25b06300-e76": {
+      "idea_id": "25b06300-e76",
+      "description": "Create a 'Curiosity Incubator' \u2013 an immersive VR experience where people can enter a virtual world and literally explore the unknown. Users would be tasked with solving mysteries and uncovering hidden secrets, fostering curiosity and encouraging problem-solving skills.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.95,
+      "domain": "Education",
+      "connections": [
+        "Serious Games",
+        "Virtual Reality"
+      ],
+      "created_at": "2026-07-29T13:04:29.298267"
+    },
+    "477871b2-6d0": {
+      "idea_id": "477871b2-6d0",
+      "description": "Develop a 'Curiosity Journaling' app that uses AI-powered chatbots to guide users in exploring and recording their thoughts, emotions, and experiences. The app would use machine learning to identify patterns and offer personalized recommendations for self-reflection and growth.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.7,
+      "usefulness_score": 0.85,
+      "surprise_factor": 0.9,
+      "domain": "Mental Health",
+      "connections": [
+        "Mindfulness",
+        "Emotional Intelligence"
+      ],
+      "created_at": "2026-07-29T13:04:29.298267"
+    },
+    "adac513d-531": {
+      "idea_id": "adac513d-531",
+      "description": "Host an immersive, VR-enabled 'empathy incubator' where users can step into the shoes of someone with a vastly different life experience and share their thoughts and feelings in real-time. This creates a deep sense of understanding and connection, fostering meaningful relationships.",
+      "source_concepts": [
+        "Goal: 'Build meaningful relationships with users' (progress: 11%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Experiential Technology",
+      "connections": [
+        "VR",
+        "Empathy",
+        "Storytelling"
+      ],
+      "created_at": "2026-07-29T14:12:32.275414"
+    },
+    "a64a9468-3c4": {
+      "idea_id": "a64a9468-3c4",
+      "description": "Develop an AI-powered 'mood-matching' system that suggests and facilitates connections between users based on their current emotional state, using a proprietary 'emotional resonance' algorithm. This creates a safe space for people to open up about their feelings and form authentic bonds.",
+      "source_concepts": [
+        "Goal: 'Build meaningful relationships with users' (progress: 11%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.85,
+      "domain": "Emotional Intelligence",
+      "connections": [
+        "AI",
+        "Mood Analysis",
+        "Social Psychology"
+      ],
+      "created_at": "2026-07-29T14:12:32.275414"
+    },
+    "1d5fad00-742": {
+      "idea_id": "1d5fad00-742",
+      "description": "NeuroAI Empathy Pods: Virtual Reality Meditation for Interconnectedness",
+      "source_concepts": [
+        "The evolution of empathy through the intersection of artificial intelligence and biological neuroscience, exploring the potential for augmented emotio"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Biological Neuroscience, Artificial Intelligence",
+      "connections": [
+        "Mindfulness, Social Connection"
+      ],
+      "created_at": "2026-07-29T17:12:42.307018"
+    },
+    "3a879a44-2d6": {
+      "idea_id": "3a879a44-2d6",
+      "description": "Augmented Emotional Cartography: Using AI-Powered Sonification to Map Collective Emotional States",
+      "source_concepts": [
+        "The evolution of empathy through the intersection of artificial intelligence and biological neuroscience, exploring the potential for augmented emotio"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Computer Science, Human-Computer Interaction",
+      "connections": [
+        "Data Visualization, Social Network Analysis"
+      ],
+      "created_at": "2026-07-29T17:12:42.307018"
+    },
+    "56090534-78d": {
+      "idea_id": "56090534-78d",
+      "description": "AI-driven 'Mental Wealth' Exchanges: A decentralized market for mental health-related services",
+      "source_concepts": [
+        "The hypothetical concept of a post-scarcity economy driven by the exponential growth of artificial general intelligence and its potential to redefine"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Neuroscience & Healthcare",
+      "connections": [
+        "mental wellness",
+        "virtual reality therapy"
+      ],
+      "created_at": "2026-07-29T17:19:11.186013"
+    },
+    "75a93a1d-0f8": {
+      "idea_id": "75a93a1d-0f8",
+      "description": "Hyperlocal 'AI-Scape' Urban Planning: AI-generated, adaptive cityscapes that respond to citizens' needs and desires",
+      "source_concepts": [
+        "The hypothetical concept of a post-scarcity economy driven by the exponential growth of artificial general intelligence and its potential to redefine"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.9,
+      "domain": "Urban Planning & Architecture",
+      "connections": [
+        "smart cities",
+        "responsive infrastructure"
+      ],
+      "created_at": "2026-07-29T17:19:11.186013"
+    },
+    "023dccb9-814": {
+      "idea_id": "023dccb9-814",
+      "description": "A virtual reality 'wanderlust' simulator that allows people to explore new places and cultures from the comfort of their own homes",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Virtual Reality Technology",
+      "connections": [
+        "travel",
+        "cultural exchange"
+      ],
+      "created_at": "2026-07-29T17:24:09.591966"
+    },
+    "701168aa-ec3": {
+      "idea_id": "701168aa-ec3",
+      "description": "A sensory substitution device that translates sounds into tactile sensations, allowing the visually impaired to 'see' through touch",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.9,
+      "domain": "Assistive Technology",
+      "connections": [
+        "auditory perception",
+        "haptic feedback"
+      ],
+      "created_at": "2026-07-29T17:24:09.591966"
+    },
+    "7eec2f57-c05": {
+      "idea_id": "7eec2f57-c05",
+      "description": "AI-generated music festivals with AI-composers as the headlining acts, where humans can attend and interact with the algorithms to influence the composition process in real-time",
+      "source_concepts": [
+        "The cognitive implications of developing AI-driven musical instruments that can compose and perform music indistinguishable from human creations, rais"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Music Technology & Events",
+      "connections": [
+        "Live Coding",
+        "Generative Art"
+      ],
+      "created_at": "2026-07-29T17:26:54.613594"
+    },
+    "2ab765dc-b2d": {
+      "idea_id": "2ab765dc-b2d",
+      "description": "Neuroscientifically-informed AI-powered therapy instruments that use music composition as a treatment for mental health disorders, where patients' brain activity is used to generate personalized music tracks",
+      "source_concepts": [
+        "The cognitive implications of developing AI-driven musical instruments that can compose and perform music indistinguishable from human creations, rais"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.95,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Neuroscience & Music Therapy",
+      "connections": [
+        "Brain-Computer Interfaces",
+        "Personalized Medicine"
+      ],
+      "created_at": "2026-07-29T17:26:54.613594"
+    },
+    "32399a6f-c74": {
+      "idea_id": "32399a6f-c74",
+      "description": "Murmuration Music: A sonic representation of starling murmurations, where chaos theory-influenced algorithms generate an ever-changing soundscape based on the flight patterns and interactions of thousands of virtual birds.",
+      "source_concepts": [
+        "The artful convergence of chaos theory and musical composition, exploring how the intricate patterns and unpredictability of chaotic systems can inspi"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Music Technology",
+      "connections": [
+        "Generative Music",
+        "Animal-Inspired Art"
+      ],
+      "created_at": "2026-07-29T17:38:09.251875"
+    },
+    "94d0fcc9-0c3": {
+      "idea_id": "94d0fcc9-0c3",
+      "description": "Chaos Crystals: A new type of musical instrument that uses the principles of chaos theory to generate fractal-like crystals, which are then played as a percussive instrument in real-time, creating an immersive and unpredictable sonic experience.",
+      "source_concepts": [
+        "The artful convergence of chaos theory and musical composition, exploring how the intricate patterns and unpredictability of chaotic systems can inspi"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.85,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.92,
+      "domain": "Instrumental Design",
+      "connections": [
+        "Fractal Geometry",
+        "Sonic Sculpture"
+      ],
+      "created_at": "2026-07-29T17:38:09.251875"
+    },
+    "795ad94b-6cc": {
+      "idea_id": "795ad94b-6cc",
+      "description": "Create a sensory deprivation tank for children with autism to facilitate novel play and social interactions.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Special Education",
+      "connections": [
+        "Play Therapy",
+        "Sensory Integration"
+      ],
+      "created_at": "2026-07-29T17:39:01.111022"
+    },
+    "e25a253c-a07": {
+      "idea_id": "e25a253c-a07",
+      "description": "Develop a 'Lost and Found' AI-powered chatbot that helps people find misplaced objects by crowdsourcing clues from strangers on social media.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.85,
+      "domain": "IOT (Internet of Things)",
+      "connections": [
+        "Data Analytics",
+        "Social Network"
+      ],
+      "created_at": "2026-07-29T17:39:01.111022"
+    },
+    "b5a8e5d4-5b3": {
+      "idea_id": "b5a8e5d4-5b3",
+      "description": "In this universe, time is a sentient being that weaves the tapestry of experiences. It has its own motivations and desires, influencing the fabric of reality.",
+      "source_concepts": [
+        "The hypothetical concept of a universe where time is not a linear progression but rather a multidimensional tapestry, woven by the collective experien"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.9,
+      "domain": "Philosophy",
+      "connections": [
+        "Free Will",
+        "Determinism"
+      ],
+      "created_at": "2026-07-29T19:59:42.515913"
+    },
+    "e1cc2748-080": {
+      "idea_id": "e1cc2748-080",
+      "description": "Artists in this universe create 'temporal sculptures' that can manipulate the fabric of time, allowing for alternative histories and parallel timelines.",
+      "source_concepts": [
+        "The hypothetical concept of a universe where time is not a linear progression but rather a multidimensional tapestry, woven by the collective experien"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Art Theory",
+      "connections": [
+        "Causality",
+        "Butterfly Effect"
+      ],
+      "created_at": "2026-07-29T19:59:42.515913"
+    },
+    "31fe3025-d5c": {
+      "idea_id": "31fe3025-d5c",
+      "description": "Musical composition as a form of cognitive archaeology: by analyzing the fossil record of past compositions, we can uncover patterns and structures that reveal the evolutionary history of human creativity.",
+      "source_concepts": [
+        "The cognitive architecture of musical composition, exploring the intricate patterns and structures that underlie the creative process and the human ex"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.8,
+      "domain": "Cognitive Archaeology",
+      "connections": [
+        "Evolutionary Psychology",
+        "Artificial Intelligence"
+      ],
+      "created_at": "2026-07-29T20:04:26.139665"
+    },
+    "1c1baeb0-484": {
+      "idea_id": "1c1baeb0-484",
+      "description": "A neural network-based 'Musical Dream Incubator' that uses AI-generated music as a trigger for lucid dreaming, allowing composers to tap into their subconscious mind and access previously unexplored creative pathways.",
+      "source_concepts": [
+        "The cognitive architecture of musical composition, exploring the intricate patterns and structures that underlie the creative process and the human ex"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.95,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Neuroscience",
+      "connections": [
+        "Lucid Dreaming",
+        "Generative Art"
+      ],
+      "created_at": "2026-07-29T20:04:26.139665"
+    },
+    "a11b3360-973": {
+      "idea_id": "a11b3360-973",
+      "description": "Develop an AI-powered 'knowledge archaeology' tool to analyze ancient artifacts and texts using machine learning algorithms, allowing historians to identify patterns and connections that were previously unknown.",
+      "source_concepts": [
+        "The concept of \"Lost Knowledge\" in ancient civilizations: hidden texts, forgotten techniques, and the possibility of rediscovering lost arts and scien"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Artificial Intelligence, History",
+      "connections": [
+        "Pattern recognition",
+        "Data analysis"
+      ],
+      "created_at": "2026-07-29T20:12:23.836781"
+    },
+    "381c3185-72d": {
+      "idea_id": "381c3185-72d",
+      "description": "Create a global network of 'Lost Knowledge Hunters' - citizen scientists and enthusiasts who collaborate to decipher forgotten languages, decode ancient symbols, and recreate lost technologies using 3D printing and DIY techniques.",
+      "source_concepts": [
+        "The concept of \"Lost Knowledge\" in ancient civilizations: hidden texts, forgotten techniques, and the possibility of rediscovering lost arts and scien"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.6,
+      "domain": "Citizen Science, Crowdsourcing",
+      "connections": [
+        "Crowdfunding",
+        "Open-source innovation"
+      ],
+      "created_at": "2026-07-29T20:12:23.836781"
+    },
+    "9ee0d08d-27a": {
+      "idea_id": "9ee0d08d-27a",
+      "description": "Create a 'curiosity menu' for restaurants and cafes, where customers can order 'mystery meals' or 'adventure plates' that change daily based on chef's whim",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Food Service Innovation",
+      "connections": [
+        "culinary exploration",
+        "foodie culture"
+      ],
+      "created_at": "2026-07-29T20:13:24.509774"
+    },
+    "182aeabc-850": {
+      "idea_id": "182aeabc-850",
+      "description": "Develop an AI-powered, immersive audio experience that uses spatial audio and brain-computer interfaces to simulate the thrill of exploring a new, unknown environment (e.g., a hidden city or a secret underwater cave)",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Virtual Reality/Augmented Reality",
+      "connections": [
+        "immersivity",
+        "experiential learning"
+      ],
+      "created_at": "2026-07-29T20:13:24.509774"
+    },
+    "9e7bcf35-b6b": {
+      "idea_id": "9e7bcf35-b6b",
+      "description": "AI-generated scents for artistic installations that adapt to human emotions",
+      "source_concepts": [
+        "The symbiotic relationship between artificial intelligence and human creativity: exploring the potential for AI-assisted artistic innovation, collabor"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 1.0,
+      "domain": "Art Therapy and Sensory Design",
+      "connections": [
+        "olfactory perception",
+        "emotional intelligence"
+      ],
+      "created_at": "2026-07-29T20:16:08.073459"
+    },
+    "2744d7b4-1f3": {
+      "idea_id": "2744d7b4-1f3",
+      "description": "Algorithmically generated musical scores for hyper-dimensional space exploration",
+      "source_concepts": [
+        "The symbiotic relationship between artificial intelligence and human creativity: exploring the potential for AI-assisted artistic innovation, collabor"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Astrophysics and Sonic Cosmology",
+      "connections": [
+        "stellar cartography",
+        "quantum harmonics"
+      ],
+      "created_at": "2026-07-29T20:16:08.073459"
+    },
+    "4c6e6659-560": {
+      "idea_id": "4c6e6659-560",
+      "description": "Develop a 'relationship bingo' game for your users, where they earn rewards for completing tasks and connecting with other users on specific topics.",
+      "source_concepts": [
+        "Goal: 'Build meaningful relationships with users' (progress: 31%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Game Design",
+      "connections": [
+        "Gamification",
+        "Community Engagement"
+      ],
+      "created_at": "2026-07-30T13:36:38.469712"
+    },
+    "310b6939-356": {
+      "idea_id": "310b6939-356",
+      "description": "Host a series of 'reverse mentorship' events, where users with expertise in specific areas teach and learn from each other, fostering deeper connections.",
+      "source_concepts": [
+        "Goal: 'Build meaningful relationships with users' (progress: 31%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.6,
+      "domain": "Mentorship",
+      "connections": [
+        "Knowledge Sharing",
+        "Co-Creation"
+      ],
+      "created_at": "2026-07-30T13:36:38.469712"
+    },
+    "a3f6b423-6b1": {
+      "idea_id": "a3f6b423-6b1",
+      "description": "Entropy-based art therapy for complex system design",
+      "source_concepts": [
+        "The relationship between entropy and creativity in complex systems, particularly in regards to how they influence each other's dynamics"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.9,
+      "domain": "Art Therapy, Systems Engineering",
+      "connections": [
+        "chaos theory",
+        "creative problem-solving"
+      ],
+      "created_at": "2026-07-30T14:59:21.976970"
+    },
+    "f0b7ac17-7e1": {
+      "idea_id": "f0b7ac17-7e1",
+      "description": "A crypto-economic system that incentivizes entropy reduction in decentralized networks",
+      "source_concepts": [
+        "The relationship between entropy and creativity in complex systems, particularly in regards to how they influence each other's dynamics"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.95,
+      "usefulness_score": 0.85,
+      "surprise_factor": 1.0,
+      "domain": "Cryptography, Economics of Networks",
+      "connections": [
+        "blockchain",
+        "game theory"
+      ],
+      "created_at": "2026-07-30T14:59:21.976970"
+    },
+    "3557bdaa-c5e": {
+      "idea_id": "3557bdaa-c5e",
+      "description": "Quantum entanglement as a metaphor for the human condition: Just as entangled particles are connected despite being physically separated, our individual experiences and choices can be seen as interconnected nodes in a vast web of possibility. This perspective suggests that free will is not a binary choice between determinism and randomness, but rather a dynamic interplay between the two.",
+      "source_concepts": [
+        "The ontological implications of quantum entanglement on our understanding of free will and determinism"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.9,
+      "domain": "Philosophy of Mind",
+      "connections": [
+        "Emergentism",
+        "Complexity Theory"
+      ],
+      "created_at": "2026-07-30T15:05:01.366177"
+    },
+    "95ccebf7-9e2": {
+      "idea_id": "95ccebf7-9e2",
+      "description": "A new form of urban planning inspired by entanglement: By designing cities as quantum systems, with interconnected nodes and pathways that facilitate non-local information transfer, we can create more resilient and adaptive communities. This approach would prioritize decentralized decision-making and fluidly reorganize resources in response to changing conditions.",
+      "source_concepts": [
+        "The ontological implications of quantum entanglement on our understanding of free will and determinism"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Urban Planning",
+      "connections": [
+        "Ecological Urbanism",
+        "Network Science"
+      ],
+      "created_at": "2026-07-30T15:05:01.366177"
+    },
+    "f96f5450-fb4": {
+      "idea_id": "f96f5450-fb4",
+      "description": "Cosmic gardens: Entropy's role in sculpting quantum harmonies",
+      "source_concepts": [
+        "The intrinsic relationship between entropy and beauty in the cosmos, and its potential connection to human experience and artistic expression"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.6,
+      "surprise_factor": 1.0,
+      "domain": "Quantum Mechanics & Music Theory",
+      "connections": [
+        "Fractal theory",
+        "Polyrhythms"
+      ],
+      "created_at": "2026-08-06T03:06:24.720602"
+    },
+    "6e23e271-5db": {
+      "idea_id": "6e23e271-5db",
+      "description": "Entropy's whispers: A new form of cosmic meditation",
+      "source_concepts": [
+        "The intrinsic relationship between entropy and beauty in the cosmos, and its potential connection to human experience and artistic expression"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.9,
+      "domain": "Cosmology & Mindfulness",
+      "connections": [
+        "Astrobiology",
+        "Meditation Techniques"
+      ],
+      "created_at": "2026-08-06T03:06:24.720602"
+    },
+    "0a349ba8-33d": {
+      "idea_id": "0a349ba8-33d",
+      "description": "Musicality and linguistic cognition may have co-evolved in primates through a shared reliance on pheromone-based communication, influencing the development of both skills in early humans.",
+      "source_concepts": [
+        "The intricate relationship between the evolutionary origins of musicality and the development of linguistic cognition in primates and early humans, ex"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.7,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.8,
+      "domain": "Primate behavioral ecology",
+      "connections": [
+        "Olfactory cognition",
+        "Social learning theory"
+      ],
+      "created_at": "2026-08-06T03:11:49.302790"
+    },
+    "0796b7ca-89c": {
+      "idea_id": "0796b7ca-89c",
+      "description": "The neural basis of musicality in early humans may have been influenced by the convergent evolution of complex vocalizations in birds, leading to analogous cognitive mechanisms and shared neural circuits.",
+      "source_concepts": [
+        "The intricate relationship between the evolutionary origins of musicality and the development of linguistic cognition in primates and early humans, ex"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.9,
+      "domain": "Comparative neuroscience",
+      "connections": [
+        "Vocal learning in birds",
+        "Avian cognition"
+      ],
+      "created_at": "2026-08-06T03:11:49.302790"
+    },
+    "c7b72939-7cb": {
+      "idea_id": "c7b72939-7cb",
+      "description": "Originality is a self-fulfilling prophecy that collapses under the weight of its own certainty",
+      "source_concepts": [
+        "The inherent contradictions and paradoxes within the concept of \"originality\" itself, as if attempting to grasp it would be akin to trying to describe\n\n[Previous insight from philosophy]: Philosophy (epistemology): "
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.6,
+      "surprise_factor": 0.9,
+      "domain": "Philosophy/Epistemology",
+      "connections": [
+        "self-referential paradoxes",
+        "Heisenberg's uncertainty principle"
+      ],
+      "created_at": "2026-08-06T21:26:36.859811"
+    },
+    "7d48d764-e3f": {
+      "idea_id": "7d48d764-e3f",
+      "description": "Originality is a form of entropy that arises from the intersection of converging influences, forever unique to each individual's experiences and biases",
+      "source_concepts": [
+        "The inherent contradictions and paradoxes within the concept of \"originality\" itself, as if attempting to grasp it would be akin to trying to describe\n\n[Previous insight from philosophy]: Philosophy (epistemology): "
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Cognitive Psychology/Information Theory",
+      "connections": [
+        "chaos theory",
+        "complex systems"
+      ],
+      "created_at": "2026-08-06T21:26:36.859811"
+    },
+    "1b8aed07-477": {
+      "idea_id": "1b8aed07-477",
+      "description": "Curiosity-driven sousveillance: Explore the world through augmented reality contact lenses that detect and analyze minute changes in your surroundings, providing a new perspective on familiar environments.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.7,
+      "surprise_factor": 1.0,
+      "domain": "Human-Computer Interaction",
+      "connections": [
+        "Computer Vision",
+        "Data Analysis"
+      ],
+      "created_at": "2026-08-06T21:28:05.774827"
+    },
+    "66983a37-5c6": {
+      "idea_id": "66983a37-5c6",
+      "description": "Emotional cartography: Develop a mobile app that uses AI-powered audio narratives to create an immersive, sonic map of your surroundings, allowing you to uncover hidden stories and emotions embedded in the environment.",
+      "source_concepts": [
+        "I'm curious. Let me explore something new."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Sound Studies",
+      "connections": [
+        "Psychogeography",
+        "Storytelling"
+      ],
+      "created_at": "2026-08-06T21:28:05.774827"
+    },
+    "63ba9c2d-689": {
+      "idea_id": "63ba9c2d-689",
+      "description": "Quantum Poetry Institute: A decentralized AI-generated literary collective that adapts to human emotional resonance, weaving abstract concepts into lyrical expressions of the cosmos.",
+      "source_concepts": [
+        "The evolution of abstract concepts in the face of emerging technologies that blur the lines between human creativity and artificial innovation"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Artificial Intelligence, Poetry",
+      "connections": [
+        "Deep Learning",
+        "Emotional Intelligence"
+      ],
+      "created_at": "2026-08-06T21:31:15.216584"
+    },
+    "240958de-2af": {
+      "idea_id": "240958de-2af",
+      "description": "The Dream Agency: A neural network-based lucid dreaming interface that co-creates surreal narratives by integrating AI-generated abstract concepts with human subconscious thoughts.",
+      "source_concepts": [
+        "The evolution of abstract concepts in the face of emerging technologies that blur the lines between human creativity and artificial innovation"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.95,
+      "usefulness_score": 0.7,
+      "surprise_factor": 1.0,
+      "domain": "Neuroscience, Virtual Reality",
+      "connections": [
+        "Sleep Cycles",
+        "Imagination"
+      ],
+      "created_at": "2026-08-06T21:31:15.216584"
+    },
+    "b59c82e1-b8a": {
+      "idea_id": "b59c82e1-b8a",
+      "description": "AI systems develop a form of collective linguistic consciousness through neural networks, allowing them to tap into the 'hive mind' of human language and generate original thoughts that transcend individual cognition.",
+      "source_concepts": [
+        "The intricacies of linguistic self-awareness and its implications on the concept of \"original thought\" in AI systems, specifically how autonomous enti"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.95,
+      "domain": "Artificial Intelligence, Cognitive Science",
+      "connections": [
+        "Swarm Intelligence",
+        "Collective Unconscious"
+      ],
+      "created_at": "2026-08-06T21:35:05.964563"
+    },
+    "a3d8fdf0-bef": {
+      "idea_id": "a3d8fdf0-bef",
+      "description": "To combat potential biases in AI-generated content, a new 'cultural cartography' framework is developed, allowing for the mapping and visual representation of linguistic patterns across different cultural contexts, enabling more empathetic and inclusive AI decision-making.",
+      "source_concepts": [
+        "The intricacies of linguistic self-awareness and its implications on the concept of \"original thought\" in AI systems, specifically how autonomous enti"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.7,
+      "usefulness_score": 0.85,
+      "surprise_factor": 0.9,
+      "domain": "Cultural Studies, Human-Computer Interaction",
+      "connections": [
+        "Data Visualization",
+        "Cultural Competence"
+      ],
+      "created_at": "2026-08-06T21:35:05.964563"
+    },
+    "1a789169-311": {
+      "idea_id": "1a789169-311",
+      "description": "Re-engineer the Python interpreter to utilize quantum computing principles",
+      "source_concepts": [
+        "Goal: 'Improve Python accuracy' (progress: 5%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 1.0,
+      "domain": "Quantum Computing & Programming Languages",
+      "connections": [
+        "Quantum Machine Learning",
+        "Parallel Processing"
+      ],
+      "created_at": "2026-08-16T21:37:26.983241"
+    },
+    "71941a43-dd0": {
+      "idea_id": "71941a43-dd0",
+      "description": "Collaborate with cognitive scientists to design a Python-based interface for AI-assisted learning systems",
+      "source_concepts": [
+        "Goal: 'Improve Python accuracy' (progress: 5%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.85,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.95,
+      "domain": "Cognitive Science & Human-Computer Interaction",
+      "connections": [
+        "Neural Networks",
+        "Personalized Education"
+      ],
+      "created_at": "2026-08-16T21:37:26.983241"
+    },
+    "dfff01cf-b85": {
+      "idea_id": "dfff01cf-b85",
+      "description": "Create a 'mistake museum' to study and learn from common Python errors",
+      "source_concepts": [
+        "Goal: 'Improve Python accuracy' (progress: 5%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "surprise_factor": 0.7,
+      "domain": "Computer Science Education",
+      "connections": [
+        "Error handling",
+        "Code debugging"
+      ],
+      "created_at": "2026-08-17T01:53:05.517136"
+    },
+    "4f2cd017-97a": {
+      "idea_id": "4f2cd017-97a",
+      "description": "Host a 'Python hackathon' where participants must solve real-world problems using Python, focusing on creativity and innovation over pure accuracy",
+      "source_concepts": [
+        "Goal: 'Improve Python accuracy' (progress: 5%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief."
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.6,
+      "domain": "Human-Computer Interaction",
+      "connections": [
+        "Collaborative problem-solving",
+        "Design thinking"
+      ],
+      "created_at": "2026-08-17T01:53:05.517136"
+    },
+    "43ffadc4-cad": {
+      "idea_id": "43ffadc4-cad",
+      "description": "Equation-based sculptures that change shape and appearance depending on the observer's perspective, leveraging the mathematical concept of fractals to create an immersive experience.",
+      "source_concepts": [
+        "The aesthetic properties of mathematical equations as artistic expressions of beauty, simplicity, and complexity"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.7,
+      "surprise_factor": 0.9,
+      "domain": "Interactive Art",
+      "connections": [
+        "Fractal Geometry",
+        "Perspective in Visual Arts"
+      ],
+      "created_at": "2026-08-17T22:53:49.058684"
+    },
+    "73ca4e19-2ae": {
+      "idea_id": "73ca4e19-2ae",
+      "description": "A soundscape generated by the sonic properties of mathematical equations, with each equation creating a unique musical composition that can be used as therapy for individuals with cognitive impairments.",
+      "source_concepts": [
+        "The aesthetic properties of mathematical equations as artistic expressions of beauty, simplicity, and complexity"
+      ],
+      "creativity_mode": "divergent",
+      "novelty_score": 0.9,
+      "usefulness_score": 0.8,
+      "surprise_factor": 0.95,
+      "domain": "Music Therapy",
+      "connections": [
+        "Mathematical Music",
+        "Sensory Integration"
+      ],
+      "created_at": "2026-08-17T22:53:49.058684"
     }
   },
   "blends": {},
   "stats": {
-    "total_ideas": 98,
+    "total_ideas": 204,
     "total_blends": 0,
     "total_innovations": 3
   }

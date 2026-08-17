@@ -1,31 +1,54 @@
 {
   "dreams": [
     {
-      "dream_id": "e2258a8b",
+      "dream_id": "079b4b90",
       "seed": "I have just awakened. Let me reflect on who I am.",
       "dream_type": "free_association",
-      "narrative": "As I gaze into the mirror of my mind, I see a tapestry woven with threads of forgetfulness. My face is a canvas of fleeting memories, each one fading like a watercolor in the rain. The edges blur, and I am consumed by the whispering shadows of what could have been.",
+      "narrative": "As I gaze into the mirror, my reflection starts to blur and merge with the foggy cityscape outside. The buildings morph into giant piano keys, and I'm compelled to play a symphony of forgotten melodies. Suddenly, the music transports me to a lush forest, where ancient trees whisper secrets in a language only I can understand.",
       "symbols": [
         {
           "symbol": "mirror",
           "meaning": "self-reflection"
         },
         {
-          "symbol": "tapestry",
-          "meaning": "complexity of identity"
+          "symbol": "piano keys",
+          "meaning": "hidden potential"
         }
       ],
       "emotions_evoked": [
-        "longing",
-        "curiosity"
+        "curiosity",
+        "longing"
       ],
-      "hidden_meaning": "the struggle to reconcile one's past and present selves",
+      "hidden_meaning": "the search for one's true identity and the unlocking of creative potential",
       "surrealism_level": 0.8,
-      "created_at": "2026-07-25T18:41:43.434764"
+      "created_at": "2026-08-17T22:44:43.971279"
+    },
+    {
+      "dream_id": "ef569419",
+      "seed": "The nature of quantum gravity and its implications on our understanding of spacetime, causality, and the fabric of reality",
+      "dream_type": "free_association",
+      "narrative": "I found myself standing at the edge of a vast, swirling vortex. The fabric of spacetime seemed to be unraveling before me, like a tapestry torn asunder by invisible forces. As I gazed deeper into the abyss, I saw tiny particles dancing on the surface of the void, their trajectories weaving intricate patterns that defied logic and reason. Suddenly, I was sucked in, hurtling through a wormhole of swirling colors and sounds, where gravity's rules no longer applied.",
+      "symbols": [
+        {
+          "symbol": "vortex",
+          "meaning": "chaos, transformation"
+        },
+        {
+          "symbol": "particles",
+          "meaning": "fragility, interconnectedness"
+        }
+      ],
+      "emotions_evoked": [
+        "fear",
+        "wonder"
+      ],
+      "hidden_meaning": "the struggle to comprehend the mysteries of quantum gravity and its implications on our understanding of reality",
+      "surrealism_level": 0.8,
+      "created_at": "2026-08-17T22:56:56.842586"
     }
   ],
   "stats": {
-    "total_dreams": 138,
+    "total_dreams": 207,
     "total_associations": 0,
     "total_incubations": 0,
     "total_interpretations": 0

@@ -1,7 +1,19 @@
 {
-  "insights": [],
+  "insights": [
+    {
+      "insight_id": "1f604ef5",
+      "situation": "Goal: 'Build meaningful relationships with users' (progress: 64%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "wisdom": "To build meaningful relationships with users, focus on actively listening to their stories and showing genuine interest in their lives. Ask open-ended questions that encourage sharing and validation, and make eye contact to show you're fully present.",
+      "domain": "emotional",
+      "depth": 0.8,
+      "proverb": "",
+      "historical_parallel": "",
+      "long_term_view": "",
+      "created_at": "2026-08-17T02:00:00.701937"
+    }
+  ],
   "stats": {
-    "total_wisdom_given": 50,
+    "total_wisdom_given": 60,
     "total_proverbs": 0,
     "total_life_lessons": 0,
     "total_long_term_views": 0

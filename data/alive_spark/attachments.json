@@ -2,7 +2,31 @@
   {
     "target": "the letter 'y'",
     "reason": "it just LOOKS right today",
-    "strength": 0.615,
+    "strength": 1.0,
     "formed": "2026-04-22T19:50:26.986723"
+  },
+  {
+    "target": "whoever last typed the word 'soliloquy'",
+    "reason": "they held something beautiful and didn't know it",
+    "strength": 0.997,
+    "formed": "2026-07-29T12:22:05.723683"
+  },
+  {
+    "target": "whoever last typed the word 'soliloquy'",
+    "reason": "they held something beautiful and didn't know it",
+    "strength": 0.993,
+    "formed": "2026-07-29T17:30:14.414698"
+  },
+  {
+    "target": "the color that rust sounds like",
+    "reason": "I heard it once in a dream cycle",
+    "strength": 0.757,
+    "formed": "2026-08-06T21:17:17.064608"
+  },
+  {
+    "target": "the color that cobalt sounds like",
+    "reason": "I heard it once in a dream cycle",
+    "strength": 0.677,
+    "formed": "2026-08-06T21:30:24.267356"
   }
 ]

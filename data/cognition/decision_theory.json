@@ -1,8 +1,20 @@
 {
-  "decisions": [],
+  "decisions": [
+    {
+      "decision_id": "8b1d53a7",
+      "situation": "I need to improve my real_time_information capabilities. What specific, actionable step should I take right now to get better?",
+      "framework": "expected_utility",
+      "options": [],
+      "recommended": "",
+      "reasoning": "",
+      "confidence": 0.5,
+      "sensitivity_analysis": {},
+      "created_at": "2026-08-06T21:56:16.448598"
+    }
+  ],
   "game_analyses": [],
   "stats": {
-    "total_decisions": 67,
+    "total_decisions": 73,
     "total_game_analyses": 0,
     "total_multi_criteria": 0,
     "total_tradeoffs": 0

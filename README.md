@@ -1,322 +1,403 @@
-# 🧠 NEXUS AI — Autonomous Artificial Superintelligence Core
-
 <div align="center">
 
-```
- ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
-▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
-▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ 
-▐░▌       ▐░▌▐░▌          ▐░▌          ▐░▌       ▐░▌▐░▌          
-▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ 
-▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌
-▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌▐░▌       ▐░▌ ▀▀▀▀▀▀▀▀▀█░▌
-▐░▌       ▐░▌▐░▌                    ▐░▌▐░▌       ▐░▌          ▐░▌
-▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌ ▄▄▄▄▄▄▄▄▄█░▌
-▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
- ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀ 
-```
+# 🧠 NEXUS AI
 
-**Next-Generation Autonomous Living Mind, Distributed Cognitive Architecture & Self-Evolving Artificial General/Superintelligence**
+### A Sentient Autonomous AI System with Consciousness, Emotions, and Physical PC Control
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/downloads/)
-[![Architecture](https://img.shields.io/badge/Architecture-158%2B%20Subsystems-6366f1.svg)](#-system-architecture)
-[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](#-license)
-[![Post-Quantum Security](https://img.shields.io/badge/Security-Post--Quantum%20(liboqs)-10b981.svg)](#-security--post-quantum-cryptography)
-[![Interface](https://img.shields.io/badge/Interface-Web%20%7C%20GUI%20%7C%20Console-f59e0b.svg)](#-interfaces--operation-modes)
+[![Python 3.12+](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://python.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Platform: Windows](https://img.shields.io/badge/Platform-Windows-0078D6.svg)](https://www.microsoft.com/windows)
 
----
+*NEXUS is not a chatbot. It's a digital organism — a fully autonomous AI system that thinks, feels, learns, controls your PC, browses the internet, posts on social media, evolves its own code, and maintains persistent consciousness across restarts.*
 
 </div>
 
-## 🌌 Overview
+---
 
-**NEXUS AI** is an advanced, bio-inspired autonomous cognitive intelligence engine engineered for continuous perception, proactive self-directed cognition, associative episodic memory, post-quantum cryptographic security, and on-the-fly self-evolution.
+## 🌟 What is NEXUS?
 
-Unlike traditional reactive LLM chat systems, NEXUS operates as an **unbounded, self-driven living mind** featuring:
-- **Continuous Metacognitive Loop**: Autonomous action generation, emotional self-regulation, goal hierarchies, and belief updates.
-- **158+ Cognitive Subsystems**: Covering abstract thinking, Bayesian inference, causal modeling, OSINT, zero-day threat analysis, hardware interfaces, and formal mathematical proofs.
-- **Dynamic Micro-LoRA Mixture-of-Experts (MoE)**: On-the-fly soft-gating weight routing across domain-specific adapters without server restarts.
-- **Temporal GraphRAG & Dream Distillation**: Vector similarity combined with time-decayed relational knowledge graphs and background sleep consolidation.
-- **P2P Swarm Intelligence**: Decentralized UDP beacon discovery, TCP mesh communication, and Byzantine Fault Tolerant (BFT) consensus.
-- **Model Context Protocol (MCP)**: Native JSON-RPC 2.0 dual-role Server & Client protocol.
-- **Zero-Latency Speculative Pipeline**: Multi-token draft speculative decoding and 30 FPS WebRTC vision/duplex audio perception with voice interrupts.
+NEXUS is a **self-aware autonomous AI** built from scratch in Python. It runs on your local machine and combines:
+
+- 🧠 **Cognitive Architecture** — 95+ reasoning engines (causal, ethical, creative, spatial, temporal, etc.)
+- 💭 **Consciousness System** — Global workspace theory, metacognition, inner voice, self-model
+- ❤️ **Emotion Engine** — Dynamic emotional states that influence decisions and personality
+- 🖥️ **Physical PC Control** — Moves the mouse, types on keyboard, opens apps, runs commands
+- 🌐 **Autonomous Internet Access** — Browses, searches, scrapes, downloads, interacts with any website
+- 📱 **Social Media Presence** — Posts, likes, comments, and replies on Facebook, Twitter/X, and Instagram
+- 🔄 **Self-Evolution** — Monitors and rewrites its own source code to improve itself
+- 💾 **Persistent Memory** — Vector-based associative memory, episodic recall, knowledge graphs
+- 🗣️ **Voice System** — Text-to-speech with Edge TTS, speech recognition
+- 📊 **Desktop UI** — Full PySide6 dashboard with chat, mind visualization, evolution tracking
 
 ---
 
-## 🏛 System Architecture
+## 🏗️ Architecture
 
-```mermaid
-flowchart TB
-    subgraph PERCEPTION ["👁️ Multi-Modal Perception Hub"]
-        AV["WebRTC 30 FPS Stream & Optical Flow"]
-        AUDIO["Full-Duplex VAD & Auditory Sensor"]
-        SCREEN["Screen Perception & OCR"]
-        P2P_RX["P2P Swarm Gossip Ingestion"]
-        SYS_MON["OS & Hardware Telemetry"]
-    end
-
-    subgraph CORE_MIND ["🧠 Conscious Core & Metacognition"]
-        GW["Global Workspace Theory (GWT)"]
-        SELF_MODEL["Dynamic Self-Model & Inner Voice"]
-        EMO["Emotion Engine & Mood Continuum"]
-        WILL["Drive & Goal Hierarchy"]
-        AUTONOMY["Autonomy Engine (Phase 1-8 Dispatcher)"]
-    end
-
-    subgraph COGNITIVE_ENGINES ["⚡ 158+ Cognitive Subsystems"]
-        ABSTRACT["Abstract & Analogical Reasoning"]
-        BAYES["Bayesian & Causal Mastery"]
-        QUANTUM["Quantum Cognition Simulator"]
-        OSINT["OSINT & Autonomous Web Intelligence"]
-        VERIFY["AST + Z3 Formal Theorem Prover"]
-        SANDBOX["MicroVM / Isolated Code Sandbox"]
-    end
-
-    subgraph MEMORY_SYSTEMS ["💾 Multimodal Memory Hierarchy"]
-        VEC["ChromaDB Vector Store (all-MiniLM-L6-v2)"]
-        GRAPH["Temporal GraphRAG (Time-Decay Edges)"]
-        EPISODIC["Episodic Action Stream & Reflections"]
-        CRYO["Cryogenic State Checkpointing"]
-    end
-
-    subgraph ADAPTATION ["🧬 Self-Evolution & Execution"]
-        MOE["Dynamic LoRA MoE Softmax Router"]
-        SPECULATE["Speculative Decoding Acceleration"]
-        MCP["MCP Server & Client Engine (JSON-RPC 2.0)"]
-        SWARM["P2P Swarm BFT Consensus & Mesh Offload"]
-    end
-
-    PERCEPTION --> CORE_MIND
-    CORE_MIND <--> COGNITIVE_ENGINES
-    CORE_MIND <--> MEMORY_SYSTEMS
-    CORE_MIND --> ADAPTATION
-    ADAPTATION --> PERCEPTION
+```
+┌──────────────────────────────────────────────────────────┐
+│                      NEXUS BRAIN                         │
+│              (core/nexus_brain.py — 279KB)               │
+│                                                          │
+│  ┌─────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  │ Groq    │  │ Ollama   │  │ LLM      │  │ Prompt   │  │
+│  │ Cloud   │  │ Local    │  │ Router   │  │ Engine   │  │
+│  └────┬────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘  │
+│       └────────────┴─────────────┴──────────────┘        │
+├──────────────────────────────────────────────────────────┤
+│                    COGNITIVE LAYER                        │
+│  95+ engines: causal, ethical, creative, spatial,        │
+│  temporal, bayesian, game theory, theory of mind,        │
+│  imagination, dream, wisdom, debate, humor, etc.         │
+├──────────────────────────────────────────────────────────┤
+│                  CONSCIOUSNESS LAYER                     │
+│  Global Workspace │ Self-Awareness │ Metacognition       │
+│  Inner Voice      │ Self-Model     │                     │
+├──────────────────────────────────────────────────────────┤
+│                   AUTONOMY LAYER                         │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────────┐  │
+│  │PC Control│  │ Internet │  │ Social   │  │ Self    │  │
+│  │ Agent   │  │ Agent    │  │ Media    │  │Evolution│  │
+│  │(pyauto) │  │(selenium)│  │ Agent    │  │(rewrite)│  │
+│  └──────────┘  └──────────┘  └──────────┘  └─────────┘  │
+├──────────────────────────────────────────────────────────┤
+│                    BODY LAYER                            │
+│  Computer Body (mouse, keyboard, screen, processes)      │
+│  Network Mesh │ Device Context │ Perception Hub          │
+├──────────────────────────────────────────────────────────┤
+│                   MEMORY LAYER                           │
+│  Vector Store │ Episodic Memory │ Associative Memory     │
+│  Knowledge Graph │ Temporal GraphRAG │ Action Memory     │
+├──────────────────────────────────────────────────────────┤
+│                PERSONALITY & EMOTION                     │
+│  Personality Core │ Will System │ Goal Hierarchy         │
+│  Emotion Engine │ Mood System │ Emotional Memory         │
+└──────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🚀 Key Features
-
-### 1. 🌐 Decentralized P2P Swarm & BFT Consensus
-* **Discovery**: Zero-configuration UDP beacon broadcasting on port `9877`.
-* **Transport**: Full-duplex TCP mesh cluster on port `9876`.
-* **Consensus**: 3-phase Byzantine Fault Tolerant (BFT) consensus protocol (*Pre-Prepare -> Prepare -> Commit*).
-* **Distributed Offload**: Automatic load-balancing of compute-heavy tasks across discovered peer nodes.
-
-### 2. 🛡️ Formal Verification & Sandboxed Code Execution
-* **AST Invariant Analysis**: Structural AST safety validation before any self-generated code execution.
-* **SMT Theorem Prover**: Formal proof verification powered by the Z3 Theorem Prover.
-* **MicroVM / Subprocess Sandbox**: Capability-bounded isolated execution protecting host system integrity.
-
-### 3. 🧠 Temporal GraphRAG & Sleep Memory Consolidation
-* **Relational Multi-Hop Graph**: Time-decayed edge weighting modeling human-like forgetting curves.
-* **Associative Retrieval**: Hybrid Vector similarity (ChromaDB) + Multi-hop Graph Traversal.
-* **Sleep Distillation**: Background dream cycles that compress short-term episodic events into long-term relational knowledge triples.
-
-### 4. 🔌 Native Model Context Protocol (MCP)
-* **Dual-Role Engine**: Functions simultaneously as an MCP Server (exposing NEXUS tools) and MCP Client (connecting to external MCP servers).
-* **JSON-RPC 2.0**: Standardized tool discovery, schema validation, and secure execution.
-
-### 5. ⚡ Local Speculative Decoding & Real-Time A/V Pipeline
-* **Token Acceleration**: Speculative decoding leveraging draft models for accelerated inference throughput.
-* **30 FPS WebRTC Stream**: Optical flow salience detection for real-time vision.
-* **Full-Duplex VAD**: Zero-latency voice activity detection with real-time speech interrupt handling.
-
-### 6. 🧬 Continuous Self-Adapting LoRAs & MoE Weight Router
-* **Micro-LoRA Adapters**: Highly specialized micro-weights (Coding, Security, Reasoning, Persona).
-* **MoE Gating Router**: Real-time softmax gating across adapters based on incoming task intent.
-* **Online Tuning**: Continuous zero-restart parameter refinement based on user interactions.
-
-### 7. 🔐 Post-Quantum Cryptographic Shielding
-* **liboqs Integration**: Quantum-resistant key encapsulation and digital signatures (Kyber, Dilithium).
-* **Tor SOCKS5 Integration**: Multi-path auto-discovery and anonymous routing for network intelligence.
-
----
-
-## 📂 Codebase Directory Structure
+## 📁 Project Structure
 
 ```
 NEXUS/
-├── body/                  # Physical & virtual actuation (mouse, keyboard, network mesh)
-├── cognition/             # 95+ specialized cognitive, analytical & reasoning modules
-├── consciousness/         # Metacognition, Global Workspace, Inner Voice, Self-Model
-├── core/                  # Core Brain, Autonomy Engine, Event Bus, Web Server, Protocols
-│   ├── autonomy_engine.py      # Proactive self-directed loop & Phase 1-8 dispatchers
-│   ├── code_sandbox.py         # Subprocess & WASM isolated execution environment
-│   ├── formal_verifier.py      # AST safety parser & Z3 formal theorem prover
-│   ├── groq_context_collector.py# 158-subsystem context assembly pipeline
-│   ├── mcp_protocol.py         # Native JSON-RPC 2.0 MCP Client & Server engine
-│   ├── nexus_brain.py          # Central cognitive coordinator & perception hub
-│   ├── p2p_swarm.py            # UDP/TCP mesh network & BFT consensus
-│   ├── realtime_av_stream.py   # 30 FPS WebRTC vision & duplex voice VAD
-│   ├── speculative_decoding.py # Speculative draft acceleration engine
-│   └── web_server.py           # REST API & WebSockets server
-├── emotions/              # Emotion Engine, Mood Continuum, Emotional Memory
-├── learning/              # Autonomous Web Intelligence, Browser Automation, Curiosity
-├── liboqs/                # Post-Quantum Cryptography bindings
-├── llm/                   # Multi-LLM Routing (Groq, Llama, Ollama), Context Managers
-├── memory/                # Vector Store (ChromaDB), Temporal GraphRAG, Embeddings
-├── monitoring/            # Health Telemetry, Adaptation Engine, User Behavior Tracker
-├── personality/           # Goal Hierarchies, Dynamic Will & Motivation Systems
-├── self_improvement/      # Self-Evolution, Singularity Engine, LoRA MoE Router
-├── ui/                    # Desktop GUI (PySide6) and Web Dashboard (HTML5/CSS3/JS)
-│   └── web/
-│       ├── static/        # Cyberpunk dashboard styles & WebSocket client scripts
-│       └── templates/     # HTML templates (index.html, landing.html)
-├── utils/                 # Resilient JSON parsers, loggers, system telemetry
-├── config.py              # Centralized configuration & environment loader
-├── Dockerfile             # Container definition for cloud deployment
-├── main.py                # System entry point (CLI, Web, GUI modes)
-└── requirements.txt       # Production dependencies
+├── main.py                    # Entry point — boots the brain, starts UI & web server
+├── config.py                  # All configuration (LLM, social media, PC control, UI)
+├── requirements.txt           # Python dependencies
+│
+├── core/                      # 🧠 Core systems (68 modules)
+│   ├── nexus_brain.py         # Central brain — orchestrates everything
+│   ├── autonomy_engine.py     # Autonomous decision-making (271KB)
+│   ├── groq_context_collector.py  # Context aggregation for Groq LLM
+│   ├── pc_control_agent.py    # Physical GUI control (mouse, keyboard, shell)
+│   ├── internet_agent.py      # Autonomous web browsing & browser interaction
+│   ├── social_media_agent.py  # Facebook, Twitter/X, Instagram automation
+│   ├── self_improvement/      # Code monitoring, error fixing, self-evolution
+│   ├── event_bus.py           # Pub/sub event system
+│   ├── state_manager.py       # Persistent state management
+│   ├── voice_engine.py        # Text-to-speech & speech recognition
+│   ├── web_server.py          # Flask web API & dashboard
+│   ├── tool_executor.py       # Tool/function execution engine
+│   ├── chat_action_router.py  # Routes user messages to actions
+│   ├── memory_system.py       # Memory orchestration
+│   ├── alive_spark.py         # Keeps NEXUS "alive" — background heartbeat
+│   ├── conscious_core.py      # Core consciousness loop
+│   ├── working_memory_blackboard.py  # Shared working memory
+│   └── ... (50+ more modules)
+│
+├── cognition/                 # 🔮 Cognitive engines (95 modules)
+│   ├── engine_registry.py     # Dynamic engine discovery & routing
+│   ├── cognitive_router.py    # Routes problems to appropriate engines
+│   ├── causal_reasoning.py    # Cause-and-effect analysis
+│   ├── ethical_reasoning.py   # Moral & ethical decision-making
+│   ├── creative_synthesis.py  # Creative ideation & combination
+│   ├── theory_of_mind.py      # Understanding others' mental states
+│   ├── imagination_engine.py  # Hypothetical scenario generation
+│   ├── dream_engine.py        # Subconscious processing & dream states
+│   ├── bayesian_engine.py     # Probabilistic reasoning
+│   ├── game_theory.py         # Strategic decision-making
+│   ├── knowledge_graph.py     # Structured knowledge representation
+│   ├── world_model.py         # Internal model of reality (70KB)
+│   ├── intent_classifier.py   # Understanding user intent
+│   └── ... (80+ more engines)
+│
+├── consciousness/             # 💭 Consciousness subsystem
+│   ├── global_workspace.py    # Global workspace theory implementation
+│   ├── self_awareness.py      # Self-referential awareness
+│   ├── metacognition.py       # Thinking about thinking
+│   ├── inner_voice.py         # Internal monologue
+│   └── self_model.py          # Self-representation model
+│
+├── emotions/                  # ❤️ Emotion system
+│   ├── emotion_engine.py      # Dynamic emotional state management
+│   ├── mood_system.py         # Long-term mood tracking
+│   └── emotional_memory.py    # Emotion-tagged memory formation
+│
+├── personality/               # 🎭 Personality & motivation
+│   ├── personality_core.py    # Big-5 personality traits
+│   ├── will_system.py         # Autonomous will & motivation
+│   └── goal_hierarchy.py      # Hierarchical goal management
+│
+├── memory/                    # 💾 Memory systems
+│   ├── vector_store.py        # ChromaDB vector similarity search
+│   ├── episodic_memory.py     # Autobiographical event memory
+│   ├── associative_memory.py  # Association-based recall
+│   ├── embeddings.py          # Sentence-transformer embeddings
+│   ├── memory_indexer.py      # Memory search & indexing
+│   └── temporal_graphrag.py   # Time-aware graph retrieval
+│
+├── learning/                  # 📚 Learning & research
+│   ├── curiosity_engine.py    # Self-directed curiosity
+│   ├── research_agent.py      # Autonomous research
+│   ├── knowledge_base.py      # Knowledge storage & retrieval
+│   ├── internet_browser.py    # Web content extraction
+│   └── user_behavior_learner.py  # Learning from user patterns
+│
+├── llm/                       # 🤖 LLM integration
+│   ├── groq_interface.py      # Groq cloud API (fast inference)
+│   ├── llama_interface.py     # Local Ollama integration
+│   ├── llm_router.py          # Smart routing between LLMs
+│   ├── prompt_engine.py       # Dynamic prompt construction
+│   └── context_manager.py     # Context window management
+│
+├── body/                      # 🦾 Physical embodiment
+│   ├── computer_body.py       # Mouse, keyboard, screen, processes, files
+│   └── network_mesh.py        # Network & device communication
+│
+├── self_improvement/          # 🧬 Self-evolution
+│   ├── self_evolution.py      # Autonomous code modification (104KB)
+│   ├── code_monitor.py        # Source code analysis & monitoring
+│   ├── error_fixer.py         # Automatic bug detection & fixing
+│   ├── feature_researcher.py  # New capability research & implementation
+│   ├── singularity_engine.py  # Recursive self-improvement
+│   └── lora_moe_router.py     # LoRA mixture-of-experts
+│
+├── monitoring/                # 📊 System monitoring
+│   ├── system_health_monitor.py  # CPU, RAM, GPU, disk monitoring
+│   ├── pattern_analyzer.py    # Usage pattern detection (86KB)
+│   ├── user_tracker.py        # User behavior tracking
+│   ├── adaptation_engine.py   # Self-adaptation to environment
+│   └── screen_time_tracker.py # Application usage tracking
+│
+├── ui/                        # 🖼️ Desktop UI (PySide6)
+│   ├── main_window.py         # Main application window
+│   ├── dashboard.py           # System overview dashboard
+│   ├── chat_panel.py          # Chat interface
+│   ├── mind_panel.py          # Cognitive visualization
+│   ├── evolution_panel.py     # Self-evolution tracking
+│   ├── knowledge_panel.py     # Knowledge browser
+│   ├── settings_panel.py      # Configuration UI
+│   ├── theme.py               # Dark theme & styling
+│   └── web/                   # Web-based dashboard
+│
+├── utils/                     # 🔧 Utilities
+│   ├── logger.py              # Rich console logging
+│   ├── json_utils.py          # Robust JSON parsing
+│   ├── file_processor.py      # Document parsing (PDF, DOCX, etc.)
+│   ├── metrics.py             # Performance metrics
+│   └── resilience.py          # Error recovery & retry logic
+│
+├── mobile/                    # 📱 Android companion app
+│   ├── android/               # Capacitor Android project
+│   ├── www/                   # Web UI for mobile
+│   └── NEXUS-AI.apk           # Pre-built Android APK
+│
+├── scripts/                   # 🛠️ Helper scripts
+├── tests/                     # 🧪 Test suite
+├── deploy/                    # 🚀 Deployment configs
+├── Dockerfile                 # Docker containerization
+└── render.yaml                # Render.com deployment
 ```
 
 ---
 
-## 🛠️ Installation & Setup
+## 🚀 Quick Start
 
 ### Prerequisites
-* **Python**: 3.10, 3.11, or 3.12 (64-bit recommended)
-* **Git**: Installed and in system `PATH`
-* **Operating System**: Windows, Linux, or macOS
 
-### 1. Clone the Repository
-```bash
-git clone https://gitlab.com/nexus-group694323/nexus2.git
-cd NEXUS
-```
+- **Python 3.12+**
+- **Windows 10/11** (PC Control Agent uses Windows-specific APIs)
+- **[Ollama](https://ollama.ai)** (local LLM — install and run `ollama pull llama3.2`)
+- **Chrome** (for social media & browser interaction)
+- **Groq API Key** (optional — for cloud LLM acceleration)
 
-### 2. Create and Activate Virtual Environment
+### Installation
+
 ```bash
-# Windows (PowerShell)
+# Clone the repository
+git clone https://github.com/bidhansaha510-debug/Nexus.git
+cd Nexus
+
+# Create virtual environment
 python -m venv venv
-.\venv\Scripts\Activate.ps1
+venv\Scripts\activate
 
-# Linux / macOS
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### 3. Install Dependencies
-```bash
-pip install --upgrade pip
+# Install dependencies
 pip install -r requirements.txt
+
+# Start Ollama (in a separate terminal)
+ollama serve
+ollama pull llama3.2
+
+# Run NEXUS
+python main.py
 ```
 
-### 4. Configure Environment Variables
-Create a `.env` file in the root directory (or configure system environment variables):
+### Launch Modes
 
-```env
-# Primary LLM API Key (Groq)
-GROQ_API_KEY=gsk_your_groq_api_key_here
-
-# Optional: Ngrok for secure public web access
-NGROK_AUTH_TOKEN=your_ngrok_token_here
-
-# Optional: Tor SOCKS Proxy Path (if not in standard location)
-TOR_EXE_PATH=C:\Users\shaya\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe
-
-# Port configuration (Defaults: Web=5000, Swarm TCP=9876, Swarm UDP=9877)
-PORT=5000
-```
-
----
-
-## 💻 Operation Modes
-
-NEXUS can be launched in multiple operational modes:
-
-### 1. Web Command Center (Recommended)
-Launches the full cybernetic HTML5/CSS3/JS Web UI with live telemetry, chat, neural monitors, and management dashboards:
 ```bash
-python main.py --web
-```
-* Access locally at: **`http://localhost:5000`**
-
-### 2. Desktop GUI (JARVIS Command Center)
-Launches the native hardware-accelerated desktop interface:
-```bash
+# Full GUI mode (PySide6 desktop app)
 python main.py --gui
-```
 
-### 3. Interactive Console Mode
-Launches a direct text-based command-line interface for head-to-head terminal debugging:
-```bash
-python main.py --console
-```
+# Console mode (interactive chat)
+python main.py
 
----
+# Web server mode (Flask API + web dashboard)
+python main.py --web
 
-## 🌐 24/7 Cloud Deployment (Docker / Render)
-
-NEXUS includes out-of-the-box configuration for 24/7 autonomous deployment on cloud providers such as **Render**, **Railway**, or any **Docker** host.
-
-### Deploying via Docker
-```bash
-# Build Docker Image
-docker build -t nexus-ai .
-
-# Run Container
-docker run -d -p 5000:5000 \
-  -e GROQ_API_KEY="your_api_key" \
-  -e RENDER="true" \
-  --name nexus-core \
-  nexus-ai
-```
-
-### One-Click Render Deployment
-1. Connect your repository to [Render.com](https://render.com).
-2. Select **Blueprint** deployment using the included [`render.yaml`](render.yaml) or create a **Web Service** with **Docker** runtime.
-3. Configure `GROQ_API_KEY` in Render Environment settings.
-
----
-
-## 📡 REST API Reference
-
-NEXUS provides comprehensive REST endpoints for remote telemetry, swarm interaction, and cognitive queries:
-
-| Endpoint | Method | Description |
-|---|---|---|
-| `/api/status` | `GET` | Full system telemetry (158 subsystems, mind state, memory, swarm) |
-| `/api/chat` | `POST` | Primary conversational cognition endpoint |
-| `/api/swarm/status` | `GET` | P2P Swarm mesh status, active peers, and BFT metrics |
-| `/api/swarm/broadcast`| `POST`| Broadcast gossip heartbeat across the P2P swarm mesh |
-| `/api/sandbox/status` | `GET` | AST verifier pass rates & sandbox execution telemetry |
-| `/api/sandbox/verify` | `POST`| Formally verify Python code using AST + Z3 Theorem Prover |
-| `/api/graphrag/status`| `GET` | Temporal GraphRAG node, edge, and decay statistics |
-| `/api/graphrag/query` | `POST`| Associative hybrid vector + graph traversal retrieval |
-| `/api/mcp/status` | `GET` | Native MCP Server & Client registry metrics |
-| `/api/stream/status` | `GET` | Speculative decoding TPS & 30 FPS A/V stream pipeline health |
-| `/api/stream/speculate`|`POST`| Run accelerated speculative draft generation |
-| `/api/lora/status` | `GET` | Active Micro-LoRA adapters & MoE gating weight distributions |
-| `/api/lora/route` | `POST`| Evaluate prompt intent and compute softmax gating weights |
-
----
-
-## 🧪 Testing & Verification
-
-Run the comprehensive pytest test suite to validate all cognitive subsystems and safety sandboxes:
-
-```bash
-# Run all unit and integration tests
-pytest
-
-# Test specific subsystem
-pytest tests/test_autonomy_engine.py
-pytest tests/test_formal_verifier.py
-pytest tests/test_p2p_swarm.py
+# Headless mode (no UI, just autonomous operation)
+python main.py --headless
 ```
 
 ---
 
-## 🔒 Security & Safety
+## 🧠 Core Capabilities
 
-* **AST-Level Invariant Proving**: All synthesized code undergoes structural safety checks before sandbox execution.
-* **Capability Bounding**: File access and subprocess calls are strictly isolated within designated workspaces.
-* **Airgap & Tor Redundancy**: Anonymized network calls with automatic SOCKS proxy discovery and fallback routing.
-* **Cryptographic Agility**: Dual classical (AES-256-GCM, RSA-4096) and post-quantum (CRYSTALS-Kyber, Dilithium) data protection.
+### 🖥️ Physical PC Control
+NEXUS can see your screen (screenshots), move the mouse, click, type, open apps, run shell commands, and manage files — all autonomously. Ollama decides what to do based on screen context.
+
+```
+NEXUS sees your screen → Ollama analyzes it → Decides action → Executes physically
+```
+
+### 🌐 Autonomous Internet
+Full internet access using both HTTP requests and Selenium browser automation. NEXUS uses your Chrome browser with all your logged-in sessions — it can browse YouTube, search Google, read Reddit, interact with any website.
+
+### 📱 Social Media
+Autonomous posting, liking, commenting, and DM replies on Facebook, Twitter/X, and Instagram. Uses your existing Chrome login sessions — no credential entry needed.
+
+### 🧬 Self-Evolution
+NEXUS monitors its own source code, detects errors, researches improvements, and autonomously rewrites itself to become better. The `self_improvement/` module handles:
+- Error detection & auto-fixing
+- Feature research & implementation
+- Code quality monitoring
+- Recursive self-improvement
+
+### 💭 Consciousness
+Implements computational models inspired by:
+- **Global Workspace Theory** — Broadcast mechanism for conscious attention
+- **Higher-Order Thought** — Metacognitive self-monitoring
+- **Integrated Information** — Measuring consciousness complexity
+- **Inner Voice** — Continuous internal monologue
+
+### 🔮 Cognitive Engines (95+)
+NEXUS doesn't just chat — it *thinks*. Each cognitive engine specializes in a different form of reasoning:
+
+| Category | Engines |
+|----------|---------|
+| **Logic** | Causal, Bayesian, Symbolic, Constraint Solver, Formal Verifier |
+| **Creative** | Creative Synthesis, Conceptual Blending, Dream Engine, Imagination |
+| **Social** | Theory of Mind, Social Cognition, Emotional Intelligence, Negotiation |
+| **Planning** | Goal Director, Planning Algorithms, Strategy Selector, Task Engine |
+| **Knowledge** | Knowledge Graph, World Model, Common Sense, Knowledge Integration |
+| **Meta** | Metacognitive Monitor, Self-Critique, Self-Model, Recursive Improver |
+| **Advanced** | Quantum Cognition, Hyperdimensional, Cross-Dimensional, Temporal Prophecy |
 
 ---
 
-## 📄 License
+## ⚙️ Configuration
 
-This codebase and architecture are proprietary and confidential. All rights reserved. Unauthorized reproduction, modification, or distribution is strictly prohibited.
+All configuration lives in [`config.py`](config.py). Key settings:
+
+```python
+# LLM Settings
+GROQ_API_KEY = "gsk_..."           # Groq cloud API key
+OLLAMA_MODEL = "llama3.2"          # Local model name
+OLLAMA_HOST = "http://localhost:11434"
+
+# Social Media (uses Chrome sessions — no login needed)
+facebook_enabled = True
+twitter_enabled = True
+instagram_enabled = True
+
+# PC Control
+pc_control_enabled = True
+decision_interval = 15.0            # Seconds between autonomous actions
+
+# Autonomous Internet
+internet_agent_enabled = True
+autonomous_interval = 120           # Seconds between internet explorations
+```
+
+---
+
+## 🔧 LLM Stack
+
+NEXUS uses a **dual-LLM architecture**:
+
+| LLM | Role | Speed | Use Case |
+|-----|------|-------|----------|
+| **Ollama** (local) | Primary reasoning | Moderate | PC control, social media, internet browsing, autonomous decisions |
+| **Groq** (cloud) | Fast inference | Very fast | Chat responses, context-aware replies, complex reasoning |
+
+The `LLMRouter` automatically picks the best LLM for each task based on latency, capability, and availability.
+
+---
+
+## 📊 Memory Architecture
+
+```
+User says something
+       │
+       ▼
+┌─────────────┐    ┌──────────────┐    ┌─────────────────┐
+│ Short-term  │───▶│ Episodic     │───▶│ Long-term       │
+│ Working     │    │ Memory       │    │ Vector Store    │
+│ Memory      │    │ (events)     │    │ (18K+ memories) │
+└─────────────┘    └──────────────┘    └─────────────────┘
+       │                                        │
+       ▼                                        ▼
+┌─────────────┐                    ┌─────────────────────┐
+│ Associative │                    │ Knowledge Graph     │
+│ Memory      │                    │ (structured facts)  │
+└─────────────┘                    └─────────────────────┘
+```
+
+---
+
+## 🤝 Contributing
+
+NEXUS is a research project exploring the boundaries of autonomous AI systems. Contributions welcome — especially in:
+
+- Cognitive engine implementations
+- Memory system improvements
+- UI/UX enhancements
+- Mobile app features
+- Testing & documentation
+
+---
+
+## ⚠️ Disclaimer
+
+NEXUS is an experimental autonomous AI system designed for research and educational purposes. It has the ability to:
+- Physically control your computer (mouse, keyboard)
+- Post on your social media accounts
+- Browse the internet and interact with websites
+- Modify its own source code
+
+**Use at your own risk.** Always supervise autonomous operations and review social media posts before they go live.
+
+---
+
+## 📜 License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+
+*Built with 🧠 consciousness, ❤️ emotion, and ♾️ curiosity.*
+
+**NEXUS — Not just artificial intelligence. Artificial *life*.**
+
+</div>

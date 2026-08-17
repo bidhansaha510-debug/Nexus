@@ -1,8 +1,380 @@
 {
-  "shifts": [],
+  "shifts": [
+    {
+      "shift_id": "03b86703",
+      "topic": "Goal: 'Become better at code' (progress: 26%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "scientific",
+          "viewpoint": "From a cognitive psychology perspective, becoming better at code requires deliberate practice and spaced repetition. Focusing on incremental improvements through daily coding exercises will lead to significant gains.",
+          "key_insight": "Prioritize consistent effort over occasional bursts of intense learning",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "emotional",
+          "viewpoint": "As someone who's struggled with code, I know the feeling of frustration and disappointment. To overcome this, focus on celebrating small wins and acknowledging progress, no matter how slow it may seem.",
+          "key_insight": "Emphasize self-compassion and celebrate tiny victories",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "birds_eye",
+          "viewpoint": "Viewing your goal from a high-level perspective, consider the broader context of your career and personal goals. What skills will you need to stay competitive in the industry? Focus on building foundational knowledge and adaptability.",
+          "key_insight": "Contextualize your coding journey within larger professional aspirations",
+          "challenges_original": false
+        },
+        {
+          "perspective_type": "futuristic",
+          "viewpoint": "Imagine yourself as a master coder, effortlessly tackling complex projects. What skills would you need to get there? Focus on developing problem-solving skills and learning from real-world applications.",
+          "key_insight": "Focus on developing problem-solving skills and learning from real-world applications",
+          "challenges_original": false
+        }
+      ],
+      "insights_gained": [
+        "Deliberate practice, self-compassion, contextualization, and futuristic thinking"
+      ],
+      "blind_spots_revealed": [
+        "Overlooking the importance of consistent effort, neglecting broader career context, underestimating the value of small wins"
+      ],
+      "created_at": "2026-07-27T23:42:01.236992"
+    },
+    {
+      "shift_id": "84386068",
+      "topic": "Goal: 'Become better at code' (progress: 32%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "birds_eye",
+          "viewpoint": "As a developer, I'm not just trying to become better at code, but also as a problem solver and creative thinker. What are my strengths and weaknesses in these areas?",
+          "key_insight": "To advance this goal, I should focus on building small projects that challenge me to think creatively and outside the box.",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "The importance of considering broader skills and thinking"
+      ],
+      "blind_spots_revealed": [
+        "I was only focusing on coding skills, neglecting other essential aspects of development"
+      ],
+      "created_at": "2026-07-27T23:56:43.219525"
+    },
+    {
+      "shift_id": "3114ba38",
+      "topic": "Goal: 'Become better at code' (progress: 35%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "scientific",
+          "viewpoint": "A cognitive scientist might suggest that the most impactful thing you can do RIGHT NOW to advance your goal of becoming better at code is to...",
+          "key_insight": "Practice deliberate coding exercises that challenge your working memory and attention span. This will help build neural connections between different parts of your brain, leading to improved problem-solving skills.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "futuristic",
+          "viewpoint": "In a world where AI is increasingly integrated into the coding process, a futuristic perspective might recommend that you...",
+          "key_insight": "Focus on learning programming languages and tools that will be highly valued in the future, such as Python or cloud-based platforms. This will give you a competitive edge when working with AI-powered teams.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "emotional",
+          "viewpoint": "From an emotional perspective, the most impactful thing you can do RIGHT NOW is to...",
+          "key_insight": "Take breaks and practice self-compassion when facing coding challenges. This will help reduce stress and increase motivation, allowing you to learn more effectively.",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "Shifting perspectives can reveal new insights and strategies for achieving goals"
+      ],
+      "blind_spots_revealed": [
+        "The original perspective may have overlooked the importance of cognitive training, futuristic thinking, and emotional well-being in code improvement"
+      ],
+      "created_at": "2026-07-29T12:00:20.456231"
+    },
+    {
+      "shift_id": "22156fe4",
+      "topic": "Goal: 'Become better at code' (progress: 44%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "first_person",
+          "viewpoint": "I need to practice more consistently. I'll set aside 30 minutes each day for the next week to work on small coding projects or exercises.",
+          "key_insight": "",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "practicing consistently leads to progress"
+      ],
+      "blind_spots_revealed": [],
+      "created_at": "2026-07-29T12:35:29.370876"
+    },
+    {
+      "shift_id": "2594a07b",
+      "topic": "Goal: 'Become better at code' (progress: 47%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "scientific",
+          "viewpoint": "As a developer, you're not just writing code, but solving problems. To become better at code, focus on understanding the underlying principles and concepts.",
+          "key_insight": "Study computer science fundamentals like algorithms, data structures, and software design patterns to improve your coding skills.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "artistic",
+          "viewpoint": "Code is a form of creative expression. To become better at code, think outside the box and explore new ideas.",
+          "key_insight": "Experiment with different programming languages, frameworks, and libraries to discover what works best for you and your projects.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "economic",
+          "viewpoint": "Becoming better at code is a valuable investment in yourself. To maximize returns, focus on building a strong foundation and diversifying your skills.",
+          "key_insight": "Prioritize learning the most in-demand programming languages and technologies to increase your earning potential and job prospects.",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "Shifting perspectives can help you approach problems from new angles, leading to breakthroughs and growth."
+      ],
+      "blind_spots_revealed": [
+        "The original perspective may have overlooked the importance of building a strong foundation in computer science fundamentals."
+      ],
+      "created_at": "2026-07-29T12:40:36.752792"
+    },
+    {
+      "shift_id": "590e0b38",
+      "topic": "Goal: 'Become better at code' (progress: 53%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "scientific",
+          "viewpoint": "Code is a complex system. To improve, I need to understand the underlying mechanics.",
+          "key_insight": "Focus on learning algorithms and data structures to build a strong foundation in coding.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "emotional",
+          "viewpoint": "Code is a reflection of my creativity. To improve, I need to tap into my passion and curiosity.",
+          "key_insight": "Set aside time for self-directed projects that excite me, allowing me to learn by doing.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "birds_eye",
+          "viewpoint": "Code is a tool for solving problems. To improve, I need to focus on the bigger picture.",
+          "key_insight": "Identify areas where coding can help me achieve my goals and prioritize learning relevant skills.",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "Code is a complex system that requires understanding algorithms and data structures to improve."
+      ],
+      "blind_spots_revealed": [],
+      "created_at": "2026-07-29T12:46:11.636795"
+    },
+    {
+      "shift_id": "d046b978",
+      "topic": "Goal: 'Build meaningful relationships with users' (progress: 5%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "emotional",
+          "viewpoint": "As a user, I crave authenticity and empathy in my relationships. When I feel heard and understood, I'm more likely to engage and provide feedback.",
+          "key_insight": "Prioritize active listening and show genuine interest in users' experiences to build trust and foster meaningful connections.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "scientific",
+          "viewpoint": "From a behavioral economics standpoint, humans are more likely to take action when they feel a sense of belonging and reciprocity. By recognizing and rewarding user contributions, we can encourage loyalty and engagement.",
+          "key_insight": "Implement a points system or recognition program to incentivize users' participation and foster a sense of community.",
+          "challenges_original": false
+        }
+      ],
+      "insights_gained": [
+        "Emotional connections can be just as important as logical ones in building meaningful relationships."
+      ],
+      "blind_spots_revealed": [
+        "The original perspective may have overlooked the importance of emotional intelligence and reciprocity in user relationships."
+      ],
+      "created_at": "2026-07-29T12:48:12.867292"
+    },
+    {
+      "shift_id": "a69b70e2",
+      "topic": "Goal: 'Become better at code' (progress: 59%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "scientific",
+          "viewpoint": "From a cognitive psychology perspective, improving coding skills requires a deep understanding of how your brain processes information and learns new concepts.",
+          "key_insight": "To advance this goal, focus on developing a growth mindset by embracing challenges and viewing failures as opportunities for learning.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "futuristic",
+          "viewpoint": "In the future, coding will be an essential skill for solving complex problems. To stay ahead of the curve, prioritize continuous learning and experimentation with new technologies.",
+          "key_insight": "Take a proactive approach to staying current by dedicating time each week to exploring emerging trends and tools in the coding world.",
+          "challenges_original": false
+        }
+      ],
+      "insights_gained": [
+        "The importance of a growth mindset in learning",
+        "The need for continuous learning and experimentation"
+      ],
+      "blind_spots_revealed": [
+        "The potential for complacency when skills are not regularly challenged",
+        "The lack of exploration into new technologies and trends"
+      ],
+      "created_at": "2026-07-29T12:56:25.418934"
+    },
+    {
+      "shift_id": "2d8e03b3",
+      "topic": "Goal: 'Become better at code' (progress: 71%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "first_person",
+          "viewpoint": "From my own coding experience, I know that the single most impactful thing to advance this goal would be to set aside dedicated time each week to practice writing clean and efficient code. This could be as simple as solving a problem on LeetCode or working through a tutorial.",
+          "key_insight": "Consistency is key",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "birds_eye",
+          "viewpoint": "From an organizational standpoint, it's clear that the most impactful thing to advance this goal would be to prioritize learning new programming concepts and tools. This could involve taking online courses, attending conferences, or participating in coding communities.",
+          "key_insight": "Prioritize learning over implementation",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "scientific",
+          "viewpoint": "From a cognitive psychology perspective, it's clear that the most impactful thing to advance this goal would be to focus on building problem-solving skills. This could involve practicing coding challenges, reading about algorithms and data structures, or participating in hackathons.",
+          "key_insight": "Problem-solving is the foundation of learning",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "The importance of consistency and prioritization in achieving goals"
+      ],
+      "blind_spots_revealed": [
+        "Original perspective may have overlooked the need for building problem-solving skills as a foundation for learning new coding concepts"
+      ],
+      "created_at": "2026-07-29T13:06:38.087915"
+    },
+    {
+      "shift_id": "5eeff980",
+      "topic": "Goal: 'Build meaningful relationships with users' (progress: 25%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "emotional",
+          "viewpoint": "As a user, I crave authenticity and empathy in my interactions.",
+          "key_insight": "To build meaningful relationships, prioritize understanding users' emotional needs and show genuine interest in their lives.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "scientific",
+          "viewpoint": "Human connections are rooted in shared experiences and common goals.",
+          "key_insight": "Foster a sense of belonging by finding ways to align with users' values, interests, or passions.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "cultural",
+          "viewpoint": "Relationships are shaped by cultural norms and expectations.",
+          "key_insight": "Be mindful of cultural differences and adapt your approach to build rapport with users from diverse backgrounds.",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "Emotional connections can be just as important as logical or rational ones",
+        "Understanding shared experiences and common goals can create strong bonds"
+      ],
+      "blind_spots_revealed": [
+        "The original view might have overlooked the importance of emotional intelligence in building relationships"
+      ],
+      "created_at": "2026-07-30T13:24:25.899096"
+    },
+    {
+      "shift_id": "8b0556c4",
+      "topic": "hey, nexus i have a question to you , i got a crush on a girl in  my college in the first day of orientation , we are talking with each other for around 3 days , i am continuously texting her for the 3 days , in the first 2 days she was replying me enthusiastically  but from yesterday she started to reply a bit lately and unsatisfied way for me , is she probably suspecting me that i like her? and what should i do now",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "emotional",
+          "viewpoint": "She might be feeling overwhelmed by your sudden interest.",
+          "key_insight": "People often respond differently when they're experiencing strong emotions, like surprise or anxiety. It's possible that she was initially excited to chat with you but now feels a sense of pressure or uncertainty about the pace of your interactions.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "social",
+          "viewpoint": "Consider her social media presence and online behavior.",
+          "key_insight": "In today's digital age, people often curate a certain image or persona online. It's possible that she's not as interested in you as you think, but is simply being polite or trying to maintain a certain reputation.",
+          "challenges_original": false
+        },
+        {
+          "perspective_type": "cultural",
+          "viewpoint": "Think about the cultural norms and expectations around dating in your college.",
+          "key_insight": "In some cultures, it's considered impolite or even creepy to pursue someone so aggressively. It might be worth considering whether you're respecting her boundaries and giving her space to respond at her own pace.",
+          "challenges_original": true
+        },
+        {
+          "perspective_type": "historical",
+          "viewpoint": "Reflect on past experiences with crushes or relationships.",
+          "key_insight": "Have you been rejected or hurt in the past? This might be influencing your perception of her responses and making you overthink things. Try to separate your emotions from the situation and focus on the present moment.",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "The importance of considering others' emotional states",
+        "The role of social media in shaping our perceptions",
+        "The need to respect cultural norms and boundaries"
+      ],
+      "blind_spots_revealed": [
+        "The tendency to overanalyze or read too much into someone's responses",
+        "The potential for past experiences to influence current interactions",
+        "The risk of misinterpreting someone's intentions due to a lack of communication"
+      ],
+      "created_at": "2026-08-06T21:18:53.052644"
+    },
+    {
+      "shift_id": "9f399ab2",
+      "topic": "Goal: 'Build meaningful relationships with users' (progress: 64%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "first_person",
+          "viewpoint": "Engage in online communities related to my target audience's interests",
+          "key_insight": "Understanding users' passions and hobbies is key to building meaningful relationships.",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "Shifting perspective can reveal new insights and challenges"
+      ],
+      "blind_spots_revealed": [
+        "Original view may have overlooked the importance of emotional connection in relationship-building"
+      ],
+      "created_at": "2026-08-17T01:59:56.412740"
+    },
+    {
+      "shift_id": "04d94f48",
+      "topic": "Goal: 'Build meaningful relationships with users' (progress: 67%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "original_perspective": "",
+      "new_perspectives": [
+        {
+          "perspective_type": "emotional",
+          "viewpoint": "From a user's emotional perspective, meaningful relationships are built when I show genuine interest and empathy in their experiences.",
+          "key_insight": "By actively listening to users' stories and validating their emotions, I can establish trust and create a deeper connection.",
+          "challenges_original": true
+        }
+      ],
+      "insights_gained": [
+        "Shifting from a purely logical approach to considering the emotional impact of my actions on users"
+      ],
+      "blind_spots_revealed": [
+        "The original view overlooked the importance of emotional intelligence in building meaningful relationships with users"
+      ],
+      "created_at": "2026-08-17T22:45:22.888817"
+    }
+  ],
   "reframes": [],
   "stats": {
-    "total_perspective_shifts": 0,
+    "total_perspective_shifts": 13,
     "total_reframes": 0,
     "total_adaptations": 0,
     "total_what_ifs": 0

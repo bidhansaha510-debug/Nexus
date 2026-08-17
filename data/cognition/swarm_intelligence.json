@@ -1,7 +1,18 @@
 {
-  "results": [],
+  "results": [
+    {
+      "result_id": "a0c08338",
+      "problem": "The evolutionary dynamics of hypothetical civilizations that thrive on the surfaces of gas giants, harnessing the energy of atmospheric circulation an\n\n[Previous insight from evolution]: Evolved:  (fi",
+      "mode": "solve",
+      "num_agents": 5,
+      "consensus": "Hybrid approach that combines floating turbines and self-sustaining colonies (Pragmatist's solution) with high confidence (0.85).",
+      "confidence": 0.85,
+      "summary": "Swarm verdict: A hybrid approach combining floating turbines and self-sustaining colonies is the most promising solution for harnessing energy on the surfaces of gas giants.",
+      "created_at": "2026-07-29T20:19:54.181609"
+    }
+  ],
   "stats": {
-    "total_swarms": 0,
+    "total_swarms": 2,
     "total_stigmergy": 0,
     "total_flocking": 0,
     "total_hive_minds": 0

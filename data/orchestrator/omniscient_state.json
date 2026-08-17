@@ -1,6 +1,6 @@
 {
   "global_state": {
-    "state_id": "8e373485-2",
+    "state_id": "addea7af-d",
     "domains": {
       "system_health": {
         "domain": "system_health",
@@ -8,7 +8,7 @@
         "health": 0.5,
         "metrics": {},
         "anomalies": [],
-        "last_updated": "2026-07-25T20:06:32.155248"
+        "last_updated": "2026-08-17T22:59:48.457856"
       },
       "cognitive_load": {
         "domain": "cognitive_load",
@@ -18,7 +18,7 @@
           "system_running": true
         },
         "anomalies": [],
-        "last_updated": "2026-07-25T20:06:32.155248"
+        "last_updated": "2026-08-17T22:59:48.457856"
       },
       "self_improvement": {
         "domain": "self_improvement",
@@ -27,33 +27,33 @@
         "metrics": {
           "errors_detected": 0,
           "errors_fixed": 0,
-          "features_proposed": 553,
+          "features_proposed": 676,
           "features_implemented": 5
         },
         "anomalies": [],
-        "last_updated": "2026-07-25T20:06:32.156264"
+        "last_updated": "2026-08-17T22:59:48.458860"
       },
       "goal_progress": {
         "domain": "goal_progress",
         "status": "nominal",
         "health": 0.85,
         "metrics": {
-          "total_goals": 47,
+          "total_goals": 70,
           "by_status": {
             "active": 10,
-            "paused": 36,
+            "paused": 59,
             "completed": 1
           },
           "by_source": {
             "will": 1,
             "curiosity": 1,
             "reflection": 1,
-            "autonomous": 44
+            "autonomous": 67
           },
           "active_goals": 10
         },
         "anomalies": [],
-        "last_updated": "2026-07-25T20:06:32.156264"
+        "last_updated": "2026-08-17T22:59:48.458860"
       }
     },
     "overall_health": 0.7875,
@@ -63,632 +63,632 @@
       "cognition": 0.7,
       "self_improvement": 0.3,
       "monitoring": 0.2,
-      "creativity": 0.4,
-      "empathy": 0.1
+      "creativity": 0.1,
+      "empathy": 0.05
     },
     "predictions": [
       {
-        "event": " slight increase in cognitive load",
-        "probability": 0.6,
-        "recommended_action": "re-allocate resources to cognition"
+        "event": " slight degradation in system health",
+        "probability": 0.4,
+        "recommended_action": "run self-check and adjust parameters"
       },
       {
-        "event": " minor self-improvement update available",
-        "probability": 0.8,
-        "recommended_action": "schedule self-improvement task"
+        "event": " minor fluctuations in cognitive load",
+        "probability": 0.2,
+        "recommended_action": "monitor and adapt to changes"
       }
     ],
-    "created_at": "2026-07-25T20:00:42.893437"
+    "created_at": "2026-08-17T22:44:03.183642"
   },
   "anomalies": [],
   "tasks": {},
   "history": [
     {
-      "timestamp": "2026-04-06T10:07:53.556443",
-      "health": 0.7125,
+      "timestamp": "2026-07-29T12:29:30.797278",
+      "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-06T10:13:58.491494",
+      "timestamp": "2026-07-29T12:31:39.065678",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T04:46:40.900498",
+      "timestamp": "2026-07-29T12:33:52.549573",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T05:15:07.662845",
+      "timestamp": "2026-07-29T12:36:01.373832",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T05:29:55.871607",
+      "timestamp": "2026-07-29T12:38:19.300263",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T05:37:18.188217",
+      "timestamp": "2026-07-29T12:40:23.063870",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T05:41:10.655651",
+      "timestamp": "2026-07-29T12:42:35.613087",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T05:43:59.156856",
+      "timestamp": "2026-07-29T12:44:57.574690",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T05:46:07.779099",
+      "timestamp": "2026-07-29T12:47:02.251830",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T14:13:05.743277",
+      "timestamp": "2026-07-29T12:49:23.992712",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T14:38:35.229258",
+      "timestamp": "2026-07-29T12:51:32.528666",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T14:40:51.966273",
+      "timestamp": "2026-07-29T12:53:59.360401",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T14:42:58.883271",
+      "timestamp": "2026-07-29T12:56:11.039118",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T14:44:58.886198",
+      "timestamp": "2026-07-29T12:58:32.447578",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T14:57:08.348661",
+      "timestamp": "2026-07-29T13:00:44.121349",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-12T14:59:37.832634",
+      "timestamp": "2026-07-29T13:03:17.250395",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T06:28:30.385664",
+      "timestamp": "2026-07-29T13:05:35.632981",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T06:47:46.363499",
+      "timestamp": "2026-07-29T14:07:30.651400",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T07:02:40.592070",
+      "timestamp": "2026-07-29T14:09:56.137809",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T07:07:10.641103",
+      "timestamp": "2026-07-29T14:12:06.612267",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T07:09:37.175121",
+      "timestamp": "2026-07-29T17:06:32.802792",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T07:11:57.576228",
+      "timestamp": "2026-07-29T17:09:22.062897",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T07:14:07.842425",
+      "timestamp": "2026-07-29T17:11:39.881441",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T07:16:15.757458",
+      "timestamp": "2026-07-29T17:13:49.888651",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T12:32:32.980644",
+      "timestamp": "2026-07-29T17:16:05.978914",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T12:35:11.409365",
+      "timestamp": "2026-07-29T17:18:11.163887",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T12:37:44.142623",
+      "timestamp": "2026-07-29T17:20:32.537069",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T12:47:49.706625",
+      "timestamp": "2026-07-29T17:22:39.188523",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T12:50:14.207883",
+      "timestamp": "2026-07-29T17:24:53.711432",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T12:52:18.265487",
+      "timestamp": "2026-07-29T17:26:59.645473",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T12:54:28.797533",
+      "timestamp": "2026-07-29T17:29:15.717609",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T17:26:27.999833",
+      "timestamp": "2026-07-29T17:31:28.966583",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T23:26:42.420244",
+      "timestamp": "2026-07-29T17:33:39.471178",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T23:29:05.125298",
+      "timestamp": "2026-07-29T17:35:49.009823",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T23:37:39.010564",
+      "timestamp": "2026-07-29T17:38:10.760258",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T23:40:06.378525",
+      "timestamp": "2026-07-29T17:40:24.487174",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T23:42:48.014508",
+      "timestamp": "2026-07-29T19:18:08.129244",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T23:44:58.636850",
+      "timestamp": "2026-07-29T19:53:52.334524",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-13T23:48:14.160344",
+      "timestamp": "2026-07-29T19:56:58.239428",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-14T22:01:38.510452",
+      "timestamp": "2026-07-29T19:59:06.208023",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-14T22:04:31.724397",
+      "timestamp": "2026-07-29T20:01:13.347319",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-14T22:06:38.402587",
+      "timestamp": "2026-07-29T20:03:48.472381",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-14T22:08:44.828986",
+      "timestamp": "2026-07-29T20:05:59.804006",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-14T22:10:57.604596",
+      "timestamp": "2026-07-29T20:08:29.111559",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-17T13:25:37.090384",
+      "timestamp": "2026-07-29T20:10:43.263992",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-17T13:28:03.864048",
+      "timestamp": "2026-07-29T20:12:57.748578",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-17T13:30:28.255628",
+      "timestamp": "2026-07-29T20:15:06.831038",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-17T13:32:35.420139",
+      "timestamp": "2026-07-29T20:17:11.899539",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-17T13:34:45.056812",
+      "timestamp": "2026-07-29T20:19:24.577299",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T19:46:53.335213",
+      "timestamp": "2026-07-29T20:22:09.247543",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T19:49:11.845244",
+      "timestamp": "2026-07-29T20:24:28.373175",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T19:51:51.334748",
+      "timestamp": "2026-07-30T00:05:33.598207",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T19:53:58.360535",
+      "timestamp": "2026-07-30T00:08:23.817284",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T19:56:13.443920",
+      "timestamp": "2026-07-30T00:10:35.612764",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T19:59:05.225657",
+      "timestamp": "2026-07-30T00:12:57.713100",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T20:03:16.280173",
+      "timestamp": "2026-07-30T13:31:29.324953",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T20:05:44.164420",
+      "timestamp": "2026-07-30T13:34:44.638519",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T20:08:56.189885",
+      "timestamp": "2026-07-30T14:02:32.549238",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-22T20:11:49.867827",
+      "timestamp": "2026-07-30T14:19:34.502865",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-27T10:30:45.158377",
+      "timestamp": "2026-07-30T14:52:16.567241",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-27T10:33:09.468726",
+      "timestamp": "2026-07-30T14:55:17.939699",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-27T10:35:24.055590",
+      "timestamp": "2026-07-30T14:57:45.374377",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-29T02:59:43.136336",
+      "timestamp": "2026-07-30T14:59:59.576931",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-29T03:02:12.662803",
+      "timestamp": "2026-07-30T15:02:16.551484",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-29T03:04:28.276373",
+      "timestamp": "2026-07-30T15:05:02.558770",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-29T03:06:37.742230",
+      "timestamp": "2026-07-30T15:07:28.122501",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-29T03:08:59.267732",
+      "timestamp": "2026-08-06T02:55:00.718916",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-29T03:11:25.656578",
+      "timestamp": "2026-08-06T03:00:43.713607",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-29T03:13:58.386324",
+      "timestamp": "2026-08-06T03:03:18.501028",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-04-29T11:56:27.528702",
+      "timestamp": "2026-08-06T03:05:32.457170",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-05-12T01:01:28.867480",
+      "timestamp": "2026-08-06T03:07:45.492413",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-05-12T01:03:53.495340",
+      "timestamp": "2026-08-06T03:10:00.996385",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-05-12T01:06:17.480011",
+      "timestamp": "2026-08-06T03:12:18.430663",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-05-12T01:08:30.742293",
+      "timestamp": "2026-08-06T21:09:38.697512",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-06-02T04:57:28.368783",
+      "timestamp": "2026-08-06T21:12:18.740828",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-06-02T05:12:53.572122",
+      "timestamp": "2026-08-06T21:14:49.878826",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-06-02T06:24:13.039239",
+      "timestamp": "2026-08-06T21:17:05.030888",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-06-02T06:27:17.324708",
+      "timestamp": "2026-08-06T21:19:48.604108",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-06-03T03:17:11.336663",
+      "timestamp": "2026-08-06T21:21:55.183322",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-06-03T03:19:15.057754",
-      "health": 0.7125,
+      "timestamp": "2026-08-06T21:24:15.127266",
+      "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-06-04T03:25:15.628362",
+      "timestamp": "2026-08-06T21:26:27.603523",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-06-04T03:33:51.033653",
+      "timestamp": "2026-08-06T21:28:39.120204",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:12:29.955315",
+      "timestamp": "2026-08-06T21:30:46.503505",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:14:48.994731",
+      "timestamp": "2026-08-06T21:33:05.497984",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:16:52.463585",
+      "timestamp": "2026-08-06T21:35:32.534529",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:18:56.055229",
+      "timestamp": "2026-08-06T21:51:15.424708",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:21:06.187388",
+      "timestamp": "2026-08-06T21:54:28.875874",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:23:13.782146",
+      "timestamp": "2026-08-06T21:57:04.096663",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:25:17.250729",
+      "timestamp": "2026-08-17T01:53:52.283755",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:27:21.316983",
+      "timestamp": "2026-08-17T02:00:44.486302",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:29:25.242763",
+      "timestamp": "2026-08-17T02:03:22.947387",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:31:28.791253",
+      "timestamp": "2026-08-17T02:32:33.075947",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:42:43.818078",
+      "timestamp": "2026-08-17T02:35:24.128580",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:55:24.252146",
+      "timestamp": "2026-08-17T22:45:18.845647",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T16:57:48.998451",
+      "timestamp": "2026-08-17T22:48:32.586593",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T18:42:03.922823",
+      "timestamp": "2026-08-17T22:50:56.378525",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T18:44:52.534801",
+      "timestamp": "2026-08-17T22:53:18.666617",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T20:01:42.785801",
+      "timestamp": "2026-08-17T22:55:33.549763",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T20:04:32.086588",
+      "timestamp": "2026-08-17T22:57:48.456367",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     },
     {
-      "timestamp": "2026-07-25T20:06:47.352118",
+      "timestamp": "2026-08-17T23:00:21.596928",
       "health": 0.7875,
       "anomalies": 0,
       "tasks": 0
     }
   ],
   "stats": {
-    "synthesis_cycles": 152,
+    "synthesis_cycles": 299,
     "anomalies_detected": 0,
     "anomalies_resolved": 0,
     "tasks_managed": 0,
-    "predictions_made": 139
+    "predictions_made": 286
   }
 }

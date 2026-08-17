@@ -1,7 +1,18 @@
 {
-  "results": [],
+  "results": [
+    {
+      "result_id": "ae7631d7",
+      "input": "The existential implications of a universe where every conscious entity is ultimately just a fleeting, probabilistic fluctuation within an eternal mul\n\n[Previous insight from philosophy]: Existential:",
+      "mode": "resolve",
+      "resolution": "Consciousness arises from the probabilistic fluctuations within eternal multiverse, yet it remains meaningful and purposeful to individual entities.",
+      "truth_value": "both",
+      "confidence": 0.8,
+      "summary": "Both sides of the paradox coexist: consciousness is probabilistic and fleeting, yet meaningful and purposeful.",
+      "created_at": "2026-07-30T00:12:22.843143"
+    }
+  ],
   "stats": {
-    "total_paradoxes": 1,
+    "total_paradoxes": 7,
     "total_godel_checks": 0,
     "total_strange_loops": 0,
     "total_koans": 0

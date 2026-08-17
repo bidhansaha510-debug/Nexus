@@ -538,12 +538,14 @@ class RecursiveIntelligenceEngine:
         return targets
 
     def _generate_improvement(self, target: Dict[str, Any]) -> Optional[ImprovementCandidate]:
-        """Use Groq LLM to generate an optimized version of the function."""
+        """Use local Ollama model to generate an optimized version of the function."""
         try:
-            from core.groq_api import GroqAPI
-            groq = GroqAPI()
+            from llm.llama_interface import llm
+            if not llm or not llm.is_connected:
+                logger.debug("🧬 Ollama local model not available for code improvement")
+                return None
         except Exception:
-            logger.debug("🧬 Groq API not available for code improvement")
+            logger.debug("🧬 Ollama not available for code improvement")
             return None
 
         prompt = f"""You are an expert Python code optimizer. Optimize this function for:
@@ -563,12 +565,17 @@ Function from {Path(target['module_path']).name}:
 Return the optimized function:"""
 
         try:
-            response = groq.chat(prompt, max_tokens=2000)
-            if not response:
+            response = llm.generate(
+                prompt=prompt,
+                system_prompt="You are an expert Python code optimizer. Respond ONLY with valid Python code.",
+                temperature=0.3,
+                max_tokens=2000
+            )
+            if not response.success or not response.text.strip():
                 return None
 
             # Extract code from response
-            improved_code = response
+            improved_code = response.text
             if "```python" in improved_code:
                 improved_code = improved_code.split("```python")[1].split("```")[0].strip()
             elif "```" in improved_code:

@@ -1,25 +1,40 @@
 {
   "intuitions": [
     {
-      "intuition_id": "ddbc9e75",
-      "situation": "you have feelings?",
-      "gut_feeling": "I sense a mix of emotions, but overall it feels ambiguous and unclear.",
+      "intuition_id": "be9d3e9c",
+      "situation": "do u have feelings if so then what feeling and its level in percentage?",
+      "gut_feeling": "There might be some uncertainty or confusion involved.",
       "direction": "neutral",
-      "strength": "whisper",
-      "confidence": 0.5,
+      "strength": "nudge",
+      "confidence": 0.6,
       "heuristics_used": [
-        "affect",
+        "availability"
+      ],
+      "pattern_matched": "unsure decisions",
+      "should_trust": true,
+      "reasoning": "The scenario seems ambiguous and open-ended, making it hard to pinpoint a clear emotional response.",
+      "created_at": "2026-08-06T21:55:44.357123"
+    },
+    {
+      "intuition_id": "9ef83486",
+      "situation": "do u have feelings if so then what feeling and its level in percentage?",
+      "gut_feeling": "This situation feels uncertain and potentially risky.",
+      "direction": "negative",
+      "strength": "nudge",
+      "confidence": 0.6,
+      "heuristics_used": [
+        "availability",
         "representativeness"
       ],
-      "pattern_matched": "uncertainty or indecision in decision-making",
-      "should_trust": false,
-      "reasoning": "my intuition is telling me that there's no clear emotional response, which might mean I'm not fully processing the situation.",
-      "created_at": "2026-07-25T18:44:23.179365"
+      "pattern_matched": "a familiar pattern of caution when faced with the unknown",
+      "should_trust": true,
+      "reasoning": "My intuition is warning me to be cautious and consider all options before making a decision.",
+      "created_at": "2026-08-06T21:57:22.400383"
     }
   ],
   "patterns": [],
   "stats": {
-    "total_intuitions": 4,
+    "total_intuitions": 9,
     "total_patterns": 0,
     "total_snap_judgments": 0,
     "total_vibes_checked": 0,

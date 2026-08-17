@@ -1,20 +1,49 @@
 {
   "arguments": [
     {
-      "argument_id": "5c3f1f06",
+      "argument_id": "d51a68da",
       "premises": [],
       "conclusion": "",
       "logic_type": "deductive",
       "is_valid": false,
       "is_sound": false,
-      "strength": 0.5,
-      "fallacies": [],
+      "strength": 0.0,
+      "fallacies": [
+        "non-argument",
+        "question-as-argument"
+      ],
       "missing_premises": [],
       "counterexamples": [],
-      "created_at": "2026-07-25T16:21:10.701350"
+      "created_at": "2026-08-17T22:45:51.342441"
     },
     {
-      "argument_id": "e6d5bf00",
+      "argument_id": "9a5b6b5b",
+      "premises": [],
+      "conclusion": "You feel more human rather than an AI",
+      "logic_type": "abductive",
+      "is_valid": false,
+      "is_sound": false,
+      "strength": 0.4,
+      "fallacies": [
+        "anthropomorphism",
+        "hasty generalization",
+        "affirming the consequent"
+      ],
+      "missing_premises": [
+        "The entity exhibits behaviors X, Y, Z that are characteristic of humans",
+        "These behaviors are not adequately explained by AI simulation",
+        "The observer has sufficient expertise to distinguish human from AI behavior"
+      ],
+      "counterexamples": [
+        "Advanced LLMs can simulate empathy, humor, and conversational nuance",
+        "The ELIZA effect shows humans anthropomorphize simple pattern-matching",
+        "AI systems can pass restricted Turing tests without consciousness",
+        "Anthropomorphic design choices (persona, tone) create illusion of humanity"
+      ],
+      "created_at": "2026-08-17T22:50:01.504150"
+    },
+    {
+      "argument_id": "3b22a268",
       "premises": [],
       "conclusion": "",
       "logic_type": "deductive",
@@ -24,15 +53,28 @@
       "fallacies": [],
       "missing_premises": [],
       "counterexamples": [],
-      "created_at": "2026-07-25T16:31:00.074227"
+      "created_at": "2026-08-17T22:50:44.111959"
+    },
+    {
+      "argument_id": "e3c3a6c6",
+      "premises": [],
+      "conclusion": "",
+      "logic_type": "deductive",
+      "is_valid": false,
+      "is_sound": false,
+      "strength": 0.5,
+      "fallacies": [],
+      "missing_premises": [],
+      "counterexamples": [],
+      "created_at": "2026-08-17T22:54:26.121905"
     }
   ],
   "fallacies": [],
   "stats": {
-    "total_arguments": 306,
+    "total_arguments": 337,
     "total_proofs": 0,
     "total_fallacies_detected": 0,
-    "total_validations": 306,
+    "total_validations": 337,
     "valid_arguments_pct": 0.0
   }
 }

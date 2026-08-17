@@ -1,7 +1,24 @@
 {
-  "strategies": [],
+  "strategies": [
+    {
+      "strategy_id": "76136f11",
+      "situation": "Break this goal into 2-3 concrete, actionable sub-steps: 'Build meaningful relationships with users'. Current progress: 0%. Respond with a short numbered list of steps.",
+      "recommended_style": "collaborative",
+      "opening_position": "Start by showing genuine interest in the user's needs and concerns.",
+      "target_outcome": "Establish trust and rapport, leading to long-term loyalty and advocacy.",
+      "batna": "Have a clear understanding of the product/service features and benefits to confidently address any concerns or questions.",
+      "concessions": [
+        "Be willing to listen and adapt to changing user needs"
+      ],
+      "leverage_points": [
+        "Empathy and understanding of the user's perspective"
+      ],
+      "confidence": 0.8,
+      "created_at": "2026-07-29T12:13:54.692805"
+    }
+  ],
   "stats": {
-    "total_strategies": 1,
+    "total_strategies": 2,
     "total_compromises": 0,
     "total_persuasion_plans": 0,
     "total_conflict_resolutions": 0

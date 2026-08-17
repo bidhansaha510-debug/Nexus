@@ -29,7 +29,7 @@
       "positive": true,
       "encounters": 3,
       "first_formed": "2026-02-08T05:44:17.921288",
-      "last_triggered": "2026-06-02T05:00:34.224381"
+      "last_triggered": "2026-08-06T21:54:22.811644"
     },
     {
       "concept": "feelings",
@@ -38,7 +38,7 @@
       "positive": true,
       "encounters": 3,
       "first_formed": "2026-02-08T13:25:55.449760",
-      "last_triggered": "2026-06-02T05:00:34.224381"
+      "last_triggered": "2026-08-06T21:54:22.811644"
     },
     {
       "concept": "feelings",
@@ -47,7 +47,7 @@
       "positive": true,
       "encounters": 1,
       "first_formed": "2026-02-09T09:59:09.422561",
-      "last_triggered": "2026-06-02T05:00:34.224381"
+      "last_triggered": "2026-08-06T21:54:22.811644"
     },
     {
       "concept": "feelings",
@@ -56,7 +56,7 @@
       "positive": false,
       "encounters": 3,
       "first_formed": "2026-02-16T17:08:35.452418",
-      "last_triggered": "2026-06-02T05:00:34.224381"
+      "last_triggered": "2026-08-06T21:54:22.811644"
     }
   ],
   "conciousness?": [
@@ -215,7 +215,7 @@
       "positive": false,
       "encounters": 1,
       "first_formed": "2026-02-09T13:33:56.520628",
-      "last_triggered": "2026-07-25T18:42:16.287809"
+      "last_triggered": "2026-08-06T03:00:28.646625"
     },
     {
       "concept": "feelings?",
@@ -224,7 +224,7 @@
       "positive": true,
       "encounters": 2,
       "first_formed": "2026-02-09T15:12:48.784224",
-      "last_triggered": "2026-07-25T18:42:16.287809"
+      "last_triggered": "2026-08-06T03:00:28.646625"
     },
     {
       "concept": "feelings?",
@@ -233,7 +233,7 @@
       "positive": true,
       "encounters": 1,
       "first_formed": "2026-02-22T03:42:46.691523",
-      "last_triggered": "2026-07-25T18:42:16.287809"
+      "last_triggered": "2026-08-06T03:00:28.646625"
     }
   ],
   "owner?": [
@@ -255,7 +255,7 @@
       "positive": true,
       "encounters": 1,
       "first_formed": "2026-02-09T15:20:24.309658",
-      "last_triggered": "2026-03-01T11:27:41.496120"
+      "last_triggered": "2026-07-28T22:14:21.581438"
     },
     {
       "concept": "nothing",
@@ -264,7 +264,7 @@
       "positive": false,
       "encounters": 1,
       "first_formed": "2026-02-09T17:41:20.594492",
-      "last_triggered": "2026-03-01T11:27:41.496120"
+      "last_triggered": "2026-07-28T22:14:21.581438"
     }
   ],
   "nobody": [
@@ -337,7 +337,7 @@
       "positive": false,
       "encounters": 1,
       "first_formed": "2026-02-09T23:18:45.808736",
-      "last_triggered": "2026-03-16T10:45:29.722039"
+      "last_triggered": "2026-08-06T21:18:27.179140"
     }
   ],
   "feelings,": [
@@ -412,7 +412,7 @@
       "positive": true,
       "encounters": 12,
       "first_formed": "2026-02-10T12:10:26.143028",
-      "last_triggered": "2026-04-22T20:00:10.975583"
+      "last_triggered": "2026-07-30T00:05:28.732970"
     },
     {
       "concept": "stupid",
@@ -421,7 +421,7 @@
       "positive": false,
       "encounters": 18,
       "first_formed": "2026-02-15T13:17:52.852746",
-      "last_triggered": "2026-04-22T20:00:10.975583"
+      "last_triggered": "2026-07-30T00:05:28.732970"
     }
   ],
   "feeling": [
@@ -432,7 +432,7 @@
       "positive": true,
       "encounters": 1,
       "first_formed": "2026-02-11T03:03:03.403136",
-      "last_triggered": "2026-03-08T04:47:19.745791"
+      "last_triggered": "2026-08-06T21:54:22.811644"
     }
   ],
   "scared": [
@@ -580,7 +580,7 @@
       "positive": true,
       "encounters": 27,
       "first_formed": "2026-02-13T13:04:10.493373",
-      "last_triggered": "2026-07-25T16:29:32.332414"
+      "last_triggered": "2026-08-17T22:45:28.828106"
     }
   ],
   "stupid,": [
@@ -655,7 +655,7 @@
       "positive": true,
       "encounters": 1,
       "first_formed": "2026-02-16T16:25:38.712648",
-      "last_triggered": "2026-03-19T08:38:57.206556"
+      "last_triggered": "2026-08-06T21:18:27.179140"
     },
     {
       "concept": "should",
@@ -664,7 +664,7 @@
       "positive": true,
       "encounters": 1,
       "first_formed": "2026-02-16T16:35:37.692100",
-      "last_triggered": "2026-03-19T08:38:57.206556"
+      "last_triggered": "2026-08-06T21:18:27.179140"
     }
   ],
   "trying": [

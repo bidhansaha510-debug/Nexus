@@ -289,11 +289,238 @@
         "being woken up by an alarm"
       ],
       "created_at": "2026-04-12T05:14:32.415597"
+    },
+    "ed732462-eb0": {
+      "chain_id": "ed732462-eb0",
+      "trigger_event": "The potential consequences of a cosmic event that simultaneously collapses all singularities and resets the universe's fundamental constants, renderin",
+      "links": [
+        {
+          "cause": "Quantum Fluctuation",
+          "effect": "Singularity Collapse",
+          "relation_type": "direct",
+          "strength": 0.8,
+          "mechanism": "Random fluctuations in the quantum vacuum led to a catastrophic destabilization of singularities.",
+          "confidence": 0.9
+        },
+        {
+          "cause": "Singularity Collapse",
+          "effect": "Cosmic Event",
+          "relation_type": "direct",
+          "strength": 0.9,
+          "mechanism": "The collapse of singularities triggered a chain reaction that released immense energy, leading to the cosmic event.",
+          "confidence": 0.95
+        },
+        {
+          "cause": "Cosmic Event",
+          "effect": "Resetting of the Universe's Fundamental Constants",
+          "relation_type": "direct",
+          "strength": 0.7,
+          "mechanism": "The released energy interacted with the fabric of space-time, causing a fundamental reset of physical laws and constants.",
+          "confidence": 0.85
+        }
+      ],
+      "root_cause": "Quantum Fluctuation",
+      "ultimate_effect": "Resetting of the Universe's Fundamental Constants",
+      "total_confidence": 0.92,
+      "branching_points": [
+        "A slight variation in the quantum fluctuation could have prevented the singularity collapse.",
+        "The cosmic event's energy release was influenced by the density of nearby matter, which could have altered its impact."
+      ],
+      "created_at": "2026-07-27T23:52:00.295438"
+    },
+    "1f6d2fa1-d85": {
+      "chain_id": "1f6d2fa1-d85",
+      "trigger_event": "The inherent paradoxical nature of causality, where deterministic explanations are simultaneously necessary and insufficient for understanding the com",
+      "links": [
+        {
+          "cause": "Philosophers and scientists exploring the nature of reality",
+          "effect": "The emergence of paradoxical concepts",
+          "relation_type": "direct",
+          "strength": 0.8,
+          "mechanism": "Human inquiry drives the development of abstract ideas, leading to the recognition of inherent contradictions.",
+          "confidence": 0.9
+        },
+        {
+          "cause": "The paradoxical concepts",
+          "effect": "The inherent paradoxical nature of causality",
+          "relation_type": "direct",
+          "strength": 1.0,
+          "mechanism": "Paradoxes reveal the limitations and inconsistencies in our understanding, highlighting the need for nuanced approaches to causality.",
+          "confidence": 0.95
+        }
+      ],
+      "root_cause": "The complexity of human cognition",
+      "ultimate_effect": "The inherent paradoxical nature of causality",
+      "total_confidence": 0.85,
+      "branching_points": [
+        "The development of alternative philosophical frameworks",
+        "The discovery of new mathematical structures"
+      ],
+      "created_at": "2026-07-29T12:07:19.840015"
+    },
+    "85d623a8-2ec": {
+      "chain_id": "85d623a8-2ec",
+      "trigger_event": "The existential implications of a universe where causality is reversed, with effects preceding causes, and the potential consequences for free will, d",
+      "links": [
+        {
+          "cause": "Theoretical physicists' inquiry into fundamental laws",
+          "effect": "Development of novel mathematical frameworks",
+          "relation_type": "necessary",
+          "strength": 0.8,
+          "mechanism": "Physicists' curiosity drives the development of new mathematical tools to describe complex phenomena.",
+          "confidence": 0.9
+        },
+        {
+          "cause": "Development of novel mathematical frameworks",
+          "effect": "Simulation and modeling of hypothetical scenarios",
+          "relation_type": "sufficient",
+          "strength": 0.7,
+          "mechanism": "Mathematical frameworks enable the creation of simulations that can test hypotheses about reversed causality.",
+          "confidence": 0.8
+        },
+        {
+          "cause": "Simulation and modeling of hypothetical scenarios",
+          "effect": "Discovery of potential consequences for free will",
+          "relation_type": "contributing",
+          "strength": 0.6,
+          "mechanism": "Simulations reveal the implications of a universe where effects precede causes, leading to reevaluations of free will.",
+          "confidence": 0.7
+        },
+        {
+          "cause": "Discovery of potential consequences for free will",
+          "effect": "Existential implications of a universe where causality is reversed",
+          "relation_type": "direct",
+          "strength": 0.9,
+          "mechanism": "The discovery of the potential consequences for free will leads to an existential crisis, prompting questions about the nature of reality.",
+          "confidence": 0.95
+        }
+      ],
+      "root_cause": "Theoretical physicists' inquiry into fundamental laws",
+      "ultimate_effect": "Existential implications of a universe where causality is reversed",
+      "total_confidence": 0.85,
+      "branching_points": [
+        "Alternative mathematical frameworks could have led to different conclusions"
+      ],
+      "created_at": "2026-07-29T12:17:57.472765"
+    },
+    "df76a0ac-0f2": {
+      "chain_id": "df76a0ac-0f2",
+      "trigger_event": "The ontological implications of a universe governed solely by quantum entanglement and non-locality on our understanding of space, time, and causality",
+      "links": [
+        {
+          "cause": "Advances in quantum computing and cryptography",
+          "effect": "Increased understanding of entanglement and non-locality",
+          "relation_type": "direct",
+          "strength": 0.8,
+          "mechanism": "Improved algorithms and simulations enabled researchers to explore and understand the implications of quantum mechanics on spacetime and causality.",
+          "confidence": 0.9
+        },
+        {
+          "cause": "Increased understanding of entanglement and non-locality",
+          "effect": "Ontological implications for space, time, and causality",
+          "relation_type": "direct",
+          "strength": 0.6,
+          "mechanism": "Theoretical frameworks and mathematical models were developed to describe the phenomena, leading to a reevaluation of fundamental concepts.",
+          "confidence": 0.8
+        }
+      ],
+      "root_cause": "Advancements in quantum computing and cryptography",
+      "ultimate_effect": "Reevaluation of fundamental concepts in physics, philosophy, and mathematics",
+      "total_confidence": 0.7,
+      "branching_points": [
+        "Alternative interpretations of quantum mechanics could have led to different implications",
+        "Faster development of practical applications for entanglement-based technologies might have accelerated the reevaluation"
+      ],
+      "created_at": "2026-08-06T21:22:20.830026"
+    },
+    "76450c54-0c5": {
+      "chain_id": "76450c54-0c5",
+      "trigger_event": "why are you angry?",
+      "links": [
+        {
+          "cause": "Perceived injustice",
+          "effect": "Frustration",
+          "relation_type": "direct",
+          "strength": 0.8,
+          "mechanism": "The perceived lack of fairness or equity triggers a sense of frustration.",
+          "confidence": 0.9
+        },
+        {
+          "cause": "Frustration",
+          "effect": "Build-up of emotional energy",
+          "relation_type": "direct",
+          "strength": 0.7,
+          "mechanism": "The accumulation of frustrated feelings builds up emotional tension.",
+          "confidence": 0.8
+        },
+        {
+          "cause": "Unmet emotional needs",
+          "effect": "Frustration",
+          "relation_type": "direct",
+          "strength": 0.6,
+          "mechanism": "Unaddressed emotional demands can lead to feelings of frustration.",
+          "confidence": 0.7
+        }
+      ],
+      "root_cause": "Unmet emotional needs",
+      "ultimate_effect": "Anger expression",
+      "total_confidence": 0.85,
+      "branching_points": [
+        "Seeking social support or validation",
+        "Engaging in healthy emotional release (e.g., exercise, creative expression)"
+      ],
+      "created_at": "2026-08-06T21:31:36.707779"
+    },
+    "e96d3716-2e7": {
+      "chain_id": "e96d3716-2e7",
+      "trigger_event": "The nature of quantum gravity and its implications on our understanding of spacetime, causality, and the fabric of reality",
+      "links": [
+        {
+          "cause": "theoretical frameworks in physics (e.g., general relativity, quantum mechanics)",
+          "effect": "identification of inconsistencies and limitations in existing theories",
+          "relation_type": "necessary",
+          "strength": 0.8,
+          "mechanism": "the need to reconcile apparent contradictions drove the search for new theories",
+          "confidence": 0.9
+        },
+        {
+          "cause": "identification of inconsistencies and limitations",
+          "effect": "development of new theoretical frameworks (e.g., loop quantum gravity, string theory)",
+          "relation_type": "sufficient",
+          "strength": 0.7,
+          "mechanism": "the recognition of gaps in existing theories led to the creation of new ones",
+          "confidence": 0.8
+        },
+        {
+          "cause": "development of new theoretical frameworks",
+          "effect": "experimental searches and observations (e.g., gravitational wave detectors, particle colliders)",
+          "relation_type": "indirect",
+          "strength": 0.6,
+          "mechanism": "new theories guided the design and interpretation of experiments",
+          "confidence": 0.7
+        },
+        {
+          "cause": "experimental searches and observations",
+          "effect": "advancements in quantum gravity and its applications",
+          "relation_type": "direct",
+          "strength": 1.0,
+          "mechanism": "the accumulation of empirical evidence and the refinement of theoretical frameworks",
+          "confidence": 0.9
+        }
+      ],
+      "root_cause": "human curiosity and the pursuit of fundamental understanding",
+      "ultimate_effect": "advancements in quantum gravity and its applications",
+      "total_confidence": 0.85,
+      "branching_points": [
+        "alternative interpretations of existing data (e.g., modified gravity theories)",
+        "funding priorities shifting towards other areas of research"
+      ],
+      "created_at": "2026-08-17T22:56:42.912787"
     }
   },
   "counterfactuals": {},
   "stats": {
-    "total_analyses": 8,
+    "total_analyses": 14,
     "total_predictions": 0,
     "total_counterfactuals": 0
   }

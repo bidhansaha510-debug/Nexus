@@ -100,6 +100,7 @@ class UserState:
     session_count: int = 0
     total_active_time_hours: float = 0.0
     last_session_start: Optional[datetime] = None
+    engagement_level: float = 0.5
 
 @dataclass
 class LearningState:

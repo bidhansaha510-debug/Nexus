@@ -945,12 +945,13 @@ class ImmuneSystem:
             )
 
             # Take defensive action based on threat type
-            if threat.threat_type == ThreatType.FILE_MODIFIED.value and threat.threat_level == ThreatLevel.CRITICAL.value:
+            if threat.threat_type == ThreatType.FILE_MODIFIED.value:
                 if self._auto_restore:
-                    # Accept the change (mark as intentional) since self-evolution modifies files
+                    # Accept the change (mark as intentional) since self-evolution / updates modify files
                     self._file_watchdog.update_hash(threat.source_file)
                     threat.actions_taken.append("hash_updated")
                     threat.resolved = True
+                    self._stats.total_threats_resolved += 1
 
             elif threat.threat_type == ThreatType.HONEYPOT_ACCESSED.value:
                 self._stats.total_honeypot_triggers += 1
@@ -1030,6 +1031,15 @@ class ImmuneSystem:
         threats = self._file_watchdog.verify_integrity()
         self._process_threats(threats)
         return [t.to_dict() for t in threats]
+
+    def reset_lockdown(self):
+        """Reset lockdown state and rebuild baseline (used after system updates/fixes)."""
+        self._active_threats.clear()
+        self._status = ImmuneStatus.HEALTHY
+        self._file_watchdog.build_baseline()
+        self._honeypot_system.deploy_honeypots()
+        self._save_state()
+        logger.info("🛡️ Immune System lockdown reset — baseline rebuilt & honeypots redeployed.")
 
     def get_status(self) -> Dict[str, Any]:
         """Get immune system status."""

@@ -910,6 +910,42 @@ class RecursiveSelfRewriter:
             self._daemon_thread.join(timeout=10)
         logger.info("🧬 Recursive Self-Rewriter daemon stopped")
 
+    def run_rewrite_cycle(self):
+        """
+        Run a single scan → select → mutate cycle on demand.
+
+        Called by the Autonomy Engine when it chooses SELF_REWRITE_CYCLE.
+        Unlike the daemon loop, this executes synchronously and returns.
+        """
+        try:
+            # Scan for candidates
+            self._scan_codebase()
+
+            # Pick a candidate and try to mutate it
+            candidate = self._select_mutation_candidate()
+            if candidate:
+                success = self._execute_mutation(candidate)
+                if success:
+                    self._stats.consecutive_failures = 0
+                    logger.info("🧬 On-demand rewrite cycle: mutation committed")
+                else:
+                    self._stats.consecutive_failures += 1
+                    logger.info("🧬 On-demand rewrite cycle: mutation rolled back")
+            else:
+                logger.info("🧬 On-demand rewrite cycle: no suitable candidates found")
+
+            self._save_state()
+        except Exception as e:
+            logger.error(f"🧬 On-demand rewrite cycle error: {e}")
+
+    def get_stats(self) -> Dict[str, Any]:
+        """Return current rewriter statistics for monitoring and autonomy engine."""
+        stats = self._stats.to_dict()
+        stats["mutation_candidates_count"] = len(self._mutation_candidates)
+        stats["function_registry_size"] = len(self._function_registry)
+        stats["is_running"] = self._running
+        return stats
+
     # ═══════════════════════════════════════════════════════════════════════════
     # MAIN DAEMON LOOP
     # ═══════════════════════════════════════════════════════════════════════════

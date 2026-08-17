@@ -1,8 +1,41 @@
 {
-  "hypotheses": [],
+  "hypotheses": [
+    {
+      "hypothesis_id": "295386cf",
+      "statement": "Hypothesis 1: The Butterfly Effect Hypothesis",
+      "null_hypothesis": "Human behavior is entirely deterministic and can be accurately predicted using traditional statistical methods",
+      "status": "proposed",
+      "confidence": 0.7,
+      "evidence_for": [],
+      "evidence_against": [],
+      "testable_predictions": [
+        "Small changes in initial conditions will lead to drastically different outcomes",
+        "The accuracy of predictions decreases as the complexity of human behavior increases"
+      ],
+      "falsification_criteria": "If a highly accurate predictive model of human behavior can be developed, or if small changes in initial conditions do not result in significantly different outcomes",
+      "domain": "Cognitive Science and Chaos Theory",
+      "created_at": "2026-07-29T12:39:24.731854"
+    },
+    {
+      "hypothesis_id": "043bf4cb",
+      "statement": "Hypothesis 2: The Determinism-Reversal Hypothesis",
+      "null_hypothesis": "The butterfly effect is a mathematical anomaly that does not apply to human behavior",
+      "status": "proposed",
+      "confidence": 0.5,
+      "evidence_for": [],
+      "evidence_against": [],
+      "testable_predictions": [
+        "Certain critical thresholds of complexity or uncertainty can trigger a reversal from determinism to chaos",
+        "Small changes in initial conditions can have profound effects on complex systems"
+      ],
+      "falsification_criteria": "If the predictive power of traditional statistical methods remains high even when dealing with complex and uncertain situations, or if the butterfly effect is only observed in highly controlled laboratory settings",
+      "domain": "Complexity Science and Philosophy of Mind",
+      "created_at": "2026-07-29T12:39:24.731854"
+    }
+  ],
   "experiments": [],
   "stats": {
-    "total_hypotheses": 5,
+    "total_hypotheses": 7,
     "total_experiments": 0,
     "total_supported": 0,
     "total_refuted": 0,

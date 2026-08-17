@@ -425,32 +425,55 @@ class FeedScraper:
         return articles
 
     def _scrape_reddit(self, config: FeedConfig) -> List[OSINTArticle]:
-        """Scrape Reddit via JSON API."""
+        """Scrape Reddit via RSS feed endpoint (.rss)."""
         articles = []
         try:
             import urllib.request
-            url = config.url.rstrip("/") + ".json?limit=25"
+            import xml.etree.ElementTree as ET
+
+            # Use .rss endpoint instead of .json (which is 403 blocked by Reddit)
+            raw_url = config.url.rstrip("/")
+            if not raw_url.endswith(".rss"):
+                url = raw_url + "/.rss"
+            else:
+                url = raw_url
+
             req = urllib.request.Request(url, headers={
-                **self._session_headers,
-                "User-Agent": "NEXUS-OSINT/1.0",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             })
             resp = urllib.request.urlopen(req, timeout=15)
-            data = json.loads(resp.read())
+            content = resp.read().decode("utf-8", errors="replace")
 
-            posts = data.get("data", {}).get("children", [])
-            for post in posts[:config.max_results]:
-                post_data = post.get("data", {})
-                title = post_data.get("title", "")
-                content = post_data.get("selftext", "")[:1000]
-                url_val = f"https://reddit.com{post_data.get('permalink', '')}"
-                author = post_data.get("author", "")
+            root = ET.fromstring(content)
+            # Reddit RSS uses Atom namespace: {http://www.w3.org/2005/Atom}
+            ns = {"atom": "http://www.w3.org/2005/Atom"}
+            entries = root.findall("atom:entry", ns)
+
+            if not entries:
+                # Try without namespace if standard RSS
+                entries = root.findall(".//entry") or root.findall(".//item")
+
+            for entry in entries[:config.max_results]:
+                title_elem = entry.find("atom:title", ns) if ns else entry.find("title")
+                link_elem = entry.find("atom:link", ns) if ns else entry.find("link")
+                content_elem = entry.find("atom:content", ns) if ns else entry.find("content")
+                author_elem = entry.find("atom:author/atom:name", ns) if ns else entry.find("author")
+
+                title = title_elem.text.strip() if (title_elem is not None and title_elem.text) else ""
+                url_val = link_elem.get("href", "") if link_elem is not None else ""
+                author = author_elem.text.strip() if (author_elem is not None and author_elem.text) else ""
+                content_str = content_elem.text if (content_elem is not None and content_elem.text) else ""
+
+                # Strip HTML tags from content preview
+                clean_content = re.sub(r"<[^>]+>", "", content_str)[:1000].strip()
 
                 if title:
                     article = OSINTArticle(
                         source=f"Reddit/{config.name}",
                         feed_type=FeedType.REDDIT.value,
                         title=title,
-                        content=content,
+                        content=clean_content,
                         url=url_val,
                         author=author,
                         content_hash=hashlib.md5(title.encode()).hexdigest(),

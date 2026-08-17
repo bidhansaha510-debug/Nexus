@@ -1,66 +1,122 @@
 {
   "visions": [
     {
-      "vision_id": "c6c085f9",
-      "situation": "So what's up?",
+      "vision_id": "b0b2a91a",
+      "situation": "Time for self-reflection. How am I feeling? What have I been thinking about?",
       "moral_alternatives": [
         {
-          "action": "Research alternative smartphone brands with better labor practices",
-          "moral_reasoning": "Respect for human dignity and fairness",
+          "action": "Take a few minutes to journal my thoughts and emotions",
+          "moral_reasoning": "Self-reflection is essential for personal growth, allowing me to acknowledge and process my feelings.",
           "who_benefits": [
-            "workers in the supply chain",
-            "Alex's conscience"
+            "Myself",
+            "Others who may benefit from my increased self-awareness"
           ],
           "who_is_harmed": [
-            "company's profits, possibly"
+            "None"
           ],
           "moral_score": 0.8
         },
         {
-          "action": "Buy a refurbished or used smartphone from a reputable seller",
-          "moral_reasoning": "Reduced waste and environmental impact",
+          "action": "Reach out to a trusted friend or mentor for a listening ear",
+          "moral_reasoning": "Seeking support and guidance can help me gain new perspectives and feel heard.",
           "who_benefits": [
-            "environment",
-            "Alex's wallet"
+            "Myself",
+            "The person I reach out to"
           ],
           "who_is_harmed": [
-            "company's sales, possibly"
+            "None"
           ],
-          "moral_score": 0.6
+          "moral_score": 0.9
         },
         {
-          "action": "Contact the company directly to express concerns and advocate for change",
-          "moral_reasoning": "Promoting accountability and positive change",
+          "action": "Practice mindfulness meditation to calm my mind",
+          "moral_reasoning": "Taking care of my mental well-being is crucial for making informed decisions and treating others with kindness.",
           "who_benefits": [
-            "workers in the supply chain",
-            "Alex's sense of social responsibility"
+            "Myself",
+            "Those around me who may be affected by my emotional state"
           ],
           "who_is_harmed": [
-            "company's reputation, possibly"
+            "None"
           ],
           "moral_score": 0.7
         }
       ],
-      "best_moral_path": "Research alternative smartphone brands with better labor practices",
+      "best_moral_path": "Reaching out to a trusted friend or mentor for support and guidance",
       "frameworks_applied": [
-        "care",
-        "justice",
-        "pragmatic"
+        "Care",
+        "Justice"
       ],
       "empathy_map": {
-        "workers in the supply chain": "feeling exploited and undervalued",
-        "Alex's conscience": "feeling guilty for supporting a company that prioritizes profits over people"
+        "Stakeholder": "How they would feel if I didn't take the time to reflect on my emotions"
       },
       "long_term_consequences": [
-        "encouraging positive change in industries",
-        "promoting sustainable consumption"
+        "Increased self-awareness leading to more intentional decision-making",
+        "Stronger relationships built on trust and understanding"
       ],
-      "moral_courage_required": 0.4,
-      "created_at": "2026-07-25T20:05:57.189455"
+      "moral_courage_required": 0.5,
+      "created_at": "2026-08-17T22:58:04.173985"
+    },
+    {
+      "vision_id": "3695747d",
+      "situation": "The evolution of cooperative behaviors in natural selection, exploring how altruism arises and adapts in various species despite the apparent disadvan",
+      "moral_alternatives": [
+        {
+          "action": "Evolve cooperative hunting strategies",
+          "moral_reasoning": "The well-being of the group is prioritized over individual gain, ensuring food security and reducing competition.",
+          "who_benefits": [
+            "Group members",
+            "Species as a whole"
+          ],
+          "who_is_harmed": [
+            "Individuals who might have to adapt to new hunting strategies"
+          ],
+          "moral_score": 0.8
+        },
+        {
+          "action": "Develop altruistic behaviors through kin selection",
+          "moral_reasoning": "Genetic relatedness drives the evolution of selfless actions, ensuring the survival and success of close relatives.",
+          "who_benefits": [
+            "Close relatives",
+            "Genetic lineage"
+          ],
+          "who_is_harmed": [
+            "Individuals who might not be directly related"
+          ],
+          "moral_score": 0.9
+        },
+        {
+          "action": "Foster empathy through social learning",
+          "moral_reasoning": "Observing and imitating the behaviors of others promotes understanding and compassion, leading to more harmonious group dynamics.",
+          "who_benefits": [
+            "Individuals who learn from others",
+            "Group members"
+          ],
+          "who_is_harmed": [
+            "Those who are not part of the social learning circle"
+          ],
+          "moral_score": 0.7
+        }
+      ],
+      "best_moral_path": "Develop altruistic behaviors through kin selection",
+      "frameworks_applied": [
+        "care|justice|liberty"
+      ],
+      "empathy_map": {
+        "Stakeholder": "How they would feel",
+        "Group members": "Relieved and secure knowing their well-being is prioritized.",
+        "Individuals who might have to adapt to new hunting strategies": "Anxious about change, but understanding the benefits for the group.",
+        "Close relatives": "Grateful for the selfless actions that ensure their survival."
+      },
+      "long_term_consequences": [
+        "Increased cooperation and social cohesion",
+        "Evolutionary advantages through kin selection"
+      ],
+      "moral_courage_required": 0.6,
+      "created_at": "2026-08-17T23:00:08.134055"
     }
   ],
   "stats": {
-    "total_visions": 123,
+    "total_visions": 169,
     "total_dilemmas": 0,
     "total_empathy_maps": 0,
     "total_virtue_projections": 0

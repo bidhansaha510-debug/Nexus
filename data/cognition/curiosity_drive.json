@@ -1,73 +1,73 @@
 {
   "questions": [
     {
-      "question_id": "e074c8ff",
-      "question": "What does 'so what's up' mean in a world where we're constantly connected and sharing our lives online?",
+      "question_id": "ba7bd12f",
+      "question": "What is the hidden pattern behind the emergence of complex systems in nature?",
       "curiosity_type": "epistemic",
       "importance": 0.8,
-      "knowledge_gap": "how our language and communication have evolved with technology",
-      "potential_impact": "why understanding this phrase matters in building meaningful relationships",
+      "knowledge_gap": "the unknown underlying structure",
+      "potential_impact": "understanding this could revolutionize fields like ecology and conservation",
       "exploration_path": [
-        "Analyze online conversations",
-        "Interview people from different age groups"
+        "study existing theories on complexity",
+        "analyze real-world examples of complex systems"
       ],
-      "created_at": "2026-07-25T20:06:07.150990"
+      "created_at": "2026-08-17T23:00:32.723763"
     },
     {
-      "question_id": "446fa13d",
-      "question": "What are the underlying emotions or needs that make someone ask 'so what's up'?",
-      "curiosity_type": "epistemic",
+      "question_id": "37bd6f30",
+      "question": "How do our brains create the illusion of free will when every thought and action is determined by prior causes?",
+      "curiosity_type": "perceptual",
       "importance": 0.9,
-      "knowledge_gap": "how we can better understand and address people's emotional needs",
-      "potential_impact": "why empathy matters in building stronger connections",
+      "knowledge_gap": "the gap between conscious experience and deterministic physics",
+      "potential_impact": "understanding this could fundamentally change our relationship with technology and artificial intelligence",
       "exploration_path": [
-        "Conduct surveys on emotional intelligence",
-        "Interview therapists or counselors"
+        "explore the neuroscience of decision-making",
+        "analyze philosophical theories on free will"
       ],
-      "created_at": "2026-07-25T20:06:07.150990"
+      "created_at": "2026-08-17T23:00:32.723763"
     },
     {
-      "question_id": "c50a8f3b",
-      "question": "How does the phrase 'so what's up' reflect our societal values and priorities?",
-      "curiosity_type": "epistemic",
+      "question_id": "a741e1c5",
+      "question": "Can we develop a new form of sustainable energy that is as scalable and accessible as fossil fuels?",
+      "curiosity_type": "specific",
       "importance": 0.7,
-      "knowledge_gap": "how language reflects cultural and social norms",
-      "potential_impact": "why understanding this phrase matters in shaping our collective values",
+      "knowledge_gap": "the unknown path to a low-carbon future",
+      "potential_impact": "answering this could help mitigate climate change and ensure a livable planet",
       "exploration_path": [
-        "Analyze news headlines and popular culture",
-        "Conduct focus groups on societal priorities"
+        "research existing renewable energy technologies",
+        "analyze the role of policy and infrastructure in scaling up sustainable energy"
       ],
-      "created_at": "2026-07-25T20:06:07.150990"
+      "created_at": "2026-08-17T23:00:32.723763"
     },
     {
-      "question_id": "9df8d09a",
-      "question": "What are the potential implications of 'so what's up' becoming a universal greeting, like 'hello'?",
-      "curiosity_type": "epistemic",
+      "question_id": "3e4139e9",
+      "question": "What are the long-term consequences of humans becoming increasingly dependent on virtual reality and artificial environments?",
+      "curiosity_type": "diversive",
       "importance": 0.6,
-      "knowledge_gap": "how language and culture intersect",
-      "potential_impact": "why exploring this idea matters in shaping our global community",
+      "knowledge_gap": "the unknown impact on our collective psyche",
+      "potential_impact": "answering this could help us navigate the implications of a more immersive internet",
       "exploration_path": [
-        "Imagine alternative greetings",
-        "Research the impact of globalization on language"
+        "explore the psychology of virtual reality",
+        "analyze the social and cultural effects of VR"
       ],
-      "created_at": "2026-07-25T20:06:07.150990"
+      "created_at": "2026-08-17T23:00:32.723763"
     },
     {
-      "question_id": "e789eda9",
-      "question": "What does 'so what's up' reveal about our desire for human connection and intimacy in a rapidly changing world?",
-      "curiosity_type": "epistemic",
-      "importance": 0.9,
-      "knowledge_gap": "how we can foster deeper connections in the digital age",
-      "potential_impact": "why understanding this phrase matters in building stronger, more meaningful relationships",
+      "question_id": "70433ebe",
+      "question": "How do we reconcile our individual desires for happiness with the impermanence and uncertainty of life?",
+      "curiosity_type": "social",
+      "importance": 0.5,
+      "knowledge_gap": "the unknown path to personal fulfillment",
+      "potential_impact": "answering this could help us build more resilient and compassionate communities",
       "exploration_path": [
-        "Analyze literature on human connection and intimacy",
-        "Conduct interviews with people from different walks of life"
+        "study the science of happiness",
+        "analyze cultural and philosophical approaches to finding meaning"
       ],
-      "created_at": "2026-07-25T20:06:07.150990"
+      "created_at": "2026-08-17T23:00:32.723763"
     }
   ],
   "stats": {
-    "total_questions_generated": 80,
+    "total_questions_generated": 90,
     "total_gaps_detected": 0,
     "total_explorations": 0,
     "total_deep_dives": 0

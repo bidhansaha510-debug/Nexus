@@ -102,10 +102,136 @@
         "It is limited to capturing the general structure and repetition found in common experiences"
       ],
       "created_at": "2026-04-12T14:42:10.889513"
+    },
+    "120c7995-a78": {
+      "analogy_id": "120c7995-a78",
+      "source_domain": "The self-organizing properties of swarms: How collective behavior emerges from individual interactions, leading to unexpected patterns and efficiencie",
+      "target_domain": "common experience",
+      "analogy_type": "structural",
+      "mappings": [
+        {
+          "source_element": "individuals in a swarm",
+          "target_element": "people in a society",
+          "relationship": "both involve complex interactions that lead to emergent behaviors",
+          "strength": 0.8
+        },
+        {
+          "source_element": "swarm's self-organizing properties",
+          "target_element": "human experiences and memories",
+          "relationship": "both exhibit patterns and efficiencies that arise from individual components",
+          "strength": 0.7
+        },
+        {
+          "source_element": "emergent patterns in swarms",
+          "target_element": "common experiences in human lives",
+          "relationship": "both involve unexpected outcomes that arise from individual interactions",
+          "strength": 0.9
+        }
+      ],
+      "summary": "Collective experiences in human lives emerge from individual interactions, leading to unexpected patterns and efficiencies.",
+      "insight": "This analogy reveals how collective experiences can emerge from individual interactions, leading to efficiencies and patterns that might not be predictable from the individual components alone.",
+      "strength": 0.85,
+      "limitations": [
+        "The analogy may break down when considering the role of external factors, such as environmental pressures or social norms, which are more significant in human societies than in swarms."
+      ],
+      "created_at": "2026-07-28T00:01:46.619321"
+    },
+    "10def773-d1c": {
+      "analogy_id": "10def773-d1c",
+      "source_domain": "The relationship between the self-organizing properties of biological systems and the emergence of complex behavior in artificial networks, exploring",
+      "target_domain": "common experience",
+      "analogy_type": "structural",
+      "mappings": [
+        {
+          "source_element": "Biological cells interacting through chemical signals",
+          "target_element": "Individuals sharing common experiences and emotions",
+          "relationship": "both involve decentralized, adaptive interactions leading to emergent patterns",
+          "strength": 0.8
+        },
+        {
+          "source_element": "Complex behavior in artificial networks (e.g., neural networks)",
+          "target_element": "Community dynamics shaped by shared experiences and norms",
+          "relationship": "both exhibit non-linear, self-reinforcing feedback loops driving emergent patterns",
+          "strength": 0.7
+        }
+      ],
+      "summary": "The emergence of common experiences in a community is analogous to the self-organizing properties of biological systems, as both exhibit complex behavior arising from interactions.",
+      "insight": "This analogy reveals that complex behaviors in both biological and artificial systems can arise from decentralized interactions, highlighting the potential for community dynamics to be shaped by shared experiences.",
+      "strength": 0.85,
+      "limitations": [
+        "The analogy may not capture the full richness of human social dynamics, as it oversimplifies the complexities involved."
+      ],
+      "created_at": "2026-07-29T17:30:58.331473"
+    },
+    "0e22203d-08c": {
+      "analogy_id": "0e22203d-08c",
+      "source_domain": "The evolutionary pressures that have shaped the development of mathematical concepts across cultures throughout history",
+      "target_domain": "common experience",
+      "analogy_type": "proportional",
+      "mappings": [
+        {
+          "source_element": "cultural context in source",
+          "target_element": "individual experiences in target",
+          "relationship": "shared influence and shaping",
+          "strength": 0.8
+        },
+        {
+          "source_element": "selective pressures on mathematical concepts in source",
+          "target_element": "selective attention to common experiences in target",
+          "relationship": "similar filtering mechanisms",
+          "strength": 0.7
+        },
+        {
+          "source_element": "cumulative effects of historical and cultural influences in source",
+          "target_element": "cumulative effects of individual and shared experiences in target",
+          "relationship": "similar accumulation of insights",
+          "strength": 0.6
+        }
+      ],
+      "summary": "The evolution of mathematical concepts across cultures is analogous to common experience.",
+      "insight": "This analogy reveals that the evolution of mathematical concepts across cultures, driven by selective pressures and cumulative influences, can be seen as a reflection of how common experiences shape our understanding of the world through individual experiences.",
+      "strength": 0.75,
+      "limitations": [
+        "The analogy may not capture the complexity of cultural differences or the role of individual creativity in shaping mathematical concepts."
+      ],
+      "created_at": "2026-07-29T20:07:57.093376"
+    },
+    "3f0718b5-d74": {
+      "analogy_id": "3f0718b5-d74",
+      "source_domain": "hey bro wassup",
+      "target_domain": "common experience",
+      "analogy_type": "metaphorical",
+      "mappings": [
+        {
+          "source_element": "Hey bro wassup",
+          "target_element": "Common experience",
+          "relationship": "Both facilitate social connection and understanding between individuals.",
+          "strength": 0.8
+        },
+        {
+          "source_element": "Social norms (e.g., familiarity)",
+          "target_element": "Shared context",
+          "relationship": "These factors contribute to the feeling of unity and shared knowledge.",
+          "strength": 0.6
+        },
+        {
+          "source_element": "Informal language (e.g., colloquialisms)",
+          "target_element": "Cultural background",
+          "relationship": "Both influence communication styles and shared understanding.",
+          "strength": 0.5
+        }
+      ],
+      "summary": "A casual greeting can be seen as a shared experience that brings people together.",
+      "insight": "The analogy reveals that casual greetings can be seen as a form of shared experience, highlighting the importance of social connection and understanding in bringing people together.",
+      "strength": 0.75,
+      "limitations": [
+        "The analogy may not hold for formal or professional settings where more formal language is expected."
+      ],
+      "created_at": "2026-08-17T02:33:13.776186"
     }
   },
   "stats": {
-    "total_analogies_found": 4,
+    "total_analogies_found": 8,
     "total_analogies_applied": 0
   }
 }

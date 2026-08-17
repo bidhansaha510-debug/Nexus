@@ -1,7 +1,28 @@
 {
-  "prophecies": [],
+  "prophecies": [
+    {
+      "prophecy_id": "4ebabe67",
+      "situation": "The hypothetical existence and characteristics of an interdimensional \"echo chamber\" that resonates with the collective human unconscious, generating",
+      "mode": "branching",
+      "num_branches": 5,
+      "most_likely": "The echo chamber amplifies global anxiety, leading to a short-term economic downturn.",
+      "confidence": 0.85,
+      "summary": "A collective unconscious echo chamber will amplify global anxiety or spark widespread environmental activism, with a small chance of catastrophic consequences.",
+      "created_at": "2026-07-27T23:43:10.784406"
+    },
+    {
+      "prophecy_id": "ccb44a8d",
+      "situation": "make the script easy to understand by normal and also easy to shoot",
+      "mode": "branching",
+      "num_branches": 6,
+      "most_likely": "Script rewrites and reshoots to make it easier to understand",
+      "confidence": 0.7,
+      "summary": "A moderate impact scenario with a high probability of success, but beware of the wildcard creative difference rewrite!",
+      "created_at": "2026-07-27T23:57:42.496305"
+    }
+  ],
   "stats": {
-    "total_prophecies": 0,
+    "total_prophecies": 2,
     "total_timelines": 0,
     "total_convergences": 0,
     "total_black_swans": 0

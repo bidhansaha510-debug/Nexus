@@ -539,17 +539,28 @@ class HeartbeatMonitor:
 
         try:
             import urllib.request
+            import urllib.error
             start = time.time()
-            req = urllib.request.Request(url, method="HEAD")
-            req.add_header("User-Agent", "NEXUS-Heartbeat/1.0")
-            resp = urllib.request.urlopen(req, timeout=10)
-            latency = (time.time() - start) * 1000
-
-            record.status = HeartbeatStatus.ALIVE.value
-            record.latency_ms = latency
-            self._failure_count = 0
-
-        except Exception as e:
+            req = urllib.request.Request(url, method="GET")
+            req.add_header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
+            
+            try:
+                resp = urllib.request.urlopen(req, timeout=10)
+                latency = (time.time() - start) * 1000
+                record.status = HeartbeatStatus.ALIVE.value
+                record.latency_ms = latency
+                self._failure_count = 0
+            except urllib.error.HTTPError as he:
+                latency = (time.time() - start) * 1000
+                # Status codes < 500 (like 200, 301, 302, 404, 405) mean the tunnel and server responded!
+                if he.code < 500:
+                    record.status = HeartbeatStatus.ALIVE.value
+                    record.latency_ms = latency
+                    self._failure_count = 0
+                else:
+                    record.status = HeartbeatStatus.UNREACHABLE.value
+                    self._failure_count += 1
+        except Exception:
             record.status = HeartbeatStatus.UNREACHABLE.value
             self._failure_count += 1
 
@@ -557,6 +568,10 @@ class HeartbeatMonitor:
             self._heartbeats.append(record)
 
         return record
+
+    def reset_failures(self):
+        """Reset consecutive failure counter."""
+        self._failure_count = 0
 
     @property
     def failure_count(self) -> int:
@@ -740,6 +755,7 @@ class PersistentPresence:
                 }, source="persistent_presence")
 
                 logger.info(f"🌍 ONLINE at: {self._primary_url}")
+                self._heartbeat_monitor.reset_failures()
                 break
 
         if self._state != PresenceState.ONLINE:
@@ -770,6 +786,7 @@ class PersistentPresence:
         logger.warning("🌍 Performing failover...")
         self._state = PresenceState.FAILOVER
         self._stats.total_failovers += 1
+        self._heartbeat_monitor.reset_failures()
 
         # Kill dead tunnels
         for conn in list(self._tunnel_manager._connections.values()):

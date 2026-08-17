@@ -1,10 +1,45 @@
 {
-  "graphs": [],
+  "graphs": [
+    {
+      "graph_id": "7ed71efa",
+      "topic": "Goal: 'Build meaningful relationships with users' (progress: 64%). What is the single most impactful thing I should do RIGHT NOW to advance this goal? Be specific and brief.",
+      "nodes": [
+        {
+          "node_id": "fa0da11e",
+          "name": "User Engagement",
+          "domain": "Relationship Building",
+          "description": "Interact with users through various channels and platforms.",
+          "properties": {},
+          "connections": []
+        },
+        {
+          "node_id": "df90966f",
+          "name": "Personalization",
+          "domain": "Relationship Building",
+          "description": "Tailor interactions to individual user preferences and interests.",
+          "properties": {},
+          "connections": []
+        }
+      ],
+      "edges": [
+        {
+          "from": "User Engagement",
+          "to": "Personalization",
+          "relation": "enables",
+          "strength": 0.8
+        }
+      ],
+      "domains": [
+        "Relationship Building"
+      ],
+      "created_at": "2026-08-17T01:59:51.380917"
+    }
+  ],
   "syntheses": [],
   "stats": {
-    "total_graphs": 3,
+    "total_graphs": 13,
     "total_syntheses": 0,
-    "total_concepts_mapped": 5,
-    "total_connections": 5
+    "total_concepts_mapped": 27,
+    "total_connections": 17
   }
 }

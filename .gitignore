@@ -17,15 +17,30 @@ env/
 .env.*
 !.env.example
 
-# Data & runtime files
+# Data & runtime files (large/generated — not source code)
 data/screenshots/
 data/sessions/
 data/self_rewriter/backups/
+data/vector_store/
+data/chrome_profiles/
+data/chrome_live_profile/
+data/cryogenic/
+data/backups/
+data/companion_chats/
+data/recursive_intelligence/
+data/logs/
+data/working_memory/
+data/zero_day_engine/
+data/fb_*.png
+data/twitter_cookies.json
 *.db
+*.db-shm
+*.db-wal
 *.sqlite3
 
 # Logs
 *.log
+*.log.*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -53,3 +68,16 @@ build.sh
 
 # mypy
 .mypy_cache/
+
+# pytest
+.pytest_cache/
+_pytest_results.txt
+
+# Mobile build artifacts
+mobile/android/.gradle/
+mobile/android/app/build/
+mobile/node_modules/
+mobile/NEXUS-AI.apk
+
+# liboqs submodule build artifacts
+liboqs/build/

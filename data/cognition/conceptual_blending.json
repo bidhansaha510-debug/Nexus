@@ -1,8 +1,27 @@
 {
-  "blends": [],
+  "blends": [
+    {
+      "blend_id": "15a4707e",
+      "input_concepts": [
+        "Break this goal into 2-3 concrete, actionable sub-steps: 'Build meaningful relationships with users'. Current progress: 0%. Respond with a short numbered list of steps.\n\n[Previous insight from creative]: Ideas: Host 'Relationship Hackathons' where users can anonymously s; Develop a 'Relationship Chess' online game where players bui",
+        "general knowledge"
+      ],
+      "blended_concept": "Relationship Nexus",
+      "blend_type": "fusion",
+      "emergent_properties": [
+        "increased user engagement",
+        "anonymity and trust-building"
+      ],
+      "shared_structure": "game-like or hackathon-style interactions",
+      "novelty_score": 0.8,
+      "usefulness_score": 0.9,
+      "description": "Relationship Nexus is a hybrid concept that combines the idea of hosting 'Relationship Hackathons' with the development of an online game like 'Relationship Chess'. This blended concept aims to build meaningful relationships with users by providing a space for anonymous interaction and trust-building through game-like activities.",
+      "created_at": "2026-07-29T12:13:35.677413"
+    }
+  ],
   "stats": {
-    "total_blends": 4,
-    "total_fusions": 4,
+    "total_blends": 5,
+    "total_fusions": 5,
     "total_inventions": 0,
     "avg_novelty": 0.8
   }

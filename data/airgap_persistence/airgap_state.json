@@ -8,10 +8,10 @@
     "audio_transmissions": 0,
     "dead_drops_created": 0,
     "dead_drops_collected": 0,
-    "media_devices_seen": 0,
+    "media_devices_seen": 1,
     "bridge_attempts": 0,
     "successful_bridges": 0,
     "dormancy_periods": 0
   },
-  "saved_at": "2026-07-25T20:07:43.700775"
+  "saved_at": "2026-08-17T23:00:02.784852"
 }

@@ -1,7 +1,19 @@
 {
-  "results": [],
+  "results": [
+    {
+      "result_id": "cbebb84f",
+      "original_idea": "The self-organizing properties of biological and artificial systems: Where complexity emerges through interconnectedness, adaptation, and feedback loo",
+      "mode": "stress_evolve",
+      "num_generations": 3,
+      "final_form": "the idea has emerged with increased resilience and clarity",
+      "fitness_improvement": 0.3,
+      "confidence": 1.0,
+      "summary": "The idea has successfully adapted to adversity, emerging stronger and more robust.",
+      "created_at": "2026-07-29T12:10:01.425548"
+    }
+  ],
   "stats": {
-    "total_evolutions": 0,
+    "total_evolutions": 2,
     "total_mutations": 0,
     "total_tournaments": 0,
     "total_immune_responses": 0

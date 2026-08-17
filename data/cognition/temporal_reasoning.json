@@ -1,9 +1,27 @@
 {
   "timelines": [],
-  "estimates": [],
+  "estimates": [
+    {
+      "estimate_id": "8ae7b92d",
+      "task": "The nature of quantum gravity and its implications on our understanding of spacetime, causality, and the fabric of reality",
+      "min_duration": "30 minutes",
+      "expected_duration": "1-2 hours",
+      "max_duration": "3-4 hours",
+      "confidence": 0.8,
+      "factors": [
+        "Complexity of quantum gravity theories and their implications on spacetime",
+        "Depth of understanding required to grasp causality and fabric of reality",
+        "Audience's prior knowledge of physics and mathematics"
+      ],
+      "assumptions": [
+        "Assumes a basic understanding of general relativity and quantum mechanics",
+        "Assumes the audience is familiar with concepts like spacetime, causality, and the fabric of reality"
+      ]
+    }
+  ],
   "stats": {
     "total_timelines": 0,
-    "total_estimates": 7,
+    "total_estimates": 11,
     "total_sequences": 0,
     "total_schedules": 0
   }
